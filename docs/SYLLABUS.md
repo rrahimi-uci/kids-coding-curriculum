@@ -5,13 +5,17 @@ plan, workbook chapter, homework set, exercise and assessment is written from
 this file. If you change a week here, update the four weekly documents and the
 coverage table in that level's Teacher Guide.
 
-* 3 levels × 12 sessions + 2 floating buffer sessions (B1, B2) per level.
+* 3 levels; **each level runs 10–12 weeks**: 12 core sessions (12-week plan),
+  or 10 sessions when two pairs of weeks are merged (10-week plan; the merges
+  are listed in each Teacher Guide). Holiday weeks without a session do not
+  count. Each level also has 2 optional buffer sessions (B1, B2).
 * 1 session = 60 minutes, once a week, at home, up to 4 students (2 pairs).
 * Every session has the same shape: **Warm-up → Concept → Guided demo →
   Hands-on build → Wrap-up** (see [AUTHORING.md](AUTHORING.md)).
 * Weekly rhythm inside a level: weeks 1–5 new content, **week 6 review +
   mid-level checkpoint**, weeks 7–9 new content, weeks 10–11 final project,
-  **week 12 showcase + exit assessment**. B1/B2 can be dropped in anywhere.
+  **week 12 showcase + exit assessment**. B1/B2 are optional: use them only
+  when there is room inside the 12 weeks (for example in a 10-week plan).
 * Concept tags: **I** = introduced, **R** = revisited, **E** = extended.
 * Goal codes (G1…) are per level; CSTA codes refer to the CSTA K-12 Computer
   Science Standards (revised 2017). See [STANDARDS.md](STANDARDS.md).

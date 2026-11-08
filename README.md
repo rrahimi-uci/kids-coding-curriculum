@@ -5,11 +5,11 @@ starting in Grade 5**, taught at home by a parent in **one 60-minute session a
 week** on Macs. It leans into what the kids enjoy: **making games and visual
 art**.
 
-| Level | Weeks | Language | Final project (reference solution) |
+| Level | Length | Language | Final project (reference solution) |
 |---|---|---|---|
-| [1 Introduction](1-introduction/) | 12 + 2 buffer | Scratch, then Python turtle in Thonny | *My Interactive Art Show* (*Night Sky Postcard*) |
-| [2 Intermediate](2-intermediate/) | 12 + 2 buffer | Python: functions, lists, dicts, files, testing, games | *Arcade Game or Art Studio* (*Star Catcher*) |
-| [3 Advanced](3-advanced/) | 12 + 2 buffer | Python projects: OOP, algorithms, git, data, simple AI | *Build Something Big* (*Maze Muncher*) |
+| [1 Introduction](1-introduction/) | 10–12 weeks | Scratch, then Python turtle in Thonny | *My Interactive Art Show* (*Night Sky Postcard*) |
+| [2 Intermediate](2-intermediate/) | 10–12 weeks | Python: functions, lists, dicts, files, testing, games | *Arcade Game or Art Studio* (*Star Catcher*) |
+| [3 Advanced](3-advanced/) | 10–12 weeks | Python projects: OOP, algorithms, git, data, simple AI | *Build Something Big* (*Maze Muncher*) |
 
 No accounts, no internet needed during lessons, and no personal data.
 
@@ -37,7 +37,7 @@ tools/                 build.py (PDFs) and coverage.py (objective coverage table
 <level>/teaching-material/
   teacher-guide          goals, roadmap, setup, session template, assessment plan,
                          troubleshooting, pacing + holiday plan, coverage tables
-  lesson-plans           one plan per week + 2 buffer sessions (minute-by-minute,
+  lesson-plans           one plan per week + 2 optional buffer sessions (minute-by-minute,
                          teacher script, analogies, worked example, mistakes,
                          differentiation, stretch challenge)        [teacher]
   student-workbook       one chapter per week: explanations, diagrams,

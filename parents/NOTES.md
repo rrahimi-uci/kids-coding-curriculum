@@ -75,11 +75,13 @@ and on the deck's References slides.
 
 ## Assumptions
 
-1. **Course length.** The brief said "about 10 months each". The repository
-   (docs/SYLLABUS.md, docs/DESIGN.md) defines 12 sessions plus 2 spare
-   sessions per level, about 4 months each and about a year for all three.
-   The deck follows the repository. The months on the roadmap are the sample
-   calendar from the Teacher Guides (Level 1 starts January 2027).
+1. **Course length.** Each level runs **10–12 weeks**, one session a week
+   (30–36 weeks for all three); holiday weeks without a session do not count.
+   The 12-week plan teaches the 12 core sessions; the 10-week plan merges two
+   pairs of weeks; the 2 buffer sessions are optional. This matches
+   docs/SYLLABUS.md, docs/DESIGN.md and the Teacher Guides' pacing sections,
+   which were updated in the same branch. The deck states lengths in weeks
+   only; `\StartDate` (January 2027) follows the sample calendar.
 2. **Who runs it.** A small home course, led by a parent or volunteer
    (`\Presenter` placeholder), for up to 4 children. This follows
    docs/ASSUMPTIONS.md.

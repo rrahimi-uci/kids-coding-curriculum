@@ -636,7 +636,7 @@
   {An \enquote{exit check} is a quick question at the end of a session that shows whether the
     idea landed, so the next session can adjust.}
   {\qa{What if my child is ahead or behind the others?}{Every lesson has an easier route and a
-    stretch challenge, and two spare sessions per level give time to catch up.}}
+    stretch challenge, and two optional spare sessions per level give time to catch up within the 12 weeks.}}
 \end{frame}
 
 %% =====================================================================
@@ -693,14 +693,14 @@
 %% =====================================================================
 %% 18. Roadmap timeline
 %% =====================================================================
-\begin{frame}{The roadmap: three levels, about a year}
+\begin{frame}{The roadmap: three levels of 10--12 weeks}
   \vskip0.3in
   \begin{tikzpicture}[x=0.27in, y=1in]
-    \foreach \lv/\name/\tools/\months/\c/\x in
-      {1/Introduction/{Scratch, then Python turtle}/{Jan--Apr}/kcbluetext/0,
-       2/Intermediate/{Python: functions, data, games}/{May--Aug}/kcgreentext/14.6,
-       3/Advanced/{Python projects + git}/{Sep--Dec}/kcvermilliontext/29.2}{
-      \node[anchor=south west, font=\small, text=kcgray] at (\x,0.72) {\months};
+    \foreach \lv/\name/\tools/\c/\x in
+      {1/Introduction/{Scratch, then Python turtle}/kcbluetext/0,
+       2/Intermediate/{Python: functions, data, games}/kcgreentext/14.6,
+       3/Advanced/{Python projects + git}/kcvermilliontext/29.2}{
+      \node[anchor=south west, font=\small, text=kcgray] at (\x,0.72) {\LevelWeeks};
       \fill[\c, rounded corners=5pt] (\x,0) rectangle ++(14,0.7);
       \node[anchor=west, text=white, font=\semibold] at (\x+0.35,0.35) {Level \lv: \name};
       \node[anchor=north west, font=\small, text width=3.6in] at (\x,-0.1) {\tools};
@@ -712,18 +712,21 @@
     }
     \node[anchor=north west, font=\small, text=kcgray] at (0,-1.1)
       {\faClipboardCheck\ checkpoint, week 6\qquad \faTools\ final project, weeks 10--11\qquad
-       \faStar\ showcase, week 12\qquad (sample calendar)};
+       \faStar\ showcase, week 12};
+    \node[anchor=north west, font=\small, text=kcgray] at (0,-1.5)
+      {One session a week. 10-week plan: two pairs of weeks are combined. Holiday weeks don't count.};
   \end{tikzpicture}
-  \figalt{timeline of three equal levels across one year: Level 1 Introduction (January to
-    April), Level 2 Intermediate (May to August), Level 3 Advanced (September to December), each
-    with a checkpoint, a final project and a showcase.}
+  \figalt{timeline of three equal levels of 10--12 weeks each: Level 1 Introduction, Level 2
+    Intermediate, Level 3 Advanced, each with a checkpoint in week 6, a final project in weeks 10--11
+    and a showcase in week 12.}
   \begin{keybox}
     No experience needed: everyone starts at Level 1, week 1.
   \end{keybox}
-  \kcnotes{Walk along the timeline. Each level is twelve weekly sessions plus two spare sessions
-    for holidays, absences or extra practice, so about four months. With the sample calendar,
-    Level 1 runs January to April, Level 2 May to August with a short summer gap, and Level 3
-    September to December. Inside every level the rhythm is the same: new ideas in weeks 1 to 5,
+  \kcnotes{Walk along the timeline. Each level runs 10 to 12 weeks, one session a week, so all
+    three levels take 30 to 36 weeks of sessions; weeks we skip for holidays do not count. The
+    standard plan is 12 sessions; in the 10-week plan two pairs of weeks are combined into single
+    sessions, with the rest of that work done as homework. Two ready-made spare sessions are
+    optional and only used if there is room inside the 12 weeks. Inside every level the rhythm is the same: new ideas in weeks 1 to 5,
     a review and friendly checkpoint in week 6, more new ideas in weeks 7 to 9, a final project in
     weeks 10 and 11, and a showcase in week 12. Families can decide level by level whether to
     continue.}
@@ -822,7 +825,7 @@
   {A \enquote{nearest-neighbor classifier} guesses what something is by finding the most similar
     example it has seen, which shows children exactly why biased examples give biased answers.}
   {\qa{Isn't this too advanced for 11-year-olds?}{It is challenging by design, with step-by-step
-    support. By Level 3 the children have about eight months of practice behind them.}}
+    support. By Level 3 the children have 20 to 24 weeks of practice behind them.}}
 \end{frame}
 
 %% =====================================================================

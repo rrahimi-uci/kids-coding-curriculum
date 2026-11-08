@@ -39,17 +39,22 @@ knowing that there is always making time and always a show-and-tell.
 
 ## 3. Level rhythm, review and buffers
 
-Each level is 12 sessions + 2 floating buffer sessions:
+Each level runs **10–12 weeks**, one session a week (holiday weeks without a
+session do not count). It has 12 core sessions plus 2 optional buffer sessions:
 
 * weeks 1–5 new content, **week 6 review + checkpoint**, weeks 7–9 new
   content, weeks 10–11 project studio, **week 12 showcase + exit**;
+* **12-week plan:** the 12 core sessions in order.
+* **10-week plan:** merge two pairs of weeks named in each Teacher Guide
+  (Level 1: weeks 3+4 and 8+9; Level 2: weeks 4+5 and 10+11; Level 3: weeks
+  4+5 and 7+8). Weeks 6 and 12 are never merged. The same merges are how a
+  12-week plan absorbs lost sessions without running past 12 weeks.
 * B1 (unplugged-heavy) and B2 (free-build/remix) are complete, ready-to-run
-  sessions that can be used any week — after a missed session, before a
-  holiday, when energy is low, or when one child was absent and the group
-  should not move on yet.
+  sessions that are **optional**: use them only when there is room inside
+  the 12 weeks (for example a 10-week plan plus one or two buffers).
 
-A level therefore fits in 14–16 calendar weeks with room for holidays; three
-levels fit in a calendar year (sample calendars are in each Teacher Guide).
+Three levels take 30–36 weeks of sessions (sample calendars are in each
+Teacher Guide).
 
 ## 4. Spiral curriculum
 
