@@ -1,0 +1,168 @@
+
+<h2 id="the-big-idea-debug-like-a-detective">The big idea: debug like a detective</h2>
+<p>Every programmer writes bugs. Good programmers find them with a <strong>strategy</strong>: they collect clues, change <strong>one</strong> thing and test again.</p>
+<h3 id="tool-1-read-the-traceback-from-the-bottom-up">Tool 1: read the traceback from the bottom up</h3>
+<p>When a program crashes, Thonny shows a red <strong>traceback</strong> like this one:</p>
+<div class="code-block code-outputcode"><pre tabindex="0"><code>Traceback (most recent call last):
+  File "starter.py", line 24, in &lt;module&gt;
+  File "starter.py", line 17, in make_card
+  File "starter.py", line 10, in card_line
+    return label + ": " + value
+TypeError: can only concatenate str (not "int") to str</code></pre></div>
+<ol>
+<li><p><strong>WHAT</strong> went wrong: the <strong>last line</strong>. Here: a <code>TypeError</code>, text + number.</p></li>
+<li><p><strong>WHERE</strong>: the <code>File</code> line just above it. Here: line 10, in the function <code>card_line</code>.</p></li>
+<li><p><strong>HOW</strong> it got there: the lines further up. The main program (line 24) called <code>make_card</code>, which called <code>card_line</code>.</p></li>
+</ol>
+<p>In Thonny you can click the blue link to jump straight to that line.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Error name</strong></th>
+<th scope="col"><strong>It usually means…</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TypeError</code></td>
+<td>two types that do not go together, like text + number</td>
+</tr>
+<tr>
+<td><code>IndexError</code></td>
+<td>a list index that does not exist (remember: the last index is <code>len - 1</code>)</td>
+</tr>
+<tr>
+<td><code>KeyError</code></td>
+<td>a dictionary key that does not exist (check the spelling)</td>
+</tr>
+<tr>
+<td><code>NameError</code></td>
+<td>a variable name Python does not know (typo, or missing quotes)</td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>the right type but a bad value, like <code>int("banana")</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h3 id="tool-2-print-debugging">Tool 2: print-debugging</h3>
+<p>Not sure what is inside a variable? Ask Python! Add a <code>print()</code> line, run, look, then remove it.</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"best is"</span><span class="tok-p">,</span> <span class="tok-n">best</span><span class="tok-p">,</span> <span class="tok-s2">"length"</span><span class="tok-p">,</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">best</span><span class="tok-p">))</span></code></pre></div>
+<h3 id="tool-3-the-rubber-duck">Tool 3: the rubber duck</h3>
+<p>Explain your code, line by line, out loud, to a partner, a toy or a rubber duck. Say what each line <em>should</em> do. Very often you hear yourself say the bug before you reach the end. This is the best tool for bugs that do not crash.</p>
+<h3 id="tool-4-the-trace-table">Tool 4: the trace table</h3>
+<p>Follow the code with a pencil, like a very slow computer. Write a column for each variable and a row each time round the loop. When the table shows a value you did not expect, you have found the bug.</p>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Bugs are normal</span></p>
+<p>If you are stuck, you are not bad at coding: you are in the middle of learning. Say “I can’t fix this <em>yet</em>”, pick a tool and try one thing.</p>
+</div>
+<h2 id="bug-hunt-workshop">Bug-hunt workshop</h2>
+<p>Each station has a folder in <code>exercises/week06</code>. Open <code>starter.py</code>, find the bug, fix it, then check with <code>check_my_work.py</code>. Fill in a bug report for each bug you fix.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.1: Station 1: Hero Card (TypeError)</span></p>
+<p>Folder: <code>ex-bug-hero-card</code>. We do this one together.</p>
+<p>Error name: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Line: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Tool I used: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>I expected: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> It really did: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>What I changed:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.2: Station 2: High Scores (IndexError, 2 bugs)</span></p>
+<p>Folder: <code>ex-bug-high-scores</code>. Draw the list with its index numbers. Try <code>print("best is", best)</code> inside <code>podium()</code>.</p>
+<p>Bug 1 – error name: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> line: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> what I changed: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>Bug 2 – error name: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> line: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> what I changed: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.3: Station 3: Rocket Countdown (infinite loop)</span></p>
+<p>Folder: <code>ex-bug-countdown</code>. The safety net stops the stuck loop. Fill in the trace table for <code>countdown(5)</code> as the starter is now:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>round</strong></th>
+<th scope="col"><strong>n</strong></th>
+<th scope="col"><strong>numbers</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>[5]</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>What should change each time round, but does not? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>What I changed:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.4: Station 4: Loot Shop (3 sneaky bugs, no crash)</span></p>
+<p>Folder: <code>ex-bug-loot-shop</code>. First work it out on paper for the basket <code>[12, 5, 30]</code>:</p>
+<p>Total: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Cheapest: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Can you buy it all with 50 coins? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>Now run it and explain each function to your duck. The three bugs I fixed:</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.5: Station 5: Paper detectives (no computer)</span></p>
+<p>This function should give back the biggest number in a list. Fill in the trace table for <code>biggest([-5, -2, -8])</code>.</p>
+<div class="center">
+<div class="minipage">
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">def</span> <span class="tok-nf">biggest</span><span class="tok-p">(</span><span class="tok-n">numbers</span><span class="tok-p">):</span>
+    <span class="tok-n">best</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-k">for</span> <span class="tok-n">n</span> <span class="tok-ow">in</span> <span class="tok-n">numbers</span><span class="tok-p">:</span>
+        <span class="tok-k">if</span> <span class="tok-n">n</span> <span class="tok-o">&gt;</span> <span class="tok-n">best</span><span class="tok-p">:</span>
+            <span class="tok-n">best</span> <span class="tok-o">=</span> <span class="tok-n">n</span>
+    <span class="tok-k">return</span> <span class="tok-n">best</span></code></pre></div>
+</div>
+<div class="minipage">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>n</strong></th>
+<th scope="col"><strong>n &gt; best?</strong></th>
+<th scope="col"><strong>best</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>–</td>
+<td>0</td>
+</tr>
+<tr>
+<td>-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-8</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<p>It gives back <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>, but the biggest number is <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>. What is the bug, and how would you fix it?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Six weeks ago I could not … and now I can …</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Which detective tool will you try first next time? Why?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

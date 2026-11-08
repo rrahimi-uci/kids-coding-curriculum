@@ -1,0 +1,122 @@
+
+<h2 id="the-big-idea-look-things-up-by-name">The big idea: look things up by name</h2>
+<p>A list finds things by number: <code>backpack[0]</code>. A dictionary finds things by name. Each name is a <strong>key</strong>, and the thing it gives back is its <strong>value</strong>. Dictionaries use curly brackets, with a colon between key and value.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A dictionary maps keys to values. The keys "name", "health", "attack" and "speed" point to the values "Blobby", 30, 4 and 2. Writing monster["health"] gives back 30.' class="fig fig-tikz" decoding="async" height="167" loading="lazy" src="%BASE%generated/fig/level-2/1ed619c6252f.svg" width="445"/></figure>
+</div>
+<div class="code-block code-pycode"><p class="code-title">A monster as a dictionary</p><pre tabindex="0"><code class="language-python"><span class="tok-n">monster</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s2">"name"</span><span class="tok-p">:</span> <span class="tok-s2">"Blobby"</span><span class="tok-p">,</span> <span class="tok-s2">"health"</span><span class="tok-p">:</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-s2">"attack"</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span> <span class="tok-s2">"speed"</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">}</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">monster</span><span class="tok-p">[</span><span class="tok-s2">"health"</span><span class="tok-p">])</span>          <span class="tok-c1"># 30</span>
+<span class="tok-n">monster</span><span class="tok-p">[</span><span class="tok-s2">"health"</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-mi">40</span>            <span class="tok-c1"># change a value</span>
+<span class="tok-n">monster</span><span class="tok-p">[</span><span class="tok-s2">"color"</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">"green"</span>       <span class="tok-c1"># add a new key</span>
+<span class="tok-k">for</span> <span class="tok-n">key</span><span class="tok-p">,</span> <span class="tok-n">value</span> <span class="tok-ow">in</span> <span class="tok-n">monster</span><span class="tok-o">.</span><span class="tok-n">items</span><span class="tok-p">():</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-sa">f</span><span class="tok-s2">"</span><span class="tok-si">{</span><span class="tok-n">key</span><span class="tok-si">}</span><span class="tok-s2">: </span><span class="tok-si">{</span><span class="tok-n">value</span><span class="tok-si">}</span><span class="tok-s2">"</span><span class="tok-p">)</span>      <span class="tok-c1"># every key with its value</span></code></pre></div>
+<h3 id="bug-hunt-keyerror">Bug hunt: KeyError</h3>
+<p>If you look up a key that is not there, Python stops with a <code>KeyError</code>:</p>
+<div class="code-block code-outputcode"><pre tabindex="0"><code>KeyError: 'magic'</code></pre></div>
+<p>The last line shows the key Python could not find. Check the spelling: <code>"Health"</code> and <code>"health"</code> are different keys! To be safe, check first: <code>if "magic" in monster:</code></p>
+<h2 id="secret-codes-the-caesar-cipher">Secret codes: the Caesar cipher</h2>
+<p>Julius Caesar sent secret messages by moving every letter a few places along the alphabet. With a <strong>shift of 3</strong>:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td>plain:</td>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+<td>d</td>
+<td>e</td>
+<td>f</td>
+<td>g</td>
+<td>h</td>
+<td>i</td>
+<td>j</td>
+<td>k</td>
+<td>l</td>
+<td>m</td>
+</tr>
+<tr>
+<td>secret:</td>
+<td><strong>d</strong></td>
+<td><strong>e</strong></td>
+<td><strong>f</strong></td>
+<td><strong>g</strong></td>
+<td><strong>h</strong></td>
+<td><strong>i</strong></td>
+<td><strong>j</strong></td>
+<td><strong>k</strong></td>
+<td><strong>l</strong></td>
+<td><strong>m</strong></td>
+<td><strong>n</strong></td>
+<td><strong>o</strong></td>
+<td><strong>p</strong></td>
+</tr>
+<tr>
+<td>plain:</td>
+<td>n</td>
+<td>o</td>
+<td>p</td>
+<td>q</td>
+<td>r</td>
+<td>s</td>
+<td>t</td>
+<td>u</td>
+<td>v</td>
+<td>w</td>
+<td>x</td>
+<td>y</td>
+<td>z</td>
+</tr>
+<tr>
+<td>secret:</td>
+<td><strong>q</strong></td>
+<td><strong>r</strong></td>
+<td><strong>s</strong></td>
+<td><strong>t</strong></td>
+<td><strong>u</strong></td>
+<td><strong>v</strong></td>
+<td><strong>w</strong></td>
+<td><strong>x</strong></td>
+<td><strong>y</strong></td>
+<td><strong>z</strong></td>
+<td><strong>a</strong></td>
+<td><strong>b</strong></td>
+<td><strong>c</strong></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>So <code>hi</code> becomes <code>kl</code>. At the end the alphabet wraps round: x, y, z become a, b, c. To <strong>decode</strong>, shift the other way. That table is a lookup, so in Python it is a dictionary: <code>{"a": "d", "b": "e", ...}</code>.</p>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Real secrets need real protection</span></p>
+<p>A Caesar cipher is easy to crack: there are only 25 shifts to try! Real apps use much stronger <strong>encryption</strong>. Your real passwords stay between you and your parent or carer. Never type a real password into a program you or a friend wrote.</p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">5.1: Monster Stats</span></p>
+<p>Folder: <code>exercises/week05/ex-monster-stats</code>. Open <code>starter.py</code> and press <span class="menu">Run</span>.</p>
+<ol>
+<li><p>TODO 1: in <code>stat_report()</code>, loop with <code>for key, value in monster.items():</code> and build lines like <code>health: 30</code>.</p></li>
+<li><p>TODO 2: <code>level_up()</code> adds 10 to health and 2 to attack.</p></li>
+<li><p>Run it and type <code>magic</code>. Write the last line of the error:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">5.2: Caesar Cipher</span></p>
+<p>Folder: <code>exercises/week05/ex-caesar-cipher</code>. Run <code>starter.py</code> first and look at the dictionary it prints.</p>
+<ol>
+<li><p>TODO 1: finish <code>encode()</code>. For each letter: if it is in the key, add <code>key[letter]</code>; otherwise add the letter itself.</p></li>
+<li><p>TODO 2: finish <code>decode()</code>. Hint: shifting by <code>-shift</code> goes backwards.</p></li>
+<li><p>Encode a kind message for your partner. Secret version: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> shift: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p></li>
+<li><p>Decode this one (shift 3) on paper or with your program: <code>zhoo grqh!</code> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p></li>
+</ol>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Give a game example where a dictionary is better than a list:</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Why should a real password never go into a program or a message?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>
+<h2 id="cut-out-your-caesar-cipher-wheel">Cut-out: your Caesar cipher wheel</h2>
+<p>Cut out both wheels along the thick outer circles. Put the small wheel on top of the big one and push a split pin (or a pencil point) through both centers. Turn the small wheel so that small <strong>a</strong> sits under big <strong>d</strong>: that is shift 3. Encode: small wheel → big wheel. Decode: big wheel → small wheel.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Two paper wheels for a Caesar cipher: a big outer wheel and a small inner wheel, each with the alphabet around its rim. Turn the small wheel and read across from one wheel to the other to encode or decode a letter." class="fig fig-tikz" decoding="async" height="333" loading="lazy" src="%BASE%generated/fig/level-2/7955ccc9aee7.svg" width="603"/></figure>
+</div>

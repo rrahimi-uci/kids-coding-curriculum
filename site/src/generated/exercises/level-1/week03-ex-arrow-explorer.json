@@ -1,0 +1,31 @@
+{
+ "slug": "week03-ex-arrow-explorer",
+ "folder": "week03/ex-arrow-explorer",
+ "week": 3,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "3.1",
+ "title": "Arrow-Key Explorer",
+ "body": "<p><strong>Goal:</strong> use <strong>events</strong> (key presses) to move a sprite with the arrow keys. <strong>Tool:</strong> Scratch app (offline). <strong>Work in pairs:</strong> the navigator predicts before each test.</p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project: <strong>File &gt; New</strong>. Keep the cat or choose any sprite.</li>\n<li>From <strong>Events</strong>, drag four <strong>when (space) key pressed</strong> blocks into the code area.</li>\n<li>Click each dropdown and choose <strong>right arrow</strong>, <strong>left arrow</strong>, <strong>up arrow</strong>, <strong>down arrow</strong>.</li>\n<li>Under each one, snap one <strong>Motion</strong> block (see below).</li>\n<li>Click the stage once (so Scratch listens to the keyboard), then press the arrow keys.</li>\n<li>Save as <code>explorer</code>. You will use it again in Exercise 3.3.</li>\n</ol>\n<h2 id=\"the-scripts-in-words\">The scripts in words</h2>\n<p>Four separate scripts on the same sprite:</p>\n<ul>\n<li>when right arrow key pressed: change x by 10</li>\n<li>when left arrow key pressed: change x by -10</li>\n<li>when up arrow key pressed: change y by 10</li>\n<li>when down arrow key pressed: change y by -10</li>\n</ul>\n<p>(x is left and right; y is up and down.)</p>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>Each arrow key moves the sprite 10 steps in that direction. Holding a key down keeps the sprite moving. No green flag is needed: each key is its own \"doorbell\".</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I have four scripts, one for each arrow key.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>Each key moves the sprite the right way.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I can say which key makes y bigger.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project as <code>explorer</code>.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Look in the <strong>Events</strong> category for blocks that wait for a key. Each key is like its own doorbell. You need four separate scripts, one for each arrow key.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Drag out four <strong>when ( ) key pressed</strong> blocks and pick a different arrow in each dropdown. Under each one, snap one block from the <strong>Motion</strong> category. Remember that x is left and right, and y is up and down.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Use <strong>change x by ( )</strong> for the left and right keys, and <strong>change y by ( )</strong> for the up and down keys. Moving right or up needs a positive number. Moving left or down needs a negative number. Click the stage once, then try the keys.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week03-ex-arrow-explorer/"
+}

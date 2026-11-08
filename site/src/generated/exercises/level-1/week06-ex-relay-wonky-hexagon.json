@@ -1,0 +1,31 @@
+{
+ "slug": "week06-ex-relay-wonky-hexagon",
+ "folder": "week06/ex-relay-wonky-hexagon",
+ "week": 6,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "6.1",
+ "title": "Relay A: Wonky Hexagon (bug hunt)",
+ "body": "<p><strong>Goal:</strong> build a broken project exactly as shown, then find and fix its <strong>two</strong> bugs. <strong>Tool:</strong> Scratch app (offline) with the Pen extension. <strong>Work as a relay team:</strong> the driver builds, the navigator reads this card and fills in the relay baton.</p>\n<h2 id=\"what-it-should-do\">What it should do</h2>\n<p>Draw one closed hexagon (6 equal sides of 80 steps) in the middle of the stage, then the cat says \"Done!\".</p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project. Click <strong>Add Extension</strong> and choose <strong>Pen</strong>.</li>\n<li>Set the cat's <strong>Size</strong> to <code>40</code>.</li>\n<li>Build the script below on the cat <strong>exactly</strong> as written, bugs and all.</li>\n<li>Click the green flag. Compare the stage with \"What it should do\".</li>\n<li>Use the four detective steps. Fix one thing at a time and test after each change.</li>\n<li>Write both bugs and fixes on your relay baton (workbook, Exercise 6.1).</li>\n</ol>\n<h2 id=\"the-script-in-words-with-two-bugs\">The script in words (with two bugs)</h2>\n<p>Cat sprite:</p>\n<ul>\n<li>when green flag clicked</li>\n<li>erase all</li>\n<li>go to x: 0 y: 0</li>\n<li>point in direction 90</li>\n<li>pen down</li>\n<li>repeat 6:\n<ul>\n<li>move 80 steps</li>\n<li>turn right 50 degrees</li>\n<li>pen up</li>\n</ul></li>\n<li>say \"Done!\" for 2 seconds</li>\n</ul>\n<h2 id=\"the-four-detective-steps\">The four detective steps</h2>\n<ol type=\"1\">\n<li>What did I <strong>expect</strong>?</li>\n<li>What <strong>happened</strong>?</li>\n<li>Read the blocks one at a time with your finger.</li>\n<li>Change <strong>one</strong> thing, then test again.</li>\n</ol>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>After your fixes: clicking the green flag clears the stage, draws one closed hexagon with 6 equal sides starting from the middle, and then the cat says \"Done!\".</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I built the project exactly as shown and watched what went wrong.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I found bug 1 and wrote it on my relay baton.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I found bug 2 and wrote it on my relay baton.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My hexagon closes and the cat says \"Done!\".</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Run the script and look at the stage. Is the shape closed? How many sides did it draw? Then follow the blocks with your finger, one at a time.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Two things are wrong. One is about how far the cat turns each time. The other is about where a Pen block sits inside the <strong>repeat</strong> loop. Fix one thing, then test, then fix the other.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Think about the turn: a full circle is 360 degrees, and a hexagon has ____ equal corners, so each turn is 360 divided by ____. For the pen, ask what it does after the first side. Is that what you want for the other five sides?</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week06-ex-relay-wonky-hexagon/"
+}

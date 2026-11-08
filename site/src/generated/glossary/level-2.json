@@ -1,0 +1,667 @@
+[
+ {
+  "term": ".items()",
+  "key": ".items()",
+  "where": "W5",
+  "meaning": "Gives every key together with its value, so a loop can use both.",
+  "example": ""
+ },
+ {
+  "term": "accessibility",
+  "key": "accessibility",
+  "where": "W11",
+  "meaning": "designing so that everyone can use it, including people who see colors differently or read more slowly.",
+  "example": ""
+ },
+ {
+  "term": "accessible",
+  "key": "accessible",
+  "where": "W3",
+  "meaning": "Designed so that everyone can use it, including people who see colors differently.",
+  "example": ""
+ },
+ {
+  "term": "<code>and</code>",
+  "key": "and",
+  "where": "W1",
+  "meaning": "Joins two conditions. Both must be True: <code>score &gt; 5 and lives &gt; 0</code>.",
+  "example": ""
+ },
+ {
+  "term": "<code>append</code>",
+  "key": "append",
+  "where": "W3",
+  "meaning": "Adds an item to the end of a list: <code>names.append(\"Zoe\")</code>.",
+  "example": ""
+ },
+ {
+  "term": "argument",
+  "key": "argument",
+  "where": "W2",
+  "meaning": "The value you put in the brackets when you call a function. In <code>area(3, 4)</code> the arguments are 3 and 4.",
+  "example": ""
+ },
+ {
+  "term": "<code>assert</code>",
+  "key": "assert",
+  "where": "W8",
+  "meaning": "Checks that something is True. If it is not, the test fails and shows your message.",
+  "example": ""
+ },
+ {
+  "term": "attribution",
+  "key": "attribution",
+  "where": "W9",
+  "meaning": "Saying who made the art, sound or code you used. Giving credit.",
+  "example": ""
+ },
+ {
+  "term": "bool",
+  "key": "bool",
+  "where": "W1",
+  "meaning": "The type for True or False.",
+  "example": ""
+ },
+ {
+  "term": "<code>break</code>",
+  "key": "break",
+  "where": "W4",
+  "meaning": "Leaves a loop straight away.",
+  "example": ""
+ },
+ {
+  "term": "bug",
+  "key": "bug",
+  "where": "",
+  "meaning": "A mistake in a program. Every programmer makes them; finding them is part of the fun.",
+  "example": ""
+ },
+ {
+  "term": "bug list",
+  "key": "bug list",
+  "where": "W11",
+  "meaning": "a list of problems found in testing, sorted so the most important ones get fixed first.",
+  "example": ""
+ },
+ {
+  "term": "bug report",
+  "key": "bug report",
+  "where": "W6",
+  "meaning": "A short note: what went wrong, where, and what you changed.",
+  "example": ""
+ },
+ {
+  "term": "Caesar cipher",
+  "key": "caesar cipher",
+  "where": "W5",
+  "meaning": "A secret code that shifts every letter along the alphabet by the same amount.",
+  "example": ""
+ },
+ {
+  "term": "code review",
+  "key": "code review",
+  "where": "W10",
+  "meaning": "Reading someone’s code to ask questions, find bugs and say what is good.",
+  "example": ""
+ },
+ {
+  "term": "collision",
+  "key": "collision",
+  "where": "W9",
+  "meaning": "When two things in a game touch. We check it with <code>distance</code>.",
+  "example": ""
+ },
+ {
+  "term": "comment",
+  "key": "comment",
+  "where": "W2",
+  "meaning": "A note for people, after a <code>#</code>. Python ignores it.",
+  "example": ""
+ },
+ {
+  "term": "compound condition",
+  "key": "compound condition",
+  "where": "W1",
+  "meaning": "Two or more conditions joined with <code>and</code>, <code>or</code> or <code>not</code>.",
+  "example": ""
+ },
+ {
+  "term": "core loop",
+  "key": "core loop",
+  "where": "W10",
+  "meaning": "the part of a game or app that repeats over and over; the smallest version that works.",
+  "example": ""
+ },
+ {
+  "term": "data privacy",
+  "key": "data privacy",
+  "where": "W7",
+  "meaning": "Deciding what information about people is saved, who can see it, and keeping it safe.",
+  "example": ""
+ },
+ {
+  "term": "data type",
+  "key": "data type",
+  "where": "W1",
+  "meaning": "The kind of value: int, float, str or bool. Also just called a type.",
+  "example": ""
+ },
+ {
+  "term": "debugging",
+  "key": "debugging",
+  "where": "W6",
+  "meaning": "Finding and fixing bugs with a strategy: read the traceback, print-debugging, rubber duck.",
+  "example": ""
+ },
+ {
+  "term": "decomposition",
+  "key": "decomposition",
+  "where": "W10",
+  "meaning": "Breaking a big problem into small parts you can solve one at a time.",
+  "example": ""
+ },
+ {
+  "term": "design decision",
+  "key": "design decision",
+  "where": "W12",
+  "meaning": "a choice you made on purpose, and the reason for it.",
+  "example": ""
+ },
+ {
+  "term": "dictionary (dict)",
+  "key": "dictionary (dict)",
+  "where": "W5",
+  "meaning": "A collection that stores values under names (keys): <code>{\"lives\": 3}</code>.",
+  "example": ""
+ },
+ {
+  "term": "docstring",
+  "key": "docstring",
+  "where": "W2",
+  "meaning": "A comment in triple quotes as the first line of a function, saying what it does.",
+  "example": ""
+ },
+ {
+  "term": "driver",
+  "key": "driver",
+  "where": "",
+  "meaning": "In pair programming, the person at the keyboard.",
+  "example": ""
+ },
+ {
+  "term": "edge case",
+  "key": "edge case",
+  "where": "W8",
+  "meaning": "A test at the very edge of what is allowed: zero, an empty list, a wall.",
+  "example": ""
+ },
+ {
+  "term": "encode / decode",
+  "key": "encode / decode",
+  "where": "W5",
+  "meaning": "Turn a message into secret code / turn it back again.",
+  "example": ""
+ },
+ {
+  "term": "encryption",
+  "key": "encryption",
+  "where": "W5",
+  "meaning": "Scrambling a message so only people with the key can read it.",
+  "example": ""
+ },
+ {
+  "term": "event",
+  "key": "event",
+  "where": "W9",
+  "meaning": "Something that happens, like a key press, a click or a timer going off.",
+  "example": ""
+ },
+ {
+  "term": "event handler",
+  "key": "event handler",
+  "where": "W9",
+  "meaning": "The function that runs when an event happens.",
+  "example": ""
+ },
+ {
+  "term": "expected vs actual",
+  "key": "expected vs actual",
+  "where": "W8",
+  "meaning": "What the test says should happen, and what really happened.",
+  "example": ""
+ },
+ {
+  "term": "f-string",
+  "key": "f-string",
+  "where": "W1",
+  "meaning": "A string with an <code>f</code> in front that fills in values: <code>f\"Score: {score}\"</code>.",
+  "example": ""
+ },
+ {
+  "term": "file",
+  "key": "file",
+  "where": "W7",
+  "meaning": "Data saved on the computer, so it is still there after the program stops.",
+  "example": ""
+ },
+ {
+  "term": "<code>FileNotFoundError</code>",
+  "key": "filenotfounderror",
+  "where": "W7",
+  "meaning": "The error you get when you try to read a file that does not exist (yet).",
+  "example": ""
+ },
+ {
+  "term": "float",
+  "key": "float",
+  "where": "W1",
+  "meaning": "The type for decimal numbers like 3.5.",
+  "example": ""
+ },
+ {
+  "term": "flowchart",
+  "key": "flowchart",
+  "where": "W10",
+  "meaning": "A drawing of a program’s steps with boxes and arrows.",
+  "example": ""
+ },
+ {
+  "term": "frame",
+  "key": "frame",
+  "where": "W9",
+  "meaning": "One tiny step of a game: everything moves a little, then it is drawn.",
+  "example": ""
+ },
+ {
+  "term": "function",
+  "key": "function",
+  "where": "W2",
+  "meaning": "A named block of code you can use again. Made with <code>def</code>.",
+  "example": ""
+ },
+ {
+  "term": "gallery walk",
+  "key": "gallery walk",
+  "where": "W12",
+  "meaning": "visiting projects one by one, like in a museum, and leaving feedback.",
+  "example": ""
+ },
+ {
+  "term": "game loop",
+  "key": "game loop",
+  "where": "W4, 9",
+  "meaning": "The part of a game that runs again and again: move, check, draw.",
+  "example": ""
+ },
+ {
+  "term": "game state",
+  "key": "game state",
+  "where": "W9",
+  "meaning": "All the values that describe the game right now: score, lives, positions.",
+  "example": ""
+ },
+ {
+  "term": "index",
+  "key": "index",
+  "where": "W3",
+  "meaning": "The position of an item in a list. The first item has index 0.",
+  "example": ""
+ },
+ {
+  "term": "<code>IndexError</code>",
+  "key": "indexerror",
+  "where": "W3",
+  "meaning": "The error you get when you ask for an index that is not in the list.",
+  "example": ""
+ },
+ {
+  "term": "infinite loop",
+  "key": "infinite loop",
+  "where": "W4",
+  "meaning": "A loop that never stops. Press the red Stop button.",
+  "example": ""
+ },
+ {
+  "term": "input validation",
+  "key": "input validation",
+  "where": "W4",
+  "meaning": "Checking that what the user typed makes sense, and asking again if not.",
+  "example": ""
+ },
+ {
+  "term": "int",
+  "key": "int",
+  "where": "W1",
+  "meaning": "The type for whole numbers like 7 or <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">-3</annotation></semantics></math>.",
+  "example": ""
+ },
+ {
+  "term": "item",
+  "key": "item",
+  "where": "W3",
+  "meaning": "One value inside a list. Also called an element.",
+  "example": ""
+ },
+ {
+  "term": "key",
+  "key": "key",
+  "where": "W5",
+  "meaning": "The name you use to look up a value in a dictionary.",
+  "example": ""
+ },
+ {
+  "term": "<code>KeyError</code>",
+  "key": "keyerror",
+  "where": "W5",
+  "meaning": "The error you get when a key is not in the dictionary. Check the spelling!",
+  "example": ""
+ },
+ {
+  "term": "<code>len</code>",
+  "key": "len",
+  "where": "W3",
+  "meaning": "Tells you how many items are in a list (or letters in a string).",
+  "example": ""
+ },
+ {
+  "term": "license / attribution",
+  "key": "license / attribution",
+  "where": "W9",
+  "meaning": "The rules for using someone’s work / giving them credit for it.",
+  "example": ""
+ },
+ {
+  "term": "list",
+  "key": "list",
+  "where": "W3",
+  "meaning": "A collection of values in order: <code>[\"red\", \"blue\"]</code>.",
+  "example": ""
+ },
+ {
+  "term": "<code>listen</code>",
+  "key": "listen",
+  "where": "W9",
+  "meaning": "Makes the turtle window pay attention to the keyboard.",
+  "example": ""
+ },
+ {
+  "term": "milestone",
+  "key": "milestone",
+  "where": "W10",
+  "meaning": "a checkpoint on the way to the finished project, like M2 “core loop works”.",
+  "example": ""
+ },
+ {
+  "term": "mode",
+  "key": "mode",
+  "where": "W7",
+  "meaning": "How a file is opened: <code>\"r\"</code> read, <code>\"w\"</code> write (starts empty), <code>\"a\"</code> append (adds to the end).",
+  "example": ""
+ },
+ {
+  "term": "navigator",
+  "key": "navigator",
+  "where": "",
+  "meaning": "In pair programming, the person who reads the task, thinks ahead and spots bugs.",
+  "example": ""
+ },
+ {
+  "term": "nested loop",
+  "key": "nested loop",
+  "where": "W4",
+  "meaning": "A loop inside another loop. Great for grids and pixel art.",
+  "example": ""
+ },
+ {
+  "term": "None",
+  "key": "none",
+  "where": "W2",
+  "meaning": "Python’s word for “nothing”. A function with no <code>return</code> gives back <code>None</code>.",
+  "example": ""
+ },
+ {
+  "term": "normal case",
+  "key": "normal case",
+  "where": "W8",
+  "meaning": "A test with ordinary, everyday values.",
+  "example": ""
+ },
+ {
+  "term": "<code>not</code>",
+  "key": "not",
+  "where": "W1",
+  "meaning": "Turns True into False and False into True.",
+  "example": ""
+ },
+ {
+  "term": "off-by-one",
+  "key": "off-by-one",
+  "where": "W3",
+  "meaning": "A bug where a number is one too big or one too small, like using <code>len</code> as the last index.",
+  "example": ""
+ },
+ {
+  "term": "<code>onkey</code>",
+  "key": "onkey",
+  "where": "W9",
+  "meaning": "Tells turtle which function to run when a key is pressed.",
+  "example": ""
+ },
+ {
+  "term": "<code>ontimer</code>",
+  "key": "ontimer",
+  "where": "W9",
+  "meaning": "Tells turtle to run a function after some milliseconds.",
+  "example": ""
+ },
+ {
+  "term": "open / with",
+  "key": "open / with",
+  "where": "W7",
+  "meaning": "<code>open</code> gets a file ready to use; <code>with</code> closes it again automatically.",
+  "example": ""
+ },
+ {
+  "term": "open license",
+  "key": "open license",
+  "where": "W9",
+  "meaning": "Permission from a creator that lets others use their work, often if they give credit.",
+  "example": ""
+ },
+ {
+  "term": "<code>or</code>",
+  "key": "or",
+  "where": "W1",
+  "meaning": "Joins two conditions. At least one must be True.",
+  "example": ""
+ },
+ {
+  "term": "parameter",
+  "key": "parameter",
+  "where": "W2",
+  "meaning": "A name in a function’s brackets that receives a value: <code>def area(width, height)</code>.",
+  "example": ""
+ },
+ {
+  "term": "personal information",
+  "key": "personal information",
+  "where": "W1",
+  "meaning": "Anything that tells who or where you are: real name, address, school, birthday, photos.",
+  "example": ""
+ },
+ {
+  "term": "pitch",
+  "key": "pitch",
+  "where": "W12",
+  "meaning": "a short talk that explains what your project is and why it is interesting.",
+  "example": ""
+ },
+ {
+  "term": "playtest",
+  "key": "playtest",
+  "where": "W11",
+  "meaning": "Letting someone try your game while you watch and take notes.",
+  "example": ""
+ },
+ {
+  "term": "polish",
+  "key": "polish",
+  "where": "W11",
+  "meaning": "small finishing touches that make a working program clearer and nicer to use.",
+  "example": ""
+ },
+ {
+  "term": "print-debugging",
+  "key": "print-debugging",
+  "where": "W6",
+  "meaning": "Adding <code>print</code> lines to see what your variables hold.",
+  "example": ""
+ },
+ {
+  "term": "pseudocode",
+  "key": "pseudocode",
+  "where": "W10",
+  "meaning": "Planning a program in plain words before writing Python.",
+  "example": ""
+ },
+ {
+  "term": "pytest",
+  "key": "pytest",
+  "where": "W8",
+  "meaning": "A tool that finds your <code>test_</code> functions and runs them all.",
+  "example": ""
+ },
+ {
+  "term": "<code>random.choice</code>",
+  "key": "random.choice",
+  "where": "W3",
+  "meaning": "Picks one random item from a list.",
+  "example": ""
+ },
+ {
+  "term": "read / write / append",
+  "key": "read / write / append",
+  "where": "W7",
+  "meaning": "The modes <code>\"r\"</code>, <code>\"w\"</code> and <code>\"a\"</code>: look, replace everything, or add to the end.",
+  "example": ""
+ },
+ {
+  "term": "<code>return</code>",
+  "key": "return",
+  "where": "W2",
+  "meaning": "Hands a value back from a function to the code that called it.",
+  "example": ""
+ },
+ {
+  "term": "return value",
+  "key": "return value",
+  "where": "W2",
+  "meaning": "The value a function hands back.",
+  "example": ""
+ },
+ {
+  "term": "rubber duck debugging",
+  "key": "rubber duck debugging",
+  "where": "W6",
+  "meaning": "Explaining your code line by line out loud (to a toy or a friend) until you spot the bug.",
+  "example": ""
+ },
+ {
+  "term": "scope",
+  "key": "scope",
+  "where": "W2",
+  "meaning": "Where a variable can be used. Variables made inside a function stay inside it.",
+  "example": ""
+ },
+ {
+  "term": "showcase",
+  "key": "showcase",
+  "where": "W12",
+  "meaning": "an event where makers show their work and explain it.",
+  "example": ""
+ },
+ {
+  "term": "<code>split</code>",
+  "key": "split",
+  "where": "W7",
+  "meaning": "Cuts a string into a list of words: <code>\"a b\".split()</code> gives <code>[\"a\", \"b\"]</code>.",
+  "example": ""
+ },
+ {
+  "term": "str (string)",
+  "key": "str (string)",
+  "where": "W1",
+  "meaning": "The type for text, written in quotes: <code>\"hello\"</code>.",
+  "example": ""
+ },
+ {
+  "term": "<code>strip</code>",
+  "key": "strip",
+  "where": "W7",
+  "meaning": "Removes spaces and new-line characters from both ends of a string.",
+  "example": ""
+ },
+ {
+  "term": "test",
+  "key": "test",
+  "where": "W8",
+  "meaning": "A small function that checks your code works, using <code>assert</code>.",
+  "example": ""
+ },
+ {
+  "term": "trace table",
+  "key": "trace table",
+  "where": "W6",
+  "meaning": "A table on paper where you write how variables change, step by step.",
+  "example": ""
+ },
+ {
+  "term": "traceback",
+  "key": "traceback",
+  "where": "W6",
+  "meaning": "The error report Python shows. Read the last line first.",
+  "example": ""
+ },
+ {
+  "term": "<code>TypeError</code>",
+  "key": "typeerror",
+  "where": "W1",
+  "meaning": "The error you get when you mix types that do not fit, like <code>\"5\" + 5</code>.",
+  "example": ""
+ },
+ {
+  "term": "value",
+  "key": "value",
+  "where": "W1, 5",
+  "meaning": "A piece of data, like 7, <code>\"hi\"</code> or True. In a dictionary, what is stored under a key.",
+  "example": ""
+ },
+ {
+  "term": "variable",
+  "key": "variable",
+  "where": "W1",
+  "meaning": "A name that stores a value. Choose clear names like <code>lives</code>, not <code>x</code>.",
+  "example": ""
+ },
+ {
+  "term": "version",
+  "key": "version",
+  "where": "W12",
+  "meaning": "one stage of a project; version 2 is the next, improved one.",
+  "example": ""
+ },
+ {
+  "term": "<code>while</code> loop",
+  "key": "while loop",
+  "where": "W4",
+  "meaning": "Repeats while a condition is True. Something inside must change so it can stop.",
+  "example": ""
+ },
+ {
+  "term": "<code>with</code>",
+  "key": "with",
+  "where": "W7",
+  "meaning": "Opens a file and closes it again safely when the block ends.",
+  "example": ""
+ }
+]

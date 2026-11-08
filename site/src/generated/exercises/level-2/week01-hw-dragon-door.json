@@ -1,0 +1,35 @@
+{
+ "slug": "week01-hw-dragon-door",
+ "folder": "week01/hw-dragon-door",
+ "week": 1,
+ "level": 2,
+ "kind": "python",
+ "homework": true,
+ "number": "1",
+ "title": "Dragon Door",
+ "body": "<p><strong>Goal:</strong> practice <code>and</code>, <code>or</code> and f-strings.</p>\n<p>The dragon door opens if:</p>\n<ul>\n<li>you have the golden key <strong>and</strong> you are level 3 or more, <strong>or</strong></li>\n<li>you are level 10 or more (legends do not need keys).</li>\n</ul>\n<ol type=\"1\">\n<li>Open <code>starter.py</code> in Thonny.</li>\n<li><strong>TODO 1:</strong> change the <code>if</code> line in <code>door_opens()</code>. Brackets help: <code>(has_key and level &gt;= 3) or level &gt;= 10</code>.</li>\n<li><strong>TODO 2:</strong> make the welcome message use an f-string with the hero name.</li>\n<li>Run it with these answers and check the door does the right thing: key yes + level 5 (opens), key yes + level 2 (shut), key no + level 12 (opens).</li>\n</ol>\n<p><strong>Extra:</strong> add a third way in: a secret password typed by the player. (Only a made-up game password, never a real one!)</p>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the three rules for the door at the top of the starter file. Right now <code>door_opens()</code> only checks the key. Does it ever look at the level?</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Join two true-or-false checks with <code>and</code> when both must be true. Join them with <code>or</code> when either one is enough. Brackets <code>( )</code> keep a pair of checks together. For the message, an f-string puts a variable inside curly braces.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>The <code>if</code> line has this shape: <code>if (____ and ____) or ____:</code>. Match each blank to one of the rules. For the welcome, start the text with <code>f</code> and put the hero name inside braces, like <code>print(f\"... {____} ...\")</code>.</p>\n"
+  }
+ ],
+ "starter": {
+  "name": "starter.py",
+  "raw": "# Dragon Door\n# The dragon door opens if you have the golden key AND you are level 3 or\n# more, OR if you are level 10 or more (legends do not need keys).\n\n\ndef door_opens(has_key, level):\n    \"\"\"Return True if the dragon door opens, otherwise False.\"\"\"\n    # TODO 1: change this line. Use \"and\", \"or\" and brackets ( ).\n    if has_key:\n        return True\n    else:\n        return False\n\n\nif __name__ == \"__main__\":\n    hero = input(\"Hero name (make one up): \")\n    key_answer = input(\"Do you have the golden key? (yes/no) \")\n    has_key = key_answer.lower() == \"yes\"\n    level = int(input(\"What level are you? \"))\n    if door_opens(has_key, level):\n        # TODO 2: use an f-string so the message says the hero's name.\n        print(\"The dragon door creaks open. Welcome!\")\n    else:\n        print(\"The door stays shut. Find the key or reach level 10.\")\n",
+  "html": "<span class=\"tok-c1\"># Dragon Door</span>\n<span class=\"tok-c1\"># The dragon door opens if you have the golden key AND you are level 3 or</span>\n<span class=\"tok-c1\"># more, OR if you are level 10 or more (legends do not need keys).</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">door_opens</span><span class=\"tok-p\">(</span><span class=\"tok-n\">has_key</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">level</span><span class=\"tok-p\">):</span>\n<span class=\"tok-w\">    </span><span class=\"tok-sd\">&quot;&quot;&quot;Return True if the dragon door opens, otherwise False.&quot;&quot;&quot;</span>\n    <span class=\"tok-c1\"># TODO 1: change this line. Use &quot;and&quot;, &quot;or&quot; and brackets ( ).</span>\n    <span class=\"tok-k\">if</span> <span class=\"tok-n\">has_key</span><span class=\"tok-p\">:</span>\n        <span class=\"tok-k\">return</span> <span class=\"tok-kc\">True</span>\n    <span class=\"tok-k\">else</span><span class=\"tok-p\">:</span>\n        <span class=\"tok-k\">return</span> <span class=\"tok-kc\">False</span>\n\n\n<span class=\"tok-k\">if</span> <span class=\"tok-vm\">__name__</span> <span class=\"tok-o\">==</span> <span class=\"tok-s2\">&quot;__main__&quot;</span><span class=\"tok-p\">:</span>\n    <span class=\"tok-n\">hero</span> <span class=\"tok-o\">=</span> <span class=\"tok-nb\">input</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Hero name (make one up): &quot;</span><span class=\"tok-p\">)</span>\n    <span class=\"tok-n\">key_answer</span> <span class=\"tok-o\">=</span> <span class=\"tok-nb\">input</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Do you have the golden key? (yes/no) &quot;</span><span class=\"tok-p\">)</span>\n    <span class=\"tok-n\">has_key</span> <span class=\"tok-o\">=</span> <span class=\"tok-n\">key_answer</span><span class=\"tok-o\">.</span><span class=\"tok-n\">lower</span><span class=\"tok-p\">()</span> <span class=\"tok-o\">==</span> <span class=\"tok-s2\">&quot;yes&quot;</span>\n    <span class=\"tok-n\">level</span> <span class=\"tok-o\">=</span> <span class=\"tok-nb\">int</span><span class=\"tok-p\">(</span><span class=\"tok-nb\">input</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;What level are you? &quot;</span><span class=\"tok-p\">))</span>\n    <span class=\"tok-k\">if</span> <span class=\"tok-n\">door_opens</span><span class=\"tok-p\">(</span><span class=\"tok-n\">has_key</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">level</span><span class=\"tok-p\">):</span>\n        <span class=\"tok-c1\"># TODO 2: use an f-string so the message says the hero&#39;s name.</span>\n        <span class=\"tok-nb\">print</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;The dragon door creaks open. Welcome!&quot;</span><span class=\"tok-p\">)</span>\n    <span class=\"tok-k\">else</span><span class=\"tok-p\">:</span>\n        <span class=\"tok-nb\">print</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;The door stays shut. Find the key or reach level 10.&quot;</span><span class=\"tok-p\">)</span>"
+ },
+ "files": [],
+ "url": "%BASE%levels/level-2/exercises/week01-hw-dragon-door/"
+}

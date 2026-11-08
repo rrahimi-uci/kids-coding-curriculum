@@ -1,0 +1,121 @@
+
+<h2 id="the-big-idea-every-value-has-a-type">The big idea: every value has a type</h2>
+<p>Python sorts every value into a <strong>type</strong>. The type decides what Python can do with it. Here are the four types you will use most:</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='Four boxes for the four types of value. An int is a whole number such as 7, -2 and 100. A float is a decimal number such as 3.5, 0.0 and 2.0. A str is text in quotes such as "cat" and "7". A bool is True or False.' class="fig fig-tikz" decoding="async" height="104" loading="lazy" src="%BASE%generated/fig/level-2/50624083d0db.svg" width="619"/></figure>
+</div>
+<p><strong>Quotes are the big clue.</strong> <code>7</code> is a number, but <code>"7"</code> is text that happens to show a 7. You can ask Python for the type of anything. Type this in the Thonny <strong>Shell</strong> (after <code>&gt;&gt;&gt;</code>):</p>
+<div class="code-block code-pycode"><p class="code-title">Try it in the Shell</p><pre tabindex="0"><code class="language-python"><span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-mi">7</span><span class="tok-p">)</span>        <span class="tok-c1"># &lt;class 'int'&gt;</span>
+<span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-s2">"7"</span><span class="tok-p">)</span>      <span class="tok-c1"># &lt;class 'str'&gt;</span>
+<span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-mf">3.5</span><span class="tok-p">)</span>      <span class="tok-c1"># &lt;class 'float'&gt;</span>
+<span class="tok-nb">type</span><span class="tok-p">(</span><span class="tok-kc">True</span><span class="tok-p">)</span>     <span class="tok-c1"># &lt;class 'bool'&gt;</span></code></pre></div>
+<h3 id="bug-hunt-text-plus-a-number">Bug hunt: text plus a number</h3>
+<p>Try <code>"5" + 5</code> in the Shell. Python shows a red <strong>error message</strong>. Always read it from the <strong>bottom line up</strong>:</p>
+<div class="code-block code-outputcode"><pre tabindex="0"><code>TypeError: can only concatenate str (not "int") to str</code></pre></div>
+<p>“Concatenate” means “glue together”. Python can glue text to text, but not text to a number. This matters because <strong><code>input()</code> always gives back text</strong>, even when you type a number. Turn it into a whole number with <code>int()</code>:</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-n">level</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-nb">input</span><span class="tok-p">(</span><span class="tok-s2">"Level? "</span><span class="tok-p">))</span>     <span class="tok-c1"># the player types 4</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">level</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-p">)</span>                  <span class="tok-c1"># 5</span></code></pre></div>
+<h3 id="f-strings-fill-in-the-blanks">f-strings: fill in the blanks</h3>
+<p>Put an <code>f</code> in front of the quotes, and Python fills every pair of curly brackets with a value. It works with any type, so you never have to worry about text plus a number.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='The f-string f"{name} is level {level}" with name set to "Nova" and level set to 4 fills in to give the text Nova is level 4.' class="fig fig-tikz" decoding="async" height="67" loading="lazy" src="%BASE%generated/fig/level-2/30fcf645b18c.svg" width="456"/></figure>
+</div>
+<h3 id="smarter-choices-and-or-not">Smarter choices: and, or, not</h3>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Word</strong></th>
+<th scope="col"><strong>True when…</strong></th>
+<th scope="col"><strong>Game example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td><strong>both</strong> sides are true</td>
+<td><code>has_key and level &gt;= 3</code></td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td><strong>at least one</strong> side is true</td>
+<td><code>level &gt;= 10 or has_map</code></td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>the opposite</td>
+<td><code>not game_over</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Each side needs a full comparison: write <code>energy &gt;= 5 or energy == 1</code>, not <code>energy &gt;= 5 or 1</code>.</p>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Hero names, not real names</span></p>
+<p>Your real name, school, address and birthday are <strong>personal information</strong>. Keep them private. In our programs you always type a made-up <strong>hero name</strong> or nickname.</p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">1.1: Hero Card</span></p>
+<p>Folder: <code>exercises/week01/ex-hero-card</code>. Open <code>starter.py</code> and press <span class="menu">Run</span> (<kbd>F5</kbd>).</p>
+<ol>
+<li><p>It crashes! Read the error from the bottom up. Write the last line here:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div></li>
+<li><p>TODO 1: turn the level into a number with <code>int()</code>. Run again.</p></li>
+<li><p>TODO 2–5: add the missing lines with f-strings: power, power points, health (<code>level * 12.5</code>) and “Legend?”.</p></li>
+<li><p>Which type is each value? Write int, float, str or bool:</p>
+<p><code>hero_name</code> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> <code>power_points</code> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> <code>health</code> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> <code>is_legend</code> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">1.2: Mood Meter</span></p>
+<p>Folder: <code>exercises/week01/ex-mood-meter</code>. The program asks for your energy (0–10) and whether you had a snack, then draws a meter. Finish <code>mood_for()</code>:</p>
+<ul>
+<li><p>“Super charged”: energy 8 or more <strong>and</strong> a snack.</p></li>
+<li><p>“Ready to play”: energy 5 or more <strong>or</strong> a snack.</p></li>
+<li><p>“Recharge time”: everything else.</p></li>
+</ul>
+<p>Before you run it, <strong>predict</strong> the mood. Then run and check.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>energy</strong></th>
+<th scope="col"><strong>snack?</strong></th>
+<th scope="col"><strong>my guess</strong></th>
+<th scope="col"><strong>the program said</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>no</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Last step: use <code>if not had_snack:</code> to print a friendly tip. Then check your work with <code>check_my_work.py</code>.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Which value card or error surprised you today? Why?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Make up a game rule that uses <code>and</code> or <code>or</code>:</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

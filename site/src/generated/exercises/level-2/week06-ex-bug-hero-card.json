@@ -1,0 +1,35 @@
+{
+ "slug": "week06-ex-bug-hero-card",
+ "folder": "week06/ex-bug-hero-card",
+ "week": 6,
+ "level": 2,
+ "kind": "python",
+ "homework": false,
+ "number": "",
+ "title": "Bug Hunt Station 1 - Hero Card (TypeError)",
+ "body": "<p><strong>Goal:</strong> find and fix the bug using the traceback.</p>\n<ol type=\"1\">\n<li>Open <code>starter.py</code> and press <strong>Run</strong>. Red text appears: a <strong>traceback</strong>.</li>\n<li>Read it from the <strong>bottom up</strong>:\n<ul>\n<li>The last line says <strong>what</strong> went wrong. Write it down.</li>\n<li>The lines above say <strong>where</strong>: which line number, in which function.</li>\n</ul></li>\n<li>Before you change anything, say out loud (or to a rubber duck) what <code>card_line(\"Level\", 4)</code> should give back, and what the code really does.</li>\n<li>Fix the bug. Run again.</li>\n</ol>\n<p><strong>Done looks like:</strong></p>\n<pre><code>Hero: Zoe the Brave\nLevel: 4\nCoins: 120\nNext level: 5</code></pre>\n<p><strong>Detective notes:</strong> fill in the bug report in your workbook: error name, line number, what you changed.</p>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the red text from the bottom up. The last line says what went wrong, and the line above it points to the function and line number. Which function is it?</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>In Python, <code>+</code> can join text to text, or add numbers to numbers. It cannot mix them. <code>\"Level: \" + 4</code> fails because 4 is a number, not text. Your job is to make the line work for any kind of value.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>An f-string puts any value into text, like <code>f\"Score: {points}\"</code>. Rewrite the <code>return</code> in <code>card_line()</code> as an f-string. Look at the \"Done looks like\" box to see what plain text goes between the two parts in curly braces.</p>\n"
+  }
+ ],
+ "starter": {
+  "name": "starter.py",
+  "raw": "# Bug Hunt Station 1: Hero Card\n# This program has a bug. Press Run and read the error from the BOTTOM up:\n#   1. the last line says WHAT went wrong,\n#   2. the line above it shows WHERE (file name and line number).\n# Fix the bug, run again, then run it again to check.\n\n\ndef card_line(label, value):\n    \"\"\"Return one line of the card, like \"Level: 4\".\"\"\"\n    return label + \": \" + value\n\n\ndef make_card(name, level, coins):\n    \"\"\"Return a list of card lines for a hero.\"\"\"\n    return [\n        card_line(\"Hero\", name),\n        card_line(\"Level\", level),\n        card_line(\"Coins\", coins),\n        card_line(\"Next level\", level + 1),\n    ]\n\n\nif __name__ == \"__main__\":\n    for line in make_card(\"Zoe the Brave\", 4, 120):\n        print(line)\n",
+  "html": "<span class=\"tok-c1\"># Bug Hunt Station 1: Hero Card</span>\n<span class=\"tok-c1\"># This program has a bug. Press Run and read the error from the BOTTOM up:</span>\n<span class=\"tok-c1\">#   1. the last line says WHAT went wrong,</span>\n<span class=\"tok-c1\">#   2. the line above it shows WHERE (file name and line number).</span>\n<span class=\"tok-c1\"># Fix the bug, run again, then run it again to check.</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">card_line</span><span class=\"tok-p\">(</span><span class=\"tok-n\">label</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">value</span><span class=\"tok-p\">):</span>\n<span class=\"tok-w\">    </span><span class=\"tok-sd\">&quot;&quot;&quot;Return one line of the card, like &quot;Level: 4&quot;.&quot;&quot;&quot;</span>\n    <span class=\"tok-k\">return</span> <span class=\"tok-n\">label</span> <span class=\"tok-o\">+</span> <span class=\"tok-s2\">&quot;: &quot;</span> <span class=\"tok-o\">+</span> <span class=\"tok-n\">value</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">make_card</span><span class=\"tok-p\">(</span><span class=\"tok-n\">name</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">level</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">coins</span><span class=\"tok-p\">):</span>\n<span class=\"tok-w\">    </span><span class=\"tok-sd\">&quot;&quot;&quot;Return a list of card lines for a hero.&quot;&quot;&quot;</span>\n    <span class=\"tok-k\">return</span> <span class=\"tok-p\">[</span>\n        <span class=\"tok-n\">card_line</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Hero&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">name</span><span class=\"tok-p\">),</span>\n        <span class=\"tok-n\">card_line</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Level&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">level</span><span class=\"tok-p\">),</span>\n        <span class=\"tok-n\">card_line</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Coins&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">coins</span><span class=\"tok-p\">),</span>\n        <span class=\"tok-n\">card_line</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Next level&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-n\">level</span> <span class=\"tok-o\">+</span> <span class=\"tok-mi\">1</span><span class=\"tok-p\">),</span>\n    <span class=\"tok-p\">]</span>\n\n\n<span class=\"tok-k\">if</span> <span class=\"tok-vm\">__name__</span> <span class=\"tok-o\">==</span> <span class=\"tok-s2\">&quot;__main__&quot;</span><span class=\"tok-p\">:</span>\n    <span class=\"tok-k\">for</span> <span class=\"tok-n\">line</span> <span class=\"tok-ow\">in</span> <span class=\"tok-n\">make_card</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;Zoe the Brave&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-mi\">4</span><span class=\"tok-p\">,</span> <span class=\"tok-mi\">120</span><span class=\"tok-p\">):</span>\n        <span class=\"tok-nb\">print</span><span class=\"tok-p\">(</span><span class=\"tok-n\">line</span><span class=\"tok-p\">)</span>"
+ },
+ "files": [],
+ "url": "%BASE%levels/level-2/exercises/week06-ex-bug-hero-card/"
+}

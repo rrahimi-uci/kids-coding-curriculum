@@ -1,0 +1,115 @@
+
+<h2 id="the-big-idea">The big idea</h2>
+<p>Look at these two scripts. They draw the same square! The left one copies the same two blocks four times. The right one uses a <strong>loop</strong>.</p>
+<div class="center">
+<p><img alt="Scratch script: move 100 steps; turn right 90 degrees; move 100 steps; turn right 90 degrees; move 100 steps; turn right 90 degrees; move 100 steps; turn right 90 degrees" class="fig fig-scratch fig-inline" decoding="async" height="301" loading="lazy" src="%BASE%generated/fig/level-1/a67853dfb54c.svg" width="147"/>  = <img alt="Scratch script: repeat 4 [ move 100 steps; turn right 90 degrees ]" class="fig fig-scratch fig-inline" decoding="async" height="145" loading="lazy" src="%BASE%generated/fig/level-1/0400824701fc.svg" width="168"/></p>
+</div>
+<ul>
+<li><p><strong>repeat 4</strong> runs the blocks inside it 4 times, then the program carries on.</p></li>
+<li><p><strong>forever</strong> runs the blocks inside it again and again until you click the red stop sign.</p></li>
+</ul>
+<h3 id="how-much-to-turn">How much to turn?</h3>
+<p>When you walk all the way around a shape, you turn all the way around once. A whole turn is <strong>360 degrees</strong>. So each corner turn is:</p>
+<div class="center">
+<p>turn = 360 ÷ number of sides</p>
+</div>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Three shapes with an arrow showing the turn at each corner. A square has 4 turns, and 360 divided by 4 is 90. A triangle has 3 turns, and 360 divided by 3 is 120. A hexagon has 6 turns, and 360 divided by 6 is 60." class="fig fig-tikz" decoding="async" height="169" loading="lazy" src="%BASE%generated/fig/level-1/0293942a11f2.svg" width="468"/></figure>
+<p> The arrows show the turn at each corner. Big arrows = big turns.</p>
+</div>
+<p>Fill in the table. (Tip: you can let Scratch divide! Put the green “( ) / ( )” block from <span class="menu">Operators</span> into the turn slot.)</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Shape</strong></th>
+<th scope="col"><strong>Sides</strong></th>
+<th scope="col"><strong>Repeat</strong></th>
+<th scope="col"><strong>Turn (degrees)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triangle</td>
+<td>3</td>
+<td>3</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Square</td>
+<td>4</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>Pentagon</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hexagon</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Octagon</td>
+<td>8</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">2.1: Walking Cat</span></p>
+<p>Make the cat walk back and forth forever.</p>
+<ol>
+<li><p>Start a new project (<span class="menu">File</span> → <span class="menu">New</span>). Click the <span class="menu">Costumes</span> tab: the cat has 2 costumes. Flipping between them looks like walking! Click <span class="menu">Code</span> to go back.</p></li>
+<li><p>Build this script. “set rotation style” keeps the cat from walking upside down.</p></li>
+<li><p>Click the flag. Click the red stop sign to stop.</p></li>
+</ol>
+<div class="center">
+<figure class="figure figure-scratch"><img alt="Scratch script: when green flag clicked; set rotation style left-right; forever [ move 10 steps; next costume; if on edge, bounce; wait 0.1 seconds ]" class="fig fig-scratch" decoding="async" height="345" loading="lazy" src="%BASE%generated/fig/level-1/6803d66c2220.svg" width="236"/></figure>
+</div>
+<p>Try it: what happens if you take out the “wait” block?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">2.2: Polygon Party</span></p>
+<p>Draw shapes with the Pen.</p>
+<ol>
+<li><p>Click the blue <span class="menu">Add Extension</span> button (bottom left) and choose <span class="menu">Pen</span>.</p></li>
+<li><p>Make the cat small: in the sprite pane, set <span class="menu">Size</span> to <code>40</code>.</p></li>
+<li><p>Build the square script. Click the flag. Does the square close?</p></li>
+<li><p>Now change the numbers to draw a triangle, a hexagon and a pentagon. Use your table!</p></li>
+</ol>
+<div class="center">
+<figure class="figure figure-scratch"><img alt="Scratch script: when green flag clicked; erase all; go to x: 0 y: 0; point in direction 90; pen down; repeat 4 [ move 100 steps; turn right 90 degrees ]; pen up" class="fig fig-scratch" decoding="async" height="444" loading="lazy" src="%BASE%generated/fig/level-1/384d4f459d53.svg" width="191"/></figure>
+<div class="minipage">
+<p><strong>Bug hunt!</strong> Leo wanted a triangle. He used<br/>
+repeat <strong>3</strong>, move 100, turn <strong>60</strong>.<br/>
+Predict: what will it draw?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Run it. What is the bug, and what is the fix?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>
+</div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">2.3: Star Burst</span></p>
+<p>Make loop art! Use the same start blocks, then this loop:</p>
+<div class="center">
+<figure class="figure figure-scratch"><img alt="Scratch script: when green flag clicked; erase all; go to x: -75 y: 0; point in direction 90; pen down; repeat 36 [ move 150 steps; turn right 170 degrees; change pen color by 5 ]; pen up" class="fig fig-scratch" decoding="async" height="490" loading="lazy" src="%BASE%generated/fig/level-1/d23290b61261.svg" width="294"/></figure>
+<figure class="figure figure-tikz"><img alt="A round, spiky star made of 36 long lines in six colors (orange, blue, green, pink, light blue and red-orange) that criss-cross around a small empty center. The caption reads: What you will see." class="fig fig-tikz" decoding="async" height="157" loading="lazy" src="%BASE%generated/fig/level-1/d5fa093fa4d3.svg" width="123"/></figure>
+</div>
+<p>Now try your own numbers. My favorite: repeat <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> move <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> turn <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">20-20-20 for your eyes</span></p>
+<p>Every 20 minutes on a screen, look at something 20 feet (6 meters) away for 20 seconds. Then stretch!</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Where do you see loops in real life?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>What was the hardest number to get right today? How did you find it?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

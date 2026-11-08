@@ -1,0 +1,31 @@
+{
+ "slug": "week05-hw-starry-sky",
+ "folder": "week05/hw-starry-sky",
+ "week": 5,
+ "level": 1,
+ "kind": "scratch",
+ "homework": true,
+ "number": "5",
+ "title": "Starry Sky",
+ "body": "<p><strong>Goal:</strong> make a My Block <code>star (size)</code> and use it to fill the night sky. <strong>Time:</strong> about 10 minutes. <strong>Tool:</strong> Scratch app (offline) with the Pen extension.</p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Open Scratch and add the <strong>Pen</strong> extension. Choose a dark backdrop (for example <strong>Stars</strong>, or paint the backdrop dark blue).</li>\n<li><strong>My Blocks &gt; Make a Block</strong>: name it <code>star</code>, add an input <code>size</code>, click <strong>OK</strong>.</li>\n<li>Build both scripts. Drag <code>size</code> out of the define hat into the move block.</li>\n<li>For the pen color, click the color circle and set <strong>Color 16, Saturation 72, Brightness 94</strong> (yellow from the color-safe paint box).</li>\n<li>Click the green flag. Save as <code>starry-sky</code>.</li>\n</ol>\n<h2 id=\"the-scripts-in-words\">The scripts in words</h2>\n<p><strong>define star (size)</strong></p>\n<ul>\n<li>pen down</li>\n<li>repeat 5:\n<ul>\n<li>move (size) steps</li>\n<li>turn right 144 degrees</li>\n</ul></li>\n<li>pen up</li>\n</ul>\n<p><strong>when green flag clicked</strong></p>\n<ul>\n<li>erase all</li>\n<li>set pen color to (yellow)</li>\n<li>set pen size to 3</li>\n<li>pen up</li>\n<li>hide</li>\n<li>repeat 10:\n<ul>\n<li>go to random position</li>\n<li>star (pick random 10 to 60)</li>\n</ul></li>\n</ul>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>Each click on the green flag clears the sky and draws 10 yellow five-pointed stars in surprise places, each a different size. There are no lines joining the stars. The cat is hidden.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My <code>star</code> block has an input <code>size</code>, and I used it inside.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>Each click draws 10 stars of different sizes in different places.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>There are no lines between the stars.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My stars are easy to see on the dark sky.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>A star is just a shape you can draw by moving and turning. Put that drawing in your own <code>star</code> block, so you can use it many times. The Motion and Pen categories have the drawing blocks.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>A five-pointed star uses the same two steps five times: move, then turn. The turn is bigger than you might think. Put the <code>size</code> oval in the move block so each star can be a different size.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>In the define block, use <strong>pen down</strong>, then <strong>repeat ____</strong> with <strong>move (size) steps</strong> and <strong>turn right ____ degrees</strong> inside, then <strong>pen up</strong>. In the flag script, use <strong>go to random position</strong> (Motion category) and then <strong>star (pick random ____ to ____)</strong>. Use <strong>pen up</strong> before the loop so no lines join the stars.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week05-hw-starry-sky/"
+}

@@ -1,0 +1,56 @@
+
+<h2 id="the-big-idea-repeat-until-something-changes">The big idea: repeat until something changes</h2>
+<p>A <code>for</code> loop knows how many times it will go round. A <code>while</code> loop does not: it checks a condition at the top, and goes round again <em>while</em> the condition is <code>True</code>.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A while loop. Start with n = 3. Check: is n bigger than 0? If yes (True), print n, subtract 1 from n and go back to the check. If no (False), leave the loop and print Go!" class="fig fig-tikz" decoding="async" height="182" loading="lazy" src="%BASE%generated/fig/level-2/7f85bf9cce67.svg" width="312"/></figure>
+</div>
+<p>This prints <code>3</code>, <code>2</code>, <code>1</code>, <code>Go!</code>. The line <code>n = n - 1</code> is the <strong>change</strong>: without it, <code>n</code> stays 3, the check is always <code>True</code>, and the loop never ends. That is an <strong>infinite loop</strong>.</p>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Stuck in a loop?</span></p>
+<p>Press the red <span class="menu">Stop</span> button in Thonny’s toolbar. Then ask two questions: <strong>What is checked?</strong> and <strong>What changes inside the loop, so the check can become False?</strong></p>
+</div>
+<h3 id="while-true-and-break">while True and break</h3>
+<p>Sometimes it is easier to loop “for ever” and jump out when you are done. <code>break</code> leaves the loop straight away. Inside a function, <code>return</code> leaves the loop <em>and</em> the function.</p>
+<div class="code-block code-pycode"><p class="code-title">Keep asking until the answer is good</p><pre tabindex="0"><code class="language-python"><span class="tok-k">while</span> <span class="tok-kc">True</span><span class="tok-p">:</span>
+    <span class="tok-n">answer</span> <span class="tok-o">=</span> <span class="tok-nb">input</span><span class="tok-p">(</span><span class="tok-s2">"Type yes or no: "</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">lower</span><span class="tok-p">()</span>
+    <span class="tok-k">if</span> <span class="tok-n">answer</span> <span class="tok-o">==</span> <span class="tok-s2">"yes"</span> <span class="tok-ow">or</span> <span class="tok-n">answer</span> <span class="tok-o">==</span> <span class="tok-s2">"no"</span><span class="tok-p">:</span>
+        <span class="tok-k">break</span>                       <span class="tok-c1"># good answer: leave the loop</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"Please type yes or no."</span><span class="tok-p">)</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"Thanks!"</span><span class="tok-p">)</span></code></pre></div>
+<p>Checking the player’s answer like this is called <strong>input validation</strong>. Games do it all the time, so a typo never crashes them. <code>answer.isdigit()</code> is <code>True</code> only if the answer is made of the digits 0–9: then <code>int(answer)</code> is safe.</p>
+<h3 id="a-loop-inside-a-loop-pixel-art">A loop inside a loop: pixel art</h3>
+<p>A picture can be a list of strings: one string for each row, one letter for each pixel. The <strong>outer loop</strong> goes down the rows. The <strong>inner loop</strong> goes along one row, pixel by pixel.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A tiny picture 3 columns wide and 2 rows high, made from rows of text. Row 0 is "K.K": black, empty, black. Row 1 is ".O.": empty, orange, empty. K means black, O means orange and a dot means empty. The inner loop moves to the next pixel along a row; the outer loop moves to the next row.' class="fig fig-tikz" decoding="async" height="101" loading="lazy" src="%BASE%generated/fig/level-2/721233d04684.svg" width="420"/></figure>
+</div>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">row</span> <span class="tok-ow">in</span> <span class="tok-n">grid</span><span class="tok-p">:</span>            <span class="tok-c1"># outer loop: one row at a time</span>
+    <span class="tok-k">for</span> <span class="tok-n">pixel</span> <span class="tok-ow">in</span> <span class="tok-n">row</span><span class="tok-p">:</span>       <span class="tok-c1"># inner loop: one letter at a time</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">pixel</span><span class="tok-p">)</span></code></pre></div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">4.1: Guess My Number</span></p>
+<p>Folder: <code>exercises/week04/ex-guess-number</code>. Open <code>starter.py</code> and press <span class="menu">Run</span>.</p>
+<ol>
+<li><p>Guess until you are right. Does the game stop? If not, press <span class="menu">Stop</span>. Why does it keep going?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div></li>
+<li><p>TODO 1: add 1 to <code>tries</code> each time round. TODO 3: <code>break</code> when the result is <code>"Correct"</code>.</p></li>
+<li><p>Now type <code>banana</code>. Crash! TODO 2: make <code>ask_number()</code> keep asking until the answer is a whole number from <code>low</code> to <code>high</code>.</p></li>
+<li><p>Be the tester: try <code>banana</code>, <code>99</code>, <code>0</code> and <code>-3</code>. Does your game survive them all? ☐</p></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">4.2: Pixel Art</span></p>
+<p>Folder: <code>exercises/week04/ex-pixel-art</code>. Only the top row of the space invader appears.</p>
+<ol>
+<li><p>TODO 1: wrap the drawing in an outer loop <code>for row in grid:</code>. Move down after each row: <code>y = y - size</code>.</p></li>
+<li><p>TODO 2: finish <code>count_pixels()</code> with a loop inside a loop.</p></li>
+<li><p>Design your own picture (8 rows of 11 letters fit nicely). Plan it here first:</p></li>
+</ol>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A blank grid of small squares, used to plan a pixel picture." class="fig fig-tikz" decoding="async" height="193" loading="lazy" src="%BASE%generated/fig/level-2/deea82349ec6.svg" width="265"/></figure>
+</div>
+<p>Check your work with <code>check_my_work.py</code>.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>When would you use a <code>while</code> loop instead of a <code>for</code> loop?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Name one way a game could be unfair to players. How would you make it fair?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

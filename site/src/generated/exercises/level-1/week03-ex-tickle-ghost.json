@@ -1,0 +1,31 @@
+{
+ "slug": "week03-ex-tickle-ghost",
+ "folder": "week03/ex-tickle-ghost",
+ "week": 3,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "3.2",
+ "title": "Tickle the Ghost",
+ "body": "<p><strong>Goal:</strong> use <strong>if-else</strong> with a <strong>sensing</strong> question inside <strong>forever</strong>. <strong>Tool:</strong> Scratch app (offline). <strong>Work in pairs.</strong></p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project: <strong>File &gt; New</strong>.</li>\n<li>Delete the cat: right-click it in the sprite pane and choose <strong>delete</strong>.</li>\n<li>Click <strong>Choose a Sprite</strong> and pick <strong>Ghost</strong> (or any sprite you like).</li>\n<li>Build the script below. <strong>if ... then ... else</strong> and <strong>forever</strong> are in <strong>Control</strong>. The pointy <strong>touching (mouse-pointer)?</strong> block is in <strong>Sensing</strong>. <strong>set size to</strong> and <strong>say</strong> are in <strong>Looks</strong>.</li>\n<li>For the last <strong>say</strong>, delete the text so the box is empty.</li>\n<li>Click the flag. Move your mouse over the ghost, then away.</li>\n<li>Predict, then test: what happens if you take away the <strong>forever</strong>? Put it back.</li>\n<li>Save as <code>tickle-ghost</code>.</li>\n</ol>\n<h2 id=\"the-script-in-words\">The script in words</h2>\n<p>Ghost sprite:</p>\n<ul>\n<li>when green flag clicked</li>\n<li>forever:\n<ul>\n<li>if touching mouse-pointer? then\n<ul>\n<li>set size to 150 %</li>\n<li>say \"Boo! That tickles!\"</li>\n</ul></li>\n<li>else\n<ul>\n<li>set size to 100 %</li>\n<li>say \"\" (empty)</li>\n</ul></li>\n</ul></li>\n</ul>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>After the green flag, whenever the mouse pointer touches the ghost, it grows bigger and says \"Boo! That tickles!\". When the mouse moves away, it goes back to normal size and the speech bubble disappears. Without <strong>forever</strong>, nothing happens, because the question is asked only once.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>The ghost grows and talks when the mouse touches it.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>It shrinks back and goes quiet when the mouse moves away.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My <strong>if-else</strong> is inside <strong>forever</strong>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I can explain what happens without <strong>forever</strong>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>The ghost must keep asking one question again and again: is the mouse touching me? Look for a loop in the <strong>Control</strong> category that never stops. The question block with pointy ends is in the <strong>Sensing</strong> category.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Use an <strong>if ... then ... else</strong> block from <strong>Control</strong>, and put it inside <strong>forever</strong>. The top part runs when the answer is yes. The <strong>else</strong> part runs when the answer is no. Both parts need a size and a say.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Drop <strong>touching ( mouse-pointer )?</strong> from <strong>Sensing</strong> into the <strong>if</strong> hole. Put <strong>set size to ( ) %</strong> and <strong>say ( )</strong> in each part. The two parts need different numbers. In the <strong>else</strong> part, leave the <strong>say</strong> box empty so the bubble disappears.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week03-ex-tickle-ghost/"
+}

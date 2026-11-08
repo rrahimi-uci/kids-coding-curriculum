@@ -1,0 +1,67 @@
+<div class="callout callout-core" role="note"><p class="callout-title"><span class="callout-label">Core</span><span class="callout-heading">Loop Fixer (about 10 minutes)</span></p>
+
+<p>Open <code>week08/hw-loop-fixer/starter.py</code>. It should draw a blue square and an orange star, but it has <strong>2 loop bugs</strong>.</p>
+<ol>
+<li><p>Press Run and watch carefully. Count the sides of the square. How many times does its loop repeat?</p></li>
+<li><p>The star is a straight line! Look at the spaces at the start of each line. Which line is <strong>not</strong> inside the loop?</p></li>
+
+</ol>
+<p>Bug 1 was on line <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>. I changed <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> to <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>.</p>
+<p>Bug 2 was on line <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>. I fixed it by <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>.</p>
+<p><strong>No computer at home?</strong> Circle the two bugs in the program below and write the fixes next to them.</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">):</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">100</span><span class="tok-p">)</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">90</span><span class="tok-p">)</span>
+
+<span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">5</span><span class="tok-p">):</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">150</span><span class="tok-p">)</span>
+<span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">right</span><span class="tok-p">(</span><span class="tok-mi">144</span><span class="tok-p">)</span></code></pre></div>
+</div>
+<div class="callout callout-challenge" role="note"><p class="callout-title"><span class="callout-label">Challenge</span><span class="callout-heading">Count the taps</span></p>
+
+<p>Without running it: how many times does this program print <code>tap</code>? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">):</span>
+    <span class="tok-k">for</span> <span class="tok-n">j</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">):</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;tap&quot;</span><span class="tok-p">)</span></code></pre></div>
+<p>Then make a 7-pointed star: 7 lines of 150, turning <code>t.right(360 * 3 / 7)</code> each time (about 154 degrees).</p>
+</div>
+<div class="callout callout-creative" role="note"><p class="callout-title"><span class="callout-label">Creative</span><span class="callout-heading">Spiral lab</span></p>
+
+<p>Make a new file <code>my-python/spiral-lab.py</code> with this loop (plus <code>import turtle</code>, <code>t = turtle.Turtle()</code> and <code>turtle.done()</code>). Change the turn number and record what you see.</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">60</span><span class="tok-p">):</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-n">i</span> <span class="tok-o">*</span> <span class="tok-mi">3</span><span class="tok-p">)</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">91</span><span class="tok-p">)</span></code></pre></div>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Turn</th>
+<th scope="col">What it looked like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>91</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>121</code></td>
+<td></td>
+</tr>
+<tr>
+<td>my choice:</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="callout callout-selfcheck" role="note"><p class="callout-title"><span class="callout-label">Self-check</span><span class="callout-heading">Self-check: tick each box when it is true</span></p>
+
+<ul>
+<li class="check-item"><label><input type="checkbox"/>My square has 4 sides and my star has 5 points.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I can explain why the spaces at the start of a line matter.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I know that <code>range(4)</code> makes a loop run 4 times.</label></li>
+<li class="check-item"><label><input type="checkbox"/>If I got stuck, I used the help sentence: “I expected … but … happened.”</label></li>
+</ul>
+</div>

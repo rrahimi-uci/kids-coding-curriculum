@@ -1,0 +1,31 @@
+{
+ "slug": "week05-ex-stamp-garden",
+ "folder": "week05/ex-stamp-garden",
+ "week": 5,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "5.2",
+ "title": "Stamp Garden",
+ "body": "<p><strong>Goal:</strong> break a picture into named parts with two My Blocks (<code>grass</code> and <code>flower (size)</code>) and stamp a garden that is different every time. <strong>Tool:</strong> Scratch app (offline) with the Pen extension. <strong>Work in pairs.</strong></p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project and add the <strong>Pen</strong> extension. Delete the cat.</li>\n<li>Hover over <strong>Choose a Sprite</strong> and click the <strong>Paint</strong> brush. Draw a flower in the middle of the canvas (a circle for the center and circles for petals). Name the sprite <code>Flower</code>.</li>\n<li>Make a My Block <code>flower</code> with an input <code>size</code>.</li>\n<li>Make a My Block <code>grass</code> with no input.</li>\n<li>Build the three scripts below. For the grass color, click the color circle in <strong>set pen color to</strong> and set <strong>Color 45, Saturation 100, Brightness 62</strong> (bluish green from the color-safe paint box).</li>\n<li>Click the green flag a few times: a new garden grows each time.</li>\n<li>Save as <code>stamp-garden</code>.</li>\n</ol>\n<h2 id=\"the-scripts-in-words\">The scripts in words</h2>\n<p><strong>define flower (size)</strong></p>\n<ul>\n<li>set size to (size) %</li>\n<li>change color effect by 25</li>\n<li>stamp</li>\n</ul>\n<p><strong>define grass</strong></p>\n<ul>\n<li>set pen color to (bluish green)</li>\n<li>set pen size to 60</li>\n<li>go to x: -240 y: -150</li>\n<li>pen down</li>\n<li>go to x: 240 y: -150</li>\n<li>pen up</li>\n</ul>\n<p><strong>when green flag clicked</strong></p>\n<ul>\n<li>erase all</li>\n<li>clear graphic effects</li>\n<li>show</li>\n<li>grass</li>\n<li>repeat 12:\n<ul>\n<li>go to x: (pick random -220 to 220) y: (pick random -140 to 120)</li>\n<li>flower (pick random 30 to 100)</li>\n</ul></li>\n<li>hide</li>\n</ul>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>Each click on the green flag clears the stage, draws a thick strip of grass along the bottom, and stamps 12 flowers in surprise places. The flowers have different sizes and different colors. At the end the Flower sprite hides, so only the stamped garden is left. Every garden is different.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I painted my own flower sprite.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I made two My Blocks: <code>flower</code> (with the input <code>size</code>) and <code>grass</code>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My green-flag script reads like a plan: grass, then 12 flowers.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>Flowers have different sizes and colors each time.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I used a color from the color-safe paint box for the grass.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Your green-flag script should read like a plan: grass first, then flowers. The details live inside the two pink blocks in the My Blocks category, <code>grass</code> and <code>flower</code>.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Flowers are copies of your painted sprite. Use the <strong>stamp</strong> block from the Pen category. To make every flower different, use <strong>pick random</strong> blocks (Operators category) for the position and the size. <strong>change color effect</strong> (Looks category) changes the color.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>In the flag script, use <strong>repeat ____</strong>. Inside it, use <strong>go to x: (pick random ____ to ____) y: (pick random ____ to ____)</strong>, then <strong>flower (pick random ____ to ____)</strong>. In <strong>define flower</strong>, drag the <code>size</code> oval into <strong>set size to ( ) %</strong>.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week05-ex-stamp-garden/"
+}

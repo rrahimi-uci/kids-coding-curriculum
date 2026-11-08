@@ -1,0 +1,31 @@
+{
+ "slug": "week01-ex-hello-cat",
+ "folder": "week01/ex-hello-cat",
+ "week": 1,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "1.1",
+ "title": "Hello, Cat!",
+ "body": "<p><strong>Goal:</strong> make the cat say hello, walk, meow and say bye, in that order. <strong>Tool:</strong> Scratch app (offline). <strong>Work in pairs:</strong> driver clicks, navigator reads these steps. Swap when the timer rings.</p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Open the Scratch app. You will see the cat on the stage.</li>\n<li>Click <strong>Events</strong> (yellow circle). Drag <strong>when green flag clicked</strong> into the code area.</li>\n<li>Click <strong>Motion</strong>. Snap <strong>go to x: (0) y: (0)</strong> under it. (0, 0 is the middle of the stage.)</li>\n<li>Click <strong>Looks</strong>. Snap <strong>say (Hello!) for (2) seconds</strong>. Click the text and type <code>Hi! I am</code> plus your <strong>nickname</strong>.</li>\n<li>Click <strong>Motion</strong>. Snap <strong>move (10) steps</strong> and change 10 to <code>100</code>.</li>\n<li>Click <strong>Sound</strong>. Snap <strong>play sound (Meow) until done</strong>.</li>\n<li>Click <strong>Looks</strong>. Snap another <strong>say (...) for (2) seconds</strong> and type <code>Bye!</code>.</li>\n<li>Click the green flag to test.</li>\n<li>Save: <strong>File &gt; Save to your computer</strong>, folder <code>Scratch Projects</code>, name <code>hello-cat</code>.</li>\n</ol>\n<h2 id=\"the-script-in-words\">The script in words</h2>\n<p>Cat sprite, one script:</p>\n<ul>\n<li>when green flag clicked</li>\n<li>go to x: 0 y: 0</li>\n<li>say \"Hi! I am Pixel Panda\" for 2 seconds (use your own nickname)</li>\n<li>move 100 steps</li>\n<li>play sound Meow until done</li>\n<li>say \"Bye!\" for 2 seconds</li>\n</ul>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>When you click the green flag, the cat jumps to the middle, says hello with your nickname, walks to the right, meows, and says \"Bye!\". Clicking the flag again plays the same show from the middle.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My script starts with <strong>when green flag clicked</strong>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>All the blocks are snapped together in one stack.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>The steps happen in the right order.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I used my nickname, not my real name.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project in <code>Scratch Projects</code>.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the goal again: say hello, walk, meow, say bye. Scratch runs blocks from the top down, so your stack should follow that same order. Look at the block categories on the left side of the screen.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Start with a yellow <strong>Events</strong> block, <strong>when green flag clicked</strong>. Then add blocks one at a time from <strong>Motion</strong>, <strong>Looks</strong> and <strong>Sound</strong>. Click the flag after each new block to see what it does.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>You need two <strong>say ( ) for ( ) seconds</strong> blocks from <strong>Looks</strong>, and they are not next to each other. Between them, you need a walking block, <strong>move ( ) steps</strong> from <strong>Motion</strong>, with the number left for you to choose, and a block from <strong>Sound</strong> that plays the meow.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week01-ex-hello-cat/"
+}

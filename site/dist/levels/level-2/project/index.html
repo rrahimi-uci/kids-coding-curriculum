@@ -1,0 +1,795 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Level 2 final project: Arcade Game or Art Studio | Kids Coding</title><meta name="description" content="The Level 2 final project brief, rubric and starter files: Arcade Game or Art Studio."><meta name="color-scheme" content="light dark"><link rel="canonical" href="http://localhost:4321/levels/level-2/project/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="Level 2 final project: Arcade Game or Art Studio | Kids Coding"><meta property="og:description" content="The Level 2 final project brief, rubric and starter files: Arcade Game or Art Studio."><meta property="og:type" content="website"><script>
+      /* Apply saved display choices before first paint (theme and dyslexia-friendly font). */
+      try {
+        var d = document.documentElement, t = localStorage.getItem('kc:theme'), f = localStorage.getItem('kc:font');
+        if (t) d.setAttribute('data-theme', t);
+        if (f) d.setAttribute('data-font', f);
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/_astro/about.2wBV1rBm.css"></head> <body class="l2" data-base="/"> <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="palette-bar" aria-hidden="true"></div> <div class="wrap"> <a class="brand" href="/" aria-label="Kids Coding, home"> <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"></rect><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"></rect><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"></rect><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span>Kids Coding</span> </a> <nav class="nav-desktop" aria-label="Main"> <a href="/parents/">For parents</a><a href="/curriculum/">Curriculum</a><a href="/levels/level-1/">Level 1</a><a href="/levels/level-2/" aria-current="page">Level 2</a><a href="/levels/level-3/">Level 3</a><a href="/resources/">Resources</a> </nav> <div class="tools"> <a class="icon-btn" href="/search/" aria-label="Search the site"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5"></path></svg><span class="label">Search</span></a> <button class="icon-btn" type="button" id="font-toggle" aria-pressed="false" title="Switch to the dyslexia-friendly font (Lexend)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V4h16v3M9 20h6M12 4v16"></path></svg><span class="label">Easy-read font</span></button> <button class="icon-btn" type="button" id="theme-toggle" aria-pressed="false" title="Dark mode"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg><span class="label">Dark mode</span></button> <details class="nav-mobile"> <summary class="icon-btn" aria-label="Menu"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><span class="label">Menu</span></summary> <nav class="panel" aria-label="Main (mobile)"> <a href="/parents/">For parents</a><a href="/curriculum/">Curriculum</a><a href="/levels/level-1/">Level 1</a><a href="/levels/level-2/" aria-current="page">Level 2</a><a href="/levels/level-3/">Level 3</a><a href="/resources/">Resources</a> <a href="/about/">About and accessibility</a> </nav> </details> </div> </div> </header> <main id="main" data-pagefind-body> <div class="wrap">  <div class="l2"> <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/curriculum/">Curriculum</a></li><li><a href="/levels/level-2/">Level 2</a></li><li aria-current="page">Final project</li></ol></nav> <header class="page-head stack"> <p class="eyebrow accent-text">Level 2 · Intermediate · Final project</p> <h1>Arcade Game or Art Studio</h1> <p class="lead">The project brief with the plan sheet and the rubric, plus the starter files to begin from.</p> <div class="btn-row"> <a class="btn small" href="#starter"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg> Jump to the starter files</a> <a class="btn secondary small" href="/downloads/level-2/level-2-project-brief.pdf"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Print the brief (PDF, 62 KB)</a> <a class="btn secondary small" href="/downloads/level-2/level-2-project-brief-dyslexia.pdf"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Dyslexia-friendly edition (PDF)</a> </div> </header> <div class="lesson-layout"> <aside class="lesson-side" aria-label="On this page"> <nav class="toc" aria-label="Table of contents"><details open><summary>On this page</summary><ol> <li><a href="#step-1-choose-your-option">Step 1: Choose your option</a></li><li><a href="#step-2-know-the-must-haves">Step 2: Know the must-haves</a></li><li><a href="#step-3-get-an-idea">Step 3: Get an idea</a></li><li><a href="#step-4-milestones">Step 4: Milestones</a></li><li><a href="#planning-page-1-my-pitch-m1">Planning page 1: My pitch (M1)</a></li><li><a href="#planning-page-2-pseudocode-or-flowchart-m1">Planning page 2: Pseudocode or flowchart (M1)</a></li><li><a href="#planning-page-3-task-split-for-pairs-m1">Planning page 3: Task split for pairs (M1)</a></li><li><a href="#planning-page-4-my-tests-m3">Planning page 4: My tests (M3)</a></li><li><a href="#planning-page-5-playtest-and-accessibility-m4">Planning page 5: Playtest and accessibility (M4)</a></li><li><a href="#how-your-project-is-assessed">How your project is assessed</a></li><li><a href="#support-and-extension">Support and extension</a></li><li><a href="#when-you-are-stuck">When you are stuck</a></li> <li><a href="#starter">Starter files</a></li> </ol></details></nav> </aside> <div class="lesson"> <div><p><strong>Your mission:</strong> you have learned functions, lists, dictionaries, loops, files, tests and games with keys and timers. Now you put them together in a program that is completely <strong>yours</strong>. In week 12 your family will come to our <strong>Family Arcade</strong> to play your game or make art with your studio, and you will explain how it works. You can work alone or with a partner.</p>
+<h2 id="step-1-choose-your-option">Step 1: Choose your option</h2>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Two option cards side by side. Option A, arcade game: a black game screen showing the score and lives, a small pointy star, a big round meteor and a basket at the bottom that you move with the keys. Option B, art studio: a flower made of eight green petals on a white canvas, a saved-design note that reads petals 8, size 120, color green, and the keys n for new, s for save and l for load." class="fig fig-tikz" decoding="async" height="175" loading="lazy" src="/generated/fig/level-2/2190f56db71c.svg" width="566"/></figure>
+</div>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Option A: Arcade game</th>
+<th scope="col">Option B: Art studio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it is</td>
+<td>A turtle game with <strong>keys</strong>, a <strong>timer</strong> and a <strong>score</strong>.</td>
+<td>A program that <strong>makes designs</strong> (often random) and can <strong>save</strong> and <strong>load</strong> them.</td>
+</tr>
+<tr>
+<td>You will love it if…</td>
+<td>you like playing and inventing games.</td>
+<td>you like patterns, colors and surprises.</td>
+</tr>
+<tr>
+<td>Starter file</td>
+<td><code>starter/ game_template.py</code></td>
+<td><code>starter/ art_studio_template.py</code></td>
+</tr>
+<tr>
+<td>The file saves…</td>
+<td>high scores</td>
+<td>designs (one setting per line)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="step-2-know-the-must-haves">Step 2: Know the must-haves</h2>
+<p>Whatever you choose, your finished program must have all six. Check them off as you go.</p>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/><strong>Functions</strong> with parameters that <strong>return</strong> a value (for example <code>move(x, step)</code> or <code>is_touching(a, b)</code>).</label></li>
+<li class="check-item"><label><input type="checkbox"/>A <strong>list</strong> (enemies, coins, colors, a gallery of saved designs…).</label></li>
+<li class="check-item"><label><input type="checkbox"/>A <strong>dictionary</strong> (settings, a player, a design…).</label></li>
+<li class="check-item"><label><input type="checkbox"/>A <strong>while loop</strong> or a <strong>game loop with</strong> <code>ontimer</code>.</label></li>
+<li class="check-item"><label><input type="checkbox"/>A <strong>file</strong>: high scores or saved designs, next to your program, created if it is missing.</label></li>
+<li class="check-item"><label><input type="checkbox"/>At least <strong>3 pytest tests</strong> of your own functions, in <code>my_tests.py</code>.</label></li>
+</ul>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">The secret of easy tests</span></p>
+
+<p>Put the <em>rules</em> of your program (scores, moving, touching, saving) in small functions that do <strong>not</strong> use turtle. They take values in and return an answer, so they are easy to test. Keep the drawing in other functions.</p>
+</div>
+<h2 id="step-3-get-an-idea">Step 3: Get an idea</h2>
+<p>Pick one from the menu, change it, or invent your own.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Idea</th>
+<th scope="col">What happens</th>
+<th scope="col">A list of…</th>
+<th scope="col">The dictionary / file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Space Snack</td>
+<td>Fly a ship left and right, catch snacks, dodge asteroids.</td>
+<td>falling snacks and asteroids</td>
+<td>settings; high scores</td>
+</tr>
+<tr>
+<td>Dragon Feeder</td>
+<td>Move a dragon to eat apples before the timer ends. Golden apples are worth more.</td>
+<td>apples on the screen</td>
+<td>points for each kind; high scores</td>
+</tr>
+<tr>
+<td>Rainy Day</td>
+<td>Move an umbrella to keep a cat dry. Rain falls faster over time.</td>
+<td>raindrops</td>
+<td>speed levels; best time</td>
+</tr>
+<tr>
+<td>Bug Squasher</td>
+<td>Bugs appear in random places; move a net onto them with the arrow keys.</td>
+<td>bugs</td>
+<td>bug types and points; high scores</td>
+</tr>
+<tr>
+<td>Treasure Diver</td>
+<td>A diver collects pearls while sharks swim side to side.</td>
+<td>sharks and pearls</td>
+<td>settings; top 5 scores</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Kaleidoscope Lab</td>
+<td>Random mirrored patterns; press keys to change the number of mirrors.</td>
+<td>colors, shapes</td>
+<td>one design; saved designs file</td>
+</tr>
+<tr>
+<td>Pixel Pet Maker</td>
+<td>Draw a pet on a grid of squares from rows of letters.</td>
+<td>rows of the grid</td>
+<td>letter <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>→</mo><annotation encoding="application/x-tex">\to</annotation></semantics></math> color; saved pets</td>
+</tr>
+<tr>
+<td>Spiro Studio</td>
+<td>Spirograph-style loops; keys change size and turn.</td>
+<td>a gallery of designs</td>
+<td>one design; saved gallery</td>
+</tr>
+<tr>
+<td>Quilt Maker</td>
+<td>A quilt of squares, each with a random pattern.</td>
+<td>patterns</td>
+<td>pattern settings; saved quilts</td>
+</tr>
+<tr>
+<td>Firework Show</td>
+<td>Click or press keys to launch fireworks; save your show and replay it.</td>
+<td>fireworks in the show</td>
+<td>one firework; saved show</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="step-4-milestones">Step 4: Milestones</h2>
+<p>Big projects are built in small steps. Show your teacher each milestone.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Milestone</th>
+<th scope="col">When</th>
+<th scope="col">Done when…</th>
+<th scope="col">✓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1 Pitch and plan</td>
+<td>end of week 9</td>
+<td>Your pitch page, your pseudocode or flowchart, and (in a pair) your task split are filled in.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>M2 Core loop works</td>
+<td>week 10</td>
+<td>The main thing happens on screen: the player moves and things fall, or the studio draws a design when you press a key.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>M3 Data and tests</td>
+<td>week 11, first half</td>
+<td>Your list, dictionary and file work. <code>my_tests.py</code> has 3 tests that pass.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>M4 Polish</td>
+<td>week 11, second half</td>
+<td>Someone playtested it, you fixed one thing they found, and you did the accessibility check.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Showcase</td>
+<td>week 12</td>
+<td>You showed it at the Family Arcade and explained one part.</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="planning-page-1-my-pitch-m1">Planning page 1: My pitch (M1)</h2>
+<p>Project name: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Option: A ☐ B ☐ In one sentence, my project is…</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>How do you play it or use it? (keys, goal, how it ends)</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>My <strong>list</strong> will hold…</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>My <strong>dictionary</strong> will hold…</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>My <strong>file</strong> will save…</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>My <strong>loop</strong> (<code>while</code> or <code>ontimer</code>) will…</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>One thing that will make it special:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<h2 id="planning-page-2-pseudocode-or-flowchart-m1">Planning page 2: Pseudocode or flowchart (M1)</h2>
+<p>Plan the steps in plain words or boxes and arrows before you write Python. Here is the plan for a catching game:</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Flowchart of the game loop. Start with score 0 and lives 3. Move everything down. Is anything touching the basket? If yes, a star adds 1 to the score and a meteor takes 1 from the lives. Then ask: are the lives 0? If yes, the game is over and the score is saved in the file. If no, wait 40 milliseconds with ontimer and go back to moving everything down." class="fig fig-tikz" decoding="async" height="244" loading="lazy" src="/generated/fig/level-2/64f3de8d8408.svg" width="519"/></figure>
+</div>
+<p>My plan (pseudocode or flowchart):</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+<h2 id="planning-page-3-task-split-for-pairs-m1">Planning page 3: Task split for pairs (M1)</h2>
+<p>Split the work fairly: each person gets interesting jobs, and each person writes at least one function <strong>and</strong> one test. Swap driver and navigator every 8 minutes as usual.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Task</strong></th>
+<th scope="col"><strong>Who</strong></th>
+<th scope="col"><strong>Done</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rules functions (move, touching, score, …)</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Drawing: shapes, colors, text on screen</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Keys and timer (<code>onkey</code>, <code>ontimer</code>) or key menu</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>The list and the dictionary</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Saving and loading the file</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Tests in <code>my_tests.py</code></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Playtest notes and accessibility check</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td></td>
+<td>☐</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="planning-page-4-my-tests-m3">Planning page 4: My tests (M3)</h2>
+<p>Test a <strong>normal</strong> case and at least one <strong>edge</strong> case (a wall, zero, an empty list, a missing file).</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Function</strong></th>
+<th scope="col"><strong>I give it…</strong></th>
+<th scope="col"><strong>It should return…</strong></th>
+<th scope="col"><strong>Normal / edge</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clamp</code> (example)</td>
+<td><code>500, -270, 270</code></td>
+<td><code>270</code></td>
+<td>edge</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="planning-page-5-playtest-and-accessibility-m4">Planning page 5: Playtest and accessibility (M4)</h2>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/>A playtester tried it while I watched quietly and took notes.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I fixed or improved one thing from the playtest: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></label></li>
+<li class="check-item"><label><input type="checkbox"/>Colors come from the safe palette, and things that matter also differ in <strong>shape</strong> or <strong>size</strong>.</label></li>
+<li class="check-item"><label><input type="checkbox"/>Text is big enough to read from a chair.</label></li>
+<li class="check-item"><label><input type="checkbox"/>The keys are easy to reach, and the screen says which keys to use.</label></li>
+<li class="check-item"><label><input type="checkbox"/>It never asks for a real name, age, address, school or password.</label></li>
+<li class="check-item"><label><input type="checkbox"/>If I used someone else’s idea, art or code, I wrote who made it in a comment.</label></li>
+</ul>
+</div>
+<h2 id="how-your-project-is-assessed">How your project is assessed</h2>
+<p>Your teacher uses the same four questions. Check where you think you are now, and again at the end.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Just starting</th>
+<th scope="col">Getting there</th>
+<th scope="col">Got it</th>
+<th scope="col">Expert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creativity</td>
+<td>I changed a few things in the template.</td>
+<td>My project has my own theme and one new idea.</td>
+<td>My project has its own idea, rules and look.</td>
+<td>My idea has a surprising twist that makes people want another go.</td>
+</tr>
+<tr>
+<td>Working code</td>
+<td>It runs, but crashes or the main part does not work yet.</td>
+<td>The main part works; some must-haves are missing.</td>
+<td>It works as my pitch said, with all six must-haves.</td>
+<td>It also handles tricky moments (walls, missing file, playing again).</td>
+</tr>
+<tr>
+<td>Code quality and tests</td>
+<td>My code is one long block; no tests yet.</td>
+<td>I use some functions; 1–2 tests pass.</td>
+<td>Small functions with clear names and comments; 3 or more tests pass.</td>
+<td>Rules are separate from drawing; my tests include edge cases.</td>
+</tr>
+<tr>
+<td>Explaining it</td>
+<td>I can show what it does.</td>
+<td>With help, I can explain what one function does.</td>
+<td>I can explain how one part works and one decision I made.</td>
+<td>I can explain my design, what I would change, and a bug my tests caught.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="support-and-extension">Support and extension</h2>
+<div class="differentiation">
+<p>Start from the template and change it step by step. Aim first for M2 (the core loop) and two tests; your teacher can be your navigator. A small project that works and that you can explain is a great project. Put your rules in their own file (like <code>starcatcher_logic.py</code> in the reference game) and import it. Add levels, a start menu, a top-5 high-score table, or let players choose their own keys. Write a test for your file functions.</p>
+</div>
+<h2 id="when-you-are-stuck">When you are stuck</h2>
+<ol>
+<li><p>Read the error message: start with the <strong>last line</strong>.</p></li>
+<li><p>Print the values: <code>print("x is", x)</code>.</p></li>
+<li><p>Explain your code line by line to your partner or a rubber duck.</p></li>
+<li><p>Make the problem smaller: test one function on its own.</p></li>
+<li><p>Check the cheat sheet and the <code>starter/README.md</code>.</p></li>
+<li><p>Ask your teacher: say what you expected and what happened instead.</p></li>
+</ol>
+<div class="callout callout-safety" role="note"><p class="callout-title"><span class="callout-label">Safety</span><span class="callout-heading">Showcase safety</span></p>
+
+<p>Use a nickname on screen and on your project card. Your project stays on our computers and is shown to family only: nothing is uploaded. Credit anyone whose ideas, art or code you used.</p>
+</div>
+</div> <section aria-labelledby="starter"> <h2 id="starter">Starter files</h2> <p>These are templates to start from. They run, but the interesting parts are yours to write.</p> <div class="btn-row"><a class="btn small" href="/downloads/level-2/level-2-project-starter-files.zip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> All starter files (ZIP, 6 KB)</a></div> <div><h3 id="starter-final-project-starter-arcade-game-or-art-studio">Final project starter: Arcade Game or Art Studio</h3>
+<p>You get to build your own program! Pick ONE option:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Start from</th>
+<th>What it does now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Arcade game</td>
+<td><code>game_template.py</code></td>
+<td>Arrow keys move a square; touch the coin before the 30-second timer runs out.</td>
+</tr>
+<tr>
+<td>B. Art studio</td>
+<td><code>art_studio_template.py</code></td>
+<td><code>n</code> draws a new random flower, <code>s</code> saves it to <code>my_design.txt</code>. Loading (<code>l</code>) is your TODO.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="starter-getting-started-5-minutes">Getting started (5 minutes)</h3>
+<ol type="1">
+<li>In Finder, make a new folder for your project, for example <code>my-project-ada</code> (use your nickname, not your full name).</li>
+<li>Copy your template <strong>and</strong> <code>my_tests.py</code> into that folder.</li>
+<li>Rename the template to your game's name, for example <code>space_snack.py</code>. Use lowercase letters and underscores, no spaces.</li>
+<li>Open it in Thonny and press the green <strong>Run</strong> button. Click the turtle window once so it can hear your keys.</li>
+<li>Read the TODOs from top to bottom. Do them one at a time and press Run after every small change.</li>
+</ol>
+<h3 id="starter-your-project-must-have">Your project must have</h3>
+<ul class="task-list">
+<li class="check-item"><label><input type="checkbox"/>functions with parameters that <strong>return</strong> a value</label></li>
+<li class="check-item"><label><input type="checkbox"/>a <strong>list</strong> (enemies, coins, colors, a gallery of designs...)</label></li>
+<li class="check-item"><label><input type="checkbox"/>a <strong>dictionary</strong> (settings, a design, a player...)</label></li>
+<li class="check-item"><label><input type="checkbox"/>a <code>while</code> loop or a game loop with <code>ontimer</code></label></li>
+<li class="check-item"><label><input type="checkbox"/>a <strong>file</strong> (high scores or saved designs), created if it is missing</label></li>
+<li class="check-item"><label><input type="checkbox"/>at least <strong>3 tests</strong> of your own functions in <code>my_tests.py</code></label></li>
+</ul>
+<h3 id="starter-running-your-tests">Running your tests</h3>
+<ol type="1">
+<li>Open <code>my_tests.py</code>. Change the <code>import</code> line to your program's file name (without <code>.py</code>).</li>
+<li>Press <strong>Run</strong>. Every test should say <code>PASSED</code>.</li>
+<li>If Thonny says <code>No module named pytest</code>: <strong>Tools &gt; Manage packages...</strong>, type <code>pytest</code>, click <strong>Search</strong>, then <strong>Install</strong>. No account needed.</li>
+</ol>
+<p>Tip: put the rules of your program (scores, moving, touching) in small functions that do <strong>not</strong> use turtle. Those are easy to test.</p>
+<h3 id="starter-stuck">Stuck?</h3>
+<ul>
+<li>Nothing happens when you press a key: did you call <code>screen.listen()</code>? Did you write <code>onkey(go_left, "Left")</code> <strong>without</strong> <code>()</code> after <code>go_left</code>?</li>
+<li><code>FileNotFoundError</code>: the file does not exist yet. Catch it with <code>try</code> / <code>except FileNotFoundError</code> and start with an empty list.</li>
+<li>The program freezes: a <code>while</code> loop never ends. Press the red <strong>Stop</strong> button and check that something inside the loop changes.</li>
+<li>Ask your partner to be the "rubber duck": explain your code line by line.</li>
+</ul>
+</div> <div> <h3 id="file-art-studio-template-py">art_studio_template.py</h3> <div class="starter-code" style="position:relative"><pre tabindex="0"><code class="language-python"><span class="tok-sd">&quot;&quot;&quot;MY ART STUDIO - starter template (project option B).</span>
+
+<span class="tok-sd">Run it first! Click the window, then press:</span>
+<span class="tok-sd">    n   make a new random design</span>
+<span class="tok-sd">    s   save the design in my_design.txt (next to this program)</span>
+<span class="tok-sd">    l   load the saved design          (TODO 2 makes this work)</span>
+<span class="tok-sd">Then make it YOUR studio by working through the TODOs.</span>
+
+<span class="tok-sd">Project checklist - your finished studio needs all of these:</span>
+<span class="tok-sd">  [ ] functions with parameters that return values (random_design ...)</span>
+<span class="tok-sd">  [ ] a list        (PALETTE - TODO 3: a list of designs, a gallery)</span>
+<span class="tok-sd">  [ ] a dictionary  (each design is a dict)</span>
+<span class="tok-sd">  [ ] a while loop  (draw_spiral)</span>
+<span class="tok-sd">  [ ] a file        (save works; TODO 2: make load work)</span>
+<span class="tok-sd">  [ ] 3+ tests      (my_tests.py)</span>
+<span class="tok-sd">&quot;&quot;&quot;</span>
+
+<span class="tok-kn">import</span> <span class="tok-nn">random</span>
+<span class="tok-kn">import</span> <span class="tok-nn">turtle</span>
+<span class="tok-kn">from</span> <span class="tok-nn">pathlib</span> <span class="tok-kn">import</span> <span class="tok-n">Path</span>
+
+<span class="tok-c1"># Okabe-Ito colors: safe for color-blind viewers.</span>
+<span class="tok-n">PALETTE</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;#E69F00&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#56B4E9&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#009E73&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#F0E442&quot;</span><span class="tok-p">,</span>
+           <span class="tok-s2">&quot;#0072B2&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#D55E00&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#CC79A7&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#000000&quot;</span><span class="tok-p">]</span>
+
+<span class="tok-c1"># The saved design sits in the same folder as this program.</span>
+<span class="tok-n">SAVE_FILE</span> <span class="tok-o">=</span> <span class="tok-n">Path</span><span class="tok-p">(</span><span class="tok-vm">__file__</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">parent</span> <span class="tok-o">/</span> <span class="tok-s2">&quot;my_design.txt&quot;</span>
+
+<span class="tok-n">view</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>                 <span class="tok-c1"># the screen and the turtle</span>
+<span class="tok-n">current</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>              <span class="tok-c1"># the design on the screen right now</span>
+
+
+<span class="tok-c1"># ---------- RULES: pure functions, no turtle. Test them in my_tests.py.</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">random_design</span><span class="tok-p">():</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Return a new design: a dictionary of settings.&quot;&quot;&quot;</span>
+    <span class="tok-c1"># TODO 1: add your own keys, e.g. &quot;background&quot; or &quot;stroke&quot;.</span>
+    <span class="tok-k">return</span> <span class="tok-p">{</span>
+        <span class="tok-s2">&quot;petals&quot;</span><span class="tok-p">:</span> <span class="tok-n">random</span><span class="tok-o">.</span><span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">,</span> <span class="tok-mi">12</span><span class="tok-p">),</span>
+        <span class="tok-s2">&quot;size&quot;</span><span class="tok-p">:</span> <span class="tok-n">random</span><span class="tok-o">.</span><span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-mi">60</span><span class="tok-p">,</span> <span class="tok-mi">180</span><span class="tok-p">),</span>
+        <span class="tok-s2">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-n">random</span><span class="tok-o">.</span><span class="tok-n">choice</span><span class="tok-p">(</span><span class="tok-n">PALETTE</span><span class="tok-p">[:</span><span class="tok-mi">7</span><span class="tok-p">]),</span>
+    <span class="tok-p">}</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">design_to_text</span><span class="tok-p">(</span><span class="tok-n">design</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Turn a design into text, one &quot;key=value&quot; line per setting.&quot;&quot;&quot;</span>
+    <span class="tok-n">lines</span> <span class="tok-o">=</span> <span class="tok-p">[]</span>
+    <span class="tok-k">for</span> <span class="tok-n">key</span><span class="tok-p">,</span> <span class="tok-n">value</span> <span class="tok-ow">in</span> <span class="tok-n">design</span><span class="tok-o">.</span><span class="tok-n">items</span><span class="tok-p">():</span>
+        <span class="tok-n">lines</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-sa">f</span><span class="tok-s2">&quot;</span><span class="tok-si">{</span><span class="tok-n">key</span><span class="tok-si">}</span><span class="tok-s2">=</span><span class="tok-si">{</span><span class="tok-n">value</span><span class="tok-si">}</span><span class="tok-s2">&quot;</span><span class="tok-p">)</span>
+    <span class="tok-k">return</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span><span class="tok-o">.</span><span class="tok-n">join</span><span class="tok-p">(</span><span class="tok-n">lines</span><span class="tok-p">)</span> <span class="tok-o">+</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">text_to_design</span><span class="tok-p">(</span><span class="tok-n">text</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;The opposite of design_to_text: turn the text back into a dict.&quot;&quot;&quot;</span>
+    <span class="tok-n">design</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+    <span class="tok-c1"># TODO 2: for each line in text.split(&quot;\n&quot;):</span>
+    <span class="tok-c1">#   skip empty lines; split the line at &quot;=&quot; into key and value;</span>
+    <span class="tok-c1">#   if value.isdigit(), turn it into an int; put it in design[key].</span>
+    <span class="tok-k">return</span> <span class="tok-n">design</span>
+
+
+<span class="tok-c1"># ---------- DRAWING AND KEYS</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">draw_spiral</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;A small spiral in the middle. It grows WHILE it is smaller than size.&quot;&quot;&quot;</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">penup</span><span class="tok-p">()</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">goto</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">pendown</span><span class="tok-p">()</span>
+    <span class="tok-n">length</span> <span class="tok-o">=</span> <span class="tok-mi">2</span>
+    <span class="tok-k">while</span> <span class="tok-n">length</span> <span class="tok-o">&lt;</span> <span class="tok-n">size</span> <span class="tok-o">/</span> <span class="tok-mi">4</span><span class="tok-p">:</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-n">length</span><span class="tok-p">)</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">30</span><span class="tok-p">)</span>
+        <span class="tok-n">length</span> <span class="tok-o">=</span> <span class="tok-n">length</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">draw_design</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">,</span> <span class="tok-n">design</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Draw one design: petals in a circle, then a spiral.&quot;&quot;&quot;</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">color</span><span class="tok-p">(</span><span class="tok-n">design</span><span class="tok-p">[</span><span class="tok-s2">&quot;color&quot;</span><span class="tok-p">])</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">pensize</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">)</span>
+    <span class="tok-k">for</span> <span class="tok-n">_</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-n">design</span><span class="tok-p">[</span><span class="tok-s2">&quot;petals&quot;</span><span class="tok-p">]):</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">penup</span><span class="tok-p">()</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">goto</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">pendown</span><span class="tok-p">()</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-n">design</span><span class="tok-p">[</span><span class="tok-s2">&quot;size&quot;</span><span class="tok-p">]</span> <span class="tok-o">/</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">)</span>   <span class="tok-c1"># one side of a petal</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">60</span><span class="tok-p">)</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">circle</span><span class="tok-p">(</span><span class="tok-n">design</span><span class="tok-p">[</span><span class="tok-s2">&quot;size&quot;</span><span class="tok-p">]</span> <span class="tok-o">/</span> <span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">)</span>   <span class="tok-c1"># the other side</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">60</span> <span class="tok-o">+</span> <span class="tok-mi">360</span> <span class="tok-o">/</span> <span class="tok-n">design</span><span class="tok-p">[</span><span class="tok-s2">&quot;petals&quot;</span><span class="tok-p">])</span>
+    <span class="tok-n">draw_spiral</span><span class="tok-p">(</span><span class="tok-n">t</span><span class="tok-p">,</span> <span class="tok-n">design</span><span class="tok-p">[</span><span class="tok-s2">&quot;size&quot;</span><span class="tok-p">])</span>
+    <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">new_design</span><span class="tok-p">():</span>
+    <span class="tok-n">current</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span>
+    <span class="tok-n">current</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">random_design</span><span class="tok-p">())</span>
+    <span class="tok-n">draw_design</span><span class="tok-p">(</span><span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;artist&quot;</span><span class="tok-p">],</span> <span class="tok-n">current</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">save_design</span><span class="tok-p">():</span>
+    <span class="tok-k">with</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-n">SAVE_FILE</span><span class="tok-p">,</span> <span class="tok-s2">&quot;w&quot;</span><span class="tok-p">)</span> <span class="tok-k">as</span> <span class="tok-n">file</span><span class="tok-p">:</span>
+        <span class="tok-n">file</span><span class="tok-o">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-n">design_to_text</span><span class="tok-p">(</span><span class="tok-n">current</span><span class="tok-p">))</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Saved to&quot;</span><span class="tok-p">,</span> <span class="tok-n">SAVE_FILE</span><span class="tok-o">.</span><span class="tok-n">name</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">load_design</span><span class="tok-p">():</span>
+    <span class="tok-k">try</span><span class="tok-p">:</span>
+        <span class="tok-k">with</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-n">SAVE_FILE</span><span class="tok-p">)</span> <span class="tok-k">as</span> <span class="tok-n">file</span><span class="tok-p">:</span>
+            <span class="tok-n">design</span> <span class="tok-o">=</span> <span class="tok-n">text_to_design</span><span class="tok-p">(</span><span class="tok-n">file</span><span class="tok-o">.</span><span class="tok-n">read</span><span class="tok-p">())</span>
+    <span class="tok-k">except</span> <span class="tok-ne">FileNotFoundError</span><span class="tok-p">:</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Nothing saved yet - press s first.&quot;</span><span class="tok-p">)</span>
+        <span class="tok-k">return</span>
+    <span class="tok-k">if</span> <span class="tok-ow">not</span> <span class="tok-n">design</span><span class="tok-p">:</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;TODO 2: finish text_to_design so loading works.&quot;</span><span class="tok-p">)</span>
+        <span class="tok-k">return</span>
+    <span class="tok-n">current</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span>
+    <span class="tok-n">current</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">design</span><span class="tok-p">)</span>
+    <span class="tok-n">draw_design</span><span class="tok-p">(</span><span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;artist&quot;</span><span class="tok-p">],</span> <span class="tok-n">current</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">start_studio</span><span class="tok-p">():</span>
+    <span class="tok-n">screen</span> <span class="tok-o">=</span> <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">Screen</span><span class="tok-p">()</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">setup</span><span class="tok-p">(</span><span class="tok-mi">600</span><span class="tok-p">,</span> <span class="tok-mi">600</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">title</span><span class="tok-p">(</span><span class="tok-s2">&quot;My Art Studio&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">tracer</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+    <span class="tok-n">artist</span> <span class="tok-o">=</span> <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">Turtle</span><span class="tok-p">()</span>
+    <span class="tok-n">artist</span><span class="tok-o">.</span><span class="tok-n">hideturtle</span><span class="tok-p">()</span>
+    <span class="tok-n">view</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">screen</span><span class="tok-o">=</span><span class="tok-n">screen</span><span class="tok-p">,</span> <span class="tok-n">artist</span><span class="tok-o">=</span><span class="tok-n">artist</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">new_design</span><span class="tok-p">,</span> <span class="tok-s2">&quot;n&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">save_design</span><span class="tok-p">,</span> <span class="tok-s2">&quot;s&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">load_design</span><span class="tok-p">,</span> <span class="tok-s2">&quot;l&quot;</span><span class="tok-p">)</span>
+    <span class="tok-c1"># TODO 3: keep a LIST of designs (a gallery) and press g to show them.</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">listen</span><span class="tok-p">()</span>
+    <span class="tok-n">new_design</span><span class="tok-p">()</span>
+
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;__main__&quot;</span><span class="tok-p">:</span>
+    <span class="tok-n">start_studio</span><span class="tok-p">()</span>
+    <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">done</span><span class="tok-p">()</span></code></pre></div> <div class="btn-row"><a class="btn secondary small" href="/downloads/level-2/project-starter/art_studio_template.py" download><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Download art_studio_template.py</a></div> </div><div> <h3 id="file-game-template-py">game_template.py</h3> <div class="starter-code" style="position:relative"><pre tabindex="0"><code class="language-python"><span class="tok-sd">&quot;&quot;&quot;MY ARCADE GAME - starter template (project option A).</span>
+
+<span class="tok-sd">Run it first! Click the window, then use the arrow keys to move the square</span>
+<span class="tok-sd">and touch the coin before the time runs out. Then make it YOUR game by</span>
+<span class="tok-sd">working through the TODOs from top to bottom.</span>
+
+<span class="tok-sd">Project checklist - your finished game needs all of these:</span>
+<span class="tok-sd">  [ ] functions with parameters that return values (clamp, is_touching ...)</span>
+<span class="tok-sd">  [ ] a dictionary  (SETTINGS - add your own keys)</span>
+<span class="tok-sd">  [ ] a game loop   (game_loop + countdown use ontimer)</span>
+<span class="tok-sd">  [ ] a list        (TODO 3)</span>
+<span class="tok-sd">  [ ] a file        (TODO 4: save the high score)</span>
+<span class="tok-sd">  [ ] 3+ tests      (my_tests.py)</span>
+<span class="tok-sd">&quot;&quot;&quot;</span>
+
+<span class="tok-kn">import</span> <span class="tok-nn">random</span>
+<span class="tok-kn">import</span> <span class="tok-nn">turtle</span>
+
+<span class="tok-c1"># Okabe-Ito colors: safe for color-blind players. Use shapes too!</span>
+<span class="tok-n">PALETTE</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;#E69F00&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#56B4E9&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#009E73&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#F0E442&quot;</span><span class="tok-p">,</span>
+           <span class="tok-s2">&quot;#0072B2&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#D55E00&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#CC79A7&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;#000000&quot;</span><span class="tok-p">]</span>
+
+<span class="tok-c1"># TODO 1: change these numbers and see how the game feels.</span>
+<span class="tok-n">SETTINGS</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+    <span class="tok-s2">&quot;step&quot;</span><span class="tok-p">:</span> <span class="tok-mi">20</span><span class="tok-p">,</span>          <span class="tok-c1"># pixels per key press</span>
+    <span class="tok-s2">&quot;wall&quot;</span><span class="tok-p">:</span> <span class="tok-mi">270</span><span class="tok-p">,</span>         <span class="tok-c1"># the player stays between -wall and +wall</span>
+    <span class="tok-s2">&quot;reach&quot;</span><span class="tok-p">:</span> <span class="tok-mi">25</span><span class="tok-p">,</span>         <span class="tok-c1"># this close counts as touching</span>
+    <span class="tok-s2">&quot;time_limit&quot;</span><span class="tok-p">:</span> <span class="tok-mi">30</span><span class="tok-p">,</span>    <span class="tok-c1"># seconds in one game</span>
+    <span class="tok-s2">&quot;tick_ms&quot;</span><span class="tok-p">:</span> <span class="tok-mi">50</span><span class="tok-p">,</span>       <span class="tok-c1"># milliseconds between game-loop ticks</span>
+<span class="tok-p">}</span>
+
+<span class="tok-n">game</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s2">&quot;score&quot;</span><span class="tok-p">:</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-s2">&quot;time_left&quot;</span><span class="tok-p">:</span> <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;time_limit&quot;</span><span class="tok-p">],</span> <span class="tok-s2">&quot;running&quot;</span><span class="tok-p">:</span> <span class="tok-kc">True</span><span class="tok-p">}</span>
+<span class="tok-n">view</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>   <span class="tok-c1"># the screen and turtles, filled in by setup_window()</span>
+
+
+<span class="tok-c1"># ---------- RULES: pure functions, no turtle. Test them in my_tests.py.</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">clamp</span><span class="tok-p">(</span><span class="tok-n">value</span><span class="tok-p">,</span> <span class="tok-n">low</span><span class="tok-p">,</span> <span class="tok-n">high</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Return value, but never less than low and never more than high.&quot;&quot;&quot;</span>
+    <span class="tok-k">if</span> <span class="tok-n">value</span> <span class="tok-o">&lt;</span> <span class="tok-n">low</span><span class="tok-p">:</span>
+        <span class="tok-k">return</span> <span class="tok-n">low</span>
+    <span class="tok-k">if</span> <span class="tok-n">value</span> <span class="tok-o">&gt;</span> <span class="tok-n">high</span><span class="tok-p">:</span>
+        <span class="tok-k">return</span> <span class="tok-n">high</span>
+    <span class="tok-k">return</span> <span class="tok-n">value</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">is_touching</span><span class="tok-p">(</span><span class="tok-n">x1</span><span class="tok-p">,</span> <span class="tok-n">y1</span><span class="tok-p">,</span> <span class="tok-n">x2</span><span class="tok-p">,</span> <span class="tok-n">y2</span><span class="tok-p">,</span> <span class="tok-n">reach</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;True when point (x1, y1) is within reach of point (x2, y2).&quot;&quot;&quot;</span>
+    <span class="tok-n">distance</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x1</span> <span class="tok-o">-</span> <span class="tok-n">x2</span><span class="tok-p">)</span> <span class="tok-o">**</span> <span class="tok-mi">2</span> <span class="tok-o">+</span> <span class="tok-p">(</span><span class="tok-n">y1</span> <span class="tok-o">-</span> <span class="tok-n">y2</span><span class="tok-p">)</span> <span class="tok-o">**</span> <span class="tok-mi">2</span><span class="tok-p">)</span> <span class="tok-o">**</span> <span class="tok-mf">0.5</span>
+    <span class="tok-k">return</span> <span class="tok-n">distance</span> <span class="tok-o">&lt;=</span> <span class="tok-n">reach</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">add_points</span><span class="tok-p">(</span><span class="tok-n">score</span><span class="tok-p">,</span> <span class="tok-n">points</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Return the new score.&quot;&quot;&quot;</span>
+    <span class="tok-k">return</span> <span class="tok-n">score</span> <span class="tok-o">+</span> <span class="tok-n">points</span>
+
+
+<span class="tok-c1"># TODO 4: write load_high_score(filename) and save_high_score(filename, score).</span>
+<span class="tok-c1"># Hint: look back at your week 7 work. Open with &quot;w&quot; to write. Reading a file</span>
+<span class="tok-c1"># that does not exist yet gives FileNotFoundError - use try/except.</span>
+
+
+<span class="tok-c1"># ---------- DRAWING AND KEYS</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">setup_window</span><span class="tok-p">():</span>
+    <span class="tok-n">screen</span> <span class="tok-o">=</span> <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">Screen</span><span class="tok-p">()</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">setup</span><span class="tok-p">(</span><span class="tok-mi">600</span><span class="tok-p">,</span> <span class="tok-mi">600</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">title</span><span class="tok-p">(</span><span class="tok-s2">&quot;My Arcade Game&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">tracer</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+
+    <span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">Turtle</span><span class="tok-p">()</span>
+    <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">shape</span><span class="tok-p">(</span><span class="tok-s2">&quot;square&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">color</span><span class="tok-p">(</span><span class="tok-n">PALETTE</span><span class="tok-p">[</span><span class="tok-mi">4</span><span class="tok-p">])</span>
+    <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">penup</span><span class="tok-p">()</span>
+
+    <span class="tok-n">coin</span> <span class="tok-o">=</span> <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">Turtle</span><span class="tok-p">()</span>
+    <span class="tok-n">coin</span><span class="tok-o">.</span><span class="tok-n">shape</span><span class="tok-p">(</span><span class="tok-s2">&quot;circle&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">coin</span><span class="tok-o">.</span><span class="tok-n">color</span><span class="tok-p">(</span><span class="tok-n">PALETTE</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">])</span>
+    <span class="tok-n">coin</span><span class="tok-o">.</span><span class="tok-n">penup</span><span class="tok-p">()</span>
+
+    <span class="tok-n">hud</span> <span class="tok-o">=</span> <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">Turtle</span><span class="tok-p">()</span>
+    <span class="tok-n">hud</span><span class="tok-o">.</span><span class="tok-n">hideturtle</span><span class="tok-p">()</span>
+    <span class="tok-n">hud</span><span class="tok-o">.</span><span class="tok-n">penup</span><span class="tok-p">()</span>
+
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">go_left</span><span class="tok-p">,</span> <span class="tok-s2">&quot;Left&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">go_right</span><span class="tok-p">,</span> <span class="tok-s2">&quot;Right&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">go_up</span><span class="tok-p">,</span> <span class="tok-s2">&quot;Up&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">go_down</span><span class="tok-p">,</span> <span class="tok-s2">&quot;Down&quot;</span><span class="tok-p">)</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">listen</span><span class="tok-p">()</span>
+    <span class="tok-n">view</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">(</span><span class="tok-n">screen</span><span class="tok-o">=</span><span class="tok-n">screen</span><span class="tok-p">,</span> <span class="tok-n">player</span><span class="tok-o">=</span><span class="tok-n">player</span><span class="tok-p">,</span> <span class="tok-n">coin</span><span class="tok-o">=</span><span class="tok-n">coin</span><span class="tok-p">,</span> <span class="tok-n">hud</span><span class="tok-o">=</span><span class="tok-n">hud</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">move</span><span class="tok-p">(</span><span class="tok-n">dx</span><span class="tok-p">,</span> <span class="tok-n">dy</span><span class="tok-p">):</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Move the player, but keep it inside the walls.&quot;&quot;&quot;</span>
+    <span class="tok-n">player</span> <span class="tok-o">=</span> <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;player&quot;</span><span class="tok-p">]</span>
+    <span class="tok-n">wall</span> <span class="tok-o">=</span> <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;wall&quot;</span><span class="tok-p">]</span>
+    <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">clamp</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">xcor</span><span class="tok-p">()</span> <span class="tok-o">+</span> <span class="tok-n">dx</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-n">wall</span><span class="tok-p">,</span> <span class="tok-n">wall</span><span class="tok-p">)</span>
+    <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">clamp</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">ycor</span><span class="tok-p">()</span> <span class="tok-o">+</span> <span class="tok-n">dy</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-n">wall</span><span class="tok-p">,</span> <span class="tok-n">wall</span><span class="tok-p">)</span>
+    <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">goto</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">go_left</span><span class="tok-p">():</span>
+    <span class="tok-n">move</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;step&quot;</span><span class="tok-p">],</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">go_right</span><span class="tok-p">():</span>
+    <span class="tok-n">move</span><span class="tok-p">(</span><span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;step&quot;</span><span class="tok-p">],</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">go_up</span><span class="tok-p">():</span>
+    <span class="tok-n">move</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;step&quot;</span><span class="tok-p">])</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">go_down</span><span class="tok-p">():</span>
+    <span class="tok-n">move</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;step&quot;</span><span class="tok-p">])</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">place_coin</span><span class="tok-p">():</span>
+    <span class="tok-n">wall</span> <span class="tok-o">=</span> <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;wall&quot;</span><span class="tok-p">]</span>
+    <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;coin&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">goto</span><span class="tok-p">(</span><span class="tok-n">random</span><span class="tok-o">.</span><span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">wall</span><span class="tok-p">,</span> <span class="tok-n">wall</span><span class="tok-p">),</span> <span class="tok-n">random</span><span class="tok-o">.</span><span class="tok-n">randint</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-n">wall</span><span class="tok-p">,</span> <span class="tok-n">wall</span><span class="tok-p">))</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">draw_hud</span><span class="tok-p">():</span>
+    <span class="tok-n">hud</span> <span class="tok-o">=</span> <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;hud&quot;</span><span class="tok-p">]</span>
+    <span class="tok-n">hud</span><span class="tok-o">.</span><span class="tok-n">clear</span><span class="tok-p">()</span>
+    <span class="tok-n">hud</span><span class="tok-o">.</span><span class="tok-n">goto</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mi">280</span><span class="tok-p">,</span> <span class="tok-mi">260</span><span class="tok-p">)</span>
+    <span class="tok-n">hud</span><span class="tok-o">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-sa">f</span><span class="tok-s2">&quot;Score: </span><span class="tok-si">{</span><span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s1">&#39;score&#39;</span><span class="tok-p">]</span><span class="tok-si">}</span><span class="tok-s2">   Time: </span><span class="tok-si">{</span><span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s1">&#39;time_left&#39;</span><span class="tok-p">]</span><span class="tok-si">}</span><span class="tok-s2">&quot;</span><span class="tok-p">,</span>
+              <span class="tok-n">font</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-s2">&quot;Arial&quot;</span><span class="tok-p">,</span> <span class="tok-mi">16</span><span class="tok-p">,</span> <span class="tok-s2">&quot;bold&quot;</span><span class="tok-p">))</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">game_loop</span><span class="tok-p">():</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Runs every tick_ms milliseconds while the game is running.&quot;&quot;&quot;</span>
+    <span class="tok-k">if</span> <span class="tok-ow">not</span> <span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;running&quot;</span><span class="tok-p">]:</span>
+        <span class="tok-k">return</span>
+    <span class="tok-n">player</span><span class="tok-p">,</span> <span class="tok-n">coin</span> <span class="tok-o">=</span> <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;player&quot;</span><span class="tok-p">],</span> <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;coin&quot;</span><span class="tok-p">]</span>
+    <span class="tok-k">if</span> <span class="tok-n">is_touching</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">xcor</span><span class="tok-p">(),</span> <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">ycor</span><span class="tok-p">(),</span> <span class="tok-n">coin</span><span class="tok-o">.</span><span class="tok-n">xcor</span><span class="tok-p">(),</span> <span class="tok-n">coin</span><span class="tok-o">.</span><span class="tok-n">ycor</span><span class="tok-p">(),</span>
+                   <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;reach&quot;</span><span class="tok-p">]):</span>
+        <span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;score&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">add_points</span><span class="tok-p">(</span><span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;score&quot;</span><span class="tok-p">],</span> <span class="tok-mi">1</span><span class="tok-p">)</span>
+        <span class="tok-n">place_coin</span><span class="tok-p">()</span>
+    <span class="tok-c1"># TODO 3: make a LIST of enemies (or extra coins). Move each one here</span>
+    <span class="tok-c1"># with a for loop, and check if the player touches it.</span>
+    <span class="tok-n">draw_hud</span><span class="tok-p">()</span>
+    <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span>
+    <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">ontimer</span><span class="tok-p">(</span><span class="tok-n">game_loop</span><span class="tok-p">,</span> <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;tick_ms&quot;</span><span class="tok-p">])</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">countdown</span><span class="tok-p">():</span>
+<span class="tok-w">    </span><span class="tok-sd">&quot;&quot;&quot;Runs once a second: the clock goes down until it reaches 0.&quot;&quot;&quot;</span>
+    <span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;time_left&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;time_left&quot;</span><span class="tok-p">]</span> <span class="tok-o">-</span> <span class="tok-mi">1</span>
+    <span class="tok-k">if</span> <span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;time_left&quot;</span><span class="tok-p">]</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+        <span class="tok-n">game</span><span class="tok-p">[</span><span class="tok-s2">&quot;running&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-kc">False</span>
+        <span class="tok-n">draw_hud</span><span class="tok-p">()</span>
+        <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;hud&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">goto</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+        <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;hud&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-s2">&quot;TIME UP!&quot;</span><span class="tok-p">,</span> <span class="tok-n">align</span><span class="tok-o">=</span><span class="tok-s2">&quot;center&quot;</span><span class="tok-p">,</span> <span class="tok-n">font</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-s2">&quot;Arial&quot;</span><span class="tok-p">,</span> <span class="tok-mi">24</span><span class="tok-p">,</span> <span class="tok-s2">&quot;bold&quot;</span><span class="tok-p">))</span>
+        <span class="tok-c1"># TODO 4: save the score here if it is a new high score.</span>
+        <span class="tok-c1"># TODO 5: press space to play again.</span>
+        <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span>
+    <span class="tok-k">else</span><span class="tok-p">:</span>
+        <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">ontimer</span><span class="tok-p">(</span><span class="tok-n">countdown</span><span class="tok-p">,</span> <span class="tok-mi">1000</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">start_game</span><span class="tok-p">():</span>
+    <span class="tok-n">setup_window</span><span class="tok-p">()</span>
+    <span class="tok-n">place_coin</span><span class="tok-p">()</span>
+    <span class="tok-n">draw_hud</span><span class="tok-p">()</span>
+    <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">ontimer</span><span class="tok-p">(</span><span class="tok-n">game_loop</span><span class="tok-p">,</span> <span class="tok-n">SETTINGS</span><span class="tok-p">[</span><span class="tok-s2">&quot;tick_ms&quot;</span><span class="tok-p">])</span>
+    <span class="tok-n">view</span><span class="tok-p">[</span><span class="tok-s2">&quot;screen&quot;</span><span class="tok-p">]</span><span class="tok-o">.</span><span class="tok-n">ontimer</span><span class="tok-p">(</span><span class="tok-n">countdown</span><span class="tok-p">,</span> <span class="tok-mi">1000</span><span class="tok-p">)</span>
+
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;__main__&quot;</span><span class="tok-p">:</span>
+    <span class="tok-n">start_game</span><span class="tok-p">()</span>
+    <span class="tok-n">turtle</span><span class="tok-o">.</span><span class="tok-n">done</span><span class="tok-p">()</span></code></pre></div> <div class="btn-row"><a class="btn secondary small" href="/downloads/level-2/project-starter/game_template.py" download><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Download game_template.py</a></div> </div><div> <h3 id="file-my-tests-py">my_tests.py</h3> <div class="starter-code" style="position:relative"><pre tabindex="0"><code class="language-python"><span class="tok-sd">&quot;&quot;&quot;MY TESTS - open this file in Thonny and press the green Run button (F5).</span>
+
+<span class="tok-sd">pytest runs every function whose name starts with test_ and tells you</span>
+<span class="tok-sd">which ones PASSED and which FAILED. A test is a small check:</span>
+<span class="tok-sd">    assert &lt;something that should be True&gt;, &quot;message if it is not&quot;</span>
+
+<span class="tok-sd">1. Change the import below to YOUR program&#39;s file name (without .py).</span>
+<span class="tok-sd">2. Keep the example tests that still fit, delete the others.</span>
+<span class="tok-sd">3. Write at least 3 tests of YOUR OWN functions (TODO at the bottom).</span>
+<span class="tok-sd">   Test a normal case AND an edge case (a wall, zero, an empty list...).</span>
+<span class="tok-sd">&quot;&quot;&quot;</span>
+
+<span class="tok-kn">import</span> <span class="tok-nn">art_studio_template</span> <span class="tok-k">as</span> <span class="tok-nn">art</span>
+<span class="tok-kn">import</span> <span class="tok-nn">game_template</span> <span class="tok-k">as</span> <span class="tok-nn">game</span>
+
+
+<span class="tok-c1"># ---- Examples for option A (arcade game)</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">test_clamp_leaves_a_good_value_alone</span><span class="tok-p">():</span>
+    <span class="tok-k">assert</span> <span class="tok-n">game</span><span class="tok-o">.</span><span class="tok-n">clamp</span><span class="tok-p">(</span><span class="tok-mi">50</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">270</span><span class="tok-p">,</span> <span class="tok-mi">270</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-mi">50</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">test_clamp_stops_at_the_wall</span><span class="tok-p">():</span>
+    <span class="tok-c1"># Edge case: past the wall on both sides.</span>
+    <span class="tok-k">assert</span> <span class="tok-n">game</span><span class="tok-o">.</span><span class="tok-n">clamp</span><span class="tok-p">(</span><span class="tok-mi">500</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">270</span><span class="tok-p">,</span> <span class="tok-mi">270</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-mi">270</span><span class="tok-p">,</span> <span class="tok-s2">&quot;Should stop at the right wall.&quot;</span>
+    <span class="tok-k">assert</span> <span class="tok-n">game</span><span class="tok-o">.</span><span class="tok-n">clamp</span><span class="tok-p">(</span><span class="tok-o">-</span><span class="tok-mi">500</span><span class="tok-p">,</span> <span class="tok-o">-</span><span class="tok-mi">270</span><span class="tok-p">,</span> <span class="tok-mi">270</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-o">-</span><span class="tok-mi">270</span><span class="tok-p">,</span> <span class="tok-s2">&quot;Should stop at the left wall.&quot;</span>
+
+
+<span class="tok-k">def</span> <span class="tok-nf">test_touching_only_when_close</span><span class="tok-p">():</span>
+    <span class="tok-k">assert</span> <span class="tok-n">game</span><span class="tok-o">.</span><span class="tok-n">is_touching</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-mi">25</span><span class="tok-p">),</span> <span class="tok-s2">&quot;These points are close.&quot;</span>
+    <span class="tok-k">assert</span> <span class="tok-ow">not</span> <span class="tok-n">game</span><span class="tok-o">.</span><span class="tok-n">is_touching</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">100</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">25</span><span class="tok-p">),</span> <span class="tok-s2">&quot;These points are far apart.&quot;</span>
+
+
+<span class="tok-c1"># ---- Example for option B (art studio)</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">test_design_to_text_makes_one_line_per_setting</span><span class="tok-p">():</span>
+    <span class="tok-n">text</span> <span class="tok-o">=</span> <span class="tok-n">art</span><span class="tok-o">.</span><span class="tok-n">design_to_text</span><span class="tok-p">({</span><span class="tok-s2">&quot;petals&quot;</span><span class="tok-p">:</span> <span class="tok-mi">6</span><span class="tok-p">,</span> <span class="tok-s2">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#009E73&quot;</span><span class="tok-p">})</span>
+    <span class="tok-k">assert</span> <span class="tok-n">text</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;petals=6</span><span class="tok-se">\n</span><span class="tok-s2">color=#009E73</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+
+
+<span class="tok-c1"># When you have finished TODO 2 in art_studio_template.py, remove the #</span>
+<span class="tok-c1"># signs below: this test checks that saving and loading give back the same</span>
+<span class="tok-c1"># design (a &quot;round trip&quot;).</span>
+<span class="tok-c1">#</span>
+<span class="tok-c1"># def test_text_to_design_undoes_design_to_text():</span>
+<span class="tok-c1">#     design = {&quot;petals&quot;: 6, &quot;size&quot;: 120, &quot;color&quot;: &quot;#009E73&quot;}</span>
+<span class="tok-c1">#     assert art.text_to_design(art.design_to_text(design)) == design</span>
+
+
+<span class="tok-c1"># ---- TODO: YOUR tests. Copy this pattern:</span>
+<span class="tok-c1">#</span>
+<span class="tok-c1"># def test_what_should_happen():</span>
+<span class="tok-c1">#     result = my_function(some, values)</span>
+<span class="tok-c1">#     assert result == what_i_expect, &quot;a helpful message&quot;</span>
+
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;__main__&quot;</span><span class="tok-p">:</span>
+    <span class="tok-kn">import</span> <span class="tok-nn">pytest</span>
+    <span class="tok-n">pytest</span><span class="tok-o">.</span><span class="tok-n">main</span><span class="tok-p">([</span><span class="tok-s2">&quot;-v&quot;</span><span class="tok-p">,</span> <span class="tok-vm">__file__</span><span class="tok-p">])</span></code></pre></div> <div class="btn-row"><a class="btn secondary small" href="/downloads/level-2/project-starter/my_tests.py" download><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Download my_tests.py</a></div> </div>  </section> <nav class="pagination" aria-label="Back to the level"><a class="card prev" href="/levels/level-2/"><span class="small muted">Back to</span><br><strong>Level 2: Intermediate</strong></a><span></span></nav> </div> </div> </div>  </div> </main> <footer class="site-footer"> <div class="palette-bar" aria-hidden="true" style="margin-top:-2.5rem;margin-bottom:2.5rem"></div> <div class="wrap"> <div class="cols"> <div> <h2>Kids Coding</h2> <p>A free course for children from Grade 5: make games and art, first with Scratch blocks, then with Python. One 60-minute session a week.</p> <p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"></path></svg> No accounts, no ads, no tracking.</p> </div> <div> <h2>Explore</h2> <ul> <li><a href="/parents/">For parents</a></li> <li><a href="/curriculum/">Curriculum and timeline</a></li> <li><a href="/levels/level-1/">Level 1: Introduction</a></li> <li><a href="/levels/level-2/">Level 2: Intermediate</a></li> <li><a href="/levels/level-3/">Level 3: Advanced</a></li> <li><a href="/resources/">Resources: setup, cheat sheets, glossary</a></li> <li><a href="/search/">Search</a></li> <li><a href="/about/">About, accessibility and credits</a></li> </ul> </div> <div> <h2>This site</h2> <p>Version 1.1.0 · Last updated <time datetime="2026-11-08">2026-11-08</time></p> <p class="small">Built from the course sources, so it always matches the printed workbooks. <a href="/about/#changelog">What changed</a></p> </div> </div> </div> </footer> <script type="module">const a=document.documentElement,o={get(e){try{return localStorage.getItem(e)}catch{return null}},set(e,n){try{localStorage.setItem(e,n)}catch{}},del(e){try{localStorage.removeItem(e)}catch{}}},l=document.getElementById("theme-toggle"),u=document.getElementById("font-toggle"),i=()=>a.getAttribute("data-theme")==="dark"||!a.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches;function m(){l&&(l.setAttribute("aria-pressed",String(i())),l.querySelector(".label").textContent=i()?"Light mode":"Dark mode",l.title=i()?"Switch to light mode":"Switch to dark mode"),u&&u.setAttribute("aria-pressed",String(a.getAttribute("data-font")==="dyslexia"))}l?.addEventListener("click",()=>{const e=i()?"light":"dark";a.setAttribute("data-theme",e),o.set("kc:theme",e),m()});u?.addEventListener("click",()=>{a.getAttribute("data-font")==="dyslexia"?(a.removeAttribute("data-font"),o.del("kc:font")):(a.setAttribute("data-font","dyslexia"),o.set("kc:font","dyslexia")),m()});m();document.querySelectorAll(".lesson .code-block, .starter-code").forEach(e=>{const n=e.querySelector("pre");if(!n||e.classList.contains("code-outputcode"))return;const t=document.createElement("button");t.type="button",t.className="btn small secondary copy-btn",t.innerHTML='Copy<span class="visually-hidden"> code</span>',t.addEventListener("click",async()=>{const c=n.innerText;try{await navigator.clipboard.writeText(c)}catch{const r=document.createElement("textarea");r.value=c,document.body.appendChild(r),r.select(),document.execCommand("copy"),r.remove()}t.textContent="Copied!",setTimeout(()=>{t.innerHTML='Copy<span class="visually-hidden"> code</span>'},1800)}),e.appendChild(t)});const y=location.pathname.replace(document.body.dataset.base||"/","/");document.querySelectorAll('.check-item input[type="checkbox"]').forEach((e,n)=>{const t=`kc:check:${y}:${n}`;e.disabled=!1,e.checked=o.get(t)==="1",e.addEventListener("change",()=>e.checked?o.set(t,"1"):o.del(t))});const s=document.querySelector("[data-done-key]");if(s){const e=s.dataset.doneKey,n=()=>{const t=o.get(e)==="1";s.setAttribute("aria-pressed",String(t)),s.querySelector(".txt").textContent=t?"Done! Click to undo":"Mark this as done"};s.addEventListener("click",()=>{o.get(e)==="1"?o.del(e):o.set(e,"1"),n()}),n()}document.querySelectorAll("[data-week-key]").forEach(e=>{o.get(e.dataset.weekKey)==="1"&&(e.dataset.done="true")});document.querySelectorAll("[data-progress-level]").forEach(e=>{const n=(e.dataset.progressLevel||"").split(",").filter(Boolean),t=n.filter(r=>o.get(r)==="1").length;e.querySelector("span").style.width=`${n.length?Math.round(100*t/n.length):0}%`;const c=e.parentElement.querySelector("[data-progress-text]");c&&(c.textContent=`${t} of ${n.length} weeks done on this device`)});const d=[...document.querySelectorAll(".hint")];if(d.length){const e=()=>d.forEach((n,t)=>{const c=t===0||d[t-1].open;n.dataset.locked=String(!c&&!n.open)});d.forEach((n,t)=>{n.querySelector("summary").addEventListener("click",c=>{n.dataset.locked==="true"&&(c.preventDefault(),d[t-1].querySelector("summary").focus())}),n.addEventListener("toggle",e)}),e()}</script> </body> </html>

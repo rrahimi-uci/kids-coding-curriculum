@@ -1,0 +1,78 @@
+
+<h2 id="the-big-idea-games-wait-for-events">The big idea: games wait for events</h2>
+<p>Most programs you wrote ran from top to bottom and stopped. A game <strong>waits</strong>. When something happens (a key press, a timer ringing), turtle calls one of your functions. The thing that happens is an <strong>event</strong>; the function that answers it is a <strong>handler</strong>.</p>
+<div class="code-block code-pycode"><p class="code-title">Keys call handlers</p><pre tabindex="0"><code class="language-python"><span class="tok-k">def</span> <span class="tok-nf">go_left</span><span class="tok-p">():</span>
+    <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">setx</span><span class="tok-p">(</span><span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">xcor</span><span class="tok-p">()</span> <span class="tok-o">-</span> <span class="tok-mi">20</span><span class="tok-p">)</span>
+
+<span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">onkey</span><span class="tok-p">(</span><span class="tok-n">go_left</span><span class="tok-p">,</span> <span class="tok-s2">"Left"</span><span class="tok-p">)</span>   <span class="tok-c1"># when Left is pressed, call go_left</span>
+<span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">listen</span><span class="tok-p">()</span>                 <span class="tok-c1"># switch on the "doorbell" for keys</span></code></pre></div>
+<p>Notice: <code>go_left</code> has <strong>no brackets</strong> in the <code>onkey</code> line. We hand turtle the function, and turtle calls it later. With brackets, Python would call it right away, only once.</p>
+<h3 id="the-game-loop">The game loop</h3>
+<p>A game is like a flip book: every <strong>frame</strong> the world moves a tiny bit. Our game loop does one frame, then asks turtle to call it again soon.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="The game loop as a cycle of four steps; one lap is one frame, 50 milliseconds. Step 1: move every meteor down. Step 2: check whether anything is touching or off the bottom; if it hit, it is game over and the timer is not set again. Step 3: update the score and the screen. Step 4: set the timer with ontimer(game_loop, 50), which starts the next lap." class="fig fig-tikz" decoding="async" height="192" loading="lazy" src="%BASE%generated/fig/level-2/3269f7446444.svg" width="556"/></figure>
+</div>
+<div class="code-block code-pycode"><p class="code-title">One frame of Dodge the Meteors (shortened)</p><pre tabindex="0"><code class="language-python"><span class="tok-n">state</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s2">"score"</span><span class="tok-p">:</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-s2">"running"</span><span class="tok-p">:</span> <span class="tok-kc">True</span><span class="tok-p">}</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">game_loop</span><span class="tok-p">():</span>
+    <span class="tok-k">for</span> <span class="tok-n">meteor</span> <span class="tok-ow">in</span> <span class="tok-n">meteors</span><span class="tok-p">:</span>                      <span class="tok-c1"># a list of turtles</span>
+        <span class="tok-n">meteor</span><span class="tok-o">.</span><span class="tok-n">sety</span><span class="tok-p">(</span><span class="tok-n">meteor</span><span class="tok-o">.</span><span class="tok-n">ycor</span><span class="tok-p">()</span> <span class="tok-o">-</span> <span class="tok-mi">8</span><span class="tok-p">)</span>          <span class="tok-c1"># 1. move</span>
+        <span class="tok-k">if</span> <span class="tok-n">is_touching</span><span class="tok-p">(</span><span class="tok-n">meteor</span><span class="tok-o">.</span><span class="tok-n">xcor</span><span class="tok-p">(),</span> <span class="tok-n">meteor</span><span class="tok-o">.</span><span class="tok-n">ycor</span><span class="tok-p">(),</span>
+                       <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">xcor</span><span class="tok-p">(),</span> <span class="tok-n">player</span><span class="tok-o">.</span><span class="tok-n">ycor</span><span class="tok-p">(),</span> <span class="tok-mi">30</span><span class="tok-p">):</span>
+            <span class="tok-n">state</span><span class="tok-p">[</span><span class="tok-s2">"running"</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-kc">False</span>            <span class="tok-c1"># 2. check: hit!</span>
+    <span class="tok-k">if</span> <span class="tok-n">state</span><span class="tok-p">[</span><span class="tok-s2">"running"</span><span class="tok-p">]:</span>
+        <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">ontimer</span><span class="tok-p">(</span><span class="tok-n">game_loop</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">)</span>           <span class="tok-c1"># 4. again in 50 ms</span></code></pre></div>
+<h3 id="touching-close-enough">Touching = close enough</h3>
+<p>Two things touch when the distance between them is small. <code>math.dist</code> measures the distance between two points: <code>math.dist((0, 0), (30, 40))</code> gives <code>50.0</code>. If that is less than about 30, the meteor hit the player.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">9.1: Etch-a-Sketch</span></p>
+<p>Folder: <code>exercises/week09/ex-etch-a-sketch</code>. Run <code>starter.py</code>, <strong>click the window</strong>, press the Up arrow.</p>
+<ol>
+<li><p>TODO 1: add <code>screen.listen()</code>. Now Up draws a line.</p></li>
+<li><p>TODO 2: write <code>go_down()</code>, <code>go_left()</code>, <code>go_right()</code> (headings 270, 180, 0).</p></li>
+<li><p>TODO 3: connect the keys: <code>"Down"</code>, <code>"Left"</code>, <code>"Right"</code>, <code>"space"</code>, <code>"n"</code>, <code>"c"</code>.</p></li>
+<li><p>TODO 4: <code>c</code> clears the drawing. Draw something and describe it here:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">9.2: Dodge the Meteors</span></p>
+<p>Folder: <code>exercises/week09/ex-dodge-meteors</code>. You are the blue turtle; the round orange-red meteors fall.</p>
+<ol>
+<li><p>TODO 1: <code>move_player()</code> returns the new x, using <code>clamp()</code> so you stop at the walls.</p></li>
+<li><p>TODO 2: <code>is_touching()</code> uses <code>math.dist</code> and <code>&lt;</code>.</p></li>
+<li><p>TODO 3: connect <code>"Left"</code> and <code>"Right"</code>, then <code>listen()</code>.</p></li>
+<li><p>TODO 4: at the end of <code>game_loop()</code>, set the timer again. Now play! My best score: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p></li>
+<li><p>Which functions are <strong>logic</strong> (no turtle) and which are <strong>drawing</strong>? Why is it useful to keep them apart?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div></li>
+</ol>
+</div>
+<h2 id="your-final-project-starts-now">Your final project starts now!</h2>
+<p>For the next three weeks you will build your own program, alone or with a partner. Read the <strong>Project Brief</strong> and choose:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Option A: Arcade Game</strong></th>
+<th scope="col"><strong>Option B: Art Studio</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A turtle game with keys, a timer and a score, like Dodge the Meteors or Star Catcher. The file saves high scores.</td>
+<td>A program that makes designs (often random) and can save and load them, like Dot Art from a File.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Both must use: functions that return values, a list, a dictionary, a loop or game loop, a file, and at least 3 tests. <strong>Milestone M1 (start of next week):</strong> Planning page 1 (pitch), page 2 (pseudocode or flowchart) and, in a pair, page 3 (task split).</p>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Borrowing pictures or sounds</span></p>
+<p>Pictures and sounds belong to the people who made them. Only use ones with an open license (CC0: free for anyone; CC BY: free if you give credit), ask a grown-up to help you find them, and write a credit in your code, like <code># Star sound by Mei (CC BY)</code>. Turtle’s own shapes are always fine!</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>What happens if you forget <code>ontimer</code> at the end of the game loop?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Explain to a friend why <code>onkey(go_left(), "Left")</code> does not work.</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>My project idea in one sentence:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>

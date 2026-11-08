@@ -1,0 +1,35 @@
+{
+ "slug": "week07-ex-first-square",
+ "folder": "week07/ex-first-square",
+ "week": 7,
+ "level": 1,
+ "kind": "python",
+ "homework": false,
+ "number": "7.2",
+ "title": "My First Square",
+ "body": "<p><strong>Goal:</strong> make the turtle draw a square.</p>\n<ol type=\"1\">\n<li>Open <code>starter.py</code> in Thonny.</li>\n<li>Finish the program so the turtle draws a square: 4 sides, all the same length, turning 90 degrees at each corner.</li>\n<li>Press the green <strong>Run</strong> button to watch your turtle.</li>\n</ol>\n<p><strong>Done looks like:</strong> a closed square (the turtle ends where it started).</p>\n<p><strong>Extra:</strong> change the color with <code>t.color(\"#0072B2\")</code> or make it bigger.</p>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Look at the two lines the turtle already runs in <code>starter.py</code>. Together they draw one side and then turn. A square is that same pair of moves, done more than once.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Copy that pair of commands under each <code># TODO</code>. The first one moves the turtle forward, and the second one turns it left. Run the program and count the sides you see.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>A square has 4 sides, and the turtle already did one. Under each of the three <code># TODO</code> comments, add two lines: <code>t.forward(____)</code> and <code>t.left(____)</code>. Use the same numbers as the lines already in the file, so every side matches.</p>\n"
+  }
+ ],
+ "starter": {
+  "name": "starter.py",
+  "raw": "# My First Square\n# The turtle already draws ONE side of the square.\n# TODO: add the code for the other three sides.\n\nimport turtle\n\nt = turtle.Turtle()\nt.shape(\"turtle\")\n\nt.forward(100)\nt.left(90)\n\n# TODO: side 2\n\n# TODO: side 3\n\n# TODO: side 4\n\nturtle.done()\n",
+  "html": "<span class=\"tok-c1\"># My First Square</span>\n<span class=\"tok-c1\"># The turtle already draws ONE side of the square.</span>\n<span class=\"tok-c1\"># TODO: add the code for the other three sides.</span>\n\n<span class=\"tok-kn\">import</span> <span class=\"tok-nn\">turtle</span>\n\n<span class=\"tok-n\">t</span> <span class=\"tok-o\">=</span> <span class=\"tok-n\">turtle</span><span class=\"tok-o\">.</span><span class=\"tok-n\">Turtle</span><span class=\"tok-p\">()</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">shape</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;turtle&quot;</span><span class=\"tok-p\">)</span>\n\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">forward</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">100</span><span class=\"tok-p\">)</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">left</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">90</span><span class=\"tok-p\">)</span>\n\n<span class=\"tok-c1\"># TODO: side 2</span>\n\n<span class=\"tok-c1\"># TODO: side 3</span>\n\n<span class=\"tok-c1\"># TODO: side 4</span>\n\n<span class=\"tok-n\">turtle</span><span class=\"tok-o\">.</span><span class=\"tok-n\">done</span><span class=\"tok-p\">()</span>"
+ },
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week07-ex-first-square/"
+}

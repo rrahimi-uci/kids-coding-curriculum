@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Exercise 1.1: The Git Quest | Kids Coding</title><meta name="description" content="Exercise 1.1 in week 1: The Git Quest. Steps, starter code and hints."><meta name="color-scheme" content="light dark"><link rel="canonical" href="http://localhost:4321/levels/level-3/exercises/week01-ex-git-quest/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="Exercise 1.1: The Git Quest | Kids Coding"><meta property="og:description" content="Exercise 1.1 in week 1: The Git Quest. Steps, starter code and hints."><meta property="og:type" content="website"><script>
+      /* Apply saved display choices before first paint (theme and dyslexia-friendly font). */
+      try {
+        var d = document.documentElement, t = localStorage.getItem('kc:theme'), f = localStorage.getItem('kc:font');
+        if (t) d.setAttribute('data-theme', t);
+        if (f) d.setAttribute('data-font', f);
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/_astro/about.2wBV1rBm.css"></head> <body class="l3" data-base="/"> <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="palette-bar" aria-hidden="true"></div> <div class="wrap"> <a class="brand" href="/" aria-label="Kids Coding, home"> <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"></rect><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"></rect><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"></rect><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span>Kids Coding</span> </a> <nav class="nav-desktop" aria-label="Main"> <a href="/parents/">For parents</a><a href="/curriculum/">Curriculum</a><a href="/levels/level-1/">Level 1</a><a href="/levels/level-2/">Level 2</a><a href="/levels/level-3/" aria-current="page">Level 3</a><a href="/resources/">Resources</a> </nav> <div class="tools"> <a class="icon-btn" href="/search/" aria-label="Search the site"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5"></path></svg><span class="label">Search</span></a> <button class="icon-btn" type="button" id="font-toggle" aria-pressed="false" title="Switch to the dyslexia-friendly font (Lexend)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V4h16v3M9 20h6M12 4v16"></path></svg><span class="label">Easy-read font</span></button> <button class="icon-btn" type="button" id="theme-toggle" aria-pressed="false" title="Dark mode"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg><span class="label">Dark mode</span></button> <details class="nav-mobile"> <summary class="icon-btn" aria-label="Menu"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><span class="label">Menu</span></summary> <nav class="panel" aria-label="Main (mobile)"> <a href="/parents/">For parents</a><a href="/curriculum/">Curriculum</a><a href="/levels/level-1/">Level 1</a><a href="/levels/level-2/">Level 2</a><a href="/levels/level-3/" aria-current="page">Level 3</a><a href="/resources/">Resources</a> <a href="/about/">About and accessibility</a> </nav> </details> </div> </div> </header> <main id="main" data-pagefind-body> <div class="wrap">  <div class="l3"> <nav class="breadcrumb" aria-label="Breadcrumb"><ol> <li><a href="/curriculum/">Curriculum</a></li><li><a href="/levels/level-3/">Level 3</a></li> <li><a href="/levels/level-3/week-01/">Week 1</a></li><li aria-current="page">The Git Quest</li></ol></nav> <header class="page-head stack"> <p class="eyebrow accent-text">Exercise 1.1 · Week 1</p> <h1>The Git Quest</h1> <p><span class="pill">Scratch (offline app)</span> <span class="pill">Work in pairs</span></p> </header> <div class="lesson measure"> <div><p><strong>Goal:</strong> make your first save points (commits) with git, look back in time, spot a change, and undo a mistake.</p>
+<p>You will track one small art program, <code>hero_badge.py</code> (it is in this folder), inside a brand-new folder called <code>git-quest</code>. Everything stays on your Mac: no website, no account.</p>
+<p>Type each command in <strong>Terminal</strong> exactly, then press <strong>Return</strong>. Lines starting with <code>#</code> are notes for you - do not type them.</p>
+<h2 id="before-you-start-once-per-mac-done-by-your-teacher">Before you start (once per Mac, done by your teacher)</h2>
+<pre><code>git --version</code></pre>
+<p>If you see something like <code>git version 2.39.5</code>, git is ready. If a window pops up asking to install "command line developer tools", your teacher clicks <strong>Install</strong> (free, no Apple ID needed) and waits.</p>
+<h2 id="level-1-make-a-quest-folder">Level 1 - Make a quest folder</h2>
+<pre><code>cd ~/Documents
+mkdir git-quest
+cd git-quest</code></pre>
+<p>Now copy <code>hero_badge.py</code> into the <code>git-quest</code> folder (drag it in Finder, or use <strong>File &gt; Save As...</strong> in Thonny and pick <code>Documents/git-quest</code>).</p>
+<pre><code>ls</code></pre>
+<p>You should see <code>hero_badge.py</code>.</p>
+<h2 id="level-2-tell-git-who-you-are-a-nickname-not-your-real-name">Level 2 - Tell git who you are (a nickname, not your real name)</h2>
+<pre><code>git config --global user.name "PixelFox"
+git config --global user.email "pixelfox@example.com"</code></pre>
+<p>Use YOUR nickname. <code>example.com</code> is a pretend address that is safe to use. Your real name and real email never go into the history.</p>
+<h2 id="level-3-start-the-save-system">Level 3 - Start the save system</h2>
+<pre><code>git init
+git status</code></pre>
+<p><code>git status</code> says <code>hero_badge.py</code> is <strong>untracked</strong>: git sees it but is not saving it yet.</p>
+<h2 id="level-4-your-first-save-point">Level 4 - Your first save point</h2>
+<pre><code>git add hero_badge.py
+git commit -m "Add hero badge drawing"
+git log --oneline</code></pre>
+<p>The log shows one line: a short code (the commit id) and your message.</p>
+<h2 id="level-5-change-something-and-spot-the-difference">Level 5 - Change something and spot the difference</h2>
+<ol type="1">
+<li>Open <code>hero_badge.py</code> in Thonny (from the <code>git-quest</code> folder).</li>
+<li>Change <code>BADGE_COLOR</code> to another color from the palette, e.g. <code>"#009E73"</code>.</li>
+<li>Change <code>HERO_NAME</code> to your own made-up hero name. Save. Run it to see it.</li>
+</ol>
+<pre><code>git diff</code></pre>
+<p>Lines with <code>-</code> were removed, lines with <code>+</code> were added. Now save it:</p>
+<pre><code>git add hero_badge.py
+git commit -m "Change badge color to green"
+git log --oneline</code></pre>
+<p>Two save points!</p>
+<h2 id="level-6-make-a-mistake-on-purpose-then-undo-it">Level 6 - Make a mistake on purpose, then undo it</h2>
+<ol type="1">
+<li>In Thonny, delete the whole <code>draw_star</code> function. Save.</li>
+<li>Run it: it crashes. Oh no!</li>
+</ol>
+<pre><code>git status
+git restore hero_badge.py</code></pre>
+<ol start="3" type="1">
+<li>In Thonny, close the file and open it again (or click into it so Thonny reloads it). The <code>draw_star</code> function is back. Run it - it works.</li>
+</ol>
+<p><code>git restore</code> jumps the file back to your last save point.</p>
+<h2 id="level-7-boss-level-make-a-third-commit-of-your-own">Level 7 (boss level) - Make a third commit of your own</h2>
+<p>Make any change you like (bigger star, new color, add a second star), check it with <code>git diff</code>, then <code>add</code> and <code>commit</code> with a helpful message.</p>
+<h2 id="expected-behavior">Expected behavior</h2>
+<ul>
+<li><code>git log --oneline</code> in <code>git-quest</code> shows at least 3 commits.</li>
+<li>Every message says <strong>what</strong> changed, e.g. <code>Make star bigger</code>, not <code>stuff</code> or <code>update</code>.</li>
+<li><code>git status</code> says <code>nothing to commit, working tree clean</code> at the end.</li>
+<li>No real name, real email or password appears anywhere.</li>
+</ul>
+<h2 id="checklist">Checklist</h2>
+<ul class="task-list">
+<li class="check-item"><label><input type="checkbox"/><code>git --version</code> shows a version number</label></li>
+<li class="check-item"><label><input type="checkbox"/>I set <code>user.name</code> to a nickname and <code>user.email</code> to <code>...@example.com</code></label></li>
+<li class="check-item"><label><input type="checkbox"/>I ran <code>git init</code> inside <code>Documents/git-quest</code> (not anywhere else)</label></li>
+<li class="check-item"><label><input type="checkbox"/>I made my first commit with <code>git add</code> and <code>git commit -m "..."</code></label></li>
+<li class="check-item"><label><input type="checkbox"/>I used <code>git diff</code> to see my change before committing it</label></li>
+<li class="check-item"><label><input type="checkbox"/>I broke the file on purpose and fixed it with <code>git restore</code></label></li>
+<li class="check-item"><label><input type="checkbox"/><code>git log --oneline</code> shows 3 or more commits with helpful messages</label></li>
+</ul>
+<h2 id="command-cheat-sheet">Command cheat sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+<th>Game words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git init</code></td>
+<td>start a save system in this folder</td>
+<td>new save file</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>what changed since the last save?</td>
+<td>check the pause menu</td>
+</tr>
+<tr>
+<td><code>git add file</code></td>
+<td>choose what goes in the next save</td>
+<td>pack your backpack</td>
+</tr>
+<tr>
+<td><code>git commit -m "msg"</code></td>
+<td>make a save point with a label</td>
+<td>save the game</td>
+</tr>
+<tr>
+<td><code>git log --oneline</code></td>
+<td>list all save points, newest first</td>
+<td>load-game menu</td>
+</tr>
+<tr>
+<td><code>git diff</code></td>
+<td>show exactly what changed</td>
+<td>spot the difference</td>
+</tr>
+<tr>
+<td><code>git restore file</code></td>
+<td>throw away unsaved changes</td>
+<td>reload last save</td>
+</tr>
+</tbody>
+</table>
+</div>  <section aria-labelledby="hints"> <h2 id="hints">Stuck? Open a hint</h2> <p class="hint-note">Try on your own first. Hints open one at a time, from a small nudge to a bigger one. None of them gives the answer away.</p> <div class="hints"> <details class="hint" data-locked="false"> <summary>Hint 1: Where to look</summary> <div class="body"><p>Read the Level you are stuck on again, and check that Terminal is inside the <code>git-quest</code> folder. Type <code>pwd</code> to see where you are. The command <code>git status</code> also tells you what git is thinking right now.</p>
+</div> </details><details class="hint" data-locked="true"> <summary>Hint 2: Try this</summary> <div class="body"><p>Git saves in two steps. First you choose what goes in the save, then you make the save point with a label. Use <code>git diff</code> to see what changed before you save. The cheat sheet at the bottom of the README lists every command you need.</p>
+</div> </details><details class="hint" data-locked="true"> <summary>Hint 3: Almost there</summary> <div class="body"><p>To make a save point, type <code>git add ____</code> and then <code>git commit -m "____"</code>. Put your file name in the first blank and a message that says what changed in the second. To undo unsaved changes, find <code>git restore ____</code> in the cheat sheet. Put the file name in the blank.</p>
+</div> </details> </div> </section> <div class="btn-row"> <a class="btn secondary" href="/levels/level-3/week-01/"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg> Back to week 1</a> </div> <p class="small muted">Parents: the course folder has an automatic self-check script for the Python exercises. It is not on this website because it relies on test files that give away the answers.</p> </div> </div>  </div> </main> <footer class="site-footer"> <div class="palette-bar" aria-hidden="true" style="margin-top:-2.5rem;margin-bottom:2.5rem"></div> <div class="wrap"> <div class="cols"> <div> <h2>Kids Coding</h2> <p>A free course for children from Grade 5: make games and art, first with Scratch blocks, then with Python. One 60-minute session a week.</p> <p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"></path></svg> No accounts, no ads, no tracking.</p> </div> <div> <h2>Explore</h2> <ul> <li><a href="/parents/">For parents</a></li> <li><a href="/curriculum/">Curriculum and timeline</a></li> <li><a href="/levels/level-1/">Level 1: Introduction</a></li> <li><a href="/levels/level-2/">Level 2: Intermediate</a></li> <li><a href="/levels/level-3/">Level 3: Advanced</a></li> <li><a href="/resources/">Resources: setup, cheat sheets, glossary</a></li> <li><a href="/search/">Search</a></li> <li><a href="/about/">About, accessibility and credits</a></li> </ul> </div> <div> <h2>This site</h2> <p>Version 1.1.0 · Last updated <time datetime="2026-11-08">2026-11-08</time></p> <p class="small">Built from the course sources, so it always matches the printed workbooks. <a href="/about/#changelog">What changed</a></p> </div> </div> </div> </footer> <script type="module">const a=document.documentElement,o={get(e){try{return localStorage.getItem(e)}catch{return null}},set(e,n){try{localStorage.setItem(e,n)}catch{}},del(e){try{localStorage.removeItem(e)}catch{}}},l=document.getElementById("theme-toggle"),u=document.getElementById("font-toggle"),i=()=>a.getAttribute("data-theme")==="dark"||!a.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches;function m(){l&&(l.setAttribute("aria-pressed",String(i())),l.querySelector(".label").textContent=i()?"Light mode":"Dark mode",l.title=i()?"Switch to light mode":"Switch to dark mode"),u&&u.setAttribute("aria-pressed",String(a.getAttribute("data-font")==="dyslexia"))}l?.addEventListener("click",()=>{const e=i()?"light":"dark";a.setAttribute("data-theme",e),o.set("kc:theme",e),m()});u?.addEventListener("click",()=>{a.getAttribute("data-font")==="dyslexia"?(a.removeAttribute("data-font"),o.del("kc:font")):(a.setAttribute("data-font","dyslexia"),o.set("kc:font","dyslexia")),m()});m();document.querySelectorAll(".lesson .code-block, .starter-code").forEach(e=>{const n=e.querySelector("pre");if(!n||e.classList.contains("code-outputcode"))return;const t=document.createElement("button");t.type="button",t.className="btn small secondary copy-btn",t.innerHTML='Copy<span class="visually-hidden"> code</span>',t.addEventListener("click",async()=>{const c=n.innerText;try{await navigator.clipboard.writeText(c)}catch{const r=document.createElement("textarea");r.value=c,document.body.appendChild(r),r.select(),document.execCommand("copy"),r.remove()}t.textContent="Copied!",setTimeout(()=>{t.innerHTML='Copy<span class="visually-hidden"> code</span>'},1800)}),e.appendChild(t)});const y=location.pathname.replace(document.body.dataset.base||"/","/");document.querySelectorAll('.check-item input[type="checkbox"]').forEach((e,n)=>{const t=`kc:check:${y}:${n}`;e.disabled=!1,e.checked=o.get(t)==="1",e.addEventListener("change",()=>e.checked?o.set(t,"1"):o.del(t))});const s=document.querySelector("[data-done-key]");if(s){const e=s.dataset.doneKey,n=()=>{const t=o.get(e)==="1";s.setAttribute("aria-pressed",String(t)),s.querySelector(".txt").textContent=t?"Done! Click to undo":"Mark this as done"};s.addEventListener("click",()=>{o.get(e)==="1"?o.del(e):o.set(e,"1"),n()}),n()}document.querySelectorAll("[data-week-key]").forEach(e=>{o.get(e.dataset.weekKey)==="1"&&(e.dataset.done="true")});document.querySelectorAll("[data-progress-level]").forEach(e=>{const n=(e.dataset.progressLevel||"").split(",").filter(Boolean),t=n.filter(r=>o.get(r)==="1").length;e.querySelector("span").style.width=`${n.length?Math.round(100*t/n.length):0}%`;const c=e.parentElement.querySelector("[data-progress-text]");c&&(c.textContent=`${t} of ${n.length} weeks done on this device`)});const d=[...document.querySelectorAll(".hint")];if(d.length){const e=()=>d.forEach((n,t)=>{const c=t===0||d[t-1].open;n.dataset.locked=String(!c&&!n.open)});d.forEach((n,t)=>{n.querySelector("summary").addEventListener("click",c=>{n.dataset.locked==="true"&&(c.preventDefault(),d[t-1].querySelector("summary").focus())}),n.addEventListener("toggle",e)}),e()}</script> </body> </html>

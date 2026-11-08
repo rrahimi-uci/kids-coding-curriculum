@@ -1,0 +1,126 @@
+
+<h2 id="the-big-idea-build-a-skateboard-first">The big idea: build a skateboard first</h2>
+<p>If you want to build a car, you do not start with one perfect wheel. Nobody can ride a wheel! You build a skateboard first: tiny, but you can ride it. Then a scooter, a bike, a car. Every version works.</p>
+<p>Your project works the same way. The <strong>core loop</strong> is your skateboard:</p>
+<ul>
+<li><p><strong>Arcade Game:</strong> a window, a player that moves with the keys, and a timer loop that keeps running (<code>screen.ontimer</code>).</p></li>
+<li><p><strong>Art Studio:</strong> a <code>while</code> loop that asks what to do (draw, save, load, quit) and does it.</p></li>
+</ul>
+<p>No score, no title screen, no fancy colors yet. Those come later, and they are easy once the skeleton walks.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A row of project milestones with a marker "you are here" at M2. M1, pitch and plan in week 9, is done. M2, the core loop works in week 10, is the current step. M3, data and tests in week 11, M4, polish in week 11, and the showcase in week 12 come next.' class="fig fig-tikz" decoding="async" height="132" loading="lazy" src="%BASE%generated/fig/level-2/4561f3f2df11.svg" width="582"/></figure>
+</div>
+<h2 id="pseudocode-and-flowcharts">Pseudocode and flowcharts</h2>
+<p><strong>Pseudocode</strong> is your program written in plain English, one step per line, before you write Python. A <strong>flowchart</strong> draws the same steps as shapes joined by arrows. Three shapes are all you need: <strong>ovals</strong> for start and end, <strong>rectangles</strong> for steps, and <strong>diamonds</strong> for yes/no questions. Here is the flowchart for a catching game:</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A flowchart of a game. Start. Set up the screen, player and keys. Move every falling thing. Is it touching the player? If yes, add 1 to the score. Then ask: is the game over? If no, go back for the next tick. If yes, save the high score to a file and end. Key: an oval means start or end, a rectangle means a step and a diamond means a yes or no question." class="fig fig-tikz" decoding="async" height="403" loading="lazy" src="%BASE%generated/fig/level-2/9595ba850f66.svg" width="454"/></figure>
+</div>
+<p>The same plan as pseudocode:</p>
+<div class="tcolorbox">
+<p>set up the screen, the player and the keys<br/>
+repeat every tick:<br/>
+move every falling thing down<br/>
+if a falling thing touches the player: add 1 to the score<br/>
+if the game is over: save the high score and stop</p>
+</div>
+<p>Every line that does one job can become a <strong>function</strong>. “Move the player but not off the screen” becomes <code>next_x(x, direction)</code>: the position and direction go in, the new position comes out. That is <strong>decomposition</strong>: breaking a big problem into small named parts.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.1: Paper prototype and plan check (M1)</span></p>
+<ol>
+<li><p>Draw your screen on paper. Use coins for things that move.</p></li>
+<li><p>One partner is “the computer”, the other is the player. Play for one minute: every clap is one tick.</p></li>
+<li><p>Finish your plan: write the pseudocode (or draw the flowchart) for your core loop below.</p></li>
+</ol>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/>My plan has a loop (every tick, or until Quit).</label></li>
+<li class="check-item"><label><input type="checkbox"/>My plan has at least one yes/no decision.</label></li>
+<li class="check-item"><label><input type="checkbox"/>My plan names the data: a list, a dictionary and a file.</label></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.2: A fair task board</span></p>
+<p>Write each function on its own sticky note. Fill in the table, then take turns choosing tasks: one each, like picking teams. Move notes from TO DO to DOING to DONE as you work.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Function name</strong></th>
+<th scope="col"><strong>What goes in</strong></th>
+<th scope="col"><strong>What comes out</strong></th>
+<th scope="col"><strong>Who</strong></th>
+<th scope="col"><strong>Done</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>next_x</code></td>
+<td>x, direction</td>
+<td>the new x</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.3: Build the core loop (M2)</span></p>
+<p>Make a folder for your team’s project and save your program as <code>mygame.py</code> (or <code>mystudio.py</code>). Never call it <code>turtle.py</code>! Build it in small steps and press <kbd>F5</kbd> after each one. For an arcade game, the heart of the program is a loop that runs itself again:</p>
+<div class="code-block code-pycode"><p class="code-title">the timer loop</p><pre tabindex="0"><code class="language-python"><span class="tok-k">def</span> <span class="tok-nf">game_loop</span><span class="tok-p">():</span>
+    <span class="tok-k">if</span> <span class="tok-ow">not</span> <span class="tok-n">state</span><span class="tok-p">[</span><span class="tok-s2">"running"</span><span class="tok-p">]:</span>
+        <span class="tok-k">return</span>
+    <span class="tok-c1"># TODO: move falling things, check for catches, add to the score</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">update</span><span class="tok-p">()</span>
+    <span class="tok-n">screen</span><span class="tok-o">.</span><span class="tok-n">ontimer</span><span class="tok-p">(</span><span class="tok-n">game_loop</span><span class="tok-p">,</span> <span class="tok-mi">50</span><span class="tok-p">)</span>   <span class="tok-c1"># run again in 50 milliseconds</span></code></pre></div>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/>My program runs without a red error.</label></li>
+<li class="check-item"><label><input type="checkbox"/>Something repeats by itself (it moves on the timer, or the menu comes back).</label></li>
+<li class="check-item"><label><input type="checkbox"/>At least one key or menu choice works.</label></li>
+<li class="check-item"><label><input type="checkbox"/>The start-up code is under <code>if __name__ == "__main__":</code>.</label></li>
+<li class="check-item"><label><input type="checkbox"/>Line 1 has a comment with our nicknames, and credit for any code we remixed.</label></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.4: Partner code review</span></p>
+<p>Swap seats with your partner (or another team). Run their program and read their code. Then write <strong>two stars and a wish</strong>: two things that are really good, and one kind idea. Be specific: “the name <code>next_x</code> tells me exactly what it does” helps more than “nice”.</p>
+<p>★</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>★</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Wish:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>What was the smallest version of your project that worked today?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Was your task split fair? What would you change next week?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

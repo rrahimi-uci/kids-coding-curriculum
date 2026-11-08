@@ -1,0 +1,35 @@
+{
+ "slug": "week08-ex-test-best-score",
+ "folder": "week08/ex-test-best-score",
+ "week": 8,
+ "level": 2,
+ "kind": "python",
+ "homework": false,
+ "number": "8.2",
+ "title": "Test the Best Score",
+ "body": "<p><strong>Goal:</strong> write tests that catch bugs hiding at the edges.</p>\n<p><code>best_score(scores)</code> in <code>score_tools.py</code> finds the highest score in a list. It is correct. Your job is to write tests that would catch it if somebody broke it one day.</p>\n<ol type=\"1\">\n<li>Read <code>score_tools.py</code>. What should <code>best_score([])</code> give?</li>\n<li>Open <code>starter.py</code>. One normal test is done for you. Press <strong>Run</strong>: pytest says <code>PASSED</code> for every test. (The empty ones pass too: a test with no <code>assert</code> checks nothing!)</li>\n<li><strong>TODO 1</strong> test the empty list. <strong>TODO 2</strong> test a list where the best score is the last one. <strong>TODO 3</strong> write one more edge-case test.</li>\n<li>Press <strong>Run</strong> again. Every test should say <code>PASSED</code>.</li>\n</ol>\n<p><strong>Done looks like:</strong> at least 3 tests, all <code>PASSED</code>.</p>\n<p><strong>Edge cases to think about:</strong> an empty list, one item, the first item, the last item, all the same.</p>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the top of <code>score_tools.py</code>. It lists what <code>best_score()</code> gives for a few lists, including an empty one. Your edge-case tests should check these places where a bug could hide.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>A test is only real if it has an <code>assert</code> line. The shape is <code>assert function(input) == expected_answer</code>. Pick a list, work out the answer yourself, and write it after <code>==</code>. Keep the message text short and clear.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Shapes to fill in: <code>assert best_score(____) == ____, \"message\"</code>. For the end test, put the biggest number in the last spot of the list. For your own test, try a list with <code>____</code> item, or a list where every number is the same.</p>\n"
+  }
+ ],
+ "starter": {
+  "name": "starter.py",
+  "raw": "\"\"\"MY TESTS for best_score()  -  this file is YOUR test file.\n\nRead score_tools.py first to see what best_score() should do.\nThen write tests for the NORMAL case and for the EDGE cases: the places\nwhere bugs like to hide (empty lists, the first item, the last item...).\n\nPress the green Run button to run your tests with pytest.\n\"\"\"\n\nfrom score_tools import best_score\n\n\ndef test_best_score_in_the_middle():\n    # Normal case: the best score is in the middle of the list.\n    assert best_score([3, 9, 2]) == 9, \"9 is the biggest of 3, 9 and 2\"\n\n\ndef test_empty_list():\n    # TODO 1 (edge case): no games played yet. What should best_score([]) give?\n    pass\n\n\ndef test_best_score_at_the_end():\n    # TODO 2 (edge case): make a list where the biggest score is the LAST one.\n    pass\n\n\n# TODO 3: one more test of your own. Ideas: a list with only one score,\n#         or a list where every score is the same.\n\n\nif __name__ == \"__main__\":\n    import pytest\n    pytest.main([\"-v\", __file__])\n",
+  "html": "<span class=\"tok-sd\">&quot;&quot;&quot;MY TESTS for best_score()  -  this file is YOUR test file.</span>\n\n<span class=\"tok-sd\">Read score_tools.py first to see what best_score() should do.</span>\n<span class=\"tok-sd\">Then write tests for the NORMAL case and for the EDGE cases: the places</span>\n<span class=\"tok-sd\">where bugs like to hide (empty lists, the first item, the last item...).</span>\n\n<span class=\"tok-sd\">Press the green Run button to run your tests with pytest.</span>\n<span class=\"tok-sd\">&quot;&quot;&quot;</span>\n\n<span class=\"tok-kn\">from</span> <span class=\"tok-nn\">score_tools</span> <span class=\"tok-kn\">import</span> <span class=\"tok-n\">best_score</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">test_best_score_in_the_middle</span><span class=\"tok-p\">():</span>\n    <span class=\"tok-c1\"># Normal case: the best score is in the middle of the list.</span>\n    <span class=\"tok-k\">assert</span> <span class=\"tok-n\">best_score</span><span class=\"tok-p\">([</span><span class=\"tok-mi\">3</span><span class=\"tok-p\">,</span> <span class=\"tok-mi\">9</span><span class=\"tok-p\">,</span> <span class=\"tok-mi\">2</span><span class=\"tok-p\">])</span> <span class=\"tok-o\">==</span> <span class=\"tok-mi\">9</span><span class=\"tok-p\">,</span> <span class=\"tok-s2\">&quot;9 is the biggest of 3, 9 and 2&quot;</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">test_empty_list</span><span class=\"tok-p\">():</span>\n    <span class=\"tok-c1\"># TODO 1 (edge case): no games played yet. What should best_score([]) give?</span>\n    <span class=\"tok-k\">pass</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">test_best_score_at_the_end</span><span class=\"tok-p\">():</span>\n    <span class=\"tok-c1\"># TODO 2 (edge case): make a list where the biggest score is the LAST one.</span>\n    <span class=\"tok-k\">pass</span>\n\n\n<span class=\"tok-c1\"># TODO 3: one more test of your own. Ideas: a list with only one score,</span>\n<span class=\"tok-c1\">#         or a list where every score is the same.</span>\n\n\n<span class=\"tok-k\">if</span> <span class=\"tok-vm\">__name__</span> <span class=\"tok-o\">==</span> <span class=\"tok-s2\">&quot;__main__&quot;</span><span class=\"tok-p\">:</span>\n    <span class=\"tok-kn\">import</span> <span class=\"tok-nn\">pytest</span>\n    <span class=\"tok-n\">pytest</span><span class=\"tok-o\">.</span><span class=\"tok-n\">main</span><span class=\"tok-p\">([</span><span class=\"tok-s2\">&quot;-v&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-vm\">__file__</span><span class=\"tok-p\">])</span>"
+ },
+ "files": [],
+ "url": "%BASE%levels/level-2/exercises/week08-ex-test-best-score/"
+}

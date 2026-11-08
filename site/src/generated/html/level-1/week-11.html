@@ -1,0 +1,82 @@
+
+<h2 id="the-big-idea-build-run-check">The big idea: build, run, check</h2>
+<p>Big programs are not written in one go. Programmers go round this loop all day long:</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A cycle of three steps. Build one small thing. Run it by pressing F5. Check: did it do what I wanted? Then build again. If something breaks, you know it was the last small change." class="fig fig-tikz" decoding="async" height="235" loading="lazy" src="%BASE%generated/fig/level-1/2db5663f5b27.svg" width="414"/></figure>
+</div>
+<p>It is like building a LEGO set bag by bag: finish bag 1, check it looks like the picture, then open bag 2.</p>
+<h3 id="your-milestones">Your milestones</h3>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Four project milestones in a row. M1 Plan, in week 10: the plan sheet. M2 Core, in week 11 part 1: my function draws. M3 Surprise, in week 11 part 2: a question, an if and something random. M4 Showcase, in week 12: run and explain." class="fig fig-tikz" decoding="async" height="66" loading="lazy" src="%BASE%generated/fig/level-1/b798dfe9d3cb.svg" width="575"/></figure>
+</div>
+<h3 id="five-small-steps-the-tiny-art-show-from-the-demo">Five small steps (the tiny art show from the demo)</h3>
+<ol>
+<li><p><strong>Question</strong>: <code>how_many = int(input("How many bubbles? "))</code>. Run.</p></li>
+<li><p><strong>Function</strong>: <code>def bubble(x, y, color):</code> and call it once. Run.</p></li>
+<li><p><strong>Loop</strong>: put the call inside <code>for i in range(how_many):</code>. Run.</p></li>
+<li><p><strong>Random</strong>: random <code>x</code>, <code>y</code> and color. Run twice!</p></li>
+<li><p><strong>If</strong>: if the number is too big, use a smaller one. Run with 500.</p></li>
+</ol>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Save a version</span></p>
+<p>Before a big change, click <span class="menu">File</span> → <span class="menu">Save as…</span> and add <code>_v2</code> to the name (<code>fish_party_v2.py</code>). If the change goes wrong, version 1 is still safe.</p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">11.1: Sprint 1: core drawing works (M2)</span></p>
+<p>Open your project file. Change the example <code>my_shape</code> function into <strong>your</strong> function: give it a name that says what it draws, and change the drawing. Draw it once at <code>(0, 0)</code>. Run. Then call it a second time somewhere else. Run.</p>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/>My function has a good name: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></label></li>
+<li class="check-item"><label><input type="checkbox"/>It draws my main thing.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I call it at least twice, in different places.</label></li>
+<li class="check-item"><label><input type="checkbox"/>The program runs with no red errors.</label></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">11.2: Partner bug hunt</span></p>
+<p>Swap seats with your partner. Run their program <strong>twice</strong>: once with a normal answer, once with a strange one (0, a giant number, a word, a capital letter). Write what happened — don’t fix it, just report it!</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">I typed</th>
+<th scope="col">What happened</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Then give <strong>two stars and a wish</strong>:</p>
+<p>★ I liked <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>★ I liked <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p> I wish <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">11.3: Sprint 2: surprise and polish (M3)</span></p>
+<p>Add the rest of your six ingredients. Check off each one in the comment list at the top of your file <strong>when you have seen it work</strong>.</p>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/>My question(s) work (numbers use <code>int(...)</code>).</label></li>
+<li class="check-item"><label><input type="checkbox"/>My <code>if</code> changes something you can see.</label></li>
+<li class="check-item"><label><input type="checkbox"/>My loop repeats my function.</label></li>
+<li class="check-item"><label><input type="checkbox"/><code>random</code> makes it different every run.</label></li>
+<li class="check-item"><label><input type="checkbox"/>A title with <code>t.write(...)</code> and my <strong>nickname</strong> as the artist.</label></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Feedback is a gift</span></p>
+<p><strong>Giving</strong>: be kind and specific (“I like how the stars are different sizes”), and make wishes about the program, never the person. <strong>Getting</strong>: say thank you — then <strong>you</strong> decide what to change. It is your art.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>What bug did you find today? How did you find it?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>What feedback did you get? What will you change because of it?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

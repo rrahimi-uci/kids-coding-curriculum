@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Level 2, week 4: While Loops and Game Loops | Kids Coding</title><meta name="description" content="A while loop repeats until something changes, and every game is a loop."><meta name="color-scheme" content="light dark"><link rel="canonical" href="http://localhost:4321/levels/level-2/week-04/"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:title" content="Level 2, week 4: While Loops and Game Loops | Kids Coding"><meta property="og:description" content="A while loop repeats until something changes, and every game is a loop."><meta property="og:type" content="website"><script>
+      /* Apply saved display choices before first paint (theme and dyslexia-friendly font). */
+      try {
+        var d = document.documentElement, t = localStorage.getItem('kc:theme'), f = localStorage.getItem('kc:font');
+        if (t) d.setAttribute('data-theme', t);
+        if (f) d.setAttribute('data-font', f);
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/_astro/about.2wBV1rBm.css"></head> <body class="l2" data-base="/"> <a class="skip-link" href="#main">Skip to content</a> <header class="site-header"> <div class="palette-bar" aria-hidden="true"></div> <div class="wrap"> <a class="brand" href="/" aria-label="Kids Coding, home"> <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"></rect><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"></rect><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"></rect><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg> <span>Kids Coding</span> </a> <nav class="nav-desktop" aria-label="Main"> <a href="/parents/">For parents</a><a href="/curriculum/">Curriculum</a><a href="/levels/level-1/">Level 1</a><a href="/levels/level-2/" aria-current="page">Level 2</a><a href="/levels/level-3/">Level 3</a><a href="/resources/">Resources</a> </nav> <div class="tools"> <a class="icon-btn" href="/search/" aria-label="Search the site"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-5-5"></path></svg><span class="label">Search</span></a> <button class="icon-btn" type="button" id="font-toggle" aria-pressed="false" title="Switch to the dyslexia-friendly font (Lexend)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V4h16v3M9 20h6M12 4v16"></path></svg><span class="label">Easy-read font</span></button> <button class="icon-btn" type="button" id="theme-toggle" aria-pressed="false" title="Dark mode"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg><span class="label">Dark mode</span></button> <details class="nav-mobile"> <summary class="icon-btn" aria-label="Menu"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><span class="label">Menu</span></summary> <nav class="panel" aria-label="Main (mobile)"> <a href="/parents/">For parents</a><a href="/curriculum/">Curriculum</a><a href="/levels/level-1/">Level 1</a><a href="/levels/level-2/" aria-current="page">Level 2</a><a href="/levels/level-3/">Level 3</a><a href="/resources/">Resources</a> <a href="/about/">About and accessibility</a> </nav> </details> </div> </div> </header> <main id="main" data-pagefind-body> <div class="wrap">  <div class="l2"> <nav class="breadcrumb" aria-label="Breadcrumb"><ol> <li><a href="/curriculum/">Curriculum</a></li><li><a href="/levels/level-2/">Level 2</a></li><li aria-current="page">Week 4</li></ol></nav> <header class="page-head stack"> <p class="eyebrow accent-text">Level 2 · Intermediate · Week 4</p> <h1>While Loops and Game Loops</h1> <p class="idea">A while loop repeats until something changes, and every game is a loop.</p> <div class="objectives" data-pagefind-weight="2"> <h2>What you will learn</h2> <ul><li>How a while loop keeps going until something changes.</li><li>How to spot and stop an infinite loop.</li><li>How to keep asking until the player types a good answer (input validation).</li><li>How a loop inside a loop turns a list of strings into pixel art.</li></ul> </div> <div class="btn-row"> <a class="btn secondary small" href="/downloads/level-2/week-04.pdf"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Print this week (PDF, 55 KB)</a> <a class="btn secondary small" href="/downloads/level-2/week-04-starter-files.zip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg> Starter files (ZIP)</a> <button class="btn small done-btn" type="button" data-done-key="kc:done:level-2/week-04" aria-pressed="false"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6"></path></svg> <span class="txt">Mark this as done</span></button> </div> </header> <div class="lesson-layout"> <aside class="lesson-side" aria-label="On this page"> <nav class="toc" aria-label="Table of contents"> <details open> <summary>On this page</summary> <ol> <li><a href="#the-big-idea-repeat-until-something-changes">The big idea: repeat until something changes</a></li> <li><a href="#exercises">Exercises</a></li> <li><a href="#words">New words</a></li> <li><a href="#homework">Homework</a></li> </ol> </details> </nav> </aside> <div class="lesson" id="lesson"> <div>
+<h2 id="the-big-idea-repeat-until-something-changes">The big idea: repeat until something changes</h2>
+<p>A <code>for</code> loop knows how many times it will go round. A <code>while</code> loop does not: it checks a condition at the top, and goes round again <em>while</em> the condition is <code>True</code>.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A while loop. Start with n = 3. Check: is n bigger than 0? If yes (True), print n, subtract 1 from n and go back to the check. If no (False), leave the loop and print Go!" class="fig fig-tikz" decoding="async" height="182" loading="lazy" src="/generated/fig/level-2/7f85bf9cce67.svg" width="312"/></figure>
+</div>
+<p>This prints <code>3</code>, <code>2</code>, <code>1</code>, <code>Go!</code>. The line <code>n = n - 1</code> is the <strong>change</strong>: without it, <code>n</code> stays 3, the check is always <code>True</code>, and the loop never ends. That is an <strong>infinite loop</strong>.</p>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Stuck in a loop?</span></p>
+<p>Press the red <span class="menu">Stop</span> button in Thonny’s toolbar. Then ask two questions: <strong>What is checked?</strong> and <strong>What changes inside the loop, so the check can become False?</strong></p>
+</div>
+<h3 id="while-true-and-break">while True and break</h3>
+<p>Sometimes it is easier to loop “for ever” and jump out when you are done. <code>break</code> leaves the loop straight away. Inside a function, <code>return</code> leaves the loop <em>and</em> the function.</p>
+<div class="code-block code-pycode"><p class="code-title">Keep asking until the answer is good</p><pre tabindex="0"><code class="language-python"><span class="tok-k">while</span> <span class="tok-kc">True</span><span class="tok-p">:</span>
+    <span class="tok-n">answer</span> <span class="tok-o">=</span> <span class="tok-nb">input</span><span class="tok-p">(</span><span class="tok-s2">"Type yes or no: "</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">lower</span><span class="tok-p">()</span>
+    <span class="tok-k">if</span> <span class="tok-n">answer</span> <span class="tok-o">==</span> <span class="tok-s2">"yes"</span> <span class="tok-ow">or</span> <span class="tok-n">answer</span> <span class="tok-o">==</span> <span class="tok-s2">"no"</span><span class="tok-p">:</span>
+        <span class="tok-k">break</span>                       <span class="tok-c1"># good answer: leave the loop</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"Please type yes or no."</span><span class="tok-p">)</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"Thanks!"</span><span class="tok-p">)</span></code></pre></div>
+<p>Checking the player’s answer like this is called <strong>input validation</strong>. Games do it all the time, so a typo never crashes them. <code>answer.isdigit()</code> is <code>True</code> only if the answer is made of the digits 0–9: then <code>int(answer)</code> is safe.</p>
+<h3 id="a-loop-inside-a-loop-pixel-art">A loop inside a loop: pixel art</h3>
+<p>A picture can be a list of strings: one string for each row, one letter for each pixel. The <strong>outer loop</strong> goes down the rows. The <strong>inner loop</strong> goes along one row, pixel by pixel.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A tiny picture 3 columns wide and 2 rows high, made from rows of text. Row 0 is "K.K": black, empty, black. Row 1 is ".O.": empty, orange, empty. K means black, O means orange and a dot means empty. The inner loop moves to the next pixel along a row; the outer loop moves to the next row.' class="fig fig-tikz" decoding="async" height="101" loading="lazy" src="/generated/fig/level-2/721233d04684.svg" width="420"/></figure>
+</div>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">row</span> <span class="tok-ow">in</span> <span class="tok-n">grid</span><span class="tok-p">:</span>            <span class="tok-c1"># outer loop: one row at a time</span>
+    <span class="tok-k">for</span> <span class="tok-n">pixel</span> <span class="tok-ow">in</span> <span class="tok-n">row</span><span class="tok-p">:</span>       <span class="tok-c1"># inner loop: one letter at a time</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">pixel</span><span class="tok-p">)</span></code></pre></div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">4.1: Guess My Number</span></p>
+<p>Folder: <code>exercises/week04/ex-guess-number</code>. Open <code>starter.py</code> and press <span class="menu">Run</span>.</p>
+<ol>
+<li><p>Guess until you are right. Does the game stop? If not, press <span class="menu">Stop</span>. Why does it keep going?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div></li>
+<li><p>TODO 1: add 1 to <code>tries</code> each time round. TODO 3: <code>break</code> when the result is <code>"Correct"</code>.</p></li>
+<li><p>Now type <code>banana</code>. Crash! TODO 2: make <code>ask_number()</code> keep asking until the answer is a whole number from <code>low</code> to <code>high</code>.</p></li>
+<li><p>Be the tester: try <code>banana</code>, <code>99</code>, <code>0</code> and <code>-3</code>. Does your game survive them all? ☐</p></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">4.2: Pixel Art</span></p>
+<p>Folder: <code>exercises/week04/ex-pixel-art</code>. Only the top row of the space invader appears.</p>
+<ol>
+<li><p>TODO 1: wrap the drawing in an outer loop <code>for row in grid:</code>. Move down after each row: <code>y = y - size</code>.</p></li>
+<li><p>TODO 2: finish <code>count_pixels()</code> with a loop inside a loop.</p></li>
+<li><p>Design your own picture (8 rows of 11 letters fit nicely). Plan it here first:</p></li>
+</ol>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A blank grid of small squares, used to plan a pixel picture." class="fig fig-tikz" decoding="async" height="193" loading="lazy" src="/generated/fig/level-2/deea82349ec6.svg" width="265"/></figure>
+</div>
+<p>Check your work with <code>check_my_work.py</code>.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>When would you use a <code>while</code> loop instead of a <code>for</code> loop?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Name one way a game could be unfair to players. How would you make it fair?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>
+</div> <section aria-labelledby="exercises"> <h2 id="exercises">Exercises for this week</h2> <p class="muted">Each exercise has the steps, the starter code and hints that open one at a time.</p> <ul class="ex-list"> <li><a class="ex-link" href="/levels/level-2/exercises/week04-ex-guess-number/"><span class="no">4.1</span><span><strong>Guess My Number</strong> <span class="pill">Python in Thonny</span></span></a></li><li><a class="ex-link" href="/levels/level-2/exercises/week04-ex-pixel-art/"><span class="no">4.2</span><span><strong>Pixel Art</strong> <span class="pill">Python in Thonny</span></span></a></li> </ul> </section> <section aria-labelledby="words"> <h2 id="words">New words</h2> <div class="callout callout-vocab" role="note"> <dl class="vocab-list"> <dt>while loop</dt><dd>A loop that goes round again and again while its condition is True.</dd><dt>condition</dt><dd>The check at the top of a while loop, like n &gt; 0 . It is True or False.</dd><dt>infinite loop</dt><dd>A loop that never stops, because nothing changes the condition. Press Stop!</dd><dt>break</dt><dd>Jumps out of a loop straight away.</dd><dt>input validation</dt><dd>Checking the player’s answer and asking again if it is not OK.</dd><dt>nested loop</dt><dd>A loop inside another loop, like rows and pixels.</dd><dt>game loop</dt><dd>The loop at the heart of a game: get input, update, show, repeat.</dd> </dl> </div> </section> <section aria-labelledby="homework"> <h2 id="homework">Homework: While Loops and Game Loops</h2> <p class="muted">15–20 minutes. Do Core first; Challenge and Creative are optional.</p> <div><div class="callout callout-core" role="note"><p class="callout-title"><span class="callout-label">Core</span><span class="callout-heading">Trace it first (paper, 4 minutes)</span></p>
+
+<p>Before you code, follow <code>hits_needed(30, 7)</code> by hand. Each time round the loop, 7 is taken away from <code>health</code> and 1 is added to <code>hits</code>. Keep going until <code>health</code> is 0 or less.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>round</strong></th>
+<th scope="col"><strong>health</strong></th>
+<th scope="col"><strong>hits</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>30</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>23</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>So <code>hits_needed(30, 7)</code> gives back: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-core" role="note"><p class="callout-title"><span class="callout-label">Core</span><span class="callout-heading">Slime Battle (Thonny, 10 minutes)</span></p>
+
+<p>Open <code>exercises/week04/hw-slime-battle/starter.py</code>.</p>
+<ol>
+<li><p>TODO 1: finish <code>hits_needed()</code> with a <code>while</code> loop: while <code>health</code> is more than 0, take away <code>damage</code> and add 1 to <code>hits</code>.</p></li>
+<li><p>TODO 2: make <code>ask_yes_no()</code> keep asking until the answer is <code>yes</code> or <code>no</code>.</p></li>
+<li><p>Run it. Type <code>maybe</code> first. Does it ask again? ☐</p></li>
+
+</ol>
+<p>Stuck in a loop? Press the red <span class="menu">Stop</span> button and check that <code>health</code> really gets smaller inside the loop.</p>
+</div>
+<div class="callout callout-challenge" role="note"><p class="callout-title"><span class="callout-label">Challenge</span><span class="callout-heading">Count up to a target</span></p>
+
+<p>Write a function <code>days_to_save(goal, per_day)</code> that uses a <code>while</code> loop to count how many days of saving <code>per_day</code> coins it takes to reach <code>goal</code> coins. For example <code>days_to_save(50, 12)</code> is 5. Add it to the bottom of your Slime Battle file (above <code>if __name__ == "__main__":</code>) and try it in the Shell.</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+</div>
+<div class="callout callout-creative" role="note"><p class="callout-title"><span class="callout-label">Creative</span><span class="callout-heading">Pixel sprite design</span></p>
+
+<p>Design a pixel sprite for a game: a slime, a pet, a spaceship or a potion. Color the squares and write the letter code for each row underneath (K, O, Y, B, S, G, R, P or . for empty). Next week you can type it into the Pixel Art program.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A blank grid of small squares, used to plan a pixel picture." class="fig fig-tikz" decoding="async" height="178" loading="lazy" src="/generated/fig/level-2/ef05e9acf64f.svg" width="221"/></figure>
+</div>
+</div>
+<div class="callout callout-selfcheck" role="note"><p class="callout-title"><span class="callout-label">Self-check</span><span class="callout-heading">Self-check: tick each box when it is true</span></p>
+
+<ul>
+<li class="check-item"><label><input type="checkbox"/>I can explain what makes a <code>while</code> loop stop.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I know what to do when a program is stuck in an infinite loop.</label></li>
+<li class="check-item"><label><input type="checkbox"/>My Slime Battle asks again when I type something that is not yes or no.</label></li>
+
+</ul>
+</div>
+</div> <ul class="ex-list"><li><a class="ex-link" href="/levels/level-2/exercises/week04-hw-slime-battle/"><span class="no">HW</span><span><strong>Slime Battle</strong>: hints and starter code</span></a></li></ul> </section> </div> </div> <nav class="pagination" aria-label="Previous and next week"> <a class="card prev" href="/levels/level-2/week-03/"><span class="small muted">Previous</span><br><strong>Week 3: Lists: Collections of Things</strong></a> <a class="card next" href="/levels/level-2/week-05/"><span class="small muted">Next</span><br><strong>Week 5: Dictionaries and Secret Codes</strong></a> </nav> </div>  </div> </main> <footer class="site-footer"> <div class="palette-bar" aria-hidden="true" style="margin-top:-2.5rem;margin-bottom:2.5rem"></div> <div class="wrap"> <div class="cols"> <div> <h2>Kids Coding</h2> <p>A free course for children from Grade 5: make games and art, first with Scratch blocks, then with Python. One 60-minute session a week.</p> <p><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"></path></svg> No accounts, no ads, no tracking.</p> </div> <div> <h2>Explore</h2> <ul> <li><a href="/parents/">For parents</a></li> <li><a href="/curriculum/">Curriculum and timeline</a></li> <li><a href="/levels/level-1/">Level 1: Introduction</a></li> <li><a href="/levels/level-2/">Level 2: Intermediate</a></li> <li><a href="/levels/level-3/">Level 3: Advanced</a></li> <li><a href="/resources/">Resources: setup, cheat sheets, glossary</a></li> <li><a href="/search/">Search</a></li> <li><a href="/about/">About, accessibility and credits</a></li> </ul> </div> <div> <h2>This site</h2> <p>Version 1.1.0 · Last updated <time datetime="2026-11-08">2026-11-08</time></p> <p class="small">Built from the course sources, so it always matches the printed workbooks. <a href="/about/#changelog">What changed</a></p> </div> </div> </div> </footer> <script type="module">const a=document.documentElement,o={get(e){try{return localStorage.getItem(e)}catch{return null}},set(e,n){try{localStorage.setItem(e,n)}catch{}},del(e){try{localStorage.removeItem(e)}catch{}}},l=document.getElementById("theme-toggle"),u=document.getElementById("font-toggle"),i=()=>a.getAttribute("data-theme")==="dark"||!a.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches;function m(){l&&(l.setAttribute("aria-pressed",String(i())),l.querySelector(".label").textContent=i()?"Light mode":"Dark mode",l.title=i()?"Switch to light mode":"Switch to dark mode"),u&&u.setAttribute("aria-pressed",String(a.getAttribute("data-font")==="dyslexia"))}l?.addEventListener("click",()=>{const e=i()?"light":"dark";a.setAttribute("data-theme",e),o.set("kc:theme",e),m()});u?.addEventListener("click",()=>{a.getAttribute("data-font")==="dyslexia"?(a.removeAttribute("data-font"),o.del("kc:font")):(a.setAttribute("data-font","dyslexia"),o.set("kc:font","dyslexia")),m()});m();document.querySelectorAll(".lesson .code-block, .starter-code").forEach(e=>{const n=e.querySelector("pre");if(!n||e.classList.contains("code-outputcode"))return;const t=document.createElement("button");t.type="button",t.className="btn small secondary copy-btn",t.innerHTML='Copy<span class="visually-hidden"> code</span>',t.addEventListener("click",async()=>{const c=n.innerText;try{await navigator.clipboard.writeText(c)}catch{const r=document.createElement("textarea");r.value=c,document.body.appendChild(r),r.select(),document.execCommand("copy"),r.remove()}t.textContent="Copied!",setTimeout(()=>{t.innerHTML='Copy<span class="visually-hidden"> code</span>'},1800)}),e.appendChild(t)});const y=location.pathname.replace(document.body.dataset.base||"/","/");document.querySelectorAll('.check-item input[type="checkbox"]').forEach((e,n)=>{const t=`kc:check:${y}:${n}`;e.disabled=!1,e.checked=o.get(t)==="1",e.addEventListener("change",()=>e.checked?o.set(t,"1"):o.del(t))});const s=document.querySelector("[data-done-key]");if(s){const e=s.dataset.doneKey,n=()=>{const t=o.get(e)==="1";s.setAttribute("aria-pressed",String(t)),s.querySelector(".txt").textContent=t?"Done! Click to undo":"Mark this as done"};s.addEventListener("click",()=>{o.get(e)==="1"?o.del(e):o.set(e,"1"),n()}),n()}document.querySelectorAll("[data-week-key]").forEach(e=>{o.get(e.dataset.weekKey)==="1"&&(e.dataset.done="true")});document.querySelectorAll("[data-progress-level]").forEach(e=>{const n=(e.dataset.progressLevel||"").split(",").filter(Boolean),t=n.filter(r=>o.get(r)==="1").length;e.querySelector("span").style.width=`${n.length?Math.round(100*t/n.length):0}%`;const c=e.parentElement.querySelector("[data-progress-text]");c&&(c.textContent=`${t} of ${n.length} weeks done on this device`)});const d=[...document.querySelectorAll(".hint")];if(d.length){const e=()=>d.forEach((n,t)=>{const c=t===0||d[t-1].open;n.dataset.locked=String(!c&&!n.open)});d.forEach((n,t)=>{n.querySelector("summary").addEventListener("click",c=>{n.dataset.locked==="true"&&(c.preventDefault(),d[t-1].querySelector("summary").focus())}),n.addEventListener("toggle",e)}),e()}</script> </body> </html>

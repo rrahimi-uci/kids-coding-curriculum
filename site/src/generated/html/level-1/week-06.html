@@ -1,0 +1,269 @@
+
+<h2 id="the-big-idea-our-six-big-ideas">The big idea: our six big ideas</h2>
+<p>Every programming language in the world uses these six ideas. You know them all!</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Big idea</strong></th>
+<th scope="col"><strong>It means…</strong></th>
+<th scope="col"><strong>In Scratch</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sequence</strong> (week 1)</td>
+<td>Steps happen in order, one after another.</td>
+<td><img alt="Scratch script: move 100 steps; say Hi!" class="fig fig-scratch fig-inline" decoding="async" height="66" loading="lazy" src="%BASE%generated/fig/level-1/3e7559f7eb49.svg" width="100"/></td>
+</tr>
+<tr>
+<td><strong>Loops</strong> (week 2)</td>
+<td>Repeat steps so you don’t copy them.</td>
+<td><img alt="Scratch script: repeat 4 [ move 100 steps ]" class="fig fig-scratch fig-inline" decoding="async" height="89" loading="lazy" src="%BASE%generated/fig/level-1/76657469cd3b.svg" width="117"/></td>
+</tr>
+<tr>
+<td><strong>Events</strong> (week 3)</td>
+<td>A doorbell starts a script.</td>
+<td><img alt="Scratch script: when space key pressed" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/d279235e9538.svg" width="159"/></td>
+</tr>
+<tr>
+<td><strong>Conditionals</strong> (week 3)</td>
+<td>Ask a yes/no question, then choose.</td>
+<td><img alt="Scratch script: if touching *edge ? then [  ]" class="fig fig-scratch fig-inline" decoding="async" height="89" loading="lazy" src="%BASE%generated/fig/level-1/266610c3c02e.svg" width="166"/></td>
+</tr>
+<tr>
+<td><strong>Variables</strong> (week 4)</td>
+<td>A labeled box that remembers.</td>
+<td><img alt="Scratch script: change score by 1" class="fig fig-scratch fig-inline" decoding="async" height="38" loading="lazy" src="%BASE%generated/fig/level-1/099f28bd320d.svg" width="138"/></td>
+</tr>
+<tr>
+<td><strong>My Blocks</strong> (week 5)</td>
+<td>Name a part and use it again.</td>
+<td><img alt="Scratch script: polygon 6 60" class="fig fig-scratch fig-inline" decoding="async" height="37" loading="lazy" src="%BASE%generated/fig/level-1/4503234b2832.svg" width="94"/></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">The four detective steps</span></p>
+<p><strong>1.</strong> What did I <strong>expect</strong>? <strong>2.</strong> What <strong>happened</strong>? <strong>3.</strong> Read the blocks one at a time with your finger. <strong>4.</strong> Change <strong>one</strong> thing, then test again.</p>
+</div>
+<h2 id="bug-hunt-relay">Bug-hunt relay</h2>
+<p>Each project card shows a project that someone built with <strong>two bugs</strong>. Build it <strong>exactly</strong> as shown (bugs and all!), click the flag, then be detectives. Fill in the relay baton for each one.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.1: Relay A: Wonky Hexagon</span></p>
+<p><strong>It should:</strong> draw one closed hexagon (6 equal sides of 80 steps) in the middle of the stage, then the cat says “Done!”.</p>
+<p><strong>Build it:</strong> new project, add the <span class="menu">Pen</span> extension, set the cat’s <span class="menu">Size</span> to 40, then build this script on the cat:</p>
+<div class="center">
+<figure class="figure figure-scratch"><img alt="Scratch script: when green flag clicked; erase all; go to x: 0 y: 0; point in direction 90; pen down; repeat 6 [ move 80 steps; turn right 50 degrees; pen up ]; say Done! for 2 seconds" class="fig fig-scratch" decoding="async" height="446" loading="lazy" src="%BASE%generated/fig/level-1/c468637149f6.svg" width="192"/></figure>
+</div>
+<p><strong>Relay baton.</strong> What happened?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Bug 1 and fix:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Bug 2 and fix:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.2: Relay B: Apple Catch Can’t Count</span></p>
+<p><strong>It should:</strong> start every game with a score of 0; drop apples from surprise places at the top; add <strong>exactly 1</strong> for every apple caught in the bowl; send missed apples back to the top.</p>
+<p><strong>Build it:</strong> new project, delete the cat, add the <strong>Bowl</strong> and <strong>Apple</strong> sprites, make a variable <code>score</code> (for all sprites), then:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td><img alt="Scratch script: when green flag clicked; go to x: 0 y: -140; forever [ set x to mouse x ]" class="fig fig-scratch fig-inline" decoding="async" height="187" loading="lazy" src="%BASE%generated/fig/level-1/8e80adfac628.svg" width="144"/></td>
+<td><img alt="Scratch script: when green flag clicked; go to x: pick random -200 to 200 y: 170; forever [ change y by -5; if touching *Bowl ? then [ change score by 1 ]; if y position &lt; -170 then [ go to x: pick random -200 to 200 y: 170 ] ]" class="fig fig-scratch fig-inline" decoding="async" height="383" loading="lazy" src="%BASE%generated/fig/level-1/95fad61c3c76.svg" width="334"/></td>
+</tr>
+<tr>
+<td> <strong>Bowl</strong></td>
+<td> <strong>Apple</strong></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Play two games. <strong>Relay baton.</strong> What happened?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Bug 1 and fix:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Bug 2 and fix:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">6.3: Relay C: The Silent Party</span></p>
+<p><strong>It should:</strong> after the green flag, the Ghost hides. When you press <kbd>space</kbd>, the cat says “Party time!”, then the Ghost appears, does a slow spinning dance you can really watch (one full turn, about 2 seconds) and says “Woo!”.</p>
+<p><strong>Build it:</strong> new project, keep the cat, add the <strong>Ghost</strong>. Make two messages called <code>party</code> and <code>dance</code> (broadcast dropdown → <span class="menu">New message</span>). Then:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td><img alt="Scratch script: when space key pressed; say Party time! for 2 seconds; broadcast party" class="fig fig-scratch fig-inline" decoding="async" height="130" loading="lazy" src="%BASE%generated/fig/level-1/640d9d7e8188.svg" width="208"/></td>
+<td><img alt="Scratch script: when green flag clicked; hide" class="fig fig-scratch fig-inline" decoding="async" height="94" loading="lazy" src="%BASE%generated/fig/level-1/14b56ea14612.svg" width="117"/></td>
+</tr>
+<tr>
+<td></td>
+<td><img alt="Scratch script: when I receive dance; show; repeat 10 [ turn right 36 degrees; next costume ]; say Woo! for 2 seconds" class="fig fig-scratch fig-inline" decoding="async" height="261" loading="lazy" src="%BASE%generated/fig/level-1/a5e5fb918a4e.svg" width="172"/></td>
+</tr>
+<tr>
+<td> <strong>Cat</strong></td>
+<td> <strong>Ghost</strong></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><strong>Relay baton.</strong> What happened?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Bug 1 and fix:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Bug 2 and fix:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<h2 id="blocks-to-words">Blocks to words</h2>
+<p>Next week you will write code in <strong>Python</strong>. Python uses words instead of blocks. Match each block card (A–L) with its Python card (1–12). Write the number next to each letter.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>A</strong></th>
+<th scope="col"><strong>B</strong></th>
+<th scope="col"><strong>C</strong></th>
+<th scope="col"><strong>D</strong></th>
+<th scope="col"><strong>E</strong></th>
+<th scope="col"><strong>F</strong></th>
+<th scope="col"><strong>G</strong></th>
+<th scope="col"><strong>H</strong></th>
+<th scope="col"><strong>I</strong></th>
+<th scope="col"><strong>J</strong></th>
+<th scope="col"><strong>K</strong></th>
+<th scope="col"><strong>L</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>What do you notice about Python? (Look at the brackets, quotes and colons.)</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span><span class="callout-heading">Fun and fair for everyone</span></p>
+<p>One thing that makes a game <strong>fun</strong>:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>One thing that makes a game <strong>fair</strong>:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>The project I am proudest of from weeks 1–6, and why:</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>
+<h3 id="printable-block-cards-cut-along-the-lines">Printable: block cards (cut along the lines)</h3>
+<div class="center">
+<div class="minipage">
+<p> A<br/>
+<img alt="Scratch script: repeat 4 [  ]" class="fig fig-scratch fig-inline" decoding="async" height="75" loading="lazy" src="%BASE%generated/fig/level-1/c5b8013d7ec8.svg" width="70"/></p>
+</div>
+<div class="minipage">
+<p> B<br/>
+<img alt="Scratch script: say Hello!" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/7649853215ba.svg" width="91"/></p>
+</div>
+<div class="minipage">
+<p> C<br/>
+<img alt="Scratch script: pen up" class="fig fig-scratch fig-inline" decoding="async" height="52" loading="lazy" src="%BASE%generated/fig/level-1/f00f9fa20aef.svg" width="107"/></p>
+</div>
+<div class="minipage">
+<p> D<br/>
+<img alt="Scratch script: change score by 1" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/9ce654b2cf43.svg" width="182"/></p>
+</div>
+<div class="minipage">
+<p> E<br/>
+<img alt="Scratch script: move 100 steps" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/31f6d17ff809.svg" width="131"/></p>
+</div>
+<div class="minipage">
+<p> F<br/>
+<img alt="Scratch script: set roll to pick random 1 to 6" class="fig fig-scratch fig-inline" decoding="async" height="38" loading="lazy" src="%BASE%generated/fig/level-1/6fc76c1a156a.svg" width="208"/></p>
+</div>
+<div class="minipage">
+<p> G<br/>
+<img alt="Scratch script: turn right 90 degrees" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/5c4940eb6376.svg" width="158"/></p>
+</div>
+<div class="minipage">
+<p> H<br/>
+<img alt="Scratch script: set score to 0" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/e1fc29612ef6.svg" width="150"/></p>
+</div>
+<div class="minipage">
+<p> I<br/>
+<img alt="Scratch script: go to x: 0 y: 0" class="fig fig-scratch fig-inline" decoding="async" height="49" loading="lazy" src="%BASE%generated/fig/level-1/52e4add1d4eb.svg" width="130"/></p>
+</div>
+<div class="minipage">
+<p> J<br/>
+<img alt="Scratch script: if score &gt; 10 then [  ]" class="fig fig-scratch fig-inline" decoding="async" height="75" loading="lazy" src="%BASE%generated/fig/level-1/542d4198fffc.svg" width="110"/></p>
+</div>
+<div class="minipage">
+<p> K<br/>
+<img alt="Scratch script: pen down" class="fig fig-scratch fig-inline" decoding="async" height="52" loading="lazy" src="%BASE%generated/fig/level-1/e196d30cdac5.svg" width="124"/></p>
+</div>
+<div class="minipage">
+<p> L<br/>
+<img alt="Scratch script: ask Nickname? and wait" class="fig fig-scratch fig-inline" decoding="async" height="46" loading="lazy" src="%BASE%generated/fig/level-1/c94ec2335a87.svg" width="175"/></p>
+</div>
+</div>
+<h3 id="printable-python-cards-cut-along-the-lines">Printable: Python cards (cut along the lines)</h3>
+<div class="center">
+<div class="minipage">
+<p> 1<br/>
+<code> t.pendown()</code></p>
+</div>
+<div class="minipage">
+<p> 2<br/>
+<code> score = 0</code></p>
+</div>
+<div class="minipage">
+<p> 3<br/>
+<code> for i in range(4):</code></p>
+</div>
+<div class="minipage">
+<p> 4<br/>
+<code>roll =</code><br/>
+<code>random.randint(1, 6)</code></p>
+</div>
+<div class="minipage">
+<p> 5<br/>
+<code> t.right(90)</code></p>
+</div>
+<div class="minipage">
+<p> 6<br/>
+<code> print("Hello!")</code></p>
+</div>
+<div class="minipage">
+<p> 7<br/>
+<code> if score &gt; 10:</code></p>
+</div>
+<div class="minipage">
+<p> 8<br/>
+<code> t.goto(0, 0)</code></p>
+</div>
+<div class="minipage">
+<p> 9<br/>
+<code>name = input(</code><br/>
+<code>"Nickname? ")</code></p>
+</div>
+<div class="minipage">
+<p> 10<br/>
+<code> t.penup()</code></p>
+</div>
+<div class="minipage">
+<p> 11<br/>
+<code> score = score + 1</code></p>
+</div>
+<div class="minipage">
+<p> 12<br/>
+<code> t.forward(100)</code></p>
+</div>
+</div>

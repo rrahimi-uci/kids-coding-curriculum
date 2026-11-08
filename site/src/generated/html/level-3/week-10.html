@@ -1,0 +1,117 @@
+
+<h2 id="design-first">Design first</h2>
+<p>Builders draw plans before they pour concrete. Programmers design before they type. Your design answers three questions: <em>Which classes do I need? What does each one know and do? Who works with whom?</em></p>
+<h3 id="crc-cards">CRC cards</h3>
+<p>A <strong>CRC card</strong> is an index card for one class: the <strong>C</strong>lass name, its <strong>R</strong>esponsibilities (what it knows and does) and its <strong>C</strong>ollaborators (the classes it works with). Here is one from the reference project, <em>Maze Muncher</em>:</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A filled-in CRC card for the class Chaser, which is a Ghost. Responsibilities: knows its row and column (from Ghost); each turn moves one step toward the player; finds the shortest path with breadth-first search and a queue. Collaborators: Maze (where are the walls?) and Player (where is it?)." class="fig fig-tikz" decoding="async" height="175" loading="lazy" src="%BASE%generated/fig/level-3/077e3effcc62.svg" width="405"/></figure>
+</div>
+<p><strong>Tip:</strong> if a card’s responsibility list gets long, that class is doing too much – split it in two.</p>
+<h3 id="class-diagrams-is-a-and-has-a">Class diagrams: “is a” and “has a”</h3>
+<p>A class diagram shows all the classes and how they connect. An arrow with a hollow triangle means <strong>is a</strong> (inheritance). A line with a diamond means <strong>has a</strong> (composition).</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A class diagram for a maze game. Game holds maze, player, ghosts and score, and has play_turn() and save_high_score(). A Game has a Maze (a grid and is_wall(r, c)), has a Player (row, col, lives and move(dr, dc)) and has some Ghosts (row, col and step()). Chaser is a Ghost whose step() uses breadth-first search with a queue." class="fig fig-tikz" decoding="async" height="291" loading="lazy" src="%BASE%generated/fig/level-3/7220ecbb855b.svg" width="494"/></figure>
+</div>
+<p>Read it aloud: <em>a Game has a Maze, a Player and some Ghosts; a Chaser is a Ghost.</em></p>
+<h2 id="milestones-and-save-points">Milestones and save points</h2>
+<p>Big projects are built in small steps. After each step works, you <strong>commit</strong> – a save point you can always return to.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A work cycle: edit code, run and test, git add, git commit -m with a message, then go back to editing for the next small step." class="fig fig-tikz" decoding="async" height="78" loading="lazy" src="%BASE%generated/fig/level-3/eab9731adbfd.svg" width="491"/></figure>
+</div>
+<p>A good commit message starts with a verb and says what changed: <code>Add Maze class that loads a grid</code>, <code>Fix player walking through walls</code>. Your project needs <strong>8 or more</strong> meaningful commits by the showcase.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.1: My CRC cards</span></p>
+<p>Write one card per class (at least two classes; one must use inheritance or composition). Copy them here.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Class</strong></th>
+<th scope="col"><strong>Responsibilities</strong> (knows / does)</th>
+<th scope="col"><strong>Collaborators</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.2: My class diagram</span></p>
+<p>Draw a box for each class (name, what it knows, what it does). Join them with “is a” arrows and “has a” lines. Then write one sentence: <em>... is a ...</em> or <em>... has a ...</em>.</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.3: My milestone plan</span></p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Milestone</strong></th>
+<th scope="col"><strong>What will work</strong></th>
+<th scope="col"><strong>Done? (date)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1 Pitch</td>
+<td>My idea and pitch card (week 9)</td>
+<td></td>
+</tr>
+<tr>
+<td>M2 Core</td>
+<td>My classes exist and the smallest version runs (week 10)</td>
+<td></td>
+</tr>
+<tr>
+<td>M3 Features</td>
+<td>+ 5 tests + a playtest (week 11)</td>
+<td></td>
+</tr>
+<tr>
+<td>M4 Polish</td>
+<td>+ README + accessibility fixes (week 11)</td>
+<td></td>
+</tr>
+<tr>
+<td>Showcase</td>
+<td>2-minute talk (week 12)</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">10.4: My repository and first commits</span></p>
+<div class="checklist">
+<ul>
+<li class="check-item"><label><input type="checkbox"/>I copied the starter folder to <code>Documents/coding-projects</code> and renamed it.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I ran <code>git init</code> inside my project folder (I checked with <code>pwd</code> first).</label></li>
+<li class="check-item"><label><input type="checkbox"/>Each class has an <code>__init__</code> and empty methods, and the file runs without errors.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I have at least 2 commits. My best message: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></label></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-safety" role="note"><p class="callout-title"><span class="callout-label">Safety</span><span class="callout-heading">May I use this? Licenses</span></p>
+<p>Everything in your project must be yours or allowed. Python’s standard library is free to use, and your own drawings and sounds are yours. For anything made by someone else, look at its <strong>license</strong>: <strong>CC0</strong> = free for anyone; <strong>CC BY</strong> = free if you give credit; “All rights reserved” or no license = <strong>do not use</strong>. Never download anything without a parent, and list every borrowed item in the “Credits” part of your README.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Which class was hardest to describe? Why?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>What will your next commit message be?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>

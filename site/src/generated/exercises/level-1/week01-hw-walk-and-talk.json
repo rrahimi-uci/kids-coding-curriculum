@@ -1,0 +1,31 @@
+{
+ "slug": "week01-hw-walk-and-talk",
+ "folder": "week01/hw-walk-and-talk",
+ "week": 1,
+ "level": 1,
+ "kind": "scratch",
+ "homework": true,
+ "number": "1",
+ "title": "Walk and Talk",
+ "body": "<p><strong>Goal:</strong> make a sprite walk across the stage and talk, in the right order. <strong>Time:</strong> about 10 minutes. <strong>Tool:</strong> Scratch app (offline).</p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Open the Scratch app. Click <strong>Choose a Backdrop</strong> and pick any place.</li>\n<li>Build the script below for the cat (or any sprite). <strong>glide</strong> is in <strong>Motion</strong>.</li>\n<li>Click the green flag and watch.</li>\n<li>Save: <strong>File &gt; Save to your computer</strong>, name <code>walk-and-talk</code>.</li>\n</ol>\n<h2 id=\"the-script-in-words\">The script in words</h2>\n<ul>\n<li>when green flag clicked</li>\n<li>go to x: -180 y: -100</li>\n<li>say \"Hi! I am Pixel Panda\" for 2 seconds (use your own nickname)</li>\n<li>glide 2 secs to x: 0 y: -100</li>\n<li>say \"Look at this place!\" for 2 seconds</li>\n<li>glide 2 secs to x: 180 y: -100</li>\n<li>say \"Bye!\" for 2 seconds</li>\n</ul>\n<p><strong>Creative extra:</strong> add <strong>switch backdrop to ...</strong> (in <strong>Looks</strong>) between the glides so your sprite walks into a new place each time.</p>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>When you click the green flag, the sprite starts on the left, says hello, glides to the middle, talks, glides to the right and says \"Bye!\". It starts on the left again every time you click the flag.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My script starts with <strong>when green flag clicked</strong>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My sprite always starts on the left.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>The steps happen in the order I planned.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I used my nickname, not my real name.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the goal and the steps in words. The sprite starts on the left, moves to the middle, then moves to the right. It talks at the start, in the middle and at the end.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Under <strong>when green flag clicked</strong>, use <strong>go to x: ( ) y: ( )</strong> from <strong>Motion</strong> to place your sprite on the left. Use <strong>glide ( ) secs to x: ( ) y: ( )</strong>, also from <strong>Motion</strong>, for each walk. Use <strong>say ( ) for ( ) seconds</strong> from <strong>Looks</strong> for each talk.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Talking and walking take turns, so they alternate in your stack. Each <strong>glide</strong> block moves the sprite to a new spot, and only the x number changes if you want to stay at the same height. Left is a negative x, and right is a positive x.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week01-hw-walk-and-talk/"
+}

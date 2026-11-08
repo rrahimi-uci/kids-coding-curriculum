@@ -1,0 +1,31 @@
+{
+ "slug": "week05-ex-shape-machine",
+ "folder": "week05/ex-shape-machine",
+ "week": 5,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "5.1",
+ "title": "Shape Machine",
+ "body": "<p><strong>Goal:</strong> make your own block, <strong>polygon</strong>, with two <strong>inputs</strong> (sides and length), and use it to draw many shapes with one block each. <strong>Tool:</strong> Scratch app (offline) with the Pen extension. <strong>Work in pairs.</strong></p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project. Click <strong>Add Extension</strong> (bottom left) and choose <strong>Pen</strong>. Set the cat's <strong>Size</strong> to <code>40</code>.</li>\n<li>Click <strong>My Blocks &gt; Make a Block</strong>. Type <code>polygon</code>.</li>\n<li>Click <strong>Add an input (number or text)</strong> and type <code>sides</code>. Click it again and type <code>length</code>. Click <strong>OK</strong>. (Leave \"Run without screen refresh\" unticked.)</li>\n<li>A pink <strong>define polygon (sides) (length)</strong> hat appears. Build the steps under it. To use an input, <strong>drag</strong> the little <code>sides</code> or <code>length</code> oval out of the define hat into a slot. The <strong>/</strong> (divide) block is in <strong>Operators</strong>.</li>\n<li>Build the green-flag script using your new pink <strong>polygon</strong> block four times.</li>\n<li>Click the green flag.</li>\n<li>Add a pentagon with one more block: <strong>polygon 5 70</strong>.</li>\n<li>Save as <code>shape-machine</code>.</li>\n</ol>\n<h2 id=\"the-scripts-in-words\">The scripts in words</h2>\n<p><strong>define polygon (sides) (length)</strong></p>\n<ul>\n<li>pen down</li>\n<li>repeat (sides):\n<ul>\n<li>move (length) steps</li>\n<li>turn right (360 / sides) degrees</li>\n</ul></li>\n<li>pen up</li>\n</ul>\n<p><strong>when green flag clicked</strong></p>\n<ul>\n<li>erase all</li>\n<li>go to x: 0 y: 0</li>\n<li>point in direction 90</li>\n<li>polygon 3 120</li>\n<li>polygon 4 100</li>\n<li>polygon 6 60</li>\n<li>polygon 8 40</li>\n</ul>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>Each click on the green flag clears the stage and draws four shapes that all start from the middle: a big triangle, a square, a hexagon and a small octagon. Every shape closes. Adding <strong>polygon 5 70</strong> adds a pentagon.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I made a My Block called <code>polygon</code> with the inputs <code>sides</code> and <code>length</code>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I dragged the inputs from the define hat (I did not type them).</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My turn uses <strong>360 / sides</strong>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My green-flag script uses the polygon block at least 4 times with different numbers.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Look at the pink <strong>define polygon</strong> block you make in the My Blocks category. Everything that draws one shape goes under it. The green-flag script only uses the new block.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>A shape with many sides is the same two steps repeated: move forward, then turn. Put those two steps in a <strong>repeat</strong> block (Control category). Drag the <code>sides</code> and <code>length</code> ovals out of the define hat into the slots.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Under the define block, put <strong>pen down</strong> first and <strong>pen up</strong> last. In the middle, use a <strong>repeat</strong> that uses your <code>sides</code> oval, with a move and a turn inside. For the turn, use the divide block from the Operators category. A full turn is 360 degrees.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week05-ex-shape-machine/"
+}

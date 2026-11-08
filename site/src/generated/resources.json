@@ -1,0 +1,58 @@
+[
+ {
+  "slug": "setup-mac",
+  "title": "Set up your Mac",
+  "toc": [
+   {
+    "id": "scratch-level-1-weeks-1-to-6",
+    "text": "Scratch (Level 1, weeks 1 to 6)"
+   },
+   {
+    "id": "thonny-and-python-level-1-from-week-7-and-levels-2-and-3",
+    "text": "Thonny and Python (Level 1 from week 7, and Levels 2 and 3)"
+   },
+   {
+    "id": "get-the-course-files",
+    "text": "Get the course files"
+   },
+   {
+    "id": "pytest-level-2-needed-from-week-8",
+    "text": "pytest (Level 2, needed from week 8)"
+   },
+   {
+    "id": "terminal-and-git-level-3",
+    "text": "Terminal and git (Level 3)"
+   },
+   {
+    "id": "safety-checklist",
+    "text": "Safety checklist"
+   }
+  ]
+ },
+ {
+  "slug": "troubleshooting",
+  "title": "Troubleshooting",
+  "toc": [
+   {
+    "id": "scratch",
+    "text": "Scratch"
+   },
+   {
+    "id": "thonny-and-python",
+    "text": "Thonny and Python"
+   },
+   {
+    "id": "files",
+    "text": "Files"
+   },
+   {
+    "id": "level-3-git-recursion-and-data",
+    "text": "Level 3: git, recursion and data"
+   },
+   {
+    "id": "the-mac",
+    "text": "The Mac"
+   }
+  ]
+ }
+]

@@ -1,0 +1,35 @@
+{
+ "slug": "week08-hw-loop-fixer",
+ "folder": "week08/hw-loop-fixer",
+ "week": 8,
+ "level": 1,
+ "kind": "python",
+ "homework": true,
+ "number": "8",
+ "title": "Loop Fixer",
+ "body": "<p><strong>Goal:</strong> this program should draw a blue square and an orange star. It has <strong>2 loop bugs</strong>. Find and fix them.</p>\n<ol type=\"1\">\n<li>Open <code>starter.py</code> and press <strong>Run</strong> (F5). Watch carefully.</li>\n<li><strong>Square bug:</strong> count the sides. How many times does the loop repeat?</li>\n<li><strong>Star bug:</strong> the star is a straight line! Which line is NOT inside the loop? (Look at the spaces at the start of each line.)</li>\n<li>Fix one bug, press <strong>Run</strong>, then fix the other.</li>\n</ol>\n<p><strong>Done looks like:</strong> a closed blue square and a closed orange 5-pointed star.</p>\n<p><strong>Challenge:</strong> draw a 7-pointed star: 7 sides, turn 360 x 3 / 7, about 154.</p>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Run the program and watch both shapes. The blue square and the orange star each have one bug. Look at the two <code>for</code> loops in <code>starter.py</code> one at a time.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>For the square, count its sides, then check the number inside <code>range(...)</code>. For the star, look at the spaces at the start of each line. A line only belongs to the loop if it is pushed in under the <code>for</code> line.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Square: say how many sides a square has, then read the number in <code>range(____)</code>. Do they match? Star: look at the spaces at the start of the two lines under the star's <code>for</code>. Do both lines line up? Fix one bug, press Run, then fix the other.</p>\n"
+  }
+ ],
+ "starter": {
+  "name": "starter.py",
+  "raw": "# Loop Fixer\n# This program has 2 bugs. Run it, watch, then fix them one at a time.\n\nimport turtle\n\nt = turtle.Turtle()\nt.shape(\"turtle\")\nt.pensize(3)\n\n# A blue square\nt.penup()\nt.goto(-200, -50)\nt.pendown()\nt.color(\"#0072B2\")\nfor i in range(3):\n    t.forward(100)\n    t.left(90)\n\n# An orange star with 5 points\nt.penup()\nt.goto(50, 0)\nt.pendown()\nt.color(\"#E69F00\")\nfor i in range(5):\n    t.forward(150)\nt.right(144)\n\nturtle.done()\n",
+  "html": "<span class=\"tok-c1\"># Loop Fixer</span>\n<span class=\"tok-c1\"># This program has 2 bugs. Run it, watch, then fix them one at a time.</span>\n\n<span class=\"tok-kn\">import</span> <span class=\"tok-nn\">turtle</span>\n\n<span class=\"tok-n\">t</span> <span class=\"tok-o\">=</span> <span class=\"tok-n\">turtle</span><span class=\"tok-o\">.</span><span class=\"tok-n\">Turtle</span><span class=\"tok-p\">()</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">shape</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;turtle&quot;</span><span class=\"tok-p\">)</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">pensize</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">3</span><span class=\"tok-p\">)</span>\n\n<span class=\"tok-c1\"># A blue square</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">penup</span><span class=\"tok-p\">()</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">goto</span><span class=\"tok-p\">(</span><span class=\"tok-o\">-</span><span class=\"tok-mi\">200</span><span class=\"tok-p\">,</span> <span class=\"tok-o\">-</span><span class=\"tok-mi\">50</span><span class=\"tok-p\">)</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">pendown</span><span class=\"tok-p\">()</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">color</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;#0072B2&quot;</span><span class=\"tok-p\">)</span>\n<span class=\"tok-k\">for</span> <span class=\"tok-n\">i</span> <span class=\"tok-ow\">in</span> <span class=\"tok-nb\">range</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">3</span><span class=\"tok-p\">):</span>\n    <span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">forward</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">100</span><span class=\"tok-p\">)</span>\n    <span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">left</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">90</span><span class=\"tok-p\">)</span>\n\n<span class=\"tok-c1\"># An orange star with 5 points</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">penup</span><span class=\"tok-p\">()</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">goto</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">50</span><span class=\"tok-p\">,</span> <span class=\"tok-mi\">0</span><span class=\"tok-p\">)</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">pendown</span><span class=\"tok-p\">()</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">color</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;#E69F00&quot;</span><span class=\"tok-p\">)</span>\n<span class=\"tok-k\">for</span> <span class=\"tok-n\">i</span> <span class=\"tok-ow\">in</span> <span class=\"tok-nb\">range</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">5</span><span class=\"tok-p\">):</span>\n    <span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">forward</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">150</span><span class=\"tok-p\">)</span>\n<span class=\"tok-n\">t</span><span class=\"tok-o\">.</span><span class=\"tok-n\">right</span><span class=\"tok-p\">(</span><span class=\"tok-mi\">144</span><span class=\"tok-p\">)</span>\n\n<span class=\"tok-n\">turtle</span><span class=\"tok-o\">.</span><span class=\"tok-n\">done</span><span class=\"tok-p\">()</span>"
+ },
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week08-hw-loop-fixer/"
+}

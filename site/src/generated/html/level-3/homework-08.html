@@ -1,0 +1,29 @@
+<div class="callout callout-core" role="note"><p class="callout-title"><span class="callout-label">Core</span><span class="callout-heading">Anonymize a survey (about 10 minutes)</span></p>
+
+<p>Open <code>3-advanced/exercises/week08/hw-survey-privacy/starter.py</code> and press <kbd>F5</kbd>. The file <code>snack_survey.csv</code> is made up, but it has a <code>nickname</code> and a <code>club</code> column. Together they could show exactly who answered.</p>
+<ol>
+<li><p>Finish <code>anonymize(rows, keep)</code>: each new row gets an <code>id</code> (R1, R2, ...) and only the columns in <code>keep</code>.</p></li>
+<li><p>Run again. The first row should be <code>{’id’: ’R1’, ’favorite_snack’: ’apple slices’, ’minutes_reading’: ’20’}</code>.</p></li>
+
+</ol>
+<p>Why is <code>club</code> risky even without a name?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-challenge" role="note"><p class="callout-title"><span class="callout-label">Challenge</span><span class="callout-heading">Save the safe file</span></p>
+
+<p>Finish <code>save_csv(rows, filename)</code> with <code>csv.DictWriter</code>: open the file with <code>"w"</code> and <code>newline=""</code>, write the header, then the rows. Run the program and open <code>snack_survey_anonymous.csv</code> in Thonny (<span class="menu">File</span> → <span class="menu">Open</span>, choose “All files”). Which snack is the most popular? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-creative" role="note"><p class="callout-title"><span class="callout-label">Creative</span><span class="callout-heading">Design a kind, safe survey</span></p>
+
+<p>Plan a 4-question survey for your family about a fun topic (favorite board game, best pizza topping, dream pet). Rules: start with a consent sentence (“You can skip any question”); no names, ages, addresses or schools; at least one question with a number answer you could average.</p>
+<div aria-hidden="true" class="write-lines" data-lines="5" style="--lines:5"></div>
+</div>
+<div class="callout callout-selfcheck" role="note"><p class="callout-title"><span class="callout-label">Self-check</span><span class="callout-heading">Self-check: tick each box when it is true</span></p>
+
+<ul>
+<li class="check-item"><label><input type="checkbox"/>I know that CSV values arrive as text and must be converted to numbers.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I can explain why we skip empty answers instead of counting them as 0.</label></li>
+<li class="check-item"><label><input type="checkbox"/>My anonymous rows have IDs and no nickname or club.</label></li>
+<li class="check-item"><label><input type="checkbox"/>I know to ask for consent and collect only what I need.</label></li>
+</ul>
+</div>

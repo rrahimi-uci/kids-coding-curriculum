@@ -1,0 +1,109 @@
+
+<h2 id="the-big-idea-a-row-of-lockers">The big idea: a row of lockers</h2>
+<p>A list is like a row of lockers. Each locker has a number painted on it, called its <strong>index</strong>. The first locker is number <strong>0</strong>.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A list called backpack holds four items: "torch" at index 0, "rope" at index 1, "map" at index 2 and "apple" at index 3. Asking for index 4 gives an IndexError because there is no fifth item.' class="fig fig-tikz" decoding="async" height="87" loading="lazy" src="%BASE%generated/fig/level-2/60be2df975a4.svg" width="546"/></figure>
+</div>
+<div class="code-block code-pycode"><p class="code-title">Making and using a list</p><pre tabindex="0"><code class="language-python"><span class="tok-n">backpack</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">"torch"</span><span class="tok-p">,</span> <span class="tok-s2">"rope"</span><span class="tok-p">,</span> <span class="tok-s2">"map"</span><span class="tok-p">]</span>
+<span class="tok-n">backpack</span><span class="tok-o">.</span><span class="tok-n">append</span><span class="tok-p">(</span><span class="tok-s2">"apple"</span><span class="tok-p">)</span>    <span class="tok-c1"># adds to the END of the list</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">backpack</span><span class="tok-p">))</span>        <span class="tok-c1"># 4   how many items</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">backpack</span><span class="tok-p">[</span><span class="tok-mi">0</span><span class="tok-p">])</span>          <span class="tok-c1"># torch   the first item</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">backpack</span><span class="tok-p">[</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">])</span>         <span class="tok-c1"># apple   -1 means the last item</span></code></pre></div>
+<p>With 4 items, the index numbers are 0, 1, 2 and 3. Asking for <code>backpack[4]</code> crashes with <code>IndexError: list index out of range</code>. This is called an <strong>off-by-one</strong> bug.</p>
+<h3 id="two-ways-to-loop-over-a-list">Two ways to loop over a list</h3>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Visit every item</strong></th>
+<th scope="col"><strong>Visit every index number</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>for item in backpack:</code></td>
+<td><code>for i in range(len(backpack)):</code></td>
+</tr>
+<tr>
+<td><code>    print(item)</code></td>
+<td><code>    print(i, backpack[i])</code></td>
+</tr>
+<tr>
+<td>Use it when you only need the items.</td>
+<td>Use it when you also need the position number.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h3 id="colors-for-everyone">Colors for everyone</h3>
+<p>Some people see colors differently, often red and green. These eight <strong>Okabe-Ito</strong> colors stay different for almost everyone. Use them, and always add a label, number or shape too, so color is never the only clue.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td><span class="swatch" style="background:#E69F00" title="orange"></span></td>
+<td>orange</td>
+<td><code>#E69F00</code></td>
+<td><span class="swatch" style="background:#0072B2" title="blue"></span></td>
+<td>blue</td>
+<td><code>#0072B2</code></td>
+</tr>
+<tr>
+<td><span class="swatch" style="background:#56B4E9" title="sky"></span></td>
+<td>sky blue</td>
+<td><code>#56B4E9</code></td>
+<td><span class="swatch" style="background:#D55E00" title="vermillion"></span></td>
+<td>vermillion</td>
+<td><code>#D55E00</code></td>
+</tr>
+<tr>
+<td><span class="swatch" style="background:#009E73" title="green"></span></td>
+<td>bluish green</td>
+<td><code>#009E73</code></td>
+<td><span class="swatch" style="background:#CC79A7" title="purple"></span></td>
+<td>reddish purple</td>
+<td><code>#CC79A7</code></td>
+</tr>
+<tr>
+<td><span class="swatch" style="background:#F0E442" title="yellow"></span></td>
+<td>yellow</td>
+<td><code>#F0E442</code></td>
+<td><span class="swatch" style="background:#000000" title="black"></span></td>
+<td>black</td>
+<td><code>#000000</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">3.1: Palette Stripes</span></p>
+<p>Folder: <code>exercises/week03/ex-palette-stripes</code>. Press <span class="menu">Run</span>: only one stripe appears.</p>
+<ol>
+<li><p>TODO 1: add blue and vermillion with <code>palette.append(...)</code>.</p></li>
+<li><p>TODO 3: draw a stripe for every color with <code>for i in range(len(colors)):</code>. Label each stripe <code>str(i)</code> and move <code>x</code> along.</p></li>
+<li><p>TODO 4: print the first color (<code>palette[0]</code>) and the last color (<code>palette[-1]</code>).</p></li>
+<li><p>My palette has <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> colors, so the labels go from 0 to <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>.</p></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">3.2: Adventure Inventory</span></p>
+<p>Folder: <code>exercises/week03/ex-inventory</code>. Press <span class="menu">Run</span>. It crashes!</p>
+<ol>
+<li><p>Read the error from the bottom up. Error name: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> In which function? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p></li>
+<li><p>Draw the backpack <code>["torch", "rope", "map", "apple"]</code> as boxes with their index numbers:</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div></li>
+<li><p>TODO 3: fix <code>last_item()</code>. TODO 1: <code>append</code> in <code>add_item()</code>. TODO 2: loop in <code>has_item()</code>.</p></li>
+</ol>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">3.3: Top 3 High Scores</span></p>
+<p>Folder: <code>exercises/week03/ex-high-scores</code>. Two new tricks: <code>sorted(scores, reverse=True)</code> makes a new list, biggest first, and <code>best[:3]</code> takes the first three items.</p>
+<ol>
+<li><p>Predict: the top 3 of <code>[120, 45, 300, 80]</code> are <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p></li>
+<li><p>TODO 1: sort, then take three. TODO 2: print <code>1st: 300</code>, <code>2nd: 120</code>, <code>3rd: 80</code> using the <code>places</code> list.</p></li>
+</ol>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>With a list of 10 items, what is the index of the last item? Why?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Describe a list you could use in a game you would like to make:</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

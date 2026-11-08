@@ -1,0 +1,73 @@
+
+<h2 id="two-ways-to-search">Two ways to search</h2>
+<p><strong>Linear search</strong> looks at the items one by one, from the start. It works on any list, but a long list means a long search.</p>
+<p><strong>Binary search</strong> only works on a <strong>sorted</strong> list. It looks at the middle item. If that is too small, the answer must be on the right, so it throws away the whole left half (and the other way round). Every step cuts the list in half.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Binary search in a sorted list of eight numbers: 3, 8, 15, 21, 29, 37, 44 and 52 at positions 0 to 7. Step 1: the middle is 21, which is too small, so throw away the left half. Step 2: the middle is 37, which is too small, so throw away the left half. Step 3: the middle is 44. Found 44!" class="fig fig-tikz" decoding="async" height="168" loading="lazy" src="%BASE%generated/fig/level-3/9ce4e5a48044.svg" width="598"/></figure>
+</div>
+<p>Gray boxes have been thrown away; the thick orange box is the one we look at (<code>mid</code>). Searching for 44 took 3 steps. Linear search would take 7.</p>
+<h2 id="how-fast-is-fast">How fast is fast?</h2>
+<p>To compare algorithms, count the <strong>steps</strong> in the <strong>worst case</strong> (the unluckiest search).</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Items in the list</strong></th>
+<th scope="col"><strong>Linear search</strong></th>
+<th scope="col"><strong>Binary search</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>10 steps</td>
+<td>4 steps</td>
+</tr>
+<tr>
+<td>100</td>
+<td>100 steps</td>
+<td>7 steps</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>1000 steps</td>
+<td>10 steps</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>When the list gets 10 times bigger, linear search does 10 times more work. Binary search only does about 3 more steps!</p>
+<h2 id="binary-search-in-python">Binary search in Python</h2>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-n">low</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-n">high</span> <span class="tok-o">=</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">items</span><span class="tok-p">)</span> <span class="tok-o">-</span> <span class="tok-mi">1</span>          <span class="tok-c1"># the LAST index, not the length</span>
+<span class="tok-k">while</span> <span class="tok-n">low</span> <span class="tok-o">&lt;=</span> <span class="tok-n">high</span><span class="tok-p">:</span>             <span class="tok-c1"># &lt;= : one item left is still worth checking</span>
+    <span class="tok-n">mid</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-n">low</span> <span class="tok-o">+</span> <span class="tok-n">high</span><span class="tok-p">)</span> <span class="tok-o">//</span> <span class="tok-mi">2</span>    <span class="tok-c1"># // makes a whole number</span>
+    <span class="tok-k">if</span> <span class="tok-n">items</span><span class="tok-p">[</span><span class="tok-n">mid</span><span class="tok-p">]</span> <span class="tok-o">==</span> <span class="tok-n">target</span><span class="tok-p">:</span>
+        <span class="tok-k">return</span> <span class="tok-n">mid</span>
+    <span class="tok-k">elif</span> <span class="tok-n">items</span><span class="tok-p">[</span><span class="tok-n">mid</span><span class="tok-p">]</span> <span class="tok-o">&lt;</span> <span class="tok-n">target</span><span class="tok-p">:</span>
+        <span class="tok-n">low</span> <span class="tok-o">=</span> <span class="tok-n">mid</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>          <span class="tok-c1"># throw away the left half (and mid)</span>
+    <span class="tok-k">else</span><span class="tok-p">:</span>
+        <span class="tok-n">high</span> <span class="tok-o">=</span> <span class="tok-n">mid</span> <span class="tok-o">-</span> <span class="tok-mi">1</span>         <span class="tok-c1"># throw away the right half (and mid)</span>
+<span class="tok-k">return</span> <span class="tok-o">-</span><span class="tok-mi">1</span>                      <span class="tok-c1"># nothing left: not in the list</span></code></pre></div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">4.1: Search Race</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week04-ex-search-race/"><code>week04/ex-search-race</code></a>. <code>linear_search</code> is done. Write <code>binary_search</code>: it returns <code>(index, steps)</code>. Run it to see the race table.<br/>
+<strong>Predict</strong> the binary steps for 10000 items: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> What did the program say? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">4.2: Guess-the-Number Bot</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week04-ex-guess-bot/"><code>week04/ex-guess-bot</code></a>. First run the slow bot: it guesses 1, 2, 3… (press the red Stop button). Then:</p>
+<ul>
+<li><p>finish <code>check(guess, secret)</code>: return <code>"higher"</code>, <code>"lower"</code> or <code>"correct"</code>;</p></li>
+<li><p>make <code>next_guess(low, high)</code> return the middle.</p></li>
+</ul>
+<p>Play 3 games. How many guesses did the bot need? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Filter bubbles</span></p>
+<p>Search engines are amazingly fast, but they also choose which results to show you first, based on what you clicked before. If you only ever see what you already like, you are in a “filter bubble”. Try different search words, look at more than one source, and ask a grown-up when something seems odd.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Explain to a younger friend why binary search needs a sorted list:</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Where in real life do you use halving to find something?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>

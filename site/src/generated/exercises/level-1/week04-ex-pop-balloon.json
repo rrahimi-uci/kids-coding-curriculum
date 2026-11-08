@@ -1,0 +1,31 @@
+{
+ "slug": "week04-ex-pop-balloon",
+ "folder": "week04/ex-pop-balloon",
+ "week": 4,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "4.1",
+ "title": "Pop the Balloon",
+ "body": "<p><strong>Goal:</strong> use a <strong>variable</strong> to count pops and <strong>pick random</strong> to move the balloon. <strong>Tool:</strong> Scratch app (offline). <strong>Work in pairs.</strong></p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project: <strong>File &gt; New</strong>. Delete the cat (right-click &gt; <strong>delete</strong>).</li>\n<li>Click <strong>Choose a Sprite</strong> and pick <strong>Balloon1</strong>.</li>\n<li>Click <strong>Variables &gt; Make a Variable</strong>. Type <code>pops</code>, keep <strong>For all sprites</strong>, click <strong>OK</strong>. A <code>pops</code> box appears on the stage.</li>\n<li>Build the two scripts below. <strong>pick random</strong> is in <strong>Operators</strong>: drop one into the x slot and one into the y slot of <strong>go to x: y:</strong>.</li>\n<li>Click the green flag and pop the balloon a few times.</li>\n<li>Click the green flag again. Does <code>pops</code> start at 0?</li>\n<li>Experiment: take away <strong>set pops to 0</strong> and click the flag. What happens? Put it back.</li>\n<li>Add a credits comment: right-click the code area &gt; <strong>Add Comment</strong> &gt; \"Credits: Balloon sprite and Pop sound from the Scratch library.\"</li>\n<li>Save as <code>pop-balloon</code>.</li>\n</ol>\n<h2 id=\"the-scripts-in-words\">The scripts in words</h2>\n<p>Balloon sprite, two scripts:</p>\n<ol type=\"1\">\n<li>when green flag clicked\n<ul>\n<li>set pops to 0</li>\n<li>go to x: 0 y: 0</li>\n</ul></li>\n<li>when this sprite clicked\n<ul>\n<li>change pops by 1</li>\n<li>start sound Pop</li>\n<li>go to x: (pick random -200 to 200) y: (pick random -140 to 140)</li>\n</ul></li>\n</ol>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>When you click the green flag, <code>pops</code> shows 0 and the balloon is in the middle. Every time you click the balloon, <code>pops</code> goes up by 1, you hear a pop, and the balloon jumps to a surprise place. Without <strong>set pops to 0</strong>, a new game starts with the old score.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I made a variable called <code>pops</code> and I can see it on the stage.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/><code>pops</code> starts at 0 every time I click the green flag.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>Each click adds exactly 1.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>The balloon jumps to a different place each time.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I added a credits comment and saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>You need two scripts on the Balloon. One starts the game when the flag is clicked. The other runs when the balloon is clicked. Look for the Variables category for <code>pops</code>.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Use the <strong>when this sprite clicked</strong> block (Events category) for the second script. Inside it, use <strong>change pops by</strong> to count. For the surprise spot, drop <strong>pick random</strong> blocks (Operators category) into the slots of <strong>go to x: y:</strong> (Motion category).</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>The flag script has two blocks: one that sets the counter and one that puts the balloon in a starting place. The click script has three: one that changes the counter, a <strong>start sound</strong> block (Sound category), and one that moves the balloon to a random place using <strong>pick random ____ to ____</strong> twice.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week04-ex-pop-balloon/"
+}

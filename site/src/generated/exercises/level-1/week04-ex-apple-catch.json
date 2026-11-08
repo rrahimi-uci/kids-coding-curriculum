@@ -1,0 +1,31 @@
+{
+ "slug": "week04-ex-apple-catch",
+ "folder": "week04/ex-apple-catch",
+ "week": 4,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "4.2",
+ "title": "Apple Catch",
+ "body": "<p><strong>Goal:</strong> build a catch game with a <strong>score</strong> variable, <strong>random</strong> start places, a <strong>forever</strong> loop and <strong>if</strong> blocks. <strong>Tool:</strong> Scratch app (offline). <strong>Work in pairs:</strong> swap, then play each other's game.</p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project. Delete the cat. Add the <strong>Bowl</strong> and <strong>Apple</strong> sprites (<strong>Choose a Sprite</strong>). Choose any backdrop.</li>\n<li>Make a variable <code>score</code> (<strong>For all sprites</strong>).</li>\n<li>Click the <strong>Bowl</strong> and build the Bowl script. <strong>mouse x</strong> is in <strong>Sensing</strong>.</li>\n<li>Click the <strong>Apple</strong> and build the Apple script. <strong>y position</strong> is in <strong>Motion</strong>; the <strong>&lt;</strong> block is in <strong>Operators</strong>.</li>\n<li>Play: move the mouse left and right to catch the apples.</li>\n<li>Bug hunt: take the <strong>go to x: (pick random ...) y: 170</strong> block out of the <strong>touching Bowl?</strong> block. Catch one apple. What happens to the score? Why? Put the block back.</li>\n<li>Add a credits comment and save as <code>apple-catch</code>.</li>\n</ol>\n<h2 id=\"the-scripts-in-words\">The scripts in words</h2>\n<p><strong>Bowl</strong>:</p>\n<ul>\n<li>when green flag clicked</li>\n<li>go to x: 0 y: -140</li>\n<li>forever:\n<ul>\n<li>set x to (mouse x)</li>\n</ul></li>\n</ul>\n<p><strong>Apple</strong>:</p>\n<ul>\n<li>when green flag clicked</li>\n<li>set score to 0</li>\n<li>go to x: (pick random -200 to 200) y: 170</li>\n<li>forever:\n<ul>\n<li>change y by -5</li>\n<li>if touching Bowl? then\n<ul>\n<li>change score by 1</li>\n<li>start sound (any)</li>\n<li>go to x: (pick random -200 to 200) y: 170</li>\n</ul></li>\n<li>if (y position) &lt; -170 then\n<ul>\n<li>go to x: (pick random -200 to 200) y: 170</li>\n</ul></li>\n</ul></li>\n</ul>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>The score starts at 0. The bowl stays at the bottom and follows the mouse left and right. Apples fall from a different place at the top each time. Each apple you catch adds exactly 1 to the score and plays a sound; then a new apple falls. A missed apple starts again at the top. Without the \"go to the top\" block after a catch, one catch adds lots of points, because the apple keeps touching the bowl while the loop keeps checking.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>The bowl follows the mouse and stays at the bottom.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>Apples start from a random place at the top.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>The score starts at 0 every game.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>Each catch adds exactly 1.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I can explain Mei's bug (one catch, many points).</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I added a credits comment and saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the Bowl script and the Apple script separately. The Bowl only follows the mouse. The Apple does the falling, the counting, and the restarting.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Inside the Apple's <strong>forever</strong> loop, use two <strong>if</strong> blocks from the Control category. One asks if the apple touches the bowl (Sensing category). The other asks if the apple's <strong>y position</strong> (Motion category) is less than a low number (Operators category).</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Use <strong>change y by</strong> with a negative number so the apple falls. In the catch <strong>if</strong>, put <strong>change score by ____</strong>, then a sound, then a <strong>go to x: ____ y: ____</strong> block. For the bug hunt, think about what the apple is doing right after you catch it.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week04-ex-apple-catch/"
+}

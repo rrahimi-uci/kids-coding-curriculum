@@ -1,0 +1,123 @@
+
+<h2 id="rules-or-examples">Rules or examples?</h2>
+<p>A program with <strong>rules</strong> does exactly what you typed: <code>if teeth &gt; 5: print("grumpy")</code>. A <strong>learning</strong> program gets lots of <strong>examples</strong> with the right answers (<strong>labels</strong>) and finds the pattern itself. The things it measures are called <strong>features</strong>.</p>
+<p>Our monsters have two features: <strong>fluff</strong> (0–10) and <strong>teeth</strong> (0–10). Put every example on a chart. To guess a <strong>mystery</strong> monster, find the closest example and copy its label. That is a <strong>nearest-neighbor classifier</strong>.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A scatter plot of monsters by fluff (across) and teeth (up). Five grumpy monsters, blue squares marked G, are at the top left with little fluff and many teeth. Five friendly monsters, orange circles marked F, are at the bottom right with much fluff and few teeth. Two mystery monsters, marked ?, each have a dashed line to their nearest neighbor: one joins a grumpy square and the other joins a friendly circle." class="fig fig-tikz" decoding="async" height="256" loading="lazy" src="%BASE%generated/fig/level-3/4ecb646cd449.svg" width="475"/></figure>
+</div>
+<p>The mystery at (5, 2) is closest to a friendly monster, so the guess is <em>friendly</em>. Distance is measured with Pythagoras: <code>math.sqrt(dx * dx + dy * dy)</code>.</p>
+<h2 id="is-it-any-good-train-then-test">Is it any good? Train, then test</h2>
+<p>Split the examples into two piles. The program learns from the <strong>training</strong> pile. The <strong>test</strong> pile stays secret until the end; then we count how many test cards it labels correctly. <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">accuracy</mtext><mo>=</mo><mfrac><mtext mathvariant="normal">correct guesses</mtext><mtext mathvariant="normal">number of test cards</mtext></mfrac></mrow><annotation encoding="application/x-tex">\text{accuracy} = \frac{\text{correct guesses}}{\text{number of test cards}}</annotation></semantics></math> Testing on cards it learned from would be like seeing the exam answers first.</p>
+<div class="callout callout-bughunt" role="note"><p class="callout-title"><span class="callout-label">Bug hunt</span><span class="callout-heading">Bad examples, bad predictions</span></p>
+<p>If the training pile has 8 grumpy monsters and only 1 friendly one, the program calls most friendly monsters grumpy. The code is fine – the <em>data</em> is the bug. This is called <strong>bias</strong>. When real AI decides things about people (faces, voices, job applications), biased examples can treat whole groups unfairly. That is why people must check the data, not just the code.</p>
+</div>
+<h2 id="a-tiny-text-generator">A tiny text generator</h2>
+<p>A <strong>Markov chain</strong> learns just one thing from a text: <em>after each word, which words came next?</em></p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A word-chain diagram for a text generator. From "the", arrows lead to "dragon", "robot" and "cat". Each of those leads to "sat", "sat" leads to "on", and "on" leads back to "the", labeled next word: the.' class="fig fig-tikz" decoding="async" height="140" loading="lazy" src="%BASE%generated/fig/level-3/b3cc6a52e054.svg" width="363"/></figure>
+</div>
+<p>To write, it starts with a word and keeps picking a <em>random</em> next word from the list. The sentences <em>sound</em> like the training text, but the machine does not understand them at all. Today’s chatbots are enormously bigger and cleverer, but they also predict likely next words – which is why they can sound sure and still be wrong.</p>
+<h2 id="the-five-big-ideas-of-ai">The five big ideas of AI</h2>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Big idea</strong></th>
+<th scope="col"><strong>What it means</strong></th>
+<th scope="col"><strong>Today</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Perception</td>
+<td>Computers sense the world with cameras, microphones, sensors.</td>
+<td>a camera measuring fluff?</td>
+</tr>
+<tr>
+<td>2 Representation &amp; reasoning</td>
+<td>The world is stored as data the computer can reason about.</td>
+<td>each monster = (fluff, teeth)</td>
+</tr>
+<tr>
+<td>3 Learning</td>
+<td>Computers find patterns in examples.</td>
+<td>nearest-neighbor classifier</td>
+</tr>
+<tr>
+<td>4 Natural interaction</td>
+<td>Talking and writing like people is very hard.</td>
+<td>Markov story machine</td>
+</tr>
+<tr>
+<td>5 Societal impact</td>
+<td>AI can help or harm people.</td>
+<td>bias, privacy, deepfakes</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">9.1: Monster sorter</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week09-ex-monster-sorter/"><code>week09/ex-monster-sorter</code></a>. Finish <code>distance(a, b)</code> and <code>nearest(training, mystery)</code>. Run it and look at the chart. What does it guess for (5, 5)? Do you agree?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">9.2: Fair or biased?</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week09-ex-fair-or-biased/"><code>week09/ex-fair-or-biased</code></a>. Finish <code>label_counts()</code> and <code>accuracy()</code>. Fair training accuracy: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Biased training accuracy: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Why is the biased one worse?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">9.3: Markov story machine</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week09-ex-markov-story/"><code>week09/ex-markov-story</code></a>. Finish <code>build_chain(words)</code>: each word maps to the list of words that came right after it (keep repeats!). Copy your silliest generated sentence:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">9.4: My project pitch (Milestone 1)</span></p>
+<p>For the next three weeks you will <em>Build Something Big</em>. Read the Project brief, then fill in your pitch. Finish it at home.</p>
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td>Project title:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>Option (circle one):</td>
+<td>grid game generative art app data/AI app</td>
+</tr>
+<tr>
+<td>In one sentence, it is...:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>Two classes I will need:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>Inheritance or composition:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>Data structure (dict / stack / queue / grid):</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>Named algorithm:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>File it will save:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+<tr>
+<td>The smallest fun version:</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="callout callout-safety" role="note"><p class="callout-title"><span class="callout-label">Safety</span><span class="callout-heading">Using AI wisely and safely</span></p>
+<p><strong>AI can be wrong</strong>, even when it sounds sure – check important facts with a trusted source or adult. <strong>Never share personal information</strong> with a chatbot: no real name, address, school, passwords, photos or secrets; what you type may be stored. <strong>Deepfakes</strong> are fake pictures, voices or videos made by AI: ask “Who made this, and why?” before you believe or share, and never make fakes of real people. <strong>Bias</strong>: AI is only as fair as its examples.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Where have you met AI this week (videos, games, phones, homework)?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>One thing you will never type into a chatbot, and why:</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>

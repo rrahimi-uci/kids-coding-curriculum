@@ -1,0 +1,50 @@
+
+<h2 id="the-big-idea">The big idea</h2>
+<p>A <strong>class</strong> is a blueprint, like a cookie cutter. An <strong>object</strong> is a thing made from the blueprint, like one cookie. Every object made from the same class has the same <em>kinds</em> of facts, but its own <em>values</em>.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A class is a blueprint. The class Pet has attributes (facts): name, species, hunger and happiness, and methods (actions): feed(), play(), mood() and describe(). Pet("Pip", "dragon") builds the object pip with name Pip, species dragon and hunger 2. Pet("Bo", "robot cat") builds the object bo with name Bo, species robot cat and hunger 5.' class="fig fig-tikz" decoding="async" height="207" loading="lazy" src="%BASE%generated/fig/level-3/3f784f197eb2.svg" width="472"/></figure>
+</div>
+<h2 id="anatomy-of-a-class">Anatomy of a class</h2>
+<div class="code-block code-pycode"><p class="code-title">Every part has a job</p><pre tabindex="0"><code class="language-python"><span class="tok-k">class</span> <span class="tok-nc">Pet</span><span class="tok-p">:</span>                          <span class="tok-c1"># 1. the blueprint (capital P)</span>
+    <span class="tok-k">def</span> <span class="tok-fm">__init__</span><span class="tok-p">(</span><span class="tok-bp">self</span><span class="tok-p">,</span> <span class="tok-n">name</span><span class="tok-p">):</span>       <span class="tok-c1"># 2. setup: runs when a pet is made</span>
+        <span class="tok-bp">self</span><span class="tok-o">.</span><span class="tok-n">name</span> <span class="tok-o">=</span> <span class="tok-n">name</span>            <span class="tok-c1"># 3. attributes: facts it remembers</span>
+        <span class="tok-bp">self</span><span class="tok-o">.</span><span class="tok-n">hunger</span> <span class="tok-o">=</span> <span class="tok-mi">5</span>
+
+    <span class="tok-k">def</span> <span class="tok-nf">feed</span><span class="tok-p">(</span><span class="tok-bp">self</span><span class="tok-p">):</span>                 <span class="tok-c1"># 4. a method: an action</span>
+        <span class="tok-bp">self</span><span class="tok-o">.</span><span class="tok-n">hunger</span> <span class="tok-o">=</span> <span class="tok-bp">self</span><span class="tok-o">.</span><span class="tok-n">hunger</span> <span class="tok-o">-</span> <span class="tok-mi">3</span>   <span class="tok-c1"># MY hunger goes down</span>
+
+<span class="tok-n">pip</span> <span class="tok-o">=</span> <span class="tok-n">Pet</span><span class="tok-p">(</span><span class="tok-s2">"Pip"</span><span class="tok-p">)</span>                    <span class="tok-c1"># 5. make an object</span>
+<span class="tok-n">pip</span><span class="tok-o">.</span><span class="tok-n">feed</span><span class="tok-p">()</span>                          <span class="tok-c1"># 6. ask it to do something</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">pip</span><span class="tok-o">.</span><span class="tok-n">hunger</span><span class="tok-p">)</span>                   <span class="tok-c1">#    prints 2</span></code></pre></div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">What is self?</span></p>
+<p><code>self</code> means “this object” or “my”. When you write <code>pip.feed()</code>, Python runs <code>feed</code> with <code>self</code> set to <code>pip</code>. So <code>self.hunger</code> is Pip’s hunger. Every method needs <code>self</code> as its first parameter, and every attribute is written <code>self.something</code>.</p>
+</div>
+<h2 id="from-dictionary-to-class">From dictionary to class</h2>
+<p>In Level 2 you might have written <code>pip = {"name": "Pip", "hunger": 5}</code>. A dictionary holds the facts. A class holds the facts <em>and</em> the actions, all in one place, so you can make 100 pets that all know how to <code>feed()</code>.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">2.1: Pet Class</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week02-ex-pet-class/"><code>week02/ex-pet-class</code></a>. <code>__init__</code> and <code>feed</code> are done. Finish:</p>
+<ul>
+<li><p><code>play()</code>: happiness <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">+2</annotation></semantics></math> (max 10) and hunger <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math> (max 10).</p></li>
+<li><p><code>mood()</code>: <code>"hungry"</code> if hunger <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">\geq 7</annotation></semantics></math>, else <code>"happy"</code> if happiness <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">\geq 7</annotation></semantics></math>, else <code>"bored"</code> if happiness <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\leq 3</annotation></semantics></math>, else <code>"okay"</code>.</p></li>
+<li><p><code>describe()</code>: returns <code>"Pip the dragon feels okay."</code></p></li>
+</ul>
+<p><strong>Predict first:</strong> after <code>pip.play()</code> twice, what are Pip’s hunger and happiness? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span><br/>
+What is Bo’s hunger? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">2.2: Bubble Art</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week02-ex-bubble-art/"><code>week02/ex-bubble-art</code></a>. Each <code>Bubble</code> object remembers <code>x</code>, <code>y</code>, <code>size</code> and <code>color</code>. Finish <code>__init__</code>, <code>grow</code>, <code>move</code>, the big dot in <code>draw</code>, and <code>make_bubbles</code>, which returns a <strong>list of objects</strong>:</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-n">bubbles</span> <span class="tok-o">=</span> <span class="tok-n">make_bubbles</span><span class="tok-p">(</span><span class="tok-mi">40</span><span class="tok-p">)</span>     <span class="tok-c1"># a list of 40 Bubble objects</span>
+<span class="tok-k">for</span> <span class="tok-n">bubble</span> <span class="tok-ow">in</span> <span class="tok-n">bubbles</span><span class="tok-p">:</span>
+    <span class="tok-n">bubble</span><span class="tok-o">.</span><span class="tok-n">draw</span><span class="tok-p">(</span><span class="tok-n">pen</span><span class="tok-p">)</span>           <span class="tok-c1"># each one draws itself</span></code></pre></div>
+<p><strong>Done looks like:</strong> a black window full of bubbles, each with a white shine. Check with <code>check_my_work.py</code>, then commit your picture’s code in <code>git-quest</code>.</p>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Kind design</span></p>
+<p>Our pets never get sick, run away or say “you forgot me!”. Good games are fun because you want to play, not because they make you feel guilty. When you design a game, ask: “Is this fair and kind to the player?”</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Pick something from a game you like. Write it as a class: its name, 3 attributes and 2 methods.</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+<p>What does <code>self</code> mean, in your own words?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>

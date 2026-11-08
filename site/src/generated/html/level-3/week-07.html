@@ -1,0 +1,89 @@
+
+<h2 id="the-big-idea-functions-that-call-themselves">The big idea: functions that call themselves</h2>
+<p>Open a Russian doll and you find a smaller doll. Open that one: an even smaller doll. You keep doing <em>the same job</em> until you reach the tiny solid doll – then you stop.</p>
+<p>A <strong>recursive</strong> function works the same way. It has two parts:</p>
+<ul>
+<li><p>the <strong>base case</strong>: the tiny problem you can answer straight away – <em>stop here</em>;</p></li>
+<li><p>the <strong>recursive case</strong>: do one small step, then call yourself on a <em>smaller</em> problem.</p></li>
+</ul>
+<div class="code-block code-pycode"><p class="code-title">countdown: a recursive function</p><pre tabindex="0"><code class="language-python"><span class="tok-k">def</span> <span class="tok-nf">countdown</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+    <span class="tok-k">if</span> <span class="tok-n">n</span> <span class="tok-o">&lt;=</span> <span class="tok-mi">0</span><span class="tok-p">:</span>            <span class="tok-c1"># base case: stop</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"Liftoff!"</span><span class="tok-p">)</span>
+        <span class="tok-k">return</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">)</span>              <span class="tok-c1"># one small step</span>
+    <span class="tok-n">countdown</span><span class="tok-p">(</span><span class="tok-n">n</span> <span class="tok-o">-</span> <span class="tok-mi">1</span><span class="tok-p">)</span>      <span class="tok-c1"># the same job on a smaller number</span></code></pre></div>
+<p>When you call <code>countdown(3)</code>, Python stacks up the calls like plates. Each call waits for the smaller one to finish:</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A function that calls itself. countdown(3) prints 3, then calls countdown(2). countdown(2) prints 2, then calls countdown(1). countdown(1) prints 1, then calls countdown(0). countdown(0) is the base case: it prints Liftoff! and stops." class="fig fig-tikz" decoding="async" height="169" loading="lazy" src="%BASE%generated/fig/level-3/02a97c583af2.svg" width="482"/></figure>
+</div>
+<div class="callout callout-bughunt" role="note"><p class="callout-title"><span class="callout-label">Bug hunt</span><span class="callout-heading">No base case = never-ending dolls</span></p>
+<p>If you forget the base case, the function calls itself forever. Python stops it after about 1000 calls with <code>RecursionError: maximum recursion depth exceeded</code>. When you see that error, look for the base case first. Also check that each call is on a <em>smaller</em> problem (<code>n - 1</code>, not <code>n</code>).</p>
+</div>
+<p><strong>Predict!</strong> What does <code>stars(3)</code> print? Write it before you run it.</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">def</span> <span class="tok-nf">stars</span><span class="tok-p">(</span><span class="tok-n">n</span><span class="tok-p">):</span>
+    <span class="tok-k">if</span> <span class="tok-n">n</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-p">:</span>
+        <span class="tok-k">return</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">"*"</span> <span class="tok-o">*</span> <span class="tok-n">n</span><span class="tok-p">)</span>
+    <span class="tok-n">stars</span><span class="tok-p">(</span><span class="tok-n">n</span> <span class="tok-o">-</span> <span class="tok-mi">1</span><span class="tok-p">)</span></code></pre></div>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<h2 id="fractals-pictures-made-of-smaller-copies">Fractals: pictures made of smaller copies</h2>
+<p>A <strong>fractal</strong> is a shape made of smaller copies of itself. A tree is a trunk with two smaller trees on top. Each smaller tree is a trunk with two even smaller trees on top... until the <strong>depth</strong> reaches 0.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Three branching trees. Depth 1 is a single line (1 line). Depth 2 is a trunk that splits into two branches (3 lines). Depth 3 splits each of those branches again (7 lines)." class="fig fig-tikz" decoding="async" height="148" loading="lazy" src="%BASE%generated/fig/level-3/789f6ab958dc.svg" width="459"/></figure>
+</div>
+<h2 id="grids-worlds-made-of-rows">Grids: worlds made of rows</h2>
+<p>A <strong>grid</strong> is a list of rows, and each row is a list of cells. You find a cell with <code>grid[row][col]</code>: first go <em>down</em> to the row, then <em>across</em> to the column. Both start at 0.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A small grid with rows 0 to 2 and columns 0 to 3. Water is ~ and land is a dot. grid[1][2] is "T", a tree at row 1, column 2, and the square below it, grid[2][2], is ^, a mountain.' class="fig fig-tikz" decoding="async" height="119" loading="lazy" src="%BASE%generated/fig/level-3/1ce7e2a5de29.svg" width="378"/></figure>
+</div>
+<p>You can make a grid from strings: <code>grid = [list(row) for row in ["    ", " .T ", " .^ "]]</code>. Change a cell with <code>grid[2][1] = "T"</code>. The <strong>neighbors</strong> of a cell are the cells up, down, left and right of it (watch out for the edges!).</p>
+<p>A <strong>paint bucket</strong> (flood fill) uses recursion on a grid: paint this cell, then ask each neighbor to do the same – but stop at the edge, at walls, and at cells you have already painted. Those are the base cases.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">7.1: Recursion warm-up</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week07-ex-countdown-sum/"><code>week07/ex-countdown-sum</code></a>. Read <code>countdown()</code>. Then finish <code>sum_to(n)</code> (so <code>sum_to(5)</code> is 15) and <code>reverse(word)</code> (so <code>reverse("turtle")</code> is <code>"eltrut"</code>) using recursion. Check with <code>check_my_work.py</code>.</p>
+<p><strong>Write the base case of <code>sum_to</code>:</strong></p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">7.2: Fractal tree</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week07-ex-fractal-tree/"><code>week07/ex-fractal-tree</code></a>. Inside <code>branch()</code>, after the trunk, add: turn left, draw a smaller tree, turn right twice as far, draw another smaller tree, turn back. Run it and fill in the table.</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col">Depth</th>
+<th scope="col">1</th>
+<th scope="col">2</th>
+<th scope="col">3</th>
+<th scope="col">4</th>
+<th scope="col">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of lines</td>
+<td>1</td>
+<td>3</td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+<td><span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>What pattern do you see?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">7.3: Paint bucket</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week07-ex-paint-bucket/"><code>week07/ex-paint-bucket</code></a>. Finish <code>count_tiles(grid, symbol)</code> with two loops, then the flood fill: add the base case “stop if this cell is not the old color” and four recursive calls (up, down, left, right). Run it, press keys <strong>1</strong>–<strong>5</strong> to choose a paint and click inside a shape. Every paint has a letter as well as a color.</p>
+<p><strong>Which cells does the paint stop at?</strong></p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Watch the calls pile up</span></p>
+<p>In Thonny, click the bug icon (Debug) and press <kbd>F7</kbd> (Step into) again and again on <code>sum_to(3)</code>. Each new call opens a new box – that is the call stack.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Where in nature have you seen something made of smaller copies of itself?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+<p>Explain the base case to someone who has never coded:</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+</div>

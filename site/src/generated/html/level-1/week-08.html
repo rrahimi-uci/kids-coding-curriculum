@@ -1,0 +1,67 @@
+
+<h2 id="the-big-idea-repeat-in-words">The big idea: repeat, in words</h2>
+<p>Last week your square needed 8 lines. With a loop it needs 3. Compare:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td><img alt="Scratch script: repeat 4 [ move 100 steps; turn left 90 degrees ]" class="fig fig-scratch fig-inline" decoding="async" height="164" loading="lazy" src="%BASE%generated/fig/level-1/80c340a14af1.svg" width="191"/></td>
+<td>→</td>
+<td><div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">i</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">):</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">100</span><span class="tok-p">)</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">90</span><span class="tok-p">)</span></code></pre></div></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Python has no C-shaped block. Instead it uses two clues:</p>
+<ol>
+<li><p>a <strong>colon</strong> <code>:</code> at the end of the <code>for</code> line, and</p></li>
+<li><p><strong>4 spaces</strong> at the start of every line <strong>inside</strong> the loop. This is called <strong>indentation</strong>.</p></li>
+</ol>
+<div class="center">
+<figure class="figure figure-tikz"><img alt='A Python loop. The line for i in range(3) starts the loop. The two lines under it, t.forward(100) and t.left(120), are indented by 4 spaces and repeat 3 times. The line print("Done!") is not indented, so it runs once, after the loop.' class="fig fig-tikz" decoding="async" height="98" loading="lazy" src="%BASE%generated/fig/level-1/a8077e101ed4.svg" width="386"/></figure>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Thonny helps you</span></p>
+<p>After a colon, press <kbd>Return</kbd>: Thonny pushes the next line in for you. To come back out of the loop, press <kbd>Delete</kbd> once.</p>
+</div>
+<h3 id="how-many-times">How many times?</h3>
+<p><code>range(4)</code> gives Python four numbers: <code>0, 1, 2, 3</code>. Python starts counting at 0! What matters is that there are <strong>4</strong> of them, so the loop runs 4 times.</p>
+<h3 id="the-secret-shape-rule">The secret shape rule</h3>
+<p>To draw a shape and get back to the start, the turtle turns all the way round: 360 degrees. Share that turn between the corners:</p>
+<div class="center">
+<p><strong>turn at each corner = 360 ÷ number of sides</strong></p>
+</div>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Five shapes in a row. A triangle has 3 sides and turns 120. A square has 4 sides and turns 90. A pentagon has 5 sides, a hexagon 6 and an octagon 8; their turns are shown as a question mark for you to work out." class="fig fig-tikz" decoding="async" height="130" loading="lazy" src="%BASE%generated/fig/level-1/64e1c4cb176b.svg" width="524"/></figure>
+</div>
+<p>Fill in the missing turns: pentagon <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>, hexagon <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>, octagon <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">8.1: Loop Square</span></p>
+<p>Folder: <a href="%BASE%levels/level-1/exercises/week08-ex-loop-square/"><code>week08/ex-loop-square</code></a>. Run the starter: the turtle walks in a straight line! Add <code>t.left(90)</code> <strong>inside</strong> the loop, lined up under <code>t.forward(100)</code>. Run it,</p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">8.2: Polygon Party</span></p>
+<p>Folder: <a href="%BASE%levels/level-1/exercises/week08-ex-polygon-party/"><code>week08/ex-polygon-party</code></a>. The triangle is done. Write a loop for a <strong>square</strong> (sides of 100) and a loop for a <strong>hexagon</strong> (sides of 60). Use the shape rule for the turns. Done looks like: an orange triangle, a sky-blue square and a green hexagon, all closed.</p>
+</div>
+<h2 id="a-loop-inside-a-loop">A loop inside a loop</h2>
+<p>A loop can hold another loop. The <strong>outer</strong> loop picks a color. The <strong>inner</strong> loop draws a whole square. Then the turtle turns a little and the outer loop goes again.</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">for</span> <span class="tok-n">color</span> <span class="tok-ow">in</span> <span class="tok-n">PALETTE</span><span class="tok-p">:</span>          <span class="tok-c1"># 8 colors: runs 8 times</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">color</span><span class="tok-p">(</span><span class="tok-n">color</span><span class="tok-p">)</span>
+    <span class="tok-k">for</span> <span class="tok-n">side</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">4</span><span class="tok-p">):</span>       <span class="tok-c1"># draws one whole square</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">forward</span><span class="tok-p">(</span><span class="tok-mi">100</span><span class="tok-p">)</span>
+        <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">90</span><span class="tok-p">)</span>
+    <span class="tok-n">t</span><span class="tok-o">.</span><span class="tok-n">left</span><span class="tok-p">(</span><span class="tok-mi">45</span><span class="tok-p">)</span>                  <span class="tok-c1"># 8 x 45 = 360</span></code></pre></div>
+<p>The inner lines have <strong>8</strong> spaces: 4 for the outer loop and 4 more for the inner loop. How many lines does the turtle draw altogether? <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">8.3: Square Flower</span></p>
+<p>Folder: <a href="%BASE%levels/level-1/exercises/week08-ex-square-flower/"><code>week08/ex-square-flower</code></a>. The starter draws one square. Put the square loop inside a color loop (like the code above) to make 8 squares in 8 colors. Tip: <code>t.speed(0)</code> draws super fast.</p>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Asking for help well</span></p>
+<p>Stuck? First try “three before me”: read the red message, check this workbook, ask your partner. Then ask a grown-up with the help sentence:</p>
+<p><strong>I expected <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>, but <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> happened. I tried <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span>.</strong></p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>How is <code>for i in range(4):</code> like Scratch’s repeat block? How is it different?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Draw (or describe) the coolest pattern you made today:</p>
+<div aria-hidden="true" class="write-lines" data-lines="3" style="--lines:3"></div>
+</div>

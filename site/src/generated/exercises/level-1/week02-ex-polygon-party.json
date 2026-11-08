@@ -1,0 +1,31 @@
+{
+ "slug": "week02-ex-polygon-party",
+ "folder": "week02/ex-polygon-party",
+ "week": 2,
+ "level": 1,
+ "kind": "scratch",
+ "homework": false,
+ "number": "2.2",
+ "title": "Polygon Party",
+ "body": "<p><strong>Goal:</strong> draw shapes with the Pen using <strong>repeat</strong> and the rule <strong>turn = 360 ÷ sides</strong>. <strong>Tool:</strong> Scratch app (offline) with the Pen extension. <strong>Work in pairs.</strong></p>\n<h2 id=\"build-steps\">Build steps</h2>\n<ol type=\"1\">\n<li>Start a new project: <strong>File &gt; New</strong>.</li>\n<li>Click the blue <strong>Add Extension</strong> button (bottom left corner) and choose <strong>Pen</strong>. A green <strong>Pen</strong> category appears.</li>\n<li>Make the cat small so you can see the lines: in the sprite pane set <strong>Size</strong> to <code>40</code>.</li>\n<li>Build the square script below and click the green flag.</li>\n<li>Change the numbers to draw a <strong>triangle</strong>, then a <strong>hexagon</strong>, then a <strong>pentagon</strong>. Predict each shape before you click the flag.</li>\n<li>Bug hunt: Leo wanted a triangle and used repeat 3, move 100, turn 60. Predict what it draws, run it, then fix it.</li>\n<li>Save as <code>polygon-party</code>.</li>\n</ol>\n<h2 id=\"the-script-in-words-square\">The script in words (square)</h2>\n<ul>\n<li>when green flag clicked</li>\n<li>erase all</li>\n<li>go to x: 0 y: 0</li>\n<li>point in direction 90</li>\n<li>pen down</li>\n<li>repeat 4:\n<ul>\n<li>move 100 steps</li>\n<li>turn right 90 degrees</li>\n</ul></li>\n<li>pen up</li>\n</ul>\n<p>Tip: put the green <strong>( ) / ( )</strong> block from <strong>Operators</strong> in the turn slot and type <code>360</code> and the number of sides. Scratch does the dividing for you.</p>\n<table>\n<thead>\n<tr>\n<th>Shape</th>\n<th>Sides</th>\n<th>Repeat</th>\n<th>Turn</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Triangle</td>\n<td>3</td>\n<td>3</td>\n<td>120</td>\n</tr>\n<tr>\n<td>Square</td>\n<td>4</td>\n<td>?</td>\n<td>?</td>\n</tr>\n<tr>\n<td>Pentagon</td>\n<td>5</td>\n<td>?</td>\n<td>?</td>\n</tr>\n<tr>\n<td>Hexagon</td>\n<td>6</td>\n<td>?</td>\n<td>?</td>\n</tr>\n</tbody>\n</table>\n<h2 id=\"expected-behavior\">Expected behavior</h2>\n<p>Each time you click the flag, the old drawing is erased and the cat draws one closed shape (it ends exactly where it started). The square has 4 equal sides, the triangle 3, the pentagon 5 and the hexagon 6.</p>\n<h2 id=\"checklist\">Checklist</h2>\n<ul class=\"task-list\">\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I added the Pen extension.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/><strong>move</strong> and <strong>turn</strong> are both inside the <strong>repeat</strong>.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>My square, triangle, hexagon and pentagon all close.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I can explain what was wrong with Leo's triangle and how to fix it.</label></li>\n<li class=\"check-item\"><label><input type=\"checkbox\"/>I saved my project.</label></li>\n</ul>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Look at the table in the README. Find the pattern between the number of sides and the number of times you repeat. Then see how the turn changes as the shape gets more sides.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>The rule is <strong>turn = 360 ÷ sides</strong>. A shape that closes turns all the way around, which is 360 degrees, by the end. Change the number in the <strong>repeat</strong> block, and change the turn to match.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Put the <strong>( ) / ( )</strong> block from the <strong>Operators</strong> category into the turn slot, and type <code>360</code> in the first space. Leave the second space for the number of sides. For the triangle bug hunt, check whether the turn matches the rule for 3 sides.</p>\n"
+  }
+ ],
+ "starter": null,
+ "files": [],
+ "url": "%BASE%levels/level-1/exercises/week02-ex-polygon-party/"
+}

@@ -1,0 +1,35 @@
+{
+ "slug": "week08-hw-test-the-cipher",
+ "folder": "week08/hw-test-the-cipher",
+ "week": 8,
+ "level": 2,
+ "kind": "python",
+ "homework": true,
+ "number": "8",
+ "title": "Test the Cipher",
+ "body": "<p><strong>Goal:</strong> write tests for the Caesar cipher from week 5, so nobody can break it without you noticing.</p>\n<ol type=\"1\">\n<li>Read <code>cipher_tools.py</code>. It is correct: do not change it.</li>\n<li>Open <code>starter.py</code> (YOUR test file) and press <strong>Run</strong>. pytest shows one line per test with <code>PASSED</code> or <code>FAILED</code>.</li>\n<li><strong>TODO 1</strong> test that letters wrap round after z. Use your paper cipher wheel to work out the expected answer.</li>\n<li><strong>TODO 2</strong> test that spaces and symbols like <code>!</code> stay the same.</li>\n<li><strong>TODO 3</strong> write one more test of your own.</li>\n<li>Press <strong>Run</strong>: every test should say <code>PASSED</code>.</li>\n</ol>\n<p><strong>Done looks like:</strong> at least 3 tests, all <code>PASSED</code>.</p>\n<p><strong>Remember:</strong> if a test fails on the correct <code>encode()</code>, the TEST is wrong. Check your expected answer with the wheel.</p>\n",
+ "hints": [
+  {
+   "label": "Hint 1",
+   "title": "Where to look",
+   "html": "<p>Read the top of <code>cipher_tools.py</code>. It shows what <code>encode()</code> does when letters wrap round and when there are spaces or symbols. Your cipher wheel can check each answer.</p>\n"
+  },
+  {
+   "label": "Hint 2",
+   "title": "Try this",
+   "html": "<p>Each test needs an <code>assert</code> line that calls <code>encode()</code> and compares the result to the answer you worked out by hand. Use <code>==</code> to compare. Strings go inside quotes, so the secret message does too.</p>\n"
+  },
+  {
+   "label": "Hint 3",
+   "title": "Almost there",
+   "html": "<p>Shape to fill in: <code>assert encode(\"____\", 3) == \"____\", \"message\"</code>. For the wrap test, work out where <code>x</code>, <code>y</code> and <code>z</code> land after moving 3 places. For the symbols test, include a space and a <code>!</code> in the message and check that they stay put.</p>\n"
+  }
+ ],
+ "starter": {
+  "name": "starter.py",
+  "raw": "\"\"\"MY TESTS for encode()  -  this file is YOUR test file.\n\nRead cipher_tools.py first to see what encode() should do.\nYou can check your expected answers with the paper cipher wheel from week 5!\nPress the green Run button to run your tests with pytest.\n\"\"\"\n\nfrom cipher_tools import encode\n\n\ndef test_normal_word_shift_1():\n    # Normal case: every letter moves one place along.\n    assert encode(\"abc\", 1) == \"bcd\", \"a->b, b->c, c->d\"\n\n\ndef test_wraps_round_after_z():\n    # TODO 1 (edge case): letters near the end of the alphabet must wrap\n    #         round to the start. Use the wheel to work out encode(\"xyz\", 3).\n    pass\n\n\ndef test_spaces_and_symbols_stay_the_same():\n    # TODO 2 (edge case): a message with a space and a ! in it.\n    pass\n\n\n# TODO 3: one more test of your own. Ideas: shift 0 (nothing changes),\n#         or an empty message \"\".\n\n\nif __name__ == \"__main__\":\n    import pytest\n    pytest.main([\"-v\", __file__])\n",
+  "html": "<span class=\"tok-sd\">&quot;&quot;&quot;MY TESTS for encode()  -  this file is YOUR test file.</span>\n\n<span class=\"tok-sd\">Read cipher_tools.py first to see what encode() should do.</span>\n<span class=\"tok-sd\">You can check your expected answers with the paper cipher wheel from week 5!</span>\n<span class=\"tok-sd\">Press the green Run button to run your tests with pytest.</span>\n<span class=\"tok-sd\">&quot;&quot;&quot;</span>\n\n<span class=\"tok-kn\">from</span> <span class=\"tok-nn\">cipher_tools</span> <span class=\"tok-kn\">import</span> <span class=\"tok-n\">encode</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">test_normal_word_shift_1</span><span class=\"tok-p\">():</span>\n    <span class=\"tok-c1\"># Normal case: every letter moves one place along.</span>\n    <span class=\"tok-k\">assert</span> <span class=\"tok-n\">encode</span><span class=\"tok-p\">(</span><span class=\"tok-s2\">&quot;abc&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-mi\">1</span><span class=\"tok-p\">)</span> <span class=\"tok-o\">==</span> <span class=\"tok-s2\">&quot;bcd&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-s2\">&quot;a-&gt;b, b-&gt;c, c-&gt;d&quot;</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">test_wraps_round_after_z</span><span class=\"tok-p\">():</span>\n    <span class=\"tok-c1\"># TODO 1 (edge case): letters near the end of the alphabet must wrap</span>\n    <span class=\"tok-c1\">#         round to the start. Use the wheel to work out encode(&quot;xyz&quot;, 3).</span>\n    <span class=\"tok-k\">pass</span>\n\n\n<span class=\"tok-k\">def</span> <span class=\"tok-nf\">test_spaces_and_symbols_stay_the_same</span><span class=\"tok-p\">():</span>\n    <span class=\"tok-c1\"># TODO 2 (edge case): a message with a space and a ! in it.</span>\n    <span class=\"tok-k\">pass</span>\n\n\n<span class=\"tok-c1\"># TODO 3: one more test of your own. Ideas: shift 0 (nothing changes),</span>\n<span class=\"tok-c1\">#         or an empty message &quot;&quot;.</span>\n\n\n<span class=\"tok-k\">if</span> <span class=\"tok-vm\">__name__</span> <span class=\"tok-o\">==</span> <span class=\"tok-s2\">&quot;__main__&quot;</span><span class=\"tok-p\">:</span>\n    <span class=\"tok-kn\">import</span> <span class=\"tok-nn\">pytest</span>\n    <span class=\"tok-n\">pytest</span><span class=\"tok-o\">.</span><span class=\"tok-n\">main</span><span class=\"tok-p\">([</span><span class=\"tok-s2\">&quot;-v&quot;</span><span class=\"tok-p\">,</span> <span class=\"tok-vm\">__file__</span><span class=\"tok-p\">])</span>"
+ },
+ "files": [],
+ "url": "%BASE%levels/level-2/exercises/week08-hw-test-the-cipher/"
+}

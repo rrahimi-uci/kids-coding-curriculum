@@ -1,0 +1,111 @@
+
+<h2 id="the-big-idea-the-data-detectives-pipeline">The big idea: the data detective’s pipeline</h2>
+<p>A data detective always works in the same order. Skipping a step gives wrong answers!</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A five-step data pipeline. 1 Read the CSV file into rows. 2 Clean: spaces, capitals and empty rows. 3 Count with a dictionary tally. 4 Calculate averages. 5 Chart with bars and labels." class="fig fig-tikz" decoding="async" height="84" loading="lazy" src="%BASE%generated/fig/level-3/09fde6fb9891.svg" width="577"/></figure>
+</div>
+<h3 id="read-what-is-a-csv-file">1. Read: what is a CSV file?</h3>
+<p><strong>CSV</strong> means <em>comma-separated values</em>: a table saved as plain text. The first line is the <strong>header</strong> (the column names). Every other line is one <strong>row</strong>. Here is the start of <code>favorite_games.csv</code> – made-up, anonymous survey answers (a response number, no names):</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<tbody>
+<tr>
+<td><code>response,age_group,favorite_game,genre,hours_per_week,stars</code></td>
+</tr>
+<tr>
+<td><code>1,10-11,Block Craft,building,5,5</code></td>
+</tr>
+<tr>
+<td><code>2,12-13, block craft ,building,3,4</code></td>
+</tr>
+<tr>
+<td><code>5,,,,,</code></td>
+</tr>
+<tr>
+<td><code>7,12-13,Kart Dash,racing,,3</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><code>csv.DictReader</code> turns each row into a <strong>dictionary</strong>: <code>row["favorite_game"]</code> is <code>"Block Craft"</code>.</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-kn">import</span> <span class="tok-nn">csv</span>
+<span class="tok-k">with</span> <span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-s2">"favorite_games.csv"</span><span class="tok-p">,</span> <span class="tok-n">newline</span><span class="tok-o">=</span><span class="tok-s2">""</span><span class="tok-p">)</span> <span class="tok-k">as</span> <span class="tok-n">f</span><span class="tok-p">:</span>
+    <span class="tok-k">for</span> <span class="tok-n">row</span> <span class="tok-ow">in</span> <span class="tok-n">csv</span><span class="tok-o">.</span><span class="tok-n">DictReader</span><span class="tok-p">(</span><span class="tok-n">f</span><span class="tok-p">):</span>
+        <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">row</span><span class="tok-p">[</span><span class="tok-s2">"favorite_game"</span><span class="tok-p">],</span> <span class="tok-n">row</span><span class="tok-p">[</span><span class="tok-s2">"stars"</span><span class="tok-p">])</span></code></pre></div>
+<h3 id="clean-wash-the-data-first">2. Clean: wash the data first</h3>
+<p>Every value arrives as <strong>text</strong>, even numbers: <code>"5"</code>, not <code>5</code>. And people type things in different ways. Spot the mess:</p>
+<div class="center">
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th scope="col"><strong>Messy value</strong></th>
+<th scope="col"><strong>Problem</strong></th>
+<th scope="col"><strong>Clean it with</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>" block craft "</code></td>
+<td>extra spaces, small letters</td>
+<td><code>.strip().title()</code> → <code>"Block Craft"</code></td>
+</tr>
+<tr>
+<td><code>"BLOCK CRAFT"</code></td>
+<td>capitals</td>
+<td><code>.title()</code> → <code>"Block Craft"</code></td>
+</tr>
+<tr>
+<td><code>"5"</code></td>
+<td>a number stored as text</td>
+<td><code>int("5")</code> → <code>5</code></td>
+</tr>
+<tr>
+<td><code>""</code> (hours)</td>
+<td>missing answer</td>
+<td>use <code>None</code>, and skip it in averages</td>
+</tr>
+<tr>
+<td><code>5,,,,,</code></td>
+<td>empty row</td>
+<td>skip the whole row</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h3 id="and-4--count-and-calculate">3 and 4. Count and calculate</h3>
+<p>Counting with a dictionary is like a tally chart. The first time you see a game, <code>counts.get(game, 0)</code> gives 0:</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-n">counts</span> <span class="tok-o">=</span> <span class="tok-p">{}</span>
+<span class="tok-k">for</span> <span class="tok-n">row</span> <span class="tok-ow">in</span> <span class="tok-n">rows</span><span class="tok-p">:</span>
+    <span class="tok-n">game</span> <span class="tok-o">=</span> <span class="tok-n">row</span><span class="tok-p">[</span><span class="tok-s2">"favorite_game"</span><span class="tok-p">]</span>
+    <span class="tok-n">counts</span><span class="tok-p">[</span><span class="tok-n">game</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">counts</span><span class="tok-o">.</span><span class="tok-n">get</span><span class="tok-p">(</span><span class="tok-n">game</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span> <span class="tok-o">+</span> <span class="tok-mi">1</span>
+<span class="tok-c1"># {"Block Craft": 5, "Kart Dash": 4, ...}</span></code></pre></div>
+<p>The <strong>average</strong> (mean) is the total divided by how many: <code>sum(numbers) / len(numbers)</code>. Leave out missing answers – counting a blank as 0 would make the average unfairly small.</p>
+<h3 id="chart-readable-by-everyone">5. Chart: readable by everyone</h3>
+<p>A good chart never relies on color alone. Write the <strong>name</strong> under each bar and the <strong>number</strong> on top, so someone who sees colors differently can still read it.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A bar chart of favorite games: Block Craft 5, Kart Dash 4 and Puzzle Drop 3." class="fig fig-tikz" decoding="async" height="133" loading="lazy" src="%BASE%generated/fig/level-3/49ca1d1da5b8.svg" width="283"/></figure>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">8.1: Survey cleaner</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week08-ex-survey-cleaner/"><code>week08/ex-survey-cleaner</code></a>. Open <code>favorite_games.csv</code> in Thonny and circle the mess you find. Then finish <code>to_number()</code>, <code>is_empty()</code> and add <code>.title()</code> to the game names. <strong>Done:</strong> <code>Clean answers: 17</code>.</p>
+<p>How many rows did the cleaner throw away, and why?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">8.2: Survey stats</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week08-ex-survey-stats/"><code>week08/ex-survey-stats</code></a>. Finish <code>count_by()</code>, <code>average()</code> and <code>most_popular()</code>. Then answer from your program’s report:</p>
+<p>Most popular game: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> Average hours per week: <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+<p>Adventure games got 5.0 stars on average from only 2 answers. Should we trust that? Why?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">8.3: Bar chart</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week08-ex-bar-chart/"><code>week08/ex-bar-chart</code></a>. Make <code>bar_height()</code> scale the bars so the biggest is <code>MAX_HEIGHT</code> pixels, and write a number on top and a name under every bar. <strong>Done:</strong> six labeled bars from Block Craft (5) to Space Chess (1).</p>
+</div>
+<div class="callout callout-safety" role="note"><p class="callout-title"><span class="callout-label">Safety</span><span class="callout-heading">Consent and privacy in surveys</span></p>
+<p>Before collecting data, ask: <em>Did people agree to answer? Can they skip a question? Do I really need this question?</em> Never collect real names, addresses, schools, birthdays or photos. Even without names, answers together can point to one person (“the only 13-year-old in the chess club”). Before sharing data, <strong>anonymize</strong> it: keep only the columns you need and give each row an ID like R1, R2.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>What story does the bar chart tell? What can it <em>not</em> tell us?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Would you answer a survey that asked for your full name? Why or why not?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>

@@ -1,0 +1,562 @@
+[
+ {
+  "term": "accessibility",
+  "key": "accessibility",
+  "where": "W5",
+  "meaning": "Making things that everyone can use, including people who see colors differently or need bigger text.",
+  "example": "Using color-blind-safe colors and also different shapes."
+ },
+ {
+  "term": "accessible",
+  "key": "accessible",
+  "where": "W5",
+  "meaning": "Easy for everyone to use, including people who see or hear differently.",
+  "example": ""
+ },
+ {
+  "term": "algorithm",
+  "key": "algorithm",
+  "where": "W1",
+  "meaning": "A list of exact steps, in the right order, that solves a problem or does a job.",
+  "example": "A recipe for a sandwich."
+ },
+ {
+  "term": "angle",
+  "key": "angle",
+  "where": "W2",
+  "meaning": "How far you turn, measured in degrees. A full turn is 360 degrees. A shape with <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math> sides turns <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>360</mn><mo>÷</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">360 \\div n</annotation></semantics></math> at each corner.",
+  "example": "A square turns 90 degrees at each corner."
+ },
+ {
+  "term": "backdrop",
+  "key": "backdrop",
+  "where": "W1",
+  "meaning": "The picture behind everything on the Scratch stage.",
+  "example": ""
+ },
+ {
+  "term": "broadcast",
+  "key": "broadcast",
+  "where": "W5",
+  "meaning": "A Scratch message sent to every sprite. Sprites with a matching “when I receive” block start running.",
+  "example": "“broadcast start game”."
+ },
+ {
+  "term": "bug",
+  "key": "bug",
+  "where": "W1",
+  "meaning": "A mistake in a program that makes it do something we did not want. Bugs are normal: every programmer meets them every day.",
+  "example": "The turtle turns 90 instead of 120."
+ },
+ {
+  "term": "bug / debugging",
+  "key": "bug / debugging",
+  "where": "W1",
+  "meaning": "A mistake in a program / finding and fixing it.",
+  "example": ""
+ },
+ {
+  "term": "call",
+  "key": "call",
+  "where": "W10",
+  "meaning": "To use a function, by writing its name with brackets.",
+  "example": "<code>house(0, 0, ORANGE)</code> calls the function <code>house</code>."
+ },
+ {
+  "term": "checkpoint",
+  "key": "checkpoint",
+  "where": "W6",
+  "meaning": "A short check that shows what you know and what to practice next.",
+  "example": ""
+ },
+ {
+  "term": "color code",
+  "key": "color code",
+  "where": "W9",
+  "meaning": "A color written as # and six letters or numbers, so the computer knows exactly which color you mean.",
+  "example": "<code>\"#0072B2\"</code> is blue."
+ },
+ {
+  "term": "comment",
+  "key": "comment",
+  "where": "W7",
+  "meaning": "A note for humans in the code. Python ignores it. In Python it starts with <code>#</code>.",
+  "example": "<code># draw the roof</code>"
+ },
+ {
+  "term": "comparison",
+  "key": "comparison",
+  "where": "W9",
+  "meaning": "A question that is True or False, made with <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mo>&gt;</mo><annotation encoding=\"application/x-tex\">&gt;</annotation></semantics></math> (bigger), <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mo>&lt;</mo><annotation encoding=\"application/x-tex\">&lt;</annotation></semantics></math> (smaller), <code>==</code> (equal) or <code>!=</code> (not equal).",
+  "example": "<code>stars &gt; 5</code>"
+ },
+ {
+  "term": "conditional",
+  "key": "conditional",
+  "where": "W3",
+  "meaning": "Code that only runs if something is true. Also called an <strong>if</strong>.",
+  "example": "“If touching the edge, then bounce.”"
+ },
+ {
+  "term": "coordinates",
+  "key": "coordinates",
+  "where": "W1",
+  "meaning": "Two numbers, <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math> and <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math>, that give a place on the screen. <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math> is left–right, <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math> is down–up. The middle is <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">(</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0, 0)</annotation></semantics></math>.",
+  "example": "<code>t.goto(200, 150)</code>"
+ },
+ {
+  "term": "costume",
+  "key": "costume",
+  "where": "W2",
+  "meaning": "One of the pictures a Scratch sprite can wear. Switching costumes quickly makes animation.",
+  "example": ""
+ },
+ {
+  "term": "credit",
+  "key": "credit",
+  "where": "W4",
+  "meaning": "Saying who made the art, sounds or ideas you used. It is fair and kind.",
+  "example": "“Cat sounds from the Scratch library.”"
+ },
+ {
+  "term": "debug",
+  "key": "debug",
+  "where": "W1",
+  "meaning": "To find a bug and fix it. A good strategy: read the error, check the last thing you changed, test one small part at a time.",
+  "example": ""
+ },
+ {
+  "term": "debugging",
+  "key": "debugging",
+  "where": "W6",
+  "meaning": "Finding and fixing bugs, step by step, like a detective.",
+  "example": ""
+ },
+ {
+  "term": "decomposition",
+  "key": "decomposition",
+  "where": "W5",
+  "meaning": "Breaking a big problem into smaller parts that are easier to solve.",
+  "example": "A house = walls + roof + door + windows."
+ },
+ {
+  "term": "<code>def</code>",
+  "key": "def",
+  "where": "W10",
+  "meaning": "The Python word that starts a new function (your own command).",
+  "example": "<code>def square(size):</code>"
+ },
+ {
+  "term": "Demo",
+  "key": "demo",
+  "where": "W12",
+  "meaning": "Short for demonstration: running your program and showing how it works.",
+  "example": ""
+ },
+ {
+  "term": "driver",
+  "key": "driver",
+  "where": "W1",
+  "meaning": "In pair programming, the person using the mouse and keyboard.",
+  "example": ""
+ },
+ {
+  "term": "driver / navigator",
+  "key": "driver / navigator",
+  "where": "W1",
+  "meaning": "The driver clicks; the navigator reads, checks and helps.",
+  "example": ""
+ },
+ {
+  "term": "Editor",
+  "key": "editor",
+  "where": "W7",
+  "meaning": "The top part of Thonny where you write your program.",
+  "example": ""
+ },
+ {
+  "term": "<code>elif</code>",
+  "key": "elif",
+  "where": "W9",
+  "meaning": "Short for “else if”: another question to check when the first <code>if</code> was false.",
+  "example": "<code>elif n == 10:</code>"
+ },
+ {
+  "term": "else",
+  "key": "else",
+  "where": "W3",
+  "meaning": "The part of an if that runs when the question is false.",
+  "example": ""
+ },
+ {
+  "term": "error message",
+  "key": "error message",
+  "where": "W7",
+  "meaning": "The red text Python shows when it cannot run your code. It tells you the line number and a clue.",
+  "example": "<code>NameError: name ’Print’ is not defined</code>"
+ },
+ {
+  "term": "event",
+  "key": "event",
+  "where": "W3",
+  "meaning": "Something that happens and starts code running.",
+  "example": "Clicking the green flag, pressing a key."
+ },
+ {
+  "term": "extension",
+  "key": "extension",
+  "where": "W2",
+  "meaning": "Extra blocks you can add to Scratch, like the Pen.",
+  "example": ""
+ },
+ {
+  "term": "feedback",
+  "key": "feedback",
+  "where": "W3",
+  "meaning": "Helpful comments about someone’s work. We use “two stars and a wish”: two things you like, one idea to improve.",
+  "example": ""
+ },
+ {
+  "term": "Feedback card",
+  "key": "feedback card",
+  "where": "W12",
+  "meaning": "A card with two stars and a wish for an artist.",
+  "example": ""
+ },
+ {
+  "term": "<code>for</code> loop",
+  "key": "for loop",
+  "where": "W8",
+  "meaning": "Python’s repeat block. The lines pushed in underneath it are repeated.",
+  "example": "<code>for i in range(4):</code>"
+ },
+ {
+  "term": "forever",
+  "key": "forever",
+  "where": "W2",
+  "meaning": "A Scratch loop that never stops (until you click the red stop sign).",
+  "example": ""
+ },
+ {
+  "term": "function",
+  "key": "function",
+  "where": "W10",
+  "meaning": "A named set of steps you can use again and again. Python’s version of a My Block.",
+  "example": "<code>square(50)</code>"
+ },
+ {
+  "term": "green flag",
+  "key": "green flag",
+  "where": "W1",
+  "meaning": "The Scratch button that starts a project.",
+  "example": ""
+ },
+ {
+  "term": "if",
+  "key": "if",
+  "where": "W3",
+  "meaning": "A block or line that asks a question and only runs its steps when the answer is true.",
+  "example": "<code>if mood == \"happy\":</code>"
+ },
+ {
+  "term": "if / elif / else",
+  "key": "if / elif / else",
+  "where": "W9",
+  "meaning": "Python’s way to choose: “if this, else if that, otherwise…”",
+  "example": ""
+ },
+ {
+  "term": "if-else",
+  "key": "if-else",
+  "where": "W3",
+  "meaning": "Runs one set of blocks for yes and another for no.",
+  "example": ""
+ },
+ {
+  "term": "indentation",
+  "key": "indentation",
+  "where": "W8",
+  "meaning": "Spaces at the start of a line (4 in Python). They show which lines are inside a loop, an if or a function.",
+  "example": ""
+ },
+ {
+  "term": "input",
+  "key": "input",
+  "where": "W9",
+  "meaning": "Information that goes into a program, often typed by the user. In Python <code>input()</code> asks a question and gives back the answer as text.",
+  "example": "<code>answer = input(\"How many? \")</code>"
+ },
+ {
+  "term": "integer (<code>int</code>)",
+  "key": "integer (int)",
+  "where": "W9",
+  "meaning": "A whole number, like 3, 0 or <math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>−</mi><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">-7</annotation></semantics></math>. <code>int()</code> turns text like <code>\"5\"</code> into the number 5.",
+  "example": "<code>n = int(answer)</code>"
+ },
+ {
+  "term": "Iterate",
+  "key": "iterate",
+  "where": "W11",
+  "meaning": "To improve something by going round the build–run–check loop again and again.",
+  "example": ""
+ },
+ {
+  "term": "loop",
+  "key": "loop",
+  "where": "W2",
+  "meaning": "Code that repeats. Loops save you writing the same steps again and again.",
+  "example": "repeat 4, <code>for i in range(4):</code>"
+ },
+ {
+  "term": "Milestone",
+  "key": "milestone",
+  "where": "W11",
+  "meaning": "A checkpoint on the way to finishing a project.",
+  "example": ""
+ },
+ {
+  "term": "My Block",
+  "key": "my block",
+  "where": "W5",
+  "meaning": "A block you make yourself in Scratch with “Make a Block”. It can have inputs.",
+  "example": "“define flower (size)”"
+ },
+ {
+  "term": "navigator",
+  "key": "navigator",
+  "where": "W1",
+  "meaning": "In pair programming, the person who reads the instructions, thinks ahead and spots bugs.",
+  "example": ""
+ },
+ {
+  "term": "nested loop",
+  "key": "nested loop",
+  "where": "W8",
+  "meaning": "A loop inside another loop.",
+  "example": "Repeat 6 times: draw a square."
+ },
+ {
+  "term": "Off-by-one bug",
+  "key": "off-by-one bug",
+  "where": "W8",
+  "meaning": "When a loop runs one time too many or one time too few.",
+  "example": ""
+ },
+ {
+  "term": "output",
+  "key": "output",
+  "where": "W7",
+  "meaning": "What a program shows or does: text, a drawing, a sound.",
+  "example": ""
+ },
+ {
+  "term": "pair programming",
+  "key": "pair programming",
+  "where": "W1",
+  "meaning": "Two people coding together on one computer: a driver and a navigator who swap roles.",
+  "example": ""
+ },
+ {
+  "term": "parameter",
+  "key": "parameter",
+  "where": "W5",
+  "meaning": "An input that a My Block or function needs. It makes the block flexible.",
+  "example": "In <code>square(size)</code>, <code>size</code> is a parameter."
+ },
+ {
+  "term": "pen",
+  "key": "pen",
+  "where": "W2",
+  "meaning": "Lets a sprite or turtle draw a line where it moves. Pen up: no line. Pen down: draw.",
+  "example": ""
+ },
+ {
+  "term": "pixel",
+  "key": "pixel",
+  "where": "B1",
+  "meaning": "One tiny square of color. Screens make pictures out of millions of pixels.",
+  "example": ""
+ },
+ {
+  "term": "playtest",
+  "key": "playtest",
+  "where": "W11",
+  "meaning": "Letting someone try your program so you can see what works and what confuses them.",
+  "example": ""
+ },
+ {
+  "term": "<code>print</code>",
+  "key": "print",
+  "where": "W7",
+  "meaning": "The Python command that shows text in the Shell.",
+  "example": "<code>print(\"Hello!\")</code>"
+ },
+ {
+  "term": "privacy",
+  "key": "privacy",
+  "where": "W1",
+  "meaning": "Keeping personal information (real name, address, school, photos, passwords) safe. We use nicknames.",
+  "example": ""
+ },
+ {
+  "term": "program",
+  "key": "program",
+  "where": "W1",
+  "meaning": "A set of instructions a computer follows.",
+  "example": ""
+ },
+ {
+  "term": "Python",
+  "key": "python",
+  "where": "W7",
+  "meaning": "A programming language where you type words instead of dragging blocks.",
+  "example": ""
+ },
+ {
+  "term": "random",
+  "key": "random",
+  "where": "W4",
+  "meaning": "Picked by chance, so you cannot guess it. Great for surprises and games.",
+  "example": "<code>random.randint(1, 6)</code>, “pick random 1 to 6”"
+ },
+ {
+  "term": "<code>range</code>",
+  "key": "range",
+  "where": "W8",
+  "meaning": "Tells a <code>for</code> loop how many times to repeat.",
+  "example": "<code>range(5)</code> repeats 5 times."
+ },
+ {
+  "term": "Reflection",
+  "key": "reflection",
+  "where": "W12",
+  "meaning": "Thinking back about what you did, what you learned and what you want next.",
+  "example": ""
+ },
+ {
+  "term": "remix",
+  "key": "remix",
+  "where": "W4",
+  "meaning": "Making something new from someone else’s work, and giving them credit.",
+  "example": ""
+ },
+ {
+  "term": "repeat",
+  "key": "repeat",
+  "where": "W2",
+  "meaning": "A Scratch loop that runs the blocks inside a set number of times.",
+  "example": ""
+ },
+ {
+  "term": "run",
+  "key": "run",
+  "where": "W1",
+  "meaning": "To start a program. In Thonny, the green Run button or .",
+  "example": ""
+ },
+ {
+  "term": "script",
+  "key": "script",
+  "where": "W1",
+  "meaning": "A stack of Scratch blocks that are joined together.",
+  "example": ""
+ },
+ {
+  "term": "sensing",
+  "key": "sensing",
+  "where": "W3",
+  "meaning": "Scratch blocks that check things, like “touching edge?” or “key space pressed?”.",
+  "example": ""
+ },
+ {
+  "term": "sequence",
+  "key": "sequence",
+  "where": "W1",
+  "meaning": "Steps that happen one after another, in order. Order matters!",
+  "example": ""
+ },
+ {
+  "term": "Shell",
+  "key": "shell",
+  "where": "W7",
+  "meaning": "The part of Thonny at the bottom where <code>print</code> shows text and you type answers.",
+  "example": ""
+ },
+ {
+  "term": "Showcase",
+  "key": "showcase",
+  "where": "W12",
+  "meaning": "An event where you show your work to others.",
+  "example": ""
+ },
+ {
+  "term": "sprite",
+  "key": "sprite",
+  "where": "W1",
+  "meaning": "A character or object in Scratch that you can program.",
+  "example": "The Scratch cat."
+ },
+ {
+  "term": "stage",
+  "key": "stage",
+  "where": "W1",
+  "meaning": "The area in Scratch where the sprites move and the project plays.",
+  "example": ""
+ },
+ {
+  "term": "string",
+  "key": "string",
+  "where": "W9",
+  "meaning": "Text in a program, written inside quotes. <code>input()</code> always gives a string.",
+  "example": "<code>\"day\"</code>, <code>\"25\"</code>"
+ },
+ {
+  "term": "syntax",
+  "key": "syntax",
+  "where": "W7",
+  "meaning": "The spelling and grammar rules of a programming language.",
+  "example": ""
+ },
+ {
+  "term": "syntax error",
+  "key": "syntax error",
+  "where": "W7",
+  "meaning": "An error because the code breaks Python’s rules, like a missing bracket or colon.",
+  "example": "<code>print(\"hi\"</code>"
+ },
+ {
+  "term": "test",
+  "key": "test",
+  "where": "W7",
+  "meaning": "Running a program on purpose to check that it works. <code>check_my_work.py</code> runs tests for you.",
+  "example": ""
+ },
+ {
+  "term": "text code",
+  "key": "text code",
+  "where": "W6",
+  "meaning": "Code made of typed words and symbols.",
+  "example": ""
+ },
+ {
+  "term": "Thonny",
+  "key": "thonny",
+  "where": "W7",
+  "meaning": "The app we use to write and run Python.",
+  "example": ""
+ },
+ {
+  "term": "turtle",
+  "key": "turtle",
+  "where": "W7",
+  "meaning": "A Python drawing tool: an arrow you move around the screen that draws lines.",
+  "example": "<code>t = turtle.Turtle()</code>"
+ },
+ {
+  "term": "variable",
+  "key": "variable",
+  "where": "W4",
+  "meaning": "A labeled box that remembers a value, like a score or an answer. The value can change.",
+  "example": "<code>score = 0</code>"
+ }
+]

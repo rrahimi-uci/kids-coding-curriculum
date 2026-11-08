@@ -1,0 +1,46 @@
+
+<h2 id="two-ways-to-sort">Two ways to sort</h2>
+<p><strong>Selection sort:</strong> find the smallest item and swap it to the front. Then find the smallest of the rest and swap it into second place. Repeat.<br/>
+<strong>Bubble sort:</strong> walk along the list comparing neighbors. If the left one is bigger, swap them. After each pass the biggest item has “bubbled” to the end.</p>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="Sorting 5, 2, 4, 1 in passes. Start: 5 2 4 1. After pass 1: 2 4 1 5, with 5 in its final place. After pass 2: 2 1 4 5, with 4 in place. After pass 3: 1 2 4 5, sorted. Green boxes with a thick border are in their final place." class="fig fig-tikz" decoding="async" height="202" loading="lazy" src="%BASE%generated/fig/level-3/a31fb136cb4a.svg" width="410"/></figure>
+</div>
+<h2 id="pythons-own-sort">Python’s own sort</h2>
+<p>Python can sort for you. The <strong>key</strong> is a function that says <em>what to sort by</em>:</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-n">scores</span> <span class="tok-o">=</span> <span class="tok-p">[(</span><span class="tok-s2">"Ada"</span><span class="tok-p">,</span> <span class="tok-mi">120</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-s2">"Leo"</span><span class="tok-p">,</span> <span class="tok-mi">95</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-s2">"Mei"</span><span class="tok-p">,</span> <span class="tok-mi">150</span><span class="tok-p">)]</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">points_of</span><span class="tok-p">(</span><span class="tok-n">entry</span><span class="tok-p">):</span>
+    <span class="tok-k">return</span> <span class="tok-n">entry</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span>                  <span class="tok-c1"># sort by the number</span>
+
+<span class="tok-n">best_first</span> <span class="tok-o">=</span> <span class="tok-nb">sorted</span><span class="tok-p">(</span><span class="tok-n">scores</span><span class="tok-p">,</span> <span class="tok-n">key</span><span class="tok-o">=</span><span class="tok-n">points_of</span><span class="tok-p">,</span> <span class="tok-n">reverse</span><span class="tok-o">=</span><span class="tok-kc">True</span><span class="tok-p">)</span>
+<span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-n">best_first</span><span class="tok-p">)</span>   <span class="tok-c1"># [('Mei', 150), ('Ada', 120), ('Leo', 95)]</span></code></pre></div>
+<p><code>sorted</code> makes a <strong>new</strong> list and leaves the old one alone.</p>
+<h2 id="stacks-and-queues">Stacks and queues</h2>
+<div class="center">
+<figure class="figure figure-tikz"><img alt="A stack and a queue. A stack holds stroke 1, stroke 2 and stroke 3 (top); you push and pop at the top, so it is last in, first out. A queue holds Priya at the front, then Sam, Kai and Zoe; new people join at the back (append) and leave from the front (popleft), so it is first in, first out." class="fig fig-tikz" decoding="async" height="141" loading="lazy" src="%BASE%generated/fig/level-3/591d5e1f1bef.svg" width="585"/></figure>
+</div>
+<p>A <strong>stack</strong> is like a pile of plates: you can only take the top one. “Undo” uses a stack: the last thing you did is the first thing undone. A <strong>queue</strong> is like a lunch line: join at the back, leave from the front. In Python, <code>collections.deque</code> is a fast queue.</p>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">5.1: Sort Race</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week05-ex-sort-race/"><code>week05/ex-sort-race</code></a>. <code>selection_sort</code> is done. Finish the swap inside <code>bubble_sort</code>:</p>
+<div class="code-block code-pycode"><pre tabindex="0"><code class="language-python"><span class="tok-k">if</span> <span class="tok-n">result</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span> <span class="tok-o">&gt;</span> <span class="tok-n">result</span><span class="tok-p">[</span><span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-p">]:</span>
+    <span class="tok-c1"># swap both at once:</span>
+    <span class="tok-n">result</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">],</span> <span class="tok-n">result</span><span class="tok-p">[</span><span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-n">result</span><span class="tok-p">[</span><span class="tok-n">i</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-p">],</span> <span class="tok-n">result</span><span class="tok-p">[</span><span class="tok-n">i</span><span class="tok-p">]</span>
+    <span class="tok-n">swaps</span> <span class="tok-o">=</span> <span class="tok-n">swaps</span> <span class="tok-o">+</span> <span class="tok-mi">1</span></code></pre></div>
+<p>Swaps for the 8 cards: selection <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span> bubble <span class="blank"><span class="visually-hidden">(blank to fill in)</span></span></p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">5.2: Leaderboard</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week05-ex-leaderboard/"><code>week05/ex-leaderboard</code></a>. Finish <code>name_of</code> (sort A to Z, ignoring capitals), <code>top_scores</code> and the fair tie rule in <code>rank_lines</code>: equal points share a place, so the board reads 1, 2, 3, 3, 5.</p>
+</div>
+<div class="callout callout-exercise" role="note"><p class="callout-title"><span class="callout-label">Exercise</span><span class="callout-heading">5.3: Undo Paint</span></p>
+<p>Folder: <a href="%BASE%levels/level-3/exercises/week05-ex-undo-paint/"><code>week05/ex-undo-paint</code></a>. Finish the <code>Stack</code> class: <code>push</code>, <code>pop</code>, <code>peek</code> and <code>size</code>. Then run it, click the window, draw with the arrow keys and press <code>u</code> to undo. Each stroke is one item on the stack.</p>
+</div>
+<div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">Tip</span><span class="callout-heading">Kind leaderboards</span></p>
+<p>A good leaderboard uses nicknames, lets ties share a place, and celebrates personal bests and “most improved”, not only the winner.</p>
+</div>
+
+<div class="callout callout-reflection" role="note"><p class="callout-title"><span class="callout-label">Reflect</span></p>
+<p>Where do you see a stack and a queue in real life or in apps you use?</p>
+<div aria-hidden="true" class="write-lines" data-lines="2" style="--lines:2"></div>
+<p>Why is “undo” a stack and not a queue?</p>
+<div aria-hidden="true" class="write-lines" data-lines="1" style="--lines:1"></div>
+</div>
