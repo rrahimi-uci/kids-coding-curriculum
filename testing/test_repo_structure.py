@@ -112,14 +112,33 @@ def exercise_dirs():
 @pytest.mark.parametrize("folder", list(exercise_dirs()), ids=lambda d: f"{d.parent.parent.parent.name}/{d.parent.name}/{d.name}")
 def test_exercise_folder_is_complete(folder):
     names = {p.name for p in folder.iterdir()}
-    if "solution.py" not in names and "README.md" in names:
+    if "starter.py" not in names and "README.md" in names:
         text = read(folder / "README.md")
         assert "Expected behavior" in text and "- [ ]" in text, \
             "Scratch exercise README needs an 'Expected behavior' section and a '- [ ]' checklist"
+        assert "solution.md" in names, f"{folder} needs a teacher reference solution.md"
+        sol = read(folder / "solution.md")
+        assert sol.startswith("# Teacher reference:"), "solution.md must start with '# Teacher reference:'"
+        assert "TEACHER ONLY" in sol.splitlines()[1] + sol.splitlines()[2], "solution.md needs the TEACHER ONLY banner"
+        for heading in ("## The finished project", "## What you should see", "## Check-off list"):
+            assert heading in sol, f"solution.md is missing '{heading}'"
         return
     for required in ["starter.py", "solution.py", "check_my_work.py", "README.md"]:
         assert required in names, f"{folder} is missing {required}"
     assert any(n.startswith("test_") and n.endswith(".py") for n in names), f"{folder} has no test_*.py"
+
+
+@pytest.mark.parametrize("folder", [d for d in exercise_dirs() if (d / "solution.py").exists()],
+                         ids=lambda d: f"{d.parent.parent.parent.name}/{d.parent.name}/{d.name}")
+def test_teacher_solution_is_documented(folder):
+    """solution.py is the teacher reference: it must say so, explain itself and leave no TODO markers."""
+    lines = read(folder / "solution.py").splitlines()
+    assert "TEACHER REFERENCE SOLUTION" in "\n".join(lines[:3]), \
+        "solution.py must start with a 'TEACHER REFERENCE SOLUTION' header"
+    commented = sum(1 for ln in lines if "#" in ln or ln.strip().startswith(('"""', "'''")))
+    assert commented >= 8, "solution.py needs explanatory comments for the teacher"
+    assert not any(ln.lstrip().startswith("# TODO") for ln in lines), "solution.py still has a starter '# TODO' marker"
+    assert max(len(ln) for ln in lines) <= 100, "solution.py has a line longer than 100 characters"
 
 
 def python_files():

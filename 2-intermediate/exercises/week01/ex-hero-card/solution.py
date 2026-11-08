@@ -1,6 +1,15 @@
-# Hero Card - reference solution
-# Ask for a made-up hero name, a super power and a level, then print a
-# character card. The card uses all four data types:
+# TEACHER REFERENCE SOLUTION: Hero Card (Exercise 1.1)
+#
+# What the program does: it asks the child for a made-up hero name, a super
+# power and a level, then prints a neat character card.
+# Key ideas practiced: the four data types (text, whole number, decimal number,
+# True/False), turning typed text into a number with int(), and f-strings.
+# Approach: the only bug in the starter is that input() always gives back TEXT,
+# so we convert the level with int() once, where it is typed. After that the
+# math works, and the card is printed with f-strings (a string that starts with
+# f and shows variables inside { } ).
+#
+# The card uses all four data types:
 #   str   (text)            hero_name, power
 #   int   (whole number)    level, power_points
 #   float (decimal number)  health
@@ -9,13 +18,15 @@
 
 def print_card(hero_name, power, level):
     """Print a character card for one hero."""
-    power_points = level * 10      # int times int gives an int
-    health = level * 12.5          # int times float gives a float
-    is_legend = level >= 10        # a comparison gives a bool
+    power_points = level * 10      # whole number times whole number gives a whole number
+    health = level * 12.5          # a decimal number in the sum makes the answer a decimal
+    is_legend = level >= 10        # a comparison always gives True or False
     print("+------------------------------+")
     print(f"  HERO:         {hero_name}")
     print(f"  Power:        {power}")
     print(f"  Level:        {level}")
+    # level is a number now, so level + 1 is real addition (4 becomes 5).
+    # With text, "4" + 1 would crash because Python cannot add text and a number.
     print(f"  Next level:   {level + 1}")
     print(f"  Power points: {power_points}")
     print(f"  Health:       {health}")
@@ -28,6 +39,23 @@ if __name__ == "__main__":
     print("Welcome to the Hero Card Maker!")
     hero_name = input("Hero name (make one up - not your real name): ")
     power = input("Super power: ")
-    # int() turns the typed text into a whole number
+    # FIX 1: input() always gives back text, so level + 1 crashed with a TypeError.
+    # int() turns the typed text into a whole number before we use it in math.
     level = int(input("Level (a whole number, 1 to 20): "))
     print_card(hero_name, power, level)
+
+
+# Common mistakes children make here:
+# - Fixing the crash in the wrong place, for example writing int(level) + 1 but
+#   leaving level as text, so the later math (level * 10) prints "4444444444".
+#   Convert once, right after input().
+# - Typing a decimal such as 4.5 for the level: int() only accepts whole numbers
+#   and shows a ValueError. That is fine for now; talk about why.
+# - Forgetting the f in front of the quotes, so the card prints the words
+#   {hero_name} instead of the name.
+# - Writing is_legend = "level >= 10" in quotes, which makes text instead of
+#   True/False.
+#
+# Another correct way: skip the extra variables and put the math inside the braces.
+#   print(f"  Power points: {level * 10}")
+#   print(f"  Health:       {level * 12.5}")

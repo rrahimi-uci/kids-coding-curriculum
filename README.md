@@ -52,6 +52,7 @@ tools/                 build.py (PDFs) and coverage.py (objective coverage table
                          certificate
 <level>/exercises/weekNN/<exercise>/
   README.md  starter.py  solution.py  test_*.py  check_my_work.py
+  (Scratch and Terminal exercises: README.md  hints.md  solution.md instead)
 <level>/project/
   project-brief          student brief, milestones, rubric
   project-teacher-guide  teacher walkthrough, reference solution, showcase plan

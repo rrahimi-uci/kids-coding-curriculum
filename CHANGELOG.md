@@ -3,6 +3,13 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## Unreleased
+
+Teacher answer files (not published on the website).
+
+- Every Scratch and Terminal exercise now has a teacher reference `solution.md` (finished script block by block, expected result, bug-hunt answers, talking points, common mistakes, check-off list).
+- All 81 Python `solution.py` files were reviewed and rewritten as commented teacher references (what it does, why each step, common mistakes, another correct way); new repository tests enforce this.
+
 ## 1.1.0 - 2026-11-08
 
 Levels 2 and 3, projects and resources.

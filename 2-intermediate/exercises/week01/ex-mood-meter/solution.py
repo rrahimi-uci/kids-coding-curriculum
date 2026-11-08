@@ -1,9 +1,17 @@
-# Mood Meter - reference solution
-# Ask how much energy you have and whether you had a snack, choose a mood
-# with if / elif / else plus "and" / "or" / "not", then draw a meter.
+# TEACHER REFERENCE SOLUTION: Mood Meter (Exercise 1.2)
+#
+# What the program does: it asks how much energy the child has (0 to 10) and
+# whether they had a snack, picks a mood word, and draws a colored bar whose
+# length shows the energy, with the mood written above it.
+# Key ideas practiced: if / elif / else, and the three helper words "and",
+# "or" and "not".
+# Approach: mood_for() checks the strictest rule first (energy 8+ AND a snack),
+# then the looser one (energy 5+ OR a snack), and everything else falls to
+# "Recharge time". The drawing code was given; the child only writes the deciding.
 
 import turtle
 
+# Colors chosen so people with color blindness can still tell them apart.
 GREEN = "#009E73"
 ORANGE = "#E69F00"
 VERMILLION = "#D55E00"
@@ -11,9 +19,11 @@ VERMILLION = "#D55E00"
 
 def mood_for(energy, had_snack):
     """Choose a mood word from energy (0 to 10) and had_snack (True/False)."""
-    if energy >= 8 and had_snack:
+    # Order matters: Python stops at the first rule that is true. The strict
+    # rule must come first, or a super charged child would get "Ready to play".
+    if energy >= 8 and had_snack:          # both must be true
         return "Super charged"
-    elif energy >= 5 or had_snack:
+    elif energy >= 5 or had_snack:         # only one of them needs to be true
         return "Ready to play"
     else:
         return "Recharge time"
@@ -38,6 +48,8 @@ def draw_meter(t, energy, mood):
     t.color("black", color_for(mood))
     t.pensize(2)
     t.begin_fill()                      # the filled bar
+    # A rectangle: long side, short side, long side, short side. The long side
+    # is energy * 30, so more energy draws a longer bar.
     for side in [energy * 30, 40, energy * 30, 40]:
         t.forward(side)
         t.left(90)
@@ -55,11 +67,30 @@ def draw_meter(t, energy, mood):
 if __name__ == "__main__":
     energy = int(input("How much energy do you have? (0 to 10) "))
     snack_answer = input("Did you have a snack? (yes/no) ")
-    had_snack = snack_answer.lower() == "yes"      # a bool: True or False
+    # .lower() makes "YES" and "Yes" work too. The comparison gives True or False.
+    had_snack = snack_answer.lower() == "yes"
     mood = mood_for(energy, had_snack)
     print(f"Your mood: {mood}")
-    if not had_snack:
+    if not had_snack:                      # "not" flips False into True
         print("Tip: a healthy snack and a glass of water help your brain.")
     t = turtle.Turtle()
     draw_meter(t, energy, mood)
     turtle.done()
+
+
+# Common mistakes children make here:
+# - Writing "energy >= 8 and >= 5" or "energy >= 5 or 8": each side of and / or
+#   must be a full question on its own.
+# - Putting the "Ready to play" rule before the "Super charged" rule, so the
+#   strict rule is never reached.
+# - Writing "if not had_snack" without the colon, or using "== not"; "not" goes
+#   directly in front of the True/False value.
+# - Using "and" in TODO 2 where the README says "or" (energy 2 with a snack must
+#   still be "Ready to play").
+#
+# Another correct way: test the snack first with a nested if.
+#   if had_snack and energy >= 8:
+#       return "Super charged"
+#   if had_snack or energy >= 5:
+#       return "Ready to play"
+#   return "Recharge time"

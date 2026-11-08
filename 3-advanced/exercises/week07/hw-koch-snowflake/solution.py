@@ -1,8 +1,14 @@
-# Koch snowflake - reference solution
-# A Koch line of depth 0 is a straight line.
-# A Koch line of depth n is FOUR Koch lines of depth n-1, each a third as long,
-# with a bump in the middle:   ___/\___
-# Three Koch lines in a triangle make a snowflake.
+# TEACHER REFERENCE SOLUTION: Homework 7 challenge - Koch snowflake
+#
+# What the program does: draws three snowflakes, with depth 0 (a plain
+# triangle), depth 1 and depth 3 (more and more detail).
+# Key idea: a fractal made by recursion. A Koch line is built from FOUR
+# smaller Koch lines, and each of those is built from four even smaller ones.
+# Approach: koch() draws one straight line at depth 0. At any higher depth it
+# draws four lines, each a third as long, with turns that make a bump in the
+# middle (___/\___). snowflake() draws three Koch lines, turning 120 degrees
+# between them, so the shape closes into a triangle-like star.
+# Counting: depth n has 4**n pieces per side (1, 4, 16, 64 ...).
 
 import turtle
 
@@ -15,13 +21,16 @@ def koch(t, length, depth):
     if depth == 0:                 # base case: just a straight line
         t.forward(length)
         return
+    # Each of the four pieces is a third as long. Four thirds with a bump
+    # still end at the same spot as one straight line of the full length,
+    # because the turns (left 60, right 120, left 60) add up to zero.
     third = length / 3
-    koch(t, third, depth - 1)      # first third
-    t.left(60)
+    koch(t, third, depth - 1)      # first third, straight ahead
+    t.left(60)                     # turn to climb the bump
     koch(t, third, depth - 1)      # up the bump
-    t.right(120)
+    t.right(120)                   # turn to go down the other side
     koch(t, third, depth - 1)      # down the bump
-    t.left(60)
+    t.left(60)                     # turn back to the original direction
     koch(t, third, depth - 1)      # last third
 
 
@@ -29,6 +38,8 @@ def snowflake(t, length, depth):
     """Three Koch lines, turning 120 degrees after each, make a snowflake."""
     for _ in range(3):
         koch(t, length, depth)
+        # Turning RIGHT keeps the bumps pointing outward. (Turning left
+        # would push the bumps inward.)
         t.right(120)
 
 
@@ -52,3 +63,16 @@ if __name__ == "__main__":
         t.write(f"depth {depth}", align="center", font=("Arial", 14, "normal"))
     screen.update()
     turtle.done()
+
+
+# Common mistakes children make here:
+#   - Using length instead of length / 3 for the four pieces, so the line
+#     becomes far too long and runs off the screen.
+#   - Getting the turns wrong (for example left 60, left 120): the bump
+#     looks lopsided and the line no longer ends at the right place.
+#   - Calling koch with depth instead of depth - 1, which never stops.
+#
+# Another correct way: draw the four pieces with a loop over the turns.
+#   for turn in (60, -120, 60, 0):
+#       koch(t, length / 3, depth - 1)
+#       t.left(turn)

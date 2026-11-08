@@ -1,7 +1,16 @@
-# Undo Paint - reference solution
-# A drawing program where every stroke is pushed onto a STACK.
-# Press u to undo: pop the last stroke off the stack and redraw the rest.
-# Keys: arrows draw, c changes color, u undoes.
+"""TEACHER REFERENCE SOLUTION: Undo Paint
+
+What the program does: a tiny drawing program. The arrow keys draw a short line (a "stroke"),
+`c` changes the color and `u` undoes the last stroke, as many times as you like.
+
+Key ideas practiced: a stack (last in, first out, like a pile of plates), the four stack
+actions push, pop, peek and size, and why a stack is the natural tool for "undo": the most
+recent thing is always the first to be taken back.
+
+Approach: the `Stack` class wraps a Python list and uses the END of the list as the top. The
+`Painter` (already written) pushes every stroke when it draws. To undo, it pops the last
+stroke, clears the screen and redraws all strokes that are still on the stack.
+"""
 
 import turtle
 
@@ -18,16 +27,19 @@ class Stack:
 
     def push(self, item):
         """Put an item on top."""
+        # Step 1: the END of the list is the top of the stack, and append adds at the end.
         self.items.append(item)
 
     def pop(self):
         """Take the top item off and return it (None if the stack is empty)."""
+        # Step 2: list.pop() on an empty list would crash, so check first.
         if self.is_empty():
             return None
         return self.items.pop()
 
     def peek(self):
         """Look at the top item without taking it off (None if empty)."""
+        # Step 3: items[-1] means "the last item". Unlike pop, it leaves the item there.
         if self.is_empty():
             return None
         return self.items[-1]
@@ -36,6 +48,7 @@ class Stack:
         return len(self.items) == 0
 
     def size(self):
+        # Step 4: how many items are on the stack.
         return len(self.items)
 
 
@@ -56,8 +69,9 @@ class Painter:
         self.color_index = (self.color_index + 1) % len(PALETTE)
 
     def draw_stroke(self, stroke):
+        # A stroke is a tuple: (where it starts, where it ends, its color).
         start, end, color = stroke
-        self.pen.penup()
+        self.pen.penup()  # lift the pen to travel to the start without drawing
         self.pen.goto(start)
         self.pen.pendown()
         self.pen.color(color)
@@ -68,16 +82,18 @@ class Painter:
         start = (self.x, self.y)
         end = (self.x + dx, self.y + dy)
         stroke = (start, end, self.color())
-        self.history.push(stroke)
+        self.history.push(stroke)  # remember it, so undo can take it back later
         self.x, self.y = end
         self.draw_stroke(stroke)
 
     def undo(self):
         """Pop the last stroke and redraw everything that is left."""
-        stroke = self.history.pop()
+        stroke = self.history.pop()  # the newest stroke is on top, so it comes off first
         if stroke is None:
             return  # nothing to undo
         self.x, self.y = stroke[0]  # go back to where that stroke started
+        # The turtle cannot erase one line, so we wipe the picture and redraw the
+        # strokes that are left, oldest first (the order they sit in the list).
         self.pen.clear()
         for old_stroke in self.history.items:
             self.draw_stroke(old_stroke)
@@ -104,7 +120,8 @@ def show_help(writer, painter):
     writer.penup()
     writer.goto(-380, 260)
     name = COLOR_NAMES[painter.color_index]
-    writer.write(f"Arrows: draw   c: color ({name})   u: undo   strokes: {painter.history.size()}",
+    strokes = painter.history.size()
+    writer.write(f"Arrows: draw   c: color ({name})   u: undo   strokes: {strokes}",
                  font=("Arial", 14, "normal"))
 
 
@@ -122,6 +139,7 @@ if __name__ == "__main__":
 
     def key(action):
         """Wrap an action so the help line updates after every key."""
+        # screen.onkey needs a function with no inputs, so we build one for each key.
         def handler():
             action()
             show_help(writer, painter)
@@ -136,3 +154,17 @@ if __name__ == "__main__":
     screen.listen()
     show_help(writer, painter)
     turtle.done()
+
+
+# Common mistakes children make here:
+# - Using `self.items.insert(0, item)` or `self.items[0]`: that treats the FRONT of the list as
+#   the top, so the oldest stroke is undone first (that is a queue, not a stack).
+# - Forgetting the empty check, so pressing `u` too often crashes with "pop from empty list".
+# - In `peek`, using `self.items.pop()`, which removes the item instead of just looking.
+# - Forgetting `return` in pop, peek or size, so they give back None.
+#
+# Another correct way for pop and peek (a try/except instead of the empty check):
+#     try:
+#         return self.items.pop()
+#     except IndexError:
+#         return None
