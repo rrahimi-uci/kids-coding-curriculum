@@ -32,6 +32,7 @@ def flower(x, y, color):
 \end{center}
 \textbf{Defining} writes the recipe. Nothing is drawn yet! \textbf{Calling} uses the recipe. The values in the brackets go into the slots, in order:
 \begin{center}
+%% alt: The call flower(-200, 0, "#E69F00") goes into a flower machine that holds x = -200, y = 0 and color = orange, and out comes an orange flower drawn at (-200, 0).
 \begin{tikzpicture}[font=\small]
   \node[font=\ttfamily\large] (call) at (0,0) {flower(-200, 0, "\#E69F00")};
   \node[draw,thick,rounded corners=4pt,fill=kcyellow!30,minimum width=3.2cm,minimum height=1.5cm,align=center] (m) at (6.6,0) {\textbf{flower machine}\\\texttt{x = -200}\\\texttt{y = 0}\\\texttt{color = orange}};

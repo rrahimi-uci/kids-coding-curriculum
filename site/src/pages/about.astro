@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import { u, siteInfo } from '../lib/data';
+const info = siteInfo();
+---
+<Base title="About, accessibility and credits" description="How this website works, how it is built, accessibility, privacy, licenses and the change log.">
+  <div class="measure stack">
+    <h1>About this site</h1>
+    <p class="lead">This website shows the Kids Coding course on the web. It is built from the same source files as the printed workbooks, so the pages and the PDFs always match.</p>
+
+    <h2 id="privacy">Privacy</h2>
+    <p>There are no accounts, no analytics, no cookies and no adverts. Nothing you type is sent anywhere. Your progress ticks and display choices (dark mode, easy-read font) are saved only in your own browser, on your own device.</p>
+
+    <h2 id="accessibility">Accessibility</h2>
+    <p>We aim for WCAG 2.2 level AA. In practice that means:</p>
+    <ul>
+      <li>All pictures have a text description, and the Scratch scripts are described block by block.</li>
+      <li>You can use the whole site with a keyboard. Press <kbd>Tab</kbd> to move and <kbd>Enter</kbd> to open things. The first link on every page skips the menu.</li>
+      <li>Colors come from a color-blind-safe palette, and nothing relies on color alone.</li>
+      <li>Use the <strong>Easy-read font</strong> button at the top for the dyslexia-friendly Lexend font with wider spacing, and the <strong>Dark mode</strong> button if bright pages are hard to read.</li>
+      <li>Lesson pages print neatly: use your browser's print command, or download the PDF.</li>
+    </ul>
+    <p>If something is hard to use, please tell the person who runs your course so it can be fixed.</p>
+
+    <h2 id="how">How the site is built</h2>
+    <p>A script reads the course's LaTeX and Python source files and turns the student parts into web pages. Teacher-only material and the solutions are never read or published. The build checks the finished site and stops if any private material would be included.</p>
+
+    <h2 id="credits">Credits and licenses</h2>
+    <ul>
+      <li><strong>Fonts:</strong> Atkinson Hyperlegible Next and Mono (Braille Institute) and Lexend Deca (Lexend Project), all under the SIL Open Font License 1.1, served from this site.</li>
+      <li><strong>Pictures and diagrams:</strong> all original, drawn for this course in TikZ and the Scratch block package, and converted to SVG. Slide images come from the parent deck, also original.</li>
+      <li><strong>Icons and logo:</strong> original simple shapes drawn for this site.</li>
+      <li><strong>Colors:</strong> the Okabe-Ito color-blind-safe palette.</li>
+      <li><strong>Scratch</strong> is a project of the Scratch Foundation and <strong>Python</strong> is a trademark of the Python Software Foundation. This course is not affiliated with either.</li>
+    </ul>
+
+    <h2 id="changelog">Change log</h2>
+    <p class="muted">Current version {info.version}, updated {info.updated}.</p>
+    <div set:html={info.changelog_html ?? ''} />
+  </div>
+</Base>

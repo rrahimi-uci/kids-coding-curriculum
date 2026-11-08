@@ -33,6 +33,7 @@ Python has no C-shaped block. Instead it uses two clues:
   \item \textbf{4 spaces} at the start of every line \textbf{inside} the loop. This is called \textbf{indentation}.
 \end{enumerate}
 \begin{center}
+%% alt: A Python loop. The line for i in range(3) starts the loop. The two lines under it, t.forward(100) and t.left(120), are indented by 4 spaces and repeat 3 times. The line print("Done!") is not indented, so it runs once, after the loop.
 \begin{tikzpicture}[font=\small]
   \node[anchor=west,font=\ttfamily] (l1) at (0,2.4) {for i in range(3):};
   \node[anchor=west,font=\ttfamily] (l2) at (0.9,1.8) {t.forward(100)};
@@ -59,6 +60,7 @@ To draw a shape and get back to the start, the turtle turns all the way round: 3
 \textbf{turn at each corner = 360 ÷ number of sides}
 \end{center}
 \begin{center}
+%% alt: Five shapes in a row. A triangle has 3 sides and turns 120. A square has 4 sides and turns 90. A pentagon has 5 sides, a hexagon 6 and an octagon 8; their turns are shown as a question mark for you to work out.
 \begin{tikzpicture}[font=\small]
   \foreach \n/\name/\turn/\c [count=\k] in {3/triangle/120/kcorange,4/square/90/kcsky,5/pentagon/?/kcgreen,6/hexagon/?/kcpurple,8/octagon/?/kcblue}{
     \node[regular polygon, regular polygon sides=\n, draw=\c, very thick, minimum size=1.5cm] at (\k*2.9,0) {};

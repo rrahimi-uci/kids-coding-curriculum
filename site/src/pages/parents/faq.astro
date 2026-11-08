@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, parentsData, fix } from '../../lib/data';
+const P = parentsData();
+const topics: Record<string, string> = { 'Tonight': 'About the evening', 'Why now': 'Why now', 'What the research shows': 'The research', 'What good teaching looks like': 'How we teach', 'Our course': 'The course', 'Your role': 'Helping at home', 'Safety and inclusion': 'Safety and privacy', 'Questions': 'Common concerns' };
+const groups: { topic: string; qa: any[] }[] = [];
+for (const s of P.slides) {
+  if (s.appendix || !s.qa?.length) continue;
+  const topic = topics[s.kicker] ?? 'More questions';
+  let g = groups.find((x) => x.topic === topic);
+  if (!g) { g = { topic, qa: [] }; groups.push(g); }
+  g.qa.push(...s.qa);
+}
+---
+<Base title="Questions and answers for parents" description="Short answers to the questions parents ask most about learning to code.">
+  <div class="measure stack">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('parents/')}>For parents</a></li><li aria-current="page">Questions and answers</li></ol></nav>
+    <h1>Questions and answers</h1>
+    <p class="lead">The questions families ask most. If yours is not here, ask the person who runs your course.</p>
+    {groups.map((g) => (
+      <section aria-labelledby={`t-${g.topic.replace(/[^a-z]+/gi, '-')}`}>
+        <h2 id={`t-${g.topic.replace(/[^a-z]+/gi, '-')}`}>{g.topic}</h2>
+        {g.qa.map((q) => <details class="qa"><summary set:html={fix(q.q)} /><div class="a" set:html={fix(q.a)} /></details>)}
+      </section>
+    ))}
+  </div>
+</Base>

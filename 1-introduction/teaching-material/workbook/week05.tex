@@ -14,6 +14,7 @@
 A garden picture is a big job. Break it into parts and give each part a name. Then the main plan is short and easy to read.
 
 \begin{center}
+%% alt: A diagram: the main script, My garden picture, uses three smaller parts. Grass draws a green strip at the bottom. Flower, with a size input, stamps one flower. Repeat 12 stamps flowers at random places and random sizes.
 \begin{tikzpicture}[level distance=1.5cm,sibling distance=4.2cm,
   every node/.style={draw,thick,rounded corners=3pt,align=center,font=\small,inner sep=5pt},
   edge from parent/.style={draw,thick,-{Stealth}}]
@@ -30,6 +31,7 @@ In Scratch, \menu{My Blocks} $\rightarrow$ \menu{Make a Block} lets you make a p
 \textbf{broadcast} sends a message to \textbf{every} sprite, like an announcement on a loudspeaker. Only scripts that start with \textbf{when I receive} \textbf{that exact message} run.
 
 \begin{center}
+%% alt: The Presenter sprite broadcasts the message start show. The Dancer sprite, which waits for start show, starts dancing. The Ghost sprite waits for a different message, show start, so nothing happens.
 \begin{tikzpicture}[>={Stealth},
   spr/.style={draw,thick,rounded corners=3pt,align=center,font=\small,inner sep=5pt,minimum width=3.4cm}]
   \node[spr,fill=kcorange!20] (cat) at (0,0) {\faCat\ \textbf{Presenter}\\broadcast \enquote{start show}};

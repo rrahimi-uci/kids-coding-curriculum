@@ -253,3 +253,32 @@ python3 tools/build.py --level 1 --variant standard   # PDFs for a level
 | Vermillion | `#D55E00` | `kcvermillion` |
 | Reddish purple | `#CC79A7` | `kcpurple` |
 | Black | `#000000` | `kcblack` |
+
+
+## 10. Website conventions
+
+The website is generated from these sources (see [SITE-DESIGN.md](SITE-DESIGN.md)); a few conventions keep
+the web pages correct:
+
+* **Alt text for diagrams.** Put `%% alt: ...` (one line, no percent signs) directly above every
+  `\begin{tikzpicture}` in student-facing files. It is a LaTeX comment, so the PDF is unchanged. The build
+  fails if a TikZ figure has none. Scratch scripts get their description automatically.
+* **Objectives.** Every workbook chapter starts with a `\section{What you will learn}` list (or
+  `What you will do today`); the website shows it as the lesson's objectives and fails without it.
+* **Hints.** Every exercise folder has a `hints.md` with exactly three hints, written for a Grade 5 reader:
+
+  ```markdown
+  ## Hint 1: Where to look
+  A nudge: point at the part of the screen or file to focus on. No answer.
+
+  ## Hint 2: Try this
+  Name the block or command to use and what it does.
+
+  ## Hint 3: Almost there
+  The most specific hint: show the shape with blanks, e.g. `t.left(____)`. Never the finished program.
+  ```
+* **Public or private.** What may be published is decided by `site/manifest.yml` (deny by default). To publish a
+  new kind of file, add it there on purpose. Never put answers into a workbook, homework or exercise
+  `README.md`/`starter.py`/`hints.md`: those files are public.
+* **The self-check script** (`check_my_work.py`) is not published, so web pages drop the sentences that tell
+  children to run it; the PDFs keep them.

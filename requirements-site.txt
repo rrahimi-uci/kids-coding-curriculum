@@ -1,0 +1,8 @@
+# Python dependencies of the website build (tools/site). `make site-setup` installs them.
+beautifulsoup4==4.12.3
+lxml==5.3.0
+pygments==2.18.0
+pyyaml==6.0.2
+pillow==11.0.0
+fonttools==4.55.0
+brotli==1.1.0

@@ -20,6 +20,7 @@ No accounts, no internet needed during lessons, and no personal data.
 2-intermediate/        Level 2: Python functions, data, files, testing, games
 3-advanced/            Level 3: OOP, algorithms, git, data, simple AI
 docs/                  syllabus, design decisions, standards, authoring guide, assumptions
+site/                  Astro project (theme, pages) + manifest.yml (public/private rules) + qa/ checks
 parents/               parent information evening: research-based slide deck,
                        speaker notes and one-page handout (see parents/README.md)
 shared/latex/          kidscode.cls (the one document class: fonts, boxes),
@@ -81,6 +82,35 @@ exercise folder and pressing **Run** in Thonny.
 evening deck on why coding matters and what the research shows, with speaker
 notes and a one-page handout (`make -C parents`).
 
+## Website
+
+The course also runs as a website (GitHub Pages) that is **generated from these same files**: the LaTeX
+workbooks and homework, the exercise folders and the parent deck. Nothing is copied by hand, so the web
+pages and the PDFs always match. Answer keys, lesson plans, teacher guides, solutions and tests are never
+read or published; the build checks the finished site and fails if any of them would be.
+Design and decisions: [docs/SITE-DESIGN.md](docs/SITE-DESIGN.md).
+
+```bash
+make site-setup     # once: .venv-site (Python 3.12) + site/ npm packages
+make site           # convert sources -> site/dist, run the private-content and content checks
+make site-serve     # preview at http://localhost:4321/
+make site-check     # HTML validation, broken links, accessibility (axe), Lighthouse >= 90
+```
+
+Needs the TeX Live setup above plus [Pandoc](https://pandoc.org) 3.8 or newer (`brew install pandoc`),
+poppler (`brew install poppler`), Node 20+ and Google Chrome for the browser checks.
+
+**How to update a lesson and republish**
+
+1. Edit the source, for example `1-introduction/teaching-material/workbook/week07.tex`, or an exercise folder
+   such as `1-introduction/exercises/week07/ex-first-square/` (`README.md`, `starter.py`, `hints.md`).
+2. New diagram? Put a line `%% alt: a short description of the picture` right above its
+   `\begin{tikzpicture}`. Scratch scripts are described automatically.
+3. `make site` and look at the result with `make site-serve`.
+4. Commit and open a pull request. CI runs every gate; after you merge into `main`, the workflow
+   *Website* deploys to GitHub Pages (one-time setup: Settings, Pages, Source: *GitHub Actions*).
+5. For a release, bump `VERSION` and add an entry to `CHANGELOG.md`. The footer shows both.
+
 ## For maintainers
 
 Requirements: macOS, [MacTeX/TeX Live](https://tug.org/mactex/) with
@@ -102,6 +132,8 @@ Documentation:
 * [docs/STANDARDS.md](docs/STANDARDS.md) — CSTA / AI4K12 alignment
 * [docs/AUTHORING.md](docs/AUTHORING.md) — how to write lessons, exercises, tests
 * [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md) — every assumption made
+* [docs/SITE-DESIGN.md](docs/SITE-DESIGN.md) — the website: pipeline, public/private rules, design, checks
+* [docs/ASSETS.md](docs/ASSETS.md) — licenses of fonts, icons and figures
 
 All changes go through pull requests; see
 [.github/pull_request_template.md](.github/pull_request_template.md).

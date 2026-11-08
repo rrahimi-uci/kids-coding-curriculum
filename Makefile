@@ -3,7 +3,9 @@ PY ?= .venv/bin/python
 LEVEL ?=
 LEVEL_ARG := $(if $(LEVEL),--level $(LEVEL),)
 
-.PHONY: help setup test smoke pdf pdf-standard pdf-dyslexia check clean
+SITE_PY ?= .venv-site/bin/python
+
+.PHONY: help setup test smoke pdf pdf-standard pdf-dyslexia check clean site-setup site-data site site-check site-serve
 
 help:
 	@echo "make setup         create .venv (Python 3.10, like Thonny) with pytest"
@@ -12,6 +14,10 @@ help:
 	@echo "make pdf           build all PDFs, standard + dyslexia-friendly (LEVEL=1|2|3)"
 	@echo "make pdf-standard  build only the standard edition"
 	@echo "make check         test + pdf (what CI runs)"
+	@echo "make site-setup    one-time: create .venv-site and install the site/ npm packages"
+	@echo "make site          build the website (site/dist), then run the private-content and content checks"
+	@echo "make site-check    HTML, link, accessibility and Lighthouse checks on site/dist"
+	@echo "make site-serve    preview site/dist at http://localhost:4321/"
 	@echo "make clean         remove build/"
 
 setup:
@@ -34,6 +40,28 @@ pdf-dyslexia:
 	python3 tools/build.py --variant dyslexia $(LEVEL_ARG)
 
 check: test pdf
+
+site-setup:
+	uv venv --python 3.12 .venv-site || python3 -m venv .venv-site
+	uv pip install --python .venv-site -r requirements-site.txt || .venv-site/bin/pip install -r requirements-site.txt
+	cd site && npm ci --no-audit --no-fund
+
+site-data:
+	$(SITE_PY) -m tools.site.build
+
+site: site-data
+	cd site && npm run build
+	$(SITE_PY) -m tools.site.check_private site/dist
+	$(SITE_PY) -m tools.site.check_content site/dist
+
+site-check:
+	cd site && npx html-validate "dist/**/*.html" --config .htmlvalidate.json
+	cd site && node qa/links.mjs dist
+	cd site && node qa/a11y.mjs dist
+	cd site && CHROME_PATH="$${CHROME_PATH:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}" node qa/lighthouse.mjs dist
+
+site-serve:
+	cd site && npx http-server dist -p 4321 -c-1
 
 clean:
 	rm -rf build

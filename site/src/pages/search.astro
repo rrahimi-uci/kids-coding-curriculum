@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { u } from '../lib/data';
+---
+<Base title="Search" description="Search lessons, exercises and parent pages." pagefind={false}>
+  <div class="measure">
+    <h1>Search</h1>
+    <p class="lead">Search across lessons, exercises, vocabulary and the parent pages.</p>
+    <div id="search" data-search-base={u('')}>
+      <p class="muted">Search needs JavaScript. Without it, browse the <a href={u('curriculum/')}>curriculum</a> instead.</p>
+    </div>
+  </div>
+  <link rel="stylesheet" href={u('pagefind/pagefind-ui.css')} />
+  <script is:inline src={u('pagefind/pagefind-ui.js')}></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', function () {
+      var el = document.getElementById('search');
+      if (!window.PagefindUI) return;
+      el.innerHTML = '';
+      new PagefindUI({ element: '#search', showSubResults: true, showImages: false, resetStyles: false,
+        baseUrl: el.dataset.searchBase, bundlePath: el.dataset.searchBase + 'pagefind/' });
+    });
+  </script>
+</Base>

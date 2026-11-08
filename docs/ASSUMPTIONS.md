@@ -152,3 +152,17 @@ where useful, how to change it.
     (color, favorite, math, check off, score), matching the US setting
     (#3) and Python's own `color`, so kids never meet two spellings of one word.
     `make test` rejects common UK spellings (`testing/test_consistency.py`).
+
+## Website
+
+39. **Hosting.** GitHub Pages, deployed by GitHub Actions from `main`. The owner chose a public repository.
+    Because answer keys, teacher guides and reference solutions live in the same repository, a public
+    repository exposes them even though the website does not (see SITE-DESIGN.md and the pull request notes).
+40. **What is published.** Student workbooks, homework, exercise instructions, starter code, hints, the parent
+    deck and handout. Assessments (placement, checkpoint and exit quizzes) are not published.
+41. **Hints and alt text** are new, reviewed content: three hints per exercise (`hints.md`) and a `%% alt:`
+    description above each diagram. They are written for a Grade 5 reader and checked by the build.
+42. **No analytics, cookies or accounts.** Progress ticks and display settings are stored only in the
+    visitor's browser (local storage).
+43. **Invented character names** (such as the children in bug-hunt exercises) appear in a few exercises; they
+    are fictional, not real children.

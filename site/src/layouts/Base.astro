@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { u, siteInfo } from '../lib/data';
+
+interface Props { title: string; description?: string; level?: number; pagefind?: boolean; noindex?: boolean; }
+const { title, description = 'A free, friendly programming course for kids: Scratch, then Python. Lessons, exercises and projects for families.', level, pagefind = true, noindex = false } = Astro.props;
+const info = siteInfo();
+const path = Astro.url.pathname;
+const rel = path.replace(u(''), '/');
+const nav = [
+  { href: u('parents/'), label: 'For parents', match: '/parents/' },
+  { href: u('curriculum/'), label: 'Curriculum', match: '/curriculum/' },
+  { href: u('levels/level-1/'), label: 'Level 1', match: '/levels/level-1/' },
+  { href: u('levels/level-2/'), label: 'Level 2', match: '/levels/level-2/' },
+  { href: u('levels/level-3/'), label: 'Level 3', match: '/levels/level-3/' },
+];
+const full = title.includes('Kids Coding') ? title : `${title} | Kids Coding`;
+const canonical = new URL(path, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{full}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={u('favicon.svg')} type="image/svg+xml" />
+    <meta property="og:title" content={full} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <script is:inline>
+      /* Apply saved display choices before first paint (theme and dyslexia-friendly font). */
+      try {
+        var d = document.documentElement, t = localStorage.getItem('kc:theme'), f = localStorage.getItem('kc:font');
+        if (t) d.setAttribute('data-theme', t);
+        if (f) d.setAttribute('data-font', f);
+      } catch (e) {}
+    </script>
+  </head>
+  <body class={level ? `l${level}` : undefined} data-base={u('')}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="palette-bar" aria-hidden="true"></div>
+      <div class="wrap">
+        <a class="brand" href={u('')} aria-label="Kids Coding, home">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"/><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"/><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"/><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Kids Coding</span>
+        </a>
+        <nav class="nav-desktop" aria-label="Main">
+          {nav.map((n) => <a href={n.href} aria-current={rel.startsWith(n.match) ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
+        <div class="tools">
+          <a class="icon-btn" href={u('search/')} aria-label="Search the site"><Icon name="search" /><span class="label">Search</span></a>
+          <button class="icon-btn" type="button" id="font-toggle" aria-pressed="false" title="Switch to the dyslexia-friendly font (Lexend)"><Icon name="type" /><span class="label">Easy-read font</span></button>
+          <button class="icon-btn" type="button" id="theme-toggle" aria-pressed="false" title="Dark mode"><Icon name="moon" /><span class="label">Dark mode</span></button>
+          <details class="nav-mobile">
+            <summary class="icon-btn" aria-label="Menu"><Icon name="menu" /><span class="label">Menu</span></summary>
+            <nav class="panel" aria-label="Main (mobile)">
+              {nav.map((n) => <a href={n.href} aria-current={rel.startsWith(n.match) ? 'page' : undefined}>{n.label}</a>)}
+              <a href={u('about/')}>About and accessibility</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+    <main id="main" data-pagefind-body={pagefind ? '' : undefined}>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="palette-bar" aria-hidden="true" style="margin-top:-2.5rem;margin-bottom:2.5rem"></div>
+      <div class="wrap">
+        <div class="cols">
+          <div>
+            <h2>Kids Coding</h2>
+            <p>A free course for children from Grade 5: make games and art, first with Scratch blocks, then with Python. One 60-minute session a week.</p>
+            <p><Icon name="lock" /> No accounts, no ads, no tracking.</p>
+          </div>
+          <div>
+            <h2>Explore</h2>
+            <ul>
+              <li><a href={u('parents/')}>For parents</a></li>
+              <li><a href={u('curriculum/')}>Curriculum and timeline</a></li>
+              <li><a href={u('levels/level-1/')}>Level 1: Introduction</a></li>
+              <li><a href={u('search/')}>Search</a></li>
+              <li><a href={u('about/')}>About, accessibility and credits</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>This site</h2>
+            <p>Version {info.version} · Last updated <time datetime={info.updated}>{info.updated}</time></p>
+            <p class="small">Built from the course sources, so it always matches the printed workbooks. <a href={u('about/#changelog')}>What changed</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../scripts/site.js"></script>
+  </body>
+</html>

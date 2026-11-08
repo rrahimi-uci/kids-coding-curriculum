@@ -1,0 +1,123 @@
+name: Website
+
+# Builds the website from the course sources, runs every quality gate and, on every push to main,
+# deploys it to GitHub Pages. Pull requests run the build and the gates but do not deploy.
+# One-time setup: repository Settings > Pages > Source: "GitHub Actions".
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SITE_URL: https://${{ github.repository_owner }}.github.io
+  SITE_BASE: /${{ github.event.repository.name }}
+
+jobs:
+  build:
+    name: Build site and run quality gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # the footer shows the date of the last commit
+
+      - uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            scheme-basic
+            luatex luaotfload fontspec iftex kvoptions geometry xcolor graphics
+            pgf tcolorbox environ trimspaces tikzfill pdfcol enumitem booktabs
+            tools makecell fancyhdr lastpage titlesec etoolbox setspace ragged2e
+            amsfonts psnfss listings needspace fontawesome5 scratch3 simplekv
+            xstring microtype newunicodechar csquotes hyperref atkinson lexend
+            colortbl caption float wrapfig pgfplots qrcode l3packages l3kernel
+            epstopdf-pkg infwarerr kvsetkeys ltxcmds pdftexcmds bookmark
+            beamer translator biblatex biblatex-apa biber babel-english logreq
+            hyphen-english
+
+      - uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: "3.8.3"
+
+      - name: System tools (poppler for SVG, slide images and PDF text)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-site.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install site dependencies
+        run: |
+          pip install -r requirements-site.txt
+          cd site && npm ci --no-audit --no-fund
+
+      - name: Convert the course sources to website data (PDFs, figures, pages)
+        run: python -m tools.site.build
+
+      - name: Build the static site (Astro) and the search index (Pagefind)
+        run: cd site && npm run build
+
+      - name: Private-content check (no answers, solutions or teacher material)
+        run: python -m tools.site.check_private site/dist
+
+      - name: Content check (objectives, alt text, hints, headings)
+        run: python -m tools.site.check_content site/dist
+
+      - name: Private-check unit tests
+        run: pip install pytest && python -m pytest -q testing/test_site_private.py
+
+      - name: HTML validation
+        run: cd site && npx html-validate "dist/**/*.html" --config .htmlvalidate.json
+
+      - name: Broken-link check
+        run: cd site && node qa/links.mjs dist
+
+      - name: Accessibility check (axe, WCAG 2.2 AA)
+        run: cd site && npx playwright install --with-deps chrome >/dev/null && node qa/a11y.mjs dist
+
+      - name: Lighthouse (performance, accessibility, best practices >= 90)
+        run: cd site && CHROME_PATH="$(which google-chrome)" node qa/lighthouse.mjs dist
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: site/dist
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: site-pdfs
+          path: site/public/downloads/
+          if-no-files-found: ignore
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

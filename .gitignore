@@ -16,3 +16,11 @@ __pycache__/
 *.tmp
 # macOS
 .DS_Store
+.venv-site/
+site/node_modules/
+site/dist/
+site/.astro/
+site/src/generated/
+site/public/generated/
+site/public/downloads/
+build/site-cache/

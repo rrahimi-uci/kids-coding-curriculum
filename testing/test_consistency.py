@@ -108,7 +108,7 @@ UK_TO_US = {
     r"\bmaths\b": "math",
     r"\bmum\b": "mom",
     r"licence": "license",
-    r"labelled": "labeled",
+    r"labelled(?!by)": "labeled",  # aria-labelledby is an HTML attribute, not UK spelling
     r"travelled": "traveled",
     r"modelling": "modeling",
     r"\bpractis(e|ed|es|ing)\b": "practice",
@@ -118,15 +118,25 @@ UK_TO_US = {
 }
 
 
+def _authored_paths():
+    """Files that are authored (tracked or new, not git-ignored): generated output, virtual
+    environments and node_modules are never checked."""
+    import subprocess
+
+    try:
+        out = subprocess.run(["git", "ls-files", "-co", "--exclude-standard"], cwd=ROOT, capture_output=True,
+                             text=True, check=True).stdout.splitlines()
+        return [ROOT / line for line in out]
+    except (OSError, subprocess.CalledProcessError):  # not a git checkout: fall back to a plain walk
+        skip_dirs = {".git", ".venv", ".venv-site", "node_modules", "build", "dist", "generated", ".astro", "__pycache__"}
+        return [p for p in ROOT.rglob("*") if not skip_dirs & set(p.relative_to(ROOT).parts)]
+
+
 def text_files():
-    skip = {".pdf", ".png", ".jpg", ".sb3"}
-    for path in sorted(ROOT.rglob("*")):
-        rel = path.relative_to(ROOT)
-        # build/ output (root or e.g. parents/build) is generated, never authored
-        if (path.is_file() and path.suffix not in skip and rel.parts[0] not in
-                {".git", ".venv"} and "build" not in rel.parts
-                and "__pycache__" not in rel.parts
-                and path.name != "test_consistency.py"):
+    skip = {".pdf", ".png", ".jpg", ".sb3", ".woff2", ".webp", ".zip", ".svg"}
+    for path in sorted(_authored_paths()):
+        if (path.is_file() and path.suffix not in skip and "__pycache__" not in path.parts
+                and path.name not in ("test_consistency.py", "package-lock.json")):
             yield path
 
 
