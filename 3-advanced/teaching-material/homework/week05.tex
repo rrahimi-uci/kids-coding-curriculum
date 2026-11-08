@@ -1,0 +1,41 @@
+% Level 3, Week 5 homework -- Sorting, Stacks and Queues
+\homeworkweek{5}{Sorting, Stacks and Queues}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Turn Queue (about 10 minutes)]
+Four friends share one game. A queue makes it fair: the player at the front plays, then goes to the back of the line.
+\begin{enumerate}[itemsep=2pt]
+  \item Open \texttt{week05/hw-turn-queue/starter.py} in Thonny.
+  \item Finish \texttt{take\_turn}: \texttt{player = queue.popleft()}, then \texttt{queue.append(player)}, then return the player.
+  \item Finish \texttt{leave}: remove a player who has to go home, and return \texttt{True} (or \texttt{False} if they were not in the queue).
+  \item Run it, then open \texttt{check\_my\_work.py} and press Run. Commit your work in \texttt{git-quest}.
+\end{enumerate}
+\textbf{Predict:} the queue is Priya, Sam, Kai, Zoe. Who plays turns 1 to 6? \rule{8cm}{0.4pt}
+\end{core}
+
+\begin{challenge}[Stack or queue?]
+Write \textbf{S} (stack) or \textbf{Q} (queue) next to each one, and say why in a few words.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|p{6.5cm}|c|p{5cm}|}
+\hline
+\textbf{Situation} & \textbf{S or Q} & \textbf{Why} \\ \hline
+The back button in a web browser & & \\ \hline
+Songs waiting in a playlist & & \\ \hline
+Printing 3 documents sent one after another & & \\ \hline
+A pile of homework sheets, newest on top & & \\ \hline
+\end{tabular}
+\end{center}
+\end{challenge}
+
+\begin{creative}[Design a fair leaderboard]
+Sketch a leaderboard screen for a game you like. Use nicknames only. Include at least one thing that celebrates effort, not only winning (for example \enquote{most improved}, \enquote{personal best}, or \enquote{longest streak of helping}).
+\answerspace{4cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item All checks pass in \texttt{hw-turn-queue}.
+  \item I can explain \enquote{last in, first out} and \enquote{first in, first out}.
+  \item My leaderboard sketch uses nicknames only.
+  \item I committed my work in \texttt{git-quest}.
+\end{selfcheck}

@@ -1,0 +1,95 @@
+% Level 1, Week 6 -- answer key
+\answersweek{6}{Review Studio and Checkpoint}{Answers for workbook chapter 6 and homework 6. The mid-level checkpoint is scored with the Assessments answers.}
+
+\section{Blocks to words card sort}
+\begin{answer}[Card sort key]
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}l l c l@{}}
+\textbf{Card} & \textbf{Scratch block} & \textbf{Card} & \textbf{Python line} \\ \hline
+\textbf{A} & repeat 4 & \textbf{3} & \texttt{for i in range(4):} \\
+\textbf{B} & say Hello! & \textbf{6} & \texttt{print("Hello!")} \\
+\textbf{C} & pen up & \textbf{10} & \texttt{t.penup()} \\
+\textbf{D} & change score by 1 & \textbf{11} & \texttt{score = score + 1} \\
+\textbf{E} & move 100 steps & \textbf{12} & \texttt{t.forward(100)} \\
+\textbf{F} & set roll to pick random 1 to 6 & \textbf{4} & \texttt{roll = random.randint(1, 6)} \\
+\textbf{G} & turn right 90 degrees & \textbf{5} & \texttt{t.right(90)} \\
+\textbf{H} & set score to 0 & \textbf{2} & \texttt{score = 0} \\
+\textbf{I} & go to x: 0 y: 0 & \textbf{8} & \texttt{t.goto(0, 0)} \\
+\textbf{J} & if score > 10 then & \textbf{7} & \texttt{if score > 10:} \\
+\textbf{K} & pen down & \textbf{1} & \texttt{t.pendown()} \\
+\textbf{L} & ask Nickname? and wait & \textbf{9} & \texttt{name = input("Nickname? ")} \\
+\end{tabular}
+\end{center}
+Short form for scoring: A3, B6, C10, D11, E12, F4, G5, H2, I8, J7, K1, L9.
+
+\textbf{\enquote{What do you notice about Python?}} Accept any true observation: commands have brackets \texttt{( )} after them; text is inside quotes \texttt{" "}; lines that hold other lines (\texttt{for}, \texttt{if}) end with a colon \texttt{:}; the turtle's commands start with \texttt{t.}; \texttt{=} means \enquote{set}; there are no colors or shapes, only words.
+\end{answer}
+
+\begin{answer}[Exit ticket]
+\enquote{move 100 steps} matches \texttt{t.forward(100)}.
+\end{answer}
+
+\section{Bug-hunt relay (keep away from students)}
+\begin{answer}[Exercise 6.1: Relay A, Wonky Hexagon]
+\textbf{What the buggy version does:} it draws only \textbf{one} short line (80 steps to the right); the cat then wanders round without drawing and says \enquote{Done!}.
+
+\textbf{Bug 1: \enquote{pen up} is inside the repeat.} After the first side the pen is lifted, so the other five sides are invisible. \textbf{Fix:} drag \enquote{pen up} out of the loop and put it after the repeat (before \enquote{say Done!}).
+
+\textbf{Bug 2: the turn is 50 degrees, not 60.} Once bug 1 is fixed, the shape has six sides but does not close (the turns add up to only 300 degrees). \textbf{Fix:} turn 60 (360 ÷ 6).
+
+\textbf{After both fixes:} a closed hexagon with sides of 80 is drawn from the center, then \enquote{Done!}. Teams often find bug 1 first; that is fine.
+\end{answer}
+
+\begin{answer}[Exercise 6.2: Relay B, Apple Catch Can't Count]
+\textbf{What the buggy version does:} one catch adds many points (often 15--30) as the apple slides through the bowl; and the second game starts with the score from the first game.
+
+\textbf{Bug 1: the score is never reset.} There is no \enquote{set score to 0} at the start. \textbf{Fix:} add \enquote{set score to 0} under the Apple's \enquote{when green flag clicked}, before the forever loop.
+
+\textbf{Bug 2: the score changes too fast.} After a catch the apple is not sent back to the top, so it keeps touching the bowl and the loop adds 1 on every turn. \textbf{Fix:} inside \enquote{if touching Bowl?}, after \enquote{change score by 1}, add \enquote{go to x: (pick random $-200$ to 200) y: 170}.
+
+\textbf{After both fixes:} every game starts at 0 and each catch adds exactly 1 (the same as Exercise 4.2).
+\end{answer}
+
+\begin{answer}[Exercise 6.3: Relay C, The Silent Party]
+\textbf{What the buggy version does:} after the flag the Ghost hides; pressing space makes the cat say \enquote{Party time!}, and then nothing else happens.
+
+\textbf{Bug 1: the message names do not match.} The cat broadcasts \texttt{party}, but the Ghost listens for \texttt{dance}, so nobody receives \texttt{party}. \textbf{Fix:} make them the same, e.g. change the Ghost's hat to \enquote{when I receive party} (or the cat's broadcast to \texttt{dance}).
+
+\textbf{Bug 2: the dance is too fast to see.} Once the Ghost appears, the 10 turns and costume changes are over in a blink (about a third of a second) because there is no wait in the loop. \textbf{Fix:} add \enquote{wait 0.2 seconds} inside the repeat (10 × 0.2 = 2 seconds, one full turn of 360 degrees).
+
+\textbf{After both fixes:} space $\rightarrow$ \enquote{Party time!} $\rightarrow$ the Ghost appears, spins once slowly while changing costume, and says \enquote{Woo!}.
+\end{answer}
+
+\begin{rubric}[Relay: what to look for (formative, not graded)]
+\begin{tabular}{@{}p{4.2cm}p{11cm}@{}}
+\textbf{Strong} & Says expected vs happened before changing anything; changes one thing at a time; finds both bugs and explains each in a sentence. \\
+\textbf{Developing} & Finds the bugs with hint 1 or 2; explanation is partly in words (\enquote{this was wrong}). \\
+\textbf{Needs practice} & Changes many blocks at once or rebuilds from memory; needs hint 3. Plan a quick extra bug hunt in buffer session B1. \\
+\end{tabular}
+\end{rubric}
+
+\section{Reflection and checkpoint}
+\begin{answer}[Fun and fair]
+Fun: a clear goal, surprise (random), the right amount of challenge, levels, sounds and art, being able to win. Fair: the same rules for everyone, the score resets, no hidden tricks, everyone can see and read it (accessible colors, big text), it gives credit, it does not pressure you to keep playing. Accept any sensible idea.
+\end{answer}
+
+\begin{answer}[Mid-level checkpoint]
+See the Assessments section of this answer key for the checkpoint answers and rubric.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Blocks to words]
+move 50 steps $\rightarrow$ \texttt{t.forward(50)}; turn left 90 degrees $\rightarrow$ \texttt{t.left(90)}; say Hi! $\rightarrow$ \texttt{print("Hi!")}; repeat 3 $\rightarrow$ \texttt{for i in range(3):}; set lives to 3 $\rightarrow$ \texttt{lives = 3}.
+Accept small slips (missing colon, capital letters): next week's lesson is about exactly that.
+
+\textbf{Level up:} any working improvement saved as a \texttt{-v2} file; the student can say what they added.
+\end{answer}
+
+\begin{answer}[Challenge: a bug for a friend]
+Look for a clear \enquote{should do} sentence and a single, real bug (wrong order, wrong number, missing forever, missing reset, mismatched message). Use these cards as a warm-up in B1 or week 7.
+\end{answer}
+
+\begin{answer}[Creative: remix with a new theme]
+The game still works like Apple Catch, with new sprites, backdrop and sounds, and a credits comment naming the original project and where the art came from.
+\end{answer}

@@ -1,0 +1,34 @@
+% Level 3 homework, Week 10 -- Project Studio 1
+\homeworkweek{10}{Project Studio 1}{15--20 minutes of project work. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Build your core (Milestone 2)]
+Work on your project in \texttt{Documents/coding-projects/<your project>}.
+\begin{enumerate}[itemsep=1pt]
+  \item Pick \textbf{one} class from your CRC cards and make its \texttt{\_\_init\_\_} and one method really work.
+  \item Run it. When it works, commit in Terminal:
+\begin{shellcode}
+git add .
+git commit -m "Make Player move one cell"
+\end{shellcode}
+  \item Repeat for another small step. Aim for \textbf{3 or more new commits} this week.
+\end{enumerate}
+Copy your new commit messages from \texttt{git log --oneline}:
+\answerlines{3}
+\end{core}
+
+\begin{challenge}[Your first test]
+Create \texttt{test\_<your project>.py} next to your code and write one test for the method you just finished (look at the example in workbook chapter 11). Run it in Thonny with \menu{Tools} $\rightarrow$ \menu{Open system shell...} and \texttt{python -m pytest -q}. Does it pass? Break the code on purpose: does it fail?
+\end{challenge}
+
+\begin{creative}[Title screen]
+Design the first thing a player sees: the name of your project, the controls, and a picture made with turtle. Use the Okabe--Ito palette and write the controls in text (not color alone). Sketch it here, then code it if you have time.
+\answerspace{4cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item My project folder is a git repository (\texttt{git log} works there).
+  \item At least one class really works, not just \texttt{pass}.
+  \item I made at least 3 commits with messages that start with a verb.
+  \item Everything in my project is mine or allowed by its license, and listed for my Credits.
+\end{selfcheck}

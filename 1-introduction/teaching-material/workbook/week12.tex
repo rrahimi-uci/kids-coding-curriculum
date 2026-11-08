@@ -1,0 +1,82 @@
+% Level 1, Workbook chapter 12 -- Showcase and Celebration   (input by student-workbook.tex)
+\chapterweek{12}{Showcase and Celebration}{Share what you made, explain how it works, and look back at how far you have come.}
+
+\section{What you will do today}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item Show your art show to visitors and explain one part of your code.
+  \item Visit the other artists and give kind, helpful feedback.
+  \item Do the exit assessment: a short quiz to show what you have learned.
+  \item Celebrate! You are a Level 1 coder.
+\end{itemize}
+
+\section{The big idea: tell the story of one part}
+A museum guide doesn't explain every brush stroke. They pick one interesting thing and tell its story. You will do the same: pick \textbf{one} part of your code --- your function, your loop or your \texttt{if} --- and explain it in your own words.
+
+\begin{exercise}[Prepare your 2-minute demo]
+Fill in the gaps. Practice once with your partner: the \textbf{artist} talks and points, the \textbf{assistant} types the visitor's answer and presses Run. Then swap.
+\begin{enumerate}[leftmargin=1.4em,itemsep=6pt]
+  \item \enquote{Hi! My project is called \rule{4.5cm}{0.4pt}. It draws \rule{5cm}{0.4pt}.}
+  \item \enquote{It will ask you a question. Do you want to answer it?} (Press Run.)
+  \item \enquote{Look: because you said \rule{2.8cm}{0.4pt}, it drew \rule{4.2cm}{0.4pt}. That is my \texttt{if}.}
+  \item \enquote{This is my function \rule{3cm}{0.4pt}. It draws \rule{3.5cm}{0.4pt}. Here is where I use it inside a loop.}
+  \item \enquote{One bug I fixed was \rule{7cm}{0.4pt}.}
+  \item \enquote{Do you have a question for me?}
+\end{enumerate}
+\end{exercise}
+
+\begin{tip}[Showcase safety]
+Projects are shown on the screen only: nothing is uploaded, posted or emailed. Name cards and screens show \textbf{nicknames} only. Photos of your artwork only if you agree, with no faces or names on the screen. If you borrowed an idea, say so in your demo.
+\end{tip}
+
+\begin{exercise}[Be a great visitor]
+At each stand: answer the program's question, ask the artist one question, and fill in a feedback card: \textbf{two stars} (two things you liked) and \textbf{a wish} (one idea to make it even better). Write here the best idea you saw today:
+\answerlines{2}
+\end{exercise}
+
+\section{Look back: your Level 1 journey}
+\begin{center}
+%% alt: A timeline of twelve numbered weeks. Weeks 1 to 6 are Scratch: instructions, loops, events, variables and My Blocks. Weeks 7 to 10 are Python: print, loops, input, if, def and random. Weeks 11 and 12 are My art show.
+\begin{tikzpicture}[font=\small,
+  w/.style={draw,thick,circle,minimum size=0.9cm,inner sep=0pt,font=\small\bfseries}]
+  \draw[very thick,kcgray] (0,0) -- (14.4,0);
+  \foreach \x/\n/\c in {0/1/kcorange,1.3/2/kcorange,2.6/3/kcorange,3.9/4/kcorange,5.2/5/kcorange,6.5/6/kcorange,7.8/7/kcblue,9.1/8/kcblue,10.4/9/kcblue,11.7/10/kcblue,13.0/11/kcgreen,14.3/12/kcgreen}
+    \node[w,fill=\c!30] at (\x,0) {\n};
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror},thick] (-0.4,-0.65) -- (6.9,-0.65) node[midway,below=6pt,align=center] {\faCat\ Scratch: instructions, loops,\\events, variables, My Blocks};
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror},thick] (7.4,-0.65) -- (12.1,-0.65) node[midway,below=6pt,align=center] {\faPython\ Python: print, loops,\\input, if, def, random};
+  \draw[decorate,decoration={brace,amplitude=5pt,mirror},thick] (12.6,-0.65) -- (14.7,-0.65) node[midway,below=6pt,align=center] {\faPalette\ My art\\show};
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[What I can do now]
+Check off each sentence that is true for you. Be proud of every tick!
+\begin{checklist}
+  \item I can write exact step-by-step instructions in the right order.
+  \item I can use a loop to repeat things and make patterns.
+  \item I can make a program react with \texttt{if}, \texttt{elif} and \texttt{else}.
+  \item I can use variables, \texttt{input} and \texttt{random}.
+  \item I can make my own command with \texttt{def}.
+  \item I can find and fix a bug by reading the error message.
+  \item I can work as a driver and as a navigator, and explain my code.
+  \item I keep my personal information private and give credit for ideas.
+\end{checklist}
+\end{exercise}
+
+\begin{tip}[Coming up in Level 2]
+Lists of things, games that react to keys and timers, programs that remember high scores in files --- and you will even write your own checks, like the \texttt{check\_my\_work} programs you used this term.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{Showcase}{An event where you show your work to others.}
+  \vocabword{Demo}{Short for demonstration: running your program and showing how it works.}
+  \vocabword{Feedback card}{A card with two stars and a wish for an artist.}
+  \vocabword{Reflection}{Thinking back about what you did, what you learned and what you want next.}
+\end{vocab}
+
+\begin{reflection}
+What part of your art show are you most proud of?
+\answerlines{2}
+What was the hardest bug you fixed this term? How did you fix it?
+\answerlines{2}
+What do you want to make next?
+\answerlines{2}
+\end{reflection}

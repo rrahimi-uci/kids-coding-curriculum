@@ -1,0 +1,134 @@
+% Level 1, Week 10 -- Random Art and My Own Commands   (input by lesson-plans.tex)
+\lesson{10}{Random Art and My Own Commands}{\texttt{random} makes surprises; \texttt{def} makes your own command, just like My Blocks.}
+\lessoninfo{Concepts: random (R, now in text), def + parameters (I in Python), decomposition (R), project kickoff}{Tools: Thonny + turtle}{CSTA: 1B-AP-09, 1B-AP-11, 1B-AP-12, 1B-AP-14}
+
+\begin{objectives}
+  \item The student can define a function with \texttt{def} and parameters, and call it several times with different values (L1.G5; L1.W10.1)
+  \item The student can use \texttt{random.randint} and \texttt{random.choice} to make a picture that changes every run (L1.G4; L1.W10.2)
+  \item The student can find the bug \enquote{function defined but never called} (L1.G6; L1.W10.3)
+  \item The student can plan a project by sketching it and splitting it into parts (L1.G5; L1.W10.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 10, homework 10, and the \textbf{Project Brief} (plan sheet + rubric) from \texttt{1-introduction/project/} --- one per student.
+  \item 3 index cards for the function machine: write \enquote{double it}, \enquote{add 3}, \enquote{square of that size} on the back (keep them hidden).
+  \item On each Mac: Thonny open; Finder at \texttt{kids-coding-curriculum/1-introduction/exercises/week10/}. On \textbf{your} Mac: \texttt{1-introduction/project/reference/night\_sky\_postcard.py} open in Thonny (run it once beforehand with \texttt{40} and \texttt{night}). Also read \enquote{M1 Plan} in the Project Teacher Guide. Prep time: about 10 minutes.
+\end{materials}
+
+\needspace{20\baselineskip}
+\section{At a glance}
+Times are a guide. Today is full: the project kickoff at minute 42 is the part not to skip.
+\begin{timeplan}
+  \timeslot{0--6}{Warm-up}{Unplugged \enquote{Function machine}: input → rule → output.}
+  \timeslot{6--14}{Concept}{\texttt{def} = My Block; parameters = the input slots; define first, then call. \texttt{random} in the Shell.}
+  \timeslot{14--22}{Guided demo}{Exercise 10.1 Flower Stamp: call it, then add a \texttt{color} parameter.}
+  \timeslot{22--42}{Hands-on build}{Pairs: Exercise 10.1 (8 min), 10.2 Random Bubble Art (9 min), free-build (3 min). Swap every 8 minutes.}
+  \timeslot{42--57}{Project kickoff}{Meet \enquote{My Interactive Art Show}; see the reference; choose an idea; plan sheet; save the starter with a project name (Milestone M1).}
+  \timeslot{57--60}{Wrap-up}{Remix with credit, exit ticket, hand out homework 10 (finish the plan).}
+\end{timeplan}
+
+\section{Warm-up (0--6 min)}
+\begin{unplugged}[Function machine]
+You are the machine. Hold up the first card (rule hidden). Students call out an input number; you say the output (\enquote{4 → 8}, \enquote{10 → 20}). Who can guess the rule? Repeat with \enquote{add 3}. For the last card, students call out a size and you \textbf{draw} a square that big on paper (\enquote{2 cm!}, \enquote{8 cm!}).
+\end{unplugged}
+\begin{teacherscript}
+\enquote{A machine has a name, a rule inside, and slots where you put things in. You wrote the rule once, and we used it again and again with different inputs. That's exactly what a function is.}
+\end{teacherscript}
+
+\section{Concept (6--14 min)}
+\begin{teacherscript}
+\enquote{In Scratch you made My Blocks: you defined the block once, with input slots, then used it as many times as you wanted. In Python we write \texttt{def}, a name, and the input slots in brackets. The input slots are called \textbf{parameters}. The pushed-in lines underneath are the recipe.}
+\end{teacherscript}
+\begin{analogy}[A recipe card is not a cake]
+Writing a recipe card does not make a cake. Somebody has to \textbf{use} the recipe. \texttt{def flower(x, y, color):} writes the card. \texttt{flower(-200, 0, "\#E69F00")} bakes one flower. Forget to call it, and you have a nice card and no cake --- that is today's bug hunt!
+\end{analogy}
+Show \texttt{random} in the Shell, one line at a time, pressing \keys{Return} after each:
+\begin{pycode}
+import random
+random.randint(1, 6)
+random.randint(1, 6)
+random.choice(["rock", "paper", "scissors"])
+\end{pycode}
+Say: \enquote{\texttt{randint(1, 6)} is a dice. \texttt{choice} is picking a crayon from a bag with your eyes closed.}
+
+\section{Guided demo (14--22 min)}
+\begin{workedexample}[Flower Stamp]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open \texttt{week10/ex-flower-stamp/starter.py} and press Run. Nothing! Ask: \enquote{The recipe is there. Why no flower?} (Nobody calls it.)
+  \item At the bottom, before \texttt{turtle.done()}, type \texttt{flower(-200, 0)} (no spaces at the start of the line). Run: one orange flower. Add two more calls at \texttt{0, 0} and \texttt{200, 0}.
+  \item \enquote{All orange. Let's add an input slot.} Change the first line to \texttt{def flower(x, y, color):} and \texttt{t.color("\#E69F00")} to \texttt{t.color(color)}. Run: red error --- the calls are missing a color! Add \texttt{PALETTE[0]}, \texttt{PALETTE[6]}, \texttt{PALETTE[4]} to the three calls. Run.
+  \item Point at the code: \enquote{Defined once at the top. Called three times at the bottom. The values in the brackets go into x, y and color, in order.}
+\end{enumerate}
+\end{workedexample}
+\pyfile{../exercises/week10/ex-flower-stamp/solution.py}
+
+\section{Hands-on build (22--42 min)}
+\begin{pairroles}[Driver and navigator]
+Driver types; navigator reads the README and decides the numbers for each call (\enquote{put the next flower at 100, -150}). Swap at the 8-minute timer.
+With 1 student: you navigate and suggest places. With 3: driver, navigator and \enquote{designer} who sketches where things go on paper. With 4: two pairs.
+\end{pairroles}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item \textbf{Exercise 10.1 Flower Stamp} (\texttt{week10/ex-flower-stamp}): call it, add the color parameter, run the checker.
+  \item \textbf{Exercise 10.2 Random Bubble Art} (\texttt{week10/ex-random-art}): replace the fixed values with \texttt{random} values. Press Run several times: a new picture each time.
+\end{enumerate}
+\begin{bughunt}[Defined but never called]
+Exercise 10.1 starts with this bug. Two cousins of it: (1) the call is pushed in under the \texttt{def}, so it is part of the recipe and never runs on its own --- calls start at the left edge; (2) the call is written \textbf{above} the \texttt{def}: \texttt{NameError: name 'flower' is not defined}. Python reads from the top, so the recipe must come first.
+\end{bughunt}
+\begin{freebuild}[Mash-up (3 minutes)]
+Put \texttt{flower} into the bubble program and call it inside the random loop: \texttt{flower(x, y, color)}. A random garden!
+\end{freebuild}
+
+\section{Project kickoff (42--57 min)}
+\begin{teacherscript}
+\enquote{For the next two weeks you'll make your own program for an art show: \textbf{My Interactive Art Show}. It greets the viewer, asks one or two questions, and draws a picture using everything we've learned: a loop, a variable, \texttt{input}, an \texttt{if}, \texttt{random}, and at least one function you made with \texttt{def}. In week 12 you'll show it at our showcase.}
+\end{teacherscript}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item \textbf{Show the reference} \enquote{Night Sky Postcard} on your Mac: run it with \texttt{40} and \texttt{night}, then with \texttt{5} and \texttt{day}. \enquote{Same program, different answers, different picture.} Ask: \enquote{Where is the loop? The \texttt{if}?} (Stars; day or night.) It also has a \texttt{house(x, y, color)} function.
+  \item \textbf{Read the brief together}: page 1 and the six ingredients on page 2 (a question, a variable, an \texttt{if}, a loop, something random, a function made with \texttt{def}).
+  \item \textbf{Choose an idea} (3 minutes) from the idea menu or their own: a fish party, a garden, a city skyline, space, a birthday card, a pattern machine.
+  \item \textbf{Plan sheet} (page 4 of the brief, Milestone M1): a sketch, the 1--2 questions, and the function's name and inputs (\texttt{fish(x, y, color)}). Sign \enquote{Teacher OK} when the questions are not personal and the function has a clear job.
+  \item \textbf{At the Macs}: open \texttt{1-introduction/project/starter/my\_art\_show.py}, click \menu{File} → \menu{Save as…} and give it a project name (\texttt{fish\_party.py} --- never a real name), press Run, see the orange square.
+\end{enumerate}
+\begin{teachernote}[Support path for the project]
+A student who is not yet confident in Python may build the same art show in Scratch: same must-haves, same rubric (see the Project Brief). This is a full, respected option, not a lesser one.
+\end{teachernote}
+
+\section{Wrap-up (57--60 min)}
+\begin{safety}[Being an original artist: remix with credit]
+\enquote{Artists borrow ideas all the time --- the trick is to make it your own and say thank you.} If your project uses an idea from an exercise, a friend or a book, write a comment: \texttt{\# Flower idea remixed from Exercise 10.1}, or \texttt{\# Thanks to Mei for the star idea}. Copying a whole program and calling it yours is not fair. Our art is drawn by code, so we don't need pictures from the internet.
+\end{safety}
+\begin{formativecheck}[Exit ticket]
+\enquote{This program draws nothing. Why? Fix it with one line.}
+\begin{pycode}
+def star(size):
+    for i in range(5):
+        t.forward(size)
+        t.right(144)
+\end{pycode}
+Answer: \texttt{star} is defined but never called. Add a call such as \texttt{star(100)} below it, at the left edge.
+\end{formativecheck}
+\begin{reflection}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item What command would you like to invent for your project? What would its input slots be?
+\end{itemize}
+Hand out homework 10: finish the M1 plan sheet (sketch + plan) and bring it next week.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Forgetting the colon} after \texttt{def flower(x, y, color)}, or not pushing the recipe lines in.
+  \item \textbf{Wrong number of values in a call}: \texttt{flower(0, 0)} when the recipe needs three. Python says \texttt{missing 1 required positional argument: 'color'}. Fix: count the slots.
+  \item \textbf{Forgetting \texttt{import random}} at the top: \texttt{NameError: name 'random' is not defined}.
+  \item \textbf{\texttt{randint} with the numbers backwards} (\texttt{randint(350, -350)}): \texttt{ValueError}. Smaller number first.
+  \item \textbf{Project ideas that are too big} (\enquote{a whole city with moving cars}). Help them pick a small core plus \enquote{extras if time}.
+\end{commonmistakes}
+\begin{differentiation}
+\supportpath Do Exercise 10.1 only, with you as navigator, and say each call aloud: \enquote{flower at minus two hundred, zero, in orange}. For the project, start from the Scratch support path or reuse \texttt{flower} as their main function.
+\extensionpath In 10.1 add a \texttt{size} parameter (\texttt{t.circle(size)}); in 10.2 add a second function \texttt{star(x, y, size, color)} and choose randomly between bubbles and stars with \texttt{if random.randint(1, 2) == 1:}.
+\end{differentiation}
+\begin{stretchchallenge}[Meadow maker]
+Ask the user \enquote{How many flowers?} and draw that many at random places with random palette colors, using a loop and your \texttt{flower} function. That uses every idea from weeks 7--10!
+\end{stretchchallenge}
+\begin{teachernote}[If you are short on time]
+Do the function machine with one card (3 minutes) and skip the Shell demo of \texttt{random} --- Exercise 10.2 teaches it. Exercise 10.2 can move to the start of week 11 or to Buffer B2. Never skip the project kickoff: students need the plan for homework.
+\end{teachernote}

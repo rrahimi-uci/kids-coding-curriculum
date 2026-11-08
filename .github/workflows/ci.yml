@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Exercise and structure checks (Python 3.10)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: pip install -r requirements-dev.txt
+      - name: Coverage tables are up to date
+        run: python tools/coverage.py --check
+      - name: Run all checks (headless fake turtle)
+        run: python -m pytest -q
+
+  pdfs:
+    name: Build PDFs (standard + dyslexia-friendly)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: zauguin/install-texlive@v4
+        with:
+          packages: |
+            scheme-medium
+            luatex luatexbase luaotfload fontspec extsizes iftex kvoptions geometry xcolor graphics
+            pgf tcolorbox environ trimspaces tikzfill pdfcol enumitem booktabs
+            tools makecell fancyhdr lastpage titlesec etoolbox setspace ragged2e
+            amsfonts psnfss listings needspace fontawesome5 scratch3 simplekv
+            xstring microtype newunicodechar csquotes hyperref atkinson lexend
+            colortbl caption float wrapfig pgfplots qrcode l3packages l3kernel
+            epstopdf-pkg infwarerr kvsetkeys ltxcmds pdftexcmds bookmark
+      - name: Build all PDFs
+        run: python3 tools/build.py --jobs 4 --strict
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: curriculum-pdfs
+          path: build/pdf/
+          if-no-files-found: warn
+
+  parent-deck:
+    name: Build parent deck, speaker notes and handout
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: zauguin/install-texlive@v4
+        with:
+          packages: |
+            scheme-medium
+            luatex luatexbase luaotfload fontspec extsizes iftex kvoptions geometry xcolor graphics
+            pgf tcolorbox environ trimspaces tikzfill pdfcol enumitem booktabs
+            tools makecell fancyhdr lastpage titlesec etoolbox setspace ragged2e
+            amsfonts psnfss listings needspace fontawesome5 scratch3 simplekv
+            xstring microtype newunicodechar csquotes hyperref atkinson lexend
+            colortbl caption float wrapfig pgfplots qrcode l3packages l3kernel
+            epstopdf-pkg infwarerr kvsetkeys ltxcmds pdftexcmds bookmark
+            beamer translator biblatex biblatex-apa biber babel-english logreq
+            hyphen-english
+      - name: Build deck, notes and handout
+        run: make -C parents
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-deck-pdfs
+          path: parents/build/*.pdf
+          if-no-files-found: warn

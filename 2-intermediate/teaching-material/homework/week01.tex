@@ -1,0 +1,60 @@
+% Level 2, Week 1 -- homework
+\homeworkweek{1}{Welcome Back, Python}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Type detective (paper, 3 minutes)]
+Write the type of each value: \textbf{int}, \textbf{float}, \textbf{str} or \textbf{bool}.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|l|p{2.2cm}||l|p{2.2cm}|}
+\hline
+\texttt{42} & & \texttt{"42"} & \\ \hline
+\texttt{4.2} & & \texttt{False} & \\ \hline
+\texttt{"False"} & & \texttt{-8} & \\ \hline
+\end{tabular}
+\end{center}
+\end{core}
+
+\begin{core}[Dragon Door (Thonny, 10 minutes)]
+Open \texttt{exercises/week01/hw-dragon-door/starter.py}. The dragon door opens if:
+\begin{itemize}[leftmargin=1.2em]
+  \item you have the golden key \textbf{and} you are level 3 or more, \textbf{or}
+  \item you are level 10 or more (legends do not need keys).
+\end{itemize}
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: change the \texttt{if} line in \texttt{door\_opens()}. Brackets help: \texttt{(has\_key and level >= 3) or level >= 10}
+  \item TODO 2: make the welcome message an f-string that says the hero name.
+  \item Run it three times and check what happened:\par
+  \begin{tabular}{@{}lll@{}}
+  key yes, level 5: & opens \tickbox & shut \tickbox \\
+  key yes, level 2: & opens \tickbox & shut \tickbox \\
+  key no, level 12: & opens \tickbox & shut \tickbox \\
+  \end{tabular}
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+\end{core}
+
+\begin{challenge}[Predict, then check]
+Write what each line prints. Then type it into the Thonny Shell to check.
+\begin{pycode}
+print(3 > 2 and 5 > 9)
+print(3 > 2 or 5 > 9)
+print(not 3 > 2)
+print("7" + "7")
+print(int("7") + 7)
+\end{pycode}
+\answerlines{3}
+\end{challenge}
+
+\begin{creative}[Design a hero]
+Invent a hero for a game (a made-up name only). Draw them in the box and write a hero card with at least
+one value of each type: a str, an int, a float and a bool. Next week you can type it into the Hero Card program.
+\answerspace{4cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I can name the four types and give an example of each.
+  \item I know that \texttt{input()} gives back text, and how \texttt{int()} fixes that.
+  \item My Dragon Door opens for the right heroes and stays shut for the others.
+  \item I used a made-up hero name, not my real name.
+\end{selfcheck}

@@ -1,0 +1,50 @@
+% Level 3, Week 3 homework -- Families of Objects
+\homeworkweek{3}{Families of Objects}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Hero Party (about 10 minutes)]
+\begin{enumerate}[itemsep=2pt]
+  \item Open \texttt{week03/hw-hero-party/starter.py} in Thonny. \texttt{Hero} (the parent) and \texttt{Healer} (a child) are done: read them first.
+  \item Copy the \texttt{Healer} pattern to finish \texttt{Builder} (power \texttt{"building"}, action \enquote{builds a bridge}) and \texttt{Explorer} (power \texttt{"exploring"}, action \enquote{maps the cave}).
+  \item Finish \texttt{Party.take\_turn}: every hero acts once (composition: the party \emph{has} heroes).
+  \item Run it, then open \texttt{check\_my\_work.py} and press Run until all checks pass. Commit your work in \texttt{git-quest}.
+\end{enumerate}
+\textbf{Is a or has a?} Write \enquote{is a} or \enquote{has a} in each gap.
+\begin{itemize}[itemsep=1pt]
+  \item A Healer \rule{2cm}{0.4pt} Hero.\qquad A Party \rule{2cm}{0.4pt} Heroes.\qquad A Builder \rule{2cm}{0.4pt} Hero.
+\end{itemize}
+\end{core}
+
+\begin{challenge}[Predict the output]
+Without running it, write what this prints. Then type it in and check.
+\begin{pycode}
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return self.name + " makes a sound"
+
+class Owl(Animal):
+    def speak(self):
+        return self.name + " says hoo"
+
+class Fox(Animal):
+    pass
+
+for a in [Owl("Olu"), Fox("Fen"), Animal("Ash")]:
+    print(a.speak())
+\end{pycode}
+\answerlines{3}
+\end{challenge}
+
+\begin{creative}[Your own hero]
+Invent a new hero class (a child of \texttt{Hero}) with its own power and action, for example a \texttt{Musician} who \enquote{plays a brave song} or a \texttt{Gardener} who \enquote{grows a vine ladder}. Add two of them to the party. Give your heroes names from many places and cultures. Draw your hero here:
+\answerspace{3.5cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item All checks pass in \texttt{hw-hero-party}.
+  \item My child classes use \texttt{super().\_\_init\_\_}.
+  \item I can explain the difference between \enquote{is a} and \enquote{has a}.
+  \item I committed my work in \texttt{git-quest} with a helpful message.
+\end{selfcheck}

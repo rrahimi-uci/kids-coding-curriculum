@@ -1,0 +1,140 @@
+% Level 3, Buffer session B2 -- Mini Game Jam
+\kcpart{B2}{Mini Game Jam}{Pitch a tiny game in 90 seconds, build it in 30 minutes, and save every step with git.}
+\lessoninfo{Concepts: scoping, rapid prototyping, git add/commit/log/diff/restore, onkey games}{Tools: Thonny, turtle, Terminal + git}{CSTA: 3A-AP-16, 3A-AP-22, 2-AP-19}
+
+\begin{teachernote}[When to use this session]
+Any week after week 5 -- ideal between weeks 9 and 10 or before a holiday. No new concepts: it practices git and game-building against a friendly clock. Students may finish an in-class exercise (e.g. 7.3) instead of a jam game.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can shrink a game idea to something buildable in 30 minutes. (L3.G5)
+  \item The student can commit at least four times with meaningful messages and read the history with \texttt{git log --oneline}. (L3.G4)
+  \item The student can use \texttt{git diff} to see a change and \texttt{git restore} to undo a broken one. (L3.G4, L3.G8)
+\end{objectives}
+
+\begin{materials}
+  \item Idea cards: write 6 \textbf{themes} (space, ocean, kitchen, haunted library, robot factory, garden) and 6 \textbf{twists} (gravity flips, you are tiny, everything is slow, one button only, the goal moves, no colors -- shapes only) on paper slips in two bowls.
+  \item On each Mac: Terminal and Thonny open; a kitchen timer or phone timer with a loud \enquote{commit bell}.
+  \item Prep (10 min): read this plan; try the jam starter below once yourself.
+\end{materials}
+
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Draw a theme + twist; 90-second game pitches.}
+  \timeslot{8--14}{Concept}{Jam rules: tiny scope, commit bell every 10 minutes, good commit messages.}
+  \timeslot{14--22}{Guided demo}{Set up a jam folder, \texttt{git init}, jam starter, first commit; show \texttt{git diff} and \texttt{git restore}.}
+  \timeslot{22--50}{Hands-on build}{Build! Commit bell at 30, 40 and 50 minutes. Bug hunt with \texttt{git restore}.}
+  \timeslot{50--60}{Wrap-up}{Arcade: play each other's games; count commits; reflection.}
+\end{timeplan}
+\begin{teachernote}[If you are short on time]
+Skip the pitches (give everyone the same theme) and shorten the build to 20 minutes with two commit bells. Keep the \texttt{git restore} demo: it is the most useful command of the day.
+\end{teachernote}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[90-second pitches]
+Each student draws a theme and a twist, thinks silently for 60 seconds, then pitches in 90: \emph{What do you control? How do you win or lose? Where is the twist?} Listeners add one \enquote{yes, and...} idea. Example: \enquote{Haunted library + one button only: a book flies up while you hold Space and falls when you let go; dodge the ghosts.}
+\end{unplugged}
+
+\section{Concept (8--14 min)}
+\begin{teacherscript}[Say]
+\enquote{A game jam is a challenge to make a game in a very short time. Three rules. \textbf{One:} tiny scope -- one thing to control, one way to score. Make the smallest fun thing first. \textbf{Two:} when the commit bell rings, everyone commits, even if it is half done -- as long as it runs. \textbf{Three:} commit messages start with a verb and say what changed: \emph{Add star that moves}, \emph{Fix score not resetting}.}
+\end{teacherscript}
+
+\begin{analogy}[Save points in a video game]
+In a hard level you save before the boss. If it goes wrong, you load the save instead of starting the whole game again. Each commit is a save point; \texttt{git restore} loads the last one.
+\end{analogy}
+
+\section{Guided demo (14--22 min)}
+\begin{workedexample}[Jam set-up, first commit, undo]
+In Terminal (type and explain each line):
+\begin{shellcode}
+cd ~/Documents/coding-projects
+mkdir jam-game
+cd jam-game
+git init
+\end{shellcode}
+In Thonny type the jam starter below, save it as \texttt{jam.py} in \texttt{jam-game} (save before every commit!) and press \keys{F5}: arrows move the turtle; touching the orange circle scores. Then:
+\begin{shellcode}
+git add jam.py
+git commit -m "Add jam starter with moving player"
+\end{shellcode}
+Now change \texttt{20} to \texttt{40} in one \texttt{move} line and save. Type \texttt{git diff}: the old line shows with \texttt{-}, the new one with \texttt{+}. Then break the file on purpose (delete a bracket), save, and run \texttt{git restore jam.py}: Thonny asks to reload the file -- the bracket is back. \enquote{That is your undo button for whole files.}
+\end{workedexample}
+
+\begin{pycode}[jam.py -- jam starter]
+import random
+import turtle
+
+screen = turtle.Screen()
+screen.title("Jam game")
+player = turtle.Turtle("turtle")
+player.penup()
+star = turtle.Turtle("circle")
+star.penup()
+star.color("#E69F00")
+score = 0
+
+def move(dx, dy):
+    player.goto(player.xcor() + dx, player.ycor() + dy)
+    check_catch()
+
+def check_catch():
+    global score
+    if player.distance(star) < 25:
+        score += 1
+        screen.title(f"Jam game - score {score}")
+        star.goto(random.randint(-200, 200), random.randint(-200, 200))
+
+screen.onkey(lambda: move(0, 20), "Up")
+screen.onkey(lambda: move(0, -20), "Down")
+screen.onkey(lambda: move(-20, 0), "Left")
+screen.onkey(lambda: move(20, 0), "Right")
+screen.listen()
+star.goto(100, 100)
+turtle.done()
+\end{pycode}
+
+\section{Hands-on build (22--50 min)}
+\begin{freebuild}[Jam time (28 minutes)]
+Turn the starter into your pitched game (or remix an earlier exercise). Ideas: a timer with \texttt{screen.ontimer}, enemies in a list, a Player class, levels from a grid. Keep the twist! At each commit bell (30, 40, 50 min) everyone saves, then types \texttt{git add jam.py} and \texttt{git commit -m "Add enemy that bounces"} (with their own message).
+\end{freebuild}
+
+\begin{pairroles}[Jam team or solo with a buddy]
+Students may jam in pairs (one game, one Mac): the \textbf{driver} types, the \textbf{producer} keeps the scope small, watches the clock and writes the commit message; swap at each commit bell. Solo jammers sit next to a \textbf{buddy} and play-test each other's game after every bell. With 1 student: you are the producer. With 3: one pair and one solo jammer with you as buddy.
+\end{pairroles}
+
+\begin{bughunt}[Time travel to fix a bug]
+At the 40-minute bell ask: \enquote{Who broke their game since the last commit?} Show \texttt{git diff} to find what changed, then fix those lines or \texttt{git restore jam.py} to return to the last save point. If nobody did, break the starter together (\py|player.goto(player.xcor() + dx)| -- the y is missing) and find it with \texttt{git diff}.
+\end{bughunt}
+
+\section{Wrap-up (50--60 min)}
+\textbf{Arcade (6 min):} everyone moves one seat and plays the next game for a minute. Then each student runs \texttt{git log --oneline} and reads their history aloud like a story.
+
+\begin{formativecheck}[What to look for]
+\textbf{Look for:} at least four commits; messages that start with a verb and say what changed; the student can explain what \texttt{git restore} does.
+\textbf{Question:} \enquote{You changed three lines and now nothing works. What two git commands help?}
+\textbf{Answer:} \texttt{git diff} (see what changed) and \texttt{git restore <file>} (go back to the last commit).
+\end{formativecheck}
+
+\begin{reflection}
+What did you cut to finish on time? Which commit message would help future-you the most? Would you rather jam alone or in a pair -- why?
+\end{reflection}
+
+\begin{safety}[Git history remembers everything]
+Say: \enquote{A commit is forever, even if you delete the line later. Never put passwords, real names, addresses or photos in a repository -- and if you share a jam game, share it with family only.}
+\end{safety}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{\texttt{git commit} without \texttt{git add}}: \enquote{nothing added to commit}. Run \texttt{git status}, then \texttt{git add}.
+  \item \textbf{Forgot \texttt{-m}}: Terminal opens an editor (vim). Press \keys{Esc}, type \texttt{:q!}, \keys{Return}, then try again with \texttt{-m "..."}.
+  \item \textbf{Scope too big}: help the student pick the one mechanic that is the game.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Keep the jam starter and change only the theme: new colors, new shapes, a different speed, a win message at 10 points. Four commits of small changes is a full success.
+\extensionpath Make a \texttt{Game} class that holds the player, the star and the score, with a method per key. Add a high-score file.
+\end{differentiation}
+
+\begin{stretchchallenge}[Branch out]
+\texttt{git switch -c hard-mode}, make the star move by itself, commit, then \texttt{git switch -}: two versions in one folder.
+\end{stretchchallenge}

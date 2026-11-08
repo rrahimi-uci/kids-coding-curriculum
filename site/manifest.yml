@@ -1,0 +1,78 @@
+# Public / private manifest for the website (single source of truth for what may be published).
+#
+# DENY BY DEFAULT: the site build reads only the files matched in `public`. Everything else in the
+# repository (answer keys, lesson plans, teacher guides, reference solutions, tests, the self-check
+# script, assessments) is private and is never opened by the converter. tools/site/check_private.py
+# then scans the finished site and fails the build if any private file name, marker string or
+# distinctive line from a private source shows up in the output.
+#
+# {dir} is the level folder, e.g. 1-introduction.
+
+levels:
+  - {number: 1, dir: 1-introduction, slug: level-1, published: true}
+  - {number: 2, dir: 2-intermediate, slug: level-2, published: true}
+  - {number: 3, dir: 3-advanced,     slug: level-3, published: true}
+
+public:
+  workbook: "{dir}/teaching-material/workbook/week[0-9][0-9].tex"
+  homework: "{dir}/teaching-material/homework/week[0-9][0-9].tex"
+  exercise_dirs: "{dir}/exercises/week[0-9][0-9]/*/"
+  # Only these files are read from an exercise folder (README, starter, hints, starter data).
+  exercise_files: [README.md, starter.py, hints.md, "*.csv", words.txt]
+  project_brief: "{dir}/project/project-brief.tex"
+  project_starter_dir: "{dir}/project/starter"
+  # Student-facing extras (never certificates or teacher material).
+  cheat_sheet: "{dir}/teaching-material/extras/cheat-sheet.tex"
+  glossary: "{dir}/teaching-material/extras/glossary.tex"
+  parent_notes: "{dir}/teaching-material/extras/parent-notes.tex"
+  progress_tracker: "{dir}/teaching-material/extras/progress-tracker.tex"
+  # New public guides written for the website (Mac setup, troubleshooting).
+  resources: "resources/*.md"
+  # PDFs that may be offered for download (matched on the file stem of the built PDF).
+  download_stems: [student-workbook, homework, cheat-sheet, glossary, parent-notes, progress-tracker, project-brief]
+  parents:
+    deck: parents/build/parent-deck.pdf
+    handout: parents/build/parent-handout.pdf
+    source: parents/main.tex
+    shared: parents/content/shared.tex
+    bib: parents/references.bib
+
+private:
+  # Path fragments that must never appear in a published file name or link.
+  paths:
+    - answers/
+    - answer-key
+    - lesson-plans
+    - /lessons/
+    - teacher-guide
+    - project-teacher-guide
+    - solution
+    - test_
+    - check_my_work
+    - /reference/
+    - assessments
+    - certificate
+    - smoke_inputs
+    - speaker-notes
+    - parent-deck-notes
+  # File names that look private by pattern but are student starter templates and are published on purpose.
+  allow_files:
+    - test_my_project.py
+    - my_tests.py
+  # Marker strings that must never appear in published text.
+  strings:
+    - TEACHER ONLY
+    - Teacher script
+    - Answer key
+    - answer key
+    - solution.py
+    - Reference solution
+  # Sources whose distinctive lines must not appear anywhere in the output (fingerprint check).
+  fingerprint_sources:
+    - "{dir}/exercises/week*/*/solution.py"
+    - "{dir}/project/reference/**/*.py"
+    - "{dir}/teaching-material/answers/*.tex"
+    - "{dir}/teaching-material/answer-key.tex"
+    - "{dir}/teaching-material/lessons/*.tex"
+    - "{dir}/teaching-material/assessments.tex"
+    - "{dir}/project/project-teacher-guide.tex"

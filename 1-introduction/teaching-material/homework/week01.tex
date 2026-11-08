@@ -1,0 +1,43 @@
+% Level 1, Week 1 -- homework
+\homeworkweek{1}{Robots Need Instructions}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Walk and Talk (Scratch, about 10 minutes)]
+Make a sprite walk across the stage and talk, in the right order. (No Mac at home today? Do the Challenge on paper instead and build this next week.)
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open the Scratch app. Click \menu{Choose a Backdrop} (bottom right) and pick any place.
+  \item Build this script for the cat (or any sprite you choose). \menu{glide} is in \menu{Motion}.
+  \item Click the green flag. The sprite should start on the left, talk, glide to the middle, talk, glide to the right and say bye.
+  \item Save it: \menu{File} $\rightarrow$ \menu{Save to your computer}, name it \texttt{walk-and-talk}.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{-180} y: \ovalnum{-100}}
+\blocklook{say \ovalnum{Hi! I am Pixel Panda} for \ovalnum{2} seconds}
+\blockmove{glide \ovalnum{2} secs to x: \ovalnum{0} y: \ovalnum{-100}}
+\blocklook{say \ovalnum{Look at this place!} for \ovalnum{2} seconds}
+\blockmove{glide \ovalnum{2} secs to x: \ovalnum{180} y: \ovalnum{-100}}
+\blocklook{say \ovalnum{Bye!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+Use your own nickname and your own words in the speech bubbles.
+\end{core}
+
+\begin{challenge}[Be the programmer for your family robot]
+Write an algorithm for brushing your teeth in exactly 6 steps. Then ask someone at home to be the robot and follow your steps \textbf{exactly}, without guessing. Did they do it right? If not, fix your steps.
+\answerlines{6}
+What did you have to fix? \answerlines{1}
+\end{challenge}
+
+\begin{creative}[A three-scene story]
+Add a \enquote{switch backdrop to \ldots} block (in \menu{Looks}) between the glides so the sprite walks into a new place each time. Choose a backdrop for each part of your story.
+\end{creative}
+
+\begin{selfcheck}
+  \item My script starts with \enquote{when green flag clicked}.
+  \item My sprite always starts on the left, because of the \enquote{go to x: $-180$ y: $-100$} block.
+  \item The steps happen in the order I planned.
+  \item I used my nickname, not my real name.
+  \item I saved my project.
+\end{selfcheck}

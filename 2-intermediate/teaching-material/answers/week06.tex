@@ -1,0 +1,66 @@
+% Level 2, Week 6 -- answer key
+\answersweek{6}{Review and Checkpoint}{Answers for workbook chapter 6 (bug-hunt stations) and homework 6.}
+
+\section{Workbook: bug-hunt stations}
+Each \texttt{solution.py} below is the fixed version; the comments at the top name every planted bug.
+Accept any fix that makes \texttt{check\_my\_work.py} pass and keeps the program doing its job (not deleting the broken line).
+
+\begin{answer}[Station 1: Hero Card]
+\texttt{TypeError} on line 10, in \texttt{card\_line}. Expected \texttt{Level: 4}; it crashed. Change: \texttt{return f"\{label\}: \{value\}"}.
+Also correct: \texttt{label + ": " + str(value)}.
+\end{answer}
+\pyfile{../exercises/week06/ex-bug-hero-card/solution.py}
+
+\begin{answer}[Station 2: High Scores]
+Bug 1: \texttt{IndexError} in \texttt{highest()}: \texttt{in\_order[len(in\_order)]} is one past the end. Change to \texttt{in\_order[-1]}
+(or \texttt{len(in\_order) - 1}).\par
+Bug 2: \texttt{IndexError} in \texttt{podium()}: \texttt{range(3)} with only 2 scores. Change to \texttt{range(len(best))}.
+\end{answer}
+\pyfile{../exercises/week06/ex-bug-high-scores/solution.py}
+
+\begin{answer}[Station 3: Rocket Countdown]
+Trace table (starter): round 2: \texttt{n} = 5, numbers \texttt{[5, 5]}; round 3: \texttt{n} = 5, numbers \texttt{[5, 5, 5]}.
+\texttt{n} should get smaller but never changes. Change: add \texttt{n = n - 1} inside the loop. The safety net stays.
+\end{answer}
+\pyfile{../exercises/week06/ex-bug-countdown/solution.py}
+
+\begin{answer}[Station 4: Loot Shop]
+Paper answers: total 47, cheapest 5, yes (47 is less than 50).\par
+Bugs: (1) \texttt{return total} indented inside the loop, so the total is 12; un-indent it. (2) \texttt{cheapest()} returns \texttt{prices[0]}
+instead of \texttt{smallest}. (3) \texttt{can\_buy()} prints instead of returning, so it gives back \texttt{None} and the shop always says
+\enquote{cannot buy}; change \texttt{print(...)} to \texttt{return ...}.
+\end{answer}
+\pyfile{../exercises/week06/ex-bug-loot-shop/solution.py}
+
+\begin{answer}[Station 5: Paper detectives]
+\begin{tabular}{@{}llll@{}}
+n: & $-5$ & $-2$ & $-8$ \\
+n > best? & no & no & no \\
+best: & 0 & 0 & 0 \\
+\end{tabular}\par
+It gives back 0, but the biggest number is $-2$. Bug: \texttt{best} starts at 0, which is bigger than every number in the list.
+Fix: \texttt{best = numbers[0]} (start with the first real number). Python's built-in \texttt{max()} also works.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Pixel Pet bug hunt]
+\begin{tabular}{@{}lp{2.6cm}p{9cm}@{}}
+1 & \texttt{KeyError: 'hungry'} & In \texttt{play()}: \texttt{pet["hungry"]} should be \texttt{pet["hunger"]}. \\
+2 & no crash & In \texttt{feed()}: \texttt{pet["Hunger"]} (capital H) made a new key; change to \texttt{pet["hunger"]}. \\
+3 & no crash & In \texttt{mood()}: \texttt{and} should be \texttt{or}. \\
+\end{tabular}\par
+Line numbers in the starter: bug 1 line 22, bug 2 line 13, bug 3 line 28. Fixed output:
+\texttt{\{'name': 'Pixel', 'hunger': 4, 'happiness': 9\}} and \texttt{Pixel feels happy.}
+\end{answer}
+\pyfile{../exercises/week06/hw-bug-pixel-pet/solution.py}
+
+\begin{answer}[Challenge: Trace it]
+coins 1 → 2 → 4 → 8 → 16 → 32; days 0 → 5. It prints \texttt{5 32}.
+\end{answer}
+
+\begin{answer}[Creative: Bug comic]
+Any comic that shows a real tool (traceback, print, duck or trace table) being used. Celebrate the detective, not the mistake.
+\end{answer}
+
+\section{Mid-level checkpoint}
+The checkpoint answers and scoring guide are in the \textbf{Assessments} section at the end of this Answer Key.

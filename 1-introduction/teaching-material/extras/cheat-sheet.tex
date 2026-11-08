@@ -1,0 +1,140 @@
+\documentclass[level=1]{kidscode}
+%% one inline Scratch block (blocks flow like words inside a table cell)
+\newcommand{\sbk}[1]{\begin{scratch}[scale=0.58]#1\end{scratch}\hspace{6pt}\allowbreak}
+%% \cat{color}{icon + name}{tip}{blocks}
+\newcommand{\cat}[4]{{\color{#1!75!black}\bfseries #2}\par\vspace{2pt}{\footnotesize\RaggedRight #3\par} &
+  \RaggedRight\vspace{1pt}#4\vspace{1pt}\\ \midrule}
+%% heading + two-column code/meaning table, kept together as one block:
+%% \begin{cmdtable}[code column width]{heading} ... \end{cmdtable}
+\newenvironment{cmdtable}[2][5.0cm]{\par\noindent\minipage{\linewidth}\cmdhead{#2}\footnotesize\renewcommand{\arraystretch}{1.08}%
+  \tabularx{\linewidth}{@{}>{\raggedright}p{#1}>{\RaggedRight\arraybackslash}X@{}}\toprule}
+  {\bottomrule\endtabularx\endminipage\par\smallskip}
+\newcommand{\cmdhead}[1]{\par\smallskip\noindent{\small\bfseries #1}\par\vspace{1pt}}
+%% the dyslexia edition keeps its font and spacing but with slightly tighter lines so the sheet stays short
+\makeatletter\ifkc@dyslexia\AtBeginDocument{\setstretch{1.2}}\newcommand{\swscale}{0.88}\else\newcommand{\swscale}{1}\fi\makeatother
+\begin{document}
+\kctitle{Cheat Sheet}{Scratch blocks (weeks 1--6) and Python turtle (weeks 7--12)}
+\vspace{-0.75cm}
+\noindent{\Large\bfseries\color{kcaccent}Scratch blocks}\par\vspace{2pt}
+{\renewcommand{\arraystretch}{1.0}
+\begin{longtable}{@{}p{4.6cm}p{\dimexpr\linewidth-4.6cm-2\tabcolsep}@{}}
+\toprule
+\cat{kcorange}{\faFlag\ Events}{Start the code. Message names must match!}{%
+  \sbk{\blockinit{when \greenflag clicked}}\sbk{\blockinit{when \selectmenu{space} key pressed}}%
+  \sbk{\blockevent{broadcast \selectmenu{start}}}\sbk{\blockinit{when I receive \selectmenu{start}}}}
+\cat{kcblue}{\faRunning\ Motion}{$n$ sides: turn $360 \div n$. The middle is (0, 0).}{%
+  \sbk{\blockmove{move \ovalnum{10} steps}}\sbk{\blockmove{turn \turnright{} \ovalnum{90} degrees}}%
+  \sbk{\blockmove{go to x: \ovalnum{0} y: \ovalnum{0}}}\sbk{\blockmove{if on edge, bounce}}}
+\cat{kcpurple}{\faTheaterMasks\ Looks \& \faPen\ Pen}{Costumes in a loop = animation. Pen: Extension button.}{%
+  \sbk{\blocklook{say \ovalnum{Hello!} for \ovalnum{2} seconds}}\sbk{\blocklook{next costume}}%
+  \sbk{\blocklook{change size by \ovalnum{10}}}\sbk{\blockpen{pen down}}\sbk{\blockpen{pen up}}\sbk{\blockpen{erase all}}}
+\cat{kcorange}{\faRedo\ Control}{Loops repeat what is inside. \textbf{if}: only when true. \textbf{else}: when false.}{%
+  \sbk{\blockrepeat{repeat \ovalnum{4}}{\blockspace[0.3]}}\sbk{\blockinfloop{forever}{\blockspace[0.3]}}%
+  \sbk{\blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{\blockspace[0.3]}}%
+  \sbk{\blockifelse{if \boolempty[2em] then}{\blockspace[0.3]}{\blockspace[0.3]}}\sbk{\blockcontrol{wait \ovalnum{1} seconds}}}
+\cat{kcvermillion}{\faBox\ Ask, variables, random}{The reply goes into \textbf{answer}. A variable is a labeled box.}{%
+  \sbk{\blocksensing{ask \ovalnum{How many?} and wait}}\sbk{\blocklook{say \ovalsensing{answer}}}%
+  \sbk{\blockvariable{set \selectmenu{score} to \ovalnum{0}}}\sbk{\blockvariable{change \selectmenu{score} by \ovalnum{1}}}%
+  \sbk{\blockvariable{set \selectmenu{dice} to \ovaloperator{pick random \ovalnum{1} to \ovalnum{6}}}}%
+  \sbk{\blockif{if \booloperator{\ovalvariable{score} > \ovalnum{50}} then}{\blockspace[0.3]}}}
+\cat{kcpurple}{\faPuzzlePiece\ My Blocks}{\textbf{Make a Block} with a name and inputs, then use it.}{%
+  \sbk{\blockmoreblocks{define \ovalmoreblocks{flower} \ovalmoreblocks{size}}}\sbk{\blockmoreblocks{flower \ovalnum{50}}}}
+\end{longtable}}
+
+\newpage
+\noindent{\Large\bfseries\color{kcaccent}Python turtle in Thonny}\par\vspace{2pt}
+\begin{multicols}{2}
+\begin{cmdtable}{Getting started}
+\texttt{import turtle} & Load the turtle tools.\\
+\texttt{t = turtle.Turtle()} & Make a turtle: \texttt{t}.\\
+\texttt{screen = turtle.Screen()} & The window.\\
+\texttt{turtle.done()} & Keep it open (last line).\\
+\end{cmdtable}
+
+\begin{cmdtable}{Moving and drawing}
+\texttt{t.forward(100)} & Walk 100 steps.\\
+\texttt{t.back(50)} & Walk backwards.\\
+\texttt{t.left(90)} & Turn left 90 degrees.\\
+\texttt{t.right(90)} & Turn right 90 degrees.\\
+\texttt{t.penup()} & Pen up: move, no line.\\
+\texttt{t.pendown()} & Pen down: draw again.\\
+\texttt{t.goto(x, y)} & Jump to $(x, y)$.\\
+\texttt{t.setheading(90)} & Face up (0 = right).\\
+\texttt{t.circle(50)} & Circle, radius 50.\\
+\texttt{t.dot(20, YELLOW)} & A filled dot.\\
+\texttt{t.write("Hi!")} & Write on the picture.\\
+\end{cmdtable}
+
+\begin{cmdtable}{Colors and style}
+\texttt{t.color("\#0072B2")} & Pen and fill color.\\
+\texttt{t.color(BLACK, ORANGE)} & Lines, then fill.\\
+\texttt{t.begin\_fill()} & Start coloring in\dots\\
+\texttt{t.end\_fill()} & \dots{} fill it now!\\
+\texttt{t.pensize(3)} & Thicker lines.\\
+\texttt{t.speed(0)} & Fastest drawing.\\
+\texttt{t.hideturtle()} & Hide the arrow.\\
+\texttt{screen.bgcolor(BLACK)} & Background color.\\
+\end{cmdtable}
+
+\noindent\begin{minipage}{\linewidth}
+\cmdhead{Color-blind-safe colors}
+{\footnotesize\renewcommand{\arraystretch}{1.1}\scalebox{\swscale}{%
+\begin{tabular}{@{}l@{\ }ll@{\quad}l@{\ }ll@{}}
+\swatch{kcorange} & ORANGE & \texttt{\#E69F00} & \swatch{kcsky} & SKY\_BLUE & \texttt{\#56B4E9}\\
+\swatch{kcgreen} & GREEN & \texttt{\#009E73} & \swatch{kcyellow} & YELLOW & \texttt{\#F0E442}\\
+\swatch{kcblue} & BLUE & \texttt{\#0072B2} & \swatch{kcvermillion} & VERMILLION & \texttt{\#D55E00}\\
+\swatch{kcpurple} & PURPLE & \texttt{\#CC79A7} & \swatch{kcblack} & BLACK & \texttt{\#000000}\\
+\end{tabular}}}
+\end{minipage}
+
+\cmdhead{Thonny keys}
+{\footnotesize Run \keys{F5}\quad Stop \keys{Cmd}+\keys{F2}\quad Save \keys{Cmd}+\keys{S}\quad
+Bigger text \keys{Cmd}+\keys{+}\par}
+\columnbreak
+\begin{cmdtable}{Python words}
+\texttt{print("Hello")} & Show text in the Shell.\\
+\texttt{\# a comment} & A note for humans.\\
+\texttt{size = 50} & A variable (labeled box).\\
+\texttt{answer = input("Size? ")} & Ask. The answer is text.\\
+\texttt{n = int(answer)} & Text to a number.\\
+\texttt{import random} & Load the surprises.\\
+\texttt{random.randint(1, 6)} & Random: 1 to 6.\\
+\end{cmdtable}
+
+\noindent\begin{minipage}{\linewidth}
+\cmdhead{Loops, choices and functions}
+\begin{tcolorbox}[kccode]
+\begin{lstlisting}[style=kcpython,basicstyle=\ttfamily\footnotesize\setstretch{1.0}]
+for i in range(4):   # repeat 4 times
+    t.forward(100)   # inside the loop
+    t.left(90)
+
+if n > 10:
+    print("Lots!")
+elif n == 10:
+    print("Exactly ten")
+else:
+    print("A few")
+
+def square(size):    # make a command
+    for i in range(4):
+        t.forward(size)
+        t.left(90)
+
+square(50)           # use it!
+\end{lstlisting}
+\end{tcolorbox}
+\end{minipage}
+{\footnotesize Compare: \texttt{>} bigger, \texttt{<} smaller, \texttt{==} equal, \texttt{!=} not equal.\par}
+
+\cmdhead{Python is picky!}
+{\footnotesize
+\begin{itemize}[leftmargin=1.1em,itemsep=0pt,topsep=1pt]
+  \item Small letters: \texttt{print}, not \texttt{Print}.
+  \item A colon \texttt{:} ends every \texttt{for}, \texttt{if}, \texttt{else}, \texttt{def} line.
+  \item Lines inside are pushed in 4 spaces (\keys{Tab}).
+  \item Every \texttt{(} needs a \texttt{)}; every \texttt{"} needs a partner.
+  \item Never name a file \texttt{turtle.py} or \texttt{random.py}.
+\end{itemize}}
+\end{multicols}
+\end{document}

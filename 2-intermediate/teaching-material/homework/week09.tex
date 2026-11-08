@@ -1,0 +1,45 @@
+% Level 2, Week 9 -- Event-Driven Games (homework)
+\homeworkweek{9}{Event-Driven Games}{15--20 minutes. Do both Core parts; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Part 1: Stamp Studio (about 10 minutes)]
+Folder: \texttt{exercises/week09/hw-stamp-studio}. An art program you play with the keyboard. The current shape and color are kept in a
+dictionary called \texttt{studio}.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Open \texttt{starter.py}, press \menu{Run} and \textbf{click the window}. Arrows move, \texttt{s} stamps. \texttt{p} and \texttt{n} do nothing yet.
+  \item TODO 1: \texttt{next\_index(index, length)} returns the next position and goes back to 0 after the last one. Fill in:
+        \texttt{next\_index(2, 4)} = \rule{1cm}{0.4pt} \quad \texttt{next\_index(3, 4)} = \rule{1cm}{0.4pt}
+  \item TODO 2: write \texttt{next\_color()}, a twin of \texttt{next\_shape()}.
+  \item TODO 3: connect \texttt{"p"} and \texttt{"n"} with \texttt{screen.onkey(...)}. No brackets after the function name!
+  \item Make a picture, then run \texttt{check\_my\_work.py}.
+\end{enumerate}
+\end{core}
+
+\begin{core}[Part 2: Project pitch, milestone M1 (about 8 minutes)]
+Take out your \textbf{Project Brief}. Fill in \textbf{Planning page 1: My pitch}. If you work with a partner, do it together (in person, or bring your
+ideas next week). Bring the Brief to the next session: we start by checking milestone M1.
+\begin{itemize}[leftmargin=1.2em]
+  \item I chose: \tickbox\ Option A: Arcade Game \qquad \tickbox\ Option B: Art Studio
+  \item The keys or buttons my program will use: \rule{7cm}{0.4pt}
+\end{itemize}
+\end{core}
+
+\begin{challenge}[Plan it, upgrade it]
+\begin{itemize}[leftmargin=1.2em]
+  \item Start \textbf{Planning page 2} of the Project Brief: write the pseudocode or draw the flowchart of your project's main loop.
+  \item Or add a key to Stamp Studio that makes the stamps bigger and smaller with \texttt{stamper.shapesize(...)}. Keep the size in the \texttt{studio} dictionary.
+\end{itemize}
+\end{challenge}
+
+\begin{creative}[Draw your game screen]
+On paper, draw what your project will look like when it is running. Label every part: the player or brush, the things that move, the score or menu,
+and the keys. Use shapes and labels, not only colors, so everyone can tell the parts apart.
+\answerspace{4.5cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item In Stamp Studio, \texttt{p} and \texttt{n} go round all the shapes and colors and start again.
+  \item I wrote \texttt{onkey(next\_shape, "p")} with no brackets after \texttt{next\_shape}.
+  \item My pitch page is filled in, and I know which option I chose.
+  \item If I want to use a picture or sound, I know it needs an open license and a credit.
+\end{selfcheck}

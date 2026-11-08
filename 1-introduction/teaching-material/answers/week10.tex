@@ -1,0 +1,56 @@
+% Level 1, Answers week 10 -- Random Art and My Own Commands   (input by answer-key.tex)
+\answersweek{10}{Random Art and My Own Commands}{Answers for workbook chapter 10 and homework 10 (project plan, Milestone M1).}
+
+\section{Workbook}
+\begin{answer}[Exercise 10.1: Flower Stamp]
+\pyfile{../exercises/week10/ex-flower-stamp/solution.py}
+What to look for: the three calls start at the left edge (not indented) and come \textbf{after} the \texttt{def}; the parameter is used inside (\texttt{t.color(color)}). Any positions and palette colors are fine. If a student added \texttt{color} to the \texttt{def} but not to the calls, Python says \texttt{missing 1 required positional argument: 'color'}.
+\end{answer}
+
+\begin{answer}[Exercise 10.2: Random Bubble Art]
+\pyfile{../exercises/week10/ex-random-art/solution.py}
+What to look for: four random values inside the loop, \texttt{import random} at the top, and a different picture every run. Ranges can differ; the smaller number must come first in \texttt{randint}.
+\end{answer}
+
+\begin{answer}[Reflection]
+Good answers name a command and its slots: \enquote{\texttt{fish(x, y, color)}}, \enquote{\texttt{tree(x, height)}}. Why functions help: write the steps once, use them ten times; change the recipe once and every flower changes.
+\end{answer}
+
+\section{Homework: project plan (Milestone M1)}
+\begin{answer}[Core: what a good plan sheet looks like]
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item A sketch with labeled parts (\enquote{fish}, \enquote{bubbles}, \enquote{sand}).
+  \item 1--2 questions about choices: \enquote{How many fish?}, \enquote{Day or night?} --- never personal questions.
+  \item A function with a clear job and inputs: \texttt{fish(x, y, color)}.
+  \item A note for each ingredient, e.g. loop: \enquote{draws the fish}; \texttt{if}: \enquote{night makes the water dark blue}; random: \enquote{fish in random places}; variable: \enquote{remembers how many fish}.
+\end{itemize}
+If a plan is too big (\enquote{a whole city with moving cars}), help the student choose a small core plus a wish list. Sign \enquote{Teacher OK} when the questions are safe and the function is clear.
+\end{answer}
+
+\begin{answer}[Challenge: a function on paper (example)]
+Any function that moves to \texttt{(x, y)} with the pen up and then draws is correct. Example:
+\begin{pycode}
+def fish(x, y, color):
+    t.penup()
+    t.goto(x, y)
+    t.setheading(0)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    t.circle(30)              # the body
+    t.end_fill()
+    t.penup()
+    t.goto(x - 25, y + 30)    # the left side of the body
+    t.pendown()
+    t.setheading(150)
+    t.begin_fill()
+    for side in range(3):     # the tail: a triangle
+        t.forward(35)
+        t.left(120)
+    t.end_fill()
+\end{pycode}
+\end{answer}
+
+\begin{answer}[Creative: colors and a title]
+Any three palette colors and any title. Bonus: the student chose colors that look different from each other (for example orange, blue and black) and plans a text label or shape difference too, so color is not the only clue.
+\end{answer}

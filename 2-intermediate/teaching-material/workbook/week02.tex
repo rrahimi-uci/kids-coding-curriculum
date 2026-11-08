@@ -1,0 +1,100 @@
+% Level 2, Week 2 -- Functions That Give Back (student workbook)
+\chapterweek{2}{Functions That Give Back}{return hands an answer back; parameters make one function work for many jobs.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item How \textbf{parameters} let one function do many different jobs.
+  \item How \texttt{return} hands an answer back, so your program can use it.
+  \item Why printing an answer is not the same as returning it.
+  \item How to write a \textbf{docstring} that explains your function.
+\end{itemize}
+
+\section{The big idea: a function is a machine}
+A function is like a machine. Values go \textbf{in} through the parameters. The machine works on them.
+An answer comes \textbf{back out} with \texttt{return}.
+
+\begin{center}
+%% alt: A function takes values in, does its work and returns a result. In: the arguments 12 and 5. Function: damage(attack, shield) works out result = attack - shield. Out: the returned value 7.
+\begin{tikzpicture}[font=\small,
+  box/.style={draw=black,thick,rounded corners=3pt,align=center,inner sep=6pt}]
+  \node[box,fill=kcsky!20] (in) {\textbf{IN} (arguments)\\\texttt{12}\quad \texttt{5}};
+  \node[box,fill=kcorange!25,right=1.4cm of in,minimum width=4.4cm] (m) {\textbf{FUNCTION}\\\texttt{damage(attack, shield)}\\\texttt{result = attack - shield}};
+  \node[box,fill=kcgreen!20,right=1.9cm of m] (out) {\textbf{OUT} (return)\\\texttt{7}};
+  \draw[-{Stealth[length=3mm]},thick] (in) -- (m);
+  \draw[-{Stealth[length=3mm]},thick] (m) -- node[above]{\texttt{return}} (out);
+\end{tikzpicture}
+\end{center}
+
+\begin{pycode}[A function with two parameters that returns an answer]
+def damage(attack, shield):
+    """Return the damage a hit does."""
+    return attack - shield
+
+hit = damage(12, 5)       # 12 goes into attack, 5 goes into shield
+print(f"Ouch! {hit} damage")
+\end{pycode}
+The values in the brackets when you \emph{call} the function (\texttt{12} and \texttt{5}) are \textbf{arguments}.
+They fill the \textbf{parameters} (\texttt{attack} and \texttt{shield}) in the same order.
+
+\subsection{Print or return?}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{0.45\linewidth}p{0.45\linewidth}@{}}
+\toprule
+\textbf{\texttt{print(answer)}} & \textbf{\texttt{return answer}} \\ \midrule
+Shows the answer on the screen. & Hands the answer back to the code that called the function. \\
+Like shouting it out of a window: you cannot keep it. & Like putting it in your hand: you can store it or do math with it. \\
+The function gives back \texttt{None} (nothing). & The function gives back the answer. \\ \bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Bug hunt clue:} if you see the word \texttt{None} where a number should be, a function probably \emph{printed}
+instead of \emph{returning}.
+
+\subsection{Docstrings: notes for future-you}
+A \textbf{docstring} is a sentence in triple quotes just under the \texttt{def} line. It says what the function gives back.
+Thonny shows it when you hover over the function name, and your friends can read it to understand your code.
+
+\subsection{What happens in a function stays in a function}
+Variables you make inside a function (like \texttt{result}) only exist inside it. Outside the function, Python says
+\texttt{NameError}. If you need the value outside, \texttt{return} it.
+
+\begin{exercise}[Game Math]
+Folder: \texttt{exercises/week02/ex-game-math}. Open \texttt{starter.py} and press \menu{Run}.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Find the word \texttt{None} in the output. Which function caused it? \rule{4cm}{0.4pt}
+  \item TODO 1: change \texttt{print(...)} to \texttt{return ...} in \texttt{xp\_needed()}.
+  \item Predict first, then finish \texttt{damage()} (TODO 2 and 3):\quad
+        \texttt{damage(12, 5)} = \rule{1.5cm}{0.4pt}\qquad \texttt{damage(3, 5)} = \rule{1.5cm}{0.4pt}
+  \item TODO 4: finish \texttt{is\_critical()}. Tip: \texttt{return roll >= 19} gives back True or False by itself.
+  \item TODO 5: remove the \texttt{\#} from the two health lines. Health left: \rule{1.5cm}{0.4pt}
+  \item Check your work with \texttt{check\_my\_work.py}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Flower Garden]
+Folder: \texttt{exercises/week02/ex-flower-garden}. Press \menu{Run}: all three flowers land in the same spot with 4 petals.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: \texttt{petal\_turn(petals)} should return \texttt{360 / petals}. How far does it turn for 6 petals? \rule{1.5cm}{0.4pt}
+  \item TODO 2 and 3: use \texttt{t.goto(x, y)} so each flower appears where it was asked to.
+  \item TODO 4: repeat once for each petal: \texttt{range(petals)}.
+  \item Fill in the arguments you used for your favorite flower:\par
+        \texttt{draw\_flower(t,} x = \rule{1.2cm}{0.4pt}, y = \rule{1.2cm}{0.4pt}, petals = \rule{1.2cm}{0.4pt}, color = \rule{2.2cm}{0.4pt}\texttt{)}
+\end{enumerate}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{parameter}{A named slot in a function's \texttt{def} line, like \texttt{attack}. It receives a value.}
+  \vocabword{argument}{The value you hand in when you call the function, like \texttt{12}.}
+  \vocabword{return}{Hands an answer back to the code that called the function, and ends the function.}
+  \vocabword{None}{Python's word for \enquote{nothing}. A function with no \texttt{return} gives back \texttt{None}.}
+  \vocabword{docstring}{A sentence in triple quotes under \texttt{def} that explains what the function does.}
+  \vocabword{scope}{Where a variable can be seen. Variables made inside a function stay inside it.}
+\end{vocab}
+
+\begin{reflection}
+Explain print versus return to someone who missed today (use your own example):
+\answerlines{2}
+Write the docstring you are most proud of:
+\answerlines{1}
+\end{reflection}

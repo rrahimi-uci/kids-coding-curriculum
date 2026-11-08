@@ -1,0 +1,46 @@
+% Level 2, Week 5 -- homework
+\homeworkweek{5}{Dictionaries and Secret Codes}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Keys and values (paper, 3 minutes)]
+\begin{pycode}
+pet = {"name": "Mochi", "legs": 4, "can_fly": False}
+\end{pycode}
+\begin{enumerate}[leftmargin=1.4em,itemsep=6pt]
+  \item What does \texttt{pet["legs"]} give back?\quad \rule{4cm}{0.4pt}
+  \item Write a line that adds the key \texttt{"color"} with the value \texttt{"purple"}:\par \rule{8cm}{0.4pt}
+  \item What happens with \texttt{pet["Legs"]}?\quad \rule{6cm}{0.4pt}
+\end{enumerate}
+\end{core}
+
+\begin{core}[Word Counter (Thonny, 10 minutes)]
+Open \texttt{exercises/week05/hw-word-counter/starter.py}. It should count how many times each word appears, using a dictionary.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Press \menu{Run}. Every word says 1. That is a bug!
+  \item TODO 1: if the word is already in \texttt{counts}, add 1 to its count. Otherwise start it at 1.
+  \item TODO 2: finish \texttt{most\_common()} with \texttt{for word, count in counts.items():}.
+  \item Run it. Which word is the most common? \rule{3cm}{0.4pt}
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+Two new string tools are used: \texttt{text.lower()} makes all letters small, and \texttt{text.split()} cuts the text into a list of words.
+\end{core}
+
+\begin{challenge}[Crack the code]
+This message was made with a Caesar cipher, but nobody told you the shift. Use your paper wheel (or your Caesar program
+from class) to try shifts until it makes sense. Tip: try the short word first.
+\begin{center}\texttt{lw lv vdih wr sodb}\end{center}
+The shift was \rule{1cm}{0.4pt}.\quad The message is: \rule{6cm}{0.4pt}
+\end{challenge}
+
+\begin{creative}[Invent your own code]
+Make up your own secret alphabet: draw a symbol for every letter (a star for a, a wave for b \ldots{}). Write it as a key
+table, then write a short message for someone at home and see if they can decode it with your key.
+\answerspace{4cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I can explain what a key and a value are.
+  \item I know what a \texttt{KeyError} means and how to avoid it.
+  \item My word counter counts repeated words correctly.
+  \item I know that real passwords stay private and never go into a program.
+\end{selfcheck}

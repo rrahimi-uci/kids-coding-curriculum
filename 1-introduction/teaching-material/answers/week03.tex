@@ -1,0 +1,64 @@
+% Level 1, Week 3 -- answer key
+\answersweek{3}{When This Happens\ldots}{Answers for workbook chapter 3 and homework 3.}
+
+\section{Lesson and workbook questions}
+\begin{answer}[Exit ticket]
+The if checks only once, right after the flag is clicked, when the cat is not at the edge. Put the if inside a forever loop so it keeps checking.
+\end{answer}
+
+\begin{answer}[Reflection: \enquote{when key pressed} vs \enquote{if touching}]
+\enquote{When space key pressed} is an event: it waits and starts its script when the key is pressed. \enquote{If touching\ldots} is a question: it is asked only when the script reaches it, so it needs a loop to keep asking. Accept any answer that says one \enquote{waits for something to happen} and the other \enquote{checks / asks a question}.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 3.1: Arrow-Key Explorer]
+\textbf{Expected behavior:} after clicking the stage once, the right arrow moves the sprite 10 steps right, left arrow 10 left, up arrow 10 up, down arrow 10 down. Holding a key moves it repeatedly. There is no green-flag script, and none is needed: each key is its own event.
+
+\textbf{Question:} the \textbf{up arrow} makes y bigger.
+
+\textbf{Scoring:} \tickbox{} four separate hat blocks \quad \tickbox{} correct key in each dropdown \quad \tickbox{} correct signs ($+10$ / $-10$).
+\end{answer}
+
+\begin{answer}[Exercise 3.2: Tickle the Ghost]
+\textbf{Expected behavior:} after the flag, whenever the mouse pointer is over the ghost it grows to 150\,\% and says \enquote{Boo! That tickles!}; when the mouse moves away it shrinks back to 100\,\% and the bubble disappears. This keeps working until the stop sign is clicked.
+
+\textbf{Prediction without forever:} nothing happens when the mouse touches the ghost, because the if-else is checked only once, right after the flag (when the mouse is on the flag button, not on the ghost). The ghost just stays normal size.
+
+\textbf{What to look for:} the if-else is inside forever; the empty \enquote{say} in the else part (without it, the \enquote{Boo!} bubble stays on screen).
+\end{answer}
+
+\begin{answer}[Exercise 3.3: Treasure Hunt]
+\textbf{Star's script:} the star appears in the top-right corner (180, 120) and spins forever.
+
+\textbf{Sam's script, what happens:} the explorer goes to the bottom-left start; steering it onto the star does nothing, no message.
+\textbf{Why:} the if is checked only once, straight after the flag is clicked, when the explorer is far from the star. Then the script ends.
+\textbf{Fix:} put the if (with its two blocks inside) into a forever loop, under \enquote{go to x: $-180$ y: $-120$}:
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{-180} y: \ovalnum{-120}}
+\blockinfloop{forever}{
+  \blockif{if \boolsensing{touching \ovalsensing*{Star} ?} then}{
+    \blocklook{say \ovalnum{Treasure found!} for \ovalnum{2} seconds}
+    \blockmove{go to x: \ovalnum{-180} y: \ovalnum{-120}}
+  }
+}
+\end{scratch}
+\end{center}
+\textbf{Expected behavior after the fix:} each time the explorer touches the star it says \enquote{Treasure found!} for 2 seconds and then jumps back to the start, ready to play again. (The arrow-key scripts from 3.1 must be on the same sprite.)
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Pet Reactions]
+\textbf{Expected behavior:} clicking the pet makes it say \enquote{Purr!} for 1 second and play a sound; pressing space switches to its next costume; after the green flag, whenever the mouse is over the pet it says \enquote{Pet me more!}, and the bubble disappears when the mouse moves away.
+
+\textbf{Scoring:} three different events used; if-else inside forever. Any animal and any sound are fine.
+\end{answer}
+
+\begin{answer}[Challenge: Kai's bug]
+The if runs only once, right after the green flag, when the mouse is not touching the pet. Fix: put the if inside a forever loop so it keeps checking.
+\end{answer}
+
+\begin{answer}[Creative: two stars and a wish]
+Look for specific stars (\enquote{I like how it purrs when I click it}, not just \enquote{it's good}) and a wish phrased as an idea. Bonus credit if the student tried the wish.
+\end{answer}

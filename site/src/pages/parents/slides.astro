@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { u, parentsData, fix } from '../../lib/data';
+const P = parentsData();
+const slides = P.slides.filter((s: any) => !s.refs && !(s.section));
+---
+<Base title="Information-evening slides" description="The parent information-evening slide deck: view it here or download the PDF and the one-page summary.">
+  <div class="measure stack">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('parents/')}>For parents</a></li><li aria-current="page">Slides</li></ol></nav>
+    <h1>Information-evening slides</h1>
+    <p class="lead">The 25-minute talk for families: why now, what the research shows, what good teaching looks like, how the course works and how you can help.</p>
+    <div class="btn-row">
+      <a class="btn" href={fix(P.pdf.deck.url)}><Icon name="download" /> Download the slides (PDF, {P.pdf.deck.kb} KB)</a>
+      <a class="btn secondary" href={fix(P.pdf.handout.url)}><Icon name="download" /> One-page summary (PDF, {P.pdf.handout.kb} KB)</a>
+    </div>
+  </div>
+  <section aria-labelledby="viewer" style="margin-top:1.5rem">
+    <h2 id="viewer">View the slides</h2>
+    <object class="pdf-frame" data={fix(P.pdf.deck.url)} type="application/pdf" title="Slides PDF viewer">
+      <p>Your browser cannot show the PDF here. <a href={fix(P.pdf.deck.url)}>Download the slides</a>, or use the picture gallery below.</p>
+    </object>
+  </section>
+  <section aria-labelledby="gallery" style="margin-top:2rem">
+    <h2 id="gallery">Slide gallery</h2>
+    <p class="muted">Each picture has a text description. For the explanations behind the slides, read <a href={u('parents/research/')}>the research page</a>.</p>
+    <ol class="gallery">
+      {slides.map((s: any) => (
+        <li><figure><img src={fix(s.image)} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" /><figcaption>{s.n}. {s.title}</figcaption></figure></li>
+      ))}
+    </ol>
+  </section>
+</Base>

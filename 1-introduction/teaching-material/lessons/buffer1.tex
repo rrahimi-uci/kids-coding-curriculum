@@ -1,0 +1,401 @@
+% Level 1, Buffer session B1 -- Unplugged Games Day (no computers)
+\kcpart{B1}{Unplugged Games Day}{Computers turn numbers into pictures, and every algorithm needs exact steps.}
+\lessoninfo{Concepts: pixels and binary (I), number codes for pictures (I), algorithms (R), debugging (R)}{Tools: paper, pencils, the printables at the end of this plan}{CSTA: 1B-AP-08, 1B-AP-15, 1B-AP-16, 2-DA-07 (preview)}
+
+\begin{teachernote}[When to use this session]
+Use B1 any time after week 1: after a missed week, before a holiday, on a day when the Macs are busy, or when the group needs a break from screens. Everything happens on paper. It works especially well after week 6, as a fun review of algorithms and debugging before Python.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can turn a code of 0s and 1s (or a number code) into a pixel picture, and turn their own picture into a code. (L1.G1) [L1.B1.1]
+  \item The student can write and follow an exact algorithm as part of a team relay. (L1.G1, L1.G7) [L1.B1.2]
+  \item The student can use the four detective steps to find and fix the bug in an algorithm on a card. (L1.G6) [L1.B1.3]
+\end{objectives}
+
+\begin{materials}
+  \item Print (from the end of this plan): the pixel puzzle page (one per student), the relay page (one per team, cut the two mission pictures off and keep them face down), the design grids page (one per student) and the detective cards (one set per pair, cut apart).
+  \item Pencils, a black felt-tip per team for the relay, a timer, sticky tape.
+  \item Space for a short relay: the team stands at one end of the room, the relay grid is taped to a table at the other end (5--10 steps away). Walking fast is fine; no running on slippery floors.
+  \item Optional: a magnifying glass to look closely at a screen or a printed photo.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Guess my picture: you read a tiny 0/1 code aloud, students color the squares and reveal a smiley.}
+  \timeslot{8--18}{Concept}{Pixels: screens and photos are made of tiny squares, and each square is stored as a number. 1 = filled, 0 = empty. A shortcut: count the runs.}
+  \timeslot{18--28}{Guided demo}{Decode the heart together, row by row. Then start the cat puzzle (number code).}
+  \timeslot{28--52}{Hands-on build}{Algorithm relay race (12 min). Debugging detective cards (8 min). Free-build: design your own pixel art and code it for a partner (4 min).}
+  \timeslot{52--60}{Wrap-up}{Swap and decode each other's codes, exit ticket, reflection.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Guess my picture]
+Give each student a design grid (printable page 3) and say: \enquote{I am a computer. I will read a picture to you as numbers. 1 means color the square, 0 means leave it empty. Use only the top-left 5 by 5 squares.} Read slowly, one row at a time, left to right:
+\begin{center}
+\texttt{01010} \quad \texttt{01010} \quad \texttt{00000} \quad \texttt{10001} \quad \texttt{01110}
+\end{center}
+\enquote{What is it?} (A smiley face.) \enquote{You just did what your screen does millions of times a second!}
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{If you look very closely at a screen (or a photo), you see tiny colored squares. They are called \textbf{pixels}. A computer cannot store a picture like we do. It stores a \textbf{number} for every pixel. In the simplest pictures there are only two choices: 1 for filled and 0 for empty. Numbers made of only 0s and 1s are called \textbf{binary}. That's the language deep inside every computer.}
+
+\enquote{Long pictures make long codes. Here is a shortcut: instead of 0000011100, say \enquote{5 white, 3 black, 2 white}, or just \textbf{5, 3, 2}. We always start with white. If a row starts with black, the first number is 0.} Write \texttt{0000011100 = 5, 3, 2} and \texttt{1100000000 = 0, 2, 8} where everyone can see it.
+\end{teacherscript}
+
+\begin{analogy}[A mosaic]
+\enquote{A digital picture is like a mosaic made of tiny tiles. If I phone you and tell you the color of every tile, row by row, you can build the same mosaic at your house. That's how pictures travel between computers: as a list of numbers.}
+\end{analogy}
+
+\begin{safety}[Every photo is just numbers]
+\enquote{Because a photo is just a list of numbers, it can be copied perfectly, millions of times, in a second, and it never wears out. That is why we never share photos of ourselves, our home or our school online without asking a grown-up first. Once a photo is copied, you can't take it back.}
+\end{safety}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Decoding the heart (pixel puzzle page, left)]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Point at row 1: \texttt{00000000}. \enquote{All zeros: leave the whole row empty.}
+  \item Row 2: \texttt{01100110}. Put your finger on the first square: 0, skip. Second: 1, color it. Third: 1, color. Then 0, 0, then 1, 1, then 0. \enquote{Always move your finger one square for every digit, so you never lose your place.}
+  \item Let students do rows 3--8 alone, then compare. The answer is a heart (see the notes below).
+  \item Start the cat puzzle together (number code): row 1 is \texttt{1, 1, 6, 1, 1}: 1 white, 1 black, 6 white, 1 black, 1 white. \enquote{Check: the numbers always add up to 10, the width of the grid.} Students finish the cat during the hands-on time or at home.
+\end{enumerate}
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Coder, runner and checker]
+In the relay, each team has a \textbf{coder} (writes the code for each row), \textbf{runners} (carry one row's code to the grid and color it exactly) and a \textbf{checker} (compares the finished grid with the mission). Everyone runs at least once. With 4: two teams of 2 race each other. With 3: one team of 3 races the timer (beat 3 minutes). With 2: one team, you are the checker. With 1: your child codes and runs while you time; then swap and let them check your drawing.
+\end{pairroles}
+
+\begin{unplugged}[Algorithm relay race (12 minutes)]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Tape a blank 6 by 6 relay grid (printable page 2) at the far table for each team. Give each team a mission picture face down (team 1: house, team 2: plus sign; one team: do both, one after the other).
+  \item \enquote{Go!} Teams turn the mission over and the coder writes the code for each row on a strip of paper: \texttt{001100} \ldots
+  \item Runner 1 takes the code for row 1, walks to the grid, colors row 1 exactly, comes back and tags runner 2, who takes row 2, and so on. Nobody at the grid may look at the mission picture: only the code travels.
+  \item When all 6 rows are done, the checker compares grid and mission. Every wrong square is a bug: the team must find whether the bug was in the code or in the coloring, and fix it.
+\end{enumerate}
+\enquote{The grid at the far end is like a computer: it only gets the numbers, never the picture.}
+\end{unplugged}
+
+\begin{bughunt}[Debugging detective cards (8 minutes)]
+Hand each pair the six detective cards. Each card has a goal, an algorithm and a clue about what went wrong. Pairs use the four detective steps (expected, happened, read step by step, change one thing) and write the fix on the back. Collect and discuss two cards together. Answers are in the notes below.
+\end{bughunt}
+
+\begin{freebuild}[My own pixel art]
+Last 4 minutes: on the design grid (8 by 8), each student draws their own picture (an animal, a letter, a rocket), then writes its code next to the rows, in 0s and 1s or as a number code. Fold the picture under so only the code shows. In the wrap-up, partners swap codes and decode each other's pictures.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} students move one square per digit; codes add up to the grid width; in the relay, teams find whether a bug was in the code or in the coloring.
+
+\textbf{Ask:} \enquote{Write the code for this row: empty, empty, filled, filled, filled, empty.}
+\textbf{Answer:} \texttt{001110} (number code: 2, 3, 1).
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{In the relay, what was harder: writing the code or following it? Why?} and \enquote{Where did our bugs come from today?} (A wrong digit, losing your place, a step in the wrong order.) \enquote{Real programmers find bugs the same way you did.}
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Losing the place in a row.} Students skip a square or count a digit twice. Fix: finger on the square, one square per digit, say the digits aloud.
+  \item \textbf{Number code starting with black.} \texttt{1100000000} written as \texttt{2, 8}. Remind: always start with white, so it is \texttt{0, 2, 8}.
+  \item \textbf{Rows read from the bottom.} Agree before starting: row 1 is the top row.
+  \item \textbf{Relay rush.} Speed beats accuracy. Add a rule: every wrong square at the end costs 10 seconds.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use only the binary codes (skip the number code) and the 6 by 6 grids. Read the codes aloud while the student colors.
+\extensionpath Color by number: use 0 = empty, 1 = black, 2 = orange (write O in the square), 3 = blue (write B). Design a 4-color picture and its code. Letters in the squares mean the picture still works for someone who cannot tell the colors apart.
+\end{differentiation}
+
+\begin{stretchchallenge}[Shortest code wins]
+Which is shorter for the cat picture: the 0/1 code or the number code? Count the digits. When is the number code longer? (For pictures with lots of single pixels, like a checkerboard.) Computers really use tricks like this to make pictures smaller.
+\end{stretchchallenge}
+
+\begin{teachernote}[Answers]
+\begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
+\begin{tikzpicture}[x=0.3cm,y=0.3cm]
+\fill[kcblack] (1,6) rectangle ++(1,1);
+\fill[kcblack] (2,6) rectangle ++(1,1);
+\fill[kcblack] (5,6) rectangle ++(1,1);
+\fill[kcblack] (6,6) rectangle ++(1,1);
+\fill[kcblack] (0,5) rectangle ++(1,1);
+\fill[kcblack] (1,5) rectangle ++(1,1);
+\fill[kcblack] (2,5) rectangle ++(1,1);
+\fill[kcblack] (3,5) rectangle ++(1,1);
+\fill[kcblack] (4,5) rectangle ++(1,1);
+\fill[kcblack] (5,5) rectangle ++(1,1);
+\fill[kcblack] (6,5) rectangle ++(1,1);
+\fill[kcblack] (7,5) rectangle ++(1,1);
+\fill[kcblack] (0,4) rectangle ++(1,1);
+\fill[kcblack] (1,4) rectangle ++(1,1);
+\fill[kcblack] (2,4) rectangle ++(1,1);
+\fill[kcblack] (3,4) rectangle ++(1,1);
+\fill[kcblack] (4,4) rectangle ++(1,1);
+\fill[kcblack] (5,4) rectangle ++(1,1);
+\fill[kcblack] (6,4) rectangle ++(1,1);
+\fill[kcblack] (7,4) rectangle ++(1,1);
+\fill[kcblack] (1,3) rectangle ++(1,1);
+\fill[kcblack] (2,3) rectangle ++(1,1);
+\fill[kcblack] (3,3) rectangle ++(1,1);
+\fill[kcblack] (4,3) rectangle ++(1,1);
+\fill[kcblack] (5,3) rectangle ++(1,1);
+\fill[kcblack] (6,3) rectangle ++(1,1);
+\fill[kcblack] (2,2) rectangle ++(1,1);
+\fill[kcblack] (3,2) rectangle ++(1,1);
+\fill[kcblack] (4,2) rectangle ++(1,1);
+\fill[kcblack] (5,2) rectangle ++(1,1);
+\fill[kcblack] (3,1) rectangle ++(1,1);
+\fill[kcblack] (4,1) rectangle ++(1,1);
+\draw[kcgray,step=1] (0,0) grid (8,8);
+\draw[thick] (0,0) rectangle (8,8);
+\end{tikzpicture} & \begin{tikzpicture}[x=0.3cm,y=0.3cm]
+\fill[kcblack] (1,9) rectangle ++(1,1);
+\fill[kcblack] (8,9) rectangle ++(1,1);
+\fill[kcblack] (1,8) rectangle ++(1,1);
+\fill[kcblack] (2,8) rectangle ++(1,1);
+\fill[kcblack] (7,8) rectangle ++(1,1);
+\fill[kcblack] (8,8) rectangle ++(1,1);
+\fill[kcblack] (1,7) rectangle ++(1,1);
+\fill[kcblack] (2,7) rectangle ++(1,1);
+\fill[kcblack] (3,7) rectangle ++(1,1);
+\fill[kcblack] (4,7) rectangle ++(1,1);
+\fill[kcblack] (5,7) rectangle ++(1,1);
+\fill[kcblack] (6,7) rectangle ++(1,1);
+\fill[kcblack] (7,7) rectangle ++(1,1);
+\fill[kcblack] (8,7) rectangle ++(1,1);
+\fill[kcblack] (1,6) rectangle ++(1,1);
+\fill[kcblack] (2,6) rectangle ++(1,1);
+\fill[kcblack] (3,6) rectangle ++(1,1);
+\fill[kcblack] (4,6) rectangle ++(1,1);
+\fill[kcblack] (5,6) rectangle ++(1,1);
+\fill[kcblack] (6,6) rectangle ++(1,1);
+\fill[kcblack] (7,6) rectangle ++(1,1);
+\fill[kcblack] (8,6) rectangle ++(1,1);
+\fill[kcblack] (1,5) rectangle ++(1,1);
+\fill[kcblack] (2,5) rectangle ++(1,1);
+\fill[kcblack] (4,5) rectangle ++(1,1);
+\fill[kcblack] (5,5) rectangle ++(1,1);
+\fill[kcblack] (7,5) rectangle ++(1,1);
+\fill[kcblack] (8,5) rectangle ++(1,1);
+\fill[kcblack] (1,4) rectangle ++(1,1);
+\fill[kcblack] (2,4) rectangle ++(1,1);
+\fill[kcblack] (3,4) rectangle ++(1,1);
+\fill[kcblack] (4,4) rectangle ++(1,1);
+\fill[kcblack] (5,4) rectangle ++(1,1);
+\fill[kcblack] (6,4) rectangle ++(1,1);
+\fill[kcblack] (7,4) rectangle ++(1,1);
+\fill[kcblack] (8,4) rectangle ++(1,1);
+\fill[kcblack] (1,3) rectangle ++(1,1);
+\fill[kcblack] (2,3) rectangle ++(1,1);
+\fill[kcblack] (3,3) rectangle ++(1,1);
+\fill[kcblack] (6,3) rectangle ++(1,1);
+\fill[kcblack] (7,3) rectangle ++(1,1);
+\fill[kcblack] (8,3) rectangle ++(1,1);
+\fill[kcblack] (2,2) rectangle ++(1,1);
+\fill[kcblack] (3,2) rectangle ++(1,1);
+\fill[kcblack] (4,2) rectangle ++(1,1);
+\fill[kcblack] (5,2) rectangle ++(1,1);
+\fill[kcblack] (6,2) rectangle ++(1,1);
+\fill[kcblack] (7,2) rectangle ++(1,1);
+\fill[kcblack] (3,1) rectangle ++(1,1);
+\fill[kcblack] (4,1) rectangle ++(1,1);
+\fill[kcblack] (5,1) rectangle ++(1,1);
+\fill[kcblack] (6,1) rectangle ++(1,1);
+\draw[kcgray,step=1] (0,0) grid (10,10);
+\draw[thick] (0,0) rectangle (10,10);
+\end{tikzpicture} \\
+Heart & Cat \\
+\end{tabular}
+
+\textbf{Warm-up:} a smiley (two eyes and a mouth).
+\textbf{Relay codes, house:} 001100, 011110, 111111, 110011, 110011, 111111.
+\textbf{Relay codes, plus sign:} 001100, 001100, 111111, 111111, 001100, 001100.
+
+\textbf{Detective cards:} 1. Steps 1 and 2 are swapped: get the mug before pouring. 2. Repeat 3 should be repeat 4 (a square has 4 sides). 3. The fourth square is filled but the code says 0: color only squares 2, 3 and 5 (code \texttt{01101}). 4. \enquote{Forever} never stops: use \enquote{repeat 20} or \enquote{until all teeth are clean}. 5. The score is never set to 0 at the start. 6. The message names do not match (\enquote{Cake time!} vs \enquote{Cake o'clock!}): use the same words.
+\end{teachernote}
+
+\begin{teachernote}[If you are short on time]
+Skip the cat puzzle (send it home as a puzzle for fun) and play the relay with one mission only. Do three detective cards instead of six.
+\end{teachernote}
+
+\clearpage
+\subsection{Printable page 1: pixel puzzles}
+\namedateline
+\textbf{Heart (binary).} 1 = color the square, 0 = leave it empty. Row 1 is the top row.
+\begin{center}
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+\draw[kcgray,step=1] (0,0) grid (8,8);
+\draw[thick] (0,0) rectangle (8,8);
+\node[anchor=west,font=\ttfamily\small] at (8.3,7.5) {00000000};
+\node[anchor=west,font=\ttfamily\small] at (8.3,6.5) {01100110};
+\node[anchor=west,font=\ttfamily\small] at (8.3,5.5) {11111111};
+\node[anchor=west,font=\ttfamily\small] at (8.3,4.5) {11111111};
+\node[anchor=west,font=\ttfamily\small] at (8.3,3.5) {01111110};
+\node[anchor=west,font=\ttfamily\small] at (8.3,2.5) {00111100};
+\node[anchor=west,font=\ttfamily\small] at (8.3,1.5) {00011000};
+\node[anchor=west,font=\ttfamily\small] at (8.3,0.5) {00000000};
+\end{tikzpicture}
+\end{center}
+\textbf{Cat (number code).} The numbers say how many squares in a row are white, then black, then white, and so on. Always start with white. Each row adds up to 10.
+\begin{center}
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+\draw[kcgray,step=1] (0,0) grid (10,10);
+\draw[thick] (0,0) rectangle (10,10);
+\node[anchor=west,font=\ttfamily\small] at (10.3,9.5) {1, 1, 6, 1, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,8.5) {1, 2, 4, 2, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,7.5) {1, 8, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,6.5) {1, 8, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,5.5) {1, 2, 1, 2, 1, 2, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,4.5) {1, 8, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,3.5) {1, 3, 2, 3, 1};
+\node[anchor=west,font=\ttfamily\small] at (10.3,2.5) {2, 6, 2};
+\node[anchor=west,font=\ttfamily\small] at (10.3,1.5) {3, 4, 3};
+\node[anchor=west,font=\ttfamily\small] at (10.3,0.5) {10};
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+\subsection{Printable page 2: algorithm relay}
+\textbf{Mission pictures} (cut off, keep face down until \enquote{Go!}):
+\begin{center}
+\begin{tabular}{c@{\hspace{2cm}}c}
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\fill[kcblack] (2,5) rectangle ++(1,1);
+\fill[kcblack] (3,5) rectangle ++(1,1);
+\fill[kcblack] (1,4) rectangle ++(1,1);
+\fill[kcblack] (2,4) rectangle ++(1,1);
+\fill[kcblack] (3,4) rectangle ++(1,1);
+\fill[kcblack] (4,4) rectangle ++(1,1);
+\fill[kcblack] (0,3) rectangle ++(1,1);
+\fill[kcblack] (1,3) rectangle ++(1,1);
+\fill[kcblack] (2,3) rectangle ++(1,1);
+\fill[kcblack] (3,3) rectangle ++(1,1);
+\fill[kcblack] (4,3) rectangle ++(1,1);
+\fill[kcblack] (5,3) rectangle ++(1,1);
+\fill[kcblack] (0,2) rectangle ++(1,1);
+\fill[kcblack] (1,2) rectangle ++(1,1);
+\fill[kcblack] (4,2) rectangle ++(1,1);
+\fill[kcblack] (5,2) rectangle ++(1,1);
+\fill[kcblack] (0,1) rectangle ++(1,1);
+\fill[kcblack] (1,1) rectangle ++(1,1);
+\fill[kcblack] (4,1) rectangle ++(1,1);
+\fill[kcblack] (5,1) rectangle ++(1,1);
+\fill[kcblack] (0,0) rectangle ++(1,1);
+\fill[kcblack] (1,0) rectangle ++(1,1);
+\fill[kcblack] (2,0) rectangle ++(1,1);
+\fill[kcblack] (3,0) rectangle ++(1,1);
+\fill[kcblack] (4,0) rectangle ++(1,1);
+\fill[kcblack] (5,0) rectangle ++(1,1);
+\draw[kcgray,step=1] (0,0) grid (6,6);
+\draw[thick] (0,0) rectangle (6,6);
+\end{tikzpicture} & \begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\fill[kcblack] (2,5) rectangle ++(1,1);
+\fill[kcblack] (3,5) rectangle ++(1,1);
+\fill[kcblack] (2,4) rectangle ++(1,1);
+\fill[kcblack] (3,4) rectangle ++(1,1);
+\fill[kcblack] (0,3) rectangle ++(1,1);
+\fill[kcblack] (1,3) rectangle ++(1,1);
+\fill[kcblack] (2,3) rectangle ++(1,1);
+\fill[kcblack] (3,3) rectangle ++(1,1);
+\fill[kcblack] (4,3) rectangle ++(1,1);
+\fill[kcblack] (5,3) rectangle ++(1,1);
+\fill[kcblack] (0,2) rectangle ++(1,1);
+\fill[kcblack] (1,2) rectangle ++(1,1);
+\fill[kcblack] (2,2) rectangle ++(1,1);
+\fill[kcblack] (3,2) rectangle ++(1,1);
+\fill[kcblack] (4,2) rectangle ++(1,1);
+\fill[kcblack] (5,2) rectangle ++(1,1);
+\fill[kcblack] (2,1) rectangle ++(1,1);
+\fill[kcblack] (3,1) rectangle ++(1,1);
+\fill[kcblack] (2,0) rectangle ++(1,1);
+\fill[kcblack] (3,0) rectangle ++(1,1);
+\draw[kcgray,step=1] (0,0) grid (6,6);
+\draw[thick] (0,0) rectangle (6,6);
+\end{tikzpicture} \\[4pt]
+Mission 1: house & Mission 2: plus sign \\
+\end{tabular}
+\end{center}
+\medskip
+\textbf{Relay grids} (tape one to the far table for each team):
+
+\begin{center}
+\begin{tikzpicture}[x=0.9cm,y=0.9cm]
+\draw[kcgray,step=1] (0,0) grid (6,6);
+\draw[thick] (0,0) rectangle (6,6);
+\end{tikzpicture}
+\hspace{1.5cm}
+\begin{tikzpicture}[x=0.9cm,y=0.9cm]
+\draw[kcgray,step=1] (0,0) grid (6,6);
+\draw[thick] (0,0) rectangle (6,6);
+\end{tikzpicture}
+\end{center}
+Team code (one row per line):\answerlines{6}
+
+\clearpage
+\subsection{Printable page 3: design grids}
+\begin{center}
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+\draw[kcgray,step=1] (0,0) grid (8,8);
+\draw[thick] (0,0) rectangle (8,8);
+\end{tikzpicture}\hspace{0.5cm}\begin{minipage}[b]{5cm}My code:\answerlines{8}\end{minipage}
+
+\bigskip
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+\draw[kcgray,step=1] (0,0) grid (8,8);
+\draw[thick] (0,0) rectangle (8,8);
+\end{tikzpicture}\hspace{0.5cm}\begin{minipage}[b]{5cm}My code:\answerlines{8}\end{minipage}
+\end{center}
+
+\clearpage
+\subsection{Printable page 4: debugging detective cards (cut apart)}
+\begin{center}
+\setlength{\fboxsep}{6pt}
+\fbox{\begin{minipage}[t][5.2cm][t]{0.44\linewidth}
+\textbf{\faSearch\ Card 1: Hot chocolate}\par
+\textbf{Goal:} make a mug of hot chocolate.\par
+1. Pour hot milk into the mug.\\ 2. Get a mug.\\ 3. Add chocolate powder.\\ 4. Stir.\par
+\textbf{Clue:} the milk went all over the table!
+\end{minipage}}\hspace{0.3cm}%
+\fbox{\begin{minipage}[t][5.2cm][t]{0.44\linewidth}
+\textbf{\faSearch\ Card 2: Robot square}\par
+\textbf{Goal:} the robot draws a square.\par
+PEN DOWN\\ REPEAT 3:\\ \hspace*{1.5em}FORWARD 3\\ \hspace*{1.5em}TURN RIGHT\par
+\textbf{Clue:} the drawing has a side missing.
+\end{minipage}}
+
+\medskip
+\fbox{\begin{minipage}[t][5.2cm][t]{0.44\linewidth}
+\textbf{\faSearch\ Card 3: Pixel row}\par
+\textbf{Goal:} draw the code \texttt{01101}.\par
+Sam drew this:\par\medskip
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+\fill[kcblack] (1,0) rectangle ++(1,1); \fill[kcblack] (2,0) rectangle ++(1,1); \fill[kcblack] (3,0) rectangle ++(1,1); \fill[kcblack] (4,0) rectangle ++(1,1);
+\draw[kcgray,step=1] (0,0) grid (5,1); \draw[thick] (0,0) rectangle (5,1);
+\end{tikzpicture}\par\medskip
+\textbf{Clue:} one square is wrong. Which one?
+\end{minipage}}\hspace{0.3cm}%
+\fbox{\begin{minipage}[t][5.2cm][t]{0.44\linewidth}
+\textbf{\faSearch\ Card 4: Brushing teeth}\par
+\textbf{Goal:} brush your teeth, then go to bed.\par
+1. Put toothpaste on the brush.\\ 2. FOREVER: brush one tooth.\\ 3. Rinse.\\ 4. Go to bed.\par
+\textbf{Clue:} it's midnight and they are still brushing!
+\end{minipage}}
+
+\medskip
+\fbox{\begin{minipage}[t][5.2cm][t]{0.44\linewidth}
+\textbf{\faSearch\ Card 5: Catch game}\par
+\textbf{Goal:} each game starts at 0 points.\par
+WHEN the game starts: drop an apple.\\ WHEN the apple touches the bowl: add 1 to score.\par
+\textbf{Clue:} Kai's new game started with 14 points.
+\end{minipage}}\hspace{0.3cm}%
+\fbox{\begin{minipage}[t][5.2cm][t]{0.44\linewidth}
+\textbf{\faSearch\ Card 6: Party message}\par
+\textbf{Goal:} when the host shouts, the guests eat cake.\par
+Host: shout \enquote{Cake time!}\\ Guests: WHEN I hear \enquote{Cake o'clock!}: eat cake.\par
+\textbf{Clue:} the host shouted, and nobody ate any cake.
+\end{minipage}}
+\end{center}

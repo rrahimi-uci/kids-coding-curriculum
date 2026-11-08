@@ -1,0 +1,127 @@
+% Level 3 workbook, Week 10 -- Project Studio 1
+\chapterweek{10}{Project Studio 1}{Design first: classes, data and milestones -- then build the core.}
+
+\section{What you will do}
+\begin{itemize}[itemsep=1pt]
+  \item Design your project on paper with \textbf{CRC cards} and a \textbf{class diagram}.
+  \item Plan your \textbf{milestones}: small steps you can finish and save.
+  \item Start a \textbf{git repository} for your project and make your first commits.
+  \item Check that every picture, sound or library you use is \textbf{allowed}.
+\end{itemize}
+
+\section{Design first}
+Builders draw plans before they pour concrete. Programmers design before they type. Your design answers three questions: \emph{Which classes do I need? What does each one know and do? Who works with whom?}
+
+\subsection{CRC cards}
+A \textbf{CRC card} is an index card for one class: the \textbf{C}lass name, its \textbf{R}esponsibilities (what it knows and does) and its \textbf{C}ollaborators (the classes it works with). Here is one from the reference project, \emph{Maze Muncher}:
+
+\begin{center}
+%% alt: A filled-in CRC card for the class Chaser, which is a Ghost. Responsibilities: knows its row and column (from Ghost); each turn moves one step toward the player; finds the shortest path with breadth-first search and a queue. Collaborators: Maze (where are the walls?) and Player (where is it?).
+\begin{tikzpicture}
+  \draw[thick,rounded corners=2pt,fill=kcyellow!15] (0,0) rectangle (10,4.3);
+  \draw[thick] (0,3.6) -- (10,3.6);
+  \draw (6.2,0) -- (6.2,3.6);
+  \node[anchor=west,font=\bfseries] at (0.2,3.95) {Class: Chaser (is a Ghost)};
+  \node[anchor=north west,font=\small,text width=5.8cm] at (0.15,3.5) {\textbf{Responsibilities}\\
+    -- knows its row and column (from Ghost)\\
+    -- each turn, moves one step towards the player\\
+    -- finds the shortest path with breadth-first search and a queue};
+  \node[anchor=north west,font=\small,text width=3.5cm] at (6.35,3.5) {\textbf{Collaborators}\\ Maze (where are the walls?)\\ Player (where is it?)};
+\end{tikzpicture}
+\end{center}
+
+\textbf{Tip:} if a card's responsibility list gets long, that class is doing too much -- split it in two.
+
+\subsection{Class diagrams: \enquote{is a} and \enquote{has a}}
+A class diagram shows all the classes and how they connect. An arrow with a hollow triangle means \textbf{is a} (inheritance). A line with a diamond means \textbf{has a} (composition).
+
+\begin{center}
+%% alt: A class diagram for a maze game. Game holds maze, player, ghosts and score, and has play_turn() and save_high_score(). A Game has a Maze (a grid and is_wall(r, c)), has a Player (row, col, lives and move(dr, dc)) and has some Ghosts (row, col and step()). Chaser is a Ghost whose step() uses breadth-first search with a queue.
+\begin{tikzpicture}[cls/.style={draw,thick,rounded corners=1pt,fill=kcsky!15,align=left,font=\small,inner sep=4pt},>=Stealth]
+  \node[cls] (game) at (0,0) {\textbf{Game}\\\rule{2.4cm}{0.4pt}\\ maze, player, ghosts\\ score\\\rule{2.4cm}{0.4pt}\\ play\_turn()\\ save\_high\_score()};
+  \node[cls] (maze) at (5,2.3) {\textbf{Maze}\\\rule{2.2cm}{0.4pt}\\ grid (2D list)\\\rule{2.2cm}{0.4pt}\\ is\_wall(r, c)};
+  \node[cls] (player) at (5,-1.3) {\textbf{Player}\\\rule{2.2cm}{0.4pt}\\ row, col, lives\\\rule{2.2cm}{0.4pt}\\ move(dr, dc)};
+  \node[cls] (ghost) at (9.3,2.3) {\textbf{Ghost}\\\rule{2.2cm}{0.4pt}\\ row, col\\\rule{2.2cm}{0.4pt}\\ step()};
+  \node[cls] (chaser) at (9.3,-1.3) {\textbf{Chaser}\\\rule{2.4cm}{0.4pt}\\ step(): BFS\\ with a queue};
+  \draw[thick,{Diamond[open,length=3.5mm,width=2.5mm]}-] ([yshift=5mm]game.east) -- node[above,font=\scriptsize,sloped] {has a} (maze.west);
+  \draw[thick,{Diamond[open,length=3.5mm,width=2.5mm]}-] ([yshift=-3mm]game.east) -- node[below,font=\scriptsize,sloped] {has a} (player.west);
+  \draw[thick,{Diamond[open,length=3.5mm,width=2.5mm]}-] (game.north) -- (game.north |- 0,4.2) -| node[above,font=\scriptsize,pos=0.25] {has some} (ghost.north);
+  \draw[thick,-{Triangle[open,length=3mm,width=3mm]}] (chaser.north) -- node[right,font=\scriptsize] {is a} (ghost.south);
+\end{tikzpicture}
+\end{center}
+Read it aloud: \emph{a Game has a Maze, a Player and some Ghosts; a Chaser is a Ghost.}
+
+\section{Milestones and save points}
+Big projects are built in small steps. After each step works, you \textbf{commit} -- a save point you can always return to.
+\begin{center}
+%% alt: A work cycle: edit code, run and test, git add, git commit -m with a message, then go back to editing for the next small step.
+\begin{tikzpicture}[s/.style={draw,rounded corners=3pt,fill=kcgreen!15,font=\small,minimum height=0.8cm,align=center},>=Stealth]
+  \node[s] (e) at (0,0) {edit code};
+  \node[s] (r) at (2.7,0) {run + test};
+  \node[s] (a) at (5.3,0) {\texttt{git add}};
+  \node[s] (c) at (9.2,0) {\texttt{git commit -m "..."}};
+  \draw[->,thick] (e) -- (r); \draw[->,thick] (r) -- (a); \draw[->,thick] (a) -- (c);
+  \draw[->,thick] (c.south) -- ++(0,-0.5) -| node[pos=0.25,below,font=\small] {next small step} (e.south);
+\end{tikzpicture}
+\end{center}
+A good commit message starts with a verb and says what changed: \texttt{Add Maze class that loads a grid}, \texttt{Fix player walking through walls}. Your project needs \textbf{8 or more} meaningful commits by the showcase.
+
+\begin{exercise}[My CRC cards]
+Write one card per class (at least two classes; one must use inheritance or composition). Copy them here.
+\begin{center}\small
+\begin{tabular}{|p{3cm}|p{6.6cm}|p{4cm}|}
+\hline
+\textbf{Class} & \textbf{Responsibilities} (knows / does) & \textbf{Collaborators}\\ \hline
+ & & \\[1.2cm] \hline
+ & & \\[1.2cm] \hline
+ & & \\[1.2cm] \hline
+\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[My class diagram]
+Draw a box for each class (name, what it knows, what it does). Join them with \enquote{is a} arrows and \enquote{has a} lines. Then write one sentence: \emph{... is a ...} or \emph{... has a ...}.
+\answerspace{5.5cm}
+\answerlines{1}
+\end{exercise}
+
+\begin{exercise}[My milestone plan]
+\begin{center}\small
+\begin{tabular}{|p{2.6cm}|p{8.2cm}|p{2.8cm}|}
+\hline
+\textbf{Milestone} & \textbf{What will work} & \textbf{Done? (date)}\\ \hline
+M1 Pitch & My idea and pitch card (week 9) & \\ \hline
+M2 Core & My classes exist and the smallest version runs (week 10) & \\[0.6cm] \hline
+M3 Features & + 5 tests + a playtest (week 11) & \\[0.6cm] \hline
+M4 Polish & + README + accessibility fixes (week 11) & \\[0.6cm] \hline
+Showcase & 2-minute talk (week 12) & \\ \hline
+\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[My repository and first commits]
+\begin{checklist}
+  \item I copied the starter folder to \texttt{Documents/coding-projects} and renamed it.
+  \item I ran \texttt{git init} inside my project folder (I checked with \texttt{pwd} first).
+  \item Each class has an \texttt{\_\_init\_\_} and empty methods, and the file runs without errors.
+  \item I have at least 2 commits. My best message: \rule{6cm}{0.4pt}
+\end{checklist}
+\end{exercise}
+
+\begin{safety}[May I use this? Licenses]
+Everything in your project must be yours or allowed. Python's standard library is free to use, and your own drawings and sounds are yours. For anything made by someone else, look at its \textbf{license}: \textbf{CC0} = free for anyone; \textbf{CC BY} = free if you give credit; \enquote{All rights reserved} or no license = \textbf{do not use}. Never download anything without a parent, and list every borrowed item in the \enquote{Credits} part of your README.
+\end{safety}
+
+\begin{vocab}
+  \vocabword{CRC card}{A card for one class: Class name, Responsibilities, Collaborators.}
+  \vocabword{class diagram}{A drawing of classes as boxes, joined by \enquote{is a} and \enquote{has a} links.}
+  \vocabword{composition}{\enquote{Has a}: an object is built from other objects (a Game has a Maze).}
+  \vocabword{milestone}{A small goal on the way to the finished project.}
+  \vocabword{repository}{A project folder that git keeps a history of.}
+  \vocabword{license}{The rules that say how you may use someone's work.}
+\end{vocab}
+
+\begin{reflection}
+Which class was hardest to describe? Why? \answerlines{1}
+What will your next commit message be? \answerlines{1}
+\end{reflection}

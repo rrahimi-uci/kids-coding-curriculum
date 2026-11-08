@@ -1,0 +1,154 @@
+% Level 3 workbook, Week 7 -- Grids, Recursion and Fractal Art
+\chapterweek{7}{Grids, Recursion and Fractal Art}{Functions that call themselves; worlds made of grids.}
+
+\section{What you will learn}
+\begin{itemize}[itemsep=1pt]
+  \item What \textbf{recursion} is: a function that calls itself on a smaller problem.
+  \item Why every recursive function needs a \textbf{base case}.
+  \item How to store a game map or a picture in a \textbf{grid} (a list of lists).
+  \item How to draw a \textbf{fractal tree} and build a \textbf{paint bucket} tool.
+\end{itemize}
+
+\section{The big idea: functions that call themselves}
+Open a Russian doll and you find a smaller doll. Open that one: an even smaller doll. You keep doing \emph{the same job} until you reach the tiny solid doll -- then you stop.
+
+A \textbf{recursive} function works the same way. It has two parts:
+\begin{itemize}[itemsep=1pt]
+  \item the \textbf{base case}: the tiny problem you can answer straight away -- \emph{stop here};
+  \item the \textbf{recursive case}: do one small step, then call yourself on a \emph{smaller} problem.
+\end{itemize}
+
+\begin{pycode}[countdown: a recursive function]
+def countdown(n):
+    if n <= 0:            # base case: stop
+        print("Liftoff!")
+        return
+    print(n)              # one small step
+    countdown(n - 1)      # the same job on a smaller number
+\end{pycode}
+
+When you call \py|countdown(3)|, Python stacks up the calls like plates. Each call waits for the smaller one to finish:
+
+\begin{center}
+%% alt: A function that calls itself. countdown(3) prints 3, then calls countdown(2). countdown(2) prints 2, then calls countdown(1). countdown(1) prints 1, then calls countdown(0). countdown(0) is the base case: it prints Liftoff! and stops.
+\begin{tikzpicture}[call/.style={draw,rounded corners=2pt,minimum width=3cm,minimum height=0.65cm,font=\small\ttfamily},>=Stealth]
+  \node[call,fill=kcsky!25] (a) at (0,0) {countdown(3)};
+  \node[call,fill=kcsky!25] (b) at (1.8,-0.95) {countdown(2)};
+  \node[call,fill=kcsky!25] (c) at (3.6,-1.9) {countdown(1)};
+  \node[call,fill=kcorange!30,very thick] (d) at (5.4,-2.85) {countdown(0)};
+  \draw[->] ([xshift=-8mm]a.south) |- (b.west);
+  \draw[->] ([xshift=-8mm]b.south) |- (c.west);
+  \draw[->] ([xshift=-8mm]c.south) |- (d.west);
+  \node[right=2mm of a,font=\small] {prints 3, then calls countdown(2)};
+  \node[right=2mm of b,font=\small] {prints 2, then calls countdown(1)};
+  \node[right=2mm of c,font=\small] {prints 1, then calls countdown(0)};
+  \node[below=1mm of d,font=\small] {\textbf{base case}: prints Liftoff! and stops};
+\end{tikzpicture}
+\end{center}
+
+\begin{bughunt}[No base case = never-ending dolls]
+If you forget the base case, the function calls itself forever. Python stops it after about 1000 calls with \texttt{RecursionError: maximum recursion depth exceeded}. When you see that error, look for the base case first. Also check that each call is on a \emph{smaller} problem (\py|n - 1|, not \py|n|).
+\end{bughunt}
+
+\textbf{Predict!} What does \py|stars(3)| print? Write it before you run it.
+\begin{pycode}
+def stars(n):
+    if n == 0:
+        return
+    print("*" * n)
+    stars(n - 1)
+\end{pycode}
+\answerlines{2}
+
+\section{Fractals: pictures made of smaller copies}
+A \textbf{fractal} is a shape made of smaller copies of itself. A tree is a trunk with two smaller trees on top. Each smaller tree is a trunk with two even smaller trees on top... until the \textbf{depth} reaches 0.
+
+\begin{center}
+%% alt: Three branching trees. Depth 1 is a single line (1 line). Depth 2 is a trunk that splits into two branches (3 lines). Depth 3 splits each of those branches again (7 lines).
+\begin{tikzpicture}[scale=1.4,line cap=round]
+\draw[line width=0.8pt] (0.00,0.00) -- (0.00,1.00);
+\draw[line width=1.4pt] (3.20,0.00) -- (3.20,1.00);
+\draw[line width=0.8pt] (3.20,1.00) -- (2.90,1.63);
+\draw[line width=0.8pt] (3.20,1.00) -- (3.50,1.63);
+\draw[line width=2pt] (6.40,0.00) -- (6.40,1.00);
+\draw[line width=1.4pt] (6.40,1.00) -- (6.10,1.63);
+\draw[line width=0.8pt] (6.10,1.63) -- (5.73,1.95);
+\draw[line width=0.8pt] (6.10,1.63) -- (6.10,2.12);
+\draw[line width=1.4pt] (6.40,1.00) -- (6.70,1.63);
+\draw[line width=0.8pt] (6.70,1.63) -- (6.70,2.12);
+\draw[line width=0.8pt] (6.70,1.63) -- (7.07,1.95);
+\node[font=\small] at (0,-0.3) {depth 1: 1 line};
+\node[font=\small] at (3.2,-0.3) {depth 2: 3 lines};
+\node[font=\small] at (6.4,-0.3) {depth 3: 7 lines};
+\end{tikzpicture}
+\end{center}
+
+\section{Grids: worlds made of rows}
+A \textbf{grid} is a list of rows, and each row is a list of cells. You find a cell with \texttt{grid[row][col]}: first go \emph{down} to the row, then \emph{across} to the column. Both start at 0.
+
+\begin{center}
+%% alt: A small grid with rows 0 to 2 and columns 0 to 3. Water is ~ and land is a dot. grid[1][2] is "T", a tree at row 1, column 2, and the square below it, grid[2][2], is ^, a mountain.
+\begin{tikzpicture}[cell/.style={draw,minimum size=0.8cm,font=\ttfamily}]
+  \foreach \c in {0,1,2,3} \node[font=\small] at (\c*0.8,0.65) {\c};
+  \node[font=\small,anchor=east] at (-0.5,0.65) {col};
+  \foreach \r in {0,1,2} \node[font=\small,anchor=east] at (-0.5,-\r*0.8) {row \r};
+  \node[cell,fill=kcsky!30] at (0,0) {\textasciitilde}; \node[cell,fill=kcsky!30] at (0.8,0) {\textasciitilde};
+  \node[cell,fill=kcsky!30] at (1.6,0) {\textasciitilde}; \node[cell,fill=kcsky!30] at (2.4,0) {\textasciitilde};
+  \node[cell,fill=kcsky!30] at (0,-0.8) {\textasciitilde}; \node[cell,fill=kcgreen!25] at (0.8,-0.8) {.};
+  \node[cell,fill=kcyellow!60,ultra thick] at (1.6,-0.8) {T}; \node[cell,fill=kcsky!30] at (2.4,-0.8) {\textasciitilde};
+  \node[cell,fill=kcsky!30] at (0,-1.6) {\textasciitilde}; \node[cell,fill=kcgreen!25] at (0.8,-1.6) {.};
+  \node[cell,fill=kcorange!40] at (1.6,-1.6) {\textasciicircum}; \node[cell,fill=kcsky!30] at (2.4,-1.6) {\textasciitilde};
+  \draw[->,thick] (4.2,-0.8) node[right,font=\small,align=left] {\texttt{grid[1][2]} is \texttt{"T"}\\(row 1, column 2)} -- (2.1,-0.8);
+\end{tikzpicture}
+\end{center}
+
+You can make a grid from strings: \py|grid = [list(row) for row in ["~~~~", "~.T~", "~.^~"]]|. Change a cell with \py|grid[2][1] = "T"|. The \textbf{neighbors} of a cell are the cells up, down, left and right of it (watch out for the edges!).
+
+A \textbf{paint bucket} (flood fill) uses recursion on a grid: paint this cell, then ask each neighbor to do the same -- but stop at the edge, at walls, and at cells you have already painted. Those are the base cases.
+
+\begin{exercise}[Recursion warm-up]
+Folder: \texttt{week07/ex-countdown-sum}. Read \texttt{countdown()}. Then finish \texttt{sum\_to(n)} (so \texttt{sum\_to(5)} is 15) and \texttt{reverse(word)} (so \texttt{reverse("turtle")} is \texttt{"eltrut"}) using recursion. Check with \texttt{check\_my\_work.py}.
+
+\textbf{Write the base case of \texttt{sum\_to}:} \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Fractal tree]
+Folder: \texttt{week07/ex-fractal-tree}. Inside \texttt{branch()}, after the trunk, add: turn left, draw a smaller tree, turn right twice as far, draw another smaller tree, turn back. Run it and fill in the table.
+
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+Depth & 1 & 2 & 3 & 4 & 5\\ \midrule
+Number of lines & 1 & 3 & \rule{0.8cm}{0.4pt} & \rule{0.8cm}{0.4pt} & \rule{0.8cm}{0.4pt}\\
+\bottomrule
+\end{tabular}
+\end{center}
+What pattern do you see? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Paint bucket]
+Folder: \texttt{week07/ex-paint-bucket}. Finish \texttt{count\_tiles(grid, symbol)} with two loops, then the flood fill: add the base case \enquote{stop if this cell is not the old color} and four recursive calls (up, down, left, right). Run it, press keys \textbf{1}--\textbf{5} to choose a paint and click inside a shape. Every paint has a letter as well as a color.
+
+\textbf{Which cells does the paint stop at?} \answerlines{1}
+\end{exercise}
+
+\begin{tip}[Watch the calls pile up]
+In Thonny, click the bug icon (Debug) and press \keys{F7} (Step into) again and again on \texttt{sum\_to(3)}. Each new call opens a new box -- that is the call stack.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{recursion}{When a function calls itself to solve a smaller copy of the same problem.}
+  \vocabword{base case}{The simplest case, answered without calling the function again. It stops the recursion.}
+  \vocabword{recursive case}{The part that does a small step and calls the function on a smaller problem.}
+  \vocabword{RecursionError}{Python's error when a function calls itself too many times -- usually a missing base case.}
+  \vocabword{fractal}{A shape made of smaller copies of itself, like a tree, a fern or a snowflake.}
+  \vocabword{grid (2D list)}{A list of rows, where each row is a list. \texttt{grid[row][col]} is one cell.}
+  \vocabword{flood fill}{Filling every touching cell of the same color, like a paint bucket tool.}
+\end{vocab}
+
+\begin{reflection}
+Where in nature have you seen something made of smaller copies of itself?
+\answerlines{1}
+Explain the base case to someone who has never coded:
+\answerlines{2}
+\end{reflection}

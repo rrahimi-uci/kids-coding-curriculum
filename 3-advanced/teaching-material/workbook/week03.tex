@@ -1,0 +1,91 @@
+% Level 3, Week 3 -- Families of Objects (student workbook)
+\chapterweek{3}{Families of Objects}{Child classes inherit from a parent and change only what is different; bigger objects are built from smaller ones.}
+
+\section{What you will learn}
+\begin{checklist}
+  \item Make a child class that inherits from a parent class.
+  \item Override a method, and use \texttt{super()} to reuse the parent's code.
+  \item Call the same method on different objects and get different results (polymorphism).
+  \item Build an object that holds a list of other objects (composition).
+\end{checklist}
+
+\section{The big idea: inheritance}
+A \textbf{child class} gets everything from its \textbf{parent class} for free. Then it changes only what is different. Write the parent in brackets:
+
+\begin{center}
+%% alt: A family tree of classes. Enemy is the parent, with name, x, y and steps, and a move() that takes 1 step right. Three children point up to it with is-a arrows: Guard, whose move() stays still; Zigzagger, whose move() uses the parent's move and then goes up or down; and Sprinter, which adds speed and whose move() takes speed steps.
+\begin{tikzpicture}[
+  cls/.style={draw=black,line width=0.9pt,rounded corners=3pt,align=center,font=\small,minimum width=3.4cm,minimum height=1.25cm,inner sep=4pt}]
+  \node[cls,fill=kcblue!15] (enemy) at (0,0) {\textbf{Enemy} (parent)\\\texttt{name, x, y, steps}\\\texttt{move()}: 1 step right};
+  \node[cls,fill=kcyellow!35] (guard) at (-5.2,-2.8) {\textbf{Guard}\\\texttt{move()}: stays still};
+  \node[cls,fill=kcgreen!20] (zig) at (0,-2.8) {\textbf{Zigzagger}\\\texttt{move()}: parent's move,\\then up or down};
+  \node[cls,fill=kcorange!25] (spr) at (5.2,-2.8) {\textbf{Sprinter}\\extra: \texttt{speed}\\\texttt{move()}: \texttt{speed} steps};
+  \foreach \c in {guard,zig,spr} \draw[-{Triangle[open,length=3mm,width=3mm]},line width=0.9pt] (\c.north) -- (enemy.south);
+  \node[font=\small,align=center] at (3.6,-0.9) {arrow = \enquote{is a}};
+\end{tikzpicture}
+\end{center}
+
+\begin{pycode}[A child class]
+class Sprinter(Enemy):                  # a Sprinter IS AN Enemy
+    def __init__(self, name, x=0, y=0, speed=3):
+        super().__init__(name, x, y)    # parent sets name, x, y
+        self.speed = speed              # then the extra attribute
+
+    def move(self):                     # override the parent's move
+        self.x = self.x + self.speed
+        self.steps = self.steps + 1
+\end{pycode}
+
+\begin{tip}[super() = \enquote{do the parent's part}]
+\texttt{super().\_\_init\_\_(name, x, y)} runs the parent's setup. \texttt{super().move()} runs the parent's \texttt{move}, so the child can add something on top. If a child has its own \texttt{\_\_init\_\_} and forgets \texttt{super().\_\_init\_\_}, its parent's attributes are missing and you get an \texttt{AttributeError}.
+\end{tip}
+
+\section{Polymorphism: one call, many behaviors}
+\begin{pycode}
+enemies = [Enemy("Blob"), Guard("Rocky"), Sprinter("Zoom")]
+for enemy in enemies:
+    enemy.move()        # each one moves its OWN way
+\end{pycode}
+The loop does not need to know what kind each enemy is. \emph{Polymorphism} means \enquote{many shapes}: the same message, \texttt{move()}, gives different results.
+
+\section{Composition: \enquote{has a}}
+Not everything is a family. A Game is not a kind of Player, but a Game \textbf{has} Players. When an object keeps other objects in an attribute (often a list), that is \textbf{composition}.
+\begin{center}
+\begin{tabular}{@{}p{6.5cm}p{6.5cm}@{}}
+\toprule
+\textbf{Is a \ding{213} inheritance} & \textbf{Has a \ding{213} composition} \\ \midrule
+A Sprinter is an Enemy. & A Game has Players. \\
+A Star is a Shape. & A Party has Heroes. \\
+\texttt{class Star(Shape):} & \texttt{self.players = []} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Enemy Family]
+Folder: \texttt{week03/ex-enemy-family}. Finish \texttt{Zigzagger.move} (use \texttt{super().move()}), \texttt{Sprinter.\_\_init\_\_} (use \texttt{super().\_\_init\_\_}), \texttt{Sprinter.move} and \texttt{move\_all}.\\
+\textbf{Predict:} a Zigzagger starts at (0, 0). Where is it after 3 moves? \rule{3cm}{0.4pt}
+\end{exercise}
+
+\begin{exercise}[Shape Family]
+Folder: \texttt{week03/ex-shape-family}. \texttt{Shape} and \texttt{Square} are done. Make \texttt{Triangle} (3 sides, \texttt{left(120)}) and \texttt{Star} (5 sides, \texttt{right(144)}) override \texttt{draw}. Fix \texttt{Polygon.\_\_init\_\_} with \texttt{super()}. Run it: one call to \texttt{draw\_all} paints a whole grid of different shapes.
+\end{exercise}
+
+\begin{exercise}[Game Roster (if you finish early)]
+Folder: \texttt{week03/ex-game-roster}. A \texttt{Game} \emph{has} a list of \texttt{Player} objects. Finish \texttt{add\_player}, \texttt{give\_points}, \texttt{leader} and \texttt{still\_playing}.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{inheritance}{A child class gets all the attributes and methods of its parent class.}
+  \vocabword{parent class / child class}{The general class and the more special class built from it. Also called superclass and subclass.}
+  \vocabword{override}{Write a method in the child with the same name, to replace the parent's version.}
+  \vocabword{super()}{Inside a child class: \enquote{my parent}. Use it to run the parent's version of a method.}
+  \vocabword{polymorphism}{The same method call does different things for different classes.}
+  \vocabword{composition}{An object that holds other objects, like a Game that has a list of Players.}
+\end{vocab}
+
+\begin{reflection}
+Draw a small family tree for a game you would like to make: one parent and two children. What does each child do differently?
+\answerspace{3cm}
+Write one \enquote{is a} sentence and one \enquote{has a} sentence about your game:
+\answerlines{2}
+\end{reflection}

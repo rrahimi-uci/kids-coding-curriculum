@@ -1,0 +1,128 @@
+% Level 2, Week 8 -- Testing: Prove It Works (student workbook)
+\chapterweek{8}{Testing: Prove It Works}{A test is a tiny program that checks your program, so bugs get caught before players find them.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item How to write a \textbf{test} with \texttt{assert}.
+  \item How to run your tests with \textbf{pytest} and read \texttt{PASSED} and \texttt{FAILED}.
+  \item How to choose \textbf{normal} and \textbf{edge} test cases that catch sneaky bugs.
+  \item How to use failing tests as a map to find and fix bugs.
+\end{itemize}
+
+\section{The big idea: let the computer check your code}
+Checking a game by hand is slow: run it, play, look at the score\ldots{} again and again. A \textbf{test} is a tiny function that
+checks another function for you, in less than a second. It uses the word \texttt{assert}, which means \enquote{I am sure this is true}.
+
+\begin{center}
+%% alt: How a test works. Step 1: call clamp(99, 0, 10). Step 2: it returns 10. Step 3: compare with what you expect, 10. If they are the same, the test PASSED. If they are different, it FAILED.
+\begin{tikzpicture}[font=\small,>={Stealth[length=3mm]},
+  box/.style={draw=black,thick,rounded corners=3pt,minimum height=1.1cm,align=center}]
+  \node[box,fill=kcsky!25,minimum width=2.6cm] (in) at (0,0) {\textbf{1. Call it}\\\texttt{clamp(99, 0, 10)}};
+  \node[box,fill=kcyellow!35,minimum width=2.6cm] (out) at (4.2,0) {\textbf{2. It returns}\\\texttt{10}};
+  \node[box,fill=kcorange!25,minimum width=2.8cm] (exp) at (8.4,0) {\textbf{3. Compare}\\with what I expect: \texttt{10}};
+  \draw[->,thick] (in) -- (out);
+  \draw[->,thick] (out) -- (exp);
+  \node[box,fill=kcgreen!25,minimum width=3.4cm] (pass) at (6.2,-2) {\faCheck\ \textbf{same: PASSED}};
+  \node[box,fill=kcvermillion!20,minimum width=3.4cm] (fail) at (10.6,-2) {\faTimes\ \textbf{different: FAILED}};
+  \draw[->,thick] (exp) -- (pass);
+  \draw[->,thick,dashed] (exp) -- (fail);
+\end{tikzpicture}
+\end{center}
+
+\begin{pycode}[A test for clamp(), which keeps a number between two limits]
+from clamp_tools import clamp
+
+def test_too_big_comes_down_to_high():
+    assert clamp(99, 0, 10) == 10, "99 is too big, so it should become 10"
+\end{pycode}
+A test has three parts: \textbf{call} the function with values you choose, say what you \textbf{expect} with \texttt{==}, and add a
+\textbf{message} for when it goes wrong. The function's name must start with \texttt{test\_}, so that pytest can find it.
+
+\subsection{Running your tests}
+\begin{itemize}[leftmargin=1.2em]
+  \item \textbf{Easy way:} open your test file and press \menu{Run}. The bottom of the file starts pytest for you.
+  \item \textbf{Programmer way:} \menu{Tools > Open system shell\ldots}, type \texttt{python -m pytest starter.py -v} and press \keys{Return}
+        (if it says \enquote{command not found}, use \texttt{python3}).
+\end{itemize}
+\begin{outputcode}
+starter.py::test_middle_value_stays_the_same PASSED     [ 50%]
+starter.py::test_too_small_goes_up_to_low FAILED        [100%]
+E       AssertionError: -3 is too small, so it should become 0
+E       assert 0 == 5
+E        +  where 0 = clamp(-3, 0, 10)
+============ 1 failed, 1 passed in 0.03s ============
+\end{outputcode}
+Read it from the bottom up. The last line is the score. The \texttt{E} lines say what went wrong: \texttt{clamp} gave back \texttt{0}
+but the test expected \texttt{5}. When a test fails, ask: \textbf{is the code wrong, or is my expected answer wrong?}
+
+\subsection{Normal and edge cases}
+A \textbf{normal case} is what usually happens. An \textbf{edge case} is a strange corner: that is where bugs love to hide.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{6.2cm}@{}}
+\toprule
+\textbf{Function} & \textbf{Normal case} & \textbf{Edge cases} \\ \midrule
+\texttt{clamp(value, 0, 10)} & \texttt{clamp(5, 0, 10)} gives 5 & too small, too big, exactly 0, exactly 10 \\
+\texttt{best\_score(scores)} & best in the middle & empty list, one score, best is first, best is last \\
+\texttt{encode(msg, shift)} & \texttt{"abc"} with shift 1 & letters near z, spaces and \texttt{!}, shift 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Test the Clamp]
+Folder: \texttt{exercises/week08/ex-test-the-clamp}. \texttt{starter.py} is \textbf{your test file}. Read \texttt{clamp\_tools.py} first.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Press \menu{Run}. How many tests say \texttt{PASSED}? \rule{1.5cm}{0.4pt} Why do the empty ones pass?
+  \answerlines{1}
+  \item TODO 1 and TODO 2: write an \texttt{assert} line in each empty test. TODO 3: add a test for a value exactly on a limit.
+  \item Change one expected answer to something wrong. Run. Copy the last line of the output: \answerlines{1}
+  \item Change it back. Then run \texttt{check\_my\_work.py}: it tries your tests on three \textbf{broken} clamps. Catch them all!
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Test the Best Score]
+Folder: \texttt{exercises/week08/ex-test-best-score}. \texttt{best\_score(scores)} finds the highest score. Plan your tests first:
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{@{}p{5.6cm}p{3.6cm}p{3.4cm}@{}}
+\toprule
+\textbf{I call\ldots} & \textbf{I expect\ldots} & \textbf{Normal or edge?} \\ \midrule
+\texttt{best\_score([3, 9, 2])} & \texttt{9} & normal \\ \midrule
+\texttt{best\_score([])} & & \\ \midrule
+& & \\ \midrule
+& & \\
+\bottomrule
+\end{tabular}
+\end{center}
+Write the tests in \texttt{starter.py}, press \menu{Run}, then check with \texttt{check\_my\_work.py}.
+\end{exercise}
+
+\begin{exercise}[Fix the Bugs the Tests Found]
+Folder: \texttt{exercises/week08/ex-fix-the-bugs}. Four game helpers, one bug each. The tests are already written.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Run \texttt{check\_my\_work.py}. Pick one \texttt{TRY AGAIN} and read its hint.
+  \item Find that test in \texttt{test\_fix\_the\_bugs.py}. Read it like a sentence.
+  \item Fix \textbf{one} function in \texttt{starter.py}. Never change the test! Run the checks again. Repeat.
+\end{enumerate}
+Fixed: \tickbox\ \texttt{lives\_after\_hit} \quad \tickbox\ \texttt{medal} \quad \tickbox\ \texttt{name\_tag} \quad \tickbox\ \texttt{average\_score}
+\end{exercise}
+
+\begin{tip}[Why testing matters]
+In 1999 a spacecraft was lost on its way to Mars because two parts of its software used different units, and no test checked them together.
+People can only trust apps and games that have been tested. Testing your game is a way of being fair to your players.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{test}{A small function that checks another function and says PASSED or FAILED.}
+  \vocabword{assert}{\enquote{I am sure this is true.} If it is false, Python stops with \texttt{AssertionError}.}
+  \vocabword{pytest}{A helper that finds every function called \texttt{test\_\ldots}, runs it and reports the results.}
+  \vocabword{normal case}{An everyday input, like a list of three scores.}
+  \vocabword{edge case}{A strange corner: empty, zero, the first, the last, exactly on a limit.}
+  \vocabword{expected vs actual}{What the test says should happen, and what really happened.}
+\end{vocab}
+
+\begin{reflection}
+Think of a game you like. Write one edge case its programmers should test. \answerlines{1}
+When a test fails, what two things could be wrong? \answerlines{2}
+Which was harder: writing tests or fixing bugs? Why? \answerlines{1}
+\end{reflection}

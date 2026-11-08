@@ -1,0 +1,131 @@
+% Level 2, Week 1 -- Welcome Back, Python (student workbook)
+\chapterweek{1}{Welcome Back, Python}{Every value has a type, and f-strings glue values into friendly messages.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item The four basic \textbf{types} of value: whole numbers, decimal numbers, text and True/False.
+  \item How to build messages with \textbf{f-strings}.
+  \item How to turn typed answers into numbers with \texttt{int()}.
+  \item How to make smarter choices with \texttt{and}, \texttt{or} and \texttt{not}.
+\end{itemize}
+
+\section{The big idea: every value has a type}
+Python sorts every value into a \textbf{type}. The type decides what Python can do with it.
+Here are the four types you will use most:
+
+\begin{center}
+%% alt: Four boxes for the four types of value. An int is a whole number such as 7, -2 and 100. A float is a decimal number such as 3.5, 0.0 and 2.0. A str is text in quotes such as "cat" and "7". A bool is True or False.
+\begin{tikzpicture}[bin/.style={draw=black,thick,rounded corners=3pt,minimum width=3.5cm,minimum height=2.5cm,align=center,font=\small}]
+  \node[bin,fill=kcorange!25] (i) at (0,0) {\textbf{int}\\whole number\\[4pt]\texttt{7}\quad \texttt{-2}\quad \texttt{100}};
+  \node[bin,fill=kcsky!25] (f) at (4,0) {\textbf{float}\\decimal number\\[4pt]\texttt{3.5}\quad \texttt{0.0}\quad \texttt{2.0}};
+  \node[bin,fill=kcgreen!20] (s) at (8,0) {\textbf{str}\\text in quotes\\[4pt]\texttt{"cat"}\quad \texttt{"7"}};
+  \node[bin,fill=kcyellow!35] (b) at (12,0) {\textbf{bool}\\True or False\\[4pt]\texttt{True}\quad \texttt{False}};
+\end{tikzpicture}
+\end{center}
+
+\textbf{Quotes are the big clue.} \texttt{7} is a number, but \texttt{"7"} is text that happens to show a 7.
+You can ask Python for the type of anything. Type this in the Thonny \textbf{Shell} (after \texttt{>>>}):
+\begin{pycode}[Try it in the Shell]
+type(7)        # <class 'int'>
+type("7")      # <class 'str'>
+type(3.5)      # <class 'float'>
+type(True)     # <class 'bool'>
+\end{pycode}
+
+\subsection{Bug hunt: text plus a number}
+Try \texttt{"5" + 5} in the Shell. Python shows a red \textbf{error message}. Always read it from the \textbf{bottom line up}:
+\begin{outputcode}
+TypeError: can only concatenate str (not "int") to str
+\end{outputcode}
+\enquote{Concatenate} means \enquote{glue together}. Python can glue text to text, but not text to a number.
+This matters because \textbf{\texttt{input()} always gives back text}, even when you type a number. Turn it into a whole number with \texttt{int()}:
+\begin{pycode}
+level = int(input("Level? "))     # the player types 4
+print(level + 1)                  # 5
+\end{pycode}
+
+\subsection{f-strings: fill in the blanks}
+Put an \texttt{f} in front of the quotes, and Python fills every pair of curly brackets with a value.
+It works with any type, so you never have to worry about text plus a number.
+
+\begin{center}
+%% alt: The f-string f"{name} is level {level}" with name set to "Nova" and level set to 4 fills in to give the text Nova is level 4.
+\begin{tikzpicture}[font=\small]
+  \node[draw,rounded corners=2pt,fill=kcsky!15,inner sep=5pt] (t) {\texttt{f"\{name\} is level \{level\}"}};
+  \node[draw,rounded corners=2pt,fill=kcgreen!15,inner sep=5pt,right=1.6cm of t] (r) {\texttt{Nova is level 4}};
+  \draw[-{Stealth[length=3mm]},thick] (t) -- node[above]{fill in} (r);
+  \node[below=0.25cm of t,align=center] {\texttt{name = "Nova"}\quad \texttt{level = 4}};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Smarter choices: and, or, not}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Word} & \textbf{True when\ldots} & \textbf{Game example} \\ \midrule
+\texttt{and} & \textbf{both} sides are true & \texttt{has\_key and level >= 3} \\
+\texttt{or}  & \textbf{at least one} side is true & \texttt{level >= 10 or has\_map} \\
+\texttt{not} & the opposite & \texttt{not game\_over} \\ \bottomrule
+\end{tabular}
+\end{center}
+Each side needs a full comparison: write \texttt{energy >= 5 or energy == 1}, not \texttt{energy >= 5 or 1}.
+
+\begin{tip}[Hero names, not real names]
+Your real name, school, address and birthday are \textbf{personal information}. Keep them private.
+In our programs you always type a made-up \textbf{hero name} or nickname.
+\end{tip}
+
+\begin{exercise}[Hero Card]
+Folder: \texttt{exercises/week01/ex-hero-card}. Open \texttt{starter.py} and press \menu{Run} (\keys{F5}).
+\begin{enumerate}[leftmargin=1.4em]
+  \item It crashes! Read the error from the bottom up. Write the last line here:
+  \answerlines{1}
+  \item TODO 1: turn the level into a number with \texttt{int()}. Run again.
+  \item TODO 2--5: add the missing lines with f-strings: power, power points, health (\texttt{level * 12.5}) and \enquote{Legend?}.
+  \item Which type is each value? Write int, float, str or bool:\par
+  \texttt{hero\_name} \rule{2cm}{0.4pt}\quad \texttt{power\_points} \rule{2cm}{0.4pt}\quad \texttt{health} \rule{2cm}{0.4pt}\quad \texttt{is\_legend} \rule{2cm}{0.4pt}
+  \item Check your work: open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Mood Meter]
+Folder: \texttt{exercises/week01/ex-mood-meter}. The program asks for your energy (0--10) and whether you had a snack,
+then draws a meter. Finish \texttt{mood\_for()}:
+\begin{itemize}[leftmargin=1.2em]
+  \item \enquote{Super charged}: energy 8 or more \textbf{and} a snack.
+  \item \enquote{Ready to play}: energy 5 or more \textbf{or} a snack.
+  \item \enquote{Recharge time}: everything else.
+\end{itemize}
+Before you run it, \textbf{predict} the mood. Then run and check.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|p{3.5cm}|p{3.5cm}|}
+\hline
+\textbf{energy} & \textbf{snack?} & \textbf{my guess} & \textbf{the program said} \\ \hline
+9 & yes & & \\ \hline
+9 & no & & \\ \hline
+2 & yes & & \\ \hline
+3 & no & & \\ \hline
+\end{tabular}
+\end{center}
+Last step: use \texttt{if not had\_snack:} to print a friendly tip. Then check your work with \texttt{check\_my\_work.py}.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{type}{The kind of value: int, float, str or bool. It decides what Python can do with it.}
+  \vocabword{int}{A whole number, like 7 or -2.}
+  \vocabword{float}{A number with a decimal point, like 3.5 or 2.0.}
+  \vocabword{str (string)}{Text inside quotes, like \texttt{"cat"} or \texttt{"7"}.}
+  \vocabword{bool}{True or False. Comparisons like \texttt{level >= 3} give a bool.}
+  \vocabword{f-string}{Text with an f in front. Curly brackets inside are filled with values.}
+  \vocabword{TypeError}{An error that means \enquote{these two types do not go together}.}
+  \vocabword{personal information}{Facts that say who you really are or where to find you. Keep it private.}
+\end{vocab}
+
+\begin{reflection}
+Which value card or error surprised you today? Why?
+\answerlines{2}
+Make up a game rule that uses \texttt{and} or \texttt{or}:
+\answerlines{2}
+\end{reflection}

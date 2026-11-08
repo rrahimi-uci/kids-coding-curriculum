@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, resources, resourceHtml } from '../../lib/data';
+export function getStaticPaths() { return resources().map((r) => ({ params: { slug: r.slug }, props: { r } })); }
+const { r } = Astro.props;
+---
+<Base title={r.title} description={`${r.title}: step-by-step help for the Kids Coding course.`}>
+  <div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('resources/')}>Resources</a></li><li aria-current="page">{r.title}</li></ol></nav>
+    <header class="page-head"><h1>{r.title}</h1></header>
+    <div class="lesson-layout">
+      <aside class="lesson-side" aria-label="On this page">
+        <nav class="toc" aria-label="Table of contents"><details open><summary>On this page</summary><ol>{r.toc.map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol></details></nav>
+      </aside>
+      <div class="lesson" set:html={resourceHtml(r.slug)} />
+    </div>
+  </div>
+</Base>

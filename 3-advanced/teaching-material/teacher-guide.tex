@@ -1,0 +1,662 @@
+\documentclass[level=3,teacher]{kidscode}
+%% Terminal and text-file listings: no Python keyword coloring.
+\lstdefinestyle{kcshell}{basicstyle=\ttfamily\small\setstretch{1.0},language={},
+  columns=fullflexible,keepspaces=true,breaklines=true,numbers=none,upquote=true,
+  showstringspaces=false}
+\begin{document}
+\kctitle{Teacher Guide}{Everything the parent-teacher needs for Level 3: Advanced}
+
+\begin{tip}[How to use this guide]
+Read sections 1--6 once before the first session (about 45 minutes, spread over a couple of
+evenings). After that you only need the weekly lesson plan (10 minutes of reading each week)
+and this guide's \textbf{Troubleshooting} section when something goes wrong.
+\end{tip}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+%% =====================================================================
+\section{1. Welcome to Level 3}
+
+Your coders have come a long way: from Scratch blocks in Level 1 to Python games with
+functions, lists, dictionaries, files and their own pytest tests in Level 2. Level 3 is where
+they start working like real software makers. They will:
+
+\begin{itemize}[itemsep=2pt]
+  \item save their work with \textbf{git}, the same save-point tool professional programmers use;
+  \item design programs out of \textbf{classes and objects} (characters, mazes, galleries);
+  \item meet famous \textbf{algorithms} (binary search, sorting, breadth-first search, recursion)
+        and talk about how fast they are;
+  \item clean and chart \textbf{real data}, and build two tiny \textbf{AI} programs to see how
+        machines learn from examples, and where they go wrong;
+  \item plan, build, test, document and present a \textbf{larger project} of their own.
+\end{itemize}
+
+\subsection{What changes at Level 3}
+
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.2cm}X@{}}
+\toprule
+More independence & You explain less and ask more. Students read the workbook chapter, try
+first, and ask a partner before asking you (\enquote{ask three, then me}). Your job shifts from
+explaining to coaching: \enquote{What did you expect? What happened? What will you try next?}\\ \midrule
+Projects, not exercises & From week 9 the group works on one larger project each (or per pair).
+Weekly exercises become building blocks they can reuse.\\ \midrule
+Terminal & Students type commands in the Mac Terminal: \texttt{git} for save points and
+\texttt{python3 -m pytest} for tests. You will learn the five commands they use; the cheat
+sheet lists them.\\ \midrule
+Tests and history matter & A project is not only \enquote{does it run?} but also \enquote{does it
+have tests?}, \enquote{can I see how it grew in the git log?} and \enquote{can you explain why you
+designed it like that?}\\ \midrule
+Bigger ideas & Efficiency, recursion, data and AI are ideas they will meet again for years. Aim
+for a good intuition, not perfect definitions.\\
+\bottomrule
+\end{tabularx}
+
+\begin{teachernote}[You do not need to be an expert]
+Every lesson plan tells you exactly what to say, type and look for, and every program in the
+answer key is tested. When a student asks something you do not know, the best answer is:
+\enquote{Great question --- let's find out together.} Then try it in Thonny. Modeling curiosity
+matters more than knowing everything.
+\end{teachernote}
+
+%% =====================================================================
+\section{2. CS background for the parent}
+
+Ten short ideas, in plain words. Each one is taught properly in its week; this is only so that
+nothing in the lesson plans surprises you.
+
+\begin{description}[leftmargin=0pt,itemsep=6pt,font=\bfseries]
+\item[Class and object (weeks 2--3).] A \textbf{class} is a blueprint, like a cookie cutter. An
+\textbf{object} is one thing made from it, like one cookie. \py|class Pet:| describes what every
+pet has (\textbf{attributes}, such as \py|self.name| and \py|self.energy|) and can do
+(\textbf{methods}, such as \py|play()|). \py|mo = Pet("Mo")| makes one pet. \py|self| simply
+means \enquote{this particular object}.
+
+\item[Inheritance and composition (week 3).] \textbf{Inheritance} is an \enquote{is a}
+relationship: a \py|Knight| \emph{is a} \py|Character|, so \py|class Knight(Character):| gets all
+of Character's code for free and only changes what is different (\textbf{overriding}).
+\textbf{Composition} is a \enquote{has a} relationship: a \py|Game| \emph{has a} \py|Maze| and a
+list of ghosts. Good designs use both.
+
+\item[Big-O intuition: \enquote{how fast is fast?} (weeks 4--5).] We do not time programs with a
+stopwatch; we count \textbf{steps} and ask how the count grows when the data gets bigger.
+Checking every page of a 1000-page book one by one can take 1000 steps (\textbf{linear}). Opening
+the middle, then the middle of the correct half, and so on, takes at most about 10 steps
+(\textbf{binary search}, which needs sorted data). Doubling the book adds one step for binary
+search but doubles the work for linear search. That is the whole idea; no formulas are needed.
+
+\item[Sorting (week 5).] Putting items in order. Students act out \textbf{selection sort} (find the
+smallest, swap it to the front, repeat) and \textbf{bubble sort} (swap neighbors that are in the
+wrong order, repeat), then learn Python's built-in \py|sorted(items, key=...)|.
+
+\item[Stack and queue (week 5).] A \textbf{stack} is a pile of plates: the last one put on is the
+first taken off (an undo button). A \textbf{queue} is a lunch line: first in, first out (players
+waiting for a turn). In Python a list works as a stack (\py|append|, \py|pop|) and
+\py|collections.deque| works as a queue (\py|append|, \py|popleft|).
+
+\item[Grid and recursion (week 7).] A \textbf{grid} is a list of lists: \py|grid[row][col]|. A
+\textbf{recursive} function solves a problem by calling itself on a smaller version of the same
+problem, like Russian dolls. It must have a \textbf{base case} where it stops; without one Python
+gives up with a \texttt{RecursionError}. Fractal trees and flood fill (the paint bucket tool) are
+recursive.
+
+\item[Breadth-first search, BFS (week 7 extension and the final project).] How a computer finds the
+shortest way through a maze. Imagine dropping ink at the start: it spreads one square in every
+direction, then one more, ring after ring. The first time the ink reaches the goal, that is a
+shortest path. A \textbf{queue} keeps the squares in the order the ink reached them. The Maze
+Muncher reference project uses BFS for its chasing ghost.
+
+\item[Data cleaning (week 8).] Real data is messy: empty rows, extra spaces, numbers stored as text.
+\textbf{Cleaning} means fixing those before counting or charting. A \textbf{CSV} file is a
+spreadsheet saved as plain text with commas between the columns.
+
+\item[Nearest-neighbor classifier (week 9).] The simplest machine learning. You have labeled
+examples (\textbf{training data}), each described by numbers (\textbf{features}, such as size and
+number of spikes). To label a mystery item, find the example most similar to it (smallest
+distance) and copy its label. If the examples are unfair or incomplete, the predictions are too:
+that is \textbf{bias}. A \textbf{Markov text generator} (also week 9) writes new sentences by
+remembering which word followed which in its training text --- it imitates without understanding,
+a good first picture of how chatbots can sound confident and still be wrong.
+
+\item[git (week 1 onwards).] A \textbf{save-point system for a folder}. \texttt{git add} chooses
+which changes go into the next save point, \texttt{git commit -m "message"} makes the save point
+(a \textbf{commit}), \texttt{git log} lists them, \texttt{git diff} shows what changed and
+\texttt{git restore} throws away changes that were not committed. Everything stays on your Mac: no
+account, no internet, no GitHub.
+\end{description}
+
+%% =====================================================================
+\section{3. Level 3 goals}
+
+Every lesson objective is tagged with one of these codes. CSTA codes are from the CSTA K--12
+Computer Science Standards (revised 2017); AI4K12 refers to the \enquote{Five Big Ideas in AI}
+(1 perception, 2 representation \& reasoning, 3 learning, 4 natural interaction, 5 societal impact).
+
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{1.3cm}X>{\raggedright\arraybackslash}p{3.9cm}@{}}
+\toprule
+\rowcolor{kcaccent!15} Code & By the end of Level 3 the student can\ldots & CSTA / other\\ \midrule
+L3.G1 & design programs with classes, objects, inheritance and composition & 3A-AP-17, 3A-AP-18\\
+L3.G2 & explain and compare searching/sorting algorithms and use recursion & 3A-AP-15, 1B-AP-08 (E), 3A-IC-26\\
+L3.G3 & choose data structures: lists of objects, dicts, stacks, queues, 2D grids & 3A-AP-14, 3A-DA-10\\
+L3.G4 & track their work with git (init, add, commit, log, diff, restore) & 3A-AP-22, 2-AP-19\\
+L3.G5 & plan and build a larger program iteratively, using feedback & 3A-AP-16, 3A-AP-19, 3A-AP-23, 2-AP-18\\
+L3.G6 & collect, clean, analyze and visualize data & 2-DA-08, 3A-DA-11, 3A-DA-12\\
+L3.G7 & explain how simple AI learns from data and where it fails & AI4K12 Big Ideas 1--5, 3A-IC-24\\
+L3.G8 & test and debug larger programs & 2-AP-17, 3A-AP-21\\
+L3.G9 & reason about privacy, bias, ethics and licenses & 3A-IC-24, 3A-IC-25, 3A-IC-29, 3A-AP-20\\
+\bottomrule
+\end{tabularx}
+
+%% =====================================================================
+\section{4. The 12-week roadmap}
+
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-10cm-6\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Wk & Title & Big idea & What they build / do\\ \midrule\endhead
+\bottomrule\endfoot
+1 & Save Points: Git Basics & Git is a save-game system for code. & Placement quiz (15 min); first repository, first commits\\ \midrule
+2 & Objects: Blueprints and Things & A class is a blueprint; objects are things built from it. & A virtual pet class\\ \midrule
+3 & Families of Objects & Share code with inheritance; build with composition. & A family of game characters / shapes\\ \midrule
+4 & Searching and How Fast Is Fast? & Smart algorithms do less work. & Linear vs binary search, counting steps\\ \midrule
+5 & Sorting, Stacks and Queues & Order data; stacks undo, queues take turns. & Sorting a leaderboard, an undo stack, a turn queue\\ \midrule
+6 & Review and Checkpoint & Connect the pieces. & Mid-level checkpoint (15 min); Thonny debugger; bug-hunt workshop\\ \midrule
+7 & Grids, Recursion and Fractal Art & Functions that call themselves; worlds made of grids. & Fractal trees, flood fill on a grid\\ \midrule
+8 & Data Detectives & Data tells stories when you clean and chart it. & Survey CSV $\rightarrow$ counts, averages, turtle bar chart\\ \midrule
+9 & How Do Machines Learn? & AI finds patterns in examples --- and copies their mistakes. & Nearest-neighbor classifier, Markov text; project kickoff (pitch)\\ \midrule
+10 & Project Studio 1 & Design first: classes, data, milestones. & CRC cards, class diagram, core classes + first tests\\ \midrule
+11 & Project Studio 2 & Test, playtest, polish, document. & 5+ tests, playtest, README, polish\\ \midrule
+12 & Showcase and Graduation & Share, explain, reflect, plan next steps. & Showcase, exit assessment (20 min), certificates\\ \midrule
+B1 & Algorithm Olympics & Algorithms are recipes you can race. & Unplugged sorting networks, maze solving by hand\\ \midrule
+B2 & Mini Game Jam & Small ideas, quick builds, many commits. & 90-second game ideas, free-build, git practice\\
+\end{longtable}
+
+%% =====================================================================
+\section{5. Setup checklist (once, about 60 minutes)}
+
+Do this on each Mac a week before session 1. Nothing here needs an Apple ID, a GitHub account or
+any personal data. Internet is needed once, for the Apple download.
+
+\subsection{5.1 git: Apple Command Line Tools}
+\begin{checklist}
+  \item Open \textbf{Terminal}: press \keys{Cmd}+\keys{Space}, type \texttt{Terminal}, press \keys{Return}.
+  \item Type the line below and press \keys{Return}. A window asks to install the
+        \enquote{command line developer tools}: click \menu{Install}, then \menu{Agree}. It
+        downloads for 5--20 minutes. (If it says the tools are already installed, great.)
+\end{checklist}
+\begin{shellcode}
+xcode-select --install
+\end{shellcode}
+\begin{checklist}
+  \item Check it worked: \texttt{git --version} should print something like
+        \texttt{git version 2.39.5 (Apple Git-154)}.
+\end{checklist}
+
+\subsection{5.2 git identity: a nickname, never a real name}
+Git writes a name and an email into every save point. We use a \textbf{nickname} and a clearly
+fake \textbf{placeholder email} (\texttt{example.com} is reserved for examples and never receives
+mail). Type, one line at a time, on each Mac (replace \texttt{Pixel Fox} with the student's or
+pair's chosen nickname):
+\begin{shellcode}
+git config --global user.name "Pixel Fox"
+git config --global user.email "pixelfox@example.com"
+git config --global init.defaultBranch main
+git config --global core.editor nano
+\end{shellcode}
+\begin{checklist}
+  \item \texttt{git config --global --list} shows the nickname and the placeholder email.
+  \item The editor line matters: if a student forgets \texttt{-m "message"}, git opens the
+        friendly \texttt{nano} editor instead of the confusing \texttt{vim} (see Troubleshooting).
+  \item Two students sharing one Mac login? Run the \texttt{user.name} line \emph{without}
+        \texttt{--global} inside each student's own project folder after \texttt{git init}.
+\end{checklist}
+
+\subsection{5.3 Thonny and pytest}
+\begin{checklist}
+  \item Thonny 4 or newer (\menu{Thonny} $\rightarrow$ \menu{About Thonny}) with Python 3.10 or newer.
+  \item pytest is installed (it was in Level 2): \menu{Tools} $\rightarrow$ \menu{Manage packages\ldots},
+        search \texttt{pytest}, click \menu{Install} if it is not listed as installed.
+  \item Find \menu{Tools} $\rightarrow$ \menu{Open system shell\ldots}. This opens a Terminal that
+        uses \emph{Thonny's} Python, which has pytest. \textbf{Run tests from this Terminal.}
+        (Plain Terminal's \texttt{python3} is Apple's own copy, which does not have pytest.)
+  \item Test it: in that shell type \texttt{python3 -m pytest --version}. It prints a version number.
+\end{checklist}
+
+\subsection{5.4 Copy the course files}
+\begin{checklist}
+  \item On each Mac make a folder \texttt{Documents/coding-L3-<nickname>} (one per student, or per pair).
+  \item Copy \texttt{3-advanced/exercises} and \texttt{3-advanced/project/starter} into it.
+  \item Students create their own git repositories \emph{inside their copy} (week 1 shows how).
+        Never let students run git commands inside the curriculum folder you received: it may
+        already be a git repository, and a repository inside a repository is confusing.
+  \item Keep \texttt{project/reference} (the Maze Muncher solution) on your Mac only until week 12.
+\end{checklist}
+
+\subsection{5.5 Printing}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.8cm}X@{}}
+\toprule
+\rowcolor{kcaccent!15} When & Print (one per student unless noted)\\ \midrule
+Before week 1 & Placement quiz (from \texttt{assessments.pdf}); cheat sheet (double-sided); glossary;
+progress tracker; parent notes (one per family)\\
+Every week & Workbook chapter and homework set for that week\\
+Week 6 & Mid-level checkpoint\\
+Week 9 & Project brief\\
+Week 12 & Exit assessment; certificates (write names by hand)\\
+For you only & Lesson plans, answer key, this guide, project teacher guide (keep in a folder
+students cannot see)\\
+\bottomrule
+\end{tabularx}
+
+\subsection{5.6 Accessibility}
+\begin{checklist}
+  \item \textbf{Dyslexia-friendly edition:} every PDF also exists in a Lexend, larger-spaced,
+        cream-page edition (\texttt{build/pdf/dyslexia/}). Offer it to everyone; some students
+        simply prefer it.
+  \item \textbf{Thonny font size:} \menu{View} $\rightarrow$ \menu{Increase font size}
+        (\keys{Cmd}+\keys{+}), or \menu{Tools} $\rightarrow$ \menu{Options\ldots} $\rightarrow$
+        \menu{Theme \& Font}.
+  \item \textbf{Terminal font size:} \keys{Cmd}+\keys{+} in the Terminal window; to keep it,
+        \menu{Terminal} $\rightarrow$ \menu{Settings} $\rightarrow$ \menu{Profiles} $\rightarrow$ \menu{Text}.
+  \item \textbf{Color filters:} \menu{System Settings} $\rightarrow$ \menu{Accessibility}
+        $\rightarrow$ \menu{Display} $\rightarrow$ \menu{Color filters} (helpful for color
+        blindness). All course colors are from the color-blind-safe Okabe--Ito palette, and games
+        always use shapes and letters too.
+  \item \textbf{Zoom:} \menu{Accessibility} $\rightarrow$ \menu{Zoom} lets students enlarge any
+        part of the screen during demos.
+\end{checklist}
+
+%% =====================================================================
+\section{6. The 60-minute session}
+
+Every lesson plan follows the same shape, so after two weeks it feels routine.
+
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{An unplugged activity or a quick puzzle that sets up today's idea. Students
+  open Thonny and run \texttt{git log --oneline} in their project folder to see where they left off.}
+  \timeslot{8--18}{Concept}{Read the teacher script and the analogy. Draw the diagram from the
+  workbook on paper. Ask the check question before moving on.}
+  \timeslot{18--28}{Guided demo}{You (or a confident student) type the worked example while everyone
+  watches and predicts. Make one deliberate mistake and let them spot it.}
+  \timeslot{28--52}{Hands-on build}{Pairs work through the workbook exercises: driver/navigator, swap
+  at the timer every 8 minutes; check with \texttt{check\_my\_work.py}; commit when something works;
+  the last 5--6 minutes are creative free-build.}
+  \timeslot{52--60}{Wrap-up}{Two-minute show-and-tell, one reflection prompt, exit ticket, final
+  commit (\texttt{git commit -m "..."}), hand out homework.}
+\end{timeplan}
+
+\begin{tip}[Your 10 minutes of prep]
+(1) Read the lesson plan's at-a-glance table and teacher scripts. (2) Open the week's exercise
+folder and run one solution. (3) Print the workbook chapter and homework. (4) Put the materials
+(cards, sticky notes, timer) on the table. That is all.
+\end{tip}
+
+%% =====================================================================
+\section{7. Collaboration at Level 3}
+
+\subsection{Three roles: driver, navigator, reviewer}
+\begin{pairroles}[Roles at Level 3]
+\textbf{Driver} types and says out loud what they are doing. \textbf{Navigator} reads the task,
+thinks one step ahead and spots bugs. \textbf{Reviewer} (new at Level 3) reads finished code with
+the checklist below before it is committed. Swap driver and navigator every 8 minutes; the pair
+becomes reviewer for the other pair in the last 5 minutes of the build.
+
+\textbf{With 1 student:} you are the navigator and the reviewer. \textbf{With 3:} rotate driver,
+navigator, reviewer. \textbf{With 4:} two pairs, who review each other's code.
+\end{pairroles}
+
+\subsection{Code review checklist (printed on the cheat sheet)}
+\begin{checklist}
+  \item It runs without errors, and the tests pass.
+  \item Names say what things are (\texttt{player\_score}, not \texttt{x}).
+  \item Each function or method does one job.
+  \item Comments explain \emph{why}, not just what.
+  \item No real names, addresses, passwords or photos anywhere.
+  \item The commit message says what changed, starting with a verb.
+  \item Feedback is kind and useful: \enquote{two stars and a wish}.
+\end{checklist}
+
+\subsection{git as a team tool}
+Keep git simple: \textbf{one repository per pair, one branch, no merging}.
+\begin{itemize}[itemsep=2pt]
+  \item The repository lives on the Mac the pair uses. Whoever is driving makes the commit; the
+        message can name both (\texttt{"Add Knight class (Ada + Kai)"}).
+  \item Commit every time something works and at the end of every session. Small commits with
+        clear messages are the habit we are building; the project needs 8 or more.
+  \item To move a project to another Mac, copy the whole folder (USB stick or AirDrop). The hidden
+        \texttt{.git} folder inside travels with it, so the history comes too.
+  \item Branches, merging and online services such as GitHub are deliberately left out. They are
+        great later, but they add confusion without adding much for a home group.
+\end{itemize}
+
+%% =====================================================================
+\section{8. The weekly threads}
+
+\begin{description}[leftmargin=0pt,itemsep=4pt,font=\bfseries]
+\item[Bug hunts.] Every week has a short broken program to fix. Use the routine \enquote{Read the
+error from the bottom up $\rightarrow$ find the line $\rightarrow$ guess $\rightarrow$ test one
+change}. From week 6 students also use Thonny's debugger (the bug button, then \menu{Step over}).
+Celebrate bugs found: \enquote{Nice catch!}
+\item[Unplugged.] Paper and body activities make abstract ideas visible: save-point timeline
+cards, cookie-cutter classes, human sorting race, plate stack and lunch queue, Russian dolls,
+paper survey, \enquote{train the teacher}, CRC cards. Do not skip them; they are where most
+\enquote{aha} moments happen.
+\item[Free-build.] Five minutes at the end of the build for students to make something their own
+(new colors, a new character, a silly feature). It keeps motivation high, especially for the
+artists in the group.
+\item[Reflection.] One prompt at the end of each session, answered aloud or in the workbook.
+Rotate who answers first. Good follow-up: \enquote{What would you tell someone starting this
+tomorrow?}
+\end{description}
+
+%% =====================================================================
+\section{9. Assessment plan}
+
+Assessment at home is for \emph{learning}, not for grades: it tells you what to revisit and who
+needs a different path. Papers are in \texttt{assessments.pdf}; answers, rubrics and scoring are
+in the answer key (\enquote{Assessments} section).
+
+\begin{longtable}{@{}>{\bfseries}p{2.9cm}>{\raggedright\arraybackslash}p{2.2cm}p{\dimexpr\linewidth-5.1cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} What & When & How you use it\\ \midrule\endhead
+\bottomrule\endfoot
+Placement quiz & Before week 1 (ideally at home the week before), 15 min & Covers Level 2:
+functions with return, lists, dicts, \texttt{while}, files, a pytest test. Score out of 20.
+\textbf{16--20:} standard path, offer extension tasks. \textbf{10--15:} standard path with the
+support notes in weeks 1--3, plus the refresher listed in the answer key. \textbf{Below 10:} run a
+refresher session first (Level 2 weeks 2, 3, 5 and 7 homework), and pair this student with you
+or a confident partner. Retake the missed questions after the refresher.\\ \midrule
+Formative checks & Every session & The lesson's exit ticket (one question, answer in the plan),
+the self-check boxes in homework and watching the hands-on build. Note anything worrying on the
+progress tracker.\\ \midrule
+Mid-level checkpoint & Week 6, 15 min & Classes, inheritance, search/sort tracing, stacks and
+queues. Use the results to choose the focus of the week 6 review and whether to use buffer B1
+before week 7.\\ \midrule
+Exit assessment & Week 12, 20 min & Recursion, grids, data, AI concepts: read, predict, fix,
+design and explain. Combined with the project, it tells you whether a student is ready to work
+independently on Python projects.\\ \midrule
+Project rubric & Weeks 9--12 & Six criteria: creativity, working code, design/OOP, testing, git
+history, explaining design decisions. Explaining counts as much as code. Full rubric in the
+project teacher guide.\\ \midrule
+Progress tracker & Every week & One page per student (\texttt{progress-tracker.pdf}): check the
+week's \enquote{I can} statements together during wrap-up.\\
+\end{longtable}
+
+\begin{teachernote}[Every student gets a voice]
+Each paper ends with student-friendly \enquote{I can\ldots} statements scored
+\textbf{Just starting / Getting there / Got it / Expert}. Ask students to fill these in
+\emph{before} you score, then compare. A student who rates themself \enquote{Got it} but struggled
+is a conversation, not a correction.
+\end{teachernote}
+
+%% =====================================================================
+\section{10. Differentiation}
+
+Every lesson plan has a support path and an extension path. In short:
+
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{7cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-7.8cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Wk & Support path (needs more time) & Extension path (finished early)\\ \midrule\endhead
+\bottomrule\endfoot
+1 & Only \texttt{init}, \texttt{add}, \texttt{commit}, \texttt{log}; parent types first, student copies & Use \texttt{git diff} and \texttt{git restore} to undo a deliberate mistake\\ \midrule
+2 & Fill in a half-written class; one attribute, one method & Add a \texttt{\_\_str\_\_} method and a list of pets\\ \midrule
+3 & One parent class, one child that overrides one method & Composition: a Team that has a list of characters\\ \midrule
+4 & Linear search only, count steps on paper & Binary search on 1000 numbers, compare step counts in a table\\ \midrule
+5 & Use \texttt{sorted(key=...)} instead of writing a sort & Write bubble sort and count the swaps; undo with a stack\\ \midrule
+6 & Redo one favorite exercise from weeks 2--5 & Fix the hardest bug-hunt station with the debugger only\\ \midrule
+7 & Draw fractal trees by changing depth/angle only & Flood fill on a grid; then try BFS shortest path\\ \midrule
+8 & Count with a dict; chart already drawn & Clean a messier CSV; add averages and a second chart\\ \midrule
+9 & Classify by hand first, then run the given classifier & k-nearest neighbors (3 vote); compare accuracy\\ \midrule
+10 & Start from a starter template; two classes only & Design an extra class with composition; write tests first\\ \midrule
+11 & Five simple tests (one per method); README from the template & Edge-case tests; tests for the saved file with \texttt{tmp\_path}\\ \midrule
+12 & Present with a prompt card; demo one feature & Explain one alternative design and why they rejected it\\
+\end{longtable}
+
+%% =====================================================================
+\section{11. Digital citizenship and AI ethics}
+
+One short conversation every week (the \enquote{Digital citizenship \& safety} box in the plan).
+Keep it a discussion, not a lecture: ask, listen, then share one fact.
+
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{4.6cm}p{\dimexpr\linewidth-5.4cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Wk & Topic & A question to ask\\ \midrule\endhead
+\bottomrule\endfoot
+1 & Never commit secrets & \enquote{Git remembers everything forever. What should never go into a commit?}\\ \midrule
+2 & Kind virtual pets & \enquote{Some games make pets sad if you do not play every day. Is that fair?}\\ \midrule
+3 & Representation & \enquote{Who gets to be the hero in games you play? Who is missing?}\\ \midrule
+4 & Search engines and filter bubbles & \enquote{Why might two people get different search results?}\\ \midrule
+5 & Fair, kind leaderboards & \enquote{How could a leaderboard make someone feel bad? How could we fix that?}\\ \midrule
+6 & Growth mindset & \enquote{What is something that was hard in week 2 and is easier now?}\\ \midrule
+7 & Credit for algorithms and art & \enquote{If you use someone's fractal idea, how do you give credit?}\\ \midrule
+8 & Consent and anonymous data & \enquote{May we put someone's survey answer in our chart without asking?}\\ \midrule
+9 & AI ethics: chatbots, deepfakes, bias & \enquote{What should you never type into a chatbot? How could an AI be unfair?}\\ \midrule
+10 & Licenses & \enquote{Can you use any picture or sound you find? What does a license say?}\\ \midrule
+11 & Accessibility and usability & \enquote{Could someone who is color-blind play your game?}\\ \midrule
+12 & Showcase safety; next steps online & \enquote{If you join a coding website later, what will you keep private?}\\
+\end{longtable}
+
+\begin{safety}[The AI-chatbot rule for this course]
+Students do not need any AI chatbot for this course. If your family uses one at home: never type
+real names, addresses, school names, photos or passwords into it; check its answers (it can be
+confidently wrong); and say when you used it, the same way you credit any helper. Many chatbot
+services also have minimum ages (often 13); please follow them.
+\end{safety}
+
+%% =====================================================================
+\section{12. Troubleshooting}
+
+\subsection{git}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.2cm}p{\dimexpr\linewidth-5.2cm-2\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} What you see & What to do\\ \midrule\endhead
+\bottomrule\endfoot
+\texttt{fatal: not a git repository (or any of the parent directories): .git} & The Terminal is
+in the wrong folder. Type \texttt{pwd} to see where you are, then \texttt{cd} into the project
+folder (tip: type \texttt{cd }, then drag the folder from Finder into the Terminal window and
+press \keys{Return}). If the folder was never set up, run \texttt{git init} there.\\ \midrule
+\texttt{Author identity unknown \ldots Please tell me who you are} & Do step 5.2 (nickname and
+placeholder email), then commit again.\\ \midrule
+\texttt{nothing to commit, working tree clean} & Not an error. Either everything is already
+committed, or the file was not saved in Thonny yet: press \keys{Cmd}+\keys{S}, then commit.\\ \midrule
+\texttt{nothing added to commit but untracked files present} & Forgot \texttt{git add}. Run
+\texttt{git add .} then commit again.\\ \midrule
+A screen full of \texttt{\textasciitilde} signs, typing does nothing sensible & Git opened the
+\texttt{vim} editor because the \texttt{-m "message"} part was missing. Press \keys{Esc}, type
+\texttt{:q!} and press \keys{Return}. Then commit with \texttt{-m}. (In \texttt{nano}: press
+\keys{Ctrl}+\keys{X}.) Step 5.2 sets \texttt{nano} to avoid this.\\ \midrule
+\texttt{You are in 'detached HEAD' state} & Someone used \texttt{git checkout <code>} to look at
+an old save point. Nothing is lost. Type \texttt{git switch main} to go back to the latest work.
+To get one old file back instead, use \texttt{git restore --source <code> file.py}.\\ \midrule
+\texttt{CONFLICT} or \texttt{merge} messages & Only happens if someone made a branch. Type
+\texttt{git merge --abort}, then \texttt{git switch main}. Our single-branch workflow avoids
+merges completely.\\ \midrule
+\enquote{\texttt{git restore} deleted my changes!} & \texttt{restore} throws away changes that
+were never committed; it cannot be undone. Turn it into a lesson: this is why we commit often.\\ \midrule
+\texttt{xcrun: error: invalid active developer path} & Usually after a macOS update. Run
+\texttt{xcode-select --install} again.\\
+\end{longtable}
+
+\subsection{Python, data and turtle}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.2cm}p{\dimexpr\linewidth-5.2cm-2\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} What you see & What to do\\ \midrule\endhead
+\bottomrule\endfoot
+\texttt{RecursionError: maximum recursion depth exceeded} & The function keeps calling itself.
+Check: (1) is there a base case (\texttt{if n == 0: return})? (2) does every call make the problem
+\emph{smaller} (\texttt{n - 1}, \texttt{length * 0.7})? (3) flood fill: mark a square as visited
+\emph{before} recursing, and keep grids small (about 30 $\times$ 30 or less).\\ \midrule
+\texttt{UnicodeDecodeError} when opening a CSV, or a \texttt{KeyError} for the first column
+(e.g. \texttt{'\textbackslash ufeffname'}) & The file came from a spreadsheet app with a hidden
+marker at the start. Open it with \texttt{encoding="utf-8-sig"}, or re-export it from Numbers:
+\menu{File} $\rightarrow$ \menu{Export To} $\rightarrow$ \menu{CSV\ldots}, text encoding
+\menu{Unicode (UTF-8)}.\\ \midrule
+\texttt{TypeError: can only concatenate str (not "int")} with CSV data & Everything read from a
+CSV is text. Convert with \texttt{int(row["points"])}; skip empty rows first.\\ \midrule
+Blank lines between rows when writing a CSV & Open the file with \texttt{newline=""}.\\ \midrule
+Turtle window does not respond to keys & Click on the turtle window first; make sure the program
+calls \texttt{screen.listen()}; check the key name (\texttt{"Up"}, \texttt{"space"}, \texttt{"a"}).\\ \midrule
+Turtle drawing is very slow & Add \texttt{screen.tracer(0)} at the start and
+\texttt{screen.update()} after drawing each frame.\\ \midrule
+\texttt{turtle.Terminator} after closing a window & Harmless. Press Run again (or \menu{Run}
+$\rightarrow$ \menu{Stop/Restart backend} first).\\ \midrule
+Window freezes / spinning beach ball & An endless \texttt{while True} loop without \texttt{ontimer},
+or a missing base case. Press the red \menu{Stop} button in Thonny.\\
+\end{longtable}
+
+\subsection{pytest}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.2cm}p{\dimexpr\linewidth-5.2cm-2\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} What you see & What to do\\ \midrule\endhead
+\bottomrule\endfoot
+\texttt{No module named pytest} & You are in plain Terminal. Use Thonny's \menu{Tools}
+$\rightarrow$ \menu{Open system shell\ldots} (step 5.3), or install pytest with
+\menu{Tools} $\rightarrow$ \menu{Manage packages\ldots}.\\ \midrule
+\texttt{collected 0 items} / \texttt{no tests ran} & Test files must be named
+\texttt{test\_something.py} and test functions must start with \texttt{test\_}. Also check you
+\texttt{cd}-ed into the project folder.\\ \midrule
+\texttt{ModuleNotFoundError: No module named 'dragon\_maze'} & The program was renamed or the
+test's \texttt{import} line does not match the file name. File names must not contain spaces or
+dashes to be imported.\\ \midrule
+Tests open a turtle window or hang & The test imported code that draws at import time. Keep the
+drawing inside functions and the main program under \texttt{if \_\_name\_\_ == "\_\_main\_\_":}.
+Test the logic, not the drawing.\\
+\end{longtable}
+
+%% =====================================================================
+\section{13. Pacing, buffers and holidays}
+
+\subsection{Pacing advice}
+\begin{itemize}[itemsep=2pt]
+  \item Level 3 runs \textbf{10--12 weeks}, one session a week; weeks with no session (holidays,
+        illness) do not count. Use the \textbf{12-week plan} (the 12 core sessions in order) or the
+        \textbf{10-week plan} (merge weeks 4 + 5 and weeks 7 + 8, see below).
+  \item \textbf{Never skip weeks 6 and 12.} The checkpoint tells you what to fix before the second
+        half; the showcase is the reward the whole level builds towards.
+  \item If a lesson runs over, stop at the wrap-up anyway: the reflection and final commit are
+        more valuable than finishing the last exercise. Unfinished exercises become homework.
+  \item The buffers are \textbf{optional} and only used when there is room inside the 12 weeks: \textbf{B1
+        (Algorithm Olympics)} after week 6 if the checkpoint shows gaps in searching/sorting, and
+        \textbf{B2 (Mini Game Jam)} before the project (week 9).
+\end{itemize}
+
+\subsection{Merging weeks (10-week plan, or after lost sessions)}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{2.5cm}X@{}}
+\toprule
+\rowcolor{kcaccent!15} Merge & What to do\\ \midrule
+Weeks 4 + 5 & Binary search only (skip counting steps on paper), then \texttt{sorted(key=...)} and
+stacks/queues; set bubble sort as homework.\\
+Weeks 7 + 8 & Fractal tree + one CSV chart, skip flood fill.\\
+Still short? & Move the project milestones M3/M4 into one session and let students finish the README
+at home. Keep weeks 6, 9, 10 and 12 intact.\\
+\bottomrule
+\end{tabularx}
+
+\par\smallskip
+Lost a session in the 12-week plan? Drop a buffer if you planned one, otherwise use the first merge, so
+the level still ends within 12 weeks.
+
+\subsection{Sample calendar: 12-week plan, Saturdays, September--December 2027}
+Twelve sessions in 13 Saturdays after Labor Day weekend. It skips Thanksgiving weekend and finishes
+well before the winter holidays. Move it to any weekday you like.
+
+\begin{longtable}{@{}>{\bfseries}p{2.3cm}>{\raggedright\arraybackslash}p{5.4cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-7.7cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Date & Session & Notes\\ \midrule\endhead
+\bottomrule\endfoot
+Sat 4 Sep & --- (no session) & Labor Day weekend. Hand out the placement quiz to do at home.\\
+Sat 11 Sep & Week 1: Save Points & Collect the placement quiz; parent notes go home.\\
+Sat 18 Sep & Week 2: Objects &\\
+Sat 25 Sep & Week 3: Families of Objects &\\
+Sat 2 Oct & Week 4: Searching &\\
+Sat 9 Oct & Week 5: Sorting, Stacks, Queues & Indigenous Peoples'/Columbus Day is Mon 11 Oct.\\
+Sat 16 Oct & Week 6: Review + Checkpoint & Never skip.\\
+Sat 23 Oct & Week 7: Fractal Art &\\
+Sat 30 Oct & Week 8: Data Detectives & Halloween weekend. Collect the paper survey the week before.\\
+Sat 6 Nov & Week 9: Machines Learn + kickoff & Hand out the project brief.\\
+Sat 13 Nov & Week 10: Project Studio 1 &\\
+Sat 20 Nov & Week 11: Project Studio 2 &\\
+Sat 27 Nov & --- (no session) & Thanksgiving weekend.\\
+Sat 4 Dec & Week 12: Showcase + Graduation & Never skip. Invite family to the showcase.\\
+\end{longtable}
+
+%% =====================================================================
+\section{14. Coverage}
+
+\subsection{(a) Goals $\times$ weeks}
+\textbf{I} = introduced, R = revisited, \textbf{E}\textsuperscript{+} = extended (used in a new,
+harder way). Written from the master syllabus.
+
+\begingroup\small
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}l*{12}{>{\centering\arraybackslash}X}>{\centering\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.7cm}@{}}
+\toprule
+\rowcolor{kcaccent!15} Goal & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & B1 & B2\\ \midrule
+G1 OOP     &     & \cvI & \cvE &      &      & \cvR &      &      &      & \cvE & \cvR & \cvR &      &     \\
+G2 Algor.  &     &      &      & \cvI & \cvE & \cvR & \cvE &      &      &      &      & \cvR & \cvR &     \\
+G3 Data str.& \cvR & \cvR &     &      & \cvI & \cvR & \cvE & \cvR &      & \cvR &      & \cvR & \cvR &     \\
+G4 git     & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR &      & \cvR\\
+G5 Project &     &      &      &      &      &      &      &      & \cvI & \cvR & \cvE & \cvR &      & \cvR\\
+G6 Data    &     &      &      &      &      &      &      & \cvI & \cvR &      &      & \cvR &      &     \\
+G7 AI      &     &      &      &      &      &      &      &      & \cvI &      &      & \cvR &      &     \\
+G8 Test/debug & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR &  & \cvR\\
+G9 Ethics  & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & \cvR &      &     \\
+\bottomrule
+\end{tabularx}
+\endgroup
+
+\textbf{Notes.} G4: from week 2 every session ends with a commit (R); week 11 needs a project
+history of 8+ meaningful commits (\textbf{E}\textsuperscript{+}). G8: bug hunts revisit debugging
+every week; the Thonny debugger is introduced in week 6; project tests extend testing in week 11.
+G3: lists and dicts are revisited in weeks 1, 2 and 8; stacks/queues are new in week 5 and grids in
+week 7.
+
+\subsection{(b) Objectives $\rightarrow$ lessons}
+The table below is generated automatically from the lesson plans' objectives.
+
+\kcinput{generated/coverage}
+
+%% =====================================================================
+\section{15. Spiral map: how big ideas come back across Levels 1--3}
+
+\begingroup\small
+\begin{longtable}{@{}>{\bfseries\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-10.4cm-6\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Big idea & Level 1 & Level 2 & Level 3\\ \midrule\endhead
+\bottomrule\endfoot
+Sequence \& algorithms & W1 I (unplugged), W7 R (text) & W2 R (functions), W10 E (pseudocode) & W4--5 E (named algorithms, efficiency)\\ \midrule
+Loops & W2 I (Scratch), W8 R (for) & W4 E (while, nested), W9 E (game loop) & W4 R (search loops), W7 E (recursion as repetition)\\ \midrule
+Events \& conditionals & W3 I, W9 R (if/elif) & W1 E (and/or), W9 E (onkey/ontimer) & W2--3 R (methods react), project E\\ \midrule
+Variables \& data & W4 I, W9 R (input) & W1 E (types), W3 E (lists), W5 E (dicts), W7 E (files) & W2 E (attributes), W5 E (stacks/queues), W7 E (grids), W8 E (CSV data)\\ \midrule
+Abstraction / functions & W5 I (My Blocks), W10 R (def) & W2 E (return), W8 R (testable functions) & W2--3 E (classes), W10 E (modules)\\ \midrule
+Debugging \& testing & every week (bug hunt), W6 relay & W6 E (strategies), W8 E (pytest) & W6 E (debugger), project E (5+ tests)\\ \midrule
+Collaboration & pair roles every week & W10 E (task split) & W1 E (git), W10 E (code review)\\ \midrule
+Art \& games & W2 pen art, W4 catch game, W10 random art & W3 palettes, W4 pixel art, W9 games & W3 shape families, W7 fractals, project\\ \midrule
+Citizenship \& AI ethics & privacy, credit, kindness, accessibility & data privacy, encryption, fair games, attribution & git secrets, consent, bias, AI ethics, licenses\\
+\end{longtable}
+\endgroup
+
+%% =====================================================================
+\section{16. Where next after Level 3}
+
+Your graduates can now learn from real programming books on their own. Some safe next steps:
+
+\begin{description}[leftmargin=0pt,itemsep=4pt,font=\bfseries]
+\item[Books (offline, great with Thonny).] \enquote{Python for Kids} (Jason Briggs, 2nd edition);
+\enquote{Mission Python} (Sean McManus); \enquote{Invent Your Own Computer Games with Python} and
+\enquote{The Big Book of Small Python Projects} (Al Sweigart); later \enquote{Python Crash Course}
+(Eric Matthes). Your local library probably has several.
+\item[Offline projects.] Turn Maze Muncher into a level editor; build a turtle drawing program that
+saves to JSON; analyze family-friendly data (weather you measure, a reading log, a sports season);
+write a text adventure with classes for rooms and items; keep everything in git.
+\item[Local, in-person clubs.] Library coding clubs, CoderDojo or Code Club sessions, school
+robotics teams (for example FIRST LEGO League), maker spaces and summer coding camps.
+\item[Online, with a parent.] Many sites (GitHub, Python forums, chat communities) require users to
+be at least 13. Before then, explore together: you create and own the account, use a nickname,
+share nothing personal, and agree on what can be posted. Puzzle sites with no social features are
+the gentlest start.
+\item[Keep the habits.] Small steps, frequent commits, tests for the tricky parts, credit for
+others' work, and kindness in feedback.
+\end{description}
+
+\end{document}

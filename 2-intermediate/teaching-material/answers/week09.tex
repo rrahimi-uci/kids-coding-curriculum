@@ -1,0 +1,40 @@
+% Level 2, Week 9 -- Event-Driven Games (answer key)
+\answersweek{9}{Event-Driven Games}{Answers for workbook chapter 9 and homework 9.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 9.1 Etch-a-Sketch]
+\textbf{What to look for:} \texttt{screen.listen()} before \texttt{turtle.done()}; every \texttt{onkey} line has the function name \emph{without} brackets;
+the key names are spelled exactly (\texttt{"Up"}, \texttt{"space"}). Any drawing description is fine.
+\end{answer}
+\pyfile{../exercises/week09/ex-etch-a-sketch/solution.py}
+
+\begin{answer}[Exercise 9.2 Dodge the Meteors]
+\textbf{Step 5:} logic functions are \texttt{clamp()}, \texttt{move\_player()} and \texttt{is\_touching()}: they only take numbers and return a value, so they
+can be tested with pytest (like in week 8) without opening a window. Drawing functions use turtles (\texttt{make\_meteor()}, \texttt{show\_score()},
+\texttt{game\_loop()}\ldots). Keeping them apart makes the rules easy to test and easy to change. Any best score is fine.
+\end{answer}
+\pyfile{../exercises/week09/ex-dodge-meteors/solution.py}
+
+\begin{answer}[Reflection]
+Without \texttt{ontimer} at the end of \texttt{game\_loop()}, the loop runs only once, so the meteors move one step and freeze.
+\texttt{onkey(go\_left(), "Left")} calls \texttt{go\_left} straight away and gives \texttt{onkey} its answer (\texttt{None}) instead of the function.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core Part 1: Stamp Studio]
+\texttt{next\_index(2, 4)} = 3 and \texttt{next\_index(3, 4)} = 0. A student who writes
+\texttt{if index + 1 == length: return 0} / \texttt{return index + 1} is also correct.
+\end{answer}
+\pyfile{../exercises/week09/hw-stamp-studio/solution.py}
+
+\begin{answer}[Core Part 2: Project pitch (M1)]
+Good pitch pages are specific: a name, one clear sentence (\enquote{Catch falling stars with a basket and dodge the meteors}), the keys, how it ends,
+and a sensible plan for the list (falling things, colors), dictionary (settings, a design), file (high scores, saved designs) and loop.
+If the idea is very big, help the student find the \enquote{smallest version that is still fun} for week 10. The full M1 checklist is in the Project Teacher Guide.
+\end{answer}
+
+\begin{answer}[Challenge and Creative]
+Planning page 2: look for a loop drawn as an arrow going back, at least one decision (diamond or \enquote{if}), and the end condition.
+Bigger/smaller stamps: \texttt{studio["size"]} goes up or down (keep it between 1 and 5 with \texttt{clamp()}), then \texttt{stamper.shapesize(studio["size"])}.
+Screen sketch: every part labeled, and parts that differ by shape or size as well as color.
+\end{answer}

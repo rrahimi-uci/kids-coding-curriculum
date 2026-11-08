@@ -1,0 +1,4 @@
+# Files git should not save (Python makes these by itself)
+__pycache__/
+.pytest_cache/
+.DS_Store

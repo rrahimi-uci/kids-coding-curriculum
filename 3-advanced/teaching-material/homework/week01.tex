@@ -1,0 +1,47 @@
+% Level 3, Week 1 homework -- Save Points
+\homeworkweek{1}{Save Points}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Inventory Review + one commit (about 10 minutes)]
+\begin{enumerate}[itemsep=2pt]
+  \item Open \texttt{week01/hw-inventory-review/starter.py} in Thonny. A game backpack is a list like \texttt{["gem", "key", "gem"]}.
+  \item Finish the three \texttt{TODO}s: \texttt{count\_item}, \texttt{remove\_all} (make a \textbf{new} list) and \texttt{most\_common}.
+  \item Open \texttt{check\_my\_work.py} and press Run until every check passes.
+  \item Git practice: copy your finished \texttt{starter.py} into \texttt{Documents/git-quest}, then in Terminal:
+\begin{shellcode}
+cd ~/Documents/git-quest
+git add starter.py
+git commit -m "Add inventory review"
+git log --oneline
+\end{shellcode}
+\end{enumerate}
+How many commits does your \texttt{git-quest} have now? \rule{2cm}{0.4pt}
+\end{core}
+
+\begin{challenge}[Message makeover]
+Rewrite each unhelpful message so that a friend would understand it. Start with a verb.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{4.5cm}p{9cm}@{}}
+\toprule
+\textbf{Unhelpful} & \textbf{Your better message} \\ \midrule
+\texttt{stuff} (made the hero jump higher) & \\ \midrule
+\texttt{asdf} (added a sound when you score) & \\ \midrule
+\texttt{fix} (score no longer goes below 0) & \\ \bottomrule
+\end{tabular}
+\end{center}
+Then use your Commit Coach from class to test your three messages. Do they all say \enquote{Great message!}?
+\end{challenge}
+
+\begin{creative}[A badge with a history]
+Change \texttt{hero\_badge.py} in your \texttt{git-quest} folder at least 3 times: new colors from the palette, a bigger star, a second ring, your own hero name (made up, never your real name). Commit after \textbf{every} change. Then draw your timeline below: one circle per commit with its message.
+\answerspace{3cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item All checks pass in \texttt{hw-inventory-review}.
+  \item My \texttt{git log --oneline} shows at least 4 commits.
+  \item Every message starts with a verb and says what changed.
+  \item My git name is a nickname and my email ends in \texttt{@example.com}.
+  \item There are no passwords or real names anywhere in my repository.
+\end{selfcheck}

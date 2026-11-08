@@ -1,0 +1,131 @@
+% Level 2, Week 7 -- Files: Saving Your Stuff (student workbook)
+\chapterweek{7}{Files: Saving Your Stuff}{A program forgets everything when it closes, unless it writes things down in a file.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item How to \textbf{save} data in a text file, and how to \textbf{load} it again next time.
+  \item The three ways to open a file: \texttt{"r"} read, \texttt{"w"} write, \texttt{"a"} append.
+  \item How to clean up lines with \texttt{strip()} and cut them into pieces with \texttt{split()}.
+  \item What to do when the file is missing, and what a game should never save about you.
+\end{itemize}
+
+\section{The big idea: programs forget, files remember}
+When a program closes, all its variables are wiped. Your high score? Gone. A \textbf{file} is like a notebook in a drawer:
+it stays on the computer after the program closes, so next time the program can read it again.
+
+\begin{center}
+%% alt: How a program remembers things. Your program's variables live inside the program and are wiped when it closes. Writing with mode "w" or "a" sends data to the file high_scores.txt, which holds Ada,120 and Kai,95. Reading with mode "r" brings it back. The file stays on the disk next to your program.
+\begin{tikzpicture}[font=\small,>={Stealth[length=3mm]},
+  box/.style={draw=black,thick,rounded corners=3pt,minimum width=3.2cm,minimum height=1.6cm,align=center}]
+  \node[box,fill=kcsky!25] (prog) at (0,0) {\textbf{Your program}\\variables live here\\(wiped when it closes)};
+  \node[box,fill=kcyellow!35] (file) at (7,0) {\textbf{high\_scores.txt}\\\texttt{Ada,120}\\\texttt{Kai,95}};
+  \draw[->,very thick,kcblue] ([yshift=4mm]prog.east) -- node[above,text=black]{\textbf{write}: \texttt{"w"} or \texttt{"a"}} ([yshift=4mm]file.west);
+  \draw[->,very thick,kcvermillion,dashed] ([yshift=-4mm]file.west) -- node[below,text=black]{\textbf{read}: \texttt{"r"}} ([yshift=-4mm]prog.east);
+  \node[below=1mm of file,font=\footnotesize] {stays on the disk, next to your program};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Writing to a file}
+\begin{pycode}[Save one score]
+with open("high_scores.txt", "a") as file:
+    file.write("Ada,120\n")
+\end{pycode}
+\begin{itemize}[leftmargin=1.2em]
+  \item \texttt{open(name, mode)} opens the file. \texttt{with} closes it again for you when the indented block ends.
+  \item \texttt{\textbackslash n} means \enquote{new line}. Without it, everything ends up squashed on one line.
+\end{itemize}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}>{\ttfamily}l p{4.2cm} p{6.4cm}@{}}
+\toprule
+\textrm{\textbf{Mode}} & \textbf{Means} & \textbf{Like a notebook\ldots} \\ \midrule
+"r" & read & Just read it. Crashes if the notebook is not there. \\
+"a" & append (add to the end) & Write on the next empty line. Makes a new notebook if needed. \\
+"w" & write (replace) & Rip out every page, then write. \textbf{Careful: old data is gone!} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Reading a file, line by line}
+\begin{pycode}[Load the scores back]
+scores = []
+with open("high_scores.txt", "r") as file:
+    for line in file:
+        line = line.strip()            # "Ada,120\n" -> "Ada,120"
+        if line != "":                 # skip empty lines
+            parts = line.split(",")    # "Ada,120"   -> ["Ada", "120"]
+            scores.append([parts[0], int(parts[1])])
+print(scores)                          # [['Ada', 120], ['Kai', 95]]
+\end{pycode}
+Everything you read from a file is \textbf{text} (a \texttt{str}), just like \texttt{input()}. Use \texttt{int()} to turn \texttt{"120"} into the number \texttt{120}.
+
+\subsection{Bug hunt: the file is not there!}
+The very first time a game runs, there is no score file yet. Reading it gives:
+\begin{outputcode}
+FileNotFoundError: [Errno 2] No such file or directory: 'high_scores.txt'
+\end{outputcode}
+Check the spelling of the name first. If the file really is new, catch the error with \texttt{try} and \texttt{except}:
+\begin{pycode}
+try:
+    with open("high_scores.txt", "r") as file:
+        print(file.read())
+except FileNotFoundError:
+    print("No scores yet - you will be the first!")
+\end{pycode}
+\texttt{try} means \enquote{have a go}. \texttt{except FileNotFoundError} means \enquote{if the file is missing, do this instead of crashing}.
+
+\begin{exercise}[Save High Scores]
+Folder: \texttt{exercises/week07/ex-save-high-scores}. Open \texttt{starter.py}, press \menu{Run} twice. Does it remember your first game?
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: in \texttt{save\_score()}, open the file with \texttt{"a"} and write one line \texttt{nickname,score}.
+  \item TODO 2: in \texttt{load\_scores()}, strip, skip empty lines, split at the comma and append \texttt{[nickname, score]}.
+  \item TODO 3: if the file is missing, make an empty one with \texttt{"w"}.
+  \item Play three times. Open \texttt{high\_scores.txt} (Finder: double-click it). Copy the first line here:
+  \answerlines{1}
+  \item Check your work with \texttt{check\_my\_work.py}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Word Guess (choose this one or 7.3)]
+Folder: \texttt{exercises/week07/ex-word-guess}. The secret words live in \texttt{words.txt}, one per line.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: \texttt{load\_words()} reads every line, strips it, makes it lowercase with \texttt{lower()} and skips empty lines.
+  \item TODO 2: \texttt{show\_progress()} shows guessed letters and \texttt{\_} for the rest, like \texttt{p \_ \_ e \_}.
+  \item Play a round with your partner, then add three new words to \texttt{words.txt}. My new words:
+  \answerlines{1}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Dot Art from a File (choose this one or 7.2)]
+Folder: \texttt{exercises/week07/ex-dot-art-file}. Each line of \texttt{my\_art.txt} is one dot: \texttt{x,y,size,color}.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: \texttt{parse\_line()} turns \texttt{"-150,-60,40,\#009E73"} into \texttt{[-150, -60, 40, "\#009E73"]}.
+  \item TODO 2: \texttt{load\_dots()} reads every line that is not empty. Run it: a caterpillar under a sun!
+  \item TODO 3: \texttt{save\_dots()} writes every dot back, one per line. Which mode is right here, and why?
+  \answerlines{1}
+  \item Change \texttt{my\_art.txt} to draw something new. Colors: \swatch{kcorange}~\texttt{\#E69F00} \swatch{kcsky}~\texttt{\#56B4E9} \swatch{kcgreen}~\texttt{\#009E73}
+        \swatch{kcyellow}~\texttt{\#F0E442} \swatch{kcblue}~\texttt{\#0072B2} \swatch{kcvermillion}~\texttt{\#D55E00} \swatch{kcpurple}~\texttt{\#CC79A7}.
+\end{enumerate}
+\end{exercise}
+
+\begin{tip}[What should a game save?]
+A file stays on the computer, and anyone who uses the computer can open it. Save only what the program needs:
+nicknames, scores, words, drawings. Never save real names, addresses, schools, birthdays or passwords.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{file}{Data saved on the computer's disk. It is still there after the program closes.}
+  \vocabword{open / with}{\texttt{open} gets a file ready to use; \texttt{with} closes it again automatically.}
+  \vocabword{read / write / append}{The modes \texttt{"r"}, \texttt{"w"} and \texttt{"a"}: look, replace everything, or add to the end.}
+  \vocabword{strip()}{Removes spaces and the invisible new-line \texttt{\textbackslash n} from both ends of a string.}
+  \vocabword{split(",")}{Cuts a string into a list at every comma: \texttt{"a,b"} becomes \texttt{["a", "b"]}.}
+  \vocabword{FileNotFoundError}{The error you get when you try to read a file that does not exist.}
+  \vocabword{data privacy}{Deciding what information about people is saved, who can see it, and keeping it safe.}
+\end{vocab}
+
+\begin{reflection}
+What is the difference between a variable and a file? \answerlines{2}
+My partner's game saved \enquote{only the newest score}. What do you think the bug was? \answerlines{1}
+Name two things a game should never save about you. \answerlines{1}
+\end{reflection}

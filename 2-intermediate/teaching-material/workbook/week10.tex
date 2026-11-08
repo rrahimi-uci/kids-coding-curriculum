@@ -1,0 +1,164 @@
+% Level 2, Week 10 -- Project Studio 1 (student workbook)
+\chapterweek{10}{Project Studio 1}{Plan first, then build the core: a small program that works beats a big one that does not.}
+
+\section{What you will learn}
+\begin{itemize}
+  \item How to turn your project plan into pseudocode and a flowchart.
+  \item How to split your project into functions, and split the work fairly with your partner.
+  \item How to build the \textbf{core loop} of your project: the smallest version that runs (Milestone M2).
+  \item How to review a partner's code kindly and usefully.
+\end{itemize}
+
+\section{The big idea: build a skateboard first}
+If you want to build a car, you do not start with one perfect wheel. Nobody can ride a wheel! You
+build a skateboard first: tiny, but you can ride it. Then a scooter, a bike, a car. Every version works.
+
+Your project works the same way. The \textbf{core loop} is your skateboard:
+\begin{itemize}
+  \item \textbf{Arcade Game:} a window, a player that moves with the keys, and a timer loop that keeps running (\texttt{screen.ontimer}).
+  \item \textbf{Art Studio:} a \texttt{while} loop that asks what to do (draw, save, load, quit) and does it.
+\end{itemize}
+No score, no title screen, no fancy colors yet. Those come later, and they are easy once the
+skeleton walks.
+
+\begin{center}
+%% alt: A row of project milestones with a marker "you are here" at M2. M1, pitch and plan in week 9, is done. M2, the core loop works in week 10, is the current step. M3, data and tests in week 11, M4, polish in week 11, and the showcase in week 12 come next.
+\begin{tikzpicture}[font=\small, align=center,
+  ms/.style={rounded corners=3pt, draw=kcblack, thick, minimum height=1.3cm, text width=2.35cm},
+  arr/.style={-Stealth, thick}]
+  \node[ms, fill=kcgray!15] (m1) {\textbf{M1}\\Pitch and plan\\(week 9)};
+  \node[ms, fill=kcorange!35, right=0.35cm of m1, line width=2pt] (m2) {\textbf{M2}\\Core loop works\\(week 10)};
+  \node[ms, fill=kcsky!30, right=0.35cm of m2] (m3) {\textbf{M3}\\Data and tests\\(week 11)};
+  \node[ms, fill=kcgreen!20, right=0.35cm of m3] (m4) {\textbf{M4}\\Polish\\(week 11)};
+  \node[ms, fill=kcpurple!25, right=0.35cm of m4] (sh) {\textbf{Showcase}\\share and\\celebrate (week 12)};
+  \draw[arr] (m1) -- (m2); \draw[arr] (m2) -- (m3); \draw[arr] (m3) -- (m4); \draw[arr] (m4) -- (sh);
+  \node[above=0.15cm of m2, font=\small\bfseries] {★ YOU ARE HERE};
+  \node[below=0.15cm of m1, font=\footnotesize] {done ✓};
+\end{tikzpicture}
+\end{center}
+
+\section{Pseudocode and flowcharts}
+\textbf{Pseudocode} is your program written in plain English, one step per line, before you write
+Python. A \textbf{flowchart} draws the same steps as shapes joined by arrows. Three shapes are all you need:
+\textbf{ovals} for start and end, \textbf{rectangles} for steps, and \textbf{diamonds} for yes/no questions.
+Here is the flowchart for a catching game:
+
+\begin{center}
+%% alt: A flowchart of a game. Start. Set up the screen, player and keys. Move every falling thing. Is it touching the player? If yes, add 1 to the score. Then ask: is the game over? If no, go back for the next tick. If yes, save the high score to a file and end. Key: an oval means start or end, a rectangle means a step and a diamond means a yes or no question.
+\begin{tikzpicture}[node distance=0.5cm and 1.4cm, font=\small, align=center,
+  term/.style={ellipse, draw=kcblue, fill=kcsky!25, thick, minimum width=2.4cm},
+  stp/.style={rectangle, draw=kcgreen, fill=kcgreen!12, thick, minimum width=3.8cm, minimum height=0.8cm},
+  ask/.style={diamond, aspect=2.4, draw=kcorange, fill=kcorange!15, thick, inner sep=1pt},
+  arr/.style={-Stealth, thick}]
+  \node[term] (start) {Start};
+  \node[stp, below=of start] (setup) {Set up screen, player, keys};
+  \node[stp, below=of setup] (move) {Move every falling thing};
+  \node[ask, below=of move] (touch) {Touching\\the player?};
+  \node[stp, right=of touch, minimum width=2.6cm] (score) {Add 1 to score};
+  \node[ask, below=of touch] (over) {Game over?};
+  \node[stp, below=of over] (save) {Save high score to a file};
+  \node[term, below=of save] (end) {End};
+  \draw[arr] (start) -- (setup);
+  \draw[arr] (setup) -- (move);
+  \draw[arr] (move) -- (touch);
+  \draw[arr] (touch) -- node[above]{yes} (score);
+  \draw[arr] (score.south) |- (over.east);
+  \draw[arr] (touch) -- node[right]{no} (over);
+  \draw[arr] (over) -- node[right]{yes} (save);
+  \draw[arr] (save) -- (end);
+  \draw[arr] (over.west) -- ++(-2.2,0) coordinate (c) |- (move.west);
+  \node[above] at ($(over.west)!0.5!(c)$) {no};
+  \node[left] at ($(c)!0.5!(c|-move.west)$) {next\\tick};
+  \node[right=1.2cm of start, draw=kcgray, rounded corners, text width=4.2cm, align=left, font=\footnotesize] {Oval = start or end\\Rectangle = a step\\Diamond = a yes/no question};
+\end{tikzpicture}
+\end{center}
+
+The same plan as pseudocode:
+\begin{tcolorbox}[colback=white,colframe=kcgray,boxrule=0.6pt,arc=2pt,title={\small\bfseries Pseudocode},coltitle=white,colbacktitle=kcgray]
+\ttfamily\small
+set up the screen, the player and the keys\\
+repeat every tick:\\
+\hspace*{2em}move every falling thing down\\
+\hspace*{2em}if a falling thing touches the player: add 1 to the score\\
+\hspace*{2em}if the game is over: save the high score and stop
+\end{tcolorbox}
+Every line that does one job can become a \textbf{function}. \enquote{Move the player but not off the
+screen} becomes \texttt{next\_x(x, direction)}: the position and direction go in, the new position
+comes out. That is \textbf{decomposition}: breaking a big problem into small named parts.
+
+\begin{exercise}[Paper prototype and plan check (M1)]
+\begin{enumerate}
+  \item Draw your screen on paper. Use coins for things that move.
+  \item One partner is \enquote{the computer}, the other is the player. Play for one minute: every clap is one tick.
+  \item Finish your plan: write the pseudocode (or draw the flowchart) for your core loop below.
+\end{enumerate}
+\answerspace{4.5cm}
+\begin{checklist}
+  \item My plan has a loop (every tick, or until Quit).
+  \item My plan has at least one yes/no decision.
+  \item My plan names the data: a list, a dictionary and a file.
+\end{checklist}
+\end{exercise}
+
+\begin{exercise}[A fair task board]
+Write each function on its own sticky note. Fill in the table, then take turns choosing tasks: one
+each, like picking teams. Move notes from TO DO to DOING to DONE as you work.
+
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{|X|X|X|p{2.2cm}|p{1.2cm}|}
+\hline
+\textbf{Function name} & \textbf{What goes in} & \textbf{What comes out} & \textbf{Who} & \textbf{Done} \\ \hline
+\texttt{next\_x} & x, direction & the new x & & \tickbox \\ \hline
+ & & & & \tickbox \\ \hline
+ & & & & \tickbox \\ \hline
+ & & & & \tickbox \\ \hline
+ & & & & \tickbox \\ \hline
+\end{tabularx}
+\end{exercise}
+
+\begin{exercise}[Build the core loop (M2)]
+Make a folder for your team's project and save your program as \texttt{mygame.py} (or
+\texttt{mystudio.py}). Never call it \texttt{turtle.py}! Build it in small steps and press \keys{F5}
+after each one. For an arcade game, the heart of the program is a loop that runs itself again:
+\begin{pycode}[the timer loop]
+def game_loop():
+    if not state["running"]:
+        return
+    # TODO: move falling things, check for catches, add to the score
+    screen.update()
+    screen.ontimer(game_loop, 50)   # run again in 50 milliseconds
+\end{pycode}
+\begin{checklist}
+  \item My program runs without a red error.
+  \item Something repeats by itself (it moves on the timer, or the menu comes back).
+  \item At least one key or menu choice works.
+  \item The start-up code is under \texttt{if \_\_name\_\_ == "\_\_main\_\_":}.
+  \item Line 1 has a comment with our nicknames, and credit for any code we remixed.
+\end{checklist}
+\end{exercise}
+
+\begin{exercise}[Partner code review]
+Swap seats with your partner (or another team). Run their program and read their code. Then write
+\textbf{two stars and a wish}: two things that are really good, and one kind idea. Be specific:
+\enquote{the name \texttt{next\_x} tells me exactly what it does} helps more than \enquote{nice}.
+
+★ \answerlines{1}
+★ \answerlines{1}
+Wish: \answerlines{1}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{pseudocode}{a plan for a program written in plain words, one step per line.}
+  \vocabword{flowchart}{a drawing of a program: ovals for start and end, rectangles for steps, diamonds for yes/no questions.}
+  \vocabword{decomposition}{breaking a big problem into small parts you can name and build one at a time.}
+  \vocabword{core loop}{the part of a game or app that repeats over and over; the smallest version that works.}
+  \vocabword{milestone}{a checkpoint on the way to the finished project, like M2 \enquote{core loop works}.}
+  \vocabword{code review}{reading someone else's code to help them find bugs and make it clearer.}
+\end{vocab}
+
+\begin{reflection}
+What was the smallest version of your project that worked today?
+\answerlines{2}
+Was your task split fair? What would you change next week?
+\answerlines{2}
+\end{reflection}

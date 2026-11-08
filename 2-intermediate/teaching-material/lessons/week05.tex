@@ -1,0 +1,174 @@
+% Level 2, Week 5 -- Dictionaries and Secret Codes
+\lesson{5}{Dictionaries and Secret Codes}{A dictionary looks things up by name, not by number, and can even hold a secret code.}
+\lessoninfo{Concepts: dict, keys/values, .items() (I), Caesar cipher (I), strings (R)}{Tools: Thonny, paper cipher wheel, scissors, split pin or pencil}{CSTA: 2-AP-11, 3A-AP-14, 2-NI-05, 2-NI-06}
+
+\begin{objectives}
+  \item The student can make a dictionary, read, change and add keys, and loop over it with \texttt{.items()}. (L2.G4; L2.W05.1)
+  \item The student can encode and decode a message with a Caesar shift, on paper and in Python. (L2.G4; L2.W05.2)
+  \item The student can explain what a \texttt{KeyError} means and avoid it with \texttt{if key in dictionary}. (L2.G6; L2.W05.3)
+  \item The student can explain why passwords and other secrets need protecting, and never type a real password into our programs. (L2.G9; L2.W05.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print (one per student): workbook chapter 5 (it contains the cipher wheel page), homework 5.
+  \item Scissors, and a split pin (paper fastener) or a pencil point to hold the two wheels together.
+  \item Before the session (5 minutes): write a secret message on a sticky note with shift 3: \texttt{brx duh d frgh euhdnhu}
+        (it says \enquote{you are a code breaker}).
+  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{exercises/week05/ex-monster-stats}.
+  \item A timer.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+Times are a guide: set a timer for each phase and move on when it rings.
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged: build the paper Caesar wheel and crack your secret sticky note.}
+  \timeslot{8--18}{Concept}{Lists find things by number; dictionaries find things by name. Keys and values. KeyError.}
+  \timeslot{18--28}{Guided demo}{Build a monster dictionary in the Shell; loop with \texttt{.items()}; trigger and fix a \texttt{KeyError}.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 5.1 Monster Stats, then 5.2 Caesar Cipher. Swap every 8 minutes. Last 5 minutes: secret-message swap.}
+  \timeslot{52--60}{Wrap-up}{Encryption and passwords talk, exit ticket, reflection, hand out homework 5.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Paper Caesar wheel]
+Students cut out the two wheels from the workbook page, put the small one on top of the big one and pin the centers
+(split pin, or a pencil point). Turn the inner wheel so that inner \textbf{a} sits under outer \textbf{d}: that is a \textbf{shift of 3}.
+\par To \textbf{encode}, find the plain letter on the inner wheel and write the outer letter. To \textbf{decode}, go the other way: outer to inner.
+\par Show your sticky note \texttt{brx duh d frgh euhdnhu} and say: \enquote{This was made with shift 3. Who can crack it?}
+(Answer: \enquote{you are a code breaker}.) Spaces stay spaces.
+\par\textbf{Ask:} \enquote{What comes after z?} (The wheel goes round, so z becomes c with shift 3.) Keep the wheels for homework and for B1.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}[Say]
+\enquote{Your cipher wheel is a lookup: give it a letter, it gives you the secret letter. Python has a tool made for lookups:
+the \textbf{dictionary}. A list finds things by \emph{number}: \texttt{backpack[0]}. A dictionary finds things by \emph{name}.
+Each name is called a \textbf{key}, and what it gives back is the \textbf{value}. We write a dictionary with curly brackets,
+and a colon between each key and its value.}
+\end{teacherscript}
+Write on paper, with arrows from each key to its value:
+\begin{pycode}
+monster = {"name": "Blobby", "health": 30, "attack": 4}
+monster["health"]              # 30   look up by key
+monster["health"] = 40         # change a value
+monster["color"] = "green"    # add a new key
+monster["magic"]               # KeyError: 'magic'  (no such key!)
+\end{pycode}
+
+\begin{analogy}[The real dictionary]
+In a paper dictionary you do not read page 1, page 2, page 3\ldots{} to find \enquote{dragon}: you jump straight to the word and read its meaning.
+The word is the \textbf{key}; the meaning is the \textbf{value}. If you look up a word that is not in the book, there is nothing to find:
+that is Python's \texttt{KeyError}. And like a real dictionary, the spelling must be exact: \texttt{"Health"} and \texttt{"health"} are different words.
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+Type each line below into the Thonny \textbf{Shell}, pressing \keys{Return} after each. Ask for a prediction first.
+\begin{pycode}[Monster stats in the Shell]
+blobby = {"name": "Blobby", "health": 30, "attack": 4}
+blobby["attack"]                          # 4
+blobby["attack"] = blobby["attack"] + 2   # level up the attack
+blobby                                    # see the whole dictionary
+for key, value in blobby.items():
+    print(f"{key}: {value}")              # press Return twice to run the loop
+blobby["Attack"]                          # KeyError (capital A!)
+"magic" in blobby                         # False: check first
+\end{pycode}
+\begin{workedexample}[Talking through the Shell demo]
+\begin{enumerate}[leftmargin=1.4em]
+  \item After the \texttt{for} line, say: \enquote{\texttt{.items()} hands us each key \emph{and} its value, one pair at a time.}
+  \item After the \texttt{KeyError}, read it bottom-up: \enquote{KeyError, and then the key it could not find, in quotes. Look at the spelling.}
+  \item Then open \texttt{ex-monster-stats/starter.py}, press \menu{Run} (\keys{F5}) and type \texttt{magic} when it asks for a stat. Crash!
+        That fix (TODO 3) is for the students.
+\end{enumerate}
+\end{workedexample}
+The finished Monster Stats, for you:
+\pyfile{../exercises/week05/ex-monster-stats/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Codemakers]
+Swap driver and navigator when the 8-minute timer rings (about minutes 36 and 44).
+\textbf{1 student:} you are the navigator; in the last 5 minutes you send them a secret message to decode with their program.
+\textbf{2 students:} one pair. \textbf{3 students:} a rotating trio with a \textbf{codebreaker} who checks every encoded message with the paper wheel.
+\textbf{4 students:} two pairs. In the free-build, each pair encodes a message for the other pair.
+\end{pairroles}
+
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Exercise 5.1 Monster Stats} (folder \texttt{ex-monster-stats}, about 10 minutes): TODO 1 (\texttt{.items()}), TODO 2 (level up), TODO 3 (KeyError).
+  \item \textbf{Exercise 5.2 Caesar Cipher} (folder \texttt{ex-caesar-cipher}, about 12 minutes). Run it first and look at the printed dictionary
+        \texttt{\{'a': 'd', 'b': 'e', ...\}}: \enquote{That is your paper wheel, as a dictionary!} Then finish \texttt{encode()} and \texttt{decode()}.
+  \item After each exercise: open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+
+\begin{teachernote}[The \% sign in make\_key()]
+\texttt{(i + shift) \% 26} is the remainder after dividing by 26: it wraps the alphabet round like a clock, so after \textbf{z} comes \textbf{a}.
+Students only use \texttt{make\_key()}; if asked, say \enquote{it is your paper wheel going round, in code}.
+\end{teachernote}
+
+\begin{bughunt}[KeyError and wrong spelling]
+Two kinds of bug today. (1) The loud one: \texttt{get\_stat(blobby, "magic")} crashes with \texttt{KeyError: 'magic'}. Fix: \texttt{if stat in monster:}
+before looking it up, and \texttt{return 0} otherwise. (2) The quiet one: \texttt{monster["Health"] = 50} does \emph{not} crash. It adds a new
+key with a capital H, and the real \texttt{"health"} does not change. Show it in the Shell and ask: \enquote{Why are there two healths now?}
+Printing the whole dictionary is the fastest way to catch it.
+\end{bughunt}
+
+\begin{freebuild}[Secret-message swap]
+Last 5 minutes: each student (or pair) uses their Caesar program to encode a short, kind message with a secret shift,
+writes the secret version on a sticky note, and passes it on. The receiver decodes it, with the program or the paper wheel.
+Extension: decode one without being told the shift.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Encryption and passwords]
+Say: \enquote{You just cracked a Caesar cipher in a minute! Real apps use much stronger \textbf{encryption}, math so hard
+that even fast computers cannot undo it without the key. That keeps messages and bank details safe.} Agree these rules together:
+(1) a real password is only for you and your parent or carer: not for friends, games or chat;
+(2) never type a real password into a program you or a friend wrote: we only use made-up game passwords;
+(3) long is strong: three random words joined together beat a short word with a number;
+(4) if a website or message asks for your password, ask a grown-up first: real companies never ask for it in a message.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\begin{pycode}
+pet = {"name": "Pixel", "hunger": 5}
+pet["hunger"] = pet["hunger"] - 2
+print(pet["hunger"])
+print(pet["happy"])
+\end{pycode}
+What happens on lines 3 and 4? \textbf{Answer:} line 3 prints \texttt{3}; line 4 crashes with \texttt{KeyError: 'happy'} (no such key).
+Bonus: encode \texttt{cat} with shift 1 (\texttt{dbu}). \textbf{Look for:} mixing up keys and values (\enquote{it prints Pixel}): draw the arrows again.
+\end{formativecheck}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item When is a dictionary better than a list? Give a game example.
+  \item What does a \texttt{KeyError} tell you, and how do you fix it?
+  \item Why is a Caesar cipher not good enough for real secrets?
+\end{itemize}
+\end{reflection}
+Hand out homework 5 (Word Counter). It takes 15--20 minutes.
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Square brackets or parentheses instead of curly braces} when making a dictionary. Making: \texttt{\{ \}}. Looking up: \texttt{monster["health"]}.
+  \item \textbf{Key without quotes} (\texttt{monster[health]} gives \texttt{NameError}), or \textbf{wrong spelling/capitals} (a quiet bug that makes a new key: print the dictionary to spot it).
+  \item \textbf{\texttt{for key in monster:}} gives only the keys. To get both, use \texttt{for key, value in monster.items():}.
+  \item \textbf{Caesar: losing the spaces}. Letters not in the key (spaces, \texttt{!}) must be added unchanged in an \texttt{else}.
+  \item \textbf{Decode shifts the wrong way}: decoding with shift 3 is encoding with shift \texttt{-3} (or 23).
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Draw the monster dictionary as a key/value table on paper before coding. In 5.2, do \texttt{encode()} together on paper
+for \texttt{hi}: look up h, add the result, then i. Hint for \texttt{decode()}: \enquote{it is one line}.
+\extensionpath Write \texttt{crack(secret)} that prints all 25 shifts so you can spot the real message (try it on \texttt{brx fudfnhg lw}). In 5.1, write
+\texttt{battle(a, b)} that returns the name of the monster with the higher attack, and store several monsters in a list of dictionaries.
+\end{differentiation}
+
+\begin{stretchchallenge}[Keep the capitals]
+Our cipher turns every message into small letters. Make \texttt{encode()} keep capital letters: if \texttt{letter.isupper()}, look up
+\texttt{letter.lower()} and add the result with \texttt{.upper()}. Check that \texttt{Hi Zoe!} with shift 3 becomes \texttt{Kl Crh!}.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip building the wheels in class: decode the sticky note together with the alphabet strip in the workbook instead, and send the wheel home.
+Do 5.2 Caesar Cipher in class and set 5.1 Monster Stats as an extra. Keep the passwords talk: it is short and important.
+\end{teachernote}

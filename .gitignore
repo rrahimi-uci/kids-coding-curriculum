@@ -1,0 +1,26 @@
+# Build output (PDFs are built with `make pdf`, or downloaded from CI artifacts)
+build/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Student runtime files written by exercises (high scores etc. are recreated)
+*.tmp
+# macOS
+.DS_Store
+.venv-site/
+site/node_modules/
+site/dist/
+site/.astro/
+site/src/generated/
+site/public/generated/
+site/public/downloads/
+build/site-cache/

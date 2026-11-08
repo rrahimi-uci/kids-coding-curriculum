@@ -1,0 +1,119 @@
+% Level 2, Week 9 -- Event-Driven Games (student workbook)
+\chapterweek{9}{Event-Driven Games}{Keys and timers make things happen; a game loop moves the world one frame at a time.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item How to make keys call your functions with \texttt{onkey} and \texttt{listen}.
+  \item How a \textbf{game loop} with \texttt{ontimer} moves everything one frame at a time.
+  \item How to keep the game's \textbf{state} in a dictionary and check if two things are \textbf{touching}.
+  \item How to start planning your own final project.
+\end{itemize}
+
+\section{The big idea: games wait for events}
+Most programs you wrote ran from top to bottom and stopped. A game \textbf{waits}. When something happens (a key press, a timer ringing),
+turtle calls one of your functions. The thing that happens is an \textbf{event}; the function that answers it is a \textbf{handler}.
+
+\begin{pycode}[Keys call handlers]
+def go_left():
+    player.setx(player.xcor() - 20)
+
+screen.onkey(go_left, "Left")   # when Left is pressed, call go_left
+screen.listen()                 # switch on the "doorbell" for keys
+\end{pycode}
+Notice: \texttt{go\_left} has \textbf{no brackets} in the \texttt{onkey} line. We hand turtle the function, and turtle calls it later.
+With brackets, Python would call it right away, only once.
+
+\subsection{The game loop}
+A game is like a flip book: every \textbf{frame} the world moves a tiny bit. Our game loop does one frame, then asks turtle to call it again soon.
+
+\begin{center}
+%% alt: The game loop as a cycle of four steps; one lap is one frame, 50 milliseconds. Step 1: move every meteor down. Step 2: check whether anything is touching or off the bottom; if it hit, it is game over and the timer is not set again. Step 3: update the score and the screen. Step 4: set the timer with ontimer(game_loop, 50), which starts the next lap.
+\begin{tikzpicture}[font=\small,>={Stealth[length=3mm]},
+  st/.style={draw=black,thick,rounded corners=3pt,minimum width=3.6cm,minimum height=0.9cm,align=center}]
+  \node[st,fill=kcsky!25] (a) at (0,1.6) {\textbf{1. Move}\\every meteor down};
+  \node[st,fill=kcyellow!35] (b) at (4.6,0) {\textbf{2. Check}\\touching? off the bottom?};
+  \node[st,fill=kcgreen!25] (c) at (0,-1.6) {\textbf{3. Update}\\score, \texttt{screen.update()}};
+  \node[st,fill=kcorange!25] (d) at (-4.6,0) {\textbf{4. Set the timer}\\\texttt{ontimer(game\_loop, 50)}};
+  \draw[->,very thick] (a) to[bend left=15] (b);
+  \draw[->,very thick] (b) to[bend left=15] (c);
+  \draw[->,very thick] (c) to[bend left=15] (d);
+  \draw[->,very thick] (d) to[bend left=15] (a);
+  \node[draw=kcvermillion,thick,dashed,rounded corners=3pt,align=center,fill=kcvermillion!10] (go) at (4.8,-2.1) {hit? \textbf{GAME OVER}\\(do not set the timer)};
+  \draw[->,thick,dashed,kcvermillion] (b) -- (go);
+  \node[align=center,font=\footnotesize] at (0,0) {one lap\\= one frame\\(50 ms)};
+\end{tikzpicture}
+\end{center}
+
+\begin{pycode}[One frame of Dodge the Meteors (shortened)]
+state = {"score": 0, "running": True}
+
+def game_loop():
+    for meteor in meteors:                      # a list of turtles
+        meteor.sety(meteor.ycor() - 8)          # 1. move
+        if is_touching(meteor.xcor(), meteor.ycor(),
+                       player.xcor(), player.ycor(), 30):
+            state["running"] = False            # 2. check: hit!
+    if state["running"]:
+        screen.ontimer(game_loop, 50)           # 4. again in 50 ms
+\end{pycode}
+
+\subsection{Touching = close enough}
+Two things touch when the distance between them is small. \texttt{math.dist} measures the distance between two points:
+\py|math.dist((0, 0), (30, 40))| gives \texttt{50.0}. If that is less than about 30, the meteor hit the player.
+
+\begin{exercise}[Etch-a-Sketch]
+Folder: \texttt{exercises/week09/ex-etch-a-sketch}. Run \texttt{starter.py}, \textbf{click the window}, press the Up arrow.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: add \texttt{screen.listen()}. Now Up draws a line.
+  \item TODO 2: write \texttt{go\_down()}, \texttt{go\_left()}, \texttt{go\_right()} (headings 270, 180, 0).
+  \item TODO 3: connect the keys: \texttt{"Down"}, \texttt{"Left"}, \texttt{"Right"}, \texttt{"space"}, \texttt{"n"}, \texttt{"c"}.
+  \item TODO 4: \texttt{c} clears the drawing. Draw something and describe it here: \answerlines{1}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Dodge the Meteors]
+Folder: \texttt{exercises/week09/ex-dodge-meteors}. You are the blue turtle; the round orange-red meteors fall.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: \texttt{move\_player()} returns the new x, using \texttt{clamp()} so you stop at the walls.
+  \item TODO 2: \texttt{is\_touching()} uses \texttt{math.dist} and \texttt{<}.
+  \item TODO 3: connect \texttt{"Left"} and \texttt{"Right"}, then \texttt{listen()}.
+  \item TODO 4: at the end of \texttt{game\_loop()}, set the timer again. Now play! My best score: \rule{2cm}{0.4pt}
+  \item Which functions are \textbf{logic} (no turtle) and which are \textbf{drawing}? Why is it useful to keep them apart? \answerlines{2}
+\end{enumerate}
+\end{exercise}
+
+\section{Your final project starts now!}
+For the next three weeks you will build your own program, alone or with a partner. Read the \textbf{Project Brief} and choose:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{6.6cm}p{6.6cm}@{}}
+\toprule
+\textbf{Option A: Arcade Game} & \textbf{Option B: Art Studio} \\ \midrule
+A turtle game with keys, a timer and a score, like Dodge the Meteors or Star Catcher. The file saves high scores. &
+A program that makes designs (often random) and can save and load them, like Dot Art from a File. \\
+\bottomrule
+\end{tabular}
+\end{center}
+Both must use: functions that return values, a list, a dictionary, a loop or game loop, a file, and at least 3 tests.
+\textbf{Milestone M1 (start of next week):} Planning page 1 (pitch), page 2 (pseudocode or flowchart) and, in a pair, page 3 (task split).
+
+\begin{tip}[Borrowing pictures or sounds]
+Pictures and sounds belong to the people who made them. Only use ones with an open license (CC0: free for anyone; CC BY: free if you give credit),
+ask a grown-up to help you find them, and write a credit in your code, like \texttt{\# Star sound by Mei (CC BY)}. Turtle's own shapes are always fine!
+\end{tip}
+
+\begin{vocab}
+  \vocabword{event}{Something that happens while a program runs: a key press, a click, a timer ringing.}
+  \vocabword{handler}{The function that runs when an event happens.}
+  \vocabword{listen()}{Tells the turtle window to start hearing key presses.}
+  \vocabword{game loop}{A function that does one frame of the game, then sets a timer to run again.}
+  \vocabword{frame}{One tiny step of a game: everything moves a little, then it is drawn.}
+  \vocabword{collision}{Two things touching. We check it with the distance between them.}
+  \vocabword{license / attribution}{The rules for using someone's work / giving them credit for it.}
+\end{vocab}
+
+\begin{reflection}
+What happens if you forget \texttt{ontimer} at the end of the game loop? \answerlines{1}
+Explain to a friend why \texttt{onkey(go\_left(), "Left")} does not work. \answerlines{2}
+My project idea in one sentence: \answerlines{1}
+\end{reflection}

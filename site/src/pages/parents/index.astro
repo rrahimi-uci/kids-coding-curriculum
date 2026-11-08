@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { u, parentsData, fix, levels } from '../../lib/data';
+const P = parentsData();
+const L = levels();
+const f = P.facts;
+---
+<Base title="For parents" description="Why learning to code matters, what the research says, what a session looks like and how you can help at home.">
+  <div class="measure stack">
+    <p class="eyebrow">For parents and carers</p>
+    <h1>Is this course right for my child?</h1>
+    <p class="lead">Honest answers, with sources. You do not need to know anything about coding to help your child succeed here.</p>
+  </div>
+
+  <div class="grid cols-3" style="margin-top:2rem">
+    <a class="card accent l1" href={u('parents/research/')}><h2>What the research says</h2><p>The evidence for learning to code, what is strong, what is mixed and what we do not know yet. Every claim has a source.</p></a>
+    <a class="card accent l2" href={u('parents/slides/')}><h2>The information-evening slides</h2><p>View the slides, or download the deck and a one-page summary to print.</p></a>
+    <a class="card accent l3" href={u('parents/faq/')}><h2>Questions and answers</h2><p>Too young? Too much screen time? Will AI make this pointless? Short, straight answers.</p></a>
+  </div>
+
+  <div class="measure stack">
+    <h2 id="commitment">What it asks of you each week</h2>
+    <ul>
+      <li><strong>Sessions:</strong> {f.SessionLength}, {f.GroupSize}.</li>
+      <li><strong>Length:</strong> each level takes {f.LevelWeeks}; all three take {f.TotalWeeks}. You choose, level by level, whether to continue.</li>
+      <li><strong>Homework:</strong> {f.Homework}. Every set has a Core task for everyone, with optional Challenge and Creative extras.</li>
+      <li><strong>Equipment:</strong> {f.Equipment}.</li>
+    </ul>
+
+    <h2 id="help">How you can help at home</h2>
+    <p>No coding needed. These small habits matter more than any technical knowledge:</p>
+    <div set:html={fix(P.help_html)} />
+
+    <h2 id="assessment">How progress is checked</h2>
+    <p>Each level has a friendly checkpoint in week 6, a showcase and exit check in week 12, and a project rubric. Scores are used to decide what support to offer next. They are never grades. The rubric values three things equally: making the project your own, making it work, and being able to explain it. Rubric levels are <em>Just starting</em>, <em>Getting there</em>, <em>Got it</em> and <em>Expert</em>.</p>
+    <p><strong>What you can celebrate:</strong> a working project at the end of each level, a child who can explain how it works, and a child who says "I found the bug".</p>
+
+    <h2 id="safety">Safety, privacy and inclusion</h2>
+    <p>This is how the course keeps children safe:</p>
+    <div set:html={fix(P.safety_html)} />
+    <p>This website follows the same rules. It has no accounts, no analytics and no cookies; progress ticks stay in your own browser. See <a href={u('about/#accessibility')}>accessibility</a> for the easy-read font and dark mode.</p>
+
+    <h2 id="levels">The three levels</h2>
+    <ul>
+      {L.map((l) => <li><a href={u(`levels/${l.slug}/`)}><strong>Level {l.number}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>. <a href={u(`parents/notes/${l.slug}/`)}>Notes for families</a>.</li>)}
+    </ul>
+    <div class="btn-row">
+      <a class="btn" href={P.pdf.handout.url.replace('%BASE%', u(''))}><Icon name="download" /> One-page summary (PDF, {P.pdf.handout.kb} KB)</a>
+      <a class="btn secondary" href={u('curriculum/')}>See the roadmap</a>
+      <a class="btn secondary" href={u('resources/setup-mac/')}>Set up the Mac</a>
+    </div>
+  </div>
+</Base>

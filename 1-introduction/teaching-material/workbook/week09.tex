@@ -1,0 +1,136 @@
+% Level 1, Workbook chapter 9 -- Variables, Input and Choices   (input by student-workbook.tex)
+\chapterweek{9}{Variables, Input and Choices}{Programs can ask questions, remember the answers and decide what to do.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item How a \textbf{variable} remembers a value.
+  \item How to ask a question with \texttt{input}, and turn the answer into a number with \texttt{int}.
+  \item How \texttt{if}, \texttt{elif} and \texttt{else} let a program choose.
+  \item Which questions a program should never ask.
+\end{itemize}
+
+\section{The big idea: labeled boxes}
+Remember the \texttt{score} variable in Scratch? A variable is a box with a label. You put something in it, and you can use it later.
+\begin{center}
+%% alt: A box labeled size that holds 100. The line size = 100 puts 100 in the box. The line t.forward(size) takes it out and uses it: 100 steps.
+\begin{tikzpicture}[font=\small]
+  \draw[thick,fill=kcorange!25] (0,0) rectangle (2.2,1.4);
+  \node[draw,fill=white,rounded corners=2pt,font=\ttfamily\bfseries] at (1.1,1.4) {size};
+  \node[font=\Large\ttfamily] at (1.1,0.6) {100};
+  \node[anchor=west,align=left] at (2.8,0.9) {\texttt{size = 100} puts 100 in the box labeled \texttt{size}.\\\texttt{t.forward(size)} takes it out and uses it: 100 steps.};
+\end{tikzpicture}
+\end{center}
+One equals sign \texttt{=} means \textbf{put in the box}. (Two equals signs \texttt{==} mean something else --- see below!)
+
+\subsection{Asking a question}
+\texttt{input} asks a question in the Shell and waits. Click in the Shell, type your answer and press \keys{Return}. But watch out: \texttt{input} \textbf{always} gives back \textbf{text}, even when you type a number.
+\begin{center}
+%% alt: A chain of four steps with arrows. You type 120. The input command gives back the text "120". The int command turns it into a number. The result is the number 120.
+\begin{tikzpicture}[font=\small,node distance=0.5cm,
+  stp/.style={draw,rounded corners=3pt,thick,minimum height=1.1cm,align=center,inner sep=4pt}]
+  \node[stp,fill=kcsky!20] (a) {You type\\\texttt{120}};
+  \node[stp,fill=kcyellow!35,right=of a] (b) {\texttt{input} gives text\\\texttt{"120"}};
+  \node[stp,fill=kcorange!25,right=of b] (c) {\texttt{int(...)}\\turns it into a number};
+  \node[stp,fill=kcgreen!20,right=of c] (d) {the number\\\texttt{120}};
+  \draw[-{Stealth},thick] (a) -- (b);
+  \draw[-{Stealth},thick] (b) -- (c);
+  \draw[-{Stealth},thick] (c) -- (d);
+\end{tikzpicture}
+\end{center}
+\begin{pycode}
+answer = input("How big should the square be? ")
+size = int(answer)
+\end{pycode}
+
+\begin{exercise}[Square of Any Size]
+Folder: \texttt{week09/ex-size-it}. Run the starter and type \texttt{120} in the Shell. A red \texttt{TypeError}! The turtle cannot walk the text \texttt{"120"}. Fix it with \texttt{size = int(answer)}. Try 50, 150 and 250.
+\end{exercise}
+
+\section{Making choices: if, elif, else}
+A program can choose what to do. Python checks the rules from the top. The \textbf{first} rule that is true wins, and the others are skipped. \texttt{else} catches everything that is left.
+\begin{center}
+%% alt: A flowchart. Is the answer "orange"? If yes (the if part), use orange. If no, is it "blue"? If yes (the elif part), use blue. If no (the else part), print a message and use black.
+\begin{tikzpicture}[font=\small,node distance=0.8cm and 1.3cm,
+  q/.style={draw,diamond,aspect=2.4,thick,fill=kcsky!15,inner sep=1pt,align=center},
+  a/.style={draw,rounded corners=3pt,thick,align=center,minimum width=2.6cm,inner sep=4pt}]
+  \node[q] (q1) {is it\\\texttt{"orange"}?};
+  \node[q,below=of q1] (q2) {is it\\\texttt{"blue"}?};
+  \node[a,below=of q2,fill=kcgray!15] (e) {\textbf{else}: print a message,\\use black};
+  \node[a,right=of q1,fill=kcorange!30] (o) {\textbf{if}: use orange};
+  \node[a,right=of q2,fill=kcblue!20] (b) {\textbf{elif}: use blue};
+  \draw[-{Stealth},thick] (q1) -- node[above]{yes} (o);
+  \draw[-{Stealth},thick] (q2) -- node[above]{yes} (b);
+  \draw[-{Stealth},thick] (q1) -- node[left]{no} (q2);
+  \draw[-{Stealth},thick] (q2) -- node[left]{no} (e);
+\end{tikzpicture}
+\end{center}
+\begin{pycode}
+if color_name == "orange":
+    color = "#E69F00"
+elif color_name == "blue":
+    color = "#0072B2"
+else:
+    print("I do not know that color. I will use black.")
+    color = "#000000"
+\end{pycode}
+Every \texttt{if}, \texttt{elif} and \texttt{else} line ends with a colon, and the lines under it are pushed in 4 spaces --- just like loops.
+
+\subsection{Comparing}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Sign & Means & Example that is true\\
+\midrule
+\texttt{==} & is the same as & \texttt{"blue" == "blue"}\\
+\texttt{!=} & is not the same as & \texttt{"Blue" != "blue"} (Python is picky!)\\
+\texttt{<} & is less than & \texttt{3 < 10}\\
+\texttt{>} & is more than & \texttt{25 > 10}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Pick a Color]
+Folder: \texttt{week09/ex-color-choice}. The program knows orange and blue. Add an \texttt{elif} for \texttt{"green"} (\texttt{"\#009E73"}) and an \texttt{else} that prints a friendly message and uses black. Test with \texttt{orange}, \texttt{blue}, \texttt{green} and \texttt{pizza}. The color name is written under the circle, so you can tell the colors apart even without seeing color.
+\end{exercise}
+
+\begin{exercise}[How Many Stars?]
+Folder: \texttt{week09/ex-star-row}. Ask how many stars (1 to 10). Before drawing: \textbf{if} the number is more than 10, print a message and use 10; \textbf{elif} it is less than 1, print a message and use 1; \textbf{else} print \texttt{"Coming right up!"}. Test with 3, 25 and 0.
+\end{exercise}
+
+\section{Questions a program should NOT ask}
+Check one box for each question.
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Question & OK & Never\\
+\midrule
+What is your favorite color? & \tickbox & \tickbox\\
+Where do you live? & \tickbox & \tickbox\\
+How many stars should I draw? & \tickbox & \tickbox\\
+What is your password? & \tickbox & \tickbox\\
+What is your hero name? & \tickbox & \tickbox\\
+What school do you go to? & \tickbox & \tickbox\\
+What is your full name? & \tickbox & \tickbox\\
+What is your favorite animal? & \tickbox & \tickbox\\
+\bottomrule
+\end{tabular}
+\end{center}
+Our rule: ask about \textbf{choices} (colors, sizes, numbers), never about \textbf{who you are}. If an app or game asks for personal details, stop and ask a grown-up.
+
+\begin{vocab}
+  \vocabword{Variable}{A labeled box that remembers a value, like \texttt{size = 100}.}
+  \vocabword{input}{Asks a question in the Shell and gives back the answer as text.}
+  \vocabword{int}{Turns text like \texttt{"120"} into the number 120.}
+  \vocabword{Text (string)}{Letters or numbers inside quote marks, like \texttt{"blue"} or \texttt{"120"}.}
+  \vocabword{if / elif / else}{Python's way to choose: \enquote{if this, else if that, otherwise\ldots}}
+  \vocabword{Comparison}{A question with a yes/no answer, like \texttt{stars > 10}.}
+\end{vocab}
+
+\begin{reflection}
+Think of a game you know. Where does it ask you something and then decide what happens?
+\answerlines{2}
+Why does \texttt{input} need \texttt{int} for sizes, but not for color names?
+\answerlines{2}
+\end{reflection}

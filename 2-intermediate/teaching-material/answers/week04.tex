@@ -1,0 +1,54 @@
+% Level 2, Week 4 -- answer key
+\answersweek{4}{While Loops and Game Loops}{Answers for workbook chapter 4 and homework 4.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 4.1 Guess My Number]
+\textbf{Step 1:} it keeps going because nothing ever leaves the \texttt{while True} loop (no \texttt{break} when the guess is correct).\par
+\textbf{What to look for:} \texttt{tries = tries + 1} is indented inside the loop; the \texttt{break} sits inside \texttt{if result == "Correct":};
+\texttt{ask\_number()} checks \texttt{answer.isdigit()} \emph{before} \texttt{int(answer)} and also checks the range.
+Also correct: \texttt{if low <= number <= high:}, or a loop \texttt{while not answer.isdigit():}. Note that \texttt{-3} is rejected
+because \texttt{"-3".isdigit()} is \texttt{False}; that is fine here because negative guesses are out of range anyway.
+\end{answer}
+\pyfile{../exercises/week04/ex-guess-number/solution.py}
+
+\begin{answer}[Exercise 4.2 Pixel Art]
+\textbf{What to look for:} \texttt{x} is reset at the start of every row (inside the outer loop, before the inner loop) and
+\texttt{y = y - size} is inside the outer loop but after the inner loop. The Shell shows \texttt{Green pixels: 46}.
+Own designs: every row has the same length and uses the palette letters; pictures may be anything kind and school-appropriate.
+\end{answer}
+\pyfile{../exercises/week04/ex-pixel-art/solution.py}
+
+\section{Homework}
+\begin{answer}[Core: Trace it first]
+\begin{tabular}{@{}lllllll@{}}
+round: & start & 1 & 2 & 3 & 4 & 5 \\
+health: & 30 & 23 & 16 & 9 & 2 & $-5$ \\
+hits: & 0 & 1 & 2 & 3 & 4 & 5 \\
+\end{tabular}\par
+\texttt{hits\_needed(30, 7)} gives back \textbf{5}.
+\end{answer}
+
+\begin{answer}[Core: Slime Battle]
+\textbf{What to look for:} both lines inside the \texttt{while health > 0:} loop are indented. If a student reports that Thonny
+\enquote{froze}, the subtraction is missing or outside the loop: a perfect example of this week's bug.
+\end{answer}
+\pyfile{../exercises/week04/hw-slime-battle/solution.py}
+
+\begin{answer}[Challenge: Count up to a target]
+\begin{pycode}
+def days_to_save(goal, per_day):
+    """Return how many days of saving it takes to reach the goal."""
+    saved = 0
+    days = 0
+    while saved < goal:
+        saved = saved + per_day
+        days = days + 1
+    return days
+\end{pycode}
+\texttt{days\_to\_save(50, 12)} is 5 (12, 24, 36, 48, 60). Accept any loop that gives 5.
+\end{answer}
+
+\begin{answer}[Creative: Pixel sprite design]
+Any design is fine. Check that each row's letter code has the same number of characters as the row has squares,
+and that only the palette letters and \texttt{.} are used.
+\end{answer}

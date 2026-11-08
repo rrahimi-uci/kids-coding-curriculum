@@ -1,0 +1,56 @@
+% Level 3, Week 6 answers -- Review and Checkpoint
+\answersweek{6}{Review and Checkpoint}{Answers for workbook chapter 6 and homework 6.}
+
+\begin{teachernote}[Mid-level checkpoint]
+The checkpoint answers and rubric are in the assessments section at the end of this answer key. Every bug-hunt answer below is the \emph{fixed} file; the comment at its top lists the bugs that were in the student's starter.
+\end{teachernote}
+
+\section{Workbook exercises}
+\subsection{Exercise 6.1: Bug Hunt 1, Score Keeper}
+\pyfile{../exercises/week06/ex-bug-missing-self/solution.py}
+\begin{answer}[Exercise 6.1: Score Keeper]
+Errors in order: \texttt{TypeError: ScoreKeeper.add() takes 1 positional argument but 2 were given} (fix \texttt{def add(self, points)}), then \texttt{UnboundLocalError} in \texttt{undo\_last} (fix \texttt{self.score -= last}), then \texttt{NameError: name 'nickname' is not defined} (fix \texttt{self.nickname}). Output: \texttt{Comet has 10 points}.
+\end{answer}
+
+\subsection{Exercise 6.2: Bug Hunt 2, Lost Scores}
+\pyfile{../exercises/week06/ex-bug-lost-items/solution.py}
+\begin{answer}[Exercise 6.2: Lost Scores]
+The buggy starter printed \texttt{Sorted: [10, 30, 40]} and \texttt{Original: [50]}. Three fixes: \texttt{remaining = list(scores)} (a copy, so the original is not emptied); \texttt{while len(remaining) > 0} (the last score was left behind); always \texttt{result.append(smallest)} (the duplicate 10 was skipped).
+Accept \texttt{scores[:]} or \texttt{scores.copy()} for the copy, and \texttt{while remaining:} for the loop.
+\end{answer}
+
+\subsection{Exercise 6.3: Bug Hunt 3, Word Finder}
+\pyfile{../exercises/week06/ex-bug-binary-search/solution.py}
+\begin{answer}[Exercise 6.3: Word Finder]
+\textbf{Trace table (buggy code):} \texttt{low} = 0, \texttt{high} = 3 (the buggy \texttt{len(words)}), \texttt{0 < 3} is true, \texttt{mid} = 1, \enquote{bee} is bigger than \enquote{ant}, so \texttt{high} = 0. Next check: \texttt{0 < 0} is false, so the loop stops and returns $-1$, although \enquote{ant} is still there at index 0: one item was left, but never checked.
+The starter could not find \enquote{dragon}, \enquote{eagle} and others. Fixes: \texttt{high = len(words) - 1} and \texttt{while low <= high}. Fixing only the loop condition first gives \texttt{IndexError} for \enquote{zebra}; that is expected progress.
+\end{answer}
+
+\subsection{Exercise 6.4: Bug Hunt 4, Shape Party}
+\pyfile{../exercises/week06/ex-bug-shape-party/solution.py}
+\begin{answer}[Exercise 6.4: Shape Party]
+Bugs appear in this order: nothing drawn (\texttt{shape.draw} needs brackets and the turtle: \texttt{shape.draw(t)}); \texttt{AttributeError: 'Hexagon' object has no attribute 'x'} (add \texttt{super().\_\_init\_\_(x, y, size, color)}); diamonds drawn as dots (rename \texttt{drow} to \texttt{draw}). The finished picture shows 4 hexagons and 3 diamonds, 7 filled shapes.
+\end{answer}
+
+\section{Homework}
+\subsection{Core: Piggy Bank Bug Hunt}
+\pyfile{../exercises/week06/hw-bug-bank/solution.py}
+\begin{answer}[Core: Piggy Bank]
+\begin{tabular}{@{}p{0.9cm}p{7.1cm}p{5.5cm}@{}}
+\toprule
+Bug & What was wrong & Fix \\ \midrule
+1 & \texttt{deposit}: \texttt{self.coins = amount} replaced the total & \texttt{self.coins = self.coins + amount} \\
+2 & \texttt{withdraw}: \texttt{>=} refused taking exactly all coins & \texttt{amount > self.coins} \\
+3 & \texttt{statement}: \texttt{range(len(self.log) - 1)} lost the last line & \texttt{range(len(self.log))} \\
+\bottomrule
+\end{tabular}\\[4pt]
+Line numbers may differ slightly if the student added comments. The buggy starter printed \texttt{Comet has 5 coins} and only one statement line.
+\end{answer}
+
+\begin{answer}[Challenge: Trace table]
+After \enquote{red}: \texttt{["red"]}; after \enquote{green}: \texttt{["red", "green"]}; after \enquote{blue}: \texttt{["red", "green", "blue"]}; after \texttt{pop}: stack \texttt{["red", "green"]} and \texttt{top} = \texttt{"blue"} (last in, first out). \texttt{top} has no value before the last line.
+\end{answer}
+
+\begin{answer}[Creative: Bug comic]
+\textbf{Good looks like:} a real bug from their own work, a named strategy in panel 2 (error message, trace table, debugger, rubber duck, asking for help) and a clear fix. Praise honesty about struggling.
+\end{answer}

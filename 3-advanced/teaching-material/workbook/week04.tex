@@ -1,0 +1,104 @@
+% Level 3, Week 4 -- Searching and How Fast Is Fast? (student workbook)
+\chapterweek{4}{Searching and How Fast Is Fast?}{Smart algorithms do less work: halving beats checking one by one.}
+
+\section{What you will learn}
+\begin{checklist}
+  \item Search a list in two ways: linear search and binary search.
+  \item Count the steps an algorithm takes, and compare how they grow.
+  \item Build a bot that always guesses your number in 7 tries or fewer.
+\end{checklist}
+
+\section{Two ways to search}
+\textbf{Linear search} looks at the items one by one, from the start. It works on any list, but a long list means a long search.
+
+\textbf{Binary search} only works on a \textbf{sorted} list. It looks at the middle item. If that is too small, the answer must be on the right, so it throws away the whole left half (and the other way round). Every step cuts the list in half.
+
+\begin{center}
+%% alt: Binary search in a sorted list of eight numbers: 3, 8, 15, 21, 29, 37, 44 and 52 at positions 0 to 7. Step 1: the middle is 21, which is too small, so throw away the left half. Step 2: the middle is 37, which is too small, so throw away the left half. Step 3: the middle is 44. Found 44!
+\begin{tikzpicture}[cell/.style={draw=black,minimum width=0.95cm,minimum height=0.7cm,font=\small\ttfamily},x=1cm,y=1cm]
+  \def\vals{{3,8,15,21,29,37,44,52}}
+  \foreach \row/\lo/\hi/\mid/\note in {0/0/7/3/{step 1: 21 is too small, throw away the left half},
+                                        1/4/7/5/{step 2: 37 is too small, throw away the left half},
+                                        2/6/7/6/{step 3: found 44!}}{
+    \foreach \i in {0,...,7}{
+      \pgfmathtruncatemacro{\v}{\vals[\i]}
+      \ifnum\i<\lo
+        \node[cell,fill=kcgray!25,text=kcgray] at (\i,-1.3*\row) {\v};
+      \else\ifnum\i>\hi
+        \node[cell,fill=kcgray!25,text=kcgray] at (\i,-1.3*\row) {\v};
+      \else\ifnum\i=\mid
+        \node[cell,fill=kcorange!45,line width=1.4pt] at (\i,-1.3*\row) {\v};
+      \else
+        \node[cell,fill=kcsky!20] at (\i,-1.3*\row) {\v};
+      \fi\fi\fi
+    }
+    \node[font=\scriptsize,above] at (\mid,-1.3*\row+0.3) {mid};
+    \node[anchor=west,font=\small,text width=5.2cm] at (8.0,-1.3*\row) {\note};
+  }
+  \foreach \i in {0,...,7} \node[font=\scriptsize,text=kcgray] at (\i,-3.15) {\i};
+  \node[font=\scriptsize,text=kcgray,anchor=east] at (-0.6,-3.15) {index};
+\end{tikzpicture}
+\end{center}
+Gray boxes have been thrown away; the thick orange box is the one we look at (\texttt{mid}). Searching for 44 took 3 steps. Linear search would take 7.
+
+\section{How fast is fast?}
+To compare algorithms, count the \textbf{steps} in the \textbf{worst case} (the unluckiest search).
+\begin{center}
+\begin{tabular}{@{}rrr@{}}
+\toprule
+\textbf{Items in the list} & \textbf{Linear search} & \textbf{Binary search} \\ \midrule
+10 & 10 steps & 4 steps \\
+100 & 100 steps & 7 steps \\
+1000 & 1000 steps & 10 steps \\
+\bottomrule
+\end{tabular}
+\end{center}
+When the list gets 10 times bigger, linear search does 10 times more work. Binary search only does about 3 more steps!
+
+\section{Binary search in Python}
+\begin{pycode}
+low = 0
+high = len(items) - 1          # the LAST index, not the length
+while low <= high:             # <= : one item left is still worth checking
+    mid = (low + high) // 2    # // makes a whole number
+    if items[mid] == target:
+        return mid
+    elif items[mid] < target:
+        low = mid + 1          # throw away the left half (and mid)
+    else:
+        high = mid - 1         # throw away the right half (and mid)
+return -1                      # nothing left: not in the list
+\end{pycode}
+
+\begin{exercise}[Search Race]
+Folder: \texttt{week04/ex-search-race}. \texttt{linear\_search} is done. Write \texttt{binary\_search}: it returns \texttt{(index, steps)}. Run it to see the race table.\\
+\textbf{Predict} the binary steps for 10000 items: \rule{2cm}{0.4pt}\quad What did the program say? \rule{2cm}{0.4pt}
+\end{exercise}
+
+\begin{exercise}[Guess-the-Number Bot]
+Folder: \texttt{week04/ex-guess-bot}. First run the slow bot: it guesses 1, 2, 3\ldots{} (press the red Stop button). Then:
+\begin{itemize}[itemsep=1pt]
+  \item finish \texttt{check(guess, secret)}: return \texttt{"higher"}, \texttt{"lower"} or \texttt{"correct"};
+  \item make \texttt{next\_guess(low, high)} return the middle.
+\end{itemize}
+Play 3 games. How many guesses did the bot need? \rule{1.5cm}{0.4pt}\ \rule{1.5cm}{0.4pt}\ \rule{1.5cm}{0.4pt}
+\end{exercise}
+
+\begin{tip}[Filter bubbles]
+Search engines are amazingly fast, but they also choose which results to show you first, based on what you clicked before. If you only ever see what you already like, you are in a \enquote{filter bubble}. Try different search words, look at more than one source, and ask a grown-up when something seems odd.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{algorithm}{A clear list of steps that solves a problem.}
+  \vocabword{linear search}{Check items one by one from the start.}
+  \vocabword{binary search}{In a sorted list, check the middle and throw away the half that cannot hold the answer.}
+  \vocabword{worst case}{The unluckiest situation, when an algorithm needs the most steps.}
+  \vocabword{off-by-one error}{A bug where a number is 1 too big or 1 too small, like using \texttt{<} instead of \texttt{<=}.}
+\end{vocab}
+
+\begin{reflection}
+Explain to a younger friend why binary search needs a sorted list:
+\answerlines{2}
+Where in real life do you use halving to find something?
+\answerlines{1}
+\end{reflection}

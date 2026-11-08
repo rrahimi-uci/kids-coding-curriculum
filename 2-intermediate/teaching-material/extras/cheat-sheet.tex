@@ -1,0 +1,184 @@
+\documentclass[level=2]{kidscode}
+% Compact code boxes for this two-page sheet.
+\lstnewenvironment{cs}{\lstset{style=kcpython,numbers=none,basicstyle=\ttfamily\footnotesize\setstretch{1.0}}}{}
+\BeforeBeginEnvironment{cs}{\par\begin{tcolorbox}[kccode,unbreakable,left=4pt,right=2pt,top=0pt,bottom=0pt,before skip=2pt,after skip=3pt]}
+\AfterEndEnvironment{cs}{\end{tcolorbox}}
+\newcommand{\cshead}[1]{\par\smallskip\noindent{\large\bfseries\color{kcaccent}#1}\par\nopagebreak}
+\setlength{\columnsep}{0.6cm}
+% Two columns in the standard edition; one column in the dyslexia edition
+% (its larger code font would otherwise wrap almost every line).
+\newif\ifcstwocol \cstwocoltrue
+\ifdefined\kcvariant \cstwocolfalse \fi
+\setlength{\parskip}{0.2em}
+
+\begin{document}
+\kctitle{Python Cheat Sheet}{Level 2: keep this beside your keyboard}
+\vspace*{-1.2cm}
+\small\raggedright
+\ifcstwocol\begin{multicols}{2}\raggedcolumns\fi
+
+\cshead{Types of values}
+\begin{tabular}{@{}ll@{}}
+\texttt{7}, \texttt{-3} & \textbf{int}: whole number \\
+\texttt{3.5}, \texttt{0.1} & \textbf{float}: decimal number \\
+\texttt{"7"}, \texttt{"Nova"} & \textbf{str}: text (string) \\
+\texttt{True}, \texttt{False} & \textbf{bool}: yes or no \\
+\end{tabular}
+\begin{cs}
+n = int("7") * 2    # text -> int
+label = str(42)     # int -> text
+print(type(3.5))    # float
+\end{cs}
+
+\cshead{f-strings: build messages}
+\begin{cs}
+hero = "Nova"
+score = 12
+print(f"{hero} has {score} points")
+print(f"{score / 5:.1f}")  # 2.4
+\end{cs}
+
+\cshead{and, or, not}
+\begin{cs}
+if score > 10 and lives > 0:
+    print("Level up!")
+if key == "q" or key == "Escape":
+    running = False
+if not game_over:
+    move()
+\end{cs}
+
+\cshead{Functions: def and return}
+\begin{cs}
+def area(width, height):
+    """Area of a rectangle."""
+    return width * height
+
+big = area(3, 4) + 1   # 13
+\end{cs}
+\texttt{return} hands a value back. \texttt{print} only shows it.
+Variables made inside a function stay inside (scope).
+
+\cshead{Lists}
+\begin{cs}
+colors = ["orange", "sky", "green"]
+first = colors[0]    # index from 0
+last = colors[-1]    # the last one
+colors.append("blue")  # add at end
+print(len(colors))   # 4
+for color in colors:
+    print(color)
+if "green" in colors:
+    print("green is there")
+pick = random.choice(colors)
+\end{cs}
+
+\cshead{while loops}
+\begin{cs}
+lives = 3
+while lives > 0:
+    lives = lives - 1   # must change!
+
+while True:          # ask again
+    answer = input("How many? ")
+    if answer.isdigit():  # a number?
+        break        # leave the loop
+    print("Try again")
+\end{cs}
+Stuck in a loop that never ends? Press the red \textbf{Stop} button.
+
+\cshead{Nested loops (grids, pixel art)}
+\begin{cs}
+for row in range(3):
+    for col in range(4):
+        print(row, col)
+\end{cs}
+
+\cshead{Dictionaries: look up by name}
+\begin{cs}
+player = {"hero": "Nova", "score": 0}
+player["score"] = player["score"] + 5
+player["lives"] = 3         # new key
+for key, value in player.items():
+    print(key, value)
+if "lives" in player:
+    print(player["lives"])
+speed = player.get("speed", 1)
+\end{cs}
+
+\cshead{Strings}
+\begin{cs}
+line = "  12 apples \n"
+clean = line.strip()   # "12 apples"
+parts = clean.split()  # 2 words
+print("Hi".upper(), "Hi".lower())
+\end{cs}
+
+\cshead{Files: save and load}
+\begin{cs}
+with open("scores.txt", "w") as file:
+    file.write("15\n")
+with open("scores.txt", "a") as file:
+    file.write("9\n")
+
+try:
+    with open("scores.txt") as file:
+        scores = file.read().split()
+except FileNotFoundError:
+    scores = []      # no file yet
+\end{cs}
+Careful: \texttt{"w"} empties the file first!
+
+\cshead{Testing with pytest}
+\begin{cs}
+def test_area_normal():
+    assert area(3, 4) == 12
+
+def test_area_edge():     # edge case
+    assert area(0, 4) == 0
+\end{cs}
+Test names start with \texttt{test\_}. To run them, open
+\texttt{my\_tests.py} (or \texttt{check\_my\_work.py}) and press Run. No pytest? \textbf{Tools > Manage packages}.
+
+\cshead{Turtle events and games}
+\begin{cs}
+screen = turtle.Screen()
+screen.tracer(0)       # no flicker
+
+def go_left():
+    player.setx(player.xcor() - 20)
+
+screen.onkey(go_left, "Left")  # no ()
+screen.listen()        # hear keys
+
+def game_loop():
+    if player.distance(star) < 20:
+        print("caught!")   # touching
+    screen.update()
+    screen.ontimer(game_loop, 50)
+
+game_loop()
+turtle.done()
+\end{cs}
+Key names: \texttt{"Left"}, \texttt{"Right"}, \texttt{"Up"}, \texttt{"Down"},
+\texttt{"space"}, \texttt{"a"}. Click the window first!
+
+\cshead{Error message decoder}
+Read the \textbf{last line} first. The line above it shows where.\\[2pt]
+\begin{tabular}{@{}>{\ttfamily\scriptsize}p{3.05cm}>{\footnotesize\raggedright\arraybackslash}p{4.8cm}@{}}
+SyntaxError & typo: missing \texttt{:} \texttt{)} or \texttt{"} \\
+IndentationError & spaces at the start of a line \\
+NameError & a name is misspelled or not made yet \\
+TypeError & mixing types: \texttt{"5" + 5} \\
+IndexError & no item at that index (too big) \\
+KeyError & that key is not in the dictionary \\
+FileNotFoundError & no file with that name in this folder \\
+ValueError & \texttt{int("hello")} cannot work \\
+\end{tabular}
+
+\cshead{Debugging strategies}
+\textbf{1. Read the traceback} (last line first). \textbf{2. Print-debugging:}
+\texttt{print("x is", x)} to see values. \textbf{3. Rubber duck:} explain each line out loud.
+
+\ifcstwocol\end{multicols}\fi
+\end{document}

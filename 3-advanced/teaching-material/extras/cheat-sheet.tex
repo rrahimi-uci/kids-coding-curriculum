@@ -1,0 +1,205 @@
+\documentclass[level=3]{kidscode}
+\usepackage{multicol}
+%% Compact headings, code and spacing so the sheet fits on two sides.
+\titleformat{\subsection}{\needspace{5\baselineskip}\normalsize\bfseries\color{kcaccent}}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{5pt}{1pt}
+\lstdefinestyle{kcpython}{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize\setstretch{1.0},
+  keywordstyle=\bfseries\color{kcblue},
+  stringstyle=\color{kcvermillion!85!black},
+  commentstyle=\color{kcgray},
+  showstringspaces=false, columns=fullflexible, keepspaces=true,
+  breaklines=true, numbers=none, tabsize=4, upquote=true,
+  morekeywords={True,False,None,self}}
+%% Plain framed listings break cleanly inside multicols (tcolorbox does not).
+\lstnewenvironment{sheetcode}{\lstset{style=kcpython,frame=single,framesep=3pt,
+  rulecolor=\color{kcsky!70!black},backgroundcolor=\color{kcsky!7},
+  xleftmargin=3.5pt,xrightmargin=3.5pt,aboveskip=3pt,belowskip=4pt}}{}
+\setlength{\columnsep}{16pt}
+\setlength{\parskip}{0.3em}
+\raggedcolumns
+
+\begin{document}
+\kctitle{Cheat Sheet}{Classes, algorithms, data and git on two pages}
+\small
+\begin{multicols}{2}
+
+\subsection{Classes and objects}
+\begin{sheetcode}
+class Pet:                # blueprint
+    def __init__(self, name):
+        self.name = name  # attribute
+        self.energy = 5
+
+    def play(self):       # method
+        self.energy -= 2
+        return self.name + " had fun!"
+
+mo = Pet("Mo")            # an object
+print(mo.play(), mo.energy)
+\end{sheetcode}
+\textbf{Attributes} = what it has. \textbf{Methods} = what it does. \texttt{self} means
+\enquote{this object}; every method needs it first.
+
+\subsection{Inheritance (IS a), composition (HAS a)}
+\begin{sheetcode}
+class Dragon(Pet):        # IS a Pet
+    def __init__(self, name):
+        super().__init__(name)
+        self.fire = 3
+
+    def play(self):       # override
+        return "Roar!"
+
+class Zoo:                # HAS pets
+    def __init__(self):
+        self.pets = [Pet("Mo"),
+                     Dragon("Ash")]
+
+    def play_all(self):
+        for pet in self.pets:
+            print(pet.play())
+\end{sheetcode}
+
+\subsection{Searching: how fast is fast?}
+\begin{sheetcode}
+def binary_search(items, target):
+    # items must be SORTED
+    low, high = 0, len(items) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if items[mid] == target:
+            return mid    # found it
+        elif items[mid] < target:
+            low = mid + 1  # right
+        else:
+            high = mid - 1 # left
+    return -1             # not there
+\end{sheetcode}
+{\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lrrr@{}}
+\toprule
+Items & 10 & 1000 & 1 million\\ \midrule
+Linear search, at most & 10 & 1000 & 1 million\\
+Binary search, at most & 4 & 10 & 20\\
+\bottomrule
+\end{tabular}}
+
+\subsection{Sorting}
+\textbf{Selection sort:} find the smallest, swap it to the front, repeat with the rest.
+\textbf{Bubble sort:} swap neighbors in the wrong order; repeat until nothing swaps.
+\begin{sheetcode}
+print(sorted([7, 3, 9]))  # [3, 7, 9]
+
+def get_score(player):
+    return player[1]
+
+players = [("Mei", 40), ("Leo", 75)]
+best = sorted(players, key=get_score,
+              reverse=True)  # Leo 1st
+\end{sheetcode}
+
+\subsection{Stack (last in, first out)}
+\begin{sheetcode}
+stack = []            # undo, plates
+stack.append("circle")
+stack.append("square")
+last = stack.pop()    # "square"
+\end{sheetcode}
+
+\subsection{Queue (first in, first out)}
+\begin{sheetcode}
+from collections import deque
+queue = deque()       # turns, BFS
+queue.append("Ada")
+queue.append("Kai")
+first = queue.popleft()   # "Ada"
+\end{sheetcode}
+
+\subsection{Recursion}
+A function that calls itself on a \textbf{smaller} problem. It needs a \textbf{base case} to stop,
+or Python gives a \texttt{RecursionError}.
+\begin{sheetcode}
+def tree(t, length):
+    if length < 10:       # base case
+        return
+    t.forward(length)
+    t.left(30)
+    tree(t, length * 0.7) # smaller
+    t.right(60)
+    tree(t, length * 0.7)
+    t.left(30)
+    t.backward(length)    # go back
+\end{sheetcode}
+
+\subsection{Grids (2D lists)}
+\begin{sheetcode}
+grid = [["."] * 5 for r in range(3)]
+grid[1][2] = "#"          # [row][col]
+for row in grid:
+    print("".join(row))
+\end{sheetcode}
+Neighbors of \texttt{(r, c)}: up \texttt{(r-1, c)}, down \texttt{(r+1, c)}, left
+\texttt{(r, c-1)}, right \texttt{(r, c+1)}.
+
+\textbf{BFS (shortest path):} put the start in a \texttt{deque}. Repeat: \texttt{popleft()} a square, add
+its unvisited neighbors to the back, remember where each came from.
+
+\subsection{CSV data}
+\begin{sheetcode}
+import csv
+with open("games.csv", newline="",
+          encoding="utf-8") as f:
+    for row in csv.DictReader(f):
+        text = row["rating"].strip()
+        if text == "":
+            continue      # skip blanks
+        rating = int(text)  # text->int
+
+# count with a dict:
+counts[x] = counts.get(x, 0) + 1
+\end{sheetcode}
+
+\subsection{git: save points (in Terminal)}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\linewidth}{@{}>{\ttfamily}l>{\raggedright\arraybackslash}X@{}}
+git init & start a repo (once)\\
+git status & what changed?\\
+git diff & show changed lines\\
+git add game.py & choose a file (\texttt{.} = all)\\
+git commit -m "Add X" & make a save point\\
+git log --oneline & list save points\\
+git restore game.py & undo changes not yet committed\\
+pwd & where am I?\\
+cd folder & go into a folder\\
+\end{tabularx}
+
+\textbf{Good message:} verb + what changed, e.g.\ \texttt{"Fix ghost walking through walls"}.
+Never commit secrets or real names.
+
+\subsection{pytest}
+\begin{sheetcode}
+from my_game import Grid  # no .py
+
+def test_walls_block_moves():
+    grid = Grid("###\n#P#\n###")
+    assert grid.is_open(1, 1)
+    assert not grid.is_open(0, 1)
+
+def test_save(tmp_path):  # temp folder
+    path = tmp_path / "scores.txt"
+\end{sheetcode}
+Run tests: Thonny \menu{Tools} $\rightarrow$ \menu{Open system shell\ldots}, go to your folder with
+\texttt{cd}, then type \texttt{python3 -m pytest -q}.
+
+\subsection{Before you commit: review checklist}
+\begin{checklist}
+  \item It runs, and the tests pass.
+  \item Clear names; one job per function.
+  \item Comments explain why.
+  \item No real names, passwords or photos.
+  \item Kind feedback: two stars and a wish.
+\end{checklist}
+
+\end{multicols}
+\end{document}

@@ -1,0 +1,160 @@
+% Level 1, Workbook chapter 7 -- Hello, Python!   (input by student-workbook.tex)
+\chapterweek{7}{Hello, Python!}{Text code is just blocks written as words --- and Python is picky.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item How to open, run and save a program in \textbf{Thonny}.
+  \item How to make Python say things with \texttt{print}, and leave notes with comments.
+  \item How to make the turtle draw a square with \texttt{forward} and \texttt{left}.
+  \item How to read a red error message like a detective.
+\end{itemize}
+
+\section{Warm-up: Spot the difference}
+Python is very picky. On each card, one line works and one line confuses Python. Circle the difference. Check the line that works.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}l l l l l@{}}
+\toprule
+Card & \multicolumn{2}{l}{Line A} & \multicolumn{2}{l}{Line B}\\
+\midrule
+1 & \tickbox & \texttt{print("Hello")} & \tickbox & \texttt{Print("Hello")}\\
+2 & \tickbox & \texttt{t.forwad(100)} & \tickbox & \texttt{t.forward(100)}\\
+3 & \tickbox & \texttt{t.left(90} & \tickbox & \texttt{t.left(90)}\\
+4 & \tickbox & \texttt{t.left(90)} & \tickbox & \texttt{t.Left(90)}\\
+5 & \tickbox & \texttt{print(Hi there)} & \tickbox & \texttt{print("Hi there")}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The big idea: blocks become words}
+In Scratch you snapped blocks together. In Python you \textbf{type} the same ideas as words. The computer still does the lines in order, from top to bottom.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}m{6.4cm} m{0.6cm} m{6cm}@{}}
+\toprule
+\textbf{Scratch block} & & \textbf{Python line}\\
+\midrule
+\begin{scratch}[scale=0.8]\blockinit{when \greenflag clicked}\end{scratch} & → & the green \textbf{Run} button (or \keys{F5})\\
+\begin{scratch}[scale=0.8]\blockmove{move \ovalnum{100} steps}\end{scratch} & → & \texttt{t.forward(100)}\\
+\begin{scratch}[scale=0.8]\blockmove{turn \turnleft{} \ovalnum{90} degrees}\end{scratch} & → & \texttt{t.left(90)}\\
+\begin{scratch}[scale=0.8]\blocklook{say \ovalnum{Hello!}}\end{scratch} & → & \texttt{print("Hello!")}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Meet Thonny}
+Thonny is the app where we write Python. It has three important parts.
+\begin{center}
+%% alt: The Thonny window. A toolbar at the top has a green Run button and a red Stop button. Under it, the Editor shows a short program. Below that, the Shell shows what Python says: Hello, Python! At the right, a separate Turtle window shows a blue square.
+\begin{tikzpicture}[font=\small,
+  lab/.style={draw=kcgray,fill=white,rounded corners=2pt,inner sep=3pt,align=left}]
+  % Thonny window
+  \draw[thick,rounded corners=3pt,fill=kcgray!10] (0,0) rectangle (9,6.4);
+  \node[anchor=west,font=\small\bfseries] at (0.2,6.15) {Thonny};
+  % toolbar
+  \fill[white] (0.2,5.3) rectangle (8.8,5.9);
+  \fill[kcgreen] (2.2,5.6) circle (0.22);
+  \fill[white] (2.12,5.48) -- (2.12,5.72) -- (2.32,5.6) -- cycle;
+  \fill[kcvermillion] (3.0,5.6) circle (0.22);
+  \fill[white] (2.91,5.51) rectangle (3.09,5.69);
+  % editor
+  \draw[fill=white] (0.2,2.3) rectangle (8.8,5.15);
+  \node[anchor=north west,font=\ttfamily\footnotesize,align=left] at (0.35,5.05)
+    {\# My first program\\print("Hello, Python!")\\import turtle\\t = turtle.Turtle()\\t.forward(100)};
+  % shell
+  \draw[fill=kcblack!4] (0.2,0.2) rectangle (8.8,2.1);
+  \node[anchor=north west,font=\ttfamily\footnotesize,align=left] at (0.35,2.0)
+    {Shell\\>{}>{}> \%Run hello.py\\Hello, Python!};
+  % turtle window
+  \draw[thick,rounded corners=3pt,fill=white] (9.6,1.0) rectangle (13.6,4.4);
+  \node[anchor=west,font=\scriptsize\bfseries] at (9.7,4.15) {Python Turtle Graphics};
+  \draw[kcblue,very thick] (10.8,1.6) rectangle (12.4,3.2);
+  % labels
+  \node[lab] (run) at (5.6,7.2) {\faPlayCircle\ \textbf{Run}: like the green flag};
+  \draw[-{Stealth},thick] (run.south west) ++(0.2,0) -- (2.3,5.85);
+  \node[lab] (stop) at (11.6,6.6) {\textbf{Stop}: if anything gets stuck};
+  \draw[-{Stealth},thick] (stop.west) -- (3.25,5.65);
+  \node[lab,fill=kcsky!20] at (6.9,3.6) {\textbf{Editor}:\\you write here};
+  \node[lab,fill=kcyellow!30] at (6.9,1.0) {\textbf{Shell}: Python\\talks back here};
+  \node[lab,fill=kcgreen!15] at (11.6,0.5) {\textbf{Turtle window}};
+\end{tikzpicture}
+\end{center}
+\begin{tip}[Where did my turtle go?]
+The turtle window sometimes hides behind Thonny. Click the Python icon in the Dock at the bottom of the screen.
+\end{tip}
+
+\subsection{Every turtle program has the same shape}
+\begin{pycode}
+import turtle            # 1. get the turtle toolbox
+t = turtle.Turtle()      # 2. make a turtle and call it t
+t.forward(100)           # 3. your drawing commands go here
+t.left(90)
+turtle.done()            # 4. keep the window open at the end
+\end{pycode}
+Lines that start with \texttt{\#} are \textbf{comments}. Python skips them. They are notes for people.
+
+\begin{exercise}[Hello, Python!]
+Folder: \texttt{week07/ex-hello-python}. Open \texttt{starter.py} and press Run.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Add three \texttt{print} lines: who is coding today (a \textbf{nickname}), your favorite game or animal, and a goodbye that uses the word \texttt{bye}.
+  \item Press Run after every new line.
+\end{enumerate}
+Done looks like: four different lines in the Shell. Check: open \texttt{check\_my\_work.py} and press Run.
+\end{exercise}
+
+\begin{exercise}[My First Square]
+Folder: \texttt{week07/ex-first-square}. The turtle draws one side already. Add the other three sides: each side is \texttt{t.forward(100)} then \texttt{t.left(90)}.
+Done looks like: a closed square --- the turtle ends where it started. Then run \texttt{check\_my\_work.py}.
+\end{exercise}
+
+\subsection{Reading a red error message}
+When Python is confused, it stops and shows red text in the Shell. Don't panic --- it is a clue!
+\begin{outputcode}
+Traceback (most recent call last):
+  File "starter.py", line 12, in <module>
+    Print("Typo hunt: fixed!")
+NameError: name 'Print' is not defined
+\end{outputcode}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{line 12} tells you \textbf{where} to look.
+  \item The \textbf{last line} tells you \textbf{what} confused Python: it does not know the word \texttt{Print}.
+\end{itemize}
+
+\begin{exercise}[Typo Hunt]
+Folder: \texttt{week07/ex-typo-hunt}. This program should draw a flag on a pole, but it has \textbf{4 typos}. Run it, read the red message, fix \textbf{one} typo, run again. Write down what you fixed:
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{2cm}p{5cm}p{5cm}@{}}
+\toprule
+Line & The typo was & I changed it to\\
+\midrule
+ & & \\ \midrule
+ & & \\ \midrule
+ & & \\ \midrule
+ & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{tip}[Save your work safely]
+Exercises: press \keys{Cmd}+\keys{S} to save \texttt{starter.py} in its folder. New programs go in \texttt{Documents/my-python}. Use names that say what the program does, like \texttt{flag-drawing.py}. Never call a file \texttt{turtle.py}: Python would get mixed up with the real turtle!
+\end{tip}
+
+\begin{vocab}
+  \vocabword{Python}{A text programming language. We type words instead of snapping blocks.}
+  \vocabword{Thonny}{The app where we write and run Python programs.}
+  \vocabword{Editor}{The top part of Thonny where you write your program.}
+  \vocabword{Shell}{The bottom part of Thonny where Python shows messages and errors.}
+  \vocabword{print}{A command that shows words in the Shell: \texttt{print("Hi")}.}
+  \vocabword{Comment}{A note for people that starts with \texttt{\#}. Python skips it.}
+  \vocabword{Syntax error}{A typo or missing bracket that stops Python from understanding your code.}
+  \vocabword{Bug}{A mistake in a program. Every programmer makes them!}
+\end{vocab}
+
+\begin{reflection}
+What was different about typing code instead of dragging blocks?
+\answerlines{2}
+Which typo was the hardest to spot? What will you check first next time?
+\answerlines{2}
+\end{reflection}

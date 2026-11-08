@@ -1,0 +1,49 @@
+% Level 2, Week 3 -- answer key
+\answersweek{3}{Lists: Collections of Things}{Answers for workbook chapter 3 and homework 3.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 3.1 Palette Stripes]
+\textbf{Step 4:} with the two required colors the palette has 5 colors and the labels go from 0 to 4
+(6 colors and 0 to 5 if TODO 2 was done too).\par
+\textbf{What to look for:} \texttt{x = x + width} is inside the loop; every stripe has its index as a label; only Okabe-Ito colors are used.
+Also correct: \texttt{for color in colors:} with a separate counter variable for the label.
+\end{answer}
+\pyfile{../exercises/week03/ex-palette-stripes/solution.py}
+
+\begin{answer}[Exercise 3.2 Adventure Inventory]
+\textbf{Step 1:} \texttt{IndexError} in \texttt{last\_item()}.\quad
+\textbf{Step 2:} torch 0, rope 1, map 2, apple 3.\par
+\textbf{What to look for:} \texttt{backpack[len(backpack) - 1]} or \texttt{backpack[-1]}; \texttt{has\_item} returns \texttt{False}
+only \emph{after} the loop (a \texttt{return False} inside the loop stops after checking the first item).
+\texttt{return item in backpack} is also correct.
+\end{answer}
+\pyfile{../exercises/week03/ex-inventory/solution.py}
+
+\begin{answer}[Exercise 3.3 Top 3 High Scores]
+\textbf{Step 1:} \texttt{[300, 120, 80]}.\par
+\textbf{What to look for:} \texttt{sorted(...)} makes a new list, so the original \texttt{scores} keeps its order;
+the leaderboard loop uses \texttt{range(len(best))}, so it also works when there are fewer than three scores.
+\end{answer}
+\pyfile{../exercises/week03/ex-high-scores/solution.py}
+
+\section{Homework}
+\begin{answer}[Core: Index practice]
+\texttt{team[0]} = Ada,\quad \texttt{team[3]} = Omar,\quad \texttt{team[-1]} = Zoe,\quad \texttt{len(team)} = 5.
+\texttt{team[5]} does not work: the indexes are 0 to 4, so it gives an \texttt{IndexError}.
+\end{answer}
+
+\begin{answer}[Core: Loot Bag]
+The loot changes each run because \texttt{random.choice} picks a random item each time.
+\end{answer}
+\pyfile{../exercises/week03/hw-loot-bag/solution.py}
+
+\begin{answer}[Challenge: Rare treasure]
+For example \texttt{CHEST = ["gold coin", "gold coin", "gold coin", "ruby", "potion", "old boot", "old boot", "old boot", "map", "dragon egg"]}
+and \texttt{bag = fill\_bag(CHEST, 20)}. With 1 dragon egg in 10 items, about 2 in 20 openings is typical, but 0 or 4 can happen:
+that is randomness.
+\end{answer}
+
+\begin{answer}[Creative: Design a palette]
+Any 4 Okabe-Ito colors written as a list of strings, for example \texttt{["\#0072B2", "\#E69F00", "\#009E73", "\#000000"]}.
+Check that the sketch labels colored parts with words, numbers, shapes or patterns.
+\end{answer}

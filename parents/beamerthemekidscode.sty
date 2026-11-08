@@ -1,0 +1,189 @@
+%% beamerthemekidscode.sty -- original Beamer theme for the Kids Coding parent deck.
+%%
+%% Engine: LuaLaTeX. Load with \usetheme{kidscode} after
+%%   \documentclass[20pt]{beamer}
+%% The theme sets the page to a standard 13.333 x 7.5 in widescreen slide, so
+%% point sizes are literal: body text 20 pt, headings larger, source lines
+%% 14 pt (the same scale as a widescreen PowerPoint/Keynote slide).
+%%
+%% Colors come from the shared curriculum palette (shared/latex/kidscode-colors.sty,
+%% Okabe-Ito, color-blind safe); fonts are the curriculum fonts (Atkinson
+%% Hyperlegible Next / Mono). Every colored element also carries a word or an
+%% icon, so no meaning depends on color alone.
+%%
+%% Macros provided (see parents/README.md):
+%%   \kicker{text}               small label above the next frame title (set per section)
+%%   \source{citations}          source line at the bottom-left of a frame
+%%   \sectionslide{n}{title}{subtitle}   full-bleed section divider frame
+%%   \evStrong \evMixed \evOpen  evidence-strength badges (icon + word + color)
+%%   \begin{keybox}[title] ... \end{keybox}   one-sentence take-away box
+%%   \kcnotes{say}{plain}{questions}   structured speaker notes (\note)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemekidscode}[2026/11/08 Kids Coding parent deck theme]
+
+\RequirePackage{kidscode-colors}
+\RequirePackage{fontspec}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.misc,fit,backgrounds}
+\RequirePackage{fontawesome5}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{etoolbox}
+\RequirePackage{ragged2e}
+
+%% ---------------------------------------------------------------- page
+\geometry{paperwidth=13.333in,paperheight=7.5in}
+\setbeamersize{text margin left=0.8in,text margin right=0.8in}
+\beamertemplatenavigationsymbolsempty
+%% Readability: ragged-right text and no hyphenation anywhere.
+\setbeamertemplate{frame begin}{\RaggedRight}
+\AtBeginDocument{\hyphenpenalty=10000 \exhyphenpenalty=10000 \RaggedRight}
+\setbeamertemplate{bibliography item}{}
+
+%% ---------------------------------------------------------------- fonts
+\usefonttheme{professionalfonts}
+\setsansfont{AtkinsonHyperlegibleNext}[
+  Extension = .otf, Ligatures = TeX,
+  UprightFont = *-Regular, BoldFont = *-Bold,
+  ItalicFont = *-RegularItalic, BoldItalicFont = *-BoldItalic,
+  FontFace = {sb}{n}{*-SemiBold}, FontFace = {eb}{n}{*-ExtraBold}]
+\setmainfont{AtkinsonHyperlegibleNext}[
+  Extension = .otf, Ligatures = TeX,
+  UprightFont = *-Regular, BoldFont = *-Bold,
+  ItalicFont = *-RegularItalic, BoldItalicFont = *-BoldItalic]
+\setmonofont{AtkinsonHyperlegibleMono}[
+  Extension = .otf, UprightFont = *-Regular, BoldFont = *-Bold,
+  Scale = MatchLowercase]
+\newcommand{\semibold}{\fontseries{sb}\selectfont}
+\newcommand{\extrabold}{\fontseries{eb}\selectfont}
+
+%% ---------------------------------------------------------------- colors
+\setbeamercolor{normal text}{fg=kcink,bg=white}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{structure}{fg=kcbluetext}
+\setbeamercolor{alerted text}{fg=kcvermilliontext}
+\setbeamercolor{frametitle}{fg=kcink}
+\setbeamercolor{itemize item}{fg=kcblue}
+\setbeamercolor{itemize subitem}{fg=kcgray}
+\setbeamercolor{enumerate item}{fg=kcbluetext}
+\setbeamercolor{block title}{fg=white,bg=kcbluetext}
+\setbeamercolor{block body}{fg=kcink,bg=kcsky!12}
+\setbeamercolor{bibliography entry author}{fg=kcink}
+\setbeamercolor{bibliography entry title}{fg=kcink}
+\setbeamercolor{bibliography entry location}{fg=kcgray}
+\setbeamercolor{bibliography entry note}{fg=kcgray}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+%% ---------------------------------------------------------------- lists
+\setbeamertemplate{itemize item}{\raisebox{0.12em}{\tikz\fill[kcblue] (0,0) rectangle (0.42em,0.42em);}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.15em}{\tikz\fill[kcgray] (0,0) circle (0.17em);}}
+\setbeamertemplate{enumerate item}{\semibold\insertenumlabel.}
+\setlength{\leftmargini}{1.1em}
+\setlength{\leftmarginii}{1.1em}
+\addtobeamertemplate{itemize/enumerate body begin}{}{\setlength{\itemsep}{0.42em}}
+
+%% ---------------------------------------------------------------- kicker + frame title
+\newcommand{\kc@kicker}{}
+\newcommand{\kicker}[1]{\renewcommand{\kc@kicker}{#1}}
+\setbeamertemplate{frametitle}{%
+  \vskip0.42in
+  \ifdefempty{\kc@kicker}{}{%
+    {\footnotesize\semibold\color{kcbluetext}\addfontfeatures{LetterSpace=8}\MakeUppercase{\kc@kicker}\par}%
+    \vskip0.06in}%
+  {\LARGE\bfseries\color{kcink}\insertframetitle\par}%
+  \vskip0.06in
+  {\color{kcblue}\rule{0.9in}{3pt}}\par
+  \vskip0.02in}
+
+%% ---------------------------------------------------------------- headline: palette stripe
+\setbeamertemplate{headline}{%
+  \begin{tikzpicture}[x=\paperwidth/7]
+    \useasboundingbox (0,0) rectangle (7,0.09in);
+    \foreach \c [count=\i from 0] in {kcorange,kcsky,kcgreen,kcyellow,kcblue,kcvermillion,kcpurple}
+      \fill[\c] (\i,0) rectangle (\i+1,0.09in);
+  \end{tikzpicture}}
+
+%% ---------------------------------------------------------------- footline: course name + page
+\setbeamertemplate{footline}{%
+  \hbox to \paperwidth{\hskip0.8in
+    \parbox[b][0.5in][t]{0.55\paperwidth}{\scriptsize\color{kcgray}}\hfill
+    \parbox[b][0.5in][t]{2.4in}{\raggedleft\footnotesize\color{kcgray}%
+      Kids Coding\enspace\textbar\enspace\semibold\insertframenumber}%
+    \hskip0.8in}}
+
+%% Source line, placed bottom-left above the footline area.
+\newcommand{\source}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south west,inner sep=0pt,text width=0.66\paperwidth,align=left,
+          font=\footnotesize,text=kcgray]
+      at ([xshift=0.8in,yshift=0.25in]current page.south west)
+      {\textbf{Source:}~#1};
+  \end{tikzpicture}}
+
+%% ---------------------------------------------------------------- section divider
+\newcommand{\sectionslide}[3]{%
+  \begingroup
+  \setbeamercolor{background canvas}{bg=kcbluetext}
+  \setbeamertemplate{footline}{}
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \foreach \c [count=\i from 0] in {kcorange,kcsky,kcgreen,kcyellow,kcblue,kcvermillion,kcpurple}
+        \fill[\c] ([xshift=\i*\paperwidth/7]current page.north west) rectangle ++(\paperwidth/7,-0.09in);
+      \node[anchor=north west,text=white,font=\fontsize{96}{96}\selectfont\extrabold,opacity=0.35]
+        at ([xshift=0.75in,yshift=-0.7in]current page.north west) {#1};
+      \node[anchor=south west,text=white,text width=10in,align=left,font=\fontsize{48}{56}\selectfont\bfseries]
+        (t) at ([xshift=0.8in,yshift=3.0in]current page.south west) {#2};
+      \node[anchor=north west,text=white,text width=11in,align=left,font=\Large]
+        at ([yshift=-0.2in]t.south west) {#3};
+    \end{tikzpicture}
+    \kcnotes{Section break: \enquote{#2}. Pause and check for quick questions before moving on.}{}{}
+  \end{frame}
+  \endgroup}
+
+%% ---------------------------------------------------------------- evidence badges
+\newcommand{\kc@badge}[3]{%
+  \tikz[baseline=(b.base)]\node[draw=#1,line width=1.5pt,fill=#1!14,rounded corners=0.8em,
+    inner xsep=0.5em,inner ysep=0.22em,text=kcink,font=\small\semibold] (b) {#2\enspace #3};}
+\newcommand{\evStrong}{\kc@badge{kcgreen}{\faCheckCircle}{Strong evidence}}
+\newcommand{\evMixed}{\kc@badge{kcorange}{\faAdjust}{Mixed evidence}}
+\newcommand{\evOpen}{\kc@badge{kcpurple}{\faQuestionCircle}{Open question}}
+
+%% ---------------------------------------------------------------- boxes
+\newtcolorbox{keybox}[1][Take-away]{enhanced,colback=kcsky!10,colframe=kcblue,
+  boxrule=0pt,leftrule=6pt,arc=0pt,outer arc=0pt,left=0.25in,right=0.2in,top=0.12in,bottom=0.12in,
+  fonttitle=\small\semibold,coltitle=kcbluetext,colbacktitle=kcsky!10,
+  title={\faLightbulb[regular]\enspace #1},attach title to upper={\par\vskip0.04in},
+  halign=left,before skip=0.15in}
+%% \begin{cardbox}[color]{title} ... \end{cardbox}: cards on the same slide share one height.
+\newtcolorbox{cardbox}[2][kcblue]{enhanced,colback=white,colframe=#1,boxrule=1.2pt,
+  arc=6pt,left=0.16in,right=0.16in,top=0.08in,bottom=0.1in,
+  fonttitle=\semibold,coltitle=kcink,colbacktitle=#1!16,title={#2},
+  before upper=\RaggedRight,
+  equal height group=kccards\the\c@framenumber}
+
+%% ---------------------------------------------------------------- speaker notes
+%% \kcnotes{What to say}{Plain-language explanation of the evidence}{Likely questions + answers}
+\newcommand{\kc@nh}[2]{{\color{#1}\semibold #2}\par\nobreak\vskip0.03in}
+\newcommand{\kcnotes}[3]{\note{%
+  \kc@nh{kcbluetext}{\faComment*[regular]\ Say}#1\par
+  \ifstrempty{#2}{}{\vskip0.1in\kc@nh{kcgreentext}{\faBookOpen\ In plain language}#2\par}%
+  \ifstrempty{#3}{}{\vskip0.1in\kc@nh{kcvermilliontext}{\faQuestionCircle[regular]\ Likely questions}#3\par}}}
+\newcommand{\qa}[2]{\textbf{Q: #1}\enspace A: #2\par\vskip0.03in}
+
+\setbeamertemplate{note page}{%
+  \setlength{\parskip}{0.04in}%
+  \vskip0.35in
+  \hbox to \paperwidth{\hskip0.5in
+    \begin{minipage}[t]{0.62\paperwidth}
+      {\footnotesize\semibold\color{kcgray}SPEAKER NOTES \textbar\ SLIDE \insertframenumber\par}
+      \vskip0.02in
+      {\large\bfseries\insertframetitle\par}
+      \vskip0.1in
+      \footnotesize\RaggedRight\insertnote
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.29\paperwidth}
+      \vskip0in
+      \fcolorbox{kcgray}{white}{\insertslideintonotes{0.28}}
+    \end{minipage}\hskip0.45in}}
+\setbeamerfont{note page}{size=\footnotesize}
+
+\endinput

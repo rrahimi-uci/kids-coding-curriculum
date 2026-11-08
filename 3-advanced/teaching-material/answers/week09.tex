@@ -1,0 +1,35 @@
+% Level 3 answer key, Week 9 -- How Do Machines Learn?
+\answersweek{9}{How Do Machines Learn?}{Answers for workbook chapter 9 and homework 9.}
+
+\section{Exercise 9.1: Monster sorter}
+\pyfile[firstline=12,lastline=45]{../exercises/week09/ex-monster-sorter/solution.py}
+\begin{answer}[Answers]
+\texttt{(5, 2) -> friendly}, \texttt{(3, 6) -> grumpy}, \texttt{(5, 5) -> friendly} (its nearest card is (7, 3), about 2.8 away; the nearest grumpy card (2, 6) is about 3.2 away). Either \enquote{agree} or \enquote{disagree} is fine for (5, 5) if the student explains: it is right between the groups, so a small change in the data could flip the guess.
+\end{answer}
+
+\section{Exercise 9.2: Fair or biased?}
+\pyfile[firstline=41,lastline=71]{../exercises/week09/ex-fair-or-biased/solution.py}
+\begin{answer}[Answers]
+Fair training accuracy \textbf{100\%} (4 of 4); biased training accuracy \textbf{50\%} (2 of 4). The biased pile has only one friendly monster (a super-fluffy one), so friendly test monsters such as (6, 2) and (6, 4) are closer to a grumpy card and get the wrong label. Key idea: the code is the same -- the \emph{data} caused the unfairness.
+\end{answer}
+
+\section{Exercise 9.3: Markov story machine}
+\pyfile[firstline=19,lastline=48]{../exercises/week09/ex-markov-story/solution.py}
+\begin{answer}[What to look for]
+With \py|random.seed(7)| the output begins \texttt{the dragon sat on the hill and the robot ...}. Any sentence is fine. Ask: \enquote{Does the machine know what a dragon is?} (No -- it only knows which word followed which.) A common bug is \py|chain[word] = [next_word]|, which keeps only the last follower.
+\end{answer}
+
+\section{Exercise 9.4: Project pitch}
+\begin{answer}[What a good pitch looks like]
+A clear one-sentence idea; two or more classes with one \enquote{is a} or \enquote{has a} link; a named data structure (dict, stack, queue or grid); a named algorithm (search, sort, recursion, BFS); a file to save (high scores, settings, art, results); a \enquote{smallest fun version} that could be built in one session. If the pitch is too big, agree on the smallest version now.
+\end{answer}
+
+\section{Homework 9}
+\pyfile[firstline=17,lastline=44]{../exercises/week09/hw-fruit-detective/solution.py}
+\begin{answer}[Core and Challenge]
+Core: k = 1 says \textbf{apple} (it copies the mislabeled card at (5, 3)); k = 3 says \textbf{lemon} (two lemons outvote it).
+Challenge: for (5, 4): k = 1 apple, 3 lemon, 5 lemon, 13 apple. For (2, 8): k = 1, 3, 5 grape, 13 apple. With k = 13 every card votes, so the most common label overall (apple, 5 cards) always wins -- the classifier stops looking at the mystery fruit at all. Too small a k trusts one card (mistakes and all); too big a k ignores the neighbors. A middle value works best.
+\end{answer}
+\begin{answer}[Creative: spot the AI]
+Accept any reasonable example. Good answers name what the examples might be (\enquote{videos people watched}) and one way it could be unfair (\enquote{it only recommends what is already popular}). Check that nobody typed personal information into an AI tool.
+\end{answer}

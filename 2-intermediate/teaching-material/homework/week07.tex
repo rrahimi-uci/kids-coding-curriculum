@@ -1,0 +1,50 @@
+% Level 2, Week 7 -- Files: Saving Your Stuff (homework)
+\homeworkweek{7}{Files: Saving Your Stuff}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Game Idea Notebook (about 10 minutes)]
+Folder: \texttt{exercises/week07/hw-idea-notebook}. This program keeps a list of your game and art ideas in a file called
+\texttt{game\_ideas.txt}. The menu already works; the file part does not.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Open \texttt{starter.py} and press \menu{Run}. Type \texttt{a}, an idea, then \texttt{l}. Is the idea listed? (Not yet!)
+  \item TODO 1: in \texttt{add\_idea()}, open the file with \texttt{"a"} and write the idea plus \texttt{"\textbackslash n"}.
+  \item TODO 2: in \texttt{load\_ideas()}, read every line, \texttt{strip()} it and keep the ones that are not empty. Catch
+        \texttt{FileNotFoundError} and make an empty file, just like in class.
+  \item Add three ideas, quit with \texttt{q}, run the program again and type \texttt{l}. They are still there!
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+Write your favorite idea here. It could become your final project!
+\answerlines{1}
+\end{core}
+
+\begin{challenge}[Mode detective]
+Predict what is in \texttt{test.txt} after each program runs (start with no file each time). Then try it in Thonny.
+\begin{pycode}[Program A]
+for word in ["red", "blue"]:
+    with open("test.txt", "w") as file:
+        file.write(word + "\n")
+\end{pycode}
+\begin{pycode}[Program B]
+for word in ["red", "blue"]:
+    with open("test.txt", "a") as file:
+        file.write(word + "\n")
+\end{pycode}
+Program A gives: \rule{4cm}{0.4pt} \qquad Program B gives: \rule{4cm}{0.4pt}
+\par Then add \texttt{d} = delete all ideas to your notebook (hint: which mode empties a file?).
+\end{challenge}
+
+\begin{creative}[Make it yours]
+Pick one:
+\begin{itemize}[leftmargin=1.2em]
+  \item Draw a new picture for \texttt{my\_art.txt} (Exercise 7.3) on squared paper first: mark each dot's \texttt{x}, \texttt{y}, size and color.
+        Then type the lines in and run it.
+  \item Make a themed word list for Word Guess: \texttt{space.txt}, \texttt{animals.txt} or \texttt{food.txt}, and change \texttt{WORD\_FILE} to use it.
+\end{itemize}
+\end{creative}
+
+\begin{selfcheck}
+  \item My ideas are still there after I close and run the program again.
+  \item I can explain the difference between \texttt{"w"} and \texttt{"a"}.
+  \item My program does not crash when the file is missing.
+  \item My files hold ideas, words or pictures only: no real names, addresses or passwords.
+\end{selfcheck}

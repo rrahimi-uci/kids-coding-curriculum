@@ -1,0 +1,42 @@
+% Level 2, Week 5 -- answer key
+\answersweek{5}{Dictionaries and Secret Codes}{Answers for workbook chapter 5 and homework 5.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 5.1 Monster Stats]
+\textbf{Step 3 (error):} \texttt{KeyError: 'magic'}.\par
+\textbf{What to look for:} the report loop uses \texttt{.items()}; \texttt{level\_up()} changes the existing keys
+(\texttt{monster["health"] = monster["health"] + 10}) rather than adding keys with different spelling;
+\texttt{get\_stat()} checks \texttt{if stat in monster:} before the lookup. Also correct: \texttt{return monster.get(stat, 0)}.
+\end{answer}
+\pyfile{../exercises/week05/ex-monster-stats/solution.py}
+
+\begin{answer}[Exercise 5.2 Caesar Cipher]
+\textbf{Step 4:} \texttt{zhoo grqh!} decodes to \texttt{well done!}\par
+\textbf{What to look for:} spaces and punctuation are kept by the \texttt{else}; \texttt{decode()} reuses \texttt{encode()} with \texttt{-shift}.
+Also correct: \texttt{encode(secret, 26 - shift)}, or building a reversed dictionary. Step 3: check the partner can decode the message
+with the same shift.
+\end{answer}
+\pyfile{../exercises/week05/ex-caesar-cipher/solution.py}
+
+\section{Homework}
+\begin{answer}[Core: Keys and values]
+\texttt{pet["legs"]} gives \texttt{4}.\quad \texttt{pet["color"] = "purple"}.\quad \texttt{pet["Legs"]} crashes with
+\texttt{KeyError: 'Legs'} (capital L: keys must match exactly).
+\end{answer}
+
+\begin{answer}[Core: Word Counter]
+Most common word: \texttt{the} (3 times).
+\textbf{What to look for:} the \texttt{if word in counts:} / \texttt{else:} pattern; \texttt{most\_common()} remembers both the best word and the best count.
+Also correct: \texttt{counts[word] = counts.get(word, 0) + 1}.
+\end{answer}
+\pyfile{../exercises/week05/hw-word-counter/solution.py}
+
+\begin{answer}[Challenge: Crack the code]
+Shift \textbf{3}: \texttt{it is safe to play}. Students who tried every shift systematically (1, 2, 3 \ldots) used a real codebreaking method
+called \enquote{brute force}: praise it.
+\end{answer}
+
+\begin{answer}[Creative: Invent your own code]
+Any complete key is fine. Look for one symbol per letter with no two letters sharing a symbol, so the message can be decoded
+without guessing. This is a \textbf{substitution cipher}, the next step up from Caesar (it comes back in buffer session B1).
+\end{answer}

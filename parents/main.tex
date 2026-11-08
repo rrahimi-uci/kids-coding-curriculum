@@ -1,0 +1,1089 @@
+%% main.tex -- "Why Coding? A Guide for Families": parent information deck.
+%%
+%% Build from this folder with `make` (deck, notes and handout); see README.md.
+%% Speaker-notes edition: notes.tex defines \kcwithnotes and inputs this file.
+%% Text shared with the handout lives in content/shared.tex.
+\documentclass[20pt,t]{beamer}
+\usetheme{kidscode}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber,uniquename=false]{biblatex}
+\addbibresource{references.bib}
+\renewcommand*{\bibfont}{\footnotesize}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18,
+  % numbers in charts use the slide font, not the math font
+  /pgf/number format/assume math mode=true}
+\usepackage{array,booktabs,tabularx}
+\input{content/shared}
+
+\ifdefined\kcwithnotes
+  \setbeameroption{show notes}
+\fi
+
+\title{Why Coding? A Guide for Families}
+\author{\Presenter}
+\hypersetup{pdftitle={Why Coding? A Guide for Families},
+  pdfauthor={Kids Coding},
+  pdfsubject={Parent information evening for the Kids Coding course},
+  pdflang={en-US}}
+
+%% TikZ styles (defined here because '#' cannot appear inside a frame body)
+\tikzset{
+  box/.style={draw=#1, line width=1.4pt, fill=#1!10, rounded corners=6pt, align=center,
+              minimum height=1.2in, text width=2.25in, font=\small},
+  arr/.style={-{Stealth[length=10pt]}, line width=1.6pt, kcgray},
+  card/.style={draw=#1, line width=1.3pt, rounded corners=8pt, fill=#1!8,
+               minimum width=3.6in, minimum height=1.9in, anchor=north west},
+  ladder/.style={draw=#1, line width=1.4pt, fill=#1!12, rounded corners=6pt,
+               minimum width=1.9in, minimum height=0.7in, font=\semibold}}
+
+%% Small helpers used on several slides
+\newcommand{\bignum}[1]{{\fontsize{72}{72}\selectfont\extrabold\color{kcbluetext}#1}}
+\newcommand{\figalt}[1]{\par\vskip0.04in{\scriptsize\color{kcgray}\textit{Figure:} #1\par}}
+\newcommand{\gray}[1]{\textcolor{kcgray}{#1}}
+
+\begin{document}
+
+%% =====================================================================
+%% 1. Title
+%% =====================================================================
+{\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \foreach \c [count=\i from 0] in {kcorange,kcsky,kcgreen,kcyellow,kcblue,kcvermillion,kcpurple}
+      \fill[\c] ([xshift=\i*\paperwidth/7]current page.north west) rectangle ++(\paperwidth/7,-0.09in);
+    % original illustration: a stack of code blocks that turns into lines of text code
+    \begin{scope}[shift={([xshift=-5.3in,yshift=-1.9in]current page.north east)}, x=1in, y=1in]
+      \foreach \c/\w/\y in {kcorange/1.35/0, kcblue/1.75/-0.72, kcgreen/1.5/-1.44, kcpurple/1.9/-2.16, kcsky/1.2/-2.88}
+        \fill[\c, rounded corners=7pt] (0,\y) rectangle ++(\w,-0.52);
+      \foreach \y in {0,-0.72,-1.44,-2.16,-2.88}
+        \draw[-{Stealth[length=10pt]}, kcgray, line width=1.8pt] (2.1,\y-0.26) -- (2.5,\y-0.26);
+      \foreach \w/\y/\x in {1.1/0/0, 1.4/-0.72/0.3, 0.9/-1.44/0.3, 1.3/-2.16/0.6, 0.8/-2.88/0}
+        \fill[kcink!85, rounded corners=2pt] (2.75+\x,\y-0.19) rectangle ++(\w,-0.14);
+      \node[anchor=north west, font=\footnotesize, text=kcgray] at (0,-3.55) {blocks};
+      \node[anchor=north west, font=\footnotesize, text=kcgray] at (2.75,-3.55) {text code};
+    \end{scope}
+    \node[anchor=west, text width=7.0in, align=left]
+      at ([xshift=0.8in,yshift=0.15in]current page.west) {%
+      {\small\semibold\color{kcbluetext}\addfontfeatures{LetterSpace=8}FAMILY INFORMATION EVENING\par}
+      \vskip0.2in
+      {\fontsize{60}{66}\selectfont\bfseries Why Coding?\par}
+      \vskip0.15in
+      {\Large For families of Grade~5 learners\par}
+      \vskip0.4in
+      What the research says, how our course works, and how you can help at home.\par
+      \vskip0.5in
+      {\small\color{kcgray}\Presenter\enspace\textbar\enspace \CourseName{} course\enspace\textbar\enspace starts \StartDate\par}};
+  \end{tikzpicture}
+  \kcnotes{Welcome everyone and thank them for coming. Introduce yourself and your role in
+    running the course. Set expectations: about 25 minutes of talk, then questions. Say up front
+    that you will be honest about what research does and does not show: this is not a sales
+    pitch, and nothing tonight promises jobs, grades or college places.}
+  {The illustration is original: colored blocks (like Scratch) on the left turn into lines of
+    typed code on the right. That is the journey the children take in this course.}
+  {\qa{Do I need to know anything about computers to follow tonight?}{No. Every technical word
+    is explained, and you never need to code to help your child.}}
+\end{frame}}
+
+%% =====================================================================
+%% 2. Agenda
+%% =====================================================================
+\kicker{Tonight}
+\begin{frame}{Tonight in 25 minutes}
+  \vskip0.25in
+  \begin{tikzpicture}[x=2.35in, y=1in]
+    \foreach \n/\t/\s/\c [count=\i from 0] in
+      {1/Why now/{Computing, AI and the skills ahead}/kcorange,
+       2/The evidence/{What studies show, and what they don't}/kcsky,
+       3/Good teaching/{What works, according to research}/kcgreen,
+       4/Our course/{Three levels, one session a week}/kcblue,
+       5/Your role/{Easy ways to help at home}/kcpurple}{
+      \fill[\c] (\i,0) rectangle ++(0.92,0.1);
+      \node[anchor=north west, inner sep=0pt, font=\fontsize{44}{44}\selectfont\extrabold, text=kcink!75] at (\i,-0.2) {\n};
+      \node[anchor=north west, inner sep=0pt, text width=2.1in, font=\semibold] at (\i,-1.0) {\t};
+      \node[anchor=north west, inner sep=0pt, text width=2.05in, font=\small, text=kcgray] at (\i,-1.45) {\s};
+    }
+  \end{tikzpicture}
+  \vskip0.3in
+  \begin{keybox}[Then]
+    Questions, common concerns and next steps. Ask anything, any time.
+  \end{keybox}
+  \kcnotes{Walk through the five parts quickly. Invite people to interrupt with questions; a
+    small group works best as a conversation. Mention that a one-page handout summarizes
+    everything, so nobody needs to take notes.}
+  {}
+  {\qa{Will the slides be shared?}{Yes: hand out the one-page summary; the full slides with
+    references are available on request.}}
+\end{frame}
+
+%% =====================================================================
+%% 3. Why now: skills
+%% =====================================================================
+\kicker{Why now}
+\begin{frame}{Computing is changing the skills our kids need}
+  \vskip0.1in
+  Employers expect these to be the \textbf{fastest-growing skills to 2030}:
+  \vskip0.2in
+  \begin{tikzpicture}[x=3.9in]
+    \foreach \n/\t/\i/\c [count=\k from 0] in
+      {1/AI and big data/\faRobot/kcblue,
+       2/Networks and cybersecurity/\faShield*/kcgreen,
+       3/Technological literacy/\faLaptopCode/kcvermillion}{
+      \node[draw=\c, line width=1.5pt, fill=\c!10, rounded corners=8pt, minimum width=3.6in,
+            minimum height=1.15in, anchor=north west] at (\k,0) {};
+      \node[anchor=north west, font=\Large, text=\c!70!black] at (\k+0.04,-0.14) {\i};
+      \node[anchor=north west, font=\semibold, text width=2.7in] at (\k+0.2,-0.17) {\n.\enspace\t};
+    }
+  \end{tikzpicture}
+  \vskip0.25in
+  \textbf{Analytical thinking} is the top \emph{core} skill: 7 in 10 employers call it essential.
+  \begin{keybox}
+    Not every child should become a programmer, but every child will live with this technology.
+  \end{keybox}
+  \source{\textcite{wef2025jobs}, a survey of over 1,000 employers.}
+  \kcnotes{The World Economic Forum surveys large employers worldwide every two years. In the
+    January 2025 report, the three skills expected to grow fastest by 2030 are AI and big data;
+    networks and cybersecurity; and technological literacy. Analytical thinking remains the
+    skill employers most often call essential (seven in ten). Stress the take-away: we are not
+    trying to turn ten-year-olds into software engineers. We want them to understand, question
+    and shape the technology they will grow up with.}
+  {This is a survey of what employers \emph{expect}, not a measurement of the future. Forecasts
+    like this are useful for direction, not for precise predictions.}
+  {\qa{Will coding guarantee my child a good job?}{No, and nobody can promise that. What we can
+    say is that understanding how computers and AI work is becoming a basic literacy, like
+    understanding money or science.}}
+\end{frame}
+
+%% =====================================================================
+%% 4. Why now: schools
+%% =====================================================================
+\begin{frame}{Schools are still catching up}
+  \vskip0.2in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.47\textwidth}
+      \bignum{60\%}\par\vskip0.1in
+      of US public high schools offered a foundational computer science class in 2024--25.
+      Access has \textbf{stopped growing}.
+    \column{0.47\textwidth}
+      \bignum{6.1\%}\par\vskip0.1in
+      of high school students were enrolled in one. Most students never take a class.
+  \end{columns}
+  \vskip0.3in
+  \begin{keybox}
+    A small, steady start outside school fills a gap that many schools cannot yet fill.
+  \end{keybox}
+  \source{\textcite{codeorg2025state}; national data, 2024--25 school year.}
+  \kcnotes{These are the latest national figures from the annual State of Computer Science
+    Education report (Code.org with the Computer Science Teachers Association and the ECEP
+    Alliance), published December 2025. About 60 percent of public high schools offered a
+    foundational computer science course, and about 6 percent of high school students were
+    enrolled in one. The share of schools offering it has flattened compared with earlier years.
+    The point is not that schools are failing; it is that most children will meet very little
+    computer science in school, so a gentle start at home can help.}
+  {These numbers describe US public high schools. Elementary schools are measured differently,
+    so we do not quote a figure for them. Local schools may be better or worse than the
+    national picture.}
+  {\qa{Does our local school teach coding?}{It varies a lot by school. It is worth asking; our
+    course works alongside school, not instead of it.}}
+\end{frame}
+
+%% =====================================================================
+%% 5. Why now: AI
+%% =====================================================================
+\begin{frame}{With AI, understanding code matters more}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \begin{cardbox}[kcblue]{\faFlask\enspace 69 learners aged 10--17}
+        \begin{itemize}
+          \item With an AI helper, they wrote more working code.
+          \item They could still edit code by hand.
+          \item A week later: no clear difference.
+        \end{itemize}
+      \end{cardbox}
+    \column{0.48\textwidth}
+      \begin{cardbox}[kcvermillion]{\faGlobeEurope\enspace OECD report, 2026}
+        \begin{itemize}
+          \item General chatbots can lift scores without lasting learning.
+          \item Tools designed for learning work better.
+        \end{itemize}
+      \end{cardbox}
+  \end{columns}
+  \vskip0.12in
+  \evOpen\enspace\gray{How AI will change learning to code is not yet known.}
+  \begin{keybox}
+    Someone still has to understand, check and fix what the computer produces.
+  \end{keybox}
+  \source{\textcite{kazemitabaar2023codex}; \textcite{oecd2026deo}.}
+  \kcnotes{Many parents ask: if AI can write code, why learn? Two pieces of evidence. First, a
+    controlled study at the University of Toronto with 69 learners aged 10 to 17: half had an AI
+    code generator while learning Python. Those with AI completed more tasks and scored higher
+    while learning, and they did not get worse at editing code by hand. A week later, on tests
+    without AI, the difference was small and not statistically significant. Second, the OECD's
+    2026 Digital Education Outlook warns that general-purpose chatbots can raise performance on
+    tasks without producing lasting learning, while tools designed for learning (giving hints,
+    asking questions) do better. Our course uses no online AI tools; in Level~3 the children
+    build tiny AI models by hand so they understand how AI learns and where it fails.}
+  {\enquote{Not statistically significant} means the difference was small enough that it could
+    be down to chance. One study of 69 children cannot settle the question.}
+  {\qa{Should my child use ChatGPT for homework?}{Not for this course. The homework is about
+    thinking through the problem; we teach how AI works in Level 3 instead.}}
+\end{frame}
+
+%% =====================================================================
+%% 6. What coding builds
+%% =====================================================================
+\kicker{What the research shows}
+\begin{frame}{What coding builds, and how sure we are}
+  \vskip0.1in
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabularx}{\textwidth}{@{}>{\semibold\RaggedRight}m{4.7in}>{\RaggedRight\arraybackslash}X>{\raggedleft\arraybackslash}m{2.75in}@{}}
+    Coding and computational thinking & \gray{learns to program} & \evStrong\\
+    Problem solving and planning & \gray{on coding-like tasks} & \evStrong\\
+    Math, creativity, reasoning & \gray{smaller in strict studies} & \evMixed\\
+    Reading and school grades & \gray{little effect} & \evMixed\\
+    General persistence and teamwork & \gray{rarely measured} & \evOpen\\
+  \end{tabularx}
+  \begin{keybox}[What \enquote{computational thinking} means]
+    Breaking a problem into steps, spotting patterns, and testing ideas until they work.
+  \end{keybox}
+  \source{\textcite{scherer2019transfer,scherer2020teaching}; \textcite{montuori2024ct}; \textcite{wing2006ct}.}
+  \kcnotes{This slide is the honest summary of the whole evidence section. Read the rows from
+    top to bottom: we are most confident about what is closest to coding itself. Children
+    reliably learn to program and to think in steps. There is good evidence for gains in problem
+    solving and planning, especially on tasks that resemble coding. Effects on math, creativity
+    and reasoning are positive on average but shrink in the most careful studies, so we call
+    them mixed. Reading and school grades benefit least. Whether coding builds general
+    persistence or teamwork is an open question: few studies measure it well.}
+  {Each badge uses a color, an icon and a word, so it reads the same in black and white.
+    \enquote{Strong} means several careful studies and reviews agree. \enquote{Mixed} means
+    results vary or shrink with stronger study designs. \enquote{Open} means we simply do not
+    know yet.}
+  {\qa{So will it help with math?}{Possibly a little, and especially with problem solving, but
+    we do not promise better math grades. Think of it as its own valuable subject.}}
+\end{frame}
+
+%% =====================================================================
+%% 7. Scherer meta-analysis
+%% =====================================================================
+\begin{frame}{The biggest review: 105 studies}
+  \vskip0.1in
+  \begin{itemize}
+    \item Children reliably \textbf{learn to program} when taught.
+    \item Some gains spread: \textbf{creative thinking, math, thinking about thinking}.
+    \item Smaller gains for spatial skills and reasoning.
+    \item Least benefit: \textbf{reading and school grades}.
+    \item Stronger study designs found \textbf{smaller effects}.
+  \end{itemize}
+  \begin{keybox}
+    Expect better coders and problem solvers, not automatically higher grades.
+  \end{keybox}
+  \source{\textcite{scherer2019transfer} (105 studies, 539 effects); \textcite{scherer2020teaching}.}
+  \kcnotes{This is the largest review of whether learning to program helps other kinds of
+    thinking. Scherer, Siddiq and S\'anchez Viveros combined 105 studies with 539 results. Skills
+    closest to programming improved most. Gains also appeared for creative thinking, math and
+    metacognition (thinking about your own thinking), and to a lesser degree spatial skills and
+    reasoning. Reading and school achievement benefited least. Importantly, studies that
+    compared coders with children who did nothing at all found bigger effects than studies with
+    an active comparison group, and published studies showed bigger effects than unpublished
+    ones. That is a reason to be modest. A companion review by the same team (2020, 139
+    interventions) found a large effect of teaching on programming skill itself.}
+  {A meta-analysis pools many studies to find the overall pattern. When effects get smaller in
+    better-designed studies, part of the \enquote{benefit} in weaker studies may come from
+    simply doing something new and fun, not from coding itself.}
+  {\qa{What is \enquote{thinking about thinking}?}{Metacognition: noticing how you are solving a
+    problem and changing strategy when it isn't working. Debugging practices exactly this.}}
+\end{frame}
+
+%% =====================================================================
+%% 8. Chart: Montuori 2024
+%% =====================================================================
+\begin{frame}{Where coding seems to help most}
+  \vskip0.05in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.64\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+          xbar, width=6.2in, height=3.4in,
+          xmin=0, xmax=1.1, bar width=0.34in,
+          symbolic y coords={Inhibition,Working memory,Planning,Problem solving},
+          ytick=data, enlarge y limits=0.18,
+          y tick label style={font=\small},
+          xtick={0,0.2,0.4,0.6,0.8,1.0},
+          x tick label style={font=\scriptsize, /pgf/number format/fixed}, xticklabel={\pgfmathprintnumber{\tick}},
+          xlabel={Effect size (Hedges' \textit{g})}, xlabel style={font=\small},
+          axis x line*=bottom, axis y line*=left,
+          nodes near coords={\pgfmathprintnumber[fixed,precision=2,zerofill]{\pgfplotspointmeta}},
+          nodes near coords style={font=\small\semibold, text=kcink},
+          clip=false,
+        ]
+          \draw[kcgray, dashed, line width=0.8pt] ([yshift=-0.3in]axis cs:0.2,Inhibition) -- ([yshift=0.3in]axis cs:0.2,Problem solving) node[above, font=\scriptsize, text=kcgray] {small};
+          \draw[kcgray, dashed, line width=0.8pt] ([yshift=-0.3in]axis cs:0.5,Inhibition) -- ([yshift=0.3in]axis cs:0.5,Problem solving) node[above, font=\scriptsize, text=kcgray] {medium};
+          \draw[kcgray, dashed, line width=0.8pt] ([yshift=-0.3in]axis cs:0.8,Inhibition) -- ([yshift=0.3in]axis cs:0.8,Problem solving) node[above, font=\scriptsize, text=kcgray] {large};
+          \addplot[fill=kcblue, draw=none] coordinates
+            {(0.17,Inhibition) (0.20,Working memory) (0.36,Planning) (0.89,Problem solving)};
+        \end{axis}
+      \end{tikzpicture}
+      \figalt{bar chart of effect sizes: problem solving 0.89, planning 0.36, working memory
+        0.20, inhibition 0.17. Dashed lines mark the usual small, medium and large benchmarks.}
+    \column{0.32\textwidth}
+      \vskip0.15in
+      \textbf{19 experiments} with children; 11 pooled.
+      \vskip0.25in
+      Big gain in \textbf{problem solving}; small gains in self-control and memory.
+      \vskip0.25in
+      \evMixed\par\vskip0.05in
+      \gray{Few studies; effects vary.}
+  \end{columns}
+  \source{\textcite{montuori2024ct}; pooled (fixed-effect) estimates from 11 studies.}
+  \kcnotes{This 2024 review looked only at experiments with children: 19 studies with 1,523
+    participants, of which 11 could be combined. The pooled effects were large for problem
+    solving (0.89), smaller for planning (0.36), and small for working memory (0.20) and
+    inhibition, the ability to stop an automatic response (0.17). The dashed lines show common
+    rules of thumb: 0.2 is small, 0.5 medium, 0.8 large.}
+  {An effect size compares the average improvement of the coding group with the comparison
+    group, in units of how spread out children's scores are. 0.89 means a big difference; 0.17
+    a small one. Because the review pooled only 11 studies, we label it mixed rather than
+    strong.}
+  {\qa{Is 0.89 a lot?}{Yes, it is large by usual standards, but it comes from a small number of
+    studies, so treat it as promising rather than proven.}}
+\end{frame}
+
+%% =====================================================================
+%% 9. Arfé RCT
+%% =====================================================================
+\begin{frame}{A closer look: one fair test}
+  \vskip0.3in
+  \begin{tikzpicture}
+    \node[box=kcgray] (kids) {\textbf{179 first graders}\\5 schools,\\no coding before};
+    \node[box=kcgray, right=0.42in of kids] (rand) {\textbf{Randomly split}\\by class,\\like a coin toss};
+    \node[box=kcblue, right=0.42in of rand, yshift=0.75in] (code) {\textbf{Coding}\\8 hours\\over 4 weeks};
+    \node[box=kcorange, right=0.42in of rand, yshift=-0.75in] (ctrl) {\textbf{Usual STEM}\\\textbf{lessons}\\same time};
+    \node[box=kcgreen, right=0.42in of code, yshift=-0.75in] (res) {\textbf{Result}\\coding group improved more in \textbf{planning}};
+    \draw[arr] (kids) -- (rand);
+    \draw[arr] (rand.east) -- ++(0.2,0) |- (code.west);
+    \draw[arr] (rand.east) -- ++(0.2,0) |- (ctrl.west);
+    \draw[arr] (code.east) -- ++(0.2,0) |- (res.west);
+    \draw[arr] (ctrl.east) -- ++(0.2,0) |- (res.west);
+  \end{tikzpicture}
+  \figalt{flow diagram of a randomized trial: 179 first graders randomly assigned by class to
+    coding or usual STEM lessons; the coding group improved more in planning.}
+  \vskip0.25in
+  \textbf{Limits:} young children, a short program, one country (Italy). Gains in self-control were smaller.
+  \source{\textcite{arfe2020coding}, a cluster-randomized controlled trial.}
+  \kcnotes{This is one of the cleanest studies in the field. Researchers in Italy randomly
+    assigned ten first-grade classes either to eight hours of coding over four weeks (using
+    Code.org puzzles) or to their usual STEM lessons. Before and after, children did planning
+    puzzles such as the Tower of London and tests of inhibition, the ability to stop an automatic
+    response. The coding group improved more, especially in planning; the effect on inhibition
+    was smaller.}
+  {Random assignment is the gold standard: because chance decides who codes, differences at the
+    end are much more likely to be caused by the coding itself. Still, it is one short study of
+    six-year-olds, so we should not assume the same size of effect for our ten-year-olds.}
+  {\qa{Why show a study of six-year-olds?}{Because it is one of the few truly randomized
+    trials. Studies of older children mostly point the same way but with weaker designs.}}
+\end{frame}
+
+%% =====================================================================
+%% 10. Early experience
+%% =====================================================================
+\begin{frame}{Early experiences shape interest}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \begin{cardbox}[kcgreen]{\faRobot\enspace Programming a robot, age 6}
+        Afterwards, girls were as interested and confident as boys.\par
+        \vskip0.05in\gray{Stereotypes did not change.}
+      \end{cardbox}
+    \column{0.48\textwidth}
+      \begin{cardbox}[kcorange]{\faChartLine\enspace Plans at age 13--14}
+        Expecting a science career predicted a science degree (2--3$\times$).\par
+        \vskip0.05in\gray{A link, not proof of cause.}
+      \end{cardbox}
+  \end{columns}
+  \vskip0.1in
+  Girls report less encouragement in computing from parents and teachers.
+  \begin{keybox}
+    Early, positive experiences keep doors open. They do not decide a future.
+  \end{keybox}
+  \source{\textcite{master2017programming}; \textcite{tai2006planning}; \textcite{google2016diversity}.}
+  \kcnotes{Three findings about interest. First, in a University of Washington experiment,
+    first graders who programmed a small robot showed no gender gap in technology interest and
+    confidence afterwards, while in the comparison groups boys reported more of both. The short
+    activity did not change children's stereotypes, though. Second, a large US study followed
+    students from eighth grade (1988) into college: those who expected a science-related career
+    at age 13 to 14 were roughly two to three times as likely to graduate with a science degree.
+    This is a correlation (an association), not proof that early interest causes the degree.
+    Third, a 2016 Google--Gallup survey found girls are less likely than boys to be told by
+    parents and teachers that they would be good at computer science.}
+  {Correlation versus causation: children who already love science might both expect a science
+    career and later study it. The early expectation might not cause the degree; it might just
+    be an early sign of it. The 2006 study is also old (data from 1988 to 2000).}
+  {\qa{My daughter says coding is for boys. What can I do?}{Encourage her as much as you would a
+    son, and point out the variety of people who code. Our course never assigns roles by gender.}}
+\end{frame}
+
+%% =====================================================================
+%% 11. What we don't know
+%% =====================================================================
+\begin{frame}{What we don't know (yet)}
+  \vskip0.1in
+  \begin{itemize}
+    \item Gains in other school subjects are \textbf{mixed and often small}.
+    \item Stronger studies find \textbf{smaller benefits}.
+    \item Skills rarely carry far: the same is true of \textbf{chess and music}.
+    \item Kids who choose coding may differ: \textbf{correlation is not cause}.
+    \item Results depend heavily on \textbf{how it is taught}.
+    \item We make \textbf{no promises} about jobs, pay or college.
+  \end{itemize}
+  \begin{keybox}[Our promise]
+    Capable, confident beginner programmers who practice problem solving every week.
+  \end{keybox}
+  \source{\textcite{pea1984cognitive} (an early critique); \textcite{sala2017far}; \textcite{scherer2019transfer}.}
+  \kcnotes{This is the most important slide for trust. Researchers have argued about this since
+    the 1980s: Pea and Kurland at Bank Street College questioned the hope that programming
+    automatically improves general thinking, and early studies with the Logo language were
+    disappointing when there was no deliberate teaching. (That critique is old, which we flag,
+    but its lesson still holds.) A 2017 review of chess, music and memory training found the same
+    general pattern: skills rarely carry over to unrelated areas, and apparent effects shrink in
+    better-designed studies. So our promise is modest: children will become capable, confident
+    beginner programmers and practice problem solving. Anything beyond that is a bonus.}
+  {\enquote{Transfer} means using a skill learned in one area somewhere else. Near transfer (to
+    similar problems) is common; far transfer (to unrelated subjects) is rare for any activity.}
+  {\qa{Then why bother?}{Because coding is worth learning for its own sake, like music or a
+    language, and because the way we teach it (projects, teamwork, debugging) builds good
+    learning habits.}}
+\end{frame}
+
+%% =====================================================================
+%% 12. Six principles
+%% =====================================================================
+\kicker{What good teaching looks like}
+\begin{frame}{Six principles the evidence supports}
+  \vskip0.15in
+  \begin{tikzpicture}[x=3.9in, y=-2.1in]
+    \foreach \t/\d/\s/\i/\c [count=\k from 0] in
+      {Real projects/{Games and art they love}/{Resnick et al., 2009}/\faPaintBrush/kcorange,
+       {Low floor, high ceiling}/{Easy start, room to grow}/{Resnick et al., 2009}/\faLayerGroup/kcsky,
+       Code in pairs/{Take turns at the keys}/{Umapathy \& Ritzhaupt, 2017}/\faUserFriends/kcgreen,
+       Teach debugging/{A step-by-step bug hunt}/{Michaeli \& Romeike, 2019}/\faBug/kcvermillion,
+       {Off-screen, read first}/{Predict, then run}/{Sentance et al., 2019}/\faEye/kcblue,
+       {Spiral, with feedback}/{Ideas return, deeper}/{Bruner, 1960}/\faRedo/kcpurple}{
+      \pgfmathtruncatemacro{\col}{mod(\k,3)}
+      \pgfmathtruncatemacro{\row}{\k/3}
+      \node[card=\c] (c\k) at (\col,\row) {};
+      \node[anchor=north west, font=\Large, text=\c!70!black] at ([xshift=0.18in,yshift=-0.16in]c\k.north west) {\i};
+      \node[anchor=north west, font=\semibold, text width=3.25in] at ([xshift=0.18in,yshift=-0.66in]c\k.north west) {\t};
+      \node[anchor=north west, text width=3.25in] at ([xshift=0.18in,yshift=-1.05in]c\k.north west) {\d};
+      \node[anchor=south east, font=\scriptsize, text=kcgray] at ([xshift=-0.15in,yshift=0.1in]c\k.south east) {\s};
+    }
+  \end{tikzpicture}
+  \kcnotes{Research is clearer about \emph{how} to teach coding than about its spill-over
+    benefits. These six principles come up again and again. The next three slides give the
+    evidence for each, and then we show where each one appears in our course. The small label in
+    the corner of each card names the key source.}
+  {}
+  {\qa{Is there one best way to teach coding?}{No single method wins everywhere, but these
+    ingredients are consistently linked to better learning and motivation.}}
+\end{frame}
+
+%% =====================================================================
+%% 13. Create, don't consume
+%% =====================================================================
+\begin{frame}{Create, don't just consume}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.54\textwidth}
+      \begin{itemize}
+        \item Kids learn best making things \textbf{they care about}.
+        \item \textbf{Low floor:} a first program in minutes.
+        \item \textbf{High ceiling:} real complexity later.
+        \item \textbf{Wide walls:} games, art, stories, data.
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{tikzpicture}
+        \node[ladder=kcsky] (u) at (0,0) {Use};
+        \node[ladder=kcblue] (m) at (1.15in,0.8in) {Modify};
+        \node[ladder=kcbluetext] (c) at (2.3in,1.6in) {Create};
+        \draw[arr] (u.east) -| (m.south);
+        \draw[arr] (m.east) -| (c.south);
+        \node[font=\scriptsize, text=kcgray, anchor=north] at (u.south) {play with a program};
+        \node[font=\scriptsize, text=kcgray, anchor=south] at (c.north) {build your own};
+      \end{tikzpicture}
+      \figalt{a staircase from Use to Modify to Create.}
+  \end{columns}
+  \vskip-0.1in
+  \begin{keybox}
+    Every level ends with a project the child designs, builds and presents.
+  \end{keybox}
+  \source{\textcite{papert1980mindstorms}; \textcite{resnick2009scratch}; \textcite{lee2011ct}.}
+  \kcnotes{Seymour Papert at MIT argued in 1980 that children learn best by building things that
+    matter to them. The Scratch team (Resnick and colleagues, 2009) turned this into three design
+    goals: a low floor (easy to start), a high ceiling (room for complex projects) and wide walls
+    (many kinds of project, so every child finds an interest). Lee and colleagues (2011) describe
+    a progression called Use--Modify--Create: first play with a working program, then change it,
+    then design your own. Our lessons follow exactly that pattern.}
+  {These are design principles from experienced researchers rather than results of one
+    experiment. They are widely used in computing education because they keep children engaged.}
+  {\qa{My child only wants to make games. Is that OK?}{Yes. Games are a great vehicle: they need
+    loops, conditions, variables and debugging. Art and data projects are there for others.}}
+\end{frame}
+
+%% =====================================================================
+%% 14. Pairs, debugging, feedback
+%% =====================================================================
+\begin{frame}{Learn together, fix bugs on purpose}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.32\textwidth}
+      \begin{cardbox}[kcgreen]{\faUserFriends\enspace Pairs}
+        Better assignments, exams and persistence. Beginners gain most.
+      \end{cardbox}
+    \column{0.32\textwidth}
+      \begin{cardbox}[kcvermillion]{\faBug\enspace Debugging}
+        A taught, step-by-step process improved skill \textbf{and} confidence.
+      \end{cardbox}
+    \column{0.32\textwidth}
+      \begin{cardbox}[kcpurple]{\faComments\enspace Feedback}
+        Helps most when it says \textbf{how to improve}.
+      \end{cardbox}
+  \end{columns}
+  \vskip0.2in
+  \evStrong\enspace Pairs and feedback.\par\vskip0.1in
+  \evMixed\enspace Debugging: promising, but few studies.
+  \source{\textcite{umapathy2017pair}; \textcite{denner2014pair}; \textcite{michaeli2019debugging}; \textcite{wisniewski2020feedback}.}
+  \kcnotes{Pair programming means two children share one computer: the driver types, the
+    navigator reads, plans and spots mistakes, and they swap regularly. A 2017 review of 18
+    studies (mostly university courses) found better results for pairs on assignments, exams and
+    staying in the course, though not on attitudes. A study of 320 middle-school students
+    (Denner and colleagues, 2014) found pairs gained more programming knowledge, especially
+    children with less experience. Debugging: a German classroom study found that explicitly
+    teaching a systematic process for finding bugs improved both debugging performance and
+    students' confidence compared with practice alone. Feedback: a 2020 review of 435 studies
+    found a solid medium-sized effect on learning, largest when feedback gives information about
+    the task and how to improve, and smaller for praise alone.}
+  {You may hear a famous figure of 0.79 for feedback (Hattie and Timperley, 2007). A later,
+    larger re-analysis by the same research group found about 0.48, which is still a solid
+    effect. We quote the more careful estimate qualitatively.}
+  {\qa{What if my child does not get along with their partner?}{We rotate pairs, set clear roles
+    and swap every few minutes. With an odd number, a trio uses driver, navigator and tester.}}
+\end{frame}
+
+%% =====================================================================
+%% 15. Unplugged, read first, spiral
+%% =====================================================================
+\begin{frame}{Off-screen first, read before writing, return often}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.32\textwidth}
+      \begin{cardbox}[kcblue]{\faCut\enspace Unplugged}
+        Starting off-screen helped young pupils' thinking and motivation.
+      \end{cardbox}
+    \column{0.32\textwidth}
+      \begin{cardbox}[kcsky]{\faEye\enspace Predict, then run}
+        Students aged 11--14 who read code first beat a comparison group.
+      \end{cardbox}
+    \column{0.32\textwidth}
+      \begin{cardbox}[kcpurple]{\faRedo\enspace Spiral}
+        Big ideas come back each level, deeper each time.
+      \end{cardbox}
+  \end{columns}
+  \vskip0.25in
+  \textbf{Loops, for example:} Scratch \emph{repeat} $\rightarrow$ Python \texttt{for}
+    $\rightarrow$ game loops $\rightarrow$ recursion.
+  \source{\textcite{delolmo2020unplugged}; \textcite{sentance2019primm}; \textcite{bruner1960process}.}
+  \kcnotes{Unplugged activities teach computing ideas without a computer: acting out a loop as a
+    dance, sorting cards, giving a parent-robot exact instructions. A Spanish study with early
+    primary pupils found that starting with unplugged activities before moving to the computer
+    helped computational thinking and motivation. PRIMM (Predict, Run, Investigate, Modify, Make)
+    asks students to read and predict what code does before writing their own; an evaluation in
+    13 UK schools with 493 students aged 11 to 14 found better post-test results than a
+    comparison group. The spiral curriculum idea comes from psychologist Jerome Bruner (1960):
+    return to big ideas repeatedly, at greater depth each time.}
+  {Reading code before writing it is like reading books before writing stories: it builds a
+    picture of how programs work, so writing becomes less frustrating.}
+  {\qa{Isn't time away from the computer wasted?}{No. Off-screen activities make the ideas
+    concrete and give eyes a break; they are short and always lead into building.}}
+\end{frame}
+
+%% =====================================================================
+%% 16. How our course applies the principles
+%% =====================================================================
+\kicker{Our course}
+\begin{frame}{How our course puts this into practice}
+  \vskip0.05in
+  \renewcommand{\arraystretch}{1.18}
+  \begin{tabularx}{\textwidth}{@{}>{\semibold\RaggedRight}p{3.6in}>{\RaggedRight\arraybackslash}X@{}}
+    \toprule
+    Principle & In our course\\
+    \midrule
+    Real projects & A final project every level; 10+ free-build times\\
+    Low floor, high ceiling & Scratch, then Python; easier and harder paths\\
+    Code in pairs & Driver and navigator, swapped every session\\
+    Teach debugging & A \enquote{bug hunt} every week, with a strategy\\
+    Off-screen, read first & 6+ unplugged activities; predict-then-run\\
+    Spiral, with feedback & Ideas return each level; exit check each lesson\\
+    \bottomrule
+  \end{tabularx}
+  \source{Course design (docs/DESIGN.md, docs/SYLLABUS.md); per-level minimums are checked automatically.}
+  \kcnotes{This slide links research to practice. Every one of the 42 sessions follows the same
+    five-part shape. The minimums in this table (per level: at least six unplugged activities,
+    ten bug hunts, ten pair-programming activities and ten free-build times) are checked
+    automatically by the course's quality tests, so they cannot quietly disappear when material is
+    edited. Each lesson includes a support path for children who need more time and an extension
+    path for those who finish early. Many lessons ask children to predict what code will do
+    before running it.}
+  {An \enquote{exit check} is a quick question at the end of a session that shows whether the
+    idea landed, so the next session can adjust.}
+  {\qa{What if my child is ahead or behind the others?}{Every lesson has an easier route and a
+    stretch challenge, and two optional spare sessions per level give time to catch up within the 12 weeks.}}
+\end{frame}
+
+%% =====================================================================
+%% 17. Blocks then Python
+%% =====================================================================
+\begin{frame}{Why blocks first, then Python}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{itemize}
+        \item Blocks remove typing errors: kids focus on ideas.
+        \item Teens learned more with blocks at first.
+        \item After switching to text, the gap disappeared.
+        \item So: 6 weeks of Scratch, then Python.
+      \end{itemize}
+    \column{0.46\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+          width=5.4in, height=2.4in, xmin=-0.3, xmax=0.8, ymin=0.4, ymax=1.6,
+          ytick=\empty, axis y line=none, axis x line*=bottom,
+          xtick={-0.2,0,0.2,0.4,0.6}, x tick label style={font=\scriptsize, /pgf/number format/fixed}, xticklabel={\pgfmathprintnumber{\tick}},
+          xlabel={Effect on learning (Hedges' \textit{g})}, xlabel style={font=\small},
+          clip=false]
+          \draw[kcgray, dashed, line width=1pt] (axis cs:0,0.4) -- (axis cs:0,1.6)
+            node[above, font=\scriptsize, text=kcgray] {no difference};
+          \draw[kcblue, line width=4pt] (axis cs:-0.078,1) -- (axis cs:0.567,1);
+          \fill[kcbluetext] (axis cs:0.245,1) circle (7pt);
+          \node[below=6pt, font=\small\semibold] at (axis cs:0.245,1) {0.25};
+          \node[anchor=east, font=\scriptsize, text=kcgray] at (axis cs:0.8,1.45) {favors blocks $\rightarrow$};
+        \end{axis}
+      \end{tikzpicture}
+      \figalt{estimate 0.25 with a range from \textminus0.08 to 0.57 that crosses zero: a small
+        edge for blocks that could be chance.}
+  \end{columns}
+  \vskip0.1in
+  \evMixed\enspace Review of 13 studies: a small edge for blocks, could be chance.
+  \source{\textcite{weintrop2017blocks,weintrop2019transition}; \textcite{xu2019blocks}.}
+  \kcnotes{Scratch, created at MIT, uses snap-together blocks, so children cannot make spelling
+    or bracket mistakes. In a high school study by Weintrop and Wilensky, students using a
+    block-based tool scored higher on concept tests after the first five weeks than students
+    using an equivalent text tool. When both groups then moved to a professional text language
+    (Java), the difference disappeared: blocks gave no harm and no lasting advantage. A 2019
+    review of 13 studies found a small advantage for blocks that was not statistically
+    significant. Our choice: blocks for the first six weeks while ideas like loops and events are
+    new, then Python, a real language used by professionals, with every Scratch idea re-taught in
+    text.}
+  {The chart shows one estimate (the dot) and its range of plausible values (the line). Because
+    the line crosses zero, the true effect could be zero. That is why we call it mixed, and why
+    we switch to text quickly instead of staying with blocks for a long time.}
+  {\qa{Isn't Scratch just a toy?}{It is a real programming language with the same core ideas; we
+    use it as a ramp, and move to Python after six weeks.}}
+\end{frame}
+
+%% =====================================================================
+%% 18. Roadmap timeline
+%% =====================================================================
+\begin{frame}{The roadmap: three levels of 10--12 weeks}
+  \vskip0.3in
+  \begin{tikzpicture}[x=0.27in, y=1in]
+    \foreach \lv/\name/\tools/\c/\x in
+      {1/Introduction/{Scratch, then Python turtle}/kcbluetext/0,
+       2/Intermediate/{Python: functions, data, games}/kcgreentext/14.6,
+       3/Advanced/{Python projects + git}/kcvermilliontext/29.2}{
+      \node[anchor=south west, font=\small, text=kcgray] at (\x,0.72) {\LevelWeeks};
+      \fill[\c, rounded corners=5pt] (\x,0) rectangle ++(14,0.7);
+      \node[anchor=west, text=white, font=\semibold] at (\x+0.35,0.35) {Level \lv: \name};
+      \node[anchor=north west, font=\small, text width=3.6in] at (\x,-0.1) {\tools};
+      \foreach \w/\ic in {6/\faClipboardCheck, 10.5/\faTools, 12.8/\faStar}{
+        \fill[\c] (\x+\w,-0.72) circle (0.17in);
+        \node[text=white, font=\scriptsize] at (\x+\w,-0.72) {\ic};
+      }
+      \draw[\c, line width=1.2pt] (\x+0.2,-0.72) -- (\x+13.8,-0.72);
+    }
+    \node[anchor=north west, font=\small, text=kcgray] at (0,-1.1)
+      {\faClipboardCheck\ checkpoint, week 6\qquad \faTools\ final project, weeks 10--11\qquad
+       \faStar\ showcase, week 12};
+    \node[anchor=north west, font=\small, text=kcgray] at (0,-1.5)
+      {One session a week. 10-week plan: two pairs of weeks are combined. Holiday weeks don't count.};
+  \end{tikzpicture}
+  \figalt{timeline of three equal levels of 10--12 weeks each: Level 1 Introduction, Level 2
+    Intermediate, Level 3 Advanced, each with a checkpoint in week 6, a final project in weeks 10--11
+    and a showcase in week 12.}
+  \begin{keybox}
+    No experience needed: everyone starts at Level 1, week 1.
+  \end{keybox}
+  \kcnotes{Walk along the timeline. Each level runs 10 to 12 weeks, one session a week, so all
+    three levels take 30 to 36 weeks of sessions; weeks we skip for holidays do not count. The
+    standard plan is 12 sessions; in the 10-week plan two pairs of weeks are combined into single
+    sessions, with the rest of that work done as homework. Two ready-made spare sessions are
+    optional and only used if there is room inside the 12 weeks. Inside every level the rhythm is the same: new ideas in weeks 1 to 5,
+    a review and friendly checkpoint in week 6, more new ideas in weeks 7 to 9, a final project in
+    weeks 10 and 11, and a showcase in week 12. Families can decide level by level whether to
+    continue.}
+  {}
+  {\qa{Do we have to commit to all three levels?}{No. Each level ends with a complete project and
+    a certificate; you decide about the next level then.}}
+\end{frame}
+
+%% =====================================================================
+%% 19-21. Levels
+%% =====================================================================
+%% \levelslide{no.}{name}{color}{tools line}{learn items}{final project}{project line}{examples}{progress}
+\newcommand{\levelslide}[9]{%
+  \begin{frame}{Level #1: #2}
+    \vskip-0.08in
+    {\small\semibold\color{#3}#4\par}
+    \vskip0.15in
+    \begin{columns}[T,onlytextwidth]
+      \column{0.5\textwidth}
+        {\semibold Your child will learn to\dots\par}
+        \vskip0.05in
+        \begin{itemize}#5\end{itemize}
+      \column{0.46\textwidth}
+        \begin{cardbox}[#3]{\faStar\enspace Final project}
+          \textbf{#6}\par\vskip0.03in #7
+        \end{cardbox}
+        \vskip0.08in
+        \textbf{Along the way:} #8\par
+    \end{columns}
+    \vskip0.12in
+    \textbf{Progress checks:} #9\par
+  }
+
+\levelslide{1}{\LevelOneName}{kcbluetext}{\LevelOneTools{} \textperiodcentered{} weeks 1--6 in blocks, 7--12 in Python}
+  {\item give exact step-by-step instructions
+   \item repeat with loops; react with \enquote{if}
+   \item keep score with variables
+   \item find and fix bugs with a strategy
+   \item write first Python programs}
+  {\LevelOneProject}{Asks the viewer questions, then draws a scene from the answers.}
+  {catch games, star patterns, a magic dice.}
+  {welcome survey (ungraded), week 6, week 12, project rubric.}
+  \source{Level 1 syllabus; aligned with CSTA standards for grades 3--5 \parencite{csta2017standards}.}
+  \kcnotes{Level 1 starts from zero. Weeks 1 to 6 use Scratch blocks: making sprites move, draw
+    patterns, react to keys, and keep score in simple games. Week 6 is review and a friendly
+    checkpoint. Weeks 7 to 12 move to Python, using the turtle, which draws on screen: the same
+    ideas, now typed. The final project, My Interactive Art Show, must use a question, a variable,
+    an if, a loop, something random and a function the child wrote. Children who need more time
+    can build it in Scratch with the same rubric.}
+  {A \enquote{variable} is a labeled box that remembers something, like a score. A
+    \enquote{function} is a named mini-program you can reuse, like a recipe card.}
+  {\qa{Is typing a problem for a ten-year-old?}{Programs at this level are short; we start very
+    small, and typing improves quickly.}}
+\end{frame}
+
+\levelslide{2}{\LevelTwoName}{kcgreentext}{\LevelTwoTools{} in Thonny, a free beginner editor}
+  {\item organize code into reusable functions
+   \item store data in lists and dictionaries
+   \item save and load files, like high scores
+   \item write tests that check code automatically
+   \item build keyboard-controlled games}
+  {\LevelTwoProject}{A game with saved high scores, or an art studio, plus the child's own tests.}
+  {secret-code machines, pixel art, guess-the-number.}
+  {placement quiz, week 6, week 12, project rubric.}
+  \source{Level 2 syllabus; aligned with CSTA standards for grades 6--8 \parencite{csta2017standards}.}
+  \kcnotes{Level 2 is all Python. Children learn to organize code into functions that return
+    answers, store many values in lists and dictionaries, save data to files, and, a highlight,
+    write automatic tests that prove their code works. They build keyboard-driven games and
+    generative art. A short placement quiz in week 1 helps tailor support; it is never a pass or
+    fail. The final project is a choice between an arcade game and an art studio, with at least
+    three tests the child writes.}
+  {A \enquote{test} is a tiny program that checks another program gives the right answer, like a
+    spell-checker for logic. Professionals use them every day.}
+  {\qa{What if my child struggled with Level 1?}{The placement quiz and Level 1 review show where
+    to start; repeating parts of Level 1 is completely fine.}}
+\end{frame}
+
+\levelslide{3}{\LevelThreeName}{kcvermilliontext}{\LevelThreeTools{} \textperiodcentered{} git is a \enquote{save-game} system for code}
+  {\item design programs with classes and objects
+   \item compare ways to search and sort
+   \item draw fractals with recursion
+   \item clean and chart a small data set
+   \item explain how simple AI learns, and fails}
+  {\LevelThreeProject}{A game, art app or AI app with classes, an algorithm and tests.}
+  {virtual pets, fractal trees, a tiny AI.}
+  {placement quiz, week 6, week 12, project rubric.}
+  \source{Level 3 syllabus; AI topics follow the AI4K12 Five Big Ideas \parencite{touretzky2019ai4k12}.}
+  \kcnotes{Level 3 introduces the ideas behind larger programs: classes and objects (blueprints
+    and things built from them), searching and sorting, recursion for fractal art, analyzing a
+    small made-up data set, and how simple AI learns from examples, and copies their mistakes.
+    The children build a tiny AI (a nearest-neighbor classifier) by hand rather than using online
+    AI services, so no data leaves the computer. They also use git, the tool professionals use to
+    save versions of their code; the final project needs at least five tests and eight meaningful
+    git commits. The AI topics follow the AI4K12 framework from AAAI and CSTA; some Level 3 goals
+    borrow from the grades 9--10 standards on purpose.}
+  {A \enquote{nearest-neighbor classifier} guesses what something is by finding the most similar
+    example it has seen, which shows children exactly why biased examples give biased answers.}
+  {\qa{Isn't this too advanced for 11-year-olds?}{It is challenging by design, with step-by-step
+    support. By Level 3 the children have 20 to 24 weeks of practice behind them.}}
+\end{frame}
+
+%% =====================================================================
+%% 22. A typical session
+%% =====================================================================
+\begin{frame}{What a 60-minute session looks like}
+  \vskip0.15in
+  \begin{tikzpicture}[x=0.195in]
+    \foreach \m/\name/\c/\x/\ic/\fg in
+      {8/Warm-up/kcorange/0/\faRunning/kcink,
+       10/New idea/kcsky/8/\faLightbulb/kcink,
+       10/Demo/kcblue/18/\faChalkboardTeacher/white,
+       24/Build in pairs/kcgreen/28/\faUserFriends/kcink,
+       8/Show \& tell/kcpurple/52/\faStar/kcink}{
+      \fill[\c, rounded corners=4pt] (\x+0.08,0) rectangle (\x+\m-0.08,1.0in);
+      \node[font=\large, text=\fg] at (\x+\m/2,0.66in) {\ic};
+      \node[font=\small\semibold, text=\fg] at (\x+\m/2,0.27in) {\m\,min};
+      \node[anchor=north, font=\small, align=center, text width=\m*0.19in] at (\x+\m/2,-0.08in) {\name};
+    }
+  \end{tikzpicture}
+  \figalt{five-part session: warm-up 8 minutes, new idea 10, demo 10, building in pairs 24, show
+    and tell 8.}
+  \vskip0.15in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.31\textwidth}
+      \begin{cardbox}[kcblue]{\faHome\enspace Homework}
+        15--20 min a week, optional
+      \end{cardbox}
+    \column{0.31\textwidth}
+      \begin{cardbox}[kcgreen]{\faLaptop\enspace Equipment}
+        A Mac with free apps; no accounts
+      \end{cardbox}
+    \column{0.31\textwidth}
+      \begin{cardbox}[kcpurple]{\faUsers\enspace Group}
+        Up to 4 kids in 2 pairs
+      \end{cardbox}
+  \end{columns}
+  \kcnotes{Every session has the same five parts, so children always know what is coming: a
+    warm-up game (often unplugged), one new idea with a kid-friendly analogy, a short live demo,
+    about 24 minutes building in pairs with a few minutes of free building, and a wrap-up where
+    children show their work and answer a quick exit question. Homework takes 15 to 20 minutes a
+    week, with a core task for everyone and optional challenge and creative extras; none needs
+    the internet. Equipment: a Mac with the free Scratch app and Thonny. In Level 2 a testing tool
+    called pytest is installed once (internet needed once, no account), and Level 3 uses Apple's
+    free command-line tools for git.}
+  {}
+  {\qa{We don't have a Mac at home. Is that a problem?}{No. Paper parts of the homework work at
+    the kitchen table, and computer tasks can be finished at the next session.}}
+\end{frame}
+
+%% =====================================================================
+%% 23. What success looks like
+%% =====================================================================
+\begin{frame}{What success looks like}
+  \vskip0.05in
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\textwidth}{@{}>{\semibold}p{2.2in}>{\RaggedRight\arraybackslash}X@{}}
+    \toprule
+    By the end of & most children can\dots\\
+    \midrule
+    \textcolor{kcbluetext}{Level 1} & build a small game and a drawing program, and explain them\\
+    \textcolor{kcgreentext}{Level 2} & organize a game into functions, save scores, test code\\
+    \textcolor{kcvermilliontext}{Level 3} & plan a multi-part project, track it in git, explain choices\\
+    \bottomrule
+  \end{tabularx}
+  \vskip0.15in
+  \textbf{How we check:} checkpoint in week 6, exit check in week 12, project rubric.\par
+  \vskip0.05in
+  \textbf{Rubric:} Just starting \textperiodcentered{} Getting there \textperiodcentered{} Got it \textperiodcentered{} Expert
+  \begin{keybox}[No grades]
+    Scores guide support. Creativity, working code and explaining it count equally.
+  \end{keybox}
+  \kcnotes{These are realistic outcomes, not guarantees: children progress at different rates.
+    Each level has a short, friendly checkpoint in week 6 and an exit check in week 12, plus a
+    project rubric with four levels. The rubric values three things equally: making the project
+    their own, making it work, and being able to explain it. Scores are used to decide what
+    support to offer next, never as grades.}
+  {A \enquote{rubric} is a simple chart that describes what each level of work looks like, so
+    children can see what \enquote{better} means and assess themselves.}
+  {\qa{Will I get a report?}{You will see the project at each showcase and can ask for the
+    checkpoint and rubric results; there is also a progress tracker children fill in.}}
+\end{frame}
+
+%% =====================================================================
+%% 24. How parents can help
+%% =====================================================================
+\kicker{Your role}
+\begin{frame}{How you can help, no coding needed}
+  \vskip0.1in
+  \begin{itemize}
+    \HelpItems
+  \end{itemize}
+  \source{\textcite{google2016diversity}; \textcite{master2017programming}; \textcite{wisniewski2020feedback}.}
+  \kcnotes{None of this needs any coding knowledge. Asking for a demo makes your child the
+    expert, which builds confidence. Asking about bugs signals that mistakes are normal and
+    interesting. Praising strategies (\enquote{you tried three ways to fix that}) gives more useful
+    feedback than labels like \enquote{you're a natural}. A regular 15-minute slot is easier than a
+    long weekend session. Encouraging daughters and sons equally matters because surveys show
+    girls hear less encouragement about computing.}
+  {Feedback research shows that specific comments about the task and strategy help learning more
+    than general praise.}
+  {\qa{What if my child asks me for help and I don't know the answer?}{Perfect: say \enquote{Let's
+    find out.} Ask them to explain the code line by line; they often spot the bug themselves.}}
+\end{frame}
+
+%% =====================================================================
+%% 25. Safety and inclusion
+%% =====================================================================
+\kicker{Safety and inclusion}
+\begin{frame}{Safe, private and inclusive by design}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.56\textwidth}
+      \begin{itemize}
+        \SafetyItems
+      \end{itemize}
+    \column{0.4\textwidth}
+      \begin{cardbox}[kcgreen]{\faShield*\enspace Why no accounts?}
+        US law requires parental consent before online services collect data from children
+        under 13. We collect nothing.
+      \end{cardbox}
+  \end{columns}
+  \source{\textcite{ftc2025coppa}; \textcite{aap2016media}; \textcite{okabe2008cud}.}
+  \kcnotes{Privacy: the course uses only offline apps, so no child creates an account, enters an
+    email or uploads anything. Programs ask for nicknames or favorite colors, never real names or
+    addresses. This is deliberate: the federal COPPA rule (updated in 2025) requires online
+    services to get verifiable parental consent before collecting personal information from
+    children under 13, and we prefer not to collect anything at all. Screen time: the American
+    Academy of Pediatrics recommends consistent family limits for school-age children that
+    protect sleep, physical activity and family time; our sessions include a stretch break, the
+    20-20-20 eye rule and unplugged activities. Inclusion: all materials use the Okabe--Ito
+    color-blind-safe palette with icons and words alongside color, a highly legible font designed
+    by the Braille Institute, and a dyslexia-friendly edition on request.}
+  {The 2016 pediatric guidance does not set a single number of hours for this age; it asks
+    families to make a plan. One hour of creative coding a week plus 15 minutes of homework is a
+    small part of a week.}
+  {\qa{Will my child's photo or work be posted online?}{No. Showcases happen on screen at home,
+    and nothing is uploaded.}}
+\end{frame}
+
+%% =====================================================================
+%% 26. Common questions
+%% =====================================================================
+\kicker{Questions}
+\begin{frame}{Common questions}
+  \vskip0.1in
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+      \begin{cardbox}[kcsky]{Isn't 10 too young?}
+        No. Scratch was designed for this age.
+      \end{cardbox}
+      \vskip0.1in
+      \begin{cardbox}[kcsky]{Won't AI make this pointless?}
+        Someone has to understand and check AI's work.
+      \end{cardbox}
+    \column{0.48\textwidth}
+      \begin{cardbox}[kcsky]{More screen time?}
+        One hour a week, with breaks and games.
+      \end{cardbox}
+      \vskip0.1in
+      \begin{cardbox}[kcsky]{I can't code. Can I help?}
+        Yes: ask questions and praise effort.
+      \end{cardbox}
+  \end{columns}
+  \kcnotes{These are the four questions parents ask most often. Keep answers short and invite
+    follow-ups. If a question comes up that the evidence cannot answer, say so: \enquote{Research
+    doesn't tell us that yet.}}
+  {}
+  {\qa{What if my child loses interest?}{It happens. Children choose their projects, which helps,
+    and each level is a natural stopping point.}
+   \qa{Is this better than an online course?}{Different: a small group, a familiar adult, no
+    accounts, and a lot of talking and pair work, which research supports.}}
+\end{frame}
+
+%% =====================================================================
+%% 27. Next steps
+%% =====================================================================
+\begin{frame}{Next steps}
+  \vskip0.15in
+  \begin{enumerate}
+    \item \textbf{Take the handout} home and talk it over with your child.
+    \item \textbf{Let us know} if your child will join Level 1 (starts \StartDate).
+    \item \textbf{Check the computer:} we help install Scratch and Thonny.
+  \end{enumerate}
+  \vskip0.3in
+  \begin{keybox}[Questions?]
+    \Presenter\enspace\textbar\enspace\ContactLine
+  \end{keybox}
+  \kcnotes{Close by thanking parents again. Summarize in one sentence: coding is worth learning
+    for its own sake; the research gives us good reasons to teach it through projects, pairs and
+    debugging; and we are honest about what it will and will not do. Then open the floor.}
+  {}
+  {\qa{Can siblings join?}{The group is up to four children so everyone gets attention; ask, and
+    we will see what is possible.}}
+\end{frame}
+
+%% =====================================================================
+%% Appendix
+%% =====================================================================
+\appendix
+\sectionslide{A}{Appendix}{Evidence summary, notes on sources, credits and references}
+
+\kicker{Appendix}
+\begin{frame}{Evidence at a glance}
+  \renewcommand{\arraystretch}{1.12}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{@{}>{\RaggedRight}X>{\RaggedRight}p{2.6in}>{\RaggedRight\arraybackslash}p{4.0in}@{}}
+    \toprule
+    Claim & Strength & Key sources\\
+    \midrule
+    Children learn to program when taught & \evStrong & \textcite{scherer2020teaching}\\
+    Gains in problem solving and planning & \evStrong & \textcite{montuori2024ct}; \textcite{arfe2020coding}\\
+    Gains in math, creativity, reasoning & \evMixed & \textcite{scherer2019transfer}\\
+    Gains in reading and school grades & \evMixed & \textcite{scherer2019transfer}\\
+    Pair programming improves learning & \evStrong & \textcite{umapathy2017pair}; \textcite{denner2014pair}\\
+    Blocks before text help learning & \evMixed & \textcite{xu2019blocks}; \textcite{weintrop2019transition}\\
+    Explicit debugging teaching helps & \evMixed & \textcite{michaeli2019debugging}\\
+    Coding builds general persistence & \evOpen & no strong studies found\\
+    Long-term effect of AI on learning to code & \evOpen & \textcite{kazemitabaar2023codex}; \textcite{oecd2026deo}\\
+    \bottomrule
+  \end{tabularx}
+  \kcnotes{Use this slide if parents ask for the evidence behind a specific claim. The problem
+    solving row is marked strong for coding-like tasks; the Montuori chart on slide 8 is marked
+    mixed because that single review pooled only 11 studies.}{}{}
+\end{frame}
+
+\begin{frame}{Notes on dates and limits}
+  \small
+  \begin{itemize}
+    \item \textbf{Older sources:} \textcite{pea1984cognitive}, \textcite{papert1980mindstorms} and
+      \textcite{bruner1960process} are cited for ideas, not current data.
+    \item \textbf{\textcite{tai2006planning}} uses data from 1988--2000; it shows an association only.
+    \item \textbf{Most pair-programming studies} were with university students.
+    \item \textbf{Hattie \& Timperley (2007)} reported 0.79 for feedback; a larger re-analysis
+      found about 0.48 \parencite{wisniewski2020feedback}.
+    \item \textbf{CSTA} published a draft revision of its standards in 2025; the 2017 version is cited.
+    \item \textbf{Survey data} (WEF, Code.org, Google--Gallup) describe expectations and access, not outcomes.
+  \end{itemize}
+  \kcnotes{This slide documents where sources are old or limited, so the presenter can answer
+    critical questions honestly.}{}{}
+\end{frame}
+
+\begin{frame}{Credits and licenses}
+  \small
+  \begin{itemize}
+    \item \textbf{All diagrams and charts:} original, drawn in TikZ/pgfplots for this deck.
+    \item \textbf{Chart data:} published values only, from the cited papers.
+    \item \textbf{Fonts:} Atkinson Hyperlegible Next and Mono (Braille Institute), SIL Open Font License 1.1.
+    \item \textbf{Icons:} Font Awesome 5 Free via the fontawesome5 package; icons CC BY 4.0, font SIL OFL 1.1.
+    \item \textbf{Colors:} Okabe--Ito color-blind-safe palette \parencite{okabe2008cud}.
+    \item \textbf{Trademarks:} Scratch is a project of the Scratch Foundation; Python is a trademark of the PSF.
+  \end{itemize}
+  \kcnotes{No photographs or third-party images are used, so there are no image licenses to track.}{}{}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+  \printbibliography[heading=none]
+  \kcnotes{Full reference list generated from references.bib.}{}{}
+\end{frame}
+
+\end{document}

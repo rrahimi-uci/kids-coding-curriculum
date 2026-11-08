@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { u, parentsData, fix } from '../../lib/data';
+const P = parentsData();
+const groups = ['Why now', 'What the research shows', 'What good teaching looks like'];
+const slides = P.slides.filter((s: any) => groups.includes(s.kicker));
+const byGroup = groups.map((g) => ({ g, items: slides.filter((s: any) => s.kicker === g) }));
+const intro: Record<string, string> = {
+  'Why now': 'How computing and AI are changing the skills children will need, and how much computer science schools offer.',
+  'What the research shows': 'What studies of children learning to code have found. We mark each finding as strong, mixed or an open question, and we say what is not known.',
+  'What good teaching looks like': 'Research is clearer about how to teach coding than about its spill-over benefits. These ideas shape how our course is taught.',
+};
+---
+<Base title="What the research says about learning to code" description="Evidence for learning to code in childhood: strong findings, mixed findings and open questions, each with its source.">
+  <div class="measure stack">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('parents/')}>For parents</a></li><li aria-current="page">Research</li></ol></nav>
+    <h1>What the research says about learning to code</h1>
+    <p class="lead">We have tried to be careful. We cite real studies, we say how strong the evidence is, and we do not promise grades, jobs or college places.</p>
+    <div class="callout callout-tip" role="note"><p class="callout-title"><span class="callout-label">How to read this page</span></p>
+      <p><strong>Strong:</strong> several careful studies agree. <strong>Mixed:</strong> results vary or shrink in the strictest studies. <strong>Open question:</strong> we do not know yet. Click the study names to jump to the full reference at the bottom.</p></div>
+    <nav aria-label="On this page"><ul class="chips">
+      {byGroup.map((b) => <li><a class="pill" href={`#${b.g.toLowerCase().replace(/[^a-z]+/g, '-')}`}>{b.g}</a></li>)}
+      <li><a class="pill" href="#references">References</a></li>
+    </ul></nav>
+  </div>
+
+  {byGroup.map((b) => (
+    <section aria-labelledby={b.g.toLowerCase().replace(/[^a-z]+/g, '-')}>
+      <div class="measure">
+        <h2 id={b.g.toLowerCase().replace(/[^a-z]+/g, '-')}>{b.g}</h2>
+        <p class="muted">{intro[b.g]}</p>
+      </div>
+      {b.items.map((s: any) => (
+        <article class="card slide-card" aria-labelledby={`s${s.n}`}>
+          <h3 id={`s${s.n}`}>{s.title}</h3>
+          <figure>
+            <img src={fix(s.image)} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" />
+          </figure>
+          {s.plain && <div><p class="eyebrow">In plain language</p><div set:html={fix(s.plain)} /></div>}
+          {s.say && <details class="more"><summary>More detail on this slide</summary><div set:html={fix(s.say)} /></details>}
+          {s.qa.length > 0 && <div><p class="eyebrow">A question parents often ask</p>
+            {s.qa.map((q: any) => <details class="qa"><summary set:html={fix(q.q)} /><div class="a" set:html={fix(q.a)} /></details>)}</div>}
+          {s.source && <p class="source-line"><strong>Source:</strong> <span set:html={fix(s.source).replace(/^<p>|<\/p>$/g, '')} /></p>}
+        </article>
+      ))}
+    </section>
+  ))}
+
+  <section class="measure" aria-labelledby="references">
+    <h2 id="references">References</h2>
+    <p class="muted">Where a study is old, we say so on the slide. Survey figures describe expectations or access, not outcomes.</p>
+    <ol class="refs">
+      {P.references.map((r: any) => <li id={`ref-${r.key}`} set:html={fix(r.html)} />)}
+    </ol>
+  </section>
+</Base>

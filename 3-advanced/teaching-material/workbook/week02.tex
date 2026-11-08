@@ -1,0 +1,91 @@
+% Level 3, Week 2 -- Objects: Blueprints and Things (student workbook)
+\chapterweek{2}{Objects: Blueprints and Things}{A class is a blueprint; objects are the things you build from it, and each one keeps its own data.}
+
+\section{What you will learn}
+\begin{checklist}
+  \item Write a class with \texttt{\_\_init\_\_}, attributes and methods.
+  \item Make many objects from one class and change one without changing the others.
+  \item Use \texttt{self} correctly (and fix code that forgets it).
+  \item Paint turtle art with a list of objects.
+\end{checklist}
+
+\section{The big idea}
+A \textbf{class} is a blueprint, like a cookie cutter. An \textbf{object} is a thing made from the blueprint, like one cookie. Every object made from the same class has the same \emph{kinds} of facts, but its own \emph{values}.
+
+\begin{center}
+%% alt: A class is a blueprint. The class Pet has attributes (facts): name, species, hunger and happiness, and methods (actions): feed(), play(), mood() and describe(). Pet("Pip", "dragon") builds the object pip with name Pip, species dragon and hunger 2. Pet("Bo", "robot cat") builds the object bo with name Bo, species robot cat and hunger 5.
+\begin{tikzpicture}[
+  cls/.style={draw=black,line width=1pt,rounded corners=3pt,fill=kcblue!15,align=left,font=\small,text width=4.4cm,inner sep=6pt},
+  obj/.style={draw=black,line width=0.8pt,dashed,rounded corners=3pt,fill=kcyellow!25,align=left,font=\small\ttfamily,text width=3.9cm,inner sep=6pt}]
+  \node[cls] (class) at (0,0) {\textbf{class Pet} \hfill (blueprint)\\[2pt]
+    \textbf{attributes} (facts):\\ \texttt{name, species,}\\ \texttt{hunger, happiness}\\[2pt]
+    \textbf{methods} (actions):\\ \texttt{feed(), play(),}\\ \texttt{mood(), describe()}};
+  \node[obj] (pip) at (7.2,1.3) {\normalfont\textbf{object} pip\\name = "Pip"\\species = "dragon"\\hunger = 2};
+  \node[obj] (bo) at (7.2,-1.6) {\normalfont\textbf{object} bo\\name = "Bo"\\species = "robot cat"\\hunger = 5};
+  \draw[-{Stealth[length=3mm]},line width=1pt] (class.east) -- node[above,sloped,font=\small]{Pet("Pip", "dragon")} (pip.west);
+  \draw[-{Stealth[length=3mm]},line width=1pt] (class.east) -- node[below,sloped,font=\small]{Pet("Bo", "robot cat")} (bo.west);
+\end{tikzpicture}
+\end{center}
+
+\section{Anatomy of a class}
+\begin{pycode}[Every part has a job]
+class Pet:                          # 1. the blueprint (capital P)
+    def __init__(self, name):       # 2. setup: runs when a pet is made
+        self.name = name            # 3. attributes: facts it remembers
+        self.hunger = 5
+
+    def feed(self):                 # 4. a method: an action
+        self.hunger = self.hunger - 3   # MY hunger goes down
+
+pip = Pet("Pip")                    # 5. make an object
+pip.feed()                          # 6. ask it to do something
+print(pip.hunger)                   #    prints 2
+\end{pycode}
+
+\begin{tip}[What is self?]
+\texttt{self} means \enquote{this object} or \enquote{my}. When you write \texttt{pip.feed()}, Python runs \texttt{feed} with \texttt{self} set to \texttt{pip}. So \texttt{self.hunger} is Pip's hunger. Every method needs \texttt{self} as its first parameter, and every attribute is written \texttt{self.something}.
+\end{tip}
+
+\section{From dictionary to class}
+In Level 2 you might have written \texttt{pip = \{"name": "Pip", "hunger": 5\}}. A dictionary holds the facts. A class holds the facts \emph{and} the actions, all in one place, so you can make 100 pets that all know how to \texttt{feed()}.
+
+\begin{exercise}[Pet Class]
+Folder: \texttt{week02/ex-pet-class}. \texttt{\_\_init\_\_} and \texttt{feed} are done. Finish:
+\begin{itemize}[itemsep=1pt]
+  \item \texttt{play()}: happiness $+2$ (max 10) and hunger $+1$ (max 10).
+  \item \texttt{mood()}: \texttt{"hungry"} if hunger $\geq 7$, else \texttt{"happy"} if happiness $\geq 7$, else \texttt{"bored"} if happiness $\leq 3$, else \texttt{"okay"}.
+  \item \texttt{describe()}: returns \texttt{"Pip the dragon feels okay."}
+\end{itemize}
+\textbf{Predict first:} after \texttt{pip.play()} twice, what are Pip's hunger and happiness? \rule{4cm}{0.4pt}\\
+What is Bo's hunger? \rule{3cm}{0.4pt}
+\end{exercise}
+
+\begin{exercise}[Bubble Art]
+Folder: \texttt{week02/ex-bubble-art}. Each \texttt{Bubble} object remembers \texttt{x}, \texttt{y}, \texttt{size} and \texttt{color}. Finish \texttt{\_\_init\_\_}, \texttt{grow}, \texttt{move}, the big dot in \texttt{draw}, and \texttt{make\_bubbles}, which returns a \textbf{list of objects}:
+\begin{pycode}
+bubbles = make_bubbles(40)     # a list of 40 Bubble objects
+for bubble in bubbles:
+    bubble.draw(pen)           # each one draws itself
+\end{pycode}
+\textbf{Done looks like:} a black window full of bubbles, each with a white shine. Check with \texttt{check\_my\_work.py}, then commit your picture's code in \texttt{git-quest}.
+\end{exercise}
+
+\begin{tip}[Kind design]
+Our pets never get sick, run away or say \enquote{you forgot me!}. Good games are fun because you want to play, not because they make you feel guilty. When you design a game, ask: \enquote{Is this fair and kind to the player?}
+\end{tip}
+
+\begin{vocab}
+  \vocabword{class}{A blueprint that says what facts and actions a kind of thing has.}
+  \vocabword{object}{One thing made from a class, with its own values. Also called an instance.}
+  \vocabword{attribute}{A fact an object remembers, like \texttt{self.hunger}.}
+  \vocabword{method}{A function that lives inside a class, like \texttt{feed(self)}.}
+  \vocabword{\_\_init\_\_}{The setup method (\enquote{dunder init}). It runs when a new object is made.}
+  \vocabword{self}{Inside a method: \enquote{the object that is running this code}, or \enquote{my}.}
+\end{vocab}
+
+\begin{reflection}
+Pick something from a game you like. Write it as a class: its name, 3 attributes and 2 methods.
+\answerlines{3}
+What does \texttt{self} mean, in your own words?
+\answerlines{1}
+\end{reflection}

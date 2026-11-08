@@ -1,0 +1,123 @@
+% Level 2, Week 12 -- Showcase and Celebration (student workbook)
+\chapterweek{12}{Showcase and Celebration}{Share what you built, explain how it works, and see how far you have come.}
+
+\section{What you will do today}
+\begin{itemize}
+  \item Present your project in about a minute: what it is, how one part works, and what you would add next.
+  \item Play everyone's projects in a gallery walk and leave kind, specific feedback.
+  \item Show what you learned on the exit assessment (it is not a test you can fail: it is your stats screen).
+  \item Look back at your Level 2 journey, and peek at Level 3.
+\end{itemize}
+
+\section{The big idea: look how far you have come}
+Twelve weeks ago you were sorting values into types. Now you have built a whole project with
+functions, lists, dictionaries, loops, files and tests. Here is the road you traveled:
+
+\begin{center}
+%% alt: The twelve weeks of Level 2 as numbered circles in a path: 1 types and f-strings, 2 functions that return, 3 lists, 4 while and game loops, 5 dictionaries and codes, 6 debugging detectives, 7 files, 8 testing, 9 event-driven games, 10 project studio 1, 11 project studio 2 and 12 showcase, which is marked as today.
+\begin{tikzpicture}[font=\footnotesize, align=center,
+  stop/.style={circle, draw=kcblack, thick, minimum size=0.95cm, font=\small\bfseries},
+  lbl/.style={text width=2.2cm, font=\footnotesize},
+  arr/.style={-Stealth, thick, kcgray}]
+  \foreach \i/\c/\t in {1/kcorange/Types and f-strings, 2/kcsky/Functions that return, 3/kcgreen/Lists, 4/kcyellow/While and game loops, 5/kcblue/Dictionaries and codes, 6/kcpurple/Debugging detectives} {
+    \node[stop, fill=\c!35] (s\i) at ({(\i-1)*2.55}, 0) {\i};
+    \node[lbl, below=0.1cm of s\i] {\t};
+  }
+  \foreach \i/\c/\t in {7/kcorange/Files: saving stuff, 8/kcsky/Testing: prove it works, 9/kcgreen/Event-driven games, 10/kcyellow/Project Studio 1, 11/kcblue/Project Studio 2, 12/kcpurple/Showcase!} {
+    \node[stop, fill=\c!35] (s\i) at ({(12-\i)*2.55}, -2.6) {\i};
+    \node[lbl, below=0.1cm of s\i] {\t};
+  }
+  \foreach \a/\b in {1/2,2/3,3/4,4/5,5/6,7/8,8/9,9/10,10/11,11/12} { \draw[arr] (s\a) -- (s\b); }
+  \draw[arr] (s6.east) to[out=0, in=0, looseness=1.6] (s7.east);
+  \node[left=0.15cm of s12, font=\small\bfseries] {★ today};
+\end{tikzpicture}
+\end{center}
+
+\section{How to explain your project}
+A great showcase pitch is short. Answer four questions, in this order:
+\begin{enumerate}
+  \item \textbf{What is it?} \enquote{This is Comet Catch. You catch comets with a rocket.}
+  \item \textbf{How does one part work?} Pick one function, the loop, the list, the dictionary or the file. \enquote{Our \texttt{next\_x} function gets the position and the direction and returns the new position, but never off the screen. We have a test for that.}
+  \item \textbf{One design decision.} Why did you choose something? \enquote{The comets are circles and the rocks are squares, so you can tell them apart even without color.}
+  \item \textbf{What next?} \enquote{Next we would add a slow mode for beginners.}
+\end{enumerate}
+If something is not finished, that is normal. Show what works, then say what you would add next.
+
+\begin{exercise}[My one-minute pitch]
+Fill in your presentation card, then practice once with your partner.
+
+What is it? \answerlines{1}
+How does one part work? (name a function, the loop, a list, a dictionary or the file) \answerlines{2}
+One design decision and why: \answerlines{1}
+What would we add next? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Gallery walk feedback]
+Visit every project. Play it for 2--3 minutes, then leave a card: \textbf{two stars} (two specific
+things that are good) and \textbf{a wish} (one kind idea). Specific is kind: \enquote{the score
+text is big and easy to read} helps more than \enquote{cool}.
+
+\begin{tcolorbox}[colback=white,colframe=kcpurple!80!black,boxrule=0.8pt,arc=2pt,title={\small\bfseries Feedback card for: \rule{4cm}{0.4pt}},coltitle=black,colbacktitle=kcpurple!25]
+★ \answerlines{1}
+★ \answerlines{1}
+Wish: \answerlines{1}
+\end{tcolorbox}
+\begin{tcolorbox}[colback=white,colframe=kcpurple!80!black,boxrule=0.8pt,arc=2pt,title={\small\bfseries Feedback card for: \rule{4cm}{0.4pt}},coltitle=black,colbacktitle=kcpurple!25]
+★ \answerlines{1}
+★ \answerlines{1}
+Wish: \answerlines{1}
+\end{tcolorbox}
+\end{exercise}
+
+\begin{exercise}[My Level 2 skills check]
+Be honest: \enquote{not yet} just means \enquote{not yet}. Write a check mark in one column for each line.
+
+\renewcommand{\arraystretch}{1.45}
+\begin{tabularx}{\linewidth}{|X|p{1.7cm}|p{1.9cm}|p{1.9cm}|}
+\hline
+\textbf{I can…} & \textbf{Not yet} & \textbf{Getting there} & \textbf{I could teach it} \\ \hline
+use int, float, str and bool, and build messages with f-strings & & & \\ \hline
+write a function with parameters that returns a value & & & \\ \hline
+keep many things in a list and loop over it & & & \\ \hline
+write a \texttt{while} loop that stops when it should & & & \\ \hline
+look things up in a dictionary & & & \\ \hline
+read a traceback and find the bug & & & \\ \hline
+save data to a file and load it again & & & \\ \hline
+write a pytest test and read PASSED / FAILED & & & \\ \hline
+make a turtle game react to keys and a timer & & & \\ \hline
+plan with pseudocode and share the work fairly & & & \\ \hline
+\end{tabularx}
+\end{exercise}
+
+\begin{exercise}[Looking ahead to Level 3]
+In Level 3 you will save your code with \textbf{git save points} (like save points in a video game),
+design your own \textbf{classes} (blueprints for game characters and objects), and build bigger
+projects. The example project is \textbf{Maze Muncher}: a maze game where a ghost hunts you down with a
+clever search algorithm.
+
+Three things I want to add to my project in a \enquote{version 2}:
+\answerlines{3}
+\end{exercise}
+
+\begin{safety}[Sharing safely]
+Show your project to family and friends you know. Use your nickname on the screen and in high-score
+files. If someone takes a photo or video, film the screen, not faces. Never upload or post your
+project without deciding together with a parent.
+\end{safety}
+
+\begin{vocab}
+  \vocabword{showcase}{an event where makers show their work and explain it.}
+  \vocabword{pitch}{a short talk that explains what your project is and why it is interesting.}
+  \vocabword{design decision}{a choice you made on purpose, and the reason for it.}
+  \vocabword{gallery walk}{visiting projects one by one, like in a museum, and leaving feedback.}
+  \vocabword{version}{one stage of a project; version 2 is the next, improved one.}
+\end{vocab}
+
+\begin{reflection}
+What are you proudest of in your project?
+\answerlines{2}
+What did you learn about working in a team?
+\answerlines{2}
+What do you want to build next?
+\answerlines{2}
+\end{reflection}

@@ -1,0 +1,34 @@
+% Level 3, Week 2 answers -- Objects: Blueprints and Things
+\answersweek{2}{Objects: Blueprints and Things}{Answers for workbook chapter 2 and homework 2.}
+
+\section{Workbook exercises}
+\subsection{Exercise 2.1: Pet Class}
+\pyfile{../exercises/week02/ex-pet-class/solution.py}
+\begin{answer}[Exercise 2.1: Pet Class]
+\textbf{Prediction:} after two \texttt{play()} calls Pip has hunger 7 and happiness 9 (so \texttt{mood()} is \texttt{"hungry"}). Bo's hunger is still 5.\\
+\textbf{What to look for:} \texttt{min}/\texttt{max} instead of the \texttt{if} checks is fine. In \texttt{mood}, the order of the checks matters: hunger is checked first.
+Any \texttt{describe} sentence that includes the name, species and mood passes.
+\end{answer}
+
+\subsection{Exercise 2.2: Bubble Art}
+\pyfile{../exercises/week02/ex-bubble-art/solution.py}
+\begin{answer}[Exercise 2.2: Bubble Art]
+\textbf{What to look for:} the big dot is drawn exactly at \texttt{(self.x, self.y)} with \texttt{self.size} and \texttt{self.color}; \texttt{make\_bubbles} returns a list of \texttt{Bubble} objects, not numbers. Different random ranges are fine.
+\end{answer}
+
+\section{Homework}
+\subsection{Core: Coin Purse}
+\pyfile{../exercises/week02/hw-coin-purse/solution.py}
+\begin{answer}[Core: Coin Purse]
+\textbf{Prediction:} the first \texttt{spend(4)} returns \texttt{True} and leaves 6; the second \texttt{spend(7)} returns \texttt{False} and 6 coins are left.
+Output: \texttt{Bought a potion} (5 left), \texttt{Not enough coins for a shield}, \texttt{Bought a map} (2 left), \texttt{Found 7 coins! Now: 9 coins}.
+\end{answer}
+
+\begin{answer}[Challenge: Design a class on a card]
+Example: \textbf{Spaceship}; attributes \texttt{name}, \texttt{fuel}, \texttt{x}, \texttt{y}; methods \texttt{fly(dx, dy)} (uses fuel), \texttt{refuel(amount)}; objects \texttt{Spaceship("Comet")}, \texttt{Spaceship("Nebula")}.
+Good answers separate \emph{facts} (nouns) from \emph{actions} (verbs) and give the two objects different values.
+\end{answer}
+
+\begin{answer}[Creative: Make the bubbles yours]
+Any new method with \texttt{self} and a turtle parameter that uses the bubble's own attributes. A ring of dots can use \texttt{t.goto(self.x + r * math.cos(a), ...)} or turn and move with the turtle. Praise readable names.
+\end{answer}

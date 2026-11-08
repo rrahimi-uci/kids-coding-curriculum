@@ -1,0 +1,148 @@
+% Level 2, Week 11 -- Project Studio 2 (student workbook)
+\chapterweek{11}{Project Studio 2}{Tests check the brain of your program, playtesters check the fun, and polish makes it work for everyone.}
+
+\section{What you will learn}
+\begin{itemize}
+  \item How to add data to your project: a list, a dictionary and a file that saves and loads (Milestone M3).
+  \item How to write at least three pytest tests for your own functions.
+  \item How to run a playtest and turn feedback into a bug list.
+  \item How to check your project for accessibility, then polish it (Milestone M4).
+\end{itemize}
+
+\section{The big idea: test the brain, playtest the fun}
+Your program has two kinds of functions. \textbf{Logic} functions (the brain) take values in and give
+an answer back with \texttt{return}: pytest can check those automatically. \textbf{Drawing} functions
+(the paint) make pictures: a computer cannot tell whether your star looks nice, but a playtester can.
+
+\begin{center}
+%% alt: Two parts of a program. Logic is the brain: functions that take values in and give an answer out, such as next_x, touching and load_high_score. It is checked by pytest, which shows PASSED or FAILED. Drawing is the paint: functions that make pictures, such as draw_star and show_score. It is checked by playtesters with feedback cards.
+\begin{tikzpicture}[font=\small, align=center,
+  bx/.style={rounded corners=3pt, draw=kcblack, thick, text width=4.6cm, minimum height=1.9cm},
+  arr/.style={-Stealth, thick}]
+  \node[bx, fill=kcsky!25] (brain) {\textbf{Logic = the brain}\\values in, answer out\\\texttt{next\_x}, \texttt{touching},\\\texttt{load\_high\_score}};
+  \node[bx, fill=kcorange!25, right=1.4cm of brain] (paint) {\textbf{Drawing = the paint}\\makes pictures\\\texttt{draw\_star}, \texttt{show\_score}};
+  \node[bx, fill=kcblue!15, below=0.9cm of brain, minimum height=1.2cm] (pytest) {\textbf{pytest}\\PASSED ✓ or FAILED ✗};
+  \node[bx, fill=kcgreen!15, below=0.9cm of paint, minimum height=1.2cm] (people) {\textbf{Playtesters}\\feedback cards};
+  \draw[arr] (brain) -- node[right]{checked by} (pytest);
+  \draw[arr] (paint) -- node[right]{checked by} (people);
+\end{tikzpicture}
+\end{center}
+
+Two tricks make your functions easy to test:
+\begin{enumerate}
+  \item Put the start-up code (make the screen, start the loop) under \texttt{if \_\_name\_\_ == "\_\_main\_\_":}. Then pytest can borrow your functions without starting the game.
+  \item Give file functions the file name as a parameter. Then the game and the tests can use different files, for example \texttt{highscore.txt} for playing and \texttt{test\_scores.txt} for testing, and your tests never wipe your real high score.
+\end{enumerate}
+
+Test a \textbf{normal case} (an everyday value) and \textbf{edge cases} (values at the very limit:
+the edge of the screen, a score of 0, a file that does not exist yet). Bugs love to hide at the edges.
+
+\begin{exercise}[Add your data (M3)]
+Your project needs all three. Write where each one lives in your code.
+
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{|p{2.6cm}|X|X|}
+\hline
+\textbf{Data} & \textbf{Its name in my code} & \textbf{What it remembers} \\ \hline
+a list & & \\ \hline
+a dictionary & & \\ \hline
+a file & & \\ \hline
+\end{tabularx}
+
+\begin{checklist}
+  \item I closed the program, ran it again, and the saved data came back.
+  \item If the file does not exist yet, my program does not crash.
+\end{checklist}
+\end{exercise}
+
+\begin{exercise}[Write three tests]
+Plan your tests first. Pick functions that \texttt{return} something.
+
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{|X|X|X|p{2.3cm}|}
+\hline
+\textbf{Function} & \textbf{Input} & \textbf{Expected answer} & \textbf{Normal or edge?} \\ \hline
+\texttt{next\_x} & \texttt{280, 1} & \texttt{280} (stays on screen) & edge \\ \hline
+ & & & \\ \hline
+ & & & \\ \hline
+ & & & \\ \hline
+\end{tabularx}
+
+Make a new file in the same folder as your game. Its name must start with \texttt{test\_}, for
+example \texttt{test\_mygame.py}. Each test is a function whose name starts with \texttt{test\_}:
+\begin{pycode}[test\_mygame.py (part)]
+from mygame import load_high_score, next_x, save_high_score
+
+def test_stops_at_the_right_edge():
+    assert next_x(280, 1) == 280
+
+def test_high_score_round_trip():
+    save_high_score(42, "test_scores.txt")
+    assert load_high_score("test_scores.txt") == 42
+\end{pycode}
+To run them: press \keys{F5} on your game once, close its window, then in Thonny choose
+\menu{Tools > Open system shell…} and type (use \texttt{python3} if \texttt{python} is not found):
+\begin{shellcode}
+python -m pytest test_mygame.py -v
+\end{shellcode}
+\textbf{PASSED} means the function gave the expected answer. \textbf{FAILED} means it did not: read the
+line starting with \texttt{E} to see what came out instead. A test that fails is not a disaster, it is
+a bug you found before a player did!
+\begin{checklist}
+  \item I have at least 3 tests and they all say PASSED.
+  \item I broke my code on purpose once, and a test turned to FAILED. (Then I fixed it back.)
+\end{checklist}
+\end{exercise}
+
+\begin{exercise}[Playtest with feedback cards]
+Swap computers with another team (or ask a family member) and play their project for 4 minutes.
+Fill in a card for them. Be kind and specific.
+
+\begin{tcolorbox}[colback=white,colframe=kcgreen!70!black,boxrule=0.8pt,arc=2pt,title={\small\bfseries Playtest feedback card},coltitle=black,colbacktitle=kcgreen!25]
+I liked… \answerlines{1}
+I was confused when… \answerlines{1}
+A bug I saw (what I did / what happened / what I expected): \answerlines{1}
+One idea… \answerlines{1}
+\end{tcolorbox}
+
+Back at your own project, turn the cards into a \textbf{bug list}. Mark each line MUST (it crashes or
+you cannot play), SHOULD (it is confusing) or COULD (a nice idea). Fix the MUST lines first.
+
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{|X|X|X|p{2.3cm}|}
+\hline
+\textbf{What I did} & \textbf{What happened} & \textbf{What I expected} & \textbf{MUST / SHOULD / COULD} \\ \hline
+ & & & \\ \hline
+ & & & \\ \hline
+ & & & \\ \hline
+\end{tabularx}
+\end{exercise}
+
+\begin{exercise}[Accessibility review and polish (M4)]
+Make your project work for as many people as possible. Check off each line or fix it.
+\begin{checklist}
+  \item My colors come from the Okabe--Ito palette (\texttt{\#E69F00}, \texttt{\#56B4E9}, \texttt{\#009E73}, \texttt{\#0072B2}, \texttt{\#D55E00}, \texttt{\#CC79A7}).
+  \item Nothing depends on color alone: good and bad things also have different shapes, sizes or labels.
+  \item Text is big enough to read from a chair (font size 18 or more).
+  \item The keys are explained on the screen, for example \enquote{← → to move}.
+  \item Nothing flashes fast (more than 3 times a second can hurt some people's eyes).
+  \item There is an easy start: a slow first level or an easy setting.
+\end{checklist}
+One change I made: \answerlines{1}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{playtest}{letting someone else use your program while you watch and take notes.}
+  \vocabword{normal case}{a test with an everyday value, like moving from the middle of the screen.}
+  \vocabword{edge case}{a test with a value at the very limit, like the edge of the screen, zero, or a missing file.}
+  \vocabword{accessibility}{designing so that everyone can use it, including people who see colors differently or read more slowly.}
+  \vocabword{polish}{small finishing touches that make a working program clearer and nicer to use.}
+  \vocabword{bug list}{a list of problems found in testing, sorted so the most important ones get fixed first.}
+\end{vocab}
+
+\begin{reflection}
+Which test are you proudest of? What bug did it catch, or could it catch?
+\answerlines{2}
+What did a playtester notice that you had not noticed?
+\answerlines{2}
+\end{reflection}

@@ -1,0 +1,46 @@
+% Level 2, Week 3 -- homework
+\homeworkweek{3}{Lists: Collections of Things}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Index practice (paper, 3 minutes)]
+\begin{pycode}
+team = ["Ada", "Kai", "Mei", "Omar", "Zoe"]
+\end{pycode}
+\begin{tabular}{@{}l@{\ =\ }l@{\hspace{2em}}l@{\ =\ }l@{}}
+\texttt{team[0]} & \rule{2.5cm}{0.4pt} & \texttt{team[3]} & \rule{2.5cm}{0.4pt} \\[8pt]
+\texttt{team[-1]} & \rule{2.5cm}{0.4pt} & \texttt{len(team)} & \rule{2.5cm}{0.4pt} \\
+\end{tabular}\par
+Does \texttt{team[5]} work? Why or why not?
+\answerlines{1}
+\end{core}
+
+\begin{core}[Loot Bag (Thonny, 10 minutes)]
+Open \texttt{exercises/week03/hw-loot-bag/starter.py}. You open a treasure chest several times and keep the loot in a list.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Press \menu{Run}. The bag is empty!
+  \item TODO 1: in \texttt{fill\_bag()}, repeat \texttt{how\_many} times and \texttt{append} \texttt{open\_chest(chest)} to the bag.
+  \item TODO 2: in \texttt{count\_item()}, add 1 to \texttt{count} each time a thing in the bag matches the item.
+  \item Run it three times. Is the loot the same each time? Why not? \rule{6cm}{0.4pt}
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+\end{core}
+
+\begin{challenge}[Rare treasure]
+\texttt{"gold coin"} is in \texttt{CHEST} three times, so it is three times as likely as the ruby. Add a super-rare item that
+appears only once, and make \texttt{"old boot"} more common. Then open the chest 20 times: how many of your rare item did you get?
+\rule{2cm}{0.4pt}
+\end{challenge}
+
+\begin{creative}[Design a palette]
+Choose 4 colors from the Okabe-Ito list for a game or poster you would like to make. Write the list as Python, then sketch
+your design. Add a label or shape to every colored part, so someone who sees colors differently can still understand it.
+\answerlines{1}
+\answerspace{3.5cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I know the first item of a list has index 0, and the last has index \texttt{len - 1} (or \texttt{-1}).
+  \item My \texttt{fill\_bag()} uses \texttt{append} inside a loop.
+  \item \texttt{check\_my\_work.py} shows \texttt{[PASS]} for my loot bag.
+  \item My palette design uses labels or shapes, not only colors.
+\end{selfcheck}

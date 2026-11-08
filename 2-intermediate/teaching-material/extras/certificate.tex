@@ -1,0 +1,45 @@
+\documentclass[level=2]{kidscode}
+\pagestyle{empty}
+% Gap between the lines of the certificate (smaller in the dyslexia edition,
+% whose larger text and spacing would otherwise spill onto a second page).
+\newlength{\certgap}
+\ifdefined\kcvariant\setlength{\certgap}{0.3cm}\else\setlength{\certgap}{0.75cm}\fi
+\begin{document}
+\kctitle{Certificate of Completion}{Level 2: Intermediate Python}
+\thispagestyle{empty}
+\vspace*{-0.7cm}
+\begin{tcolorbox}[enhanced,colback=white,colframe=kcaccent,boxrule=2.5pt,arc=4pt,
+  borderline={0.8pt}{4pt}{kcorange},left=14pt,right=14pt,top=8pt,bottom=8pt,height fill,valign=center,before upper={\parskip=0pt}]
+\centering
+% The dyslexia edition uses wider line spacing; keep the certificate on one page.
+\ifdefined\kcvariant\setstretch{1.0}\fi
+{\Large This certificate is proudly presented to\par}
+\vspace{\certgap}
+\rule{0.75\linewidth}{0.6pt}\par
+{\small (write your name or nickname here)\par}
+\vspace{\certgap}
+{\large for completing \textbf{Level 2: Intermediate Python} and becoming a real programmer who can\par}
+\vspace{\certgap}
+\begin{tikzpicture}[every node/.style={font=\small\bfseries,align=center,text width=3.1cm,minimum height=1.1cm,rounded corners=3pt,draw=black,line width=0.6pt}]
+  \node[fill=kcorange!25] at (0,0)      {\faCode\\ write functions};
+  \node[fill=kcsky!30]    at (3.6,0)    {\faList\\ use lists \& dictionaries};
+  \node[fill=kcgreen!25]  at (7.2,0)    {\faSave\\ save files};
+  \node[fill=kcyellow!35] at (0,-1.35)   {\faCheckCircle\\ write tests};
+  \node[fill=kcpurple!25] at (3.6,-1.35) {\faGamepad\\ build games};
+  \node[fill=kcblue!20]   at (7.2,-1.35) {\faBug\\ squash bugs};
+\end{tikzpicture}\par
+\vspace{\certgap}
+{\large Final project:\par}
+\vspace{\certgap}
+\rule{0.75\linewidth}{0.6pt}\par
+\vspace{\certgap}
+{\large Something to be proud of:\par}
+\vspace{\certgap}
+\rule{0.85\linewidth}{0.6pt}\par
+\vspace{\certgap}
+\begin{tabularx}{\linewidth}{@{}X@{\hspace{1.5cm}}X@{}}
+\rule{\linewidth}{0.6pt} & \rule{\linewidth}{0.6pt} \\
+\centering Teacher & \centering\arraybackslash Date \\
+\end{tabularx}
+\end{tcolorbox}
+\end{document}
