@@ -30,8 +30,8 @@ jobs:
       - uses: zauguin/install-texlive@v4
         with:
           packages: |
-            scheme-basic
-            luatex luaotfload fontspec iftex kvoptions geometry xcolor graphics
+            scheme-medium
+            luatex luatexbase luaotfload fontspec extsizes iftex kvoptions geometry xcolor graphics
             pgf tcolorbox environ trimspaces tikzfill pdfcol enumitem booktabs
             tools makecell fancyhdr lastpage titlesec etoolbox setspace ragged2e
             amsfonts psnfss listings needspace fontawesome5 scratch3 simplekv
