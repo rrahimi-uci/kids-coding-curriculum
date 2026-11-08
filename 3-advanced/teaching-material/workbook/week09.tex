@@ -17,7 +17,7 @@ Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10
 \begin{center}
 %% alt: A scatter plot of monsters by fluff (across) and teeth (up). Five grumpy monsters, blue squares marked G, are at the top left with little fluff and many teeth. Five friendly monsters, orange circles marked F, are at the bottom right with much fluff and few teeth. Two mystery monsters, marked ?, each have a dashed line to their nearest neighbor: one joins a grumpy square and the other joins a friendly circle.
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Stealth]
-  \draw[->] (0,0) -- (10.8,0) node[below left,font=\small] {fluff};
+  \draw[->] (0,0) -- (10.8,0) node[right,font=\small] {fluff};
   \draw[->] (0,0) -- (0,10.8) node[above,font=\small] {teeth};
   \foreach \t in {0,5,10} {\node[below,font=\scriptsize] at (\t,0) {\t}; \node[left,font=\scriptsize] at (0,\t) {\t};}
   \draw[dashed,thick] (5,2) -- (6,1);

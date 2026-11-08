@@ -98,6 +98,8 @@ def main(argv=None) -> int:
             elif "fig" in (im.get("class") or "") and len(im["alt"].strip()) < 12:
                 problems.append(f"{rel}: figure alt text too short: {im.get('src')}")
         parts = rel.split("/")
+        if len(parts) == 5 and parts[0] == "levels" and parts[2] == "exercises" and "check_my_work" in raw and "On this website:" not in raw:
+            problems.append(f"{rel}: exercise page mentions the unpublished self-check script without the explanatory note")
         if len(parts) == 4 and parts[0] == "levels" and parts[2].startswith("week-"):
             if p.objectives_li == 0:
                 problems.append(f"{rel}: lesson page has no learning objectives")

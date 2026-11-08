@@ -11,6 +11,9 @@ Levels 2 and 3, projects and resources.
 - Final project pages for all three levels: brief, plan sheet, rubric and the starter files to download. Teacher-only material and solutions are not published.
 - Resources: Mac setup guide (Scratch, Thonny, Python, pytest, git), troubleshooting, cheat sheets and a combined glossary for the three levels, printable progress trackers, and notes for families for each level.
 - Quality gates now cover all three levels.
+- Every hint was reviewed a second time against its exercise; hints no longer name bug fixes or copy solution lines.
+- Fixed overlapping labels in four Level 3 workbook diagrams (bar chart, scatter plot axis, CRC card, feedback cards).
+- Exercise pages and starter downloads no longer point to the self-check script, which is not published.
 
 ## 1.0.0 - 2026-11-08
 

@@ -5,4 +5,4 @@ Run the program and read the line "First row now looks like". The nickname is st
 Build a brand new dictionary for each row, so the old one is never copied whole. Start it with an `id`. Then use a loop over the `keep` list to copy only those columns. An f-string like `f"R{number}"` can build the ID text.
 
 ## Hint 3: Almost there
-Shape: `for number, row in enumerate(rows, start=____):`, then `safe = {"id": f"R{____}"}`, then `for column in ____:` with `safe[column] = row[____]`. Finish with `safe_rows.____(safe)` and return `safe_rows`. For the Challenge, look up `csv.DictWriter`, `writeheader()` and `writerows()`.
+Loop over the rows with `enumerate`, counting from ____. Build a small dictionary that starts with the `id`. Loop over `keep` and copy each column from the old row. Add the new dictionary to `safe_rows` and return it. For the Challenge, follow the steps in the TODO 2 comments.

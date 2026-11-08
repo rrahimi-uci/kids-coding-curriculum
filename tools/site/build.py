@@ -148,7 +148,9 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
                 for e in week_ex:
                     src_dir = ROOT / d / "exercises" / e["folder"]
                     z.writestr(f"{e['folder']}/README.md", e["readme_clean"])
-                    for name in ["starter.py", *e["files"]]:
+                    if e["kind"] == "python":
+                        z.writestr(f"{e['folder']}/starter.py", e["starter"]["raw"])
+                    for name in e["files"]:
                         if (src_dir / name).exists():
                             z.write(src_dir / name, f"{e['folder']}/{name}")
             dl["starter"] = {"url": f"{BASE}{zrel}", "kb": max(1, zpath.stat().st_size // 1024)}
@@ -174,7 +176,10 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
             # raw starter files (only the public ones) for the download buttons
             out = ROOT / "site" / "public" / "downloads" / slug / "exercises" / e["slug"]
             src_dir = ROOT / d / "exercises" / e["folder"]
-            for name in (["starter.py"] if e["kind"] == "python" else []) + list(e["files"]):
+            if e["kind"] == "python":
+                out.mkdir(parents=True, exist_ok=True)
+                (out / "starter.py").write_text(e["starter"]["raw"], encoding="utf-8")
+            for name in e["files"]:
                 out.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(src_dir / name, out / name)
     project = extmod.build_project(entry, manifest, GEN, fig_dir, warnings)

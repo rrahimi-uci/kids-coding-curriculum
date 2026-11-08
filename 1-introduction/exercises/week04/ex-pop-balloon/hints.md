@@ -5,4 +5,4 @@ You need two scripts on the Balloon. One starts the game when the flag is clicke
 Use the **when this sprite clicked** block (Events category) for the second script. Inside it, use **change pops by** to count. For the surprise spot, drop **pick random** blocks (Operators category) into the slots of **go to x: y:** (Motion category).
 
 ## Hint 3: Almost there
-The flag script is **set pops to ____** and then **go to x: ____ y: ____**. The click script is **change pops by ____**, a **start sound** block (Sound category), then **go to x: (pick random ____ to ____) y: (pick random ____ to ____)**.
+The flag script has two blocks: one that sets the counter and one that puts the balloon in a starting place. The click script has three: one that changes the counter, a **start sound** block (Sound category), and one that moves the balloon to a random place using **pick random ____ to ____** twice.

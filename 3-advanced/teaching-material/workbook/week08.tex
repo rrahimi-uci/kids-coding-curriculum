@@ -76,13 +76,13 @@ The \textbf{average} (mean) is the total divided by how many: \py|sum(numbers) /
 A good chart never relies on color alone. Write the \textbf{name} under each bar and the \textbf{number} on top, so someone who sees colors differently can still read it.
 \begin{center}
 %% alt: A bar chart of favorite games: Block Craft 5, Kart Dash 4 and Puzzle Drop 3.
-\begin{tikzpicture}[x=1.2cm,y=0.45cm]
+\begin{tikzpicture}[x=2.2cm,y=0.45cm]
   \foreach \x/\h/\name/\c in {0/5/Block Craft/kcorange,1/4/Kart Dash/kcsky,2/3/Puzzle Drop/kcgreen}{
-    \draw[fill=\c!60] (\x,0) rectangle (\x+0.8,\h);
-    \node[above,font=\small] at (\x+0.4,\h) {\h};
-    \node[below,font=\footnotesize] at (\x+0.4,0) {\name};
+    \draw[fill=\c!60] (\x,0) rectangle (\x+0.7,\h);
+    \node[above,font=\small] at (\x+0.35,\h) {\h};
+    \node[below,font=\footnotesize] at (\x+0.35,0) {\name};
   }
-  \draw (-0.2,0) -- (3,0);
+  \draw (-0.3,0) -- (2.9,0);
 \end{tikzpicture}
 \end{center}
 

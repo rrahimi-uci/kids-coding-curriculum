@@ -5,4 +5,4 @@ Run the script and look at the stage. Is the shape closed? How many sides did it
 Two things are wrong. One is about how far the cat turns each time. The other is about where a Pen block sits inside the **repeat** loop. Fix one thing, then test, then fix the other.
 
 ## Hint 3: Almost there
-Think about the turn: a full circle is 360 degrees, and a hexagon has ____ equal corners, so each turn is 360 divided by ____. Then ask: should the pen go up on every trip around the loop, or only after the loop? Check where **pen up** sits.
+Think about the turn: a full circle is 360 degrees, and a hexagon has ____ equal corners, so each turn is 360 divided by ____. For the pen, ask what it does after the first side. Is that what you want for the other five sides?

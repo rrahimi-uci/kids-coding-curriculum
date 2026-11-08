@@ -5,4 +5,4 @@ Play two games in a row. Watch the score at the start of the second game. Then c
 Bug one is about what the score is when a game begins. Bug two is about what the apple does right after you catch it. Compare the catch **if** block with the missed-apple **if** block. Does one have something the other does not?
 
 ## Hint 3: Almost there
-Look in the Variables category for a block that puts a variable at a starting number, and use it at the top of the green-flag script. For the second bug, ask why the apple keeps touching the bowl. Give it a reason to leave, using a block from the Motion category.
+For bug one, look through the **Variables** category and ask which block lets every game begin fresh. For bug two, ask why the apple keeps touching the bowl after a catch. What does the missed-apple **if** do that the catch **if** does not?

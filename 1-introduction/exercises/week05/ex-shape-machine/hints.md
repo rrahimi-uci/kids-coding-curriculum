@@ -5,4 +5,4 @@ Look at the pink **define polygon** block you make in the My Blocks category. Ev
 A shape with many sides is the same two steps repeated: move forward, then turn. Put those two steps in a **repeat** block (Control category). Drag the `sides` and `length` ovals out of the define hat into the slots.
 
 ## Hint 3: Almost there
-Inside the define block, use **pen down**, then **repeat (sides)**. Inside, use **move (length) steps** and **turn right (____ / ____) degrees**, using the divide block from the Operators category. A full turn is 360 degrees. Finish with **pen up**.
+Under the define block, put **pen down** first and **pen up** last. In the middle, use a **repeat** that uses your `sides` oval, with a move and a turn inside. For the turn, use the divide block from the Operators category. A full turn is 360 degrees.

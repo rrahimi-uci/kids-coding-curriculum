@@ -5,4 +5,4 @@ Read the red error from the bottom up. It names a line in `last_item`. Then look
 List positions start at 0, so a list of 4 items ends at index 3. For `add_item`, a list has a method that adds one item to the end. For `has_item`, use a `for` loop to look at each thing and `return True` when one matches.
 
 ## Hint 3: Almost there
-Use `backpack.append(____)`. For the loop, write `for thing in ____:` then `if thing == ____:` and `return True`. After the loop, `return False`. For the crash, change the index to `len(backpack) ____ 1`.
+Use `backpack.append(____)`. For the loop, write `for thing in ____:` and compare `thing` with the item. After the loop, return the other answer. For the crash, work out which index the last box has when `len` is 4, then change the index so it lands there.

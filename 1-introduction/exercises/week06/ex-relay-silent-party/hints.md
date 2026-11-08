@@ -5,4 +5,4 @@ Press the green flag, then space. Does the Ghost ever show up? Then press space 
 For bug one, compare the **broadcast** block in the cat with the **when I receive** block in the Ghost, in the Events category. For bug two, the loop runs so fast that your eyes cannot follow it. Computers need to be told to slow down.
 
 ## Hint 3: Almost there
-Click both message dropdowns and read the names side by side. They must be the same. For the dance, add a **wait ____ seconds** block (Control category) inside the **repeat** loop. Ten turns should take about 2 seconds, so think about how long each turn can wait.
+Click both message dropdowns and read the names side by side. Do they match? For the dance, look in the **Control** category for a block that makes a script pause. Ten turns in about 2 seconds means each turn gets a small slice of time. Where in the loop should the pause go?

@@ -5,4 +5,4 @@ Work on one TODO at a time and run the program after each one. Read the example 
 A dictionary works like a tally chart. Use `counts.get(value, 0)` to read a count, which gives 0 if the value is new. For the average, use `sum()` and `len()`, and check for an empty list first. For `most_popular`, keep a `best` key and swap it when a bigger count shows up.
 
 ## Hint 3: Almost there
-Tally: `counts[value] = counts.get(value, ____) + ____`. Average: `if len(numbers) == ____: return 0`, then `round(____ / ____, 1)` using `sum` and `len`. Winner: `for key in counts:` then `if best is None or counts[key] ____ counts[best]:` and set `best = ____`.
+Tally: `counts[value] = counts.get(value, ____) + ____`. Average: check for an empty list first, then divide `____` by `____` and round to 1 place. Winner: loop over `counts` and compare each key's count with the count of `best`. Decide when `best` should change.

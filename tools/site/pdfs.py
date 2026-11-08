@@ -18,9 +18,13 @@ ROOT = Path(__file__).resolve().parents[2]
 def ensure_level_pdfs(level_dir: str, stems: list[str], variants=("standard", "dyslexia")) -> dict[str, dict[str, Path]]:
     """Return {stem: {variant: path}} for the requested level documents, building them if needed."""
     out: dict[str, dict[str, Path]] = {}
+    sources = list((ROOT / level_dir).rglob("*.tex")) + list((ROOT / "shared" / "latex").glob("*"))
+    newest = max((f.stat().st_mtime for f in sources if f.is_file()), default=0)
     for stem in stems:
         for variant in variants:
             found = list((ROOT / "build" / "pdf" / variant / level_dir).rglob(f"{stem}.pdf"))
+            if found and found[0].stat().st_mtime < newest:
+                found = []  # a source file changed after the PDF was built: rebuild it
             if not found:
                 subprocess.run(["python3", str(ROOT / "tools" / "build.py"), "--level", level_dir.split("-")[0],
                                 "--variant", variant, "--only", stem], cwd=ROOT, check=True,

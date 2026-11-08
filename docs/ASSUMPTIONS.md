@@ -103,8 +103,9 @@ where useful, how to change it.
     empty commit on `main`; all content arrives through a pull request from a
     feature branch, following the owner's PR-only policy, and the PR is left
     open for the owner to review and merge.
-26. **Hosting.** The GitHub repository `kids-coding-curriculum` is created as
-    **private** under the owner’s account, because it contains teacher-only answer keys.
+26. **Hosting.** The GitHub repository `kids-coding-curriculum` is **public** under the owner’s account
+    (the owner’s decision on 2026-11-08; it was first planned as private because it contains teacher-only
+    answer keys, see 39).
 
 ## Decisions made while writing the levels
 
@@ -156,8 +157,10 @@ where useful, how to change it.
 ## Website
 
 39. **Hosting.** GitHub Pages, deployed by GitHub Actions from `main`. The owner chose a public repository.
-    Because answer keys, teacher guides and reference solutions live in the same repository, a public
-    repository exposes them even though the website does not (see SITE-DESIGN.md and the pull request notes).
+    Because answer keys, teacher guides, reference solutions and tests live in the same repository, anyone
+    can read them in the source (and in the git history) even though the website does not publish them.
+    Parents who do not want the answers to be tempting should not give children the repository folder;
+    the website and the printed student editions contain no solutions.
 40. **What is published.** Student workbooks, homework, exercise instructions, starter code, hints, the parent
     deck and handout. Assessments (placement, checkpoint and exit quizzes) are not published.
 41. **Hints and alt text** are new, reviewed content: three hints per exercise (`hints.md`) and a `%% alt:`

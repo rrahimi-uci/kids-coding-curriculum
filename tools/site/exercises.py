@@ -38,8 +38,22 @@ def read_hints(path: Path) -> list[dict]:
 
 
 def clean_readme_md(md: str) -> str:
-    """The README as published: the self-check script paragraph is removed."""
-    return re.sub(r"\n?\*\*Check your work:\*\*[^\n]*check_my_work\.py[^\n]*\n", "\n", md)
+    """The README as published: paragraphs about the self-check script (not published) are removed."""
+    paras = re.split(r"\n[ \t]*\n", md)
+    keep = [p for p in paras if not ("check_my_work" in p and re.search(r"check your work", p, re.I))]
+    return "\n\n".join(keep) + ("\n" if md.endswith("\n") else "")
+
+
+WEB_NOTE = ("> **On this website:** the automatic self-check files that come with the course folder are not "
+            "published here. Work from the steps and the hints, and check your work by running your program.\n\n")
+
+
+def web_starter(code: str) -> str:
+    """The starter as published: comments that point to the unpublished self-check script are reworded."""
+    code = re.sub(r"then open check_my_work\.py and press Run\.", "then press Run and see if it does what the README says.", code)
+    code = re.sub(r"then run check_my_work\.py\.", "then run it again to check.", code)
+    code = re.sub(r"Open check_my_work\.py and press Run: the tests tell you", "Run it and look closely: the program shows you", code)
+    return code
 
 
 def convert_readme(md: str, warnings: list[str]) -> tuple[str, str, str]:
@@ -55,7 +69,9 @@ def convert_readme(md: str, warnings: list[str]) -> tuple[str, str, str]:
         lines = lines[1:]
     body = "\n".join(lines)
     # self-check script is not published (it needs the private tests)
-    new = re.sub(r"\n?\*\*Check your work:\*\*[^\n]*check_my_work\.py[^\n]*\n", "\n", body)
+    new = clean_readme_md(body)
+    if "check_my_work" in new:  # steps that depend on the self-check files: tell the child why they are missing
+        new = WEB_NOTE + new
     if new != body:
         warnings.append("info: removed the 'Check your work: check_my_work.py' paragraph from an exercise page")
     html = md_to_html(new)
@@ -92,7 +108,7 @@ def build_exercise(dir_: Path, level: int, files_ok: list[str], warnings: list[s
         "starter": None, "files": [], "readme_clean": clean_readme_md(readme),
     }
     if kind == "python":
-        code = (dir_ / "starter.py").read_text(encoding="utf-8")
+        code = web_starter((dir_ / "starter.py").read_text(encoding="utf-8"))
         data["starter"] = {"name": "starter.py", "raw": code,
                            "html": highlight(code, PythonLexer(), _FMT).rstrip("\n")}
     for name in files_ok:

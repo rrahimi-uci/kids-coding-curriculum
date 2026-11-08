@@ -5,4 +5,4 @@ Run it and compare the output with your paper answers. Each of the three functio
 Add `print()` lines inside the loop to see what happens each round. Read each function out loud, line by line. Ask: does the loop finish before the function hands back its answer? Does `return` give back the right variable?
 
 ## Hint 3: Almost there
-Check where the `return` sits compared with the `for` line, since the indent decides when it runs. In `cheapest()`, return the variable the loop worked on, not `prices[____]`. In `can_buy()`, `print` only shows a value, so use `____` to give it back.
+Look at how far the `return` is indented in `total_price()`, because the indent decides when it runs. In `cheapest()`, check which value is handed back after the loop. In `can_buy()`, ask what the `if` line in the program receives.

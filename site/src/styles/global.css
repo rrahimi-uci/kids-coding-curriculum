@@ -355,3 +355,7 @@ dl.gloss dd { margin: .2rem 0 0; }
   :root:not([data-theme="light"]) :is(.tok-nf, .tok-nc, .tok-fm, .tok-vm, .tok-ne, .tok-nn) { color: #f4a9cb; }
   :root:not([data-theme="light"]) .tok-o { color: #edf1f5; }
 }
+
+/* notes about the website in exercise READMEs */
+.lesson blockquote { margin: 1.2rem 0; padding: .8rem 1.1rem; border-left: 6px solid var(--brand); background: var(--surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.lesson blockquote p:last-child { margin-bottom: 0; }

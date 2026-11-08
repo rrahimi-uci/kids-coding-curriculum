@@ -5,4 +5,4 @@ Look at `xp_needed` first. It shows a number on its own line, and then your mess
 `print` only shows something on the screen. `return` hands a value back to the code that called the function. For `damage`, use an `if` to fix a number below zero. For `is_critical`, a comparison like `>=` already gives True or False.
 
 ## Hint 3: Almost there
-Change the word `print(...)` to `return ____`. In `damage`, use `if result < ____:` and set `result` to a new number. Finish with `return ____`. For `is_critical`, write `return roll >= ____`.
+`xp_needed` should hand its answer back instead of showing it. In `damage`, write `if result < ____:` and set `result` to a new number. Then hand `result` back. For `is_critical`, finish `return roll >= ____`.

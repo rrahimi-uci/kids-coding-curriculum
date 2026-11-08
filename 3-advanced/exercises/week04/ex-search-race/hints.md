@@ -5,4 +5,4 @@ Read `linear_search` first. It counts steps and returns two things. `binary_sear
 Use a `while` loop with `low` and `high`. Each time around, count one step, find the middle with `//`, and compare. A match returns right away. Otherwise move `low` or `high` so half of the list is thrown away.
 
 ## Hint 3: Almost there
-The shape is `while low <= high:`, then add 1 to `steps`, then `mid = (____ + ____) // 2`. Use `if`, `elif` and `else` on `items[mid]`. If it is too small, set `low = ____`. If it is too big, set `high = ____`.
+Keep looping `while low ____ high:`. Add 1 to `steps`, then find `mid = (____ + ____) // 2`. Use `if`, `elif` and `else` on `items[mid]`. If it is too small, set `low = ____`. If it is too big, set `high = ____`.

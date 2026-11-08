@@ -5,4 +5,4 @@ Look at the TODO inside `koch()`. The straight `t.forward(length)` at the bottom
 Delete the straight line and write out the list from the TODO, one line at a time. Drawing a smaller Koch line means calling `koch` again with a shorter length and a depth one smaller. Turning uses `t.left(...)` and `t.right(...)`.
 
 ## Hint 3: Almost there
-You need four calls to `koch(t, length / ____, depth - ____)`. Between them go three turns, in this order: `t.left(____)`, `t.right(____)`, `t.left(____)`. Use the numbers from the TODO. Keep the early `return` in the base case so the drawing stops.
+You need four smaller Koch lines, each a fraction of the length and one level shallower. Put a turn between each pair of lines. Read the TODO to see which way to turn and by how many degrees. Keep the early `return` in the base case so the drawing stops.

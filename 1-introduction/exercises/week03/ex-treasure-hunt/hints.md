@@ -5,4 +5,4 @@ Build the explorer script and run it. Does it ever say "Treasure found!"? Think 
 The explorer asks the question one time at the very start, before you can move. Think of a goalkeeper who watches the goal all game long. Look in the **Control** category for a block that keeps something running.
 
 ## Hint 3: Almost there
-Wrap the **if touching Star? then** block inside a **forever** block from **Control**. The **go to x: ( ) y: ( )** block that sends the explorer to the start can stay above the loop. Test again and steer onto the star.
+Right now the question is asked only once. Your explorer needs to keep checking, over and over, while you steer. Find the loop that never stops in **Control**, and think about which blocks belong inside it. Then test again and steer onto the star.

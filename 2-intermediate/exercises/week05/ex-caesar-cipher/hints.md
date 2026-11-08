@@ -5,4 +5,4 @@ Run the file and look at the dictionary it prints. Each letter is a key, and its
 Use a `for` loop to walk through the message one letter at a time. Check `if letter in key:` before you look it up, so spaces and `!` do not cause a KeyError. For `decode()`, think about which shift goes the other way.
 
 ## Hint 3: Almost there
-Use this shape: `for letter in message.lower():` then `if letter in key:` add `key[____]` to `secret`, `else:` add `____`. For `decode()`, you can call `encode()` with a different shift: `return encode(secret, ____)`.
+Use this shape: `for ____ in message.lower():` then `if ____ in key:` add the secret letter to `secret`, `else:` add the plain letter. For `decode()`, you can call `encode()` with a different shift: `return encode(secret, ____)`.
