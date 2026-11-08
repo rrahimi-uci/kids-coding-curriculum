@@ -1,4 +1,4 @@
-# Kids Coding: a three-level home curriculum
+# Kids Coding Curriculum
 
 A complete, print-ready programming curriculum for **up to four children
 starting in Grade 5**, taught at home by a parent in **one 60-minute session a
@@ -20,7 +20,8 @@ No accounts, no internet needed during lessons, and no personal data.
 2-intermediate/        Level 2: Python functions, data, files, testing, games
 3-advanced/            Level 3: OOP, algorithms, git, data, simple AI
 docs/                  syllabus, design decisions, standards, authoring guide, assumptions
-shared/latex/          kidscode.cls: the one document class (fonts, palette, boxes)
+shared/latex/          kidscode.cls (the one document class: fonts, palette, boxes)
+                       and kidscode-breaks.lua (lets long code names wrap)
 shared/templates/      blank lesson / workbook / homework / answer files to copy
 testing/               fake turtle + test runners, repository quality checks
 tools/                 build.py (PDFs) and coverage.py (objective coverage tables)

@@ -119,7 +119,7 @@ def test_chaser_takes_one_step_closer():
     assert chaser.pos == (1, 4) and after == before - 1
 
 
-def test_ghost_wanders_only_onto_open_squares_and_does_not_turn_back():
+def test_ghost_stays_on_open_squares_and_never_reverses():
     random.seed(3)
     maze = model.Maze(SMALL)
     ghost = model.Ghost((3, 3))
@@ -162,7 +162,7 @@ def test_high_score_file_is_created_and_round_trips(tmp_path):
     assert model.load_high_scores(scores_file) == [("Kai", 120), ("Ada", 50)]
 
 
-def test_only_the_best_five_are_kept_and_bad_lines_are_skipped(tmp_path):
+def test_keeps_best_five_and_skips_bad_lines(tmp_path):
     scores_file = tmp_path / "scores.txt"
     scores_file.write_text("Mei,30\nnot a score\n\nOmar,x\n")
     for points in [10, 90, 40, 70, 20]:

@@ -127,6 +127,9 @@
 \newunicodechar{≤}{\ensuremath{\leq}}
 \newunicodechar{≥}{\ensuremath{\geq}}
 
+%% Long code names and paths may wrap after / _ . - (see kidscode-breaks.lua).
+\directlua{dofile(kpse.find_file("kidscode-breaks.lua", "tex"))}
+
 \setlength{\emergencystretch}{3em}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.55em}

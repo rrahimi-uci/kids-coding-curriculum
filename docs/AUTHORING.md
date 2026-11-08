@@ -29,6 +29,7 @@ enforce most of it.
     reference/                   complete, tested reference solution (+ test_*.py)
     starter/                     starter template students begin from
 shared/latex/kidscode.cls        the document class (all styling lives here)
+shared/latex/kidscode-breaks.lua lets long code names and paths wrap after / _ . -
 testing/kidtest/                 fake turtle + runners used by every test
 ```
 

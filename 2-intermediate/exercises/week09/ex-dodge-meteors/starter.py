@@ -25,7 +25,7 @@ HIT_DISTANCE = 30
 FRAME_MS = 50           # 50 milliseconds = 20 frames every second
 
 
-# ---------------------------------------------------------------- LOGIC
+# ---------------------------------------- LOGIC
 
 def clamp(value, low, high):
     """Return value, but never less than low and never more than high."""
@@ -51,7 +51,7 @@ def is_touching(x1, y1, x2, y2, how_close):
     return False
 
 
-# ---------------------------------------------------------------- DRAWING
+# ---------------------------------------- DRAWING
 
 state = {"score": 0, "running": True}
 meteors = []

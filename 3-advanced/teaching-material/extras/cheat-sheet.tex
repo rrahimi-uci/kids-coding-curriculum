@@ -77,13 +77,13 @@ def binary_search(items, target):
             high = mid - 1 # left
     return -1             # not there
 \end{sheetcode}
-\begin{tabular}{@{}lrrr@{}}
+{\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lrrr@{}}
 \toprule
-Items & 10 & 1000 & 1\,000\,000\\ \midrule
-Linear search, at most & 10 & 1000 & 1\,000\,000\\
+Items & 10 & 1000 & 1 million\\ \midrule
+Linear search, at most & 10 & 1000 & 1 million\\
 Binary search, at most & 4 & 10 & 20\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 
 \subsection{Sorting}
 \textbf{Selection sort:} find the smallest, swap it to the front, repeat with the rest.
@@ -162,7 +162,7 @@ counts[x] = counts.get(x, 0) + 1
 
 \subsection{git: save points (in Terminal)}
 \renewcommand{\arraystretch}{1.1}
-\begin{tabular}{@{}>{\ttfamily}l>{\raggedright\arraybackslash}p{3.3cm}@{}}
+\begin{tabularx}{\linewidth}{@{}>{\ttfamily}l>{\raggedright\arraybackslash}X@{}}
 git init & start a repo (once)\\
 git status & what changed?\\
 git diff & show changed lines\\
@@ -172,7 +172,7 @@ git log --oneline & list save points\\
 git restore game.py & undo changes not yet committed\\
 pwd & where am I?\\
 cd folder & go into a folder\\
-\end{tabular}
+\end{tabularx}
 
 \textbf{Good message:} verb + what changed, e.g.\ \texttt{"Fix ghost walking through walls"}.
 Never commit secrets or real names.

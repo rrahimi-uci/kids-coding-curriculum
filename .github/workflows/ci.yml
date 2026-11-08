@@ -39,7 +39,7 @@ jobs:
             colortbl caption float wrapfig pgfplots qrcode l3packages l3kernel
             epstopdf-pkg infwarerr kvsetkeys ltxcmds pdftexcmds bookmark
       - name: Build all PDFs
-        run: python3 tools/build.py --jobs 4
+        run: python3 tools/build.py --jobs 4 --strict
       - uses: actions/upload-artifact@v4
         if: always()
         with:

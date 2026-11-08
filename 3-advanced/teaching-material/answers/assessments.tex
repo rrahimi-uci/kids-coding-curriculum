@@ -249,7 +249,7 @@ everything in one file, but then my tests would open windows.}
 Use this to fill in the progress tracker's final column.
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}lll@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 Goal & Questions & Look for\\ \midrule
 L3.G1 Classes \& design & Q9, Q10 & sensible classes; inheritance vs composition explained\\
@@ -261,7 +261,7 @@ L3.G7 AI & Q6, Q7, Q8 & distance, nearest label, bias\\
 L3.G8 Test \& debug & Q4, Q5 & reads the error, fixes the cause\\
 L3.G9 Ethics \& privacy & Q7, Q8 & fairness of data; what stays private\\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 L3.G4 (git) is assessed through the project's commit history, not on paper.
 \end{rubric}

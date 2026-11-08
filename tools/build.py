@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LEVELS = {"1": "1-introduction", "2": "2-intermediate", "3": "3-advanced"}
 VARIANTS = ("standard", "dyslexia")
+OVERFULL_PT = 5.0  # report lines wider than the text block by more than this (about 2 mm)
 
 
 def find_documents(levels, only):
@@ -73,7 +74,12 @@ def compile_one(tex: Path, variant: str, tag: str) -> tuple[Path, str, bool, str
         warnings = [w for w in re.findall(r"^(?:LaTeX|Package \w+) Warning:.*$", logtext, re.M)
                     if "undefined" in w or "Reference" in w or "multiply" in w]
         missing = sorted(set(re.findall(r"Missing character: There is no (.+?) in font", logtext)))
+        # Lines sticking out of the margin by more than OVERFULL_PT are visible on paper.
+        wide = [float(pt) for pt in re.findall(r"Overfull \\hbox \(([0-9.]+)pt too wide\)", logtext)
+                if float(pt) > OVERFULL_PT]
         notes = []
+        if wide:
+            notes.append(f"{len(wide)} line(s) too wide for the page (worst {max(wide):.0f}pt)")
         if warnings:
             notes.append(f"{len(warnings)} reference warning(s): {warnings[0][:120]}")
         if missing:
@@ -89,7 +95,7 @@ def main() -> int:
     parser.add_argument("--only", help="substring of the document file name")
     parser.add_argument("--jobs", type=int, default=max(2, (os.cpu_count() or 4) // 2))
     parser.add_argument("--tag", default="", help="separate build folder (build/<tag>/) for parallel builds")
-    parser.add_argument("--strict", action="store_true", help="fail on missing glyphs / bad refs")
+    parser.add_argument("--strict", action="store_true", help="fail on missing glyphs, bad refs or lines too wide for the page")
     args = parser.parse_args()
 
     if shutil.which("lualatex") is None:

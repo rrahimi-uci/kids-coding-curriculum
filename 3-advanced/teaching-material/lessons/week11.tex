@@ -51,7 +51,7 @@ Tests are easiest when logic lives in a file with no turtle code. If logic is ta
 Use the example in workbook chapter 11 (\enquote{Tests for a tiny Player}): a \texttt{Player} class whose \texttt{move} method stops at walls and scores 10 for a star, plus three tests. Type both files into a new folder (or let a student read them to you), then in Thonny's system shell run \texttt{python -m pytest -q}: three green dots.
 \begin{enumerate}[itemsep=1pt]
   \item Read each test name aloud: it says what it checks. Point out the two \textbf{edge cases}: walking into a wall, eating the same star twice.
-  \item Break the code on purpose: delete the line \py|grid[new_row][new_col] = "."| and run again. The third test fails, and its name says exactly what broke.
+  \item Break the code on purpose: delete the line \texttt{grid[new\_row][new\_col] = "."} and run again. The third test fails, and its name says exactly what broke.
   \item Put the line back: green again. Commit: \texttt{git commit -m "Add tests for Player"}.
 \end{enumerate}
 \end{workedexample}
