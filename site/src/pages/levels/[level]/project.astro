@@ -23,7 +23,7 @@ const dl = l.extra_downloads?.['project-brief'] ?? {};
     </header>
     <div class="lesson-layout">
       <aside class="lesson-side" aria-label="On this page">
-        <nav class="toc" aria-label="Table of contents"><details open><summary>On this page</summary><ol>
+        <nav class="toc" aria-label="Table of contents"><details><summary>On this page</summary><ol>
           {p.toc.filter((t) => t.level === 2).map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}
           <li><a href="#starter">Starter files</a></li>
         </ol></details></nav>

@@ -17,8 +17,15 @@ import { u } from '../lib/data';
       var el = document.getElementById('search');
       if (!window.PagefindUI) return;
       el.innerHTML = '';
-      new PagefindUI({ element: '#search', showSubResults: true, showImages: false, resetStyles: false,
+      var ui = new PagefindUI({ element: '#search', showSubResults: true, showImages: false, resetStyles: false,
         baseUrl: el.dataset.searchBase, bundlePath: el.dataset.searchBase + 'pagefind/' });
+      /* The search box in the menu sends ?q=...: run that search straight away. */
+      var q = new URLSearchParams(location.search).get('q');
+      if (q) {
+        ui.triggerSearch(q);
+        var box = el.querySelector('input');
+        if (box) box.value = q;
+      }
     });
   </script>
 </Base>

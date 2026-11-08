@@ -104,12 +104,31 @@ No children's names, photos or personal data are used; the site has no analytics
   setup notes, in `resources/*.md`), cheat sheets per level, a combined A to Z glossary, printable progress
   trackers (PDF) and notes for families per level (`/parents/notes/level-N/`).
 * **Search** (Pagefind) and **About** (privacy, accessibility, credits, change log).
+
+### Navigation
+
+One menu, in a **left sidebar** on screens 1024px and wider and in a **drawer** opened from a slim top bar on
+phones and tablets (without JavaScript the menu is simply shown above the page). It is ordered the way a
+family meets the course:
+
+1. **Home** and **Curriculum and timeline** (orientation);
+2. **Levels**: each level is a disclosure that opens to *Overview*, *Weeks 1 to 12*, *Final project*, *Cheat
+   sheet* and *Notes for families*; the current level is open, the current page is highlighted
+   (`aria-current="page"`) and an exercise page highlights its week (`aria-current="location"`);
+3. **For parents**: parent guide, research, slides, questions and answers;
+4. **Resources**: setup guide, troubleshooting, glossary, all resources, about.
+
+A search box sits above the menu (it submits to `/search/?q=...`), and **Display** (Dark mode, Easy-read font,
+both switches with `aria-pressed`) sits below it; only the menu between them scrolls. Long pages keep their
+**On this page** list: in its own column on the right on wide screens, folded above the text otherwise.
+Icons follow the Lucide set (24px grid, 2px stroke) at text size, and every icon is paired with a text label.
 * Assessments (placement, checkpoint and exit quizzes) and certificates are not published.
 
 ## Visual design
 
-Warm white paper background, generous white space and card-based components; headings in Atkinson
-Hyperlegible Next ExtraBold; one accent color per level (blue, green, vermillion) taken from the course's
+Warm white paper background, generous white space and card-based components; text and headings in
+Atkinson Hyperlegible Next (headings bold, body 17px with a 1.7 line height and a 70-character line length,
+sentence-case labels rather than capitals); one accent color per level (blue, green, vermillion) taken from the course's
 color-blind-safe Okabe–Ito palette, with darker text shades so every text color passes 4.5:1. The Scratch
 and Python material keeps its callout boxes (Tip, Safety, Core, Challenge, Creative, Exercise, Bug hunt,
 Self-check, New words), each with a text label and an icon, so meaning never depends on color. Dark mode

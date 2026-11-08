@@ -1,23 +1,28 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
-import { u, siteInfo } from '../lib/data';
+import { u, siteInfo, levels, resources } from '../lib/data';
 
 interface Props { title: string; description?: string; level?: number; pagefind?: boolean; noindex?: boolean; }
 const { title, description = 'A free, friendly programming course for kids: Scratch, then Python. Lessons, exercises and projects for families.', level, pagefind = true, noindex = false } = Astro.props;
 const info = siteInfo();
 const path = Astro.url.pathname;
 const rel = path.replace(u(''), '/');
-const nav = [
-  { href: u('parents/'), label: 'For parents', match: '/parents/' },
-  { href: u('curriculum/'), label: 'Curriculum', match: '/curriculum/' },
-  { href: u('levels/level-1/'), label: 'Level 1', match: '/levels/level-1/' },
-  { href: u('levels/level-2/'), label: 'Level 2', match: '/levels/level-2/' },
-  { href: u('levels/level-3/'), label: 'Level 3', match: '/levels/level-3/' },
-  { href: u('resources/'), label: 'Resources', match: '/resources/' },
-];
 const full = title.includes('Kids Coding') ? title : `${title} | Kids Coding`;
 const canonical = new URL(path, Astro.site).href;
+
+// ---- Site navigation (one source for the sidebar). Groups follow the order a family meets the course:
+// orientation (home, parents, curriculum), the learning path (levels > weeks), then reference material.
+const L = levels();
+const R = resources();
+const here = (p: string) => rel === p;                    // exactly this page
+const within = (p: string) => rel.startsWith(p);         // this section
+// Exercise pages live at /levels/level-N/exercises/weekNN-.../: they belong to that week in the menu.
+const exWeek = rel.match(/^\/levels\/(level-\d)\/exercises\/week(\d\d)-/);
+const inWeek = (lslug: string, wslug: string) =>
+  rel.startsWith(`/levels/${lslug}/${wslug}/`) || (!!exWeek && exWeek[1] === lslug && `week-${exWeek[2]}` === wslug);
+const cur = (on: boolean) => (on ? 'page' : undefined);
+const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting: 'lifebuoy' };
 ---
 <!doctype html>
 <html lang="en">
@@ -34,9 +39,10 @@ const canonical = new URL(path, Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <script is:inline>
-      /* Apply saved display choices before first paint (theme and dyslexia-friendly font). */
+      /* Before first paint: mark that JavaScript runs (enables the phone menu drawer) and apply saved display choices. */
       try {
         var d = document.documentElement, t = localStorage.getItem('kc:theme'), f = localStorage.getItem('kc:font');
+        d.classList.add('js');
         if (t) d.setAttribute('data-theme', t);
         if (f) d.setAttribute('data-font', f);
       } catch (e) {}
@@ -44,65 +50,100 @@ const canonical = new URL(path, Astro.site).href;
   </head>
   <body class={level ? `l${level}` : undefined} data-base={u('')}>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <div class="palette-bar" aria-hidden="true"></div>
-      <div class="wrap">
-        <a class="brand" href={u('')} aria-label="Kids Coding, home">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"/><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"/><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"/><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Kids Coding</span>
-        </a>
-        <nav class="nav-desktop" aria-label="Main">
-          {nav.map((n) => <a href={n.href} aria-current={rel.startsWith(n.match) ? 'page' : undefined}>{n.label}</a>)}
-        </nav>
-        <div class="tools">
-          <a class="icon-btn" href={u('search/')} aria-label="Search the site"><Icon name="search" /><span class="label">Search</span></a>
-          <button class="icon-btn" type="button" id="font-toggle" aria-pressed="false" title="Switch to the dyslexia-friendly font (Lexend)"><Icon name="type" /><span class="label">Easy-read font</span></button>
-          <button class="icon-btn" type="button" id="theme-toggle" aria-pressed="false" title="Dark mode"><Icon name="moon" /><span class="label">Dark mode</span></button>
-          <details class="nav-mobile">
-            <summary class="icon-btn" aria-label="Menu"><Icon name="menu" /><span class="label">Menu</span></summary>
-            <nav class="panel" aria-label="Main (mobile)">
-              {nav.map((n) => <a href={n.href} aria-current={rel.startsWith(n.match) ? 'page' : undefined}>{n.label}</a>)}
-              <a href={u('about/')}>About and accessibility</a>
-            </nav>
-          </details>
-        </div>
-      </div>
+
+    <!-- Phone and tablet: a slim top bar opens the same navigation as a drawer. -->
+    <header class="topbar">
+      <button class="icon-btn menu-btn" type="button" aria-controls="sidebar" aria-expanded="false"><Icon name="menu" /><span class="visually-hidden">Open the menu</span></button>
+      <a class="brand" href={u('')}><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"/><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"/><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"/><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kids Coding</span></a>
+      <a class="icon-btn" href={u('search/')}><Icon name="search" /><span class="visually-hidden">Search</span></a>
     </header>
-    <main id="main" data-pagefind-body={pagefind ? '' : undefined}>
-      <div class="wrap">
-        <slot />
-      </div>
-    </main>
-    <footer class="site-footer">
-      <div class="palette-bar" aria-hidden="true" style="margin-top:-2.5rem;margin-bottom:2.5rem"></div>
-      <div class="wrap">
-        <div class="cols">
-          <div>
-            <h2>Kids Coding</h2>
-            <p>A free course for children from Grade 5: make games and art, first with Scratch blocks, then with Python. One 60-minute session a week.</p>
-            <p><Icon name="lock" /> No accounts, no ads, no tracking.</p>
-          </div>
-          <div>
-            <h2>Explore</h2>
-            <ul>
-              <li><a href={u('parents/')}>For parents</a></li>
-              <li><a href={u('curriculum/')}>Curriculum and timeline</a></li>
-              <li><a href={u('levels/level-1/')}>Level 1: Introduction</a></li>
-              <li><a href={u('levels/level-2/')}>Level 2: Intermediate</a></li>
-              <li><a href={u('levels/level-3/')}>Level 3: Advanced</a></li>
-              <li><a href={u('resources/')}>Resources: setup, cheat sheets, glossary</a></li>
-              <li><a href={u('search/')}>Search</a></li>
-              <li><a href={u('about/')}>About, accessibility and credits</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2>This site</h2>
-            <p>Version {info.version} · Last updated <time datetime={info.updated}>{info.updated}</time></p>
-            <p class="small">Built from the course sources, so it always matches the printed workbooks. <a href={u('about/#changelog')}>What changed</a></p>
-          </div>
+
+    <div class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Site">
+        <div class="sidebar-head">
+          <a class="brand" href={u('')} aria-label="Kids Coding, home"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="3" width="13" height="7" rx="2.5" fill="#E69F00"/><rect x="2" y="12.5" width="19" height="7" rx="2.5" fill="#0072B2"/><rect x="2" y="22" width="15" height="7" rx="2.5" fill="#009E73"/><path d="M24 8l6 8-6 8" fill="none" stroke="#D55E00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kids Coding</span></a>
+          <button class="icon-btn close-btn" type="button" aria-controls="sidebar"><Icon name="x" /><span class="visually-hidden">Close the menu</span></button>
         </div>
+
+        <form class="side-search" action={u('search/')} method="get" role="search">
+          <label class="visually-hidden" for="side-q">Search the site</label>
+          <input id="side-q" name="q" type="search" placeholder="Search lessons" autocomplete="off" />
+          <button class="search-submit" type="submit"><Icon name="search" /><span class="visually-hidden">Search</span></button>
+        </form>
+
+        <nav class="side-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a class="nav-link" href={u('')} aria-current={cur(here('/'))}><Icon name="home" />Home</a></li>
+            <li><a class="nav-link" href={u('curriculum/')} aria-current={cur(here('/curriculum/'))}><Icon name="map" />Curriculum and timeline</a></li>
+          </ul>
+
+          <p class="nav-heading">Levels</p>
+          <ul class="nav-list">
+            {L.map((l) => {
+              const base = `/levels/${l.slug}/`;
+              return (
+                <li class={`l${l.number}`}>
+                  <details class="nav-group" open={within(base) || within(`/parents/notes/${l.slug}/`) ? true : undefined}>
+                    <summary class="nav-link"><span class="level-dot" aria-hidden="true">{l.number}</span><span class="grow">Level {l.number}<span class="sub">{l.name}</span></span><Icon name="chevron-down" class="chev" /></summary>
+                    <ul class="nav-sub">
+                      <li><a href={u(`levels/${l.slug}/`)} aria-current={cur(here(base))}>Overview</a></li>
+                      {l.weeks.length > 0 && (
+                        <li class="nav-weeks">
+                          <span class="nav-subhead">Weeks</span>
+                          <ol>
+                            {l.weeks.map((w: any) => <li><a href={u(`levels/${l.slug}/${w.slug}/`)} aria-current={inWeek(l.slug, w.slug) ? (here(`${base}${w.slug}/`) ? 'page' : 'location') : undefined}><span class="wk">{w.n}</span><span class="wt" set:html={w.title} /></a></li>)}
+                          </ol>
+                        </li>
+                      )}
+                      {l.project && <li><a href={u(`levels/${l.slug}/project/`)} aria-current={cur(here(`${base}project/`))}>Final project</a></li>}
+                      {l.extras?.cheat_sheet && <li><a href={u(`levels/${l.slug}/cheat-sheet/`)} aria-current={cur(here(`${base}cheat-sheet/`))}>Cheat sheet</a></li>}
+                      {l.extras?.parent_notes && <li><a href={u(`parents/notes/${l.slug}/`)} aria-current={cur(here(`/parents/notes/${l.slug}/`))}>Notes for families</a></li>}
+                    </ul>
+                  </details>
+                </li>
+              );
+            })}
+          </ul>
+
+          <p class="nav-heading">For parents</p>
+          <ul class="nav-list">
+            <li><a class="nav-link" href={u('parents/')} aria-current={cur(here('/parents/'))}><Icon name="users" />Parent guide</a></li>
+            <li><a class="nav-link" href={u('parents/research/')} aria-current={cur(here('/parents/research/'))}><Icon name="flask" />What the research says</a></li>
+            <li><a class="nav-link" href={u('parents/slides/')} aria-current={cur(here('/parents/slides/'))}><Icon name="presentation" />Information slides</a></li>
+            <li><a class="nav-link" href={u('parents/faq/')} aria-current={cur(here('/parents/faq/'))}><Icon name="help" />Questions and answers</a></li>
+          </ul>
+
+          <p class="nav-heading">Resources</p>
+          <ul class="nav-list">
+            {R.map((r) => <li><a class="nav-link" href={u(`resources/${r.slug}/`)} aria-current={cur(here(`/resources/${r.slug}/`))}><Icon name={resIcon[r.slug] ?? 'file-text'} />{r.title}</a></li>)}
+            <li><a class="nav-link" href={u('resources/glossary/')} aria-current={cur(here('/resources/glossary/'))}><Icon name="book" />Glossary</a></li>
+            <li><a class="nav-link" href={u('resources/')} aria-current={cur(here('/resources/'))}><Icon name="folder" />All resources</a></li>
+            <li><a class="nav-link" href={u('about/')} aria-current={cur(here('/about/'))}><Icon name="info" />About this site</a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-foot" role="group" aria-labelledby="display-label">
+          <p class="nav-heading" id="display-label">Display</p>
+          <button class="setting" type="button" id="theme-toggle" aria-pressed="false"><Icon name="moon" /><span class="label">Dark mode</span><span class="switch" aria-hidden="true"></span></button>
+          <button class="setting" type="button" id="font-toggle" aria-pressed="false"><Icon name="type" /><span class="label">Easy-read font</span><span class="switch" aria-hidden="true"></span></button>
+        </div>
+      </aside>
+      <div class="scrim" hidden></div>
+
+      <div class="content">
+        <main id="main" data-pagefind-body={pagefind ? '' : undefined}>
+          <div class="wrap">
+            <slot />
+          </div>
+        </main>
+        <footer class="site-footer">
+          <div class="wrap">
+            <p><strong>Kids Coding</strong>: a free course for children from Grade 5. Scratch blocks first, then Python, one 60-minute session a week.</p>
+            <p class="foot-meta"><span><Icon name="lock" /> No accounts, no ads, no tracking</span><span>Version {info.version}, updated <time datetime={info.updated}>{info.updated}</time></span><a href={u('about/#changelog')}>What changed</a><a href={u('about/')}>Accessibility and credits</a></p>
+          </div>
+        </footer>
       </div>
-    </footer>
+    </div>
     <script src="../scripts/site.js"></script>
   </body>
 </html>

@@ -12,7 +12,10 @@ export const base = (): string => {
 /** Absolute URL path inside the site, respecting the base path. */
 export const u = (p = ''): string => base() + p.replace(/^\//, '');
 /** Generated HTML uses %BASE% as a placeholder for the base path. */
-export const fix = (html: string): string => html.replaceAll('%BASE%', base());
+export const fix = (html: string): string =>
+  html.replaceAll('%BASE%', base())
+    // Code blocks can scroll sideways in the content column, so keyboard users must be able to focus them.
+    .replace(/<pre(?![^>]*\btabindex=)/g, '<pre tabindex="0"');
 
 export interface Week {
   n: number; slug: string; title: string; idea: string; concepts: string; unplugged: string;
