@@ -3,6 +3,13 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.3.0 - 2026-11-08
+
+One command to set up a Mac.
+
+- The Set up your Mac guide starts with a copy-and-paste command that installs Scratch 3, Thonny, pytest and git, step by step, asking for the Mac password once. The full script can be read on the page or downloaded, and running it again skips anything already installed.
+- Command lines in the guides now have a Copy button and wrap instead of scrolling sideways.
+
 ## 1.2.0 - 2026-11-08
 
 Clearer navigation and easier reading.

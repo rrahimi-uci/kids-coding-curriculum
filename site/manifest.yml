@@ -28,6 +28,7 @@ public:
   progress_tracker: "{dir}/teaching-material/extras/progress-tracker.tex"
   # New public guides written for the website (Mac setup, troubleshooting).
   resources: "resources/*.md"
+  install_script: "resources/install-mac.sh"   # shown on the Mac setup page and offered as a download
   # PDFs that may be offered for download (matched on the file stem of the built PDF).
   download_stems: [student-workbook, homework, cheat-sheet, glossary, parent-notes, progress-tracker, project-brief]
   parents:

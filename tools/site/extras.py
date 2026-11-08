@@ -185,8 +185,15 @@ def build_extras(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings
 # ------------------------------------------------------------------------------------ resources
 def build_resources(manifest: dict, gen: Path, warnings: list[str]) -> list[dict]:
     out = []
+    script = ROOT / manifest["public"]["install_script"]
+    dest = ROOT / "site" / "public" / "downloads" / script.name
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(script, dest)
     for f in sorted(glob.glob(str(ROOT / manifest["public"]["resources"]))):
         md = Path(f).read_text(encoding="utf-8")
+        if "{{INSTALL_SCRIPT}}" in md:  # the install script is shown on the page and offered as a download
+            script = (ROOT / manifest["public"]["install_script"]).read_text(encoding="utf-8")
+            md = md.replace("{{INSTALL_SCRIPT}}", "```bash\n" + script.rstrip("\n") + "\n```")
         title = re.match(r"#\s+(.*)", md).group(1).strip()
         body = md.split("\n", 1)[1]
         p = subprocess.run(["pandoc", "-f", "gfm", "-t", "html5", "--wrap=none", *texconv.no_highlight(),
@@ -198,7 +205,9 @@ def build_resources(manifest: dict, gen: Path, warnings: list[str]) -> list[dict
         for pre in soup.find_all("pre"):
             code = pre.find("code")
             pre["tabindex"] = "0"
-            wrap = soup.new_tag("div", attrs={"class": "code-block code-outputcode"})
+            # one-line commands wrap instead of scrolling sideways, so a parent sees the whole line they paste
+            single = len(pre.get_text().strip().splitlines()) == 1
+            wrap = soup.new_tag("div", attrs={"class": "code-block code-command" if single else "code-block"})
             pre.wrap(wrap)
         for a in soup.find_all("a", href=True):
             if a["href"].startswith("../"):

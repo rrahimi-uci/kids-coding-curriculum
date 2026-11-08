@@ -4,6 +4,32 @@ Allow about an hour, once, before the first session. You need the internet only 
 
 A grown-up should do the installing. Children can then do everything else themselves.
 
+## The quick way: one command
+
+This installs everything below in one go: Scratch 3, Thonny, pytest and git. It is safe to run again, because anything already installed is skipped.
+
+1. Open **Terminal**: press **Cmd+Space**, type `Terminal` and press **Return**.
+2. Click the **Copy** button on the line below, paste it into Terminal (**Cmd+V**) and press **Return**:
+
+```
+curl -fsSL %SITE%downloads/install-mac.sh -o ~/Downloads/install-mac.sh && bash ~/Downloads/install-mac.sh
+```
+
+3. Wait. It downloads about 200 MB and tells you each step. When it asks for your **Mac password**, type it (nothing appears on screen while you type) and press **Return**. That is needed once, to put Thonny in the Applications folder.
+4. If a window asks to install the "command line developer tools", click **Install**, wait until it finishes, then run the same line again.
+
+What it does not do: it needs no account, it sends nothing anywhere, and the only downloads are from `scratch.mit.edu` (Scratch) and `github.com` (Thonny, which is signed and checked before it is installed). It does not change any setting on your Mac.
+
+<details class="more"><summary>Read the whole script before you run it</summary>
+
+You can also [download the script](%SITE%downloads/install-mac.sh) and run it with `bash ~/Downloads/install-mac.sh`. This is everything it does:
+
+{{INSTALL_SCRIPT}}
+
+</details>
+
+Prefer to do it by hand, or something went wrong? The steps are below.
+
 ## Scratch (Level 1, weeks 1 to 6)
 
 Scratch is the block-coding app. Use the free offline app, not the website, so nobody needs an account.

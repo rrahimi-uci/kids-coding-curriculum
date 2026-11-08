@@ -41,7 +41,7 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
 | Project briefs, cheat sheets, parent notes | The same LaTeX converter, standalone documents: the file's own zero-argument macros are expanded, cheat-sheet code boxes and command tables are mapped (`tools/site/texconv.py`) | They are ordinary student-facing documents; faithful HTML plus the PDF alongside. |
 | Glossaries | Parsed structurally (`\gl`, `\term`) into one searchable A to Z page | The three sources use two macro styles; one page is easier to use than three PDFs. |
 | Progress trackers | PDF only | They are print-and-tick sheets; HTML adds nothing. |
-| Setup and troubleshooting | New short markdown guides in `resources/` | The only existing source is the private teacher guide, so the facts were rewritten for children and parents (no self-check script, no answer material). |
+| Setup and troubleshooting | New short markdown guides in `resources/`; the Mac guide starts with a one-line command and shows the full `resources/install-mac.sh` (published at `downloads/install-mac.sh`, tested by `testing/test_install_script.py`) | The only existing source is the private teacher guide, so the facts were rewritten for children and parents (no self-check script, no answer material). |
 | Syllabus tables | Parsed from `docs/SYLLABUS.md` | Level pages, week titles, big ideas and goals stay in sync with the master syllabus. |
 | Whole-level documents | The PDFs built by `tools/build.py`, standard and dyslexia-friendly editions | Offered as downloads; one PDF per week (chapter + homework) is compiled from a tiny wrapper that inputs the same source files. |
 
