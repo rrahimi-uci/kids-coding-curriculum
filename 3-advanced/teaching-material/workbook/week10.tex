@@ -16,6 +16,7 @@ Builders draw plans before they pour concrete. Programmers design before they ty
 A \textbf{CRC card} is an index card for one class: the \textbf{C}lass name, its \textbf{R}esponsibilities (what it knows and does) and its \textbf{C}ollaborators (the classes it works with). Here is one from the reference project, \emph{Maze Muncher}:
 
 \begin{center}
+%% alt: A filled-in CRC card for the class Chaser, which is a Ghost. Responsibilities: knows its row and column (from Ghost); each turn moves one step toward the player; finds the shortest path with breadth-first search and a queue. Collaborators: Maze (where are the walls?) and Player (where is it?).
 \begin{tikzpicture}
   \draw[thick,rounded corners=2pt,fill=kcyellow!15] (0,0) rectangle (10,4.3);
   \draw[thick] (0,3.6) -- (10,3.6);
@@ -35,6 +36,7 @@ A \textbf{CRC card} is an index card for one class: the \textbf{C}lass name, its
 A class diagram shows all the classes and how they connect. An arrow with a hollow triangle means \textbf{is a} (inheritance). A line with a diamond means \textbf{has a} (composition).
 
 \begin{center}
+%% alt: A class diagram for a maze game. Game holds maze, player, ghosts and score, and has play_turn() and save_high_score(). A Game has a Maze (a grid and is_wall(r, c)), has a Player (row, col, lives and move(dr, dc)) and has some Ghosts (row, col and step()). Chaser is a Ghost whose step() uses breadth-first search with a queue.
 \begin{tikzpicture}[cls/.style={draw,thick,rounded corners=1pt,fill=kcsky!15,align=left,font=\small,inner sep=4pt},>=Stealth]
   \node[cls] (game) at (0,0) {\textbf{Game}\\\rule{2.4cm}{0.4pt}\\ maze, player, ghosts\\ score\\\rule{2.4cm}{0.4pt}\\ play\_turn()\\ save\_high\_score()};
   \node[cls] (maze) at (5,2.3) {\textbf{Maze}\\\rule{2.2cm}{0.4pt}\\ grid (2D list)\\\rule{2.2cm}{0.4pt}\\ is\_wall(r, c)};
@@ -52,6 +54,7 @@ Read it aloud: \emph{a Game has a Maze, a Player and some Ghosts; a Chaser is a 
 \section{Milestones and save points}
 Big projects are built in small steps. After each step works, you \textbf{commit} -- a save point you can always return to.
 \begin{center}
+%% alt: A work cycle: edit code, run and test, git add, git commit -m with a message, then go back to editing for the next small step.
 \begin{tikzpicture}[s/.style={draw,rounded corners=3pt,fill=kcgreen!15,font=\small,minimum height=0.8cm,align=center},>=Stealth]
   \node[s] (e) at (0,0) {edit code};
   \node[s] (r) at (2.7,0) {run + test};

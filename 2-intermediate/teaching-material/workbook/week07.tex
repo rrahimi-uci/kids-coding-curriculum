@@ -14,6 +14,7 @@ When a program closes, all its variables are wiped. Your high score? Gone. A \te
 it stays on the computer after the program closes, so next time the program can read it again.
 
 \begin{center}
+%% alt: How a program remembers things. Your program's variables live inside the program and are wiped when it closes. Writing with mode "w" or "a" sends data to the file high_scores.txt, which holds Ada,120 and Kai,95. Reading with mode "r" brings it back. The file stays on the disk next to your program.
 \begin{tikzpicture}[font=\small,>={Stealth[length=3mm]},
   box/.style={draw=black,thick,rounded corners=3pt,minimum width=3.2cm,minimum height=1.6cm,align=center}]
   \node[box,fill=kcsky!25] (prog) at (0,0) {\textbf{Your program}\\variables live here\\(wiped when it closes)};

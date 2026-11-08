@@ -13,6 +13,7 @@ studio, and you will explain how it works. You can work alone or with a partner.
 \section{Step 1: Choose your option}
 
 \begin{center}
+%% alt: Two option cards side by side. Option A, arcade game: a black game screen showing the score and lives, a small pointy star, a big round meteor and a basket at the bottom that you move with the keys. Option B, art studio: a flower made of eight green petals on a white canvas, a saved-design note that reads petals 8, size 120, color green, and the keys n for new, s for save and l for load.
 \begin{tikzpicture}[font=\small,scale=0.92]
   % Option A: arcade game
   \draw[rounded corners=4pt, thick, fill=kcsky!10] (0,0) rectangle (7.4,4.6);
@@ -128,6 +129,7 @@ Plan the steps in plain words or boxes and arrows before you write Python. Here 
 catching game:
 
 \begin{center}
+%% alt: Flowchart of the game loop. Start with score 0 and lives 3. Move everything down. Is anything touching the basket? If yes, a star adds 1 to the score and a meteor takes 1 from the lives. Then ask: are the lives 0? If yes, the game is over and the score is saved in the file. If no, wait 40 milliseconds with ontimer and go back to moving everything down.
 \begin{tikzpicture}[
   node distance=0.45cm and 1.3cm, font=\small,
   box/.style={draw, thick, rounded corners=3pt, fill=kcsky!15, align=center, minimum height=0.8cm, text width=3.9cm},

@@ -15,6 +15,7 @@ A program with \textbf{rules} does exactly what you typed: \py|if teeth > 5: pri
 Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10). Put every example on a chart. To guess a \textbf{mystery} monster, find the closest example and copy its label. That is a \textbf{nearest-neighbor classifier}.
 
 \begin{center}
+%% alt: A scatter plot of monsters by fluff (across) and teeth (up). Five grumpy monsters, blue squares marked G, are at the top left with little fluff and many teeth. Five friendly monsters, orange circles marked F, are at the bottom right with much fluff and few teeth. Two mystery monsters, marked ?, each have a dashed line to their nearest neighbor: one joins a grumpy square and the other joins a friendly circle.
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Stealth]
   \draw[->] (0,0) -- (10.8,0) node[below left,font=\small] {fluff};
   \draw[->] (0,0) -- (0,10.8) node[above,font=\small] {teeth};
@@ -49,6 +50,7 @@ If the training pile has 8 grumpy monsters and only 1 friendly one, the program 
 A \textbf{Markov chain} learns just one thing from a text: \emph{after each word, which words came next?}
 
 \begin{center}
+%% alt: A word-chain diagram for a text generator. From "the", arrows lead to "dragon", "robot" and "cat". Each of those leads to "sat", "sat" leads to "on", and "on" leads back to "the", labeled next word: the.
 \begin{tikzpicture}[w/.style={draw,rounded corners=2pt,font=\small\ttfamily,fill=kcyellow!25,inner sep=3pt},>=Stealth]
   \node[w] (the) at (0,0) {the};
   \node[w] (dragon) at (3,1.2) {dragon};

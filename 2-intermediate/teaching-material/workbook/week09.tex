@@ -27,6 +27,7 @@ With brackets, Python would call it right away, only once.
 A game is like a flip book: every \textbf{frame} the world moves a tiny bit. Our game loop does one frame, then asks turtle to call it again soon.
 
 \begin{center}
+%% alt: The game loop as a cycle of four steps; one lap is one frame, 50 milliseconds. Step 1: move every meteor down. Step 2: check whether anything is touching or off the bottom; if it hit, it is game over and the timer is not set again. Step 3: update the score and the screen. Step 4: set the timer with ontimer(game_loop, 50), which starts the next lap.
 \begin{tikzpicture}[font=\small,>={Stealth[length=3mm]},
   st/.style={draw=black,thick,rounded corners=3pt,minimum width=3.6cm,minimum height=0.9cm,align=center}]
   \node[st,fill=kcsky!25] (a) at (0,1.6) {\textbf{1. Move}\\every meteor down};

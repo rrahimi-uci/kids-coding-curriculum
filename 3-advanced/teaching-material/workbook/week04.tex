@@ -14,6 +14,7 @@
 \textbf{Binary search} only works on a \textbf{sorted} list. It looks at the middle item. If that is too small, the answer must be on the right, so it throws away the whole left half (and the other way round). Every step cuts the list in half.
 
 \begin{center}
+%% alt: Binary search in a sorted list of eight numbers: 3, 8, 15, 21, 29, 37, 44 and 52 at positions 0 to 7. Step 1: the middle is 21, which is too small, so throw away the left half. Step 2: the middle is 37, which is too small, so throw away the left half. Step 3: the middle is 44. Found 44!
 \begin{tikzpicture}[cell/.style={draw=black,minimum width=0.95cm,minimum height=0.7cm,font=\small\ttfamily},x=1cm,y=1cm]
   \def\vals{{3,8,15,21,29,37,44,52}}
   \foreach \row/\lo/\hi/\mid/\note in {0/0/7/3/{step 1: 21 is too small, throw away the left half},

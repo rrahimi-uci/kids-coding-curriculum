@@ -27,7 +27,13 @@ export interface Level {
   goals: { code: string; text: string }[]; project_title: string; project_html: string;
   published: boolean; weeks: Week[]; downloads: Record<string, Record<string, { url: string; kb: number }>>;
   syllabus_weeks: { n: number; title: string; idea: string }[];
+  project?: { title: string; toc: { level: number; id: string; text: string }[]; starter_readme: string;
+    starter_files: { name: string; html: string; url: string }[]; zip: { url: string; kb: number } } | null;
+  extras?: Record<string, { title: string; subtitle: string; toc: { level: number; id: string; text: string }[] }>;
+  extra_downloads?: Record<string, Record<string, { url: string; kb: number }>>;
+  glossary_count?: number;
 }
+export interface GlossaryEntry { term: string; key: string; where: string; meaning: string; example: string }
 export const levels = (): Level[] => JSON.parse(read('levels.json'));
 export const siteInfo = (): { version: string; updated: string; commit: string; changelog_html?: string } =>
   JSON.parse(read('site.json'));
@@ -35,6 +41,10 @@ export const parentsData = () => JSON.parse(read('parents.json'));
 export const weekHtml = (slug: string, weekSlug: string) => fix(read(`html/${slug}/${weekSlug}.html`));
 export const homeworkHtml = (slug: string, weekSlug: string) =>
   fix(read(`html/${slug}/homework-${weekSlug.replace('week-', '')}.html`));
+export const levelHtml = (slug: string, name: string) => fix(read(`html/${slug}/${name}.html`));
+export const glossary = (slug: string): GlossaryEntry[] => JSON.parse(read(`glossary/${slug}.json`));
+export const resources = (): { slug: string; title: string; toc: { id: string; text: string }[] }[] => JSON.parse(read('resources.json'));
+export const resourceHtml = (slug: string) => fix(read(`html/resources/${slug}.html`));
 export const exercises = (slug: string) => {
   const dir = path.join(GEN, 'exercises', slug);
   if (!fs.existsSync(dir)) return [];

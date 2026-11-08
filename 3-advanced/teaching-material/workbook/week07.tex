@@ -30,6 +30,7 @@ def countdown(n):
 When you call \py|countdown(3)|, Python stacks up the calls like plates. Each call waits for the smaller one to finish:
 
 \begin{center}
+%% alt: A function that calls itself. countdown(3) prints 3, then calls countdown(2). countdown(2) prints 2, then calls countdown(1). countdown(1) prints 1, then calls countdown(0). countdown(0) is the base case: it prints Liftoff! and stops.
 \begin{tikzpicture}[call/.style={draw,rounded corners=2pt,minimum width=3cm,minimum height=0.65cm,font=\small\ttfamily},>=Stealth]
   \node[call,fill=kcsky!25] (a) at (0,0) {countdown(3)};
   \node[call,fill=kcsky!25] (b) at (1.8,-0.95) {countdown(2)};
@@ -63,6 +64,7 @@ def stars(n):
 A \textbf{fractal} is a shape made of smaller copies of itself. A tree is a trunk with two smaller trees on top. Each smaller tree is a trunk with two even smaller trees on top... until the \textbf{depth} reaches 0.
 
 \begin{center}
+%% alt: Three branching trees. Depth 1 is a single line (1 line). Depth 2 is a trunk that splits into two branches (3 lines). Depth 3 splits each of those branches again (7 lines).
 \begin{tikzpicture}[scale=1.4,line cap=round]
 \draw[line width=0.8pt] (0.00,0.00) -- (0.00,1.00);
 \draw[line width=1.4pt] (3.20,0.00) -- (3.20,1.00);
@@ -85,6 +87,7 @@ A \textbf{fractal} is a shape made of smaller copies of itself. A tree is a trun
 A \textbf{grid} is a list of rows, and each row is a list of cells. You find a cell with \texttt{grid[row][col]}: first go \emph{down} to the row, then \emph{across} to the column. Both start at 0.
 
 \begin{center}
+%% alt: A small grid with rows 0 to 2 and columns 0 to 3. Water is ~ and land is a dot. grid[1][2] is "T", a tree at row 1, column 2, and the square below it, grid[2][2], is ^, a mountain.
 \begin{tikzpicture}[cell/.style={draw,minimum size=0.8cm,font=\ttfamily}]
   \foreach \c in {0,1,2,3} \node[font=\small] at (\c*0.8,0.65) {\c};
   \node[font=\small,anchor=east] at (-0.5,0.65) {col};

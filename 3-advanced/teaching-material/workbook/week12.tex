@@ -13,6 +13,7 @@
 Anyone can say \emph{what} their program does. A real developer can explain \emph{why} they built it that way. In two minutes, pick \textbf{one} decision and walk through four steps:
 
 \begin{center}
+%% alt: Four steps for explaining a design decision. 1 Problem: what was hard or not working? 2 Choice: what did you decide to do? 3 Why: why that way and not another? 4 Next time: what would you change?
 \begin{tikzpicture}[st/.style={draw,thick,rounded corners=3pt,minimum width=3.3cm,minimum height=1.5cm,align=center,font=\small},>=Stealth]
   \node[st,fill=kcorange!20] (p) at (0,0) {\textbf{1 Problem}\\What was hard\\or not working?};
   \node[st,fill=kcsky!20] (c) at (3.9,0) {\textbf{2 Choice}\\What did you\\decide to do?};
@@ -43,6 +44,7 @@ Feedback helps when it is \textbf{kind}, \textbf{specific} and \textbf{useful}. 
 \begin{exercise}[Feedback cards]
 Write one card for each project you visit. Leave it face down next to the computer.
 \begin{center}
+%% alt: Four blank feedback cards, each with a line for the project name and spaces for a Star (I liked…) and a Wish (What if…?).
 \begin{tikzpicture}
   \foreach \x/\y in {0/0,7.7/0,0/-2.8,7.7/-2.8}{
     \draw[dashed] (\x,\y) rectangle ++(7.4,-2.5);
@@ -54,6 +56,7 @@ Write one card for each project you visit. Leave it face down next to the comput
 
 \section{Look how far you have come}
 \begin{center}
+%% alt: A timeline of the level: week 1 git save points, weeks 2 and 3 classes and objects, weeks 4 and 5 search and sort, week 7 recursion and grids, weeks 8 and 9 data and AI, and weeks 10 to 12 my big project.
 \begin{tikzpicture}[m/.style={draw,rounded corners=2pt,fill=kcyellow!20,font=\small,align=center,minimum width=2.2cm,minimum height=1cm},>=Stealth]
   \draw[thick,->] (-0.5,0) -- (15.6,0);
   \foreach \x/\t/\w in {0.7/{git\\save points}/1, 3.2/{classes \&\\objects}/2--3, 5.7/{search \&\\sort}/4--5, 8.2/{recursion\\\& grids}/7, 10.7/{data \&\\AI}/8--9, 13.4/{my big\\project}/10--12}{

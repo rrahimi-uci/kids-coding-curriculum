@@ -16,7 +16,7 @@ const report = (msg) => { failures++; console.log('  -', msg); };
 for (const scheme of ['light', 'dark']) {
   const ctx = await browser.newContext({ colorScheme: scheme, viewport: { width: 1280, height: 900 } });
   const page = await ctx.newPage();
-  const sample = scheme === 'dark' ? pages.filter((_, i) => i % 3 === 0 || /week-07|research|^\/$/.test(_)) : pages;
+  const sample = pages; // every page in both color schemes
   for (const p of sample) {
     await page.goto(url + p.slice(1), { waitUntil: 'load' });
     const r = await new AxeBuilder({ page }).withTags(tags).analyze();

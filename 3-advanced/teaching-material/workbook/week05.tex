@@ -13,6 +13,7 @@
 \textbf{Bubble sort:} walk along the list comparing neighbors. If the left one is bigger, swap them. After each pass the biggest item has \enquote{bubbled} to the end.
 
 \begin{center}
+%% alt: Sorting 5, 2, 4, 1 in passes. Start: 5 2 4 1. After pass 1: 2 4 1 5, with 5 in its final place. After pass 2: 2 1 4 5, with 4 in place. After pass 3: 1 2 4 5, sorted. Green boxes with a thick border are in their final place.
 \begin{tikzpicture}[card/.style={draw=black,line width=0.8pt,rounded corners=2pt,minimum width=0.8cm,minimum height=0.9cm,font=\small\bfseries}]
   \foreach \row/\a/\b/\c/\d/\note/\done in {
       0/5/2/4/1/{start}/0,
@@ -48,6 +49,7 @@ print(best_first)   # [('Mei', 150), ('Ada', 120), ('Leo', 95)]
 
 \section{Stacks and queues}
 \begin{center}
+%% alt: A stack and a queue. A stack holds stroke 1, stroke 2 and stroke 3 (top); you push and pop at the top, so it is last in, first out. A queue holds Priya at the front, then Sam, Kai and Zoe; new people join at the back (append) and leave from the front (popleft), so it is first in, first out.
 \begin{tikzpicture}[item/.style={draw=black,line width=0.8pt,minimum width=2.2cm,minimum height=0.6cm,font=\small},
                     q/.style={draw=black,line width=0.8pt,rounded corners=4pt,minimum width=1.15cm,minimum height=0.8cm,font=\small}]
   % stack

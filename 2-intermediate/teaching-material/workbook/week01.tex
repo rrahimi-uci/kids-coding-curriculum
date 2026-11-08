@@ -14,6 +14,7 @@ Python sorts every value into a \textbf{type}. The type decides what Python can 
 Here are the four types you will use most:
 
 \begin{center}
+%% alt: Four boxes for the four types of value. An int is a whole number such as 7, -2 and 100. A float is a decimal number such as 3.5, 0.0 and 2.0. A str is text in quotes such as "cat" and "7". A bool is True or False.
 \begin{tikzpicture}[bin/.style={draw=black,thick,rounded corners=3pt,minimum width=3.5cm,minimum height=2.5cm,align=center,font=\small}]
   \node[bin,fill=kcorange!25] (i) at (0,0) {\textbf{int}\\whole number\\[4pt]\texttt{7}\quad \texttt{-2}\quad \texttt{100}};
   \node[bin,fill=kcsky!25] (f) at (4,0) {\textbf{float}\\decimal number\\[4pt]\texttt{3.5}\quad \texttt{0.0}\quad \texttt{2.0}};
@@ -48,6 +49,7 @@ Put an \texttt{f} in front of the quotes, and Python fills every pair of curly b
 It works with any type, so you never have to worry about text plus a number.
 
 \begin{center}
+%% alt: The f-string f"{name} is level {level}" with name set to "Nova" and level set to 4 fills in to give the text Nova is level 4.
 \begin{tikzpicture}[font=\small]
   \node[draw,rounded corners=2pt,fill=kcsky!15,inner sep=5pt] (t) {\texttt{f"\{name\} is level \{level\}"}};
   \node[draw,rounded corners=2pt,fill=kcgreen!15,inner sep=5pt,right=1.6cm of t] (r) {\texttt{Nova is level 4}};

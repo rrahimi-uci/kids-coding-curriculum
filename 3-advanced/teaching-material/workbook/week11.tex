@@ -77,6 +77,7 @@ Plan your tests, then write them in \texttt{test\_<your project>.py}. At least o
 \section{Playtest and triage}
 In a \textbf{playtest}, someone else uses your project while you watch \textbf{silently} and take notes. Every time they get stuck, you learn something. Afterwards, sort the notes into three piles -- that is called \textbf{triage}:
 \begin{center}
+%% alt: Three piles for bugs. 1 Must fix: crashes, cannot start, cannot win. 2 Should fix: confusing, unfair, hard to read. 3 Nice to have: new ideas for version 2.
 \begin{tikzpicture}[pile/.style={draw,thick,rounded corners=3pt,minimum width=4.2cm,minimum height=1.4cm,align=center,font=\small}]
   \node[pile,fill=kcvermillion!20] at (0,0) {\textbf{1 Must fix}\\crashes, cannot start,\\cannot win};
   \node[pile,fill=kcorange!20] at (4.6,0) {\textbf{2 Should fix}\\confusing, unfair,\\hard to read};
@@ -88,6 +89,7 @@ For a crash: first write a test that shows the bug, then fix it. The test makes 
 \begin{exercise}[Playtest feedback cards]
 Cut these out (or copy them onto index cards). Fill in one card for each thing you notice while your partner plays.
 \begin{center}
+%% alt: Four blank playtest feedback cards. Each has the prompts What happened? and What did the player expect?, and a Pile line with three boxes: must, should and nice.
 \begin{tikzpicture}
   \foreach \x/\y in {0/0,7.7/0,0/-3.2,7.7/-3.2}{
     \draw[dashed] (\x,\y) rectangle ++(7.4,-2.9);

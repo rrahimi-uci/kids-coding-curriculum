@@ -212,11 +212,12 @@ CODE_ENVS = ("pycode", "outputcode", "shellcode")
 
 def extract_code(s: str, store: list[tuple[str, str, str, str]]) -> str:
     """Pull code listings out first so later regexes cannot damage them."""
-    pat = re.compile(r"\\begin\{(pycode|outputcode|shellcode)\}(?:\[([^\]]*)\])?\n?(.*?)\\end\{\1\}", re.S)
+    pat = re.compile(r"\\begin\{(pycode|outputcode|shellcode|cs|sheetcode)\}(?:\[([^\]]*)\])?\n?(.*?)\\end\{\1\}", re.S)
 
     def sub(m):
         token = f"CODEBLOCKTOKEN{len(store):04d}X"
-        store.append((token, m.group(1), m.group(2) or "", m.group(3).rstrip("\n")))
+        kind = "pycode" if m.group(1) in ("cs", "sheetcode") else m.group(1)
+        store.append((token, kind, m.group(2) or "", m.group(3).rstrip("\n")))
         return f"\n\n{token}\n\n"
 
     return pat.sub(sub, s)
@@ -255,9 +256,58 @@ def simple_math(s: str) -> str:
     return s
 
 
+def split_document(tex: str) -> str:
+    """Standalone documents (project briefs, extras): keep the body and expand the file's own
+    zero-argument macros (for example \\lvA or \\crccard) defined in its preamble."""
+    if "\\begin{document}" not in tex:
+        return tex
+    pre, rest = tex.split("\\begin{document}", 1)
+    body = rest.split("\\end{document}", 1)[0]
+    macros: dict[str, str] = {}
+    for m in re.finditer(r"\\newcommand\{\\([A-Za-z]+)\}\s*\{", pre):
+        j = match_brace(pre, m.end() - 1)
+        if j > 0:
+            macros.setdefault(m.group(1), pre[m.end() : j])
+    for _ in range(2):
+        for name in sorted(macros, key=len, reverse=True):
+            body = re.sub(r"\\" + name + r"(?![A-Za-z])\s?", lambda mm, v=macros[name]: v.replace("\\", "\\\\") if False else v, body)
+    return body
+
+
+def expand_sheet_macros(s: str) -> str:
+    """Macros of the cheat sheets: inline Scratch blocks, command tables, category rows."""
+    s = replace_cmd(s, "sbk", 1, lambda a: "\\begin{scratch}[scale=0.58]" + a + "\\end{scratch} ")
+    s = replace_cmd(s, "cshead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
+    s = replace_cmd(s, "cmdhead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
+    s = replace_cmd(s, "cat", 4, lambda c, t, tip, blocks: "\n\n\\subsection{" + t + "}\n\n" + tip + "\n\n" + blocks + "\n\n")
+    s = re.sub(r"\\begin\{cmdtable\}(?:\[[^\]]*\])?\{([^}]*)\}", lambda m: "\n\n\\subsection{" + m.group(1) + "}\n\n\\begin{tabular}{ll}\n", s)
+    s = s.replace("\\end{cmdtable}", "\\end{tabular}\n")
+    if "\\cat{" in s or "\\begin{longtable}" in s and "\\subsection{" in s:
+        while True:  # the \\cat rows replace the table wrapper
+            m = re.search(r"\\begin\{longtable\}", s)
+            if not m:
+                break
+            _, end = read_args(s, m.end(), 1)
+            s = s[: m.start()] + s[end:]
+        s = s.replace("\\end{longtable}", "")
+    s = re.sub(r"\\(begin|end)\{multicols\}(\{\d+\})?", "", s)
+    s = replace_cmd(s, "scalebox", 2, lambda a, b: b)
+    s = re.sub(r"\\(rowcolor|cellcolor|columncolor)(\[[^\]]*\])?\{[^}]*\}", "", s)
+    s = re.sub(r"\\(needspace|columnbreak|pagebreak|allowbreak|raggedcolumns|nopagebreak)(\{[^}]*\})?", "", s)
+    return s
+
+
 def prepare(tex: str, file_label: str, week_hint: str = "") -> tuple[str, Result]:
     res = Result()
     code_store: list = []
+    tex = split_document(tex)
+    title = re.search(r"\\kctitle\{", tex)
+    if title:
+        args, end = read_args(tex, title.end() - 1, 2)
+        if len(args) == 2:
+            res.meta = {"title": args[0].strip(), "subtitle": args[1].strip()}
+            tex = tex[: title.start()] + tex[end:]
+    tex = expand_sheet_macros(tex)
     s = extract_code(tex, code_store)
     s = extract_figures(s, res.figures, file_label)
     s = strip_comments(s)
@@ -380,6 +430,7 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
                  exercise_pages: dict[str, str]) -> str:
     soup = BeautifulSoup(raw_html, "lxml")
     body = soup.body or soup
+    raw_code: dict[str, str] = {}
 
     # ---- code blocks
     def replace_token(token: str, make):
@@ -405,9 +456,10 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
             c = soup.new_tag("code")
             if kind == "pycode":
                 c["class"] = "language-python"
-                frag = BeautifulSoup("<span>" + highlight_python(code) + "</span>", "html.parser").span
-                for child in list(frag.children):
-                    c.append(child)
+                # inserted as raw HTML after serialization: BeautifulSoup would collapse the indentation
+                marker = f"HIGHLIGHTMARKER{len(raw_code)}X"
+                raw_code[marker] = highlight_python(code)
+                c.string = marker
             else:
                 c.string = code
             pre.append(c)
@@ -565,9 +617,13 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
 
     # ---- ids and table of contents
     seen: set[str] = set()
+    for el in body.find_all(["section", "div"], id=True):
+        del el["id"]  # Pandoc copies a heading id onto wrapper elements: keep ids unique
     for h in body.find_all(["h2", "h3"]):
         text = h.get_text(" ", strip=True)
-        sid = h.get("id") or slugify(text)
+        sid = re.sub(r"[^A-Za-z0-9_-]+", "-", h.get("id") or slugify(text)).strip("-") or "section"
+        if not sid[0].isalpha():
+            sid = "s-" + sid
         base, k = sid, 2
         while sid in seen:
             sid = f"{base}-{k}"
@@ -578,6 +634,8 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
 
     # leftover tokens = something we failed to convert
     out = body.decode_contents()
+    for marker, code_html in raw_code.items():
+        out = out.replace(marker, code_html)
     for bad in ("CODEBLOCKTOKEN", "FIGURETOKEN", "CALLOUTTITLE", "LINESTOKEN"):
         if bad in out:
             res.warnings.append(f"unconverted token left in HTML: {bad}")

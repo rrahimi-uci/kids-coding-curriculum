@@ -25,6 +25,7 @@ import yaml
 from bs4 import BeautifulSoup
 
 from . import exercises as exmod
+from . import extras as extmod
 from . import parents as parentsmod
 from . import pdfs, syllabus, texconv
 
@@ -56,10 +57,11 @@ def extract_objectives(html: str) -> tuple[list[str], str]:
     soup = BeautifulSoup(html, "html.parser")
     for h in soup.find_all("h2"):
         if h.get_text(strip=True).lower().startswith("what you will"):
-            ul = h.find_next_sibling()
+            nxt = h.find_next_sibling()
+            ul = nxt.find("ul") if nxt is not None and nxt.name == "div" else nxt  # a checklist is wrapped in a div
             if ul is not None and ul.name == "ul":
                 items = [re.sub(r"\s+", " ", li.get_text()).strip() for li in ul.find_all("li", recursive=False)]
-                ul.decompose()
+                nxt.decompose()
                 h.decompose()
                 return items, str(soup)
     return [], html
@@ -175,10 +177,17 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
             for name in (["starter.py"] if e["kind"] == "python" else []) + list(e["files"]):
                 out.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(src_dir / name, out / name)
+    project = extmod.build_project(entry, manifest, GEN, fig_dir, warnings)
+    extras = extmod.build_extras(entry, manifest, GEN, fig_dir, warnings)
+    glossary = extras.pop("glossary")
+    write_json(GEN / "glossary" / f"{slug}.json", glossary)
+    extra_dl = extmod.level_pdfs(d, slug, ["project-brief", "cheat-sheet", "glossary", "parent-notes", "progress-tracker"],
+                                 args.skip_pdfs)
     return {
         "number": n, "slug": slug, "dir": d, "name": syl[n]["name"], "languages": syl[n]["languages"],
         "tools": syl[n]["tools"], "goals": syl[n]["goals"], "project_title": syl[n]["project_title"],
         "project_html": syl[n]["project_html"], "published": entry["published"], "weeks": weeks,
+        "project": project, "extras": extras, "glossary_count": len(glossary), "extra_downloads": extra_dl,
         "downloads": level_dl,
         "syllabus_weeks": [{"n": w["n"], "title": w["title"], "idea": w["idea"]} for w in syl[n]["weeks"]],
     }
@@ -213,6 +222,7 @@ def main(argv=None) -> int:
                            "syllabus_weeks": [{"n": w["n"], "title": w["title"], "idea": w["idea"]}
                                               for w in syl[n]["weeks"]]})
     write_json(GEN / "levels.json", levels)
+    write_json(GEN / "resources.json", extmod.build_resources(manifest, GEN, warnings))
     parentsmod.build(manifest, GEN, PUB, warnings, skip_pdfs=args.skip_pdfs)
     info = git_info()
     version = (ROOT / "VERSION").read_text().strip() if (ROOT / "VERSION").exists() else "0.0.0"

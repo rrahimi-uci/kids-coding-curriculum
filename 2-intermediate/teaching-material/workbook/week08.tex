@@ -14,6 +14,7 @@ Checking a game by hand is slow: run it, play, look at the score\ldots{} again a
 checks another function for you, in less than a second. It uses the word \texttt{assert}, which means \enquote{I am sure this is true}.
 
 \begin{center}
+%% alt: How a test works. Step 1: call clamp(99, 0, 10). Step 2: it returns 10. Step 3: compare with what you expect, 10. If they are the same, the test PASSED. If they are different, it FAILED.
 \begin{tikzpicture}[font=\small,>={Stealth[length=3mm]},
   box/.style={draw=black,thick,rounded corners=3pt,minimum height=1.1cm,align=center}]
   \node[box,fill=kcsky!25,minimum width=2.6cm] (in) at (0,0) {\textbf{1. Call it}\\\texttt{clamp(99, 0, 10)}};

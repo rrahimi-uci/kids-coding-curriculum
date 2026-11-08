@@ -14,6 +14,7 @@ A \texttt{for} loop knows how many times it will go round. A \texttt{while} loop
 and goes round again \emph{while} the condition is \texttt{True}.
 
 \begin{center}
+%% alt: A while loop. Start with n = 3. Check: is n bigger than 0? If yes (True), print n, subtract 1 from n and go back to the check. If no (False), leave the loop and print Go!
 \begin{tikzpicture}[font=\small,box/.style={draw=black,thick,rounded corners=3pt,align=center,inner sep=6pt},>={Stealth[length=3mm]}]
   \node[box,fill=kcsky!20] (start) at (0,0) {\texttt{n = 3}};
   \node[box,fill=kcyellow!35,diamond,aspect=2.2,inner sep=2pt] (check) at (0,-1.8) {\texttt{n > 0} ?};
@@ -52,6 +53,7 @@ A picture can be a list of strings: one string for each row, one letter for each
 The \textbf{outer loop} goes down the rows. The \textbf{inner loop} goes along one row, pixel by pixel.
 
 \begin{center}
+%% alt: A tiny picture 3 columns wide and 2 rows high, made from rows of text. Row 0 is "K.K": black, empty, black. Row 1 is ".O.": empty, orange, empty. K means black, O means orange and a dot means empty. The inner loop moves to the next pixel along a row; the outer loop moves to the next row.
 \begin{tikzpicture}[font=\small,>={Stealth[length=3mm]}]
   \fill[black] (0,0) rectangle ++(0.8,-0.8);
   \fill[black] (1.6,0) rectangle ++(0.8,-0.8);
@@ -90,6 +92,7 @@ Folder: \texttt{exercises/week04/ex-pixel-art}. Only the top row of the space in
   \item Design your own picture (8 rows of 11 letters fit nicely). Plan it here first:
 \end{enumerate}
 \begin{center}
+%% alt: A blank grid of small squares, used to plan a pixel picture.
 \begin{tikzpicture}
   \draw[kcgray!70,step=0.6] (0,0) grid (6.6,4.8);
 \end{tikzpicture}

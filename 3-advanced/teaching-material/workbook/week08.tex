@@ -13,6 +13,7 @@
 A data detective always works in the same order. Skipping a step gives wrong answers!
 
 \begin{center}
+%% alt: A five-step data pipeline. 1 Read the CSV file into rows. 2 Clean: spaces, capitals and empty rows. 3 Count with a dictionary tally. 4 Calculate averages. 5 Chart with bars and labels.
 \begin{tikzpicture}[stage/.style={draw,rounded corners=3pt,minimum height=1.1cm,text width=2.3cm,align=center,font=\small},>=Stealth,node distance=4mm]
   \node[stage,fill=kcsky!25] (a) {\textbf{1 Read}\\CSV file $\rightarrow$ rows};
   \node[stage,fill=kcorange!25,right=of a] (b) {\textbf{2 Clean}\\spaces, capitals, empty rows};
@@ -74,6 +75,7 @@ The \textbf{average} (mean) is the total divided by how many: \py|sum(numbers) /
 \subsection{5. Chart: readable by everyone}
 A good chart never relies on color alone. Write the \textbf{name} under each bar and the \textbf{number} on top, so someone who sees colors differently can still read it.
 \begin{center}
+%% alt: A bar chart of favorite games: Block Craft 5, Kart Dash 4 and Puzzle Drop 3.
 \begin{tikzpicture}[x=1.2cm,y=0.45cm]
   \foreach \x/\h/\name/\c in {0/5/Block Craft/kcorange,1/4/Kart Dash/kcsky,2/3/Puzzle Drop/kcgreen}{
     \draw[fill=\c!60] (\x,0) rectangle (\x+0.8,\h);

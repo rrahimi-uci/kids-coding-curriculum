@@ -1,0 +1,24 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import { u, levels, levelHtml, fix } from '../../../lib/data';
+export function getStaticPaths() { return levels().filter((l) => l.extras?.cheat_sheet).map((l) => ({ params: { level: l.slug }, props: { l } })); }
+const { l } = Astro.props;
+const e = l.extras!.cheat_sheet;
+const dl = l.extra_downloads?.['cheat-sheet'] ?? {};
+---
+<Base title={`Level ${l.number} cheat sheet`} level={l.number} description={`${e.title} for Level ${l.number}: ${e.subtitle}`}>
+  <div class={`l${l.number}`}>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('resources/')}>Resources</a></li><li aria-current="page">Level {l.number} cheat sheet</li></ol></nav>
+    <header class="page-head stack">
+      <p class="eyebrow accent-text">Level {l.number} · {l.name}</p>
+      <h1>{e.title}</h1>
+      <p class="lead">{e.subtitle}</p>
+      <div class="btn-row">
+        {dl.standard && <a class="btn secondary small" href={fix(dl.standard.url)}><Icon name="download" /> Print it (PDF, {dl.standard.kb} KB)</a>}
+        {dl.dyslexia && <a class="btn secondary small" href={fix(dl.dyslexia.url)}><Icon name="download" /> Dyslexia-friendly edition (PDF)</a>}
+      </div>
+    </header>
+    <div class="lesson" style="max-width:none"><div class="cheat" set:html={levelHtml(l.slug, 'cheat-sheet')} /></div>
+  </div>
+</Base>

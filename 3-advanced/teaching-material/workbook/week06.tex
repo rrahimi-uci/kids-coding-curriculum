@@ -11,6 +11,7 @@
 \section{The Thonny debugger}
 A \textbf{debugger} is a slow-motion replay for your code. You can pause on every line and see the value of every variable.
 \begin{center}
+%% alt: Six Thonny buttons for debugging. Run runs at full speed. Debug starts slow motion (the bug icon). Step over runs this line and stops at the next. Step into goes inside a function call. Resume runs to the end or to a breakpoint. Stop ends the program.
 \begin{tikzpicture}[btn/.style={draw=black,line width=0.8pt,rounded corners=3pt,minimum width=2.05cm,minimum height=0.85cm,font=\small\bfseries,align=center},
                     lab/.style={font=\small,align=center,text width=2.1cm}]
   \foreach \x/\name/\col/\what in {0/Run/kcgreen/{runs at full speed},
@@ -32,6 +33,7 @@ A \textbf{debugger} is a slow-motion replay for your code. You can pause on ever
 
 \section{A bug-hunting strategy}
 \begin{center}
+%% alt: A bug-fixing loop of five steps. 1 Read the last line of the error. 2 Predict: I think line … 3 Watch: debug and step. 4 Fix ONE thing. 5 Check: run the tests. Still failing? Go round again.
 \begin{tikzpicture}[stp/.style={draw=black,line width=0.8pt,rounded corners=4pt,fill=kcsky!20,minimum height=1.1cm,text width=2.3cm,align=center,font=\small}]
   \node[stp] (a) at (0,0) {\textbf{1. Read}\\the last line of the error};
   \node[stp] (b) at (3.1,0) {\textbf{2. Predict}\\\enquote{I think line \ldots}};

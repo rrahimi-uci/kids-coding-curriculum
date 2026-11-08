@@ -13,6 +13,7 @@
 In a video game, a save point lets you try something risky. If it goes wrong, you load the save and try again. \textbf{Git} gives your code save points. Each save point is called a \textbf{commit}. Every commit has a short id (like \texttt{a1b2c3d}) and a \textbf{message} that says what changed. Together the commits make a timeline: the story of your project.
 
 \begin{center}
+%% alt: A timeline of four save points with time running to the right: a1b "Start game", c3d "Add hero", e5f "Add jump" and g7h "Fix walls". A curved arrow says: broken? jump back to any save point.
 \begin{tikzpicture}[
   commit/.style={circle,draw=black,line width=0.8pt,minimum size=9mm,font=\small\ttfamily},
   label/.style={font=\small,align=center,text width=2.7cm}]
@@ -29,6 +30,7 @@ In a video game, a save point lets you try something risky. If it goes wrong, yo
 Saving takes \textbf{two moves}, like taking a class photo:
 
 \begin{center}
+%% alt: How git moves your work. Your folder, the files you edit in Thonny, goes through git add to Ready to save, who is in the photo, then through git commit to History, the photo album of commits. git restore brings an old version back to your folder.
 \begin{tikzpicture}[box/.style={draw=black,rounded corners=3pt,line width=0.8pt,minimum width=3.2cm,minimum height=1.5cm,align=center,font=\small}]
   \node[box,fill=kcyellow!35] (work) at (0,0) {\textbf{Your folder}\\files you edit\\in Thonny};
   \node[box,fill=kcsky!35] (stage) at (5.6,0) {\textbf{Ready to save}\\who is in\\the photo};

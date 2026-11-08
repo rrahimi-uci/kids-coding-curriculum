@@ -1,6 +1,7 @@
 \documentclass[level=3]{kidscode}
 %% A paper CRC card (Class / Responsibilities / Collaborators)
 \newcommand{\crccard}{\par\noindent
+  %% alt: An empty class card with a space for the class name, a left column for responsibilities (what it knows and does) and a right column for collaborators (who it works with).
   \begin{tikzpicture}
     \draw[thick, rounded corners=3pt] (0,0) rectangle (\linewidth,-5.2);
     \draw (0,-0.9) -- (\linewidth,-0.9);
@@ -140,6 +141,7 @@ triangle} for \enquote{is a} (inheritance) and a line with a \textbf{diamond} fo
 (composition). Example:
 
 \begin{center}
+%% alt: A class diagram. Hero and Dragon each point up to Character with an is-a arrow. Character has pos and move(direction). A Game has characters (grid, hero, dragons and tick()) and also has a Grid with cells and neighbors(). Hero adds treasure and collect(). Dragon adds speed and choose_step().
 \begin{tikzpicture}[
   cls/.style={draw, thick, rounded corners=2pt, align=left, font=\small, fill=kcsky!10, inner sep=4pt},
   isa/.style={-{Triangle[open,length=7pt,width=7pt]}, thick},

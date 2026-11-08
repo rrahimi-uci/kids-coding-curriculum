@@ -43,11 +43,12 @@ const f = P.facts;
 
     <h2 id="levels">The three levels</h2>
     <ul>
-      {L.map((l) => <li><a href={u(`levels/${l.slug}/`)}><strong>Level {l.number}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>.</li>)}
+      {L.map((l) => <li><a href={u(`levels/${l.slug}/`)}><strong>Level {l.number}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>. <a href={u(`parents/notes/${l.slug}/`)}>Notes for families</a>.</li>)}
     </ul>
     <div class="btn-row">
       <a class="btn" href={P.pdf.handout.url.replace('%BASE%', u(''))}><Icon name="download" /> One-page summary (PDF, {P.pdf.handout.kb} KB)</a>
       <a class="btn secondary" href={u('curriculum/')}>See the roadmap</a>
+      <a class="btn secondary" href={u('resources/setup-mac/')}>Set up the Mac</a>
     </div>
   </div>
 </Base>

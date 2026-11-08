@@ -14,6 +14,7 @@ const nav = [
   { href: u('levels/level-1/'), label: 'Level 1', match: '/levels/level-1/' },
   { href: u('levels/level-2/'), label: 'Level 2', match: '/levels/level-2/' },
   { href: u('levels/level-3/'), label: 'Level 3', match: '/levels/level-3/' },
+  { href: u('resources/'), label: 'Resources', match: '/resources/' },
 ];
 const full = title.includes('Kids Coding') ? title : `${title} | Kids Coding`;
 const canonical = new URL(path, Astro.site).href;
@@ -87,6 +88,9 @@ const canonical = new URL(path, Astro.site).href;
               <li><a href={u('parents/')}>For parents</a></li>
               <li><a href={u('curriculum/')}>Curriculum and timeline</a></li>
               <li><a href={u('levels/level-1/')}>Level 1: Introduction</a></li>
+              <li><a href={u('levels/level-2/')}>Level 2: Intermediate</a></li>
+              <li><a href={u('levels/level-3/')}>Level 3: Advanced</a></li>
+              <li><a href={u('resources/')}>Resources: setup, cheat sheets, glossary</a></li>
               <li><a href={u('search/')}>Search</a></li>
               <li><a href={u('about/')}>About, accessibility and credits</a></li>
             </ul>

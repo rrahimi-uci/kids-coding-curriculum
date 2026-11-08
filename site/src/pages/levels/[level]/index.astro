@@ -45,8 +45,20 @@ const dls = l.downloads || {};
     <div class="card accent">
       <h2 id="project">Final project: {l.project_title}</h2>
       <p set:html={fix(l.project_html.replace(/^<strong>.*?<\/strong>\s*/, ''))} />
+      {l.project && <p><a class="btn" href={u(`levels/${l.slug}/project/`)}>Project brief, rubric and starter files <Icon name="arrow" /></a></p>}
     </div>
   </section>
+
+  {l.extras && (
+    <section class={`l${l.number}`} aria-labelledby="tools" style="margin-top:2.5rem">
+      <h2 id="tools">For this level</h2>
+      <div class="grid cols-3">
+        <a class="card accent" href={u(`levels/${l.slug}/cheat-sheet/`)}><h3>Cheat sheet</h3><p class="small muted">The commands and ideas of this level on one page.</p></a>
+        <a class="card accent" href={u('resources/glossary/')}><h3>Glossary</h3><p class="small muted">{l.glossary_count} words in plain language.</p></a>
+        <a class="card accent" href={u(`parents/notes/${l.slug}/`)}><h3>Notes for families</h3><p class="small muted">What children learn, safety and how to help at home.</p></a>
+      </div>
+    </section>
+  )}
 
   {(dls['student-workbook'] || dls['homework']) && (
     <section aria-labelledby="downloads" style="margin-top:2.5rem">

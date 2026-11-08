@@ -13,6 +13,7 @@
 A \textbf{child class} gets everything from its \textbf{parent class} for free. Then it changes only what is different. Write the parent in brackets:
 
 \begin{center}
+%% alt: A family tree of classes. Enemy is the parent, with name, x, y and steps, and a move() that takes 1 step right. Three children point up to it with is-a arrows: Guard, whose move() stays still; Zigzagger, whose move() uses the parent's move and then goes up or down; and Sprinter, which adds speed and whose move() takes speed steps.
 \begin{tikzpicture}[
   cls/.style={draw=black,line width=0.9pt,rounded corners=3pt,align=center,font=\small,minimum width=3.4cm,minimum height=1.25cm,inner sep=4pt}]
   \node[cls,fill=kcblue!15] (enemy) at (0,0) {\textbf{Enemy} (parent)\\\texttt{name, x, y, steps}\\\texttt{move()}: 1 step right};

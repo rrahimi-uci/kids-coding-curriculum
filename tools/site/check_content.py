@@ -6,11 +6,14 @@
 * every lesson (week) page has a non-empty "What you will learn" list,
 * every <img> has a non-empty alt text (and TikZ/Scratch figures have a descriptive one),
 * every exercise page has at least three hints,
-* every page has exactly one <h1> and a lang attribute.
+* every page has exactly one <h1> and a lang attribute,
+* Python code blocks keep their indentation (a line ending in a colon is followed by an indented line).
 """
 from __future__ import annotations
 
+import html as htmlmod
 import json
+import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -54,6 +57,20 @@ class Page(HTMLParser):
                 self._in_obj = False
 
 
+HEADER = re.compile(r"^\s*(def|class|if|elif|else|for|while|try|except|finally|with)\b.*:\s*(#.*)?$")
+
+
+def broken_indentation(raw: str) -> str | None:
+    """First Python block in the page whose indentation was lost, or None."""
+    for m in re.finditer(r'<code class="language-python"[^>]*>(.*?)</code>', raw, re.S):
+        text = htmlmod.unescape(re.sub(r"<[^>]+>", "", m.group(1)))
+        lines = [ln for ln in text.split("\n") if ln.strip() and not ln.strip().startswith("#")]
+        for a, b in zip(lines, lines[1:]):
+            if HEADER.match(a) and len(b) - len(b.lstrip()) <= len(a) - len(a.lstrip()):
+                return a.strip()[:50]
+    return None
+
+
 def main(argv=None) -> int:
     dist = Path((argv or sys.argv[1:] or [str(ROOT / "site" / "dist")])[0])
     problems: list[str] = []
@@ -63,7 +80,11 @@ def main(argv=None) -> int:
         if rel.startswith("pagefind/"):
             continue
         p = Page()
-        p.feed(f.read_text(encoding="utf-8"))
+        raw = f.read_text(encoding="utf-8")
+        p.feed(raw)
+        bad = broken_indentation(raw)
+        if bad:
+            problems.append(f"{rel}: Python code lost its indentation after '{bad}'")
         pages += 1
         if not p.lang:
             problems.append(f"{rel}: <html> has no lang attribute")

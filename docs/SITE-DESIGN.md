@@ -38,6 +38,10 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
 | Code listings | `pycode` / `outputcode` blocks → `<pre>`; Python highlighted at build time with **Pygments** (static CSS classes) | No JavaScript needed for highlighting; the copy button is a tiny progressive enhancement. |
 | Exercises | **Rendered directly from the source folders**: `README.md`, `starter.py`, `hints.md` | The folders already are the master. Hints are a new public file per exercise (three progressive hints). |
 | Parent deck (Beamer) | Embedded PDF viewer + PDF download; **slide images** (WebP, with alt text from the slide text); a research page and FAQ **generated from `main.tex` and `references.bib`** | Beamer slides are TikZ-heavy and not worth converting frame by frame. The speaker-note paragraphs ("In plain language", questions and answers) and sources are structured in the source, so they become real HTML with linked citations. |
+| Project briefs, cheat sheets, parent notes | The same LaTeX converter, standalone documents: the file's own zero-argument macros are expanded, cheat-sheet code boxes and command tables are mapped (`tools/site/texconv.py`) | They are ordinary student-facing documents; faithful HTML plus the PDF alongside. |
+| Glossaries | Parsed structurally (`\gl`, `\term`) into one searchable A to Z page | The three sources use two macro styles; one page is easier to use than three PDFs. |
+| Progress trackers | PDF only | They are print-and-tick sheets; HTML adds nothing. |
+| Setup and troubleshooting | New short markdown guides in `resources/` | The only existing source is the private teacher guide, so the facts were rewritten for children and parents (no self-check script, no answer material). |
 | Syllabus tables | Parsed from `docs/SYLLABUS.md` | Level pages, week titles, big ideas and goals stay in sync with the master syllabus. |
 | Whole-level documents | The PDFs built by `tools/build.py`, standard and dyslexia-friendly editions | Offered as downloads; one PDF per week (chapter + homework) is compiled from a tiny wrapper that inputs the same source files. |
 
@@ -94,9 +98,13 @@ No children's names, photos or personal data are used; the site has no analytics
   (Core, Challenge, Creative), downloads (week PDF, starter-file ZIP), previous/next, a self-check list and a
   "mark as done" button that live only in the browser (local storage).
 * **Exercises**: steps, starter code with copy and download, hints that open one at a time. No solutions.
+* **Projects** (`/levels/level-N/project/`): the final-project brief with plan sheet and rubric, and the
+  starter files (templates, never the reference solution) to read, copy and download.
+* **Resources** (`/resources/`): Mac setup guide and troubleshooting (written for the web from the teacher
+  setup notes, in `resources/*.md`), cheat sheets per level, a combined A to Z glossary, printable progress
+  trackers (PDF) and notes for families per level (`/parents/notes/level-N/`).
 * **Search** (Pagefind) and **About** (privacy, accessibility, credits, change log).
-* Stage 3 adds the remaining levels, the project briefs and rubrics, and resources (cheat sheets, glossary,
-  Mac setup and troubleshooting).
+* Assessments (placement, checkpoint and exit quizzes) and certificates are not published.
 
 ## Visual design
 

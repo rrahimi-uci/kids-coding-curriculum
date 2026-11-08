@@ -127,7 +127,11 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
             if s.lower() in text.lower():
                 problems.append(f"private marker '{s}' found in {label}")
     # 1. file names
+    allowed = {a.lower() for a in priv.get("allow_files", [])}
     for name in names_blob.splitlines():
+        base = name.split("!")[-1].rsplit("/", 1)[-1].lower()
+        if base in allowed:
+            continue
         low = "/" + name.lower()
         for frag in priv["paths"]:
             f = frag.lower()
@@ -139,13 +143,20 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
     corpus = norm(" ".join(corpus_parts))
     pub = manifest["public"]
     public_parts: list[str] = []
+    file_keys = ("workbook", "homework", "project_brief", "cheat_sheet", "glossary", "parent_notes",
+                 "progress_tracker", "resources")
     for lvl in manifest["levels"]:
         d = lvl["dir"]
-        pats = [pub["workbook"], pub["homework"], pub["exercise_dirs"].rstrip("/") + "/README.md",
-                pub["exercise_dirs"].rstrip("/") + "/starter.py", pub["exercise_dirs"].rstrip("/") + "/hints.md"]
+        pats = [pub[k] for k in file_keys if k in pub]
+        ex = pub["exercise_dirs"].rstrip("/")
+        pats += [ex + "/README.md", ex + "/starter.py", ex + "/hints.md"]
+        if "project_starter_dir" in pub:
+            sd = pub["project_starter_dir"]
+            pats += [sd + "/*.py", sd + "/*.md", sd + "/*/*"]
         for pat in pats:
             for f in glob.glob(str(root / pat.format(dir=d)), recursive=True):
-                public_parts.append(Path(f).read_text(encoding="utf-8", errors="replace"))
+                if Path(f).is_file() and "__pycache__" not in f:
+                    public_parts.append(Path(f).read_text(encoding="utf-8", errors="replace"))
     for rel in (pub["parents"]["source"], pub["parents"]["shared"]):
         public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
     syl = root / "docs" / "SYLLABUS.md"
