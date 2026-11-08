@@ -161,7 +161,8 @@ Each **Python** exercise folder `exercises/weekNN/<slug>/` contains:
 |---|---|
 | `README.md` | Kid-friendly task, what “done” looks like, how to check (open `check_my_work.py`, press Run) |
 | `starter.py` | What the student opens and edits. Has `# TODO` markers, runs without crashing where practical |
-| `solution.py` | Complete reference answer (teacher) |
+| `solution.py` | Complete, commented reference answer (teacher). Starts with a docstring (what it shows, the key idea, common mistakes), explains each step in comments, and passes the tests; keep it ASCII and US English |
+| `solution.md` | Scratch and Terminal exercises only (no `.py`): teacher reference with the finished script block by block, what you should see, bug-hunt answers, talking points, common mistakes and the check-off list. Starts with the `TEACHER ONLY` banner; never published |
 | `test_<slug>.py` | pytest checks with friendly assertion messages |
 | `check_my_work.py` | exact copy of `testing/check_my_work_template.py` |
 | `smoke_inputs.txt` | (only if the program calls `input()` and uses turtle) one answer per line for the real-window smoke run |

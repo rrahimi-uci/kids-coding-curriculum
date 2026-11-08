@@ -1,10 +1,13 @@
-# Monster sorter - reference solution
-# A tiny "machine learning" program: a NEAREST-NEIGHBOR classifier.
-# Each monster card has two FEATURES we can measure:
-#   fluff (0-10): how fluffy it is      teeth (0-10): how many sharp teeth
-# and a LABEL a person gave it: "friendly" or "grumpy".
-# To guess the label of a new (mystery) monster, find the training card that
-# is CLOSEST to it and copy that card's label. No rules written by hand!
+# TEACHER REFERENCE SOLUTION: Exercise 9.1 - Monster sorter (nearest neighbor)
+#
+# What the program does: learns from example "monster cards" (fluffiness,
+# number of teeth, and a label friendly/grumpy), then guesses the label of
+# new mystery monsters and draws a chart showing the guesses.
+# Key ideas: machine learning from examples (no hand-written rules),
+# features and labels, distance between points, and "find the smallest".
+# Approach: distance measures how far apart two cards are on the chart
+# (Pythagoras). nearest keeps the closest card seen so far while looping
+# over all cards. classify then copies the label of that nearest card.
 
 import math
 import turtle
@@ -25,15 +28,21 @@ ORIGIN = (-180, -180)  # where (0, 0) goes on the screen
 def distance(a, b):
     """Straight-line distance between two cards, using their first two
     numbers (fluff, teeth). Pythagoras: sqrt(dx*dx + dy*dy)."""
-    dx = a[0] - b[0]
-    dy = a[1] - b[1]
+    dx = a[0] - b[0]  # how far apart in fluff
+    dy = a[1] - b[1]  # how far apart in teeth
+    # Pythagoras: the straight line between two points is the long side of a
+    # right-angled triangle with sides dx and dy. We use only a[0], a[1] so
+    # the label (a[2]) is ignored, which lets us compare a card with a
+    # mystery monster that has no label.
     return math.sqrt(dx * dx + dy * dy)
 
 
 def nearest(training, mystery):
     """The training card closest to the mystery monster."""
-    best = training[0]
+    best = training[0]  # start by assuming the first card is the closest
     for card in training:
+        # Only a STRICTLY closer card replaces best, so on an exact tie the
+        # earlier card keeps its place.
         if distance(card, mystery) < distance(best, mystery):
             best = card
     return best
@@ -41,10 +50,13 @@ def nearest(training, mystery):
 
 def classify(training, mystery):
     """Guess the label: copy the label of the nearest card."""
-    return nearest(training, mystery)[2]
+    return nearest(training, mystery)[2]  # index 2 is the label
 
 
-# ---------------------------------------------------------------- drawing
+# ---------------------------------------- drawing
+# Everything below is given code that draws the chart. It is not part of
+# the exercise. Each card shows a LETTER and a SHAPE (F circle, G square),
+# so the chart can be read without telling colors apart.
 def to_screen(fluff, teeth):
     return ORIGIN[0] + fluff * SCALE, ORIGIN[1] + teeth * SCALE
 
@@ -120,3 +132,16 @@ if __name__ == "__main__":
         draw_mystery(pen, TRAINING, m)
     screen.update()
     turtle.done()
+
+
+# Common mistakes children make here:
+#   - Forgetting the square root, or the square: sqrt(dx + dy) and
+#     dx * dx + dy * dy (no sqrt) give wrong distances. The nearest card
+#     is often still found, but distance((0, 0), (3, 4)) is not 5.
+#   - Using abs(dx) + abs(dy) (taxi distance): it can pick a different
+#     "nearest" card for some mystery monsters.
+#   - Using ">" instead of "<" in nearest, which finds the FARTHEST card
+#     (the guesses come out exactly backwards).
+#
+# Another correct way for nearest: min() with a key function.
+#   return min(training, key=lambda card: distance(card, mystery))
