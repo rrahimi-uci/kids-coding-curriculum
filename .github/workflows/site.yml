@@ -33,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0   # the footer shows the date of the last commit
 
-      - uses: teatimeguest/setup-texlive-action@v3
+      - uses: zauguin/install-texlive@v4
         with:
           packages: |
             scheme-basic
