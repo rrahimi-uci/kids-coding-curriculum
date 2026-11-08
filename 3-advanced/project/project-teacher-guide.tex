@@ -25,22 +25,25 @@ code to yourself until the showcase, but do play it with the group at the kickof
 \toprule
 \rowcolor{kcaccent!15} When & Milestone & In the session\\ \midrule\endhead
 \bottomrule\endfoot
-Week 9 & Kickoff $\rightarrow$ \textbf{M1 Pitch} (due end of week 9) & Last 15 minutes of the
+Week 9 & Kickoff $\rightarrow$ \textbf{M1 Pitch} (due end of week 9) & Last 13 minutes of the
 week 9 lesson: play Maze Muncher together, hand out the brief, read the must-haves, choose
 options. Pitch page is homework.\\ \midrule
-Week 10 & \textbf{M2 Design + core classes} & CRC cards and class diagram on paper (15 min), then
-build the core classes with the first 2 tests and commits. Partner code review at the end.\\ \midrule
+Week 10 & \textbf{M2 Design + core classes} & CRC cards and class diagram on paper (about 11 min),
+copy the starter, \texttt{git init}, class skeletons and first commits. Partner code review at the
+end. Working methods and a first test are homework.\\ \midrule
 Week 11 & \textbf{M3 Features + 5 tests + playtest}, then \textbf{M4 README + polish} & First half:
-features and tests, 10-minute playtest swap. Second half: fix the top playtest issue, write the
+tests, 8-minute playtest swap and triage. Second half: fix the top playtest issue, write the
 README, final commits.\\ \midrule
-Week 12 & \textbf{Showcase} & Exit assessment, then the showcase and certificates (see section 7).\\
+Week 12 & \textbf{Showcase} & Gallery walk and 2-minute talks, then the exit assessment and
+certificates (see section 7).\\
 \end{longtable}
 
 \begin{materials}
   \item Print: project brief (one per student, in week 9); 2 playtest cards each (in the brief);
         CRC cards can be index cards or the brief's page B.
-  \item On each Mac: a copy of \texttt{project/starter} in the student's Documents folder (they
-        rename it in week 9), git set up with a nickname (Teacher Guide step 5.2).
+  \item On each Mac: a folder \texttt{Documents/coding-projects} (students copy
+        \texttt{project/starter} into it and rename it in week 10), git set up with a nickname
+        (Teacher Guide step 5.2).
   \item On your Mac only: \texttt{project/reference}. Run \texttt{maze\_muncher.py} once in Thonny
         so you know the controls (arrow keys; SPACE for the next level; R to restart).
   \item Sticky notes, a timer, and a \enquote{parking lot} sheet for nice-to-have ideas.
@@ -58,8 +61,9 @@ sessions, plus ideas for later in the parking lot.}
 \textbf{Check before you say \enquote{go}:} the pitch names 3 must-have features (not 10); it says
 which algorithm and data structure; it saves a file; the student can say the idea in one sentence.
 \textbf{Good question:} \enquote{If you only had one session, what would you build?} That answer
-is feature 1. Each student then copies the starter folder, renames it and makes the first commit
-(the starter README lists the exact Terminal lines).
+is feature 1. In week 10 each student copies the starter folder into
+\texttt{Documents/coding-projects}, renames it and makes the first commit (the starter README
+lists the exact Terminal lines).
 
 \subsection{M2 Design + core classes (week 10)}
 \begin{itemize}[itemsep=2pt]
@@ -70,26 +74,28 @@ is feature 1. Each student then copies the starter folder, renames it and makes 
   \item \textbf{Inheritance or composition?} Ask \enquote{Is a Dragon \emph{a kind of}
         Character?} (inheritance) and \enquote{Does a Game \emph{have} a Grid?} (composition).
         Either one meets the requirement.
-  \item \textbf{Build the core:} the main classes with \texttt{\_\_init\_\_} and one or two
-        methods, a first test for each, and a commit after each green test.
+  \item \textbf{Build the core:} in the session, class skeletons (\texttt{\_\_init\_\_} and
+        empty methods) with a commit after each class; at home, one or two methods that really
+        work, a first test, and 3 more commits (homework 10).
 \end{itemize}
-\textbf{Check:} classes run without errors, 2 tests pass, at least 3 commits.
+\textbf{Check (end of the session):} at least 2 CRC cards with one is-a or has-a link, class
+skeletons that run without errors, a repository with at least 2 commits.
 
 \subsection{M3 Features + 5 tests + playtest (week 11, first half)}
 \begin{itemize}[itemsep=2pt]
   \item Features are added one at a time: write or update a test, make it pass, commit.
-  \item \textbf{Playtest swap} (10 min): each student plays someone else's project with the
-        playtest card. With one student, you are the playtester; with an odd number, rotate.
+  \item \textbf{Playtest swap} (8 min): each student plays someone else's project while the owner
+        writes feedback cards (workbook Exercise 11.2; the brief's playtest card works too). With one student, you are the playtester; with an odd number, rotate.
   \item Each student circles \textbf{one} wish on their card to fix first.
 \end{itemize}
-\textbf{Check:} must-have features work; \texttt{python3 -m pytest -q} shows 5 or more passing.
+\textbf{Check:} must-have features work; \texttt{python -m pytest -q} (in Thonny's system shell) shows 5 or more passing.
 
 \subsection{M4 README + polish (week 11, second half)}
 \begin{itemize}[itemsep=2pt]
   \item Fix the circled playtest wish. Run the tests again. Commit.
   \item Copy the README template from the starter \texttt{README.md}, fill in every section (15
         minutes is enough). The \enquote{design decision} section is rehearsal for the showcase.
-  \item \texttt{git log --oneline}: count the commits. Fewer than 8? Usually the work is there
+  \item \texttt{git log --oneline}: count the commits (6+ now, 8+ by the showcase). Fewer? Usually the work is there
         but was committed in big lumps; from now on commit after each small change.
 \end{itemize}
 
@@ -160,7 +166,8 @@ starting. Explaining is weighted the same as working code on purpose: a smaller 
 with real understanding is a better Level 3 result than a big one the student cannot explain.
 
 \textbf{How to check quickly:} in the student's project folder run \texttt{git log --oneline} (read
-the messages, count the lines) and \texttt{python3 -m pytest -q} (count the passing tests); open
+the messages, count the lines) and, in Thonny's system shell, \texttt{python -m pytest -q} (count
+the passing tests); open
 the README; ask \enquote{Why did you design it this way?}
 
 %% =====================================================================
@@ -243,7 +250,7 @@ rows are padded with walls.
 \subsection{Breadth-first search, step by step}
 \texttt{Maze.shortest\_path(start, goal)} explores outwards in rings. Below, the number in each
 square is how many steps it is from \textbf{P}; BFS reaches every square in order 1, 2, 3, 4.
-When it first reaches the goal (here the \textbf{G} square, 4 steps away), it walks back through
+When it first reaches the goal (here the square marked 4, 4 steps away), it walks back through
 the \texttt{came\_from} dictionary to build the path (arrows).
 
 \begin{center}
@@ -321,18 +328,20 @@ e02d04b Draw walls and pellets with turtle
 \section{7. Showcase plan (week 12)}
 
 \subsection{Running order (60 minutes)}
-The exit assessment comes first, while everyone is fresh; the celebration comes last.
+This is the order of the week 12 lesson plan, which has the full script: the showcase comes
+first, while projects are fresh on screen, then the exit assessment, then the certificates. If
+your group is calmer early on, you may give the exit assessment first (the lesson plan's
+\enquote{short on time} note).
 
 \begin{timeplan}
-  \timeslot{0--20}{Assessment}{Quiet, paper only, while minds are fresh. Collect the papers;
-  score them later.}
-  \timeslot{20--25}{Set-up}{Each project open on a Mac, window large, Thonny font enlarged. Families
+  \timeslot{0--4}{Set-up}{Each project open on a Mac, window large, Thonny font enlarged. Families
   sit where they can see. Hand out feedback cards.}
-  \timeslot{25--50}{Showcase}{Each student (or pair): a 3-minute talk using the brief's checklist,
-  then 2 minutes of questions and play. Audience writes two stars and a wish.}
-  \timeslot{50--55}{Reveal}{Play Maze Muncher and show its \texttt{git log}. Ask: \enquote{Which
-  design decision would you steal for your next project?}}
-  \timeslot{55--60}{Graduation}{Certificates (names written by hand), one specific compliment each,
+  \timeslot{4--12}{Model talk}{You show Maze Muncher and give the model 2-minute talk (Problem,
+  Choice, Why, Next time), then show its \texttt{git log}.}
+  \timeslot{12--34}{Showcase}{Gallery walk (6 min) with a star and a wish per project, then each
+  student (or pair) gives a 2-minute talk using the workbook talk card, plus one question.}
+  \timeslot{34--54}{Assessment}{Quiet, paper only. Collect the papers; score them later.}
+  \timeslot{54--60}{Graduation}{Certificates (names written by hand), one specific compliment each,
   photo only if every family agrees.}
 \end{timeplan}
 

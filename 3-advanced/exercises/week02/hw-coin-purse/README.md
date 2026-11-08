@@ -17,5 +17,6 @@ Found 7 coins! Now: 9 coins
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 
-**Git practice:** copy your finished file into `Documents/git-quest` and
-commit it with a helpful message.
+**Git practice:** when every check passes, use **File > Save as...** in
+Thonny to save a copy named `coin_purse.py` in `Documents/git-quest`. Then
+`git add coin_purse.py` and `git commit -m "..."` with a helpful message.

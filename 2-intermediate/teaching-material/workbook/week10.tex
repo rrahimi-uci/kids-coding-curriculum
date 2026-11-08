@@ -16,17 +16,18 @@ build a skateboard first: tiny, but you can ride it. Then a scooter, a bike, a c
 Your project works the same way. The \textbf{core loop} is your skateboard:
 \begin{itemize}
   \item \textbf{Arcade Game:} a window, a player that moves with the keys, and a timer loop that keeps running (\texttt{screen.ontimer}).
-  \item \textbf{Art Studio:} a \texttt{while} loop that asks what to do (draw, save, load, quit) and does it.
+  \item \textbf{Art Studio:} a \texttt{while} loop that asks what to do (draw, save, load, quit) and does it,
+        or, if you started from \texttt{art\_studio\_template.py}, keys that draw a new design and save it.
 \end{itemize}
 No score, no title screen, no fancy colors yet. Those come later, and they are easy once the
 skeleton walks.
 
 \begin{center}
-%% alt: A row of project milestones with a marker "you are here" at M2. M1, pitch and plan in week 9, is done. M2, the core loop works in week 10, is the current step. M3, data and tests in week 11, M4, polish in week 11, and the showcase in week 12 come next.
+%% alt: A row of project milestones with a marker "you are here" at M2. M1, pitch and plan in weeks 9 and 10, is done. M2, the core loop works in week 10, is the current step. M3, data and tests in week 11, M4, polish in week 11, and the showcase in week 12 come next.
 \begin{tikzpicture}[font=\small, align=center,
   ms/.style={rounded corners=3pt, draw=kcblack, thick, minimum height=1.3cm, text width=2.35cm},
   arr/.style={-Stealth, thick}]
-  \node[ms, fill=kcgray!15] (m1) {\textbf{M1}\\Pitch and plan\\(week 9)};
+  \node[ms, fill=kcgray!15] (m1) {\textbf{M1}\\Pitch and plan\\(weeks 9--10)};
   \node[ms, fill=kcorange!35, right=0.35cm of m1, line width=2pt] (m2) {\textbf{M2}\\Core loop works\\(week 10)};
   \node[ms, fill=kcsky!30, right=0.35cm of m2] (m3) {\textbf{M3}\\Data and tests\\(week 11)};
   \node[ms, fill=kcgreen!20, right=0.35cm of m3] (m4) {\textbf{M4}\\Polish\\(week 11)};
@@ -130,7 +131,7 @@ def game_loop():
 \end{pycode}
 \begin{checklist}
   \item My program runs without a red error.
-  \item Something repeats by itself (it moves on the timer, or the menu comes back).
+  \item Something repeats by itself (it moves on the timer, or the menu comes back), or a key draws a new design every time.
   \item At least one key or menu choice works.
   \item The start-up code is under \texttt{if \_\_name\_\_ == "\_\_main\_\_":}.
   \item Line 1 has a comment with our nicknames, and credit for any code we remixed.

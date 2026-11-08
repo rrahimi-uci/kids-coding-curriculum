@@ -155,3 +155,41 @@ def test_us_english_spelling():
     paths = [str(p.relative_to(ROOT)) for p in text_files()
              if re.search(r"colour|favourite|maths|elementry|excercise", str(p.relative_to(ROOT)))]
     assert not bad and not paths, "Use US English (docs/AUTHORING.md):\n" + "\n".join(bad + paths)
+
+
+# --------------------------------------------------------------------------------------
+# Partial code listings: \pyfile[firstline=A,lastline=B]{file} must print whole code blocks.
+# The line numbers go stale silently when a solution file is edited, which once printed half a
+# function in the answer key, so check where each range starts and stops.
+import re as _re
+
+_PYFILE = _re.compile(r"\\pyfile\[([^\]]*firstline=(\d+)[^\]]*)\]\{([^}]+)\}")
+
+
+def _pyfile_ranges():
+    for tex in sorted(ROOT.rglob("*.tex")):
+        if "generated" in tex.parts:
+            continue
+        for m in _PYFILE.finditer(tex.read_text(encoding="utf-8")):
+            opts, first = m.group(1), int(m.group(2))
+            last = _re.search(r"lastline=(\d+)", opts)
+            # LaTeX finds these files relative to the including document or any folder above it
+            candidates = [(d / m.group(3)).resolve() for d in [tex.parent, *tex.parents] if (d / m.group(3)).exists()]
+            yield tex, candidates[0] if candidates else (tex.parent / m.group(3)), first, int(last.group(1)) if last else None
+
+
+@pytest.mark.parametrize("tex,src,first,last", list(_pyfile_ranges()),
+                         ids=lambda v: v.name if hasattr(v, "name") else str(v))
+def test_pyfile_ranges_print_whole_blocks(tex, src, first, last):
+    lines = src.read_text(encoding="utf-8").splitlines()
+    last = last or len(lines)
+    assert 1 <= first <= last <= len(lines), f"{tex.name}: line range {first}-{last} is outside {src.name}"
+    start = lines[first - 1]
+    indent0 = len(start) - len(start.lstrip())
+    assert start.lstrip().startswith(("def ", "class ", "@", "#", "import ", "from ", '"""')) or not start.strip(), \
+        f"{tex.name}: the listing of {src.name} starts inside a block (line {first}: {start.strip()[:50]!r})"
+    rest = [ln for ln in lines[last:] if ln.strip()]
+    if rest:  # the first line that is NOT printed must not belong to the block that was printed
+        nxt = rest[0]
+        assert len(nxt) - len(nxt.lstrip()) <= indent0, \
+            f"{tex.name}: the listing of {src.name} stops inside a block (next line: {nxt.strip()[:50]!r})"

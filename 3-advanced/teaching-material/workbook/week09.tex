@@ -35,7 +35,7 @@ Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10
 \end{tikzpicture}
 \end{center}
 
-The mystery at (5, 2) is closest to a friendly monster, so the guess is \emph{friendly}. Distance is measured with Pythagoras: \py|math.sqrt(dx * dx + dy * dy)|.
+The mystery at (5, 2) is closest to a friendly monster, so the guess is \emph{friendly}. \enquote{Closest} means the shortest straight line on the chart, as if you measured it with a ruler. Python works it out with a famous math rule (Pythagoras), which you can use as a recipe: \py|dx| is how far across, \py|dy| is how far up, and the distance is \py|math.sqrt(dx * dx + dy * dy)|.
 
 \section{Is it any good? Train, then test}
 Split the examples into two piles. The program learns from the \textbf{training} pile. The \textbf{test} pile stays secret until the end; then we count how many test cards it labels correctly.
@@ -43,7 +43,7 @@ Split the examples into two piles. The program learns from the \textbf{training}
 Testing on cards it learned from would be like seeing the exam answers first.
 
 \begin{bughunt}[Bad examples, bad predictions]
-If the training pile has 8 grumpy monsters and only 1 friendly one, the program calls most friendly monsters grumpy. The code is fine -- the \emph{data} is the bug. This is called \textbf{bias}. When real AI decides things about people (faces, voices, job applications), biased examples can treat whole groups unfairly. That is why people must check the data, not just the code.
+If the training pile has 8 grumpy monsters and only 1 friendly one, the program can end up calling most friendly monsters grumpy. The code is fine -- the \emph{data} is the bug. This is called \textbf{bias}. When real AI decides things about people (faces, voices, job applications), biased examples can treat whole groups unfairly. That is why people must check the data, not just the code.
 \end{bughunt}
 
 \section{A tiny text generator}
@@ -64,7 +64,7 @@ A \textbf{Markov chain} learns just one thing from a text: \emph{after each word
   \draw[->] (on) to[bend left=35] node[below,font=\scriptsize] {next word: the} (the);
 \end{tikzpicture}
 \end{center}
-To write, it starts with a word and keeps picking a \emph{random} next word from the list. The sentences \emph{sound} like the training text, but the machine does not understand them at all. Today's chatbots are enormously bigger and cleverer, but they also predict likely next words -- which is why they can sound sure and still be wrong.
+To write, it starts with a word and keeps picking a \emph{random} next word from the list. The sentences \emph{sound} like the training text, but the machine does not understand them at all. Today's chatbots are enormously bigger: they learned from huge amounts of text and look at many words at once, not just the last one. But at heart they also predict a likely next word -- which is why they can sound sure and still be wrong.
 
 \section{The five big ideas of AI}
 \begin{center}\small

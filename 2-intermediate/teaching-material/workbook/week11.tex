@@ -68,8 +68,10 @@ Plan your tests first. Pick functions that \texttt{return} something.
  & & & \\ \hline
 \end{tabularx}
 
-Make a new file in the same folder as your game. Its name must start with \texttt{test\_}, for
-example \texttt{test\_mygame.py}. Each test is a function whose name starts with \texttt{test\_}:
+Make a new file in the same folder as your game, for example \texttt{test\_mygame.py}. (If you
+started from the project template, use its \texttt{my\_tests.py} instead.) Each test is a function
+whose name starts with \texttt{test\_}, and the last three lines let \keys{F5} start pytest, just
+like in week 8:
 \begin{pycode}[test\_mygame.py (part)]
 from mygame import load_high_score, next_x, save_high_score
 
@@ -77,11 +79,15 @@ def test_stops_at_the_right_edge():
     assert next_x(280, 1) == 280
 
 def test_high_score_round_trip():
-    save_high_score(42, "test_scores.txt")
+    save_high_score("test_scores.txt", 42)
     assert load_high_score("test_scores.txt") == 42
+
+if __name__ == "__main__":
+    import pytest
+    pytest.main(["-v", __file__])
 \end{pycode}
-To run them: press \keys{F5} on your game once, close its window, then in Thonny choose
-\menu{Tools > Open system shell…} and type (use \texttt{python3} if \texttt{python} is not found):
+To run them: open the test file and press \keys{F5}. (The programmer way: \menu{Tools > Open system
+shell…} and type the line below; use \texttt{python3} if \texttt{python} is not found.)
 \begin{shellcode}
 python -m pytest test_mygame.py -v
 \end{shellcode}
@@ -123,7 +129,7 @@ Make your project work for as many people as possible. Check off each line or fi
 \begin{checklist}
   \item My colors come from the Okabe--Ito palette (\texttt{\#E69F00}, \texttt{\#56B4E9}, \texttt{\#009E73}, \texttt{\#0072B2}, \texttt{\#D55E00}, \texttt{\#CC79A7}).
   \item Nothing depends on color alone: good and bad things also have different shapes, sizes or labels.
-  \item Text is big enough to read from a chair (font size 18 or more).
+  \item Text is big enough to read from a chair (font size 16 or more).
   \item The keys are explained on the screen, for example \enquote{← → to move}.
   \item Nothing flashes fast (more than 3 times a second can hurt some people's eyes).
   \item There is an easy start: a slow first level or an easy setting.

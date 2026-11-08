@@ -63,7 +63,7 @@ if __name__ == "__main__":
 # - Changing the test instead of the function. The test describes what the
 #   function SHOULD do, so the function is what needs fixing.
 # - In medal(), changing only one of the two ">" signs, so exactly 100 is
-#   fixed but exactly 50 is still wrong (or the other way round).
+#   fixed but exactly 50 is still wrong (or the other way around).
 # - In name_tag(), keeping the print() and adding a "return" below it: the
 #   name then prints twice in the main program.
 # - In lives_after_hit(), putting the "below 0" check before the subtraction,

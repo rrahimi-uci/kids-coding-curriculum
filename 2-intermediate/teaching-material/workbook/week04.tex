@@ -10,8 +10,8 @@
 \end{itemize}
 
 \section{The big idea: repeat until something changes}
-A \texttt{for} loop knows how many times it will go round. A \texttt{while} loop does not: it checks a condition at the top,
-and goes round again \emph{while} the condition is \texttt{True}.
+A \texttt{for} loop knows how many times it will go around. A \texttt{while} loop does not: it checks a condition at the top,
+and goes around again \emph{while} the condition is \texttt{True}.
 
 \begin{center}
 %% alt: A while loop. Start with n = 3. Check: is n bigger than 0? If yes (True), print n, subtract 1 from n and go back to the check. If no (False), leave the loop and print Go!
@@ -35,11 +35,11 @@ Press the red \menu{Stop} button in Thonny's toolbar. Then ask two questions:
 \end{tip}
 
 \subsection{while True and break}
-Sometimes it is easier to loop \enquote{for ever} and jump out when you are done. \texttt{break} leaves the loop straight away.
+Sometimes it is easier to loop \enquote{forever} and jump out when you are done. \texttt{break} leaves the loop right away.
 Inside a function, \texttt{return} leaves the loop \emph{and} the function.
 \begin{pycode}[Keep asking until the answer is good]
 while True:
-    answer = input("Type yes or no: ").lower()
+    answer = input("Type yes or no: ").lower()   # .lower(): YES becomes yes
     if answer == "yes" or answer == "no":
         break                       # good answer: leave the loop
     print("Please type yes or no.")
@@ -77,7 +77,7 @@ Folder: \texttt{exercises/week04/ex-guess-number}. Open \texttt{starter.py} and 
 \begin{enumerate}[leftmargin=1.4em]
   \item Guess until you are right. Does the game stop? If not, press \menu{Stop}. Why does it keep going?
   \answerlines{1}
-  \item TODO 1: add 1 to \texttt{tries} each time round. TODO 3: \texttt{break} when the result is \texttt{"Correct"}.
+  \item TODO 1: add 1 to \texttt{tries} each time through. TODO 3: \texttt{break} when the result is \texttt{"Correct"}.
   \item Now type \texttt{banana}. Crash! TODO 2: make \texttt{ask\_number()} keep asking until the answer is a whole number from \texttt{low} to \texttt{high}.
   \item Be the tester: try \texttt{banana}, \texttt{99}, \texttt{0} and \texttt{-3}. Does your game survive them all? \tickbox
   \item Check your work with \texttt{check\_my\_work.py}.
@@ -101,10 +101,10 @@ Check your work with \texttt{check\_my\_work.py}.
 \end{exercise}
 
 \begin{vocab}
-  \vocabword{while loop}{A loop that goes round again and again while its condition is True.}
+  \vocabword{while loop}{A loop that goes around again and again while its condition is True.}
   \vocabword{condition}{The check at the top of a while loop, like \texttt{n > 0}. It is True or False.}
   \vocabword{infinite loop}{A loop that never stops, because nothing changes the condition. Press Stop!}
-  \vocabword{break}{Jumps out of a loop straight away.}
+  \vocabword{break}{Jumps out of a loop right away.}
   \vocabword{input validation}{Checking the player's answer and asking again if it is not OK.}
   \vocabword{nested loop}{A loop inside another loop, like rows and pixels.}
   \vocabword{game loop}{The loop at the heart of a game: get input, update, show, repeat.}

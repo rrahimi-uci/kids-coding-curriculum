@@ -1,7 +1,7 @@
 # Bug Hunt Station 1: Hero Card
 # This program has a bug. Press Run and read the error from the BOTTOM up:
 #   1. the last line says WHAT went wrong,
-#   2. the line above it shows WHERE (file name and line number).
+#   2. the nearest "File" line above it shows WHERE (line number and function).
 # Fix the bug, run again, then run check_my_work.py.
 
 

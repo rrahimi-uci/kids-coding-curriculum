@@ -4,7 +4,7 @@
 # turtle, s stamps a copy of it, p picks the next shape, n picks the next
 # color and c clears all the stamps.
 # Key ideas: event-driven programming (keys call our functions), keeping
-# state in a dictionary, and going round a list with the remainder operator %.
+# state in a dictionary, and going around a list with the remainder operator %.
 # Approach: next_index() gives the next position in a list and wraps back to
 # 0 after the last one. next_shape() and next_color() both use it, so they
 # are twins. Then p and n are connected to them with screen.onkey().
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     screen.onkey(go_left, "Left")
     screen.onkey(go_right, "Right")
     screen.onkey(stamp_here, "s")
-    # Hand over the functions themselves: no brackets after the names.
+    # Hand over the functions themselves: no parentheses after the names.
     screen.onkey(next_shape, "p")
     screen.onkey(next_color, "n")
     screen.onkey(clear_all, "c")
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Writing screen.onkey(next_shape(), "p") with brackets. That runs the
+# - Writing screen.onkey(next_shape(), "p") with parentheses. That runs the
 #   function once straight away instead of waiting for the key.
 # - Returning index + 1 without the %: after the last shape the next press
 #   crashes with an IndexError instead of going back to the first one.

@@ -92,6 +92,29 @@ def paint(grid, row, col, new):
     flood_fill(grid, row, col, old, new)
 
 
+# ---------------------------------------- STRETCH (optional)
+# Breadth-first search (BFS) flood fill. Same painted area as flood_fill, but
+# with a queue instead of recursion. The squares are visited in rings, nearest
+# first, like ripples in a pond. The queue (first in, first out) holds the
+# squares that are waiting to be visited. Not needed for the checks above.
+def flood_fill_queue(grid, row, col, old, new):
+    """Same result as flood_fill, using a queue (BFS) and no recursion."""
+    from collections import deque   # deque = the fast queue from week 5
+    if old == new or grid[row][col] != old:
+        return                      # nothing to paint (and no endless loop)
+    queue = deque([(row, col)])
+    grid[row][col] = new            # mark it NOW so it is never queued twice
+    while queue:
+        r, c = queue.popleft()      # take the square at the FRONT of the line
+        for nr, nc in [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]:
+            inside = 0 <= nr < len(grid) and 0 <= nc < len(grid[0])
+            if inside and grid[nr][nc] == old:
+                grid[nr][nc] = new              # mark it, then...
+                queue.append((nr, nc))          # ...join the BACK of the line
+    # No recursion means no RecursionError, even on a huge grid. Counting the
+    # rings (store a distance next to each square) also gives shortest paths.
+
+
 # ---------------------------------------- drawing
 # Everything below is given code that shows the grid on screen and turns
 # mouse clicks into grid positions. It is not part of the exercise.

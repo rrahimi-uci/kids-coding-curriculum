@@ -6,7 +6,7 @@
 \begin{document}
 \kctitle{Glossary}{Level 2 words from A to Z, in plain language}
 
-The week in brackets tells you where the word is taught, so you can look back in your workbook.
+The week in parentheses tells you where the word is taught, so you can look back in your workbook.
 Words in \texttt{this font} are things you type in Python.
 
 \begin{multicols}{2}
@@ -16,7 +16,7 @@ Words in \texttt{this font} are things you type in Python.
 \begin{terms}
 \term{\texttt{and}}{Joins two conditions. Both must be True: \texttt{score > 5 and lives > 0}.}{1}
 \term{\texttt{append}}{Adds an item to the end of a list: \texttt{names.append("Zoe")}.}{3}
-\term{argument}{The value you put in the brackets when you call a function. In \texttt{area(3, 4)} the arguments are 3 and 4.}{2}
+\term{argument}{The value you put in the parentheses when you call a function. In \texttt{area(3, 4)} the arguments are 3 and 4.}{2}
 \term{\texttt{assert}}{Checks that something is True. If it is not, the test fails and shows your message.}{8}
 \term{attribution}{Saying who made the art, sound or code you used. Giving credit.}{9}
 \end{terms}
@@ -96,6 +96,8 @@ Words in \texttt{this font} are things you type in Python.
 
 \letter{M}
 \begin{terms}
+\term{main guard}{The line \texttt{if \_\_name\_\_ == "\_\_main\_\_":}. The code under it runs when you press Run, but not when tests borrow your functions.}{1, 11}
+\term{\texttt{math.dist}}{Measures the distance between two points: \texttt{math.dist((0, 0), (30, 40))} is 50.0. A turtle's \texttt{distance} does the same for two turtles.}{9}
 \term{mode}{How a file is opened: \texttt{"r"} read, \texttt{"w"} write (starts empty), \texttt{"a"} append (adds to the end).}{7}
 \end{terms}
 
@@ -117,7 +119,7 @@ Words in \texttt{this font} are things you type in Python.
 
 \letter{P}
 \begin{terms}
-\term{parameter}{A name in a function's brackets that receives a value: \texttt{def area(width, height)}.}{2}
+\term{parameter}{A name in a function's parentheses that receives a value: \texttt{def area(width, height)}.}{2}
 \term{personal information}{Anything that tells who or where you are: real name, address, school, birthday, photos.}{1}
 \term{playtest}{Letting someone try your game while you watch and take notes.}{11}
 \term{print-debugging}{Adding \texttt{print} lines to see what your variables hold.}{6}
@@ -146,6 +148,7 @@ Words in \texttt{this font} are things you type in Python.
 \term{test}{A small function that checks your code works, using \texttt{assert}.}{8}
 \term{trace table}{A table on paper where you write how variables change, step by step.}{6}
 \term{traceback}{The error report Python shows. Read the last line first.}{6}
+\term{\texttt{try} / \texttt{except}}{Try some code; if a certain error happens (like \texttt{FileNotFoundError}), run the \texttt{except} part instead of crashing.}{7}
 \term{\texttt{TypeError}}{The error you get when you mix types that do not fit, like \texttt{"5" + 5}.}{1}
 \end{terms}
 
@@ -167,27 +170,27 @@ Words in \texttt{this font} are things you type in Python.
 \begin{multicols}{2}
 \begin{description}[leftmargin=0pt,itemsep=3pt,font=\bfseries]
 \item[.items()] Gives every key together with its value, so a loop can use both. {\small\color{kcgray}(week 5)}
-\item[accessibility] designing so that everyone can use it, including people who see colors differently or read more slowly. {\small\color{kcgray}(week 11)}
+\item[accessibility] Designing so that everyone can use it, including people who see colors differently or read more slowly. {\small\color{kcgray}(week 11)}
 \item[accessible] Designed so that everyone can use it, including people who see colors differently. {\small\color{kcgray}(week 3)}
-\item[bug list] a list of problems found in testing, sorted so the most important ones get fixed first. {\small\color{kcgray}(week 11)}
+\item[bug list] A list of problems found in testing, sorted so the most important ones get fixed first. {\small\color{kcgray}(week 11)}
 \item[bug report] A short note: what went wrong, where, and what you changed. {\small\color{kcgray}(week 6)}
-\item[core loop] the part of a game or app that repeats over and over; the smallest version that works. {\small\color{kcgray}(week 10)}
+\item[core loop] The part of a game or app that repeats over and over; the smallest version that works. {\small\color{kcgray}(week 10)}
 \item[data privacy] Deciding what information about people is saved, who can see it, and keeping it safe. {\small\color{kcgray}(week 7)}
-\item[design decision] a choice you made on purpose, and the reason for it. {\small\color{kcgray}(week 12)}
+\item[design decision] A choice you made on purpose, and the reason for it. {\small\color{kcgray}(week 12)}
 \item[encode / decode] Turn a message into secret code / turn it back again. {\small\color{kcgray}(week 5)}
 \item[expected vs actual] What the test says should happen, and what really happened. {\small\color{kcgray}(week 8)}
 \item[frame] One tiny step of a game: everything moves a little, then it is drawn. {\small\color{kcgray}(week 9)}
-\item[gallery walk] visiting projects one by one, like in a museum, and leaving feedback. {\small\color{kcgray}(week 12)}
+\item[gallery walk] Visiting projects one by one, like in a museum, and leaving feedback. {\small\color{kcgray}(week 12)}
 \item[license / attribution] The rules for using someone's work / giving them credit for it. {\small\color{kcgray}(week 9)}
-\item[milestone] a checkpoint on the way to the finished project, like M2 \enquote{core loop works}. {\small\color{kcgray}(week 10)}
+\item[milestone] A checkpoint on the way to the finished project, like M2 \enquote{core loop works}. {\small\color{kcgray}(week 10)}
 \item[None] Python's word for \enquote{nothing}. A function with no \texttt{return} gives back \texttt{None}. {\small\color{kcgray}(week 2)}
 \item[off-by-one] A bug where a number is one too big or one too small, like using \texttt{len} as the last index. {\small\color{kcgray}(week 3)}
 \item[open / with] \texttt{open} gets a file ready to use; \texttt{with} closes it again automatically. {\small\color{kcgray}(week 7)}
-\item[pitch] a short talk that explains what your project is and why it is interesting. {\small\color{kcgray}(week 12)}
-\item[polish] small finishing touches that make a working program clearer and nicer to use. {\small\color{kcgray}(week 11)}
+\item[pitch] A short talk that explains what your project is and why it is interesting. {\small\color{kcgray}(week 12)}
+\item[polish] Small finishing touches that make a working program clearer and nicer to use. {\small\color{kcgray}(week 11)}
 \item[read / write / append] The modes \texttt{"r"}, \texttt{"w"} and \texttt{"a"}: look, replace everything, or add to the end. {\small\color{kcgray}(week 7)}
-\item[showcase] an event where makers show their work and explain it. {\small\color{kcgray}(week 12)}
-\item[version] one stage of a project; version 2 is the next, improved one. {\small\color{kcgray}(week 12)}
+\item[showcase] An event where makers show their work and explain it. {\small\color{kcgray}(week 12)}
+\item[version] One stage of a project; version 2 is the next, improved one. {\small\color{kcgray}(week 12)}
 \end{description}
 \end{multicols}
 

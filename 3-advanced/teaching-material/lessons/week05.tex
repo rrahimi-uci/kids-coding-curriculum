@@ -60,7 +60,7 @@ Lay out 5, 2, 4, 1. A student does the bubble rules while you write each row:
 \end{tabular}
 \end{center}
 After every pass, the biggest unsorted card has reached its place (bold), so each pass can stop one card earlier. Now read the code; the inner \texttt{for} loop is one pass:
-\pyfile[firstline=22,lastline=32]{../exercises/week05/ex-sort-race/solution.py}
+\pyfile[firstline=33,lastline=48]{../exercises/week05/ex-sort-race/solution.py}
 Point at the swap line: \texttt{result[i], result[i + 1] = result[i + 1], result[i]}. Python swaps both at once.
 \end{workedexample}
 
@@ -114,7 +114,7 @@ Show the output of Exercise 5.2 (or read it from the README): Leo and Omar both 
   \item \textbf{A one-way \enquote{swap}} (\texttt{a = b} then \texttt{b = a}) loses an item. Use \texttt{a, b = b, a}.
   \item \textbf{\texttt{for i in range(len(result))}} with \texttt{result[i + 1]}: \texttt{IndexError} on the last item. Stop one earlier.
   \item \textbf{\texttt{scores = scores.sort()}}: \texttt{.sort()} sorts in place and returns \texttt{None}. Use \texttt{sorted(scores)} for a new list.
-  \item \textbf{\texttt{key=points\_of()}} with brackets calls the function too early. Pass the function's name: \texttt{key=points\_of}.
+  \item \textbf{\texttt{key=points\_of()}} with parentheses calls the function too early. Pass the function's name: \texttt{key=points\_of}.
   \item \textbf{\texttt{pop(0)} on a stack} takes the bottom plate. A stack pops from the end: \texttt{self.items.pop()}.
   \item \textbf{Keys do nothing in Undo Paint}: click on the turtle window first so it has the keyboard focus.
 \end{commonmistakes}
@@ -125,7 +125,7 @@ Show the output of Exercise 5.2 (or read it from the README): Leo and Omar both 
 \end{differentiation}
 
 \begin{stretchchallenge}[Stop early]
-If a whole pass of bubble sort makes no swaps, the list is already sorted. Add a variable \texttt{swapped = False} to each pass and stop the outer loop when it stays \texttt{False}. Test it on \texttt{[1, 2, 3, 4, 5]}: how many passes does it need now?
+If a whole pass of bubble sort makes no swaps, the list is already sorted. Add a variable \texttt{swapped = False} to each pass and stop the outer loop when it stays \texttt{False}. Test it on \texttt{[1, 2, 3, 4, 5]}: how many passes does it need now? (Just 1: the first pass makes no swaps, so it stops. Without the check it makes 4 passes.)
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]

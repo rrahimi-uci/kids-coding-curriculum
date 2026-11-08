@@ -11,7 +11,7 @@
 
 \section{The big idea: look things up by name}
 A list finds things by number: \texttt{backpack[0]}. A dictionary finds things by name. Each name is a \textbf{key},
-and the thing it gives back is its \textbf{value}. Dictionaries use curly brackets, with a colon between key and value.
+and the thing it gives back is its \textbf{value}. Dictionaries use curly braces, with a colon between key and value.
 
 \begin{center}
 %% alt: A dictionary maps keys to values. The keys "name", "health", "attack" and "speed" point to the values "Blobby", 30, 4 and 2. Writing monster["health"] gives back 30.
@@ -56,12 +56,14 @@ plain: & n & o & p & q & r & s & t & u & v & w & x & y & z \\
 secret: & \textbf{q} & \textbf{r} & \textbf{s} & \textbf{t} & \textbf{u} & \textbf{v} & \textbf{w} & \textbf{x} & \textbf{y} & \textbf{z} & \textbf{a} & \textbf{b} & \textbf{c} \\
 \end{tabular}
 \end{center}
-So \texttt{hi} becomes \texttt{kl}. At the end the alphabet wraps round: x, y, z become a, b, c.
+So \texttt{hi} becomes \texttt{kl}. At the end the alphabet wraps around: x, y, z become a, b, c.
 To \textbf{decode}, shift the other way. That table is a lookup, so in Python it is a dictionary: \texttt{\{"a": "d", "b": "e", ...\}}.
+A \texttt{for} loop can visit every letter of a string, just like the pixels of a row last week. To build the secret message,
+start with empty text, \texttt{secret = ""}, and glue on one letter each time through: \texttt{secret = secret + key[letter]}.
 
 \begin{tip}[Real secrets need real protection]
 A Caesar cipher is easy to crack: there are only 25 shifts to try! Real apps use much stronger \textbf{encryption}.
-Your real passwords stay between you and your parent or carer. Never type a real password into a program you or a friend wrote.
+Your real passwords stay between you and your parent or caregiver. Never type a real password into a program you or a friend wrote.
 \end{tip}
 
 \begin{exercise}[Monster Stats]
@@ -87,7 +89,7 @@ Folder: \texttt{exercises/week05/ex-caesar-cipher}. Run \texttt{starter.py} firs
 \end{exercise}
 
 \begin{vocab}
-  \vocabword{dictionary}{A collection that stores values under names (keys), written with curly brackets.}
+  \vocabword{dictionary}{A collection that stores values under names (keys), written with curly braces.}
   \vocabword{key}{The name you look something up by, like \texttt{"health"}.}
   \vocabword{value}{What a key gives back, like \texttt{30}.}
   \vocabword{.items()}{Gives every key together with its value, so a loop can use both.}

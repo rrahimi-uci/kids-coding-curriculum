@@ -21,6 +21,13 @@ every save would add another copy of every dot. \textbf{Step 4:} any new picture
 \end{answer}
 \pyfile{../exercises/week07/ex-dot-art-file/solution.py}
 
+\begin{answer}[Reflection]
+A variable lives in the program's memory and is wiped when the program closes; a file stays on the disk and can be read
+again next time. \enquote{Only the newest score} is the \texttt{"w"} bug: \texttt{save\_score()} opened the file with
+\texttt{"w"}, which empties it before every write; \texttt{"a"} adds to the end. Never save: real names, addresses,
+schools, birthdays, ages, passwords (any two).
+\end{answer}
+
 \section{Homework}
 \begin{answer}[Core: Game Idea Notebook]
 Any idea in the box is fine. If it contains a real name, address or school, gently point back to the privacy rule.
@@ -29,8 +36,15 @@ Any idea in the box is fine. If it contains a real name, address or school, gent
 
 \begin{answer}[Challenge: Mode detective]
 Program A: \texttt{test.txt} holds only \texttt{blue} (each \texttt{"w"} rips out the page). Program B: \texttt{red} then \texttt{blue} on two lines.
-Delete-all: \texttt{with open(filename, "w") as file: file.write("")}, opening with \texttt{"w"} empties the file.
+Delete-all: opening with \texttt{"w"} empties the file. One more branch in the menu loop of the notebook:
 \end{answer}
+\begin{pycode}[Delete all ideas (add before the else branch)]
+        elif choice == "d":
+            with open(IDEA_FILE, "w") as file:
+                file.write("")       # "w" empties the file
+            print("All ideas deleted.")
+\end{pycode}
+Also update the menu prompt to mention \texttt{d}.
 
 \begin{answer}[Creative]
 Good dot art has every line in the form \texttt{x,y,size,color}, coordinates roughly between $-300$ and $300$, and palette colors.

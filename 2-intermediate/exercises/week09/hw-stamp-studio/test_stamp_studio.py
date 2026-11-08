@@ -1,7 +1,7 @@
 """Checks for Homework 9 - Stamp Studio (keys are pressed with screen.press)."""
 
 
-def test_next_index_goes_round_the_list(load_target):
+def test_next_index_goes_around_the_list(load_target):
     studio = load_target()
     assert studio.next_index(0, 4) == 1, "In a list of 4, the next position after 0 is 1."
     assert studio.next_index(2, 4) == 3, "In a list of 4, the next position after 2 is 3."

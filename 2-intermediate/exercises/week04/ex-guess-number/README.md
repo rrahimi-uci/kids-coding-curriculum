@@ -6,7 +6,7 @@ an **input-checking loop**.
 1. Open `starter.py` and press **Run**. Guess the number... It never stops,
    even when you are right! Press the red **Stop** button. That is an
    infinite loop - this week's bug.
-2. **TODO 1:** add 1 to `tries` every time round the loop.
+2. **TODO 1:** add 1 to `tries` every time through the loop.
 3. **TODO 3:** `break` out of the loop when the result is `"Correct"`.
 4. **TODO 2:** now type `banana` as a guess - crash! Make `ask_number()`
    keep asking until the answer is a whole number from low to high.

@@ -13,8 +13,9 @@ option, delete the rest, and add your own until you have at least 5.
 
 ## Getting started (once, with your teacher)
 
-1. Copy this whole `starter` folder to your Documents folder and rename it,
-   for example `dragon-maze` (no spaces is easiest in Terminal).
+1. Copy this whole `starter` folder into your `Documents/coding-projects`
+   folder and rename it, for example `dragon-maze` (no spaces is easiest in
+   Terminal).
 2. Delete the templates you are not using. Rename yours, for example
    `grid_game_template.py` -> `dragon_maze.py`, and change the `import`
    line in `test_my_project.py` to match.
@@ -23,7 +24,7 @@ option, delete the rest, and add your own until you have at least 5.
    Type these lines, pressing Return after each one:
 
 ```bash
-cd ~/Documents/dragon-maze
+cd ~/Documents/coding-projects/dragon-maze
 git init
 git add .
 git commit -m "Start my project from the starter kit"
@@ -37,7 +38,7 @@ Do this loop many times: **change a little -> run it -> test it -> commit**.
 
 | I want to... | Type this |
 | --- | --- |
-| go to my project folder | `cd ~/Documents/dragon-maze` |
+| go to my project folder | `cd ~/Documents/coding-projects/dragon-maze` |
 | see what changed | `git status` |
 | see the exact lines that changed | `git diff` |
 | choose a file for the next save point | `git add dragon_maze.py` |
@@ -45,7 +46,7 @@ Do this loop many times: **change a little -> run it -> test it -> commit**.
 | make a save point | `git commit -m "Add a chaser that uses BFS"` |
 | see my save points | `git log --oneline` |
 | undo changes I have NOT committed yet | `git restore dragon_maze.py` |
-| run my tests (in Thonny's system shell) | `python3 -m pytest -q` |
+| run my tests (in Thonny's system shell) | `python -m pytest -q` |
 
 Good commit messages say WHAT changed, in a few words, starting with a verb:
 
@@ -84,7 +85,7 @@ Controls: <keys / clicks>
 - Saved file: <file name> - <what is saved>
 
 ## Tests
-Run `python3 -m pytest -q`. My tests check: <list>
+Run `python -m pytest -q` in Thonny's system shell. My tests check: <list>
 
 ## A design decision I am proud of
 <What did you choose, what else could you have done, and why is your way better?>

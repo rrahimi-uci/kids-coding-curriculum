@@ -39,7 +39,7 @@ Also add a comment: "Credits: Balloon sprite and Pop sound from the Scratch libr
 - Balloon jumps off the stage edge: random ranges are too big. Use -200 to 200 for x and -140 to 140 for y.
 
 ## Check-off list
-- [ ] I made a variable called `pops` and I can see it on the stage: a `pops` box is visible (checkbox ticked).
+- [ ] I made a variable called `pops` and I can see it on the stage: a `pops` box is visible (checkbox checked).
 - [ ] `pops` starts at 0 every time I click the green flag: click the flag after a few pops and it shows 0.
 - [ ] Each click adds exactly 1: three clicks give 3.
 - [ ] The balloon jumps to a different place each time: pick random sits in both the x and y slots.

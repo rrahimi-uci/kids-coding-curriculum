@@ -50,7 +50,7 @@ Save as `show-time`.
 
 ## Common mistakes and quick fixes
 - Dancer visible at the start: the "hide" script under the green flag is missing.
-- Dancer never dances: the hat block uses a different message name (start show vs show start vs Start Show). Choose from the dropdown.
+- Dancer never dances: the hat block uses a different message name (start show vs show start, or start show vs startshow). Choose from the dropdown. Note: Scratch ignores capital letters in message names, so "Start Show" and "start show" do work together; word order, spaces and punctuation do not.
 - Scripts on the wrong sprite: Presenter and Dancer scripts swapped. Check the highlighted sprite.
 - Thank-you never appears: the Dancer's last block (broadcast finale) or the Presenter's "when I receive finale" script is missing.
 - Dancer shows only one costume: "next costume" is outside the repeat or the sprite has only one costume.

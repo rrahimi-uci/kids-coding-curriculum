@@ -103,7 +103,7 @@ if __name__ == "__main__":
 # - In leader, starting with best = 0 and comparing scores to it; then best is a number
 #   and best.nickname crashes. best must be a Player (or None).
 # - In give_points, not handling a nickname that does not exist.
-# - Writing player.is_out without brackets: a method object is always "true", so nobody
+# - Writing player.is_out without parentheses: a method object is always "true", so nobody
 #   is ever counted as out.
 #
 # Another correct way for leader (built-in max picks the player with the highest score):

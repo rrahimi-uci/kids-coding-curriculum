@@ -2,7 +2,7 @@
 # Event-driven: the program sets up "handlers" (functions) and then WAITS.
 # When a key is pressed, turtle calls the matching handler for us.
 #   screen.onkey(go_up, "Up")   means "when Up is pressed, call go_up"
-#   (no brackets after go_up: we hand over the function, we do not call it)
+#   (no parentheses after go_up: we hand over the function, we do not call it)
 # Do the TODOs in order. Press Run, then CLICK the turtle window once so it
 # can hear your keys.
 

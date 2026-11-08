@@ -6,13 +6,13 @@
   \item The student can use the Thonny debugger (Debug, Step over, Step into and the Variables view) to follow a program one line at a time. (L3.G8)
   \item The student can find and fix bugs in classes, sorts and searches using error messages, trace tables and the debugger. (L3.G8)
   \item The student can match each algorithm and data structure from weeks 1--5 to a problem it solves. (L3.G2)
-  \item The student can describe a difficult bug, how they found it, and what they will try next time. (L3.G5)
+  \item The student can describe a difficult bug, how they found it, and what they will try next time. (L3.G8)
 \end{objectives}
 
 \begin{materials}
   \item Print: the \textbf{Mid-level checkpoint} from the Assessments booklet, workbook chapter 6 and homework 6 (one per student).
   \item Match-up cards: copy the 10 pairs from the table below onto 20 index cards (or print this page and cut along the lines).
-  \item On each Mac: Thonny with \texttt{3-advanced/exercises/week06} open. Turn on the Variables view: \menu{View > Variables} (a check mark appears).
+  \item On each Mac: Thonny with \texttt{3-advanced/exercises/week06} open. Turn on the Variables view: \menu{View > Variables} (a check mark appears), and also \menu{View > Object inspector} (it shows an object's attributes).
   \item Try it once yourself (3 minutes): open \texttt{ex-bug-missing-self/starter.py}, click the bug icon, then \menu{Step over} a few times.
 \end{materials}
 
@@ -51,8 +51,8 @@ Show these on your Mac while the students watch (Thonny's toolbar is at the top)
   \item \textbf{Debug} (the bug icon, next to the green Run button): starts the program in slow motion. The first line is highlighted.
   \item \textbf{Step over} (or \keys{F6}): run the highlighted line and stop at the next one. Function calls run in one go.
   \item \textbf{Step into} (or \keys{F7}): go \emph{inside} a function or method call to watch it line by line. Thonny opens a small window for the function: that is normal, it shows the function's own variables.
-  \item \textbf{Resume} (or \keys{F8}): run normally until the end (or the next breakpoint). \textbf{Stop} (red square): end the program.
-  \item \textbf{Variables view}: every variable and its value right now. Objects show their attributes when you click them.
+  \item \textbf{Resume} (or \keys{F8}): run normally until the end (or the next breakpoint). \textbf{Stop} (the red stop sign): end the program.
+  \item \textbf{Variables view}: every variable and its value right now. Click an object there and the \textbf{Object inspector} shows its attributes.
   \item \textbf{Breakpoint}: click on a line number to put a red dot there. Debug, then Resume, and Thonny pauses at that line.
 \end{itemize}
 On some Macs the F-keys need \keys{fn} held down, so clicking the toolbar buttons is easiest.
@@ -66,7 +66,7 @@ Running a program is like watching a goal in a football match: it is over in a s
 Open \texttt{week06/ex-bug-missing-self/starter.py}. Students tell you what to do at each step.
 \begin{enumerate}[itemsep=2pt]
   \item Press \textbf{Run}. Read the last line of the red error together: \texttt{TypeError: ScoreKeeper.add() takes 1 positional argument but 2 were given}. Say: \enquote{Python passed the keeper itself \emph{and} 10, but \texttt{add} only has room for one.} Fix: \texttt{def add(self, points):}.
-  \item Press \textbf{Debug}. Click \textbf{Step over} until the line \texttt{keeper.undo\_last()} is highlighted. Look at the Variables view: click \texttt{keeper} to see \texttt{score} = 15 and \texttt{history} = [10, 5].
+  \item Press \textbf{Debug}. Click \textbf{Step over} until the line \texttt{keeper.undo\_last()} is highlighted. Look at the Variables view: click \texttt{keeper}, and the Object inspector shows \texttt{score} = 15 and \texttt{history} = [10, 5].
   \item Click \textbf{Step into} to go inside \texttt{undo\_last}. Step over until it crashes on \texttt{score -= last}: \texttt{UnboundLocalError}. Ask: \enquote{Whose score?} Fix: \texttt{self.score -= last}.
   \item Run again: \texttt{NameError: name 'nickname' is not defined} in \texttt{report}. Fix: \texttt{self.nickname}.
   \item Run once more: \texttt{Comet has 10 points}. Then open \texttt{check\_my\_work.py} and press Run: all 4 checks pass.
@@ -84,7 +84,7 @@ Each pair works through these folders in \texttt{week06}. Every starter is broke
 \begin{description}[itemsep=2pt,font=\normalfont\bfseries]
   \item[Bug Hunt 2, Lost Scores] (\texttt{ex-bug-lost-items}): a sort that loses items. Hint if stuck: watch \texttt{scores}, \texttt{remaining} and \texttt{result} in the Variables view. Three bugs: no copy of the list, the loop stops one too early, duplicates skipped.
   \item[Bug Hunt 3, Word Finder] (\texttt{ex-bug-binary-search}): an off-by-one binary search. Hint: a trace table for \texttt{find\_word(["ant", "bee", "cat"], "ant")}. Two bugs: \texttt{high = len(words)} and \texttt{while low < high}. Fixing only one may cause an \texttt{IndexError}: that is progress!
-  \item[Bug Hunt 4, Shape Party] (\texttt{ex-bug-shape-party}): inheritance bugs. First nothing is drawn (\texttt{shape.draw} without brackets), then a crash (no \texttt{super().\_\_init\_\_}), then diamonds that are dots (\texttt{drow} typo).
+  \item[Bug Hunt 4, Shape Party] (\texttt{ex-bug-shape-party}): inheritance bugs. First nothing is drawn (\texttt{shape.draw} without parentheses), then a crash (no \texttt{super().\_\_init\_\_}), then diamonds that are dots (\texttt{drow} typo).
 \end{description}
 Rule for the workshop: change \textbf{one} thing, run again. If two things change at once, you will not know which one fixed it.
 \end{bughunt}

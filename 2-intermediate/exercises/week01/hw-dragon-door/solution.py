@@ -2,9 +2,9 @@
 #
 # What the program does: it asks for a hero name, whether they have the golden
 # key and their level, then says whether the dragon door opens.
-# Key ideas practiced: combining "and" with "or" using brackets, and f-strings.
+# Key ideas practiced: combining "and" with "or" using parentheses, and f-strings.
 # Approach: the door opens in two separate ways, so we write each way as its own
-# group: (key AND level 3 or more) OR (level 10 or more). The brackets keep the
+# group: (key AND level 3 or more) OR (level 10 or more). The parentheses keep the
 # "and" group together so the "or" can then choose between the two ways.
 
 
@@ -29,8 +29,8 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Leaving out the brackets: "has_key and level >= 3 or level >= 10" happens to
-#   work (Python does "and" before "or"), but brackets make the plan clear to read.
+# - Leaving out the parentheses: "has_key and level >= 3 or level >= 10" happens to
+#   work (Python does "and" before "or"), but parentheses make the plan clear to read.
 # - Writing "has_key and level >= 3 and level >= 10", which wrongly demands both.
 # - Writing "level >= 3 or level >= 10": then anyone at level 3 gets in without a key.
 # - Forgetting the f in front of the quotes, so {hero} is printed as plain text.

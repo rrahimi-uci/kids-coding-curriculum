@@ -15,7 +15,7 @@ shape and the color.
 **Keys:** arrows move, `s` stamps, `p` next shape, `n` next color, `c` clears.
 
 **Done looks like:** every key works, and pressing `p` or `n` many times goes
-round all the shapes or colors and starts again.
+around all the shapes or colors and starts again.
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 

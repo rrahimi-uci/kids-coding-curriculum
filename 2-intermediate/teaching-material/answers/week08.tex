@@ -10,7 +10,7 @@ tests against the correct function (they must all pass) and against three delibe
 \section{Workbook exercises}
 \begin{answer}[Exercise 8.1 Test the Clamp]
 \textbf{Step 1:} 3 tests pass; the empty ones pass because a test with no \texttt{assert} checks nothing, so it cannot fail.
-\textbf{Step 3:} the last line looks like \texttt{1 failed, 2 passed in 0.03s}. \textbf{Broken clamps:} \enquote{forgets the low limit} is caught by any
+\textbf{Step 3:} with four tests, the last line looks like \texttt{1 failed, 3 passed in 0.03s}. \textbf{Broken clamps:} \enquote{forgets the low limit} is caught by any
 too-small test, \enquote{forgets the high limit} by any too-big test, \enquote{swaps the limits} by either.
 \end{answer}
 \pyfile{../exercises/week08/ex-test-the-clamp/solution.py}
@@ -23,7 +23,7 @@ too-small test, \enquote{forgets the high limit} by any too-big test, \enquote{s
 \pyfile{../exercises/week08/ex-test-best-score/solution.py}
 
 \begin{answer}[Exercise 8.3 Fix the Bugs the Tests Found]
-Each fix is marked \texttt{FIXED}. Accept \texttt{return max(0, lives - damage)} for the first one. Check that no student edited
+Each fix is marked \texttt{FIX 1} to \texttt{FIX 4} in the comments. Accept \texttt{return max(0, lives - damage)} for the first one. Check that no student edited
 \texttt{test\_fix\_the\_bugs.py} (the checks only count if the tests are unchanged).
 \end{answer}
 \pyfile{../exercises/week08/ex-fix-the-bugs/solution.py}
@@ -31,7 +31,7 @@ Each fix is marked \texttt{FIXED}. Accept \texttt{return max(0, lives - damage)}
 \section{Homework}
 \begin{answer}[Core: Test the Cipher]
 \texttt{encode("xyz", 3)} is \texttt{"abc"}. Step 3 example: \texttt{"go team!"} with shift 1 is \texttt{"hp ufbn!"}.
-The wrap-round test catches the no-wrap bug; the space test catches \enquote{loses spaces}; any normal test catches \enquote{goes backwards}.
+The wrap-around test catches the no-wrap bug; the space test catches \enquote{loses spaces}; any normal test catches \enquote{goes backwards}.
 \end{answer}
 \pyfile{../exercises/week08/hw-test-the-cipher/solution.py}
 

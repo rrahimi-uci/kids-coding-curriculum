@@ -5,8 +5,8 @@
 # Key ideas: a while loop only stops when its condition becomes False, so
 # something INSIDE the loop must change the thing the condition looks at.
 # Approach: the starter loop said "keep going while n is above 0" but never
-# changed n, so n stayed 5 for ever (an infinite loop). One line fixes it:
-# make n one smaller every time round.
+# changed n, so n stayed 5 forever (an infinite loop). One line fixes it:
+# make n one smaller every time through.
 
 
 def countdown(start):

@@ -39,8 +39,8 @@ if __name__ == "__main__":
 #   "Level" line but forgetting "Coins" and "Next level". One fix inside
 #   card_line covers every line.
 # - Writing str(level + 1) as str(level) + 1, which is still text + number.
-# - Putting quotes round the whole thing, e.g. "{label}: {value}" without
-#   the f in front, which prints the curly brackets literally.
+# - Putting quotes around the whole thing, e.g. "{label}: {value}" without
+#   the f in front, which prints the curly braces literally.
 #
 # Another correct way: convert the value to text with str():
 #     return label + ": " + str(value)

@@ -7,7 +7,7 @@
 #     1   | 5 | [5]
 #     2   |   |
 #
-# What should change each time round the loop... but does not?
+# What should change each time through the loop... but does not?
 
 
 def countdown(start):

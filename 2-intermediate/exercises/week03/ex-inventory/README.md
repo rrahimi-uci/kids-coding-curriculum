@@ -11,18 +11,18 @@
 
 ```
 index:   0        1       2      3
-       torch    rope    map    apple      len = 4
+       lantern    rope    map    apple      len = 4
 ```
 
 **Done looks like:**
 
 ```
-- torch
+- lantern
 - rope
 - map
 - apple
 4 items in total.
-First in: torch. Last in: apple.
+First in: lantern. Last in: apple.
 You unfold the map. The treasure is to the north!
 You still need a key for the chest.
 ```

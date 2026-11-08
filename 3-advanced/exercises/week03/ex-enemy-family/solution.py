@@ -91,7 +91,7 @@ if __name__ == "__main__":
 # Common mistakes children make here:
 # - Forgetting super().__init__(name, x, y) in Sprinter, so name is missing.
 # - In Zigzagger, forgetting super().move(), so it bobs up and down but never goes right.
-# - Writing move_all with enemy.move (no brackets) so nothing actually moves.
+# - Writing move_all with enemy.move (no parentheses) so nothing actually moves.
 # - Writing if type(enemy) == Guard: ... inside move_all instead of trusting move().
 #
 # Another correct way for the bob in Zigzagger.move (one line instead of if/else):

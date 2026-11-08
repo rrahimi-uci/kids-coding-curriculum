@@ -45,15 +45,17 @@ A test has three parts: \textbf{call} the function with values you choose, say w
         (if it says \enquote{command not found}, use \texttt{python3}).
 \end{itemize}
 \begin{outputcode}
-starter.py::test_middle_value_stays_the_same PASSED     [ 50%]
-starter.py::test_too_small_goes_up_to_low FAILED        [100%]
+starter.py::test_middle_value_stays_the_same PASSED     [ 33%]
+starter.py::test_too_small_goes_up_to_low FAILED        [ 66%]
+starter.py::test_too_big_comes_down_to_high PASSED      [100%]
 E       AssertionError: -3 is too small, so it should become 0
 E       assert 0 == 5
 E        +  where 0 = clamp(-3, 0, 10)
-============ 1 failed, 1 passed in 0.03s ============
+============ 1 failed, 2 passed in 0.03s ============
 \end{outputcode}
 Read it from the bottom up. The last line is the score. The \texttt{E} lines say what went wrong: \texttt{clamp} gave back \texttt{0}
 but the test expected \texttt{5}. When a test fails, ask: \textbf{is the code wrong, or is my expected answer wrong?}
+(Here the test is wrong: $-3$ should become 0, not 5.)
 
 \subsection{Normal and edge cases}
 A \textbf{normal case} is what usually happens. An \textbf{edge case} is a strange corner: that is where bugs love to hide.

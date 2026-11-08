@@ -3,7 +3,7 @@
 \lessoninfo{Concepts: onkey and listen (I), ontimer game loop (I), game state in a dictionary (I), collision with distance (I), lists of turtles (E); final project kickoff}{Tools: Thonny, squared paper, coins}{CSTA: 2-AP-12, 2-AP-16, 2-AP-10}
 
 \begin{objectives}
-  \item The student can connect keys to handler functions with \texttt{onkey} and \texttt{listen}, passing the function without brackets. (L2.G7; L2.W09.1)
+  \item The student can connect keys to handler functions with \texttt{onkey} and \texttt{listen}, passing the function without parentheses. (L2.G7; L2.W09.1)
   \item The student can build a game loop with \texttt{ontimer} that moves a list of objects one frame at a time and stops on game over. (L2.G7, L2.G2; L2.W09.2)
   \item The student can detect a collision with a distance check and keep the game state in a dictionary. (L2.G4, L2.G3; L2.W09.3)
   \item The student can choose a final-project option and describe its idea, and explain why borrowed images and sounds need a license and credit. (L2.G8, L2.G9; L2.W09.4)
@@ -21,7 +21,7 @@
 \begin{timeplan}
   \timeslot{0--6}{Warm-up}{Unplugged \enquote{Game loop board game}: every clap is one frame.}
   \timeslot{6--13}{Concept}{Events and handlers (\texttt{onkey}, \texttt{listen}); the timer loop (\texttt{ontimer}); game state; touching = close enough.}
-  \timeslot{13--20}{Guided demo}{Make the Etch-a-Sketch listen; connect one key; show the brackets bug.}
+  \timeslot{13--20}{Guided demo}{Make the Etch-a-Sketch listen; connect one key; show the parentheses bug.}
   \timeslot{20--42}{Hands-on build}{Pairs: 9.1 Etch-a-Sketch, then 9.2 Dodge the Meteors. Swap every 7 minutes. Last 3 minutes: free-build tweaks.}
   \timeslot{42--60}{Wrap-up}{Exit ticket and attribution talk (4 min), then the \textbf{final project kickoff} (14 min).}
 \end{timeplan}
@@ -63,14 +63,14 @@ And two things are \textbf{touching} when the distance between them is small: \p
         before it hears keys). Press the Up arrow: nothing happens. Ask: \enquote{Which line is missing?} Point at the \texttt{listen} TODO.
   \item Type \texttt{screen.listen()} at TODO 1. Run, click the window, press Up: a line! Say: \enquote{The doorbell is switched on.}
   \item Show the most famous event bug. Change the line to \py|screen.onkey(go_up(), "Up")| and run. The turtle moves once at the start,
-        then Up does nothing. Explain: \enquote{With brackets, Python calls \texttt{go\_up} right now and hands \texttt{onkey} its answer, which is nothing.
-        Without brackets, we hand over the function itself, for turtle to call later.} Remove the brackets again.
+        then Up does nothing. Explain: \enquote{With parentheses, Python calls \texttt{go\_up} right now and hands \texttt{onkey} its answer, which is nothing.
+        Without parentheses, we hand over the function itself, for turtle to call later.} Remove the parentheses again.
   \item Leave TODO 2--4 (the other arrows, the keys, clear) to the pairs.
 \end{enumerate}
 \end{workedexample}
 The heart of Exercise 9.2, for you (the full program is in the answer key): the two logic functions students finish, and the game loop.
-\pyfile[firstline=37,lastline=46]{../exercises/week09/ex-dodge-meteors/solution.py}
-\pyfile[firstline=87,lastline=101]{../exercises/week09/ex-dodge-meteors/solution.py}
+\pyfile[firstline=43,lastline=55]{../exercises/week09/ex-dodge-meteors/solution.py}
+\pyfile[firstline=98,lastline=118]{../exercises/week09/ex-dodge-meteors/solution.py}
 
 \section{Hands-on build (20--42 min)}
 \begin{pairroles}[Player and programmer]
@@ -94,7 +94,7 @@ def go_left():
 screen.onkey(go_left(), "Left")
 turtle.done()
 \end{pycode}
-\textbf{Two bugs:} the brackets in \texttt{go\_left()} (the function runs once, now, instead of on each key press), and no \texttt{screen.listen()}.
+\textbf{Two bugs:} the parentheses in \texttt{go\_left()} (the function runs once, now, instead of on each key press), and no \texttt{screen.listen()}.
 And a third one that is not in the code: on a Mac, the turtle window must be \textbf{clicked} before it hears the keyboard.
 Bonus bug: the meteors move once and freeze. Cause: \texttt{game\_loop()} does not call \texttt{screen.ontimer(game\_loop, FRAME\_MS)} again.
 \end{bughunt}
@@ -108,7 +108,7 @@ the player's shape or the Okabe--Ito colors. Or draw your nickname with the Etch
 \begin{formativecheck}[Exit ticket (2 minutes)]
 Ask each student: \enquote{The meteors moved once and stopped. What is missing?} \textbf{Answer:} the game loop must plan the next frame with
 \texttt{screen.ontimer(game\_loop, FRAME\_MS)} at the end. Second question: \enquote{What is wrong with \py|screen.onkey(jump(), "space")|?}
-\textbf{Answer:} the brackets: write \texttt{jump} without \texttt{()}. \textbf{Look for:} students who cannot answer the first one need the kitchen-timer analogy again.
+\textbf{Answer:} the parentheses: write \texttt{jump} without \texttt{()}. \textbf{Look for:} students who cannot answer the first one need the kitchen-timer analogy again.
 \end{formativecheck}
 
 \begin{safety}[Attribution and open licenses (2 minutes)]
@@ -128,8 +128,9 @@ use something else, a grown-up helps you find it (no accounts, no downloads alon
   \item \textbf{Choose (3 minutes).} Each student or pair picks \textbf{Option A: Arcade Game} (keys + timer + score) or \textbf{Option B: Art Studio}
         (generative art that saves and loads designs). Teams: pairs if possible; 1 student works with you as partner; with 3, one trio.
   \item \textbf{Start Planning page 1, \enquote{My pitch} (4 minutes).} Project name, one sentence, how you play it, what the list, dictionary, file and loop will do.
-  \item \textbf{Explain milestone M1 (1 minute):} the pitch page, Planning page 2 (pseudocode or flowchart) and, for pairs, Planning page 3 (task split)
-        are due at the start of week 10. They are part of homework 9.
+  \item \textbf{Explain milestone M1 (1 minute):} the pitch page is homework 9 and is checked at the start of week 10. Planning page 2
+        (pseudocode or flowchart) and, for pairs, Planning page 3 (task split) are finished in week 10, where pseudocode and flowcharts are taught;
+        keen students may start page 2 at home (homework 9 Challenge).
 \end{enumerate}
 
 \begin{reflection}[Say it or write it]
@@ -143,7 +144,7 @@ Hand out homework 9 (Stamp Studio + the project pitch).
 
 \section{Notes for the teacher}
 \begin{commonmistakes}
-  \item \textbf{Brackets after the handler}: \texttt{onkey(go\_left(), "Left")}. Hand over the function name only.
+  \item \textbf{Parentheses after the handler}: \texttt{onkey(go\_left(), "Left")}. Hand over the function name only.
   \item \textbf{No \texttt{listen()}}, or not clicking the window on a Mac. Keys do nothing, and there is no error message.
   \item \textbf{Key names}: they are case-sensitive and exact: \texttt{"Left"}, \texttt{"Up"}, \texttt{"space"}, \texttt{"a"}.
   \item \textbf{Using a \texttt{while True} loop for the game}: it freezes the turtle window, because turtle never gets a chance to check the keys. Use \texttt{ontimer}.

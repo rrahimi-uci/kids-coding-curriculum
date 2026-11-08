@@ -16,7 +16,7 @@ You get to build your own program! Pick ONE option:
    Use lowercase letters and underscores, no spaces.
 4. Open it in Thonny and press the green **Run** button. Click the turtle
    window once so it can hear your keys.
-5. Read the TODOs from top to bottom. Do them one at a time and press Run
+5. Do the TODOs in number order (TODO 1, TODO 2, ...), one at a time, and press Run
    after every small change.
 
 ## Your project must have
@@ -34,7 +34,8 @@ You get to build your own program! Pick ONE option:
    name (without `.py`).
 2. Press **Run**. Every test should say `PASSED`.
 3. If Thonny says `No module named pytest`: **Tools > Manage packages...**,
-   type `pytest`, click **Search**, then **Install**. No account needed.
+   type `pytest`, click **Search on PyPI**, click `pytest` in the results,
+   then **Install**. No account needed.
 
 Tip: put the rules of your program (scores, moving, touching) in small
 functions that do **not** use turtle. Those are easy to test.

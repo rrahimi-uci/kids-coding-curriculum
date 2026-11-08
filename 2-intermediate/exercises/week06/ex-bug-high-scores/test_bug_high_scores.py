@@ -22,5 +22,5 @@ def test_podium_with_two_scores(load_target):
     try:
         answer = m.podium([70, 20])
     except IndexError:
-        pytest.fail("podium([70, 20]) crashed with IndexError. With only 2 scores, the loop must go round only 2 times.")
+        pytest.fail("podium([70, 20]) crashed with IndexError. With only 2 scores, the loop must go around only 2 times.")
     assert answer == ["1st: 70", "2nd: 20"], f"With two scores the podium is ['1st: 70', '2nd: 20'], not {answer}."

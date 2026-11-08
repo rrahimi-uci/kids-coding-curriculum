@@ -15,10 +15,10 @@ A list is like a row of lockers. Each locker has a number painted on it, called 
 The first locker is number \textbf{0}.
 
 \begin{center}
-%% alt: A list called backpack holds four items: "torch" at index 0, "rope" at index 1, "map" at index 2 and "apple" at index 3. Asking for index 4 gives an IndexError because there is no fifth item.
+%% alt: A list called backpack holds four items: "lantern" at index 0, "rope" at index 1, "map" at index 2 and "apple" at index 3. Asking for index 4 gives an IndexError because there is no fifth item.
 \begin{tikzpicture}[font=\small,
   cell/.style={draw=black,thick,minimum width=2.2cm,minimum height=1cm,fill=kcsky!15}]
-  \foreach \thing [count=\i from 0] in {torch,rope,map,apple}{
+  \foreach \thing [count=\i from 0] in {lantern,rope,map,apple}{
     \node[cell] (c\i) at (\i*2.2,0) {\texttt{"\thing"}};
     \node[below=2pt of c\i] {index \textbf{\i}};
   }
@@ -29,10 +29,10 @@ The first locker is number \textbf{0}.
 \end{center}
 
 \begin{pycode}[Making and using a list]
-backpack = ["torch", "rope", "map"]
+backpack = ["lantern", "rope", "map"]
 backpack.append("apple")    # adds to the END of the list
 print(len(backpack))        # 4   how many items
-print(backpack[0])          # torch   the first item
+print(backpack[0])          # lantern   the first item
 print(backpack[-1])         # apple   -1 means the last item
 \end{pycode}
 With 4 items, the index numbers are 0, 1, 2 and 3. Asking for \texttt{backpack[4]} crashes with
@@ -49,6 +49,9 @@ With 4 items, the index numbers are 0, 1, 2 and 3. Asking for \texttt{backpack[4
 Use it when you only need the items. & Use it when you also need the position number. \\ \bottomrule
 \end{tabular}
 \end{center}
+Remember \texttt{random.choice} from Level 1? It picks one random item from a list:
+\texttt{random.choice(backpack)} might give back \texttt{"map"}. You will use it in this week's homework.
+When you need a loop counter but never use it, Python coders name it \texttt{\_}: \texttt{for \_ in range(3):} just repeats 3 times.
 
 \subsection{Colors for everyone}
 Some people see colors differently, often red and green. These eight \textbf{Okabe-Ito} colors stay different for almost everyone.
@@ -67,7 +70,7 @@ Use them, and always add a label, number or shape too, so color is never the onl
 \begin{exercise}[Palette Stripes]
 Folder: \texttt{exercises/week03/ex-palette-stripes}. Press \menu{Run}: only one stripe appears.
 \begin{enumerate}[leftmargin=1.4em]
-  \item TODO 1: add blue and vermillion with \texttt{palette.append(...)}.
+  \item TODO 1: add blue and vermillion with \texttt{palette.append(...)}. (TODO 2 is an extra: a sixth color.)
   \item TODO 3: draw a stripe for every color with \texttt{for i in range(len(colors)):}. Label each stripe \texttt{str(i)} and move \texttt{x} along.
   \item TODO 4: print the first color (\texttt{palette[0]}) and the last color (\texttt{palette[-1]}).
   \item My palette has \rule{1cm}{0.4pt} colors, so the labels go from 0 to \rule{1cm}{0.4pt}.
@@ -78,7 +81,7 @@ Folder: \texttt{exercises/week03/ex-palette-stripes}. Press \menu{Run}: only one
 Folder: \texttt{exercises/week03/ex-inventory}. Press \menu{Run}. It crashes!
 \begin{enumerate}[leftmargin=1.4em]
   \item Read the error from the bottom up. Error name: \rule{3.5cm}{0.4pt}\quad In which function? \rule{3.5cm}{0.4pt}
-  \item Draw the backpack \texttt{["torch", "rope", "map", "apple"]} as boxes with their index numbers:
+  \item Draw the backpack \texttt{["lantern", "rope", "map", "apple"]} as boxes with their index numbers:
   \answerspace{1.4cm}
   \item TODO 3: fix \texttt{last\_item()}. TODO 1: \texttt{append} in \texttt{add\_item()}. TODO 2: loop in \texttt{has\_item()}.
   \item Check your work with \texttt{check\_my\_work.py}.
@@ -95,7 +98,7 @@ Folder: \texttt{exercises/week03/ex-high-scores}. Two new tricks:
 \end{exercise}
 
 \begin{vocab}
-  \vocabword{list}{Many values kept in order inside square brackets, like \texttt{["torch", "rope"]}.}
+  \vocabword{list}{Many values kept in order inside square brackets, like \texttt{["lantern", "rope"]}.}
   \vocabword{item}{One value inside a list.}
   \vocabword{index}{The position number of an item. The first item has index 0.}
   \vocabword{append}{Add an item to the end of a list: \texttt{backpack.append("map")}.}

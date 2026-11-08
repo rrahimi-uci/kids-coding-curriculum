@@ -91,7 +91,7 @@ def test_your_tests_pass_on_the_correct_encode(load_target, target_path):
 
 def test_your_tests_catch_a_cipher_that_does_not_wrap_round(load_target):
     failed = failing_tests(load_target(), encode_no_wrap)
-    assert failed, "A broken encode() that does not wrap round after z passed all your tests. Try letters near z."
+    assert failed, "A broken encode() that does not wrap around after z passed all your tests. Try letters near z."
 
 
 def test_your_tests_catch_a_cipher_that_loses_spaces(load_target):

@@ -111,6 +111,7 @@ speed = player.get("speed", 1)
 line = "  12 apples \n"
 clean = line.strip()   # "12 apples"
 parts = clean.split()  # 2 words
+bits = "Ada,120".split(",")  # ["Ada", "120"]
 print("Hi".upper(), "Hi".lower())
 \end{cs}
 
@@ -136,9 +137,13 @@ def test_area_normal():
 
 def test_area_edge():     # edge case
     assert area(0, 4) == 0
+
+if __name__ == "__main__":  # Run = pytest
+    import pytest
+    pytest.main(["-v", __file__])
 \end{cs}
-Test names start with \texttt{test\_}. To run them, open
-\texttt{my\_tests.py} (or \texttt{check\_my\_work.py}) and press Run. No pytest? \textbf{Tools > Manage packages}.
+Test names start with \texttt{test\_}. Put the last three lines at the bottom of your test file
+(like \texttt{my\_tests.py}) and press Run. No pytest? \textbf{Tools > Manage packages}.
 
 \cshead{Turtle events and games}
 \begin{cs}

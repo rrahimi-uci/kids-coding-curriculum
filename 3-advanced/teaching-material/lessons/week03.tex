@@ -32,7 +32,7 @@ Point out: \enquote{We wrote \enquote{name} once, at the top, and every characte
 
 \section{Concept (8--18 min)}
 \begin{teacherscript}
-\enquote{Last week, one class made many objects. Today, classes have families. A \textbf{child class} \textbf{inherits} everything from its \textbf{parent class}: all its attributes and methods. Then the child changes only what is different. Changing a method in the child is called \textbf{overriding}. We write the parent's name in brackets: \texttt{class Sprinter(Enemy):} means \enquote{a Sprinter is an Enemy}.}
+\enquote{Last week, one class made many objects. Today, classes have families. A \textbf{child class} \textbf{inherits} everything from its \textbf{parent class}: all its attributes and methods. Then the child changes only what is different. Changing a method in the child is called \textbf{overriding}. We write the parent's name in parentheses: \texttt{class Sprinter(Enemy):} means \enquote{a Sprinter is an Enemy}.}
 \end{teacherscript}
 
 \begin{analogy}[The family pancake recipe]
@@ -53,7 +53,7 @@ Open \texttt{week03/ex-enemy-family/starter.py} with everyone watching.
   \item Press Run. Point at the crash: \texttt{AttributeError: 'Sprinter' object has no attribute 'name'}. Say: \enquote{Keep this clue for later!}
   \item Live-code \texttt{Zigzagger.move}, with the students telling you each line:
 \end{enumerate}
-\pyfile[firstline=30,lastline=38]{../exercises/week03/ex-enemy-family/solution.py}
+\pyfile[firstline=42,lastline=54]{../exercises/week03/ex-enemy-family/solution.py}
 Explain: \texttt{super().move()} runs the parent's move (one step right, count a step); then the child adds its own part (up or down). Leave \texttt{Sprinter} and \texttt{move\_all} for the pairs.
 \end{workedexample}
 
@@ -81,7 +81,7 @@ Bug 1 gives \texttt{AttributeError: ... no attribute 'name'} as soon as anything
 \end{bughunt}
 
 \begin{freebuild}[A new member of the shape family]
-Last 6 minutes: invent a new shape class, for example \texttt{Flower(Shape)} (6 circles, turning 60 degrees), \texttt{Spiral(Shape)} or \texttt{House(Shape)} (a square with a triangle roof). Add a few to \texttt{make\_pattern} or make a picture of your own. Commit it in \texttt{git-quest}: \texttt{git commit -m "Add Flower shape"}.
+Last 6 minutes: invent a new shape class, for example \texttt{Flower(Shape)} (6 circles, turning 60 degrees), \texttt{Spiral(Shape)} or \texttt{House(Shape)} (a square with a triangle roof). Add a few to \texttt{make\_pattern} or make a picture of your own. Commit it in \texttt{git-quest}: save a copy there as \texttt{shape\_family.py}, then \texttt{git add shape\_family.py} and \texttt{git commit -m "Add Flower shape"}.
 \end{freebuild}
 
 \section{Wrap-up (52--60 min)}
@@ -106,8 +106,8 @@ Ask: \enquote{In games you know, who are the heroes? Who are the villains? Do th
 
 \section{Notes for the teacher}
 \begin{commonmistakes}
-  \item \textbf{Forgetting the parent in brackets}: \texttt{class Sprinter:} makes a brand-new class, not a child. Write \texttt{class Sprinter(Enemy):}.
-  \item \textbf{\texttt{super.\_\_init\_\_(...)}} without the brackets after \texttt{super}. It must be \texttt{super().\_\_init\_\_(name, x, y)}, and \texttt{self} is \emph{not} passed.
+  \item \textbf{Forgetting the parent in parentheses}: \texttt{class Sprinter:} makes a brand-new class, not a child. Write \texttt{class Sprinter(Enemy):}.
+  \item \textbf{\texttt{super.\_\_init\_\_(...)}} without the parentheses after \texttt{super}. It must be \texttt{super().\_\_init\_\_(name, x, y)}, and \texttt{self} is \emph{not} passed.
   \item \textbf{Child \texttt{\_\_init\_\_} without \texttt{super()}}: the parent's attributes are missing, so you get an \texttt{AttributeError}.
   \item \textbf{Misspelled override} (\texttt{drow}, \texttt{mvoe}): no error, only the wrong behavior.
   \item \textbf{Using inheritance for \enquote{has a}}: \texttt{class Game(Player)} is wrong; a game is not a player. Say the sentence aloud.
@@ -119,7 +119,7 @@ Ask: \enquote{In games you know, who are the heroes? Who are the villains? Do th
 \end{differentiation}
 
 \begin{stretchchallenge}[Grandchildren]
-Make \texttt{BigStar(Star)} whose \texttt{\_\_init\_\_} doubles the size by calling \texttt{super().\_\_init\_\_(x, y, size * 2, color)}. A BigStar is a Star, and a Star is a Shape. Test: \texttt{isinstance(BigStar(0, 0, 50, "\#E69F00"), Shape)}. What does it print, and why?
+Make \texttt{BigStar(Star)} whose \texttt{\_\_init\_\_} doubles the size by calling \texttt{super().\_\_init\_\_(x, y, size * 2, color)}. A BigStar is a Star, and a Star is a Shape. Test: \texttt{print(isinstance(BigStar(0, 0, 50, "\#E69F00"), Shape))}. What does it print, and why? (\texttt{True}: a BigStar is a Star, and every Star is a Shape, so the \enquote{is a} chain goes all the way up.)
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]

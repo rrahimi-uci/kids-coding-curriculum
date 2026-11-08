@@ -7,7 +7,8 @@ limits. Games use it to stop a player walking off the screen:
 `clamp(99, 0, 10)` gives `10`.
 
 1. Install pytest once (ask your teacher): **Tools > Manage packages...**,
-   type `pytest`, click **Search**, then **Install**. No account needed.
+   type `pytest`, click **Search on PyPI**, click `pytest` in the results,
+   then **Install**. No account needed.
 2. Read `clamp_tools.py`. Do not change it: it is correct.
 3. Open `starter.py`. This is YOUR test file. Press **Run**. You will see one
    line per test, ending in `PASSED` or `FAILED`.

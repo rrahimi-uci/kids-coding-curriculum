@@ -29,6 +29,11 @@ Commits about the hero: ['5b7a913', '2d4f6a8']
 **Check your work:** open `check_my_work.py` and press **Run**. One check
 makes a real (tiny, temporary) git project and reads its log!
 
+Each line becomes a **tuple**: two values in round parentheses, like
+`("5b7a913", "Fix hero walking through walls")`. A tuple is like a small
+list that cannot be changed.
+
 **Extra:** in Terminal, inside your `git-quest` folder, type
-`git log --oneline`, copy the lines, and paste them into `SAMPLE_LOG`
+`git log --oneline --no-decorate` (the extra word hides labels like
+`(HEAD -> master)`), copy the lines, and paste them into `SAMPLE_LOG`
 (between the `"""` marks). Run again to read YOUR history.

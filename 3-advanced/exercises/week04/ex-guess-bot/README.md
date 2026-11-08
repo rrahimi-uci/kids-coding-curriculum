@@ -12,6 +12,7 @@
 **Done looks like:**
 
 ```
+Bot practice: secret 73 found with guesses [50, 75, 62, 68, 71, 73]
 Think of a whole number from 1 to 100. I will find it!
 Is it 50? Type h (higher), l (lower) or c (correct): h
 Is it 75? Type h (higher), l (lower) or c (correct): l

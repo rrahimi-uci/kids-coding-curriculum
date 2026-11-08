@@ -13,8 +13,8 @@
 3. Make a My Block `flower` with an input `size`.
 4. Make a My Block `grass` with no input.
 5. Build the three scripts below.
-   For the grass color, click the color circle in **set pen color to** and set
-   **Color 45, Saturation 100, Brightness 62** (bluish green from the color-safe paint box).
+   For the grass color, click the color circle in **set pen color to** and drag the
+   sliders until they show **Color 45, Saturation 100, Brightness 62** (bluish green from the color-safe paint box).
 6. Click the green flag a few times: a new garden grows each time.
 7. Save as `stamp-garden`.
 

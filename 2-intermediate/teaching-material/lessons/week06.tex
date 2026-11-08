@@ -6,7 +6,7 @@
   \item The student can read a traceback from the bottom up and name the error type and the line where it happened. (L2.G6; L2.W06.1)
   \item The student can use \texttt{print()} lines and a trace table to find where a program's values go wrong. (L2.G6; L2.W06.2)
   \item The student can explain code line by line to a partner or a rubber duck to find a bug that does not crash. (L2.G6; L2.W06.3)
-  \item The student can fix bugs that involve types, list indexes, loops, return values and dictionary keys from weeks 1--5. (L2.G3; L2.W06.4)
+  \item The student can fix bugs that involve types, list indexes, loops, return values and dictionary keys from weeks 1--5. (L2.G6; L2.W06.4)
 \end{objectives}
 
 \begin{materials}
@@ -38,7 +38,7 @@ Answers and scoring guide are in the Answer Key. If your group is tired at minut
 
 \section{Warm-up (0--6 min)}
 \begin{unplugged}[Debugging detectives]
-Write this on paper and draw the empty table next to it. Students fill it in one row per time round the loop, \emph{without} a computer.
+Write this on paper and draw the empty table next to it. Students fill it in one row per time through the loop, \emph{without} a computer.
 \begin{center}
 \begin{minipage}{0.45\linewidth}
 \begin{pycode}
@@ -62,7 +62,7 @@ start & 0 & 3 \\ \hline
 \end{minipage}
 \end{center}
 (The filled table is the answer.) It prints \texttt{30}. Ask: \enquote{What if we delete the line \texttt{lives = lives - 1}?}
-(\texttt{lives} stays 3 for ever: an infinite loop, like Station 3 today.)
+(\texttt{lives} stays 3 forever: an infinite loop, like Station 3 today.)
 \end{unplugged}
 
 \section{Concept (6--14 min)}
@@ -87,7 +87,7 @@ is like taking random medicine: it rarely helps and can make things worse. Chang
 \begin{enumerate}[leftmargin=1.4em]
   \item Open \texttt{week06/ex-bug-hero-card/starter.py}. Press \menu{Run} (\keys{F5}). Red text appears.
   \item Point at the \textbf{last line}: \texttt{TypeError: can only concatenate str (not "int") to str}. Say: \enquote{What: text plus a number.}
-  \item Point at the line above it: \texttt{line 10, in card\_line}. Click the blue line link in the Shell: Thonny jumps to the line. Say: \enquote{Where: inside \texttt{card\_line}.}
+  \item Point at the last \texttt{File} line, just above the code line \texttt{return label + ": " + value}: \texttt{line 10, in card\_line}. Click the blue line link in the Shell: Thonny jumps to the line. Say: \enquote{Where: inside \texttt{card\_line}.}
         The lines further up show who called it: \texttt{make\_card}, and before that the main program.
   \item Print-debug: add \texttt{print("value is", value, type(value))} as the first line of \texttt{card\_line} and run again.
         The Shell shows \texttt{value is Zoe the Brave <class 'str'>} and then \texttt{value is 4 <class 'int'>}, just before the crash.

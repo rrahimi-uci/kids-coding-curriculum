@@ -13,14 +13,14 @@
 A \textbf{class} is a blueprint, like a cookie cutter. An \textbf{object} is a thing made from the blueprint, like one cookie. Every object made from the same class has the same \emph{kinds} of facts, but its own \emph{values}.
 
 \begin{center}
-%% alt: A class is a blueprint. The class Pet has attributes (facts): name, species, hunger and happiness, and methods (actions): feed(), play(), mood() and describe(). Pet("Pip", "dragon") builds the object pip with name Pip, species dragon and hunger 2. Pet("Bo", "robot cat") builds the object bo with name Bo, species robot cat and hunger 5.
+%% alt: A class is a blueprint. The class Pet has attributes (facts): name, species, hunger and happiness, and methods (actions): feed(), play(), mood() and describe(). Pet("Pip", "dragon") builds the object pip with name Pip and species dragon; after one feed() its hunger is 2. Pet("Bo", "robot cat") builds the object bo with name Bo, species robot cat and hunger 5.
 \begin{tikzpicture}[
   cls/.style={draw=black,line width=1pt,rounded corners=3pt,fill=kcblue!15,align=left,font=\small,text width=4.4cm,inner sep=6pt},
   obj/.style={draw=black,line width=0.8pt,dashed,rounded corners=3pt,fill=kcyellow!25,align=left,font=\small\ttfamily,text width=3.9cm,inner sep=6pt}]
   \node[cls] (class) at (0,0) {\textbf{class Pet} \hfill (blueprint)\\[2pt]
     \textbf{attributes} (facts):\\ \texttt{name, species,}\\ \texttt{hunger, happiness}\\[2pt]
     \textbf{methods} (actions):\\ \texttt{feed(), play(),}\\ \texttt{mood(), describe()}};
-  \node[obj] (pip) at (7.2,1.3) {\normalfont\textbf{object} pip\\name = "Pip"\\species = "dragon"\\hunger = 2};
+  \node[obj] (pip) at (7.2,1.3) {\normalfont\textbf{object} pip\\name = "Pip"\\species = "dragon"\\hunger = 2 (fed)};
   \node[obj] (bo) at (7.2,-1.6) {\normalfont\textbf{object} bo\\name = "Bo"\\species = "robot cat"\\hunger = 5};
   \draw[-{Stealth[length=3mm]},line width=1pt] (class.east) -- node[above,sloped,font=\small]{Pet("Pip", "dragon")} (pip.west);
   \draw[-{Stealth[length=3mm]},line width=1pt] (class.east) -- node[below,sloped,font=\small]{Pet("Bo", "robot cat")} (bo.west);
@@ -67,7 +67,7 @@ bubbles = make_bubbles(40)     # a list of 40 Bubble objects
 for bubble in bubbles:
     bubble.draw(pen)           # each one draws itself
 \end{pycode}
-\textbf{Done looks like:} a black window full of bubbles, each with a white shine. Check with \texttt{check\_my\_work.py}, then commit your picture's code in \texttt{git-quest}.
+\textbf{Done looks like:} a black window full of bubbles, each with a white shine. Check with \texttt{check\_my\_work.py}, then save a copy as \texttt{bubble\_art.py} in \texttt{git-quest} (\menu{File > Save as...}) and commit it.
 \end{exercise}
 
 \begin{tip}[Kind design]

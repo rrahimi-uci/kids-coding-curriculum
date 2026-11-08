@@ -23,13 +23,13 @@ Accept \texttt{scores[:]} or \texttt{scores.copy()} for the copy, and \texttt{wh
 \pyfile{../exercises/week06/ex-bug-binary-search/solution.py}
 \begin{answer}[Exercise 6.3: Word Finder]
 \textbf{Trace table (buggy code):} \texttt{low} = 0, \texttt{high} = 3 (the buggy \texttt{len(words)}), \texttt{0 < 3} is true, \texttt{mid} = 1, \enquote{bee} is bigger than \enquote{ant}, so \texttt{high} = 0. Next check: \texttt{0 < 0} is false, so the loop stops and returns $-1$, although \enquote{ant} is still there at index 0: one item was left, but never checked.
-The starter could not find \enquote{dragon}, \enquote{eagle} and others. Fixes: \texttt{high = len(words) - 1} and \texttt{while low <= high}. Fixing only the loop condition first gives \texttt{IndexError} for \enquote{zebra}; that is expected progress.
+The starter could not find \enquote{banana}, \enquote{dragon}, \enquote{falcon}, \enquote{island} and \enquote{koala} (it still found \enquote{apple} and \enquote{lemon}). Fixes: \texttt{high = len(words) - 1} and \texttt{while low <= high}. Fixing only the loop condition first gives \texttt{IndexError} for \enquote{zebra}; that is expected progress.
 \end{answer}
 
 \subsection{Exercise 6.4: Bug Hunt 4, Shape Party}
 \pyfile{../exercises/week06/ex-bug-shape-party/solution.py}
 \begin{answer}[Exercise 6.4: Shape Party]
-Bugs appear in this order: nothing drawn (\texttt{shape.draw} needs brackets and the turtle: \texttt{shape.draw(t)}); \texttt{AttributeError: 'Hexagon' object has no attribute 'x'} (add \texttt{super().\_\_init\_\_(x, y, size, color)}); diamonds drawn as dots (rename \texttt{drow} to \texttt{draw}). The finished picture shows 4 hexagons and 3 diamonds, 7 filled shapes.
+Bugs appear in this order: nothing drawn (\texttt{shape.draw} needs parentheses and the turtle: \texttt{shape.draw(t)}); \texttt{AttributeError: 'Hexagon' object has no attribute 'x'} (add \texttt{super().\_\_init\_\_(x, y, size, color)}); diamonds drawn as dots (rename \texttt{drow} to \texttt{draw}). The finished picture shows 4 hexagons and 3 diamonds, 7 filled shapes.
 \end{answer}
 
 \section{Homework}

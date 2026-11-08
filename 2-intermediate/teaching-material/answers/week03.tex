@@ -12,7 +12,7 @@ Also correct: \texttt{for color in colors:} with a separate counter variable for
 
 \begin{answer}[Exercise 3.2 Adventure Inventory]
 \textbf{Step 1:} \texttt{IndexError} in \texttt{last\_item()}.\quad
-\textbf{Step 2:} torch 0, rope 1, map 2, apple 3.\par
+\textbf{Step 2:} lantern 0, rope 1, map 2, apple 3.\par
 \textbf{What to look for:} \texttt{backpack[len(backpack) - 1]} or \texttt{backpack[-1]}; \texttt{has\_item} returns \texttt{False}
 only \emph{after} the loop (a \texttt{return False} inside the loop stops after checking the first item).
 \texttt{return item in backpack} is also correct.

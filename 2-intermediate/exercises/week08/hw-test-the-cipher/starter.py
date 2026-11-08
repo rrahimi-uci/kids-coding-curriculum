@@ -13,9 +13,9 @@ def test_normal_word_shift_1():
     assert encode("abc", 1) == "bcd", "a->b, b->c, c->d"
 
 
-def test_wraps_round_after_z():
+def test_wraps_around_after_z():
     # TODO 1 (edge case): letters near the end of the alphabet must wrap
-    #         round to the start. Use the wheel to work out encode("xyz", 3).
+    #         around to the start. Use the wheel to work out encode("xyz", 3).
     pass
 
 

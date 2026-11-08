@@ -21,10 +21,10 @@ act on feedback).
 \begin{longtable}{@{}>{\bfseries}p{1.6cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{8.6cm}@{}}
 \toprule
 Session & Milestone & What happens \\ \midrule\endhead
-Week 9 (last 15 min) & Kickoff, start M1 & Hand out the brief, show Star Catcher for 3 minutes, children choose an option and an idea. M1 pages go home as homework. \\
-Week 10 & M1 check, then M2 & First 10 minutes: check each pitch (see 3.1). Paper prototype, then build the core loop from the starter template. \\
+Week 9 (last 14 min) & Kickoff, start M1 & Hand out the brief, show Star Catcher for 3 minutes, children choose an option and an idea. The pitch page (M1, part 1) goes home as homework. \\
+Week 10 & M1 check, then M2 & Warm-up: paper prototype and pitch check. Concept: each team writes its pseudocode or flowchart and task split (M1, see 3.1). Then build the core loop (from the starter template or the lesson's skeleton). \\
 Week 11 & M3 then M4 & First half: list, dictionary, file, three tests. Second half: playtest swap, fix one thing, accessibility check. \\
-Week 12 & Showcase & Exit assessment (20 min), then the Family Arcade (40 min). \\
+Week 12 & Showcase & Code freeze (8 min), exit assessment (20 min), presentations and the Family Arcade gallery walk (22 min), feedback and certificates (10 min). \\
 \bottomrule
 \end{longtable}}
 
@@ -52,7 +52,7 @@ child with a very clear vision. In a pair:
 %% ====================================================================
 \section{3. Milestone walkthrough}
 
-\subsection{3.1 M1: Pitch and plan (end of week 9)}
+\subsection{3.1 M1: Pitch and plan (pitch: week 9 homework; plan: start of week 10)}
 \textbf{Look for:} a project name, one sentence that says what it is, and a plan for each must-have
 (\enquote{My list will hold\ldots}). A pseudocode list or flowchart of the main loop. A task split for pairs.
 
@@ -71,7 +71,8 @@ list:} a gallery of designs, or a list of colors, both count.
 
 \subsection{3.2 M2: Core loop works (week 10)}
 \textbf{Look for:} the program runs from the starter template, and the main action happens on screen.
-Game: the player moves with keys and something moves on a timer. Studio: a key makes a new design.
+Game: the player moves with keys and something moves on a timer. Studio: a key makes a new design, or a
+\texttt{while} menu loop draws something and quits cleanly.
 
 \begin{teacherscript}[Questions to ask]
 \enquote{Show me the line that makes things move every tick.} \enquote{What does this function get, and
@@ -81,13 +82,13 @@ what does it give back?} \enquote{Run it. What did you expect? What happened?}
 \begin{tip}[Unblocking]
 Build in tiny steps and press Run after every two or three lines. If it breaks, undo the last
 change (\keys{Cmd}+\keys{Z}) and try smaller. Keys do nothing: click the window, check
-\texttt{screen.listen()}, and check that there are no brackets in \texttt{onkey(go\_left, "Left")}.
+\texttt{screen.listen()}, and check that there are no parentheses in \texttt{onkey(go\_left, "Left")}.
 \end{tip}
 
 \subsection{3.3 M3: Data and tests (week 11, first half)}
 \textbf{Look for:} the list, the dictionary and the file are used for something real (not just
-created). \texttt{my\_tests.py} has at least three tests of their \textbf{own} functions, and they pass
-when the child presses Run.
+created). The test file (\texttt{my\_tests.py} from the template, or \texttt{test\_mygame.py}) has at least
+three tests of their \textbf{own} functions, and they pass when the child presses Run.
 
 \begin{teacherscript}[Questions to ask]
 \enquote{What happens the very first time, when the file does not exist yet?} \enquote{Which of your
@@ -236,7 +237,7 @@ Points to show the children:
   \item \texttt{screen.tracer(0)} plus \texttt{screen.update()} once per frame: smooth, no flicker.
   \item The \texttt{LOOKS} dictionary gives every kind its \textbf{shape, size and color}, so stars and
         meteors never differ by color alone.
-  \item \texttt{onkey(go\_left, "Left")}: no brackets after \texttt{go\_left}; \texttt{listen()} is called.
+  \item \texttt{onkey(go\_left, "Left")}: no parentheses after \texttt{go\_left}; \texttt{listen()} is called.
   \item \texttt{game\_loop} schedules itself again with \texttt{ontimer} until the game is over.
   \item The score file is found with \texttt{Path(\_\_file\_\_).parent}, so it is always created next to
         the program, wherever Thonny was started.
@@ -285,11 +286,11 @@ their example tests pass. You do not need to show it to the children.
 \begin{longtable}{@{}>{\bfseries}p{1.8cm}>{\raggedright\arraybackslash}p{12.8cm}@{}}
 \toprule
 Minutes & What happens \\ \midrule\endhead
-0--20 & Exit assessment, before the families arrive (Assessments booklet). \\
-20--25 & Set up the stations: each Mac shows one project, with its project card next to it. Run each project once to check it starts. \\
-25--45 & \textbf{Family Arcade.} Families move between stations. At each, the maker gives the 1-minute demo (7.2), the visitor plays, then writes a feedback card. \\
-45--55 & Each maker reads two feedback cards aloud and says one thing they would add next. \\
-55--60 & Certificates, applause, and a group photo of the screens only (if families agree). \\
+0--8 & Code freeze: last save, fill in the presentation card (workbook chapter 12), set up each Mac as a station with its project card and feedback cards. Run each project once to check it starts. \\
+8--28 & Exit assessment, before the families arrive (Assessments booklet). \\
+28--38 & \textbf{Presentations.} You model a 1-minute pitch with Star Catcher, then each maker gives the demo (7.2) and takes one question. \\
+38--50 & \textbf{Family Arcade gallery walk.} Families and children move between stations, play, and write a feedback card at each. \\
+50--60 & Each maker reads their feedback cards; certificates, applause, and a group photo of the screens only (if families agree). \\
 \bottomrule
 \end{longtable}}
 

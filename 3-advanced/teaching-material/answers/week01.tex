@@ -10,17 +10,22 @@ The placement quiz answers and scoring guide are in the assessments section at t
 There is no code to score: check the student's Terminal. In \texttt{Documents/git-quest} the commands
 \texttt{git log --oneline} and \texttt{git status} should give something like:
 \begin{outputcode}
-3e8d1f2 (HEAD -> main) Make star bigger
-9b0c7a4 Change badge color to green
+3e8d1f2 (HEAD -> master) Make star bigger
+9b0c7a4 Change badge color and hero name
 7c41e0a Add hero badge drawing
 
-On branch main
+On branch master
 nothing to commit, working tree clean
 \end{outputcode}
+The branch may be called \texttt{main} instead of \texttt{master}; both are fine. An untracked \texttt{.DS\_Store} (a hidden Finder file) is harmless.
 \textbf{What to look for:} 3 or more commits; messages that start with a verb and say what changed;
 \texttt{git config user.name} shows a nickname and \texttt{git config user.email} an \texttt{@example.com} address;
 the student can explain that \texttt{git restore} brought back the deleted \texttt{draw\_star} function.
 The commit ids will always be different from these.
+\end{answer}
+
+\begin{answer}[Reflection: why two steps?]
+\texttt{git add} lets you choose \emph{which} changes go into the next save point, so one commit can hold one idea (and a file with a secret can be left out). \texttt{git commit} then takes the snapshot and gives it a message. Any answer about choosing what to save, or checking before saving, is good.
 \end{answer}
 
 \subsection{Exercise 1.2: Commit Coach}
@@ -45,7 +50,7 @@ folder; it is skipped on a Mac without git.
 \begin{answer}[Core: Inventory Review]
 Expected output includes \texttt{Gems: 3}, \texttt{Most common: gem} and \texttt{After using all potions: ['gem', 'key', 'gem', 'map', 'gem']}.
 Common slip: removing items from the list while looping over it (it skips items) instead of building a new list.
-The git step should add one more commit (\enquote{Add inventory review} or similar).
+The git step should add one more commit (\enquote{Add inventory review} or similar), so \texttt{git-quest} now has at least 4 commits, and the file in it is called \texttt{inventory\_review.py}.
 \end{answer}
 
 \begin{answer}[Challenge: Message makeover]

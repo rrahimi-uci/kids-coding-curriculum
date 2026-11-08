@@ -16,14 +16,17 @@ When a program crashes, Thonny shows a red \textbf{traceback} like this one:
 \begin{outputcode}
 Traceback (most recent call last):
   File "starter.py", line 24, in <module>
+    for line in make_card("Zoe the Brave", 4, 120):
   File "starter.py", line 17, in make_card
+    card_line("Level", level),
   File "starter.py", line 10, in card_line
     return label + ": " + value
 TypeError: can only concatenate str (not "int") to str
 \end{outputcode}
+(Thonny shows the whole folder path in front of \texttt{starter.py}.)
 \begin{enumerate}[leftmargin=1.6em]
   \item \textbf{WHAT} went wrong: the \textbf{last line}. Here: a \texttt{TypeError}, text + number.
-  \item \textbf{WHERE}: the \texttt{File} line just above it. Here: line 10, in the function \texttt{card\_line}.
+  \item \textbf{WHERE}: the last \texttt{File} line, just above the code line. Here: line 10, in the function \texttt{card\_line}.
   \item \textbf{HOW} it got there: the lines further up. The main program (line 24) called \texttt{make\_card}, which called \texttt{card\_line}.
 \end{enumerate}
 In Thonny you can click the blue link to jump straight to that line.
@@ -52,7 +55,7 @@ Explain your code, line by line, out loud, to a partner, a toy or a rubber duck.
 Very often you hear yourself say the bug before you reach the end. This is the best tool for bugs that do not crash.
 
 \subsection{Tool 4: the trace table}
-Follow the code with a pencil, like a very slow computer. Write a column for each variable and a row each time round the loop.
+Follow the code with a pencil, like a very slow computer. Write a column for each variable and a row each time through the loop.
 When the table shows a value you did not expect, you have found the bug.
 
 \begin{tip}[Bugs are normal]
@@ -87,7 +90,7 @@ Folder: \texttt{ex-bug-countdown}. The safety net stops the stuck loop. Fill in 
 3 & & \\ \hline
 \end{tabular}
 \end{center}
-What should change each time round, but does not? \rule{6cm}{0.4pt}\par
+What should change each time through, but does not? \rule{6cm}{0.4pt}\par
 What I changed: \answerlines{1}
 \end{exercise}
 

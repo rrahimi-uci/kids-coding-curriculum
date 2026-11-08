@@ -36,14 +36,14 @@ Students cut out the two wheels from the workbook page, put the small one on top
 \par To \textbf{encode}, find the plain letter on the inner wheel and write the outer letter. To \textbf{decode}, go the other way: outer to inner.
 \par Show your sticky note \texttt{brx duh d frgh euhdnhu} and say: \enquote{This was made with shift 3. Who can crack it?}
 (Answer: \enquote{you are a code breaker}.) Spaces stay spaces.
-\par\textbf{Ask:} \enquote{What comes after z?} (The wheel goes round, so z becomes c with shift 3.) Keep the wheels for homework and for B1.
+\par\textbf{Ask:} \enquote{What comes after z?} (The wheel goes around, so z becomes c with shift 3.) Keep the wheels for homework and for B1.
 \end{unplugged}
 
 \section{Concept (8--18 min)}
 \begin{teacherscript}[Say]
 \enquote{Your cipher wheel is a lookup: give it a letter, it gives you the secret letter. Python has a tool made for lookups:
 the \textbf{dictionary}. A list finds things by \emph{number}: \texttt{backpack[0]}. A dictionary finds things by \emph{name}.
-Each name is called a \textbf{key}, and what it gives back is the \textbf{value}. We write a dictionary with curly brackets,
+Each name is called a \textbf{key}, and what it gives back is the \textbf{value}. We write a dictionary with curly braces,
 and a colon between each key and its value.}
 \end{teacherscript}
 Write on paper, with arrows from each key to its value:
@@ -93,15 +93,15 @@ Swap driver and navigator when the 8-minute timer rings (about minutes 36 and 44
 \end{pairroles}
 
 \begin{enumerate}[leftmargin=1.4em]
-  \item \textbf{Exercise 5.1 Monster Stats} (folder \texttt{ex-monster-stats}, about 10 minutes): TODO 1 (\texttt{.items()}), TODO 2 (level up), TODO 3 (KeyError).
-  \item \textbf{Exercise 5.2 Caesar Cipher} (folder \texttt{ex-caesar-cipher}, about 12 minutes). Run it first and look at the printed dictionary
+  \item \textbf{Exercise 5.1 Monster Stats} (folder \texttt{ex-monster-stats}, about 8 minutes): TODO 1 (\texttt{.items()}), TODO 2 (level up), TODO 3 (KeyError).
+  \item \textbf{Exercise 5.2 Caesar Cipher} (folder \texttt{ex-caesar-cipher}, about 11 minutes). Run it first and look at the printed dictionary
         \texttt{\{'a': 'd', 'b': 'e', ...\}}: \enquote{That is your paper wheel, as a dictionary!} Then finish \texttt{encode()} and \texttt{decode()}.
   \item After each exercise: open \texttt{check\_my\_work.py} and press \menu{Run}.
 \end{enumerate}
 
 \begin{teachernote}[The \% sign in make\_key()]
-\texttt{(i + shift) \% 26} is the remainder after dividing by 26: it wraps the alphabet round like a clock, so after \textbf{z} comes \textbf{a}.
-Students only use \texttt{make\_key()}; if asked, say \enquote{it is your paper wheel going round, in code}.
+\texttt{(i + shift) \% 26} is the remainder after dividing by 26: it wraps the alphabet around like a clock, so after \textbf{z} comes \textbf{a}.
+Students only use \texttt{make\_key()}; if asked, say \enquote{it is your paper wheel going around, in code}.
 \end{teachernote}
 
 \begin{bughunt}[KeyError and wrong spelling]
@@ -121,7 +121,7 @@ Extension: decode one without being told the shift.
 \begin{safety}[Encryption and passwords]
 Say: \enquote{You just cracked a Caesar cipher in a minute! Real apps use much stronger \textbf{encryption}, math so hard
 that even fast computers cannot undo it without the key. That keeps messages and bank details safe.} Agree these rules together:
-(1) a real password is only for you and your parent or carer: not for friends, games or chat;
+(1) a real password is only for you and your parent or caregiver: not for friends, games or chat;
 (2) never type a real password into a program you or a friend wrote: we only use made-up game passwords;
 (3) long is strong: three random words joined together beat a short word with a number;
 (4) if a website or message asks for your password, ask a grown-up first: real companies never ask for it in a message.

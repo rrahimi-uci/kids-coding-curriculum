@@ -42,9 +42,9 @@ def bar_height(value, biggest):
 
 
 def draw_bar(t, x, height, color):
+    """A filled rectangle with its bottom-left corner at (x, BOTTOM)."""
     # (Given code.) The sides go width, height, width, height, turning left
     # each time, which draws a rectangle.
-    """A filled rectangle with its bottom-left corner at (x, BOTTOM)."""
     t.penup()
     t.goto(x, BOTTOM)
     t.setheading(0)
@@ -76,7 +76,7 @@ def draw_bar_chart(t, counts, title):
         draw_bar(t, x, height, PALETTE[i % len(PALETTE)])
         middle = x + BAR_WIDTH / 2  # labels are centered on the bar
         # Number on top (a little above the bar, so it does not touch it).
-        # write() needs text, so the number is changed with str().
+        # str() turns the number into text, so we clearly write a label.
         write_at(t, middle, BOTTOM + height + 5, str(value))
         # Name underneath. With names AND numbers written out, nobody has to
         # tell the bar colors apart to read the chart.
@@ -101,8 +101,8 @@ if __name__ == "__main__":
 # Common mistakes children make here:
 #   - Dividing whole numbers the wrong way round (biggest / value), which
 #     makes the biggest bar the SHORTEST.
-#   - Passing the number straight to write_at without str(), which can fail
-#     or print nothing useful.
+#   - Writing every label at the same x (for example 0) instead of at
+#     middle, so all the names pile up on top of each other.
 #   - Writing the number at y = BOTTOM instead of BOTTOM + height + 5, so
 #     every number lands at the bottom of the chart, not on top of its bar.
 #

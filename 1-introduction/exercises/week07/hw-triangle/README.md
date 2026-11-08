@@ -11,5 +11,6 @@
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 
-**Challenge:** under the triangle, draw a square in a different color from
-the palette (move with `t.penup()`, `t.forward(150)`, `t.pendown()` first).
+**Challenge:** next to the triangle, draw a square in a different color, like
+`t.color("#0072B2")`. Move first without drawing: `t.penup()`, `t.forward(150)`,
+`t.pendown()`. (`penup` lifts the pen, `pendown` puts it back.)

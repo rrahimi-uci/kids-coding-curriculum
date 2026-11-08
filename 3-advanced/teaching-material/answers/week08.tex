@@ -9,14 +9,14 @@ The cleaner throws away \textbf{2 rows}: response 5 and the all-commas row, beca
 \end{answer}
 
 \section{Exercise 8.2: Survey stats}
-\pyfile[firstline=40,lastline=65]{../exercises/week08/ex-survey-stats/solution.py}
+\pyfile[firstline=45,lastline=73]{../exercises/week08/ex-survey-stats/solution.py}
 \begin{answer}[Answers]
 Most popular game: \textbf{Block Craft} (5 votes). Average hours per week: \textbf{3.1} (50 hours $\div$ 16 answers; the missing answer is skipped). Average stars: 4.4.
 Adventure (5.0 stars from 2 answers): \textbf{do not trust it much} -- the sample is tiny; one more answer could change it a lot. Any answer mentioning \enquote{only 2 people} is correct.
 \end{answer}
 
 \section{Exercise 8.3: Bar chart}
-\pyfile[firstline=31,lastline=70]{../exercises/week08/ex-bar-chart/solution.py}
+\pyfile[firstline=36,lastline=85]{../exercises/week08/ex-bar-chart/solution.py}
 \begin{answer}[What to look for]
 Six bars, tallest first: Block Craft 5, Kart Dash 4, Puzzle Drop 3, Sky Islands 2, Pixel Pets 2, Space Chess 1. Every bar has its number on top and its name underneath; heights are in proportion (the 5-vote bar is 5 times the 1-vote bar). Ask: \enquote{Could someone who cannot see colors read this chart?} -- the answer should be yes.
 \end{answer}
@@ -27,7 +27,7 @@ The chart tells us which games this group likes most. It \emph{cannot} tell us w
 \end{answer}
 
 \section{Homework 8}
-\pyfile[firstline=15,lastline=43]{../exercises/week08/hw-survey-privacy/solution.py}
+\pyfile[firstline=24,lastline=46]{../exercises/week08/hw-survey-privacy/solution.py}
 \begin{answer}[Core]
 \texttt{club} is risky because a small club plus an answer (\enquote{the chess-club person who reads 35 minutes}) can point to one person even without a name. The first anonymous row is \texttt{\{'id': 'R1', 'favorite\_snack': 'apple slices', 'minutes\_reading': '20'\}}.
 \end{answer}

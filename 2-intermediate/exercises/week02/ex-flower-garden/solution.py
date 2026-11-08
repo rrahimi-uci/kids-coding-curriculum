@@ -19,7 +19,7 @@ GREEN = "#009E73"
 
 
 def petal_turn(petals):
-    """Return how many degrees to turn between petals so they go all the way round."""
+    """Return how many degrees to turn between petals so they go all the way around."""
     # A full turn is 360 degrees. 6 petals means 360 / 6 = 60 degrees each.
     return 360 / petals
 

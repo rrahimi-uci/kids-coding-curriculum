@@ -33,7 +33,7 @@ LOOKS = {
 }
 FONT = ("Arial", 16, "bold")
 
-# A five-pointed star: the corner points, going round the shape.
+# A five-pointed star: the corner points, going around the shape.
 STAR_SHAPE = ((0, 14), (-4, 5), (-13, 4), (-6, -2), (-8, -11),
               (0, -6), (8, -11), (6, -2), (13, 4), (4, 5))
 

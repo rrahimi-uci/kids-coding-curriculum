@@ -132,6 +132,43 @@ Folder: \texttt{week07/ex-paint-bucket}. Finish \texttt{count\_tiles(grid, symbo
 \textbf{Which cells does the paint stop at?} \answerlines{1}
 \end{exercise}
 
+\section{Stretch: breadth-first search (BFS)}
+This part is optional: try it when your paint bucket works. The recursive fill dives deep down one path before it comes back. \textbf{Breadth-first search (BFS)} fills in \textbf{rings}, nearest squares first, like ripples in a pond. It uses the \textbf{queue} from week 5: first in, first out. The squares waiting to be visited stand in line; you always take the one at the front.
+
+\begin{center}
+%% alt: Two 3 by 3 grids. In the left grid the squares are numbered 1 to 9 in the order BFS visits them, starting at the top left: row 0 is 1, 3, 6; row 1 is 2, 5, 8; row 2 is 4, 7, 9. In the right grid each square shows its distance from the start: row 0 is 0, 1, 2; row 1 is 1, 2, 3; row 2 is 2, 3, 4. Squares with the same distance form a ring.
+\begin{tikzpicture}[cell/.style={draw,minimum size=0.8cm,font=\ttfamily}]
+  \node[font=\small] at (0.8,0.9) {visiting order};
+  \foreach \r/\c/\n/\d in {0/0/1/0,0/1/3/1,0/2/6/2,1/0/2/1,1/1/5/2,1/2/8/3,2/0/4/2,2/1/7/3,2/2/9/4}
+    {\node[cell,fill=kcsky!\the\numexpr 10+\d*12\relax] at (\c*0.8,-\r*0.8) {\n};
+     \node[cell,fill=kcsky!\the\numexpr 10+\d*12\relax] at (5.6+\c*0.8,-\r*0.8) {\d};}
+  \node[font=\small] at (6.4,0.9) {distance (ring)};
+\end{tikzpicture}
+\end{center}
+
+Start at the top-left square (order 1, distance 0). Its neighbors, 2 and 3, are one step away: ring 1. Their new neighbors, 4, 5 and 6, are ring 2, and so on. The queue always holds the \enquote{next ring} behind the \enquote{current ring}.
+
+\begin{pycode}[flood fill with a queue]
+from collections import deque
+
+def flood_fill_queue(grid, row, col, old, new):
+    queue = deque([(row, col)])
+    grid[row][col] = new                # mark it: never queued twice
+    while queue:
+        r, c = queue.popleft()          # take the square at the FRONT
+        for nr, nc in [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]:
+            inside = 0 <= nr < len(grid) and 0 <= nc < len(grid[0])
+            if inside and grid[nr][nc] == old:
+                grid[nr][nc] = new      # mark it, then...
+                queue.append((nr, nc))  # ...join the BACK
+\end{pycode}
+
+\textbf{Same area, different style.} Recursive flood fill and BFS paint exactly the same squares. BFS never hits \texttt{RecursionError} (there is no pile of waiting calls, just a queue), and, because it works in rings, it can also tell you how many steps each square is from the start. That is how a game finds the shortest path through a maze.
+
+\begin{stretchchallenge}[Add BFS to your paint bucket]
+In \texttt{week07/ex-paint-bucket}, write \texttt{flood\_fill\_queue(grid, row, col, old, new)} below \texttt{paint}, using the code above as a guide but typing it yourself. Then change \texttt{paint} to call it instead of \texttt{flood\_fill}. Check with \texttt{check\_my\_work.py}. In a 4-by-4 empty grid, which square is visited last when you start at the top-left? \answerlines{1}
+\end{stretchchallenge}
+
 \begin{tip}[Watch the calls pile up]
 In Thonny, click the bug icon (Debug) and press \keys{F7} (Step into) again and again on \texttt{sum\_to(3)}. Each new call opens a new box -- that is the call stack.
 \end{tip}
@@ -144,6 +181,7 @@ In Thonny, click the bug icon (Debug) and press \keys{F7} (Step into) again and 
   \vocabword{fractal}{A shape made of smaller copies of itself, like a tree, a fern or a snowflake.}
   \vocabword{grid (2D list)}{A list of rows, where each row is a list. \texttt{grid[row][col]} is one cell.}
   \vocabword{flood fill}{Filling every touching cell of the same color, like a paint bucket tool.}
+  \vocabword{breadth-first search (BFS)}{Visiting squares in rings, nearest first, using a queue. (Stretch.)}
 \end{vocab}
 
 \begin{reflection}

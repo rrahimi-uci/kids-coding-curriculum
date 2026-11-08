@@ -64,7 +64,7 @@ cd git-quest
 git config --global user.name "PixelFox"
 git config --global user.email "pixelfox@example.com"
 \end{shellcode}
-Drag \texttt{hero\_badge.py} from \texttt{week01/ex-git-quest} into \texttt{Documents/git-quest} in Finder, then type \texttt{ls} (list): it shows \texttt{hero\_badge.py}. Say: \enquote{Git writes the name into every save point, forever. So we use a nickname and a pretend email: \texttt{example.com} is a made-up address that is safe to use.}
+If macOS asks whether Terminal may access the Documents folder, click \menu{Allow}. In Finder, hold \keys{Option} and drag \texttt{hero\_badge.py} from \texttt{week01/ex-git-quest} into \texttt{Documents/git-quest} (\keys{Option} makes a copy; a plain drag would move the original out of the exercise folder), then type \texttt{ls} (list): it shows \texttt{hero\_badge.py}. Say: \enquote{Git writes the name into every save point, forever. So we use a nickname and a pretend email: \texttt{example.com} is a made-up address that is safe to use.}
 
 \textbf{2. Start the save system and make the first save point.}
 \begin{shellcode}
@@ -75,9 +75,9 @@ git commit -m "Add hero badge drawing"
 git log --oneline        # the photo album
 \end{shellcode}
 \begin{outputcode}
-7c41e0a (HEAD -> main) Add hero badge drawing
+7c41e0a (HEAD -> master) Add hero badge drawing
 \end{outputcode}
-Every commit gets its own id, so yours will differ (and \texttt{main} may say \texttt{master}; both are fine). Run \texttt{hero\_badge.py} in Thonny to show the badge.
+Every commit gets its own id, so yours will differ (and \texttt{master} may say \texttt{main}; both are fine). \texttt{git init} also prints a few yellow \texttt{hint:} lines about the name \texttt{master}: say \enquote{git is chatty; we can ignore those}. Run \texttt{hero\_badge.py} in Thonny to show the badge.
 \end{workedexample}
 
 \section{Hands-on build (34--53 min)}
@@ -87,8 +87,8 @@ With \textbf{1 student}: you are the navigator. With \textbf{3}: add a \textbf{h
 \end{pairroles}
 
 \begin{enumerate}[itemsep=2pt]
-  \item \textbf{Git Quest levels 5--7} (about 10 minutes): change the color and hero name, look at \texttt{git diff}, commit; delete \texttt{draw\_star} on purpose, then rescue it with \texttt{git restore hero\_badge.py}; make one more commit of their own. Students check off the checklist in the README.
-  \item \textbf{Exercise 1.2 Commit Coach} (about 8 minutes): open \texttt{ex-commit-coach/starter.py}, finish the \texttt{TODO}s, check with \texttt{check\_my\_work.py}. This revisits Level 2 functions, lists and loops.
+  \item \textbf{Git Quest levels 5--7} (about 9 minutes): change the color and hero name, look at \texttt{git diff}, commit; delete \texttt{draw\_star} on purpose, then rescue it with \texttt{git restore hero\_badge.py}; make one more commit of their own. Students check off the checklist in the README.
+  \item \textbf{Exercise 1.2 Commit Coach} (about 6 minutes, then the 4-minute free-build below): open \texttt{ex-commit-coach/starter.py}, finish the \texttt{TODO}s, check with \texttt{check\_my\_work.py}. This revisits Level 2 functions, lists and loops.
   \item Pairs who finish go on to \textbf{Exercise 1.3 Log Reader}.
 \end{enumerate}
 
@@ -133,7 +133,9 @@ A commit history is like writing in pen: it remembers everything, even things yo
   \item \textbf{\texttt{git init} in the wrong folder} (for example the home folder): \texttt{git status} then lists hundreds of files. Do not commit. In Finder, open that folder, press \keys{Cmd}+\keys{Shift}+\keys{.} to show hidden files, and drag the \texttt{.git} folder to the Trash. Then \texttt{cd} into \texttt{git-quest} and start again.
   \item \textbf{\enquote{Please tell me who you are}} error: the two \texttt{git config} lines were skipped. Type them, then commit again.
   \item \textbf{\texttt{git diff} shows nothing} (file not saved: \keys{Cmd}+\keys{S}) or \textbf{\enquote{nothing added to commit}} (\texttt{git add} forgotten).
-  \item \textbf{After \texttt{git restore}, Thonny still shows the broken code.} If Thonny asks to reload the file, click \menu{Yes}; otherwise close the tab and open the file again.
+  \item \textbf{After \texttt{git restore}, Thonny still shows the broken code.} If Thonny asks to reload the file, click \menu{Yes}; otherwise close the tab and open the file again. Warn the pair not to press Run or Save first: Thonny saves before it runs and would write the broken code back (if it happens, type \texttt{git restore hero\_badge.py} again).
+  \item \textbf{A screen with \texttt{:} or \texttt{(END)} at the bottom} after \texttt{git log} or \texttt{git diff}: that is a pager for long output. Press \keys{q}.
+  \item \textbf{\texttt{git status} lists \texttt{.DS\_Store}}: a hidden file Finder makes. Harmless; just never \texttt{git add} it.
 \end{commonmistakes}
 
 \begin{differentiation}
@@ -142,7 +144,7 @@ A commit history is like writing in pen: it remembers everything, even things yo
 \end{differentiation}
 
 \begin{stretchchallenge}[Teach git to ignore secrets]
-Make \texttt{secrets.txt} (a pretend password) in \texttt{git-quest}, then a file \texttt{.gitignore} containing the line \texttt{secrets.txt}. Now \texttt{git status} no longer lists the secrets file. Commit \texttt{.gitignore} and explain why this protects you.
+Make \texttt{secrets.txt} (a pretend password) in \texttt{git-quest}, then a file \texttt{.gitignore} containing the line \texttt{secrets.txt}. The easiest way to make it is in Terminal: \texttt{echo secrets.txt > .gitignore} (Finder hides files whose names start with a dot). Now \texttt{git status} no longer lists the secrets file. Commit \texttt{.gitignore} and explain why this protects you.
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]

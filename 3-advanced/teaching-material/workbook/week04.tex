@@ -69,9 +69,11 @@ while low <= high:             # <= : one item left is still worth checking
         high = mid - 1         # throw away the right half (and mid)
 return -1                      # nothing left: not in the list
 \end{pycode}
+New symbol: \texttt{//} divides and throws away the decimal part, so \texttt{7 // 2} is \texttt{3} (a list place must be a whole number). \texttt{7 / 2} would give \texttt{3.5}.
 
 \begin{exercise}[Search Race]
 Folder: \texttt{week04/ex-search-race}. \texttt{linear\_search} is done. Write \texttt{binary\_search}: it returns \texttt{(index, steps)}. Run it to see the race table.\\
+Two values in round parentheses are a \textbf{tuple}. \texttt{return mid, steps} gives back both at once, and \texttt{index, steps = binary\_search(items, 44)} catches both.\\
 \textbf{Predict} the binary steps for 10000 items: \rule{2cm}{0.4pt}\quad What did the program say? \rule{2cm}{0.4pt}
 \end{exercise}
 
