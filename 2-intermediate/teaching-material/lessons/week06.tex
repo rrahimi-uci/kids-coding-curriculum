@@ -1,0 +1,187 @@
+% Level 2, Week 6 -- Review and Checkpoint
+\lesson{6}{Review and Checkpoint}{Bugs are normal: detectives find them with a strategy, not by luck.}
+\lessoninfo{Concepts: debugging strategies (I): tracebacks, print-debugging, rubber duck, trace tables; weeks 1--5 (R)}{Tools: Thonny, paper, a rubber duck or any toy}{CSTA: 2-AP-17, 2-AP-19}
+
+\begin{objectives}
+  \item The student can read a traceback from the bottom up and name the error type and the line where it happened. (L2.G6; L2.W06.1)
+  \item The student can use \texttt{print()} lines and a trace table to find where a program's values go wrong. (L2.G6; L2.W06.2)
+  \item The student can explain code line by line to a partner or a rubber duck to find a bug that does not crash. (L2.G6; L2.W06.3)
+  \item The student can fix bugs that involve types, list indexes, loops, return values and dictionary keys from weeks 1--5. (L2.G3; L2.W06.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print (one per student): the \textbf{Mid-level checkpoint in the Assessments booklet}, workbook chapter 6, homework 6.
+  \item Five station cards (2 minutes): write \enquote{Station 1: Hero Card} \ldots{} \enquote{Station 4: Loot Shop} and \enquote{Station 5: Paper detectives}
+        on sheets of paper. Put cards 1--4 by the computers and card 5 on a table with pencils (station 5 is in the workbook).
+  \item A rubber duck, a soft toy or any small figure: the \enquote{duck}.
+  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{excercises/week06/ex-bug-hero-card}.
+        The other stations are the folders \texttt{ex-bug-high-scores}, \texttt{ex-bug-countdown} and \texttt{ex-bug-loot-shop}.
+  \item A timer.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+Times are a guide: set a timer for each phase and move on when it rings.
+\begin{timeplan}
+  \timeslot{0--6}{Warm-up}{Unplugged \enquote{Debugging detectives}: a trace table on paper.}
+  \timeslot{6--14}{Concept}{Four detective tools: traceback bottom-up, print-debugging, rubber duck, trace table. Growth mindset: \enquote{not yet}.}
+  \timeslot{14--20}{Guided demo}{Fix Station 1 (Hero Card) live, thinking aloud with the traceback.}
+  \timeslot{20--42}{Hands-on build}{Bug-hunt workshop: pairs rotate through stations 2--5, about 5 minutes each, writing a bug report for each. Last 2 minutes: free-build.}
+  \timeslot{42--60}{Wrap-up}{Mid-level checkpoint from the Assessments booklet (15 minutes, quiet, paper). Then growth-mindset reflection and homework 6.}
+\end{timeplan}
+
+\begin{teachernote}[About the checkpoint]
+The checkpoint shows what has stuck from weeks 1--5. Say clearly that it is not for marks: it tells you what to revisit.
+Answers and marking guide are in the Answer Key. If your group is tired at minute 42, give the checkpoint at the
+\emph{start} of next session instead and extend today's workshop to minute 55.
+\end{teachernote}
+
+\section{Warm-up (0--6 min)}
+\begin{unplugged}[Debugging detectives]
+Write this on paper and draw the empty table next to it. Students fill it in one row per time round the loop, \emph{without} a computer.
+\begin{center}
+\begin{minipage}{0.45\linewidth}
+\begin{pycode}
+score = 0
+lives = 3
+while lives > 0:
+    score = score + 10
+    lives = lives - 1
+print(score)
+\end{pycode}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|}
+\hline \textbf{round} & \textbf{score} & \textbf{lives} \\ \hline
+start & 0 & 3 \\ \hline
+1 & 10 & 2 \\ \hline
+2 & 20 & 1 \\ \hline
+3 & 30 & 0 \\ \hline
+\end{tabular}
+\end{minipage}
+\end{center}
+(The filled table is the answer.) It prints \texttt{30}. Ask: \enquote{What if we delete the line \texttt{lives = lives - 1}?}
+(\texttt{lives} stays 3 for ever: an infinite loop, like Station 3 today.)
+\end{unplugged}
+
+\section{Concept (6--14 min)}
+\begin{teacherscript}[Say]
+\enquote{Today is detective day. Every programmer in the world writes bugs every day, including the ones who built your favourite games.
+The difference is that good programmers have \textbf{tools} for finding them. Here are four.
+One: \textbf{read the traceback from the bottom up}. The last line says what went wrong; the line above says where.
+Two: \textbf{print-debugging}. Add a \texttt{print()} to see what is really inside a variable, then remove it when you are done.
+Three: the \textbf{rubber duck}. Explain your code line by line to a duck. Halfway through, you often hear yourself say the bug.
+Four: the \textbf{trace table}, like we just did: follow the code with a pencil and write down every value.}
+\end{teacherscript}
+Hold up the duck and put it next to the computers. Write the four tools on a sheet of paper and stick it where everyone can see it.
+
+\begin{analogy}[A doctor, not a guesser]
+A good doctor does not guess medicine at random. They ask where it hurts (the traceback), take your temperature (a \texttt{print()}),
+listen while you explain (the rubber duck) and check things one step at a time (the trace table). Changing code at random
+is like taking random medicine: it rarely helps and can make things worse. Change one thing, then run again.
+\end{analogy}
+
+\section{Guided demo (14--20 min)}
+\begin{workedexample}[Thinking aloud: Station 1, Hero Card]
+\begin{enumerate}[leftmargin=1.4em]
+  \item Open \texttt{week06/ex-bug-hero-card/starter.py}. Press \menu{Run} (\keys{F5}). Red text appears.
+  \item Point at the \textbf{last line}: \texttt{TypeError: can only concatenate str (not "int") to str}. Say: \enquote{What: text plus a number.}
+  \item Point at the line above it: \texttt{line 10, in card\_line}. Click the blue line link in the Shell: Thonny jumps to the line. Say: \enquote{Where: inside \texttt{card\_line}.}
+        The lines further up show who called it: \texttt{make\_card}, and before that the main program.
+  \item Print-debug: add \texttt{print("value is", value, type(value))} as the first line of \texttt{card\_line} and run again.
+        The Shell shows \texttt{value is Zoe the Brave <class 'str'>} and then \texttt{value is 4 <class 'int'>}, just before the crash.
+  \item Say: \enquote{So the number 4 broke it. Fix: an f-string, \texttt{return f"\{label\}: \{value\}"}.} Make the change, remove the print line, run again,
+        then open \texttt{check\_my\_work.py} and press \menu{Run}: all \texttt{[PASS]}.
+  \item Fill in the Station 1 bug report in the workbook together, as a model.
+\end{enumerate}
+\end{workedexample}
+\pyfile{../excercises/week06/ex-bug-hero-card/solution.py}
+
+\section{Hands-on build (20--42 min)}
+\begin{pairroles}[Detective pairs]
+At each station: the \textbf{driver} types and runs; the \textbf{detective} holds the workbook, reads the traceback aloud and writes the bug report.
+Swap at every new station. When the timer rings (every 5 minutes), move on, even if not finished: come back to it at home or in a buffer session.
+\textbf{1 student:} you are the duck. Ask \enquote{What should this line do? What does it really do?} but never point at the bug.
+\textbf{2 students:} one pair visits stations 2, 3, 4 and 5 in order.
+\textbf{3 students:} a trio with a \textbf{duck} role (the one who asks the questions), rotating at each station.
+\textbf{4 students:} two pairs. Pair A starts at station 2, pair B at station 5 (paper); then rotate 2 → 3 → 4 → 5 → 2.
+\end{pairroles}
+
+\begin{bughunt}[Bug-hunt workshop: five stations]
+\begin{description}[leftmargin=1em,itemsep=2pt]
+  \item[Station 1 -- Hero Card (TypeError).] Done in the demo. Text + number; fix with an f-string.
+  \item[Station 2 -- High Scores (IndexError, 2 bugs).] \texttt{in\_order[len(in\_order)]} is one past the end: use \texttt{[-1]}.
+        Then \texttt{podium([70, 20])} loops 3 times with only 2 scores: use \texttt{range(len(best))}. Tool: print the list.
+  \item[Station 3 -- Rocket Countdown (infinite loop).] The safety net stops it with a \texttt{RuntimeError}. \texttt{n} never changes:
+        add \texttt{n = n - 1} inside the loop. Tool: trace table.
+  \item[Station 4 -- Loot Shop (wrong answers, 3 bugs).] No crash! \texttt{return} indented inside the loop (stops after the first price);
+        \texttt{return prices[0]} instead of \texttt{smallest}; \texttt{print} instead of \texttt{return}. Tool: rubber duck and paper answers first.
+  \item[Station 5 -- Paper detectives (no computer).] The trace-table puzzle in the workbook: \texttt{biggest([-5, -2, -8])} gives 0
+        because \texttt{best} starts at 0. Fix: \texttt{best = numbers[0]}.
+\end{description}
+At each computer station, \texttt{check\_my\_work.py} shows when the bug is really fixed.
+\end{bughunt}
+
+\begin{freebuild}[Plant a bug]
+Last 2 minutes (or for anyone who finishes all stations): plant \textbf{one} bug in a working program from weeks 1--5 and save it under a new name
+(\menu{File} → \menu{Save as…}). Next session a partner hunts it. Rule: it must be a fair bug, one you could find with the four tools.
+\end{freebuild}
+
+\section{Wrap-up (42--60 min)}
+Clear the computers away. Hand out the \textbf{Mid-level checkpoint in the Assessments booklet}, start a 15-minute timer, and sit with the group.
+You may read questions aloud; do not hint at answers. Collect the papers at minute 57.
+
+\begin{safety}[Growth mindset reflection]
+Ask each student to finish this sentence aloud or on a sticky note: \enquote{Six weeks ago I could not \ldots{} and now I can \ldots}
+Then: \enquote{Which bug today made you feel stuck? What did you do next?} Praise the strategy, not being clever:
+\enquote{You read the traceback first. That is what real programmers do.} Introduce the word \textbf{yet}: \enquote{I can't fix this \emph{yet}.}
+Being kind to yourself and to others when code breaks is part of being a good digital citizen: we never laugh at someone's bug.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket (on the back of the checkpoint)]
+\begin{outputcode}
+  File "game.py", line 8, in best_item
+    return items[3]
+IndexError: list index out of range
+\end{outputcode}
+\enquote{What went wrong, and where?} \textbf{Answer:} an \texttt{IndexError} on line 8 in the function \texttt{best\_item}: the list has fewer than 4 items,
+so index 3 does not exist. \textbf{Look for:} students who name the error type \emph{and} the line. If they read the top of the traceback first, practise bottom-up again.
+\end{formativecheck}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item Which of the four detective tools helped you most today? Why?
+  \item Which bug was the sneakiest: one that crashed, or one that gave a wrong answer?
+  \item What will you try first next time your code breaks?
+\end{itemize}
+\end{reflection}
+Hand out homework 6 (Pixel Pet bug hunt). It takes 15--20 minutes.
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Reading the traceback from the top.} The top lines show the path the program took; the answer is at the bottom.
+  \item \textbf{Changing many things at once.} Then nobody knows which change helped. One change, then run.
+  \item \textbf{Deleting the crashing line} instead of fixing it. The error goes away, but so does the feature. Ask: \enquote{What should this line do?}
+  \item \textbf{Leaving print-debugging lines in.} Remove them when the bug is fixed (they can confuse \texttt{check\_my\_work.py}).
+  \item \textbf{Removing the safety net} in Station 3. It is not the bug: the bug is that \texttt{n} never changes.
+  \item \textbf{Thinking \enquote{no red text} means \enquote{no bugs}.} Station 4 has three bugs and no crash. Compare with answers worked out on paper.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do stations 2 and 3 only, with you as the duck. Give the hint card \enquote{Look at the last line of the red text. Which line number?}
+Let the student fix one bug per station and leave the second bug of Station 2 for homework.
+\extensionpath After fixing each station, write one more \texttt{print} line that would have shown the bug fastest. Then plant a sneaky,
+non-crashing bug in Station 4 for a partner, and write the bug report they \emph{should} produce.
+\end{differentiation}
+
+\begin{stretchchallenge}[Write your own safety net]
+Station 3 has a safety net that stops a stuck loop after 1000 rounds. Add the same kind of safety net to the \texttt{play()} loop of
+week 4's Guess My Number: after 50 guesses, print \enquote{Too many guesses - time for a break!} and leave the loop. Why might a real game
+want a limit like this? (Fair play: no endless sessions.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the warm-up to 4 minutes and the demo to Station 1 only. Do stations 2--4 (skip the paper station 5; it is in the workbook
+for home). The checkpoint is important: if time runs out, give it at the start of next session rather than rushing it.
+\end{teachernote}

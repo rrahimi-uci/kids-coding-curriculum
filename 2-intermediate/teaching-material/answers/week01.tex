@@ -1,0 +1,44 @@
+% Level 2, Week 1 -- answer key
+\answersweek{1}{Welcome Back, Python}{Answers for workbook chapter 1 and homework 1.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 1.1 Hero Card]
+\textbf{Step 1 (error):} \texttt{TypeError: can only concatenate str (not "int") to str}.\par
+\textbf{Step 4 (types):} \texttt{hero\_name} str, \texttt{power\_points} int, \texttt{health} float, \texttt{is\_legend} bool.\par
+\textbf{What to look for:} the level is converted with \texttt{int()} once, where it is typed in (not in every line);
+every card line uses an f-string; the student explains why \texttt{health} has \texttt{.0} at the end (int times float gives a float).
+Accept any labels and border style.
+\end{answer}
+\pyfile{../excercises/week01/ex-hero-card/solution.py}
+
+\begin{answer}[Exercise 1.2 Mood Meter]
+\textbf{Prediction table:} 9 + yes: Super charged.\quad 9 + no: Ready to play.\quad 2 + yes: Ready to play.\quad 3 + no: Recharge time.\par
+\textbf{What to look for:} the \texttt{and} condition comes \emph{before} the \texttt{or} condition. If a student puts the
+\texttt{elif} first, energy 9 with a snack wrongly says \enquote{Ready to play}: a great moment to ask
+\enquote{which check does Python do first?} The tip uses \texttt{if not had\_snack:}.
+\end{answer}
+\pyfile{../excercises/week01/ex-mood-meter/solution.py}
+
+\section{Homework}
+\begin{answer}[Core: Type detective]
+\texttt{42} int,\quad \texttt{"42"} str,\quad \texttt{4.2} float,\quad \texttt{False} bool,\quad \texttt{"False"} str,\quad \texttt{-8} int.
+\end{answer}
+
+\begin{answer}[Core: Dragon Door]
+Ticks: key yes + level 5 opens; key yes + level 2 shut; key no + level 12 opens.
+Also correct: \texttt{return (has\_key and level >= 3) or level >= 10} on one line.
+\end{answer}
+\pyfile{../excercises/week01/hw-dragon-door/solution.py}
+
+\begin{answer}[Challenge: Predict, then check]
+\texttt{False}, \texttt{True}, \texttt{False}, \texttt{77}, \texttt{14}.
+\end{answer}
+
+\begin{answer}[Creative: Design a hero]
+Any made-up hero is fine. Check for one value of each type, for example
+name \texttt{"Comet Kai"} (str), level \texttt{6} (int), speed \texttt{2.5} (float), can fly \texttt{True} (bool).
+If a student writes a real name or school, gently remind them of the hero-name rule.
+\end{answer}
+
+\section{Placement quiz}
+The placement quiz answers and marking guide are in the \textbf{Assessments} section at the end of this Answer Key.

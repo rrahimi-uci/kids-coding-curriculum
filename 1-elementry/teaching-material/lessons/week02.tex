@@ -1,0 +1,137 @@
+% Level 1, Week 2 -- Loop-de-Loop (Scratch)
+\lesson{2}{Loop-de-Loop}{Loops repeat steps so we don't have to.}
+\lessoninfo{Concepts: repeat / forever (I), costumes and animation (I), Pen extension (I), angles 360 ÷ n (I)}{Tools: Scratch 3 offline app + Pen extension}{CSTA: 1B-AP-10, 1B-AP-15}
+
+\begin{objectives}
+  \item The student can replace steps that repeat with a \enquote{repeat} block, and use \enquote{forever} to keep something going. (L1.G2) [L1.W02.1]
+  \item The student can animate a sprite by switching costumes inside a loop. (L1.G2) [L1.W02.2]
+  \item The student can add the Pen extension and draw a regular shape with \enquote{repeat n} and a turn of 360 ÷ n degrees. (L1.G2) [L1.W02.3]
+  \item The student can find and fix a shape that does not close because of a wrong turn angle. (L1.G6) [L1.W02.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 2 and homework 2 (one per student).
+  \item Dance cards: write on 8 sticky notes or scraps: \texttt{CLAP}, \texttt{STOMP}, \texttt{SPIN}, \texttt{JUMP}, \texttt{WAVE}, \texttt{REPEAT 2}, \texttt{REPEAT 3}, \texttt{REPEAT 4}.
+  \item Space to walk a square and a triangle on the floor (masking tape corners are optional).
+  \item On each Mac: the Scratch app open with a new project (\menu{File} $\rightarrow$ \menu{New}).
+  \item A timer for pair swaps and the stretch break.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Dance loops: write a dance with cards, then shrink it with REPEAT cards and perform it.}
+  \timeslot{8--18}{Concept}{Loops: repeat vs forever. Walk a square and a triangle on the floor: a whole trip around is 360 degrees, so each turn is 360 ÷ corners.}
+  \timeslot{18--28}{Guided demo}{Add the Pen extension and draw a square with \enquote{repeat 4}. Show the bug: turn 80 instead of 90.}
+  \timeslot{28--52}{Hands-on build}{Pairs, swap every 8 minutes. Exercise 2.1 Walking Cat, 2.2 Polygon Party (with the wrong-angle bug hunt), 2.3 Star Burst. Stretch break at minute 40. Last 5 minutes free-build loop art.}
+  \timeslot{52--60}{Wrap-up}{Gallery of drawings, exit ticket, reflection, hand out homework 2.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Dance loops]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Lay out the move cards. Ask the students to build a dance as a line of cards: \enquote{CLAP, CLAP, STOMP, CLAP, CLAP, STOMP, SPIN}. Everyone performs it together, reading left to right.
+  \item Ask: \enquote{Which part is the same again and again?} (CLAP, CLAP, STOMP.) \enquote{Can we use fewer cards?} Show a loop card: put \texttt{REPEAT 2} in front and slide the repeating cards underneath it, a little to the right, like a Scratch block mouth.
+  \item Pairs invent their own looping dance with at most 6 cards and teach it to everyone. With 1 student, the child writes the dance and you perform it.
+\end{enumerate}
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{A \textbf{loop} repeats some steps. In Scratch, the \textbf{repeat} block repeats the blocks inside it a number of times, then the program carries on. The \textbf{forever} block repeats until you click the red stop sign. Loops save us from copying the same blocks again and again, and they make it easy to change: to dance 10 times, change one number.}
+\end{teacherscript}
+
+\begin{analogy}[Laps around a running track]
+\enquote{A loop is like running laps. The coach says: \enquote{Run 4 laps.} You do not need four separate instructions. Each lap is the same, and you count until you reach 4. \enquote{Forever} is like a hamster wheel: it keeps going until someone stops it.}
+\end{analogy}
+
+\begin{teacherscript}[Walk the shapes]
+Stand up together. \enquote{Let's be robots drawing a square on the floor. Walk 4 steps, turn right a quarter turn. Again! (Do it 4 times.) We are back where we started, facing the same way. We turned all the way around once: that is \textbf{360 degrees}. We made 4 turns, so each turn was 360 ÷ 4 = 90 degrees.}
+Now walk a triangle (3 sides). Ask them to predict the turn first. \enquote{We still turn all the way around once, but in 3 turns, so each turn is 360 ÷ 3 = 120 degrees. That is a big, sharp turn!} Write the rule where everyone can see it: \textbf{turn = 360 ÷ number of sides}.
+\end{teacherscript}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Pen square, then a bug (Exercise 2.2, part 1)]
+\par\noindent\begin{minipage}[t]{0.56\linewidth}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the blue \menu{Add Extension} button (bottom left corner). Click \menu{Pen}. A new green \menu{Pen} category appears at the bottom of the list.
+  \item Make the cat smaller so we can see the lines: in the sprite pane, click the \menu{Size} box and type \texttt{40}.
+  \item Build the script below. Narrate: \enquote{erase all wipes old drawings; point in direction 90 means face right; pen down means start drawing.}
+  \item Click the flag. \enquote{The cat walks a square, like we did on the floor.}
+  \item Now change 90 to 80 and click the flag. \enquote{Oh no. It did not close! What happened?} Let them explain (the turns add up to only 320 degrees). Change it back to 90.
+  \item Show the trick: from \menu{Operators}, drag \enquote{( ) / ( )} into the turn slot and type \texttt{360} and \texttt{4}. Scratch does the dividing for you.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}\vspace{4pt}\centering
+\begin{scratch}[scale=0.78]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{0}}
+\blockmove{point in direction \ovalnum{90}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{minipage}
+
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver and navigator]
+Same roles as last week: the driver uses the mouse, the navigator reads the workbook and checks every number before the flag is clicked (\enquote{Is the turn really 360 ÷ sides?}). Swap every 8 minutes. With 1 student: you navigate first, then swap. With 3: driver, navigator and tester (the tester predicts the shape out loud before each click and ticks the checklist). With 4: two pairs.
+\end{pairroles}
+
+Work through the workbook: \textbf{2.1} Walking Cat (forever + next costume), \textbf{2.2} Polygon Party (square, triangle, hexagon, pentagon), \textbf{2.3} Star Burst (pen art). Ask pairs to predict each shape before they click the flag.
+
+\begin{bughunt}[The shape that will not close]
+In Exercise 2.2, the workbook shows Leo's \enquote{triangle}: repeat 3, move 100, turn 60. Ask: \enquote{Predict what it draws. Now run it.} It draws half of a hexagon, because 60 is the turn for 6 sides. Fix: turn 120 (360 ÷ 3). Ask pairs to explain the bug with the rule \enquote{all the turns add up to 360}.
+\end{bughunt}
+
+\begin{safety}[Screen-time balance: 20-20-20 and a stretch]
+At minute 40, stop everyone: \enquote{Coders look after their bodies. The \textbf{20-20-20 rule}: every 20 minutes, look at something 20 feet away (across the room, out of the window) for 20 seconds.} Count 20 seconds together while looking far away. Then a 30-second robot stretch: reach up high, roll your shoulders, wiggle your fingers, shake out your hands. Tell them to use the same rule at home whenever they use a screen.
+\end{safety}
+
+\begin{freebuild}[Loop art]
+Last 5 minutes: \enquote{Make your own loop picture. Try changing the numbers in Star Burst, add \enquote{change pen color by 10} inside a loop, or put a shape inside another repeat and turn a little between shapes.} Remind them to save as \texttt{loop-art}.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{teacherscript}
+Gallery walk: everyone leaves their best drawing on screen and walks round the Macs. \enquote{Point to one loop in your partner's script. How many times does it repeat?}
+\end{teacherscript}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} students use \enquote{repeat} instead of copying blocks; they put the move and turn \textbf{inside} the repeat; they can use 360 ÷ sides.
+
+\textbf{Ask:} \enquote{To draw a pentagon (5 sides), how many times do you repeat, and how many degrees do you turn?}
+\textbf{Answer:} repeat 5 times; turn 72 degrees (360 ÷ 5 = 72).
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Where do you see loops in real life?} (brushing each tooth, songs with a chorus, laps, the days of the week) and \enquote{What was the hardest number to get right today?} Students write one sentence in the workbook. Hand out homework 2 (Shape Gallery).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Turn equals the inside corner.} Students think a triangle needs 60 degrees (the inside angle). In Scratch the sprite turns by how much it changes direction, so use 360 ÷ sides. Walking the shape on the floor fixes this best.
+  \item \textbf{Blocks outside the repeat.} If \enquote{turn} is under the repeat instead of inside it, the sprite draws one long line. Fix: drag it into the mouth of the repeat.
+  \item \textbf{No \enquote{erase all} and \enquote{go to}.} Drawings pile up on top of each other and start in odd places. Fix: start every drawing script with erase all, go to, point in direction.
+  \item \textbf{Forever with nothing to stop it.} The cat walks off and keeps walking. Remind them that the red stop sign stops everything.
+  \item \textbf{Animation too fast.} \enquote{next costume} in a forever loop without a wait flickers. Add \enquote{wait 0.1 seconds}.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Give the turn numbers from the table in the workbook rather than asking students to divide. Do the square and the triangle only. Let the student read the numbers aloud while you check them together.
+\extensionpath Use the \enquote{( ) / ( )} operator for every turn. Draw a shape with 36 sides and move 10: why does it look like a circle?
+\end{differentiation}
+
+\begin{stretchchallenge}[Spin art (a loop inside a loop)]
+Put the whole square loop inside \enquote{repeat 12} and add \enquote{turn 30 degrees} after the square (inside the outer loop). Twelve squares spin around one point like a flower. Add \enquote{change pen color by 10} to make it a rainbow. Why 12 and 30? (12 × 30 = 360.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Shorten the dance to one group dance (3 minutes). Skip Exercise 2.1 (the walking cat) and go straight to the pen shapes; the walking cat can be homework Challenge or next week's warm-up. Keep the floor walk: it is the fastest way to understand the angles.
+\end{teachernote}

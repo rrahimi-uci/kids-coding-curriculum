@@ -1,0 +1,47 @@
+% Level 1, Answers week 8 -- Loops in Python   (input by answer-key.tex)
+\answersweek{8}{Loops in Python}{Answers for workbook chapter 8 and homework 8.}
+
+\section{Workbook}
+\begin{answer}[The secret shape rule]
+Pentagon 360 ÷ 5 = \textbf{72}; hexagon 360 ÷ 6 = \textbf{60}; octagon 360 ÷ 8 = \textbf{45}.
+Loop inside a loop: 8 squares × 4 sides = \textbf{32} lines.
+\end{answer}
+
+\begin{answer}[Exercise 8.1: Loop Square]
+\pyfile{../excercises/week08/ex-loop-square/solution.py}
+What to look for: \texttt{t.left(90)} lined up exactly under \texttt{t.forward(100)} (4 spaces).
+\end{answer}
+
+\begin{answer}[Exercise 8.2: Polygon Party]
+\pyfile{../excercises/week08/ex-polygon-party/solution.py}
+What to look for: two new loops with \texttt{range(4)}/\texttt{left(90)} and \texttt{range(6)}/\texttt{left(60)}. Different side lengths are fine as long as the shapes stay on screen. \texttt{right} instead of \texttt{left} is also correct.
+\end{answer}
+
+\begin{answer}[Exercise 8.3: Square Flower]
+\pyfile{../excercises/week08/ex-square-flower/solution.py}
+What to look for: the inner loop has 8 spaces; \texttt{t.left(45)} is inside the outer loop but \textbf{not} the inner one. \texttt{for i in range(12):} with \texttt{t.left(30)} and one colour also makes a correct flower (the checker wants at least 4 colours, so add \texttt{t.color(...)} changes).
+\end{answer}
+
+\begin{answer}[Reflection]
+Same: both repeat the steps inside a set number of times. Different: Python uses a colon and indentation instead of a C-shaped block, and \texttt{range} counts from 0.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Loop Fixer]
+\pyfile{../excercises/week08/hw-loop-fixer/solution.py}
+Bug 1: line 15, \texttt{range(3)} → \texttt{range(4)} (off by one: a square needs 4 turns of the loop). Bug 2: line 26, \texttt{t.right(144)} must be pushed in 4 spaces so it is inside the star loop.
+\end{answer}
+
+\begin{answer}[Challenge: Count the taps]
+\textbf{6} taps: the outer loop runs 3 times and each time the inner loop prints 2 taps (3 × 2 = 6).
+7-pointed star:
+\begin{pycode}
+for i in range(7):
+    t.forward(150)
+    t.right(360 * 3 / 7)
+\end{pycode}
+\end{answer}
+
+\begin{answer}[Creative: Spiral lab]
+91 gives a square spiral that slowly twists; 121 gives a triangular spiral; 145 makes a spiky star-like spiral; 90 exactly gives a square spiral with straight arms. Any careful record of what they saw is a great answer.
+\end{answer}

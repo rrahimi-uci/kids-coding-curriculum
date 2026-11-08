@@ -1,0 +1,115 @@
+% Level 2, Week 4 -- While Loops and Game Loops (student workbook)
+\chapterweek{4}{While Loops and Game Loops}{A while loop repeats until something changes, and every game is a loop.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item How a \textbf{while loop} keeps going until something changes.
+  \item How to spot and stop an \textbf{infinite loop}.
+  \item How to keep asking until the player types a good answer (\textbf{input validation}).
+  \item How a \textbf{loop inside a loop} turns a list of strings into pixel art.
+\end{itemize}
+
+\section{The big idea: repeat until something changes}
+A \texttt{for} loop knows how many times it will go round. A \texttt{while} loop does not: it checks a condition at the top,
+and goes round again \emph{while} the condition is \texttt{True}.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,box/.style={draw=black,thick,rounded corners=3pt,align=center,inner sep=6pt},>={Stealth[length=3mm]}]
+  \node[box,fill=kcsky!20] (start) at (0,0) {\texttt{n = 3}};
+  \node[box,fill=kcyellow!35,diamond,aspect=2.2,inner sep=2pt] (check) at (0,-1.8) {\texttt{n > 0} ?};
+  \node[box,fill=kcgreen!20] (body) at (5,-1.8) {\texttt{print(n)}\\\texttt{n = n - 1}};
+  \node[box,fill=kcorange!25] (end) at (0,-3.8) {\texttt{print("Go!")}};
+  \draw[->,thick] (start) -- (check);
+  \draw[->,thick] (check) -- node[above]{yes (True)} (body);
+  \draw[->,thick] (body.north) -- ++(0,0.8) -| node[pos=0.25,above]{back to the check} (check.north east);
+  \draw[->,thick] (check) -- node[right]{no (False): leave the loop} (end);
+\end{tikzpicture}
+\end{center}
+This prints \texttt{3}, \texttt{2}, \texttt{1}, \texttt{Go!}. The line \texttt{n = n - 1} is the \textbf{change}: without it, \texttt{n} stays 3, the
+check is always \texttt{True}, and the loop never ends. That is an \textbf{infinite loop}.
+
+\begin{tip}[Stuck in a loop?]
+Press the red \menu{Stop} button in Thonny's toolbar. Then ask two questions:
+\textbf{What is checked?} and \textbf{What changes inside the loop, so the check can become False?}
+\end{tip}
+
+\subsection{while True and break}
+Sometimes it is easier to loop \enquote{for ever} and jump out when you are done. \texttt{break} leaves the loop straight away.
+Inside a function, \texttt{return} leaves the loop \emph{and} the function.
+\begin{pycode}[Keep asking until the answer is good]
+while True:
+    answer = input("Type yes or no: ").lower()
+    if answer == "yes" or answer == "no":
+        break                       # good answer: leave the loop
+    print("Please type yes or no.")
+print("Thanks!")
+\end{pycode}
+Checking the player's answer like this is called \textbf{input validation}. Games do it all the time, so a typo never crashes them.
+\texttt{answer.isdigit()} is \texttt{True} only if the answer is made of the digits 0--9: then \texttt{int(answer)} is safe.
+
+\subsection{A loop inside a loop: pixel art}
+A picture can be a list of strings: one string for each row, one letter for each pixel.
+The \textbf{outer loop} goes down the rows. The \textbf{inner loop} goes along one row, pixel by pixel.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,>={Stealth[length=3mm]}]
+  \fill[black] (0,0) rectangle ++(0.8,-0.8);
+  \fill[black] (1.6,0) rectangle ++(0.8,-0.8);
+  \fill[kcorange] (0.8,-0.8) rectangle ++(0.8,-0.8);
+  \draw (0,0) grid[step=0.8] (2.4,-1.6);
+  \node[right] at (2.6,-0.4) {\texttt{"K.K"}\quad row 0};
+  \node[right] at (2.6,-1.2) {\texttt{".O."}\quad row 1};
+  \draw[->,thick,kcblue] (-0.3,-0.2) -- (-0.3,-1.5) node[midway,left,align=right]{outer loop:\\next row};
+  \draw[->,thick,kcvermillion] (0,0.3) -- (2.4,0.3) node[midway,above]{inner loop: next pixel};
+  \node[right,align=left] at (6.3,-0.8) {K = black\\O = orange\\. = empty};
+\end{tikzpicture}
+\end{center}
+\begin{pycode}
+for row in grid:            # outer loop: one row at a time
+    for pixel in row:       # inner loop: one letter at a time
+        print(pixel)
+\end{pycode}
+
+\begin{exercise}[Guess My Number]
+Folder: \texttt{excercises/week04/ex-guess-number}. Open \texttt{starter.py} and press \menu{Run}.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Guess until you are right. Does the game stop? If not, press \menu{Stop}. Why does it keep going?
+  \answerlines{1}
+  \item TODO 1: add 1 to \texttt{tries} each time round. TODO 3: \texttt{break} when the result is \texttt{"Correct"}.
+  \item Now type \texttt{banana}. Crash! TODO 2: make \texttt{ask\_number()} keep asking until the answer is a whole number from \texttt{low} to \texttt{high}.
+  \item Be the tester: try \texttt{banana}, \texttt{99}, \texttt{0} and \texttt{-3}. Does your game survive them all? \tickbox
+  \item Check your work with \texttt{check\_my\_work.py}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Pixel Art]
+Folder: \texttt{excercises/week04/ex-pixel-art}. Only the top row of the space invader appears.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: wrap the drawing in an outer loop \texttt{for row in grid:}. Move down after each row: \texttt{y = y - size}.
+  \item TODO 2: finish \texttt{count\_pixels()} with a loop inside a loop.
+  \item Design your own picture (8 rows of 11 letters fit nicely). Plan it here first:
+\end{enumerate}
+\begin{center}
+\begin{tikzpicture}
+  \draw[kcgrey!70,step=0.6] (0,0) grid (6.6,4.8);
+\end{tikzpicture}
+\end{center}
+Check your work with \texttt{check\_my\_work.py}.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{while loop}{A loop that goes round again and again while its condition is True.}
+  \vocabword{condition}{The check at the top of a while loop, like \texttt{n > 0}. It is True or False.}
+  \vocabword{infinite loop}{A loop that never stops, because nothing changes the condition. Press Stop!}
+  \vocabword{break}{Jumps out of a loop straight away.}
+  \vocabword{input validation}{Checking the player's answer and asking again if it is not OK.}
+  \vocabword{nested loop}{A loop inside another loop, like rows and pixels.}
+  \vocabword{game loop}{The loop at the heart of a game: get input, update, show, repeat.}
+\end{vocab}
+
+\begin{reflection}
+When would you use a \texttt{while} loop instead of a \texttt{for} loop?
+\answerlines{2}
+Name one way a game could be unfair to players. How would you make it fair?
+\answerlines{2}
+\end{reflection}

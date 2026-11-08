@@ -1,0 +1,58 @@
+% Level 2, Week 4 -- homework
+\homeworkweek{4}{While Loops and Game Loops}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Trace it first (paper, 4 minutes)]
+Before you code, follow \texttt{hits\_needed(30, 7)} by hand. Each time round the loop, 7 is taken away from \texttt{health}
+and 1 is added to \texttt{hits}. Keep going until \texttt{health} is 0 or less.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{round} & \textbf{health} & \textbf{hits} \\ \hline
+start & 30 & 0 \\ \hline
+1 & 23 & 1 \\ \hline
+2 & & \\ \hline
+3 & & \\ \hline
+4 & & \\ \hline
+5 & & \\ \hline
+\end{tabular}
+\end{center}
+So \texttt{hits\_needed(30, 7)} gives back: \rule{2cm}{0.4pt}
+\end{core}
+
+\begin{core}[Slime Battle (Thonny, 10 minutes)]
+Open \texttt{excercises/week04/hw-slime-battle/starter.py}.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: finish \texttt{hits\_needed()} with a \texttt{while} loop: while \texttt{health} is more than 0, take away \texttt{damage}
+        and add 1 to \texttt{hits}.
+  \item TODO 2: make \texttt{ask\_yes\_no()} keep asking until the answer is \texttt{yes} or \texttt{no}.
+  \item Run it. Type \texttt{maybe} first. Does it ask again? \tickbox
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+Stuck in a loop? Press the red \menu{Stop} button and check that \texttt{health} really gets smaller inside the loop.
+\end{core}
+
+\begin{challenge}[Count up to a target]
+Write a function \texttt{days\_to\_save(goal, per\_day)} that uses a \texttt{while} loop to count how many days of saving
+\texttt{per\_day} coins it takes to reach \texttt{goal} coins. For example \texttt{days\_to\_save(50, 12)} is 5. Add it to the bottom
+of your Slime Battle file (above \texttt{if \_\_name\_\_ == "\_\_main\_\_":}) and try it in the Shell.
+\answerlines{3}
+\end{challenge}
+
+\begin{creative}[Pixel sprite design]
+Design a pixel sprite for a game: a slime, a pet, a spaceship or a potion. Colour the squares and write the letter code
+for each row underneath (K, O, Y, B, S, G, R, P or . for empty). Next week you can type it into the Pixel Art program.
+\begin{center}
+\begin{tikzpicture}
+  \draw[kcgrey!70,step=0.55] (0,0) grid (5.5,4.4);
+\end{tikzpicture}
+\end{center}
+\end{creative}
+
+\begin{selfcheck}
+  \item I can explain what makes a \texttt{while} loop stop.
+  \item I know what to do when a program is stuck in an infinite loop.
+  \item My Slime Battle asks again when I type something that is not yes or no.
+  \item All the checks in \texttt{check\_my\_work.py} pass (or I wrote down my question for next week).
+\end{selfcheck}

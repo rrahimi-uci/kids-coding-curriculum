@@ -1,0 +1,56 @@
+\documentclass[level=1]{kidscode}
+\geometry{landscape,top=0.55in,bottom=0.5in,left=0.9in,right=0.9in,includehead=false,includefoot=false}
+%% one skill: icon in a shape + word (meaning never depends on colour alone)
+\newcommand{\skill}[3]{\begin{tikzpicture}[baseline=(s.base)]
+  \node[circle,draw=#1!80!black,fill=#1!15,line width=1.2pt,minimum size=1.15cm] (i) {\Large #2};
+  \node[below=2pt of i,font=\small\bfseries,align=center,text width=2.2cm] (s) {#3};
+\end{tikzpicture}}
+%% \gap{standard}{dyslexia}: the dyslexia edition has bigger text, so it gets smaller gaps
+\makeatletter\ifkc@dyslexia\newcommand{\gap}[2]{\vspace{#2}}\else\newcommand{\gap}[2]{\vspace{#1}}\fi\makeatother
+\begin{document}
+\thispagestyle{empty}
+\setstretch{1.0}
+\begin{tikzpicture}[remember picture,overlay]
+  %% bottom band mirrors the top band drawn by \kctitle
+  \fill[kcaccent] (current page.south west) rectangle ([yshift=1.2cm]current page.south east);
+  \foreach \c [count=\i] in {kcorange,kcsky,kcgreen,kcyellow,kcblue,kcvermillion,kcpurple}
+    \fill[\c] ([xshift={(\i-1)*3cm},yshift=1.2cm]current page.south west) rectangle ++(3cm,0.25cm);
+  %% frame
+  \draw[kcaccent,line width=2pt,rounded corners=10pt]
+    ([xshift=1.0cm,yshift=-1.85cm]current page.north west) rectangle ([xshift=-1.0cm,yshift=1.85cm]current page.south east);
+  \draw[kcaccent!50,line width=0.6pt,rounded corners=8pt]
+    ([xshift=1.2cm,yshift=-2.05cm]current page.north west) rectangle ([xshift=-1.2cm,yshift=2.05cm]current page.south east);
+  %% corner shapes: different shapes AND colours
+  \fill[kcorange,draw=black] ([xshift=1.9cm,yshift=-2.75cm]current page.north west) circle (0.45cm);
+  \fill[kcgreen,draw=black] ([xshift=-2.35cm,yshift=-3.2cm]current page.north east) rectangle ++(0.9cm,0.9cm);
+  \fill[kcsky,draw=black] ([xshift=1.45cm,yshift=2.3cm]current page.south west) -- ++(0.9cm,0) -- ++(-0.45cm,0.8cm) -- cycle;
+  \node[star,star points=5,star point ratio=2.3,fill=kcpurple,draw=black,minimum size=1.1cm,inner sep=0pt]
+    at ([xshift=-1.9cm,yshift=2.75cm]current page.south east) {};
+\end{tikzpicture}%
+\begin{center}
+\kctitle{Certificate of Completion}{Level 1: coding with Scratch and Python}
+\thispagestyle{empty}
+\gap{-0.2cm}{-0.9cm}
+{\Large This certificate is proudly presented to\par}
+\gap{0.8cm}{0.5cm}
+\rule{12cm}{0.8pt}\par
+{\small\color{kcgrey}(name, written by hand)\par}
+\gap{0.3cm}{0.1cm}
+{\large for completing 12 sessions of Scratch and Python turtle coding,\\
+and for building and presenting the final project \textbf{\enquote{My Interactive Art Show}}.\par}
+\gap{0.5cm}{0.2cm}
+\skill{kcorange}{\faListOl}{Algorithms}\hspace{4pt}%
+\skill{kcsky}{\faRedo}{Loops}\hspace{4pt}%
+\skill{kcgreen}{\faCodeBranch}{Events and ifs}\hspace{4pt}%
+\skill{kcyellow}{\faBox}{Variables and random}\hspace{4pt}%
+\skill{kcblue}{\faPuzzlePiece}{Functions}\hspace{4pt}%
+\skill{kcvermillion}{\faBug}{Debugging}\hspace{4pt}%
+\skill{kcpurple}{\faUserFriends}{Teamwork}\hspace{4pt}%
+\skill{kcblack}{\faShield*}{Staying safe}
+\par\gap{0.35cm}{0.1cm}
+\begin{tabular}{@{}c@{\hspace{2.5cm}}c@{}}
+\rule{6cm}{0.6pt} & \rule{6cm}{0.6pt}\\
+Date & Teacher\\
+\end{tabular}
+\end{center}
+\end{document}

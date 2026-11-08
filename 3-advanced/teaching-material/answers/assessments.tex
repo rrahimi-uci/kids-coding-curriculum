@@ -1,0 +1,273 @@
+% Answers, scoring and rubrics for assessments.tex (Level 3).
+% \input by answer-key.tex -- no \documentclass here.
+\kcpart{Assessments}{Assessment Answers and Rubrics}{Placement quiz, mid-level checkpoint and exit assessment.}
+
+\begin{teachernote}[How to mark]
+Mark with a pencil and a smile. Give the points shown; give \textbf{partial points} for a correct
+idea with a small slip (for example a missing bracket). Then sit with the student for two minutes
+and compare their \enquote{I can\ldots} self-rating with what you saw. The numbers are only for
+you: never compare students with each other.
+\end{teachernote}
+
+\textbf{From points to the four rubric levels} (same words the students use):
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\rowcolor{kcaccent!15} Paper & Just starting & Getting there & Got it & Expert\\ \midrule
+Placement quiz (20) & 0--9 & 10--15 & 16--18 & 19--20\\
+Mid-level checkpoint (20) & 0--9 & 10--14 & 15--18 & 19--20\\
+Exit assessment (30) & 0--12 & 13--19 & 20--25 & 26--30\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%% =====================================================================
+\section{Placement quiz (before week 1) --- 20 points}
+
+\begin{answer}[Q1. Functions that give back --- 2 points]
+\py|14|. \py|double(3)| gives back 6 and \py|double(4)| gives back 8.
+\end{answer}
+
+\begin{answer}[Q2. Print or return? --- 2 points]
+\texttt{Hi Kai}, then \texttt{None}. (1 point for both lines, 1 for the reason.) \py|greet| prints
+but never uses \py|return|, so it gives back nothing: Python's \py|None|.
+\end{answer}
+
+\begin{answer}[Q3. Lists --- 2 points]
+\texttt{4 5 10}. After \py|append| there are 4 items; index 0 is the first (5), index 3 is the new 10.
+\end{answer}
+
+\begin{answer}[Q4. While loops --- 2 points]
+\py|27|. \py|n| goes 1 $\rightarrow$ 3 $\rightarrow$ 9 $\rightarrow$ 27; 27 is not less than 20,
+so the loop stops.
+\end{answer}
+
+\begin{answer}[Q5. Dictionaries --- 2 points]
+(a) \texttt{3 \#009E73}. (b) The program crashes with a \texttt{KeyError}: there is no key
+\texttt{"grass"}.
+\end{answer}
+
+\begin{answer}[Q6. Files --- 2 points]
+Two lines, each \texttt{hello}: \texttt{"a"} means \emph{append} (add to the end). With
+\texttt{"w"} (\emph{write}) the file is emptied first, so it would contain only one
+\texttt{hello}.
+\end{answer}
+
+\begin{answer}[Q7. A pytest test --- 3 points]
+One point each: a function whose name starts with \py|test_|; it calls \py|biggest| with a list;
+it uses \py|assert ... == ...| with the right expected value. For example:
+\begin{pycode}
+def test_biggest_finds_the_largest():
+    assert biggest([3, 9, 4]) == 9
+\end{pycode}
+Extra credit in conversation (not points): an edge case such as \py|biggest([-5, -2]) == -2|.
+\end{answer}
+
+\begin{answer}[Q8. Write a function --- 5 points]
+One point each: \py|def| with the parameter; a loop over the words; the condition
+\py|len(word) > 4|; a counter that goes up; \py|return| (not \py|print|) at the end.
+\begin{pycode}
+def count_long(words):
+    count = 0
+    for word in words:
+        if len(word) > 4:
+            count = count + 1
+    return count
+\end{pycode}
+Also correct: \py|return len([w for w in words if len(w) > 4])|.
+\end{answer}
+
+\needspace{12\baselineskip}
+\subsection{Placement decision guide}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\bfseries}p{2.2cm}p{\dimexpr\linewidth-2.2cm-2\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Score & What to do\\ \midrule\endhead
+\bottomrule\endfoot
+19--20 & \textbf{Standard path + extension.} Ready for Level 3. Point them to the extension path and
+stretch challenge in every lesson plan; they make good navigators for a partner who needs support.\\ \midrule
+16--18 & \textbf{Standard path.} Ready. Glance at which question was missed and mention it when it
+comes up again.\\ \midrule
+10--15 & \textbf{Standard path with support.} Start Level 3, but use the lesson plans' support paths
+in weeks 1--3, and set the refresher below as extra homework for each missed topic. Re-ask the
+missed questions orally in week 3.\\ \midrule
+0--9 & \textbf{Refresher first.} Before week 1 (or using one buffer session), redo the Level 2
+homework listed below together. Pair this student with you or a confident, patient partner in
+weeks 1--5. Then let them retake only the questions they missed.
+If two or more students score below 10, consider repeating the Level 2 final project first.\\
+\end{longtable}
+
+\textbf{Refresher by question} (Level 2 materials):
+Q1, Q2, Q8 $\rightarrow$ week 2 (functions that give back);
+Q3 $\rightarrow$ week 3 (lists);
+Q4 $\rightarrow$ week 4 (while loops);
+Q5 $\rightarrow$ week 5 (dictionaries);
+Q6 $\rightarrow$ week 7 (files);
+Q7 $\rightarrow$ week 8 (testing with pytest).
+
+\begin{tip}[Self-rating mismatch]
+If a student ticks \enquote{Got it} or \enquote{Expert} but missed the questions on that topic, do
+not argue: say \enquote{Let's check together} and do one similar example side by side. If a
+student rates themself low but scored well, tell them so, specifically.
+\end{tip}
+
+%% =====================================================================
+\section{Mid-level checkpoint (week 6) --- 20 points}
+
+\begin{answer}[Q1. Read a class --- 2 points]
+\texttt{Mo had fun!} then \texttt{1}. Energy starts at 5 and \py|play()| runs twice: 5 $-$ 2 $-$ 2 = 1.
+\end{answer}
+
+\begin{answer}[Q2. Families of objects --- 4 points]
+(a) \texttt{7 8} and \texttt{Omar says hi!} (2 points). Zoe loses 3 once; Omar loses 1 twice.
+(b) \py|hit| (1 point). (c) \py|shout| is \textbf{inherited} from \py|Character|: \py|Knight|
+does not define it, so Python looks in the parent class (1 point).
+\end{answer}
+
+\begin{answer}[Q3. Fix the bug --- 2 points]
+Line 3: \py|count = 0| makes an ordinary variable that disappears when \py|__init__| ends. It must
+be an attribute of the object: \py|self.count = 0|.
+\end{answer}
+
+\begin{answer}[Q4. Trace a binary search --- 5 points]
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|l|}
+\hline
+\textbf{Step} & \textbf{low} & \textbf{high} & \textbf{middle} & \textbf{item at middle}\\ \hline
+1 & 0 & 9 & 4 & 16: too small, so low = 5\\ \hline
+2 & 5 & 9 & 7 & 56: too big, so high = 6\\ \hline
+3 & 5 & 6 & 5 & 23: found!\\ \hline
+\end{tabular}
+\end{center}
+(a) 1 point per correct row. (b) Linear search checks \textbf{6} items (indexes 0--5) (1 point).
+(c) About \textbf{10} (1 point): each check halves the list, and halving 1000 about ten times gets
+down to 1. Accept 9--11.
+\end{answer}
+
+\begin{answer}[Q5. Sorting --- 3 points]
+Pass 1: \texttt{[1, 3, 9, 7]}; pass 2: \texttt{[1, 3, 9, 7]} (3 is already in place);
+pass 3: \texttt{[1, 3, 7, 9]} (2 points; 1 point if one pass is wrong). The program prints
+\texttt{Leo}: sorted by score, biggest first (1 point).
+\end{answer}
+
+\begin{answer}[Q6. Stacks and queues --- 2 points]
+\texttt{C} then \texttt{A}: a stack gives back the \emph{last} item added, a queue the
+\emph{first} (1 point). Undo button: S; players waiting: Q; pile of plates: S (1 point).
+\end{answer}
+
+\begin{answer}[Q7. Explain --- 2 points]
+Each check of binary search throws away half of what is left, so the number of checks grows very
+slowly; linear search checks items one by one (1 point). The list must be \textbf{sorted} (1 point).
+\end{answer}
+
+\begin{rubric}[What to do after the checkpoint]
+\textbf{Mostly Q1--Q3 missed (classes):} in the week 6 review, rebuild the week 2 pet class
+together, then add a child class. \textbf{Mostly Q4--Q5 missed (algorithms):} schedule buffer B1
+(Algorithm Olympics) before week 7. \textbf{Q6 missed:} replay the plate-stack and lunch-queue
+unplugged activity for 5 minutes. \textbf{19--20:} offer the week 7 extension (BFS on a grid)
+early.
+\end{rubric}
+
+%% =====================================================================
+\section{Exit assessment (week 12) --- 30 points}
+
+\begin{answer}[Q1. Recursion --- 2 points]
+\texttt{3}, \texttt{2}, \texttt{1}, \texttt{Blast off!} on four lines.
+\end{answer}
+
+\begin{answer}[Q2. Recursion that returns --- 2 points]
+\py|10|: \py|total(4)| = 4 + \py|total(3)| = 4 + 3 + \py|total(2)| = 4 + 3 + 2 + \py|total(1)| =
+4 + 3 + 2 + 1. One point for the answer, one for showing the chain of calls.
+\end{answer}
+
+\begin{answer}[Q3. Grids --- 3 points]
+(a) \texttt{F G}. (b) \texttt{grid[2][1]}: the third row and the second column, because counting starts at 0. (c)
+\texttt{["A", "\#", "C"]}.
+\end{answer}
+
+\begin{answer}[Q4. A recursion bug --- 4 points]
+There is no \textbf{base case}, so \py|stars| calls itself forever (4, 3, 2, 1, 0, $-1$, \ldots)
+until Python stops it with \texttt{RecursionError} (2 points). A fix (2 points):
+\begin{pycode}
+def stars(n):
+    if n == 0:          # base case: stop here
+        return
+    print("*" * n)
+    stars(n - 1)        # a smaller problem each time
+\end{pycode}
+Also correct: \py|if n > 0:| around the two lines.
+\end{answer}
+
+\begin{answer}[Q5. A data bug --- 3 points]
+Everything read from a CSV is text, so line 6 becomes \py|total = total + int(row["points"])|
+(2 points). One sensible guard (1 point): skip empty cells
+(\py|if row["points"].strip() == "": continue|), strip spaces, check \py|.isdigit()|, or open
+the file with \py|encoding="utf-8-sig"| if it came from a spreadsheet app.
+\end{answer}
+
+\begin{answer}[Q6. Nearest neighbour --- 4 points]
+Distances to the mystery monster (size 4, spikes 1): A = 5 + 3 = \textbf{8}; B = 4 + 4 = \textbf{8};
+C = 2 + 1 = \textbf{3}; D = 1 + 0 = \textbf{1} (1 point per two correct distances, so 2 points).
+Prediction: \textbf{slime}, because the nearest example, D, is a slime (2 points: label + reason).
+\end{answer}
+
+\begin{answer}[Q7. When AI gets it wrong --- 3 points]
+(a) It may say it is not an apple, or give it the wrong label, because it has never seen a green
+apple. (b) \textbf{Bias} / biased or unrepresentative training data. (c) Train it on many
+different apples (green, yellow, red, big, small) and test it on examples it has not seen.
+\end{answer}
+
+\begin{answer}[Q8. Using AI safely --- 3 points]
+(a) Any two of: real name, home address, school, phone number, passwords, photos of themselves or
+others, other people's private information (1 point). (b) It only counts which word followed which
+in its training text and picks the next word by chance; it has no idea what the words mean and
+cannot check facts (2 points). Chatbots are far more advanced but can also sound sure and be wrong.
+\end{answer}
+
+\begin{answer}[Q9. Design a game --- 4 points]
+One point each. (a) A \textbf{2D grid} (list of lists, \texttt{grid[row][col]}). (b)
+\textbf{Breadth-first search} (BFS), which needs a \textbf{queue} (\texttt{collections.deque}).
+(c) Two sensible classes with an attribute and a method each, for example \texttt{Player}
+(\texttt{pos}; \texttt{move()}) and \texttt{Monster} (\texttt{pos}; \texttt{chase()}). The fourth point is for a good
+reason: both could inherit from a \texttt{Character} base class because each \emph{is a}
+character; a \texttt{Game} or \texttt{Map} class \emph{has} the grid, the player and the monster
+(composition). Accept any well-argued design.
+\end{answer}
+
+\begin{answer}[Q10. Your design decision --- 2 points]
+One point for naming a real decision and an alternative; one point for a reason (simpler, easier
+to test, faster, fairer to players, easier to add levels\ldots). Example: \enquote{I kept the game
+rules in a separate file with no turtle, so I could test them with pytest. I could have put
+everything in one file, but then my tests would open windows.}
+\end{answer}
+
+\begin{rubric}[Exit assessment by Level 3 goal]
+Use this to fill in the progress tracker's final column.
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Goal & Questions & Look for\\ \midrule
+L3.G1 Classes \& design & Q9, Q10 & sensible classes; inheritance vs composition explained\\
+L3.G2 Algorithms \& recursion & Q1, Q2, Q4 & base case; smaller problem each call\\
+L3.G3 Data structures & Q3, Q9 & grid indexing; queue for BFS\\
+L3.G5 Iterative project & Q10 & a real decision with a reason\\
+L3.G6 Data & Q5 & text vs numbers; cleaning\\
+L3.G7 AI & Q6, Q7, Q8 & distance, nearest label, bias\\
+L3.G8 Test \& debug & Q4, Q5 & reads the error, fixes the cause\\
+L3.G9 Ethics \& privacy & Q7, Q8 & fairness of data; what stays private\\
+\bottomrule
+\end{tabular}
+\end{center}
+L3.G4 (git) is assessed through the project's commit history, not on paper.
+\end{rubric}
+
+\begin{teachernote}[Graduation is not a score]
+Every student who builds and presents a final project graduates from Level 3 and receives the
+certificate. Use the exit score and project rubric to write one specific sentence of praise and
+one \enquote{next step} on the back of the certificate or in the progress tracker.
+\end{teachernote}

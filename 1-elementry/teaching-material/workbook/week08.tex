@@ -1,0 +1,117 @@
+% Level 1, Workbook chapter 8 -- Loops in Python   (input by student-workbook.tex)
+\chapterweek{8}{Loops in Python}{A \texttt{for} loop plus pushed-in lines is Scratch's repeat block, written in words.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item How to repeat lines with \texttt{for i in range(4):}.
+  \item Why the spaces at the start of a line matter (indentation).
+  \item The secret rule for drawing any shape with equal sides.
+  \item How to put a loop inside a loop to make patterns.
+\end{itemize}
+
+\section{The big idea: repeat, in words}
+Last week your square needed 8 lines. With a loop it needs 3. Compare:
+\begin{center}
+\begin{tabular}{@{}m{5.6cm} m{0.6cm} m{7cm}@{}}
+\begin{scratch}[scale=0.85]
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnleft{} \ovalnum{90} degrees}
+}
+\end{scratch}
+& → &
+\begin{pycode}
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+\end{pycode}
+\end{tabular}
+\end{center}
+Python has no C-shaped block. Instead it uses two clues:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item a \textbf{colon} \texttt{:} at the end of the \texttt{for} line, and
+  \item \textbf{4 spaces} at the start of every line \textbf{inside} the loop. This is called \textbf{indentation}.
+\end{enumerate}
+\begin{center}
+\begin{tikzpicture}[font=\small]
+  \node[anchor=west,font=\ttfamily] (l1) at (0,2.4) {for i in range(3):};
+  \node[anchor=west,font=\ttfamily] (l2) at (0.9,1.8) {t.forward(100)};
+  \node[anchor=west,font=\ttfamily] (l3) at (0.9,1.2) {t.left(120)};
+  \node[anchor=west,font=\ttfamily] (l4) at (0,0.6) {print("Done!")};
+  \fill[kcsky!25] (0.05,1.0) rectangle (0.8,2.0);
+  \node[font=\scriptsize,align=center] at (0.42,1.5) {4\\spaces};
+  \draw[decorate,decoration={brace,amplitude=6pt},thick,kcblue] (5.2,2.0) -- (5.2,1.0)
+    node[midway,right=8pt,align=left,text=black] {\textbf{inside} the loop:\\repeats 3 times};
+  \draw[-{Stealth},thick,kcorange] (5.3,0.6) -- ([xshift=4pt]l4.east);
+  \node[anchor=west,align=left] at (5.4,0.6) {\textbf{after} the loop: runs once};
+\end{tikzpicture}
+\end{center}
+\begin{tip}[Thonny helps you]
+After a colon, press \keys{Return}: Thonny pushes the next line in for you. To come back out of the loop, press \keys{Delete} once.
+\end{tip}
+
+\subsection{How many times?}
+\texttt{range(4)} gives Python four numbers: \texttt{0, 1, 2, 3}. Python starts counting at 0! What matters is that there are \textbf{4} of them, so the loop runs 4 times.
+
+\subsection{The secret shape rule}
+To draw a shape and get back to the start, the turtle turns all the way round: 360 degrees. Share that turn between the corners:
+\begin{center}
+\textbf{turn at each corner = 360 ÷ number of sides}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[font=\small]
+  \foreach \n/\name/\turn/\c [count=\k] in {3/triangle/120/kcorange,4/square/90/kcsky,5/pentagon/?/kcgreen,6/hexagon/?/kcpurple,8/octagon/?/kcblue}{
+    \node[regular polygon, regular polygon sides=\n, draw=\c, very thick, minimum size=1.5cm] at (\k*2.9,0) {};
+    \node at (\k*2.9,-1.2) {\name};
+    \node at (\k*2.9,-1.7) {\n\ sides};
+    \node at (\k*2.9,-2.2) {turn \turn};
+  }
+\end{tikzpicture}
+\end{center}
+Fill in the missing turns: pentagon \rule{1.2cm}{0.4pt}, hexagon \rule{1.2cm}{0.4pt}, octagon \rule{1.2cm}{0.4pt}.
+
+\begin{exercise}[Loop Square]
+Folder: \texttt{week08/ex-loop-square}. Run the starter: the turtle walks in a straight line! Add \texttt{t.left(90)} \textbf{inside} the loop, lined up under \texttt{t.forward(100)}. Run it, then open \texttt{check\_my\_work.py} and press Run.
+\end{exercise}
+
+\begin{exercise}[Polygon Party]
+Folder: \texttt{week08/ex-polygon-party}. The triangle is done. Write a loop for a \textbf{square} (sides of 100) and a loop for a \textbf{hexagon} (sides of 60). Use the shape rule for the turns.
+Done looks like: an orange triangle, a sky-blue square and a green hexagon, all closed.
+\end{exercise}
+
+\section{A loop inside a loop}
+A loop can hold another loop. The \textbf{outer} loop picks a colour. The \textbf{inner} loop draws a whole square. Then the turtle turns a little and the outer loop goes again.
+\begin{pycode}
+for colour in PALETTE:          # 8 colours: runs 8 times
+    t.color(colour)
+    for side in range(4):       # draws one whole square
+        t.forward(100)
+        t.left(90)
+    t.left(45)                  # 8 x 45 = 360
+\end{pycode}
+The inner lines have \textbf{8} spaces: 4 for the outer loop and 4 more for the inner loop. How many lines does the turtle draw altogether? \rule{1.5cm}{0.4pt}
+
+\begin{exercise}[Square Flower]
+Folder: \texttt{week08/ex-square-flower}. The starter draws one square. Put the square loop inside a colour loop (like the code above) to make 8 squares in 8 colours. Tip: \texttt{t.speed(0)} draws super fast.
+\end{exercise}
+
+\begin{tip}[Asking for help well]
+Stuck? First try \enquote{three before me}: read the red message, check this workbook, ask your partner. Then ask a grown-up with the help sentence:\par
+\textbf{I expected \rule{2.5cm}{0.4pt}, but \rule{2.5cm}{0.4pt} happened. I tried \rule{2.5cm}{0.4pt}.}
+\end{tip}
+
+\begin{vocab}
+  \vocabword{Loop}{Code that repeats.}
+  \vocabword{for}{The Python word that starts a loop: \texttt{for i in range(4):}.}
+  \vocabword{range}{Gives the loop its numbers. \texttt{range(4)} means 0, 1, 2, 3: four times.}
+  \vocabword{Indentation}{The spaces at the start of a line. They show which lines are inside the loop.}
+  \vocabword{Nested loop}{A loop inside another loop.}
+  \vocabword{Off-by-one bug}{When a loop runs one time too many or one time too few.}
+\end{vocab}
+
+\begin{reflection}
+How is \texttt{for i in range(4):} like Scratch's repeat block? How is it different?
+\answerlines{2}
+Draw (or describe) the coolest pattern you made today:
+\answerspace{3cm}
+\end{reflection}

@@ -1,0 +1,133 @@
+\documentclass[level=3]{kidscode}
+\usepackage{multicol}
+\newcommand{\term}[3]{\item[#1] #2 \textcolor{kcgrey}{\small(week #3)}}
+
+\begin{document}
+\kctitle{Glossary}{Level 3 words, from A to Z, in plain language}
+
+\begin{tip}[How to use this glossary]
+Words are in alphabetical order. The week number tells you where to read more in your workbook.
+Missing a word? Write it on the last lines with your own definition.
+\end{tip}
+
+\begin{multicols}{2}
+\begin{description}[leftmargin=0pt,itemsep=3pt,font=\bfseries]
+\term{algorithm}{A precise list of steps that solves a problem, like a recipe. Binary search and
+selection sort are famous ones.}{4}
+\term{attribute}{A value stored inside an object, such as \texttt{self.name} or
+\texttt{self.energy}. What an object \emph{has}.}{2}
+\term{average (mean)}{Add up all the numbers and divide by how many there are.}{8}
+\term{base case}{The part of a recursive function that stops it from calling itself again.
+Without one you get a \texttt{RecursionError}.}{7}
+\term{bias}{When data or a program treats some people or things unfairly, often because the
+training data left some of them out.}{9}
+\term{binary search}{Searching a \emph{sorted} list by checking the middle and throwing away the
+half that cannot hold the answer. Very fast.}{4}
+\term{breadth-first search (BFS)}{Exploring a maze in rings, one step further each time, using a
+queue. It finds a shortest path.}{7}
+\term{bubble sort}{Sorting by swapping neighbours that are in the wrong order, again and again.}{5}
+\term{class}{A blueprint for making objects. It lists their attributes and methods.}{2}
+\term{class diagram}{A drawing of the classes in a program, their attributes and methods, and how
+they are connected.}{10}
+\term{classifier}{A program that puts things into groups (labels), such as \enquote{dragon} or
+\enquote{slime}.}{9}
+\term{clean (data)}{Fix messy data before using it: remove empty rows, strip spaces, turn text
+into numbers.}{8}
+\term{code review}{Reading someone's code to find bugs and suggest improvements, kindly.}{10}
+\term{commit}{A save point in git, with a message saying what changed.}{1}
+\term{composition}{Building an object out of other objects: a Game \emph{has a} Maze and a
+Player.}{3}
+\term{CRC card}{A paper card for designing a class: its name (Class), its jobs
+(Responsibilities) and who it works with (Collaborators).}{10}
+\term{CSV}{\enquote{Comma-separated values}: a table saved as plain text, one row per line, commas
+between columns.}{8}
+\term{data structure}{A way of organising data in a program: a list, dictionary, stack, queue or
+grid.}{5}
+\term{debugger}{A tool (the bug button in Thonny) that runs your program one step at a time so you
+can watch the variables.}{6}
+\term{deepfake}{A fake picture, video or voice made by AI to look real.}{9}
+\term{deque}{\enquote{Double-ended queue} from \texttt{collections}. Fast to add at the back and take
+from the front with \texttt{popleft()}.}{5}
+\term{diff}{The lines that changed between two versions. \texttt{git diff} shows them.}{1}
+\term{edge case}{An unusual input that can break a program, such as an empty list. Good tests try
+edge cases.}{11}
+\term{feature (AI)}{A number that describes an example, such as size or number of spikes.
+Classifiers compare features.}{9}
+\term{flood fill}{Filling every connected square of the same kind, like the paint bucket tool.
+Usually written with recursion.}{7}
+\term{fractal}{A pattern made of smaller copies of itself, like a tree whose branches look like
+little trees.}{7}
+\term{git}{A program that keeps save points (commits) of a folder so you can see and undo changes.}{1}
+\term{grid (2D list)}{A list of lists, like a chessboard: \texttt{grid[row][col]}.}{7}
+\term{inheritance}{When a class gets all the code of a parent class and adds or changes some:
+a Knight \emph{is a} Character.}{3}
+\term{\texttt{\_\_init\_\_}}{The method that runs when a new object is made. It sets the starting
+attributes.}{2}
+\term{licence}{The rules that say how you may use someone's code, pictures or sounds.}{10}
+\term{linear search}{Checking items one by one from the start until you find what you want.}{4}
+\term{Markov text generator}{A program that writes new text by choosing each next word from the
+words that followed it in its training text.}{9}
+\term{method}{A function that belongs to a class. What an object \emph{does}.}{2}
+\term{milestone}{A checkpoint in a project plan, with a date and a list of what should work.}{10}
+\term{nearest neighbour}{An AI method: label a mystery item with the label of the most similar
+training example.}{9}
+\term{object (instance)}{One thing made from a class: \texttt{mo = Pet("Mo")} makes one pet.}{2}
+\term{override}{Writing a method in a child class with the same name as in the parent class, to
+change what it does.}{3}
+\term{polymorphism}{Different classes answering the same method call in their own way.}{3}
+\term{queue}{First in, first out, like a lunch line.}{5}
+\term{README}{A file that explains what a project is, how to run it and how it is built.}{11}
+\term{recursion}{When a function calls itself on a smaller version of the same problem.}{7}
+\term{RecursionError}{Python's error when a function calls itself too many times, usually because
+the base case is missing.}{7}
+\term{repository (repo)}{A folder that git is tracking, with all its save points.}{1}
+\term{restore}{\texttt{git restore file.py} throws away changes you have not committed yet.}{1}
+\term{\texttt{self}}{Inside a method, the object the method was called on.}{2}
+\term{selection sort}{Sorting by finding the smallest item and swapping it to the front, then
+repeating with the rest.}{5}
+\term{stack}{Last in, first out, like a pile of plates or an undo button.}{5}
+\term{\texttt{super()}}{Calls the parent class's version of a method, often
+\texttt{super().\_\_init\_\_(\ldots)}.}{3}
+\term{Terminal}{The Mac app where you type commands such as \texttt{git status}.}{1}
+\term{training data}{The labelled examples an AI learns from.}{9}
+\end{description}
+\end{multicols}
+
+\subsection*{More words from your workbook}
+\begin{multicols}{2}
+\begin{description}[leftmargin=0pt,itemsep=3pt,font=\bfseries]
+\item[accessibility] Designing so that people with different abilities can use it too. {\small\color{kcgrey}(week 11)}
+\item[accuracy] Correct guesses divided by the number of test examples. {\small\color{kcgrey}(week 9)}
+\item[anonymise] Remove or replace anything that could show who gave an answer. {\small\color{kcgrey}(week 8)}
+\item[breakpoint] A marked line where the debugger pauses. {\small\color{kcgrey}(week 6)}
+\item[code of conduct] The rules a community agrees to, so everyone stays safe and respected. {\small\color{kcgrey}(week 12)}
+\item[commit id] The short code name of a commit, like \texttt{a1b2c3d}. {\small\color{kcgrey}(week 1)}
+\item[commit message] A short label that says what changed, like \enquote{Add jump to hero}. {\small\color{kcgrey}(week 1)}
+\item[consent] Agreeing, freely, to take part -- with the choice to say no. {\small\color{kcgrey}(week 8)}
+\item[data cleaning] Fixing messy data (spaces, capitals, missing or empty values) before using it. {\small\color{kcgrey}(week 8)}
+\item[design decision] A choice about how to build something, with a reason. {\small\color{kcgrey}(week 12)}
+\item[feedback] Comments that help someone improve: kind, specific, useful. {\small\color{kcgrey}(week 12)}
+\item[header] The first line of a CSV file, with the column names. {\small\color{kcgrey}(week 8)}
+\item[key function] A function that tells \texttt{sorted} what to sort by. {\small\color{kcgrey}(week 5)}
+\item[off-by-one error] A bug where a number is 1 too big or 1 too small, like using \texttt{<} instead of \texttt{<=}. {\small\color{kcgrey}(week 4)}
+\item[parent class / child class] The general class and the more special class built from it. Also called superclass and subclass. {\small\color{kcgrey}(week 3)}
+\item[playtest] Watching someone use your project to find problems. {\small\color{kcgrey}(week 11)}
+\item[recursive case] The part that does a small step and calls the function on a smaller problem. {\small\color{kcgrey}(week 7)}
+\item[sample] The group of people who answered. A small sample can give misleading results. {\small\color{kcgrey}(week 8)}
+\item[showcase] An event where makers show and explain their work. {\small\color{kcgrey}(week 12)}
+\item[step into] Go inside the function or method that the line calls. {\small\color{kcgrey}(week 6)}
+\item[step over] Run the highlighted line in one go, then pause. {\small\color{kcgrey}(week 6)}
+\item[test data] Examples kept secret during training, used to check the guesses. {\small\color{kcgrey}(week 9)}
+\item[trace table] A paper table where you write each variable's value, step by step. {\small\color{kcgrey}(week 6)}
+\item[traceback] The error report Python prints. Read it from the bottom. {\small\color{kcgrey}(week 6)}
+\item[triage] Sorting problems by how much they matter, to fix the important ones first. {\small\color{kcgrey}(week 11)}
+\item[usability] How easy something is to use for someone new. {\small\color{kcgrey}(week 11)}
+\item[version 2] The next, improved release of a project. {\small\color{kcgrey}(week 12)}
+\item[worst case] The unluckiest situation, when an algorithm needs the most steps. {\small\color{kcgrey}(week 4)}
+\end{description}
+\end{multicols}
+
+
+\subsection{My own words}
+\answerlines{5}
+\end{document}

@@ -1,0 +1,116 @@
+% Level 3, Week 11 -- Project Studio 2
+\lesson{11}{Project Studio 2}{Test it, playtest it, polish it, explain it.}
+\lessoninfo{Concepts: pytest for your own classes, playtesting, bug triage, README docs, accessibility and usability}{Tools: Thonny, pytest, Terminal + git}{CSTA: 3A-AP-19, 3A-AP-21, 3A-AP-23, 2-AP-18}
+
+\begin{objectives}
+  \item The student can write at least five pytest tests for their own classes, including an edge case. (L3.G8)
+  \item The student can run a playtest, collect feedback and sort bugs by how much they matter (triage). (L3.G5, L3.G8)
+  \item The student can write a README that explains what the project does, how to run it, how it works and who to credit. (L3.G5)
+  \item The student can review their project for accessibility and usability and fix at least one problem. (L3.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 11, homework 11; 8 playtest feedback cards per student (cut from workbook Exercise 11.2, or plain index cards).
+  \item On each Mac: the student's project folder open in Thonny; Terminal open in the same folder (\texttt{cd \textasciitilde/Documents/coding-projects/<name>}).
+  \item Check pytest works in Thonny: \menu{Tools} $\rightarrow$ \menu{Open system shell...}, type \texttt{python -m pytest --version}. (If it is missing: \menu{Tools} $\rightarrow$ \menu{Manage packages...}, search \texttt{pytest}, \menu{Install}. No account needed.)
+  \item Prep (10 min): read this plan and the Project teacher guide's Milestones 3 and 4.
+\end{materials}
+
+\begin{timeplan}
+  \timeslot{0--6}{Warm-up}{Commit count: everyone runs \texttt{git log --oneline} and reads their best commit message aloud.}
+  \timeslot{6--14}{Concept}{What makes a good test; README sections; accessibility and usability checklist.}
+  \timeslot{14--22}{Guided demo}{You write three tests for a tiny Player class and run pytest; show one failing test and fix it.}
+  \timeslot{22--52}{Hands-on build}{M3: five tests (10 min). Playtest swap + bug triage (8 min). M4: README, accessibility fixes, polish (12 min). Commit after each.}
+  \timeslot{52--60}{Wrap-up}{Showcase talk card, exit ticket, homework (finish M4, practise the talk).}
+\end{timeplan}
+
+\section{Warm-up (0--6 min)}
+Everyone runs \texttt{git log --oneline} and counts commits (target by the showcase: 8+), then reads their best message aloud; vote for the clearest. Only 1--2 commits is fine: today has four natural commit points.
+
+\section{Concept (6--14 min)}
+\begin{teacherscript}
+\enquote{Today your project grows up. Three jobs.
+
+\textbf{Tests} are tiny programs that check your program. Test the \emph{logic}, not the drawing: \emph{does the player stop at walls? does eating a star add 10 points?} Test normal cases and \textbf{edge cases} -- the corners, the empty list, the last life.
+
+\textbf{Playtesting}: someone else uses your project while you watch silently and take notes. It feels hard not to help -- but every time they get stuck, you learn something.
+
+\textbf{Documentation}: a README tells a stranger what it is, how to run it, how it works and who you thank. Future-you is a stranger too!}
+\end{teacherscript}
+
+\begin{analogy}[Car crash tests]
+Car makers crash test cars with dummies before anyone drives them. Tests are your crash dummies: you can break things on purpose, safely, as often as you like. Playtesters are the first real passengers.
+\end{analogy}
+
+\begin{teachernote}[The CS idea, for you]
+Tests are easiest when logic lives in a file with no turtle code. If logic is tangled with drawing, help move one function out and test that. Five small tests beat one giant test; each name says what it checks.
+\end{teachernote}
+
+\section{Guided demo (14--22 min)}
+\begin{workedexample}[Three tests for a tiny Player]
+Use the example in workbook chapter 11 (\enquote{Tests for a tiny Player}): a \texttt{Player} class whose \texttt{move} method stops at walls and scores 10 for a star, plus three tests. Type both files into a new folder (or let a student read them to you), then in Thonny's system shell run \texttt{python -m pytest -q}: three green dots.
+\begin{enumerate}[itemsep=1pt]
+  \item Read each test name aloud: it says what it checks. Point out the two \textbf{edge cases}: walking into a wall, eating the same star twice.
+  \item Break the code on purpose: delete the line \py|grid[new_row][new_col] = "."| and run again. The third test fails, and its name says exactly what broke.
+  \item Put the line back: green again. Commit: \texttt{git commit -m "Add tests for Player"}.
+\end{enumerate}
+\end{workedexample}
+
+\section{Hands-on build (22--52 min)}
+\begin{pairroles}[Builder and tester]
+Each student works on their own project; partners sit together. During test writing, the partner is the \textbf{tester}: suggests one edge case (\enquote{what if the list is empty?}). During the playtest, roles become \textbf{player} and \textbf{silent note-taker}. With 1 student: you are the playtester. With 3: play in a circle (A tests B, B tests C, C tests A). With 4: two pairs, then swap pairs for a second playtest if time allows.
+\end{pairroles}
+
+\textbf{M3, part 1 -- tests (10 min).} At least five tests in a \texttt{test\_<project>.py} file; at least one edge case. Run pytest; commit when green.
+
+\begin{unplugged}[Playtest with feedback cards (8 min)]
+Swap seats. The player uses the partner's project for 3 minutes, thinking aloud. The owner says nothing and writes one feedback card per problem or delight: \emph{What happened? What did they expect?} Then swap.
+\end{unplugged}
+
+\begin{bughunt}[Playtest bug triage]
+Each owner sorts their cards into three piles: \textbf{Must fix} (crashes, cannot win, cannot start), \textbf{Should fix} (confusing, unfair, hard to read), \textbf{Nice to have} (new ideas). Fix one \enquote{must fix} now. For each crash, first write a test that shows the bug, then fix it -- the test makes sure it never comes back. Commit with a message like \texttt{Fix crash when the player walks off the edge}.
+\end{bughunt}
+
+\textbf{M4 -- README and polish (12 min).} Write \texttt{README.md} using workbook Exercise 11.3 (what it is, how to run, controls, how it works -- classes, data structure, algorithm --, tests, credits). Then do the accessibility check below and fix one thing.
+
+\begin{freebuild}[Polish time]
+Use any spare minutes to add one \enquote{juice} detail: a title screen, a win message, a high-score table, a nicer palette. Commit each one.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Accessibility and usability review]
+Every student checks their project against this list (also in the workbook): \textbf{colours} from the Okabe--Ito palette and never colour alone (add shapes, letters or text); \textbf{text} large enough to read from a chair; \textbf{controls} written on screen; no fast flashing; \textbf{usability}: a new player knows what to do within 10 seconds. \textbf{Credits}: every borrowed image or sound is listed with its licence (or there are none).
+\end{safety}
+
+\begin{formativecheck}[Milestones 3 and 4 check and exit ticket]
+\textbf{Look for (M3):} five or more passing tests including an edge case; feedback cards sorted. \textbf{(M4):} a README with all sections; at least one accessibility fix; 6+ commits.
+\textbf{Question:} \enquote{Name one edge case you tested and why it matters.}
+\textbf{Answer:} any real edge, e.g. \enquote{walking into the corner wall -- players will try it, and it used to crash}.
+\end{formativecheck}
+
+\begin{reflection}
+What did your playtester do that surprised you? Which test are you proudest of? What will you say first in your 2-minute showcase talk?
+\end{reflection}
+
+Hand out homework 11 (finish M4, fill in the showcase talk card, practise once).
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Tests import turtle code} and open windows: move logic into a file without \texttt{import turtle}, or guard drawing with \py|if __name__ == "__main__":|.
+  \item \textbf{Test file not found}: pytest only collects files named \texttt{test\_*.py} and functions named \texttt{test\_*}.
+  \item \textbf{Tests that cannot fail} (\py|assert True|, or no \texttt{assert}). Ask: \enquote{Break the code -- does this test go red?}
+  \item \textbf{Owner helps during the playtest}: remind them the silence is the point.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Give a test template: copy the guided-demo tests and change only the class name and numbers. Three tests today, two more as homework. README: fill in the workbook sentence starters.
+\extensionpath Test the algorithm directly (e.g. BFS finds the shortest path in a tiny 3-by-3 maze); add a \enquote{How it works} diagram to the README.
+\end{differentiation}
+
+\begin{stretchchallenge}[Test the save file]
+Write a test that saves a high score to a temporary file and loads it back (pytest's \texttt{tmp\_path} fixture gives a safe folder: \py|def test_save(tmp_path):|).
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the tests and the playtest; move the README to homework (it is the M4 homework anyway). Shorten the demo to the first two tests.
+\end{teachernote}

@@ -1,0 +1,50 @@
+% Level 2, Week 2 -- homework
+\homeworkweek{2}{Functions That Give Back}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[What comes back? (paper, 3 minutes)]
+Write what each call gives back. Write \texttt{None} if it gives back nothing.
+\begin{pycode}
+def add_three(n):
+    return n + 3
+
+def shout(word):
+    print(word + "!")
+\end{pycode}
+\begin{tabular}{@{}ll@{}}
+\texttt{add\_three(4)} gives back & \rule{3cm}{0.4pt} \\[6pt]
+\texttt{add\_three(add\_three(1))} gives back & \rule{3cm}{0.4pt} \\[6pt]
+\texttt{shout("hi")} gives back & \rule{3cm}{0.4pt} \\
+\end{tabular}
+\end{core}
+
+\begin{core}[Potion Shop Calculator (Thonny, 10 minutes)]
+Open \texttt{excercises/week02/hw-shop-calculator/starter.py}. You have 50 coins and potions cost 12 coins each.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: \texttt{total\_cost()} returns price times quantity.
+  \item TODO 2: \texttt{can\_afford()} returns True or False.
+  \item TODO 3: write a docstring for \texttt{coins\_left()}.
+  \item TODO 4: finish \texttt{coins\_left()}. You can call \texttt{can\_afford()} inside it!
+  \item Run it. Buying 3 potions leaves \rule{1.5cm}{0.4pt} coins. Buying 5 potions leaves \rule{1.5cm}{0.4pt} coins.
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+\end{core}
+
+\begin{challenge}[Sale day]
+Add a function \texttt{discount(cost)} that returns the cost minus 5 if the cost is 40 or more, and the same cost otherwise.
+Use it in the main program before checking \texttt{can\_afford()}. Write a docstring for it.
+What do 5 potions cost on sale day? \rule{2cm}{0.4pt}
+\end{challenge}
+
+\begin{creative}[Invent a function machine]
+Invent a secret rule for a function machine (for example \enquote{add the two numbers, then double}). Try it on someone at home:
+they hand you values, you hand back answers, they guess the rule. Then write your rule as a Python function with a docstring:
+\answerspace{3.5cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I can explain the difference between \texttt{print} and \texttt{return}.
+  \item All three shop functions return their answer (no \texttt{None} in my output).
+  \item Every function in my homework has a docstring.
+  \item \texttt{check\_my\_work.py} shows \texttt{[PASS]} for my shop calculator.
+\end{selfcheck}

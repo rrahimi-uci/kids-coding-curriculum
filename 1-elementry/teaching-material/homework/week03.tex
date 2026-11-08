@@ -1,0 +1,57 @@
+% Level 1, Week 3 -- homework
+\homeworkweek{3}{When This Happens\ldots}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Pet Reactions (Scratch, about 10 minutes)]
+Make a virtual pet that reacts to you in three different ways.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open Scratch. Delete the cat or keep it as your pet. Or click \menu{Choose a Sprite} and pick any animal.
+  \item Build the three scripts below. Each one has a different doorbell (event).
+  \item Click the flag. Then: click the pet, press \keys{space}, and move the mouse over the pet.
+  \item Save as \texttt{pet-reactions}.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.78]
+\blockinit{when this sprite clicked}
+\blocklook{say \ovalnum{Purr!} for \ovalnum{1} seconds}
+\blocksound{start sound \selectmenu{Meow}}
+\end{scratch}
+\hspace{0.5cm}
+\begin{scratch}[scale=0.78]
+\blockinit{when \selectmenu{space} key pressed}
+\blocklook{next costume}
+\end{scratch}
+
+\medskip
+\begin{scratch}[scale=0.78,else word=else]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockifelse{if \boolsensing{touching \ovalsensing*{mouse-pointer} ?} then}
+    {\blocklook{say \ovalnum{Pet me more!}}}
+    {\blocklook{say \ovalnum{\ \ \ }}}
+}
+\end{scratch}
+\end{center}
+{\small (The sound block may have a different name for your animal: just pick any sound from the dropdown.)}
+\end{core}
+
+\begin{challenge}[Find the bug]
+Kai wants the pet to say \enquote{Wake up!} whenever the mouse touches it. Kai's script is:
+\enquote{when green flag clicked} $\rightarrow$ \enquote{if touching mouse-pointer? then say Wake up!}. It never says \enquote{Wake up!}.
+Why not? How would you fix it?
+\answerlines{2}
+\end{challenge}
+
+\begin{creative}[Two stars and a wish at home]
+Show your pet to someone at home. Ask them for two stars (two things they like) and a wish (one idea). Write them here, then try to make the wish come true!
+\par\faStar\ \rule{0.8\linewidth}{0.4pt}
+\par\faStar\ \rule{0.8\linewidth}{0.4pt}
+\par Wish: \rule{0.75\linewidth}{0.4pt}
+\end{creative}
+
+\begin{selfcheck}
+  \item My pet reacts to a click, a key press and the mouse.
+  \item My \enquote{if} is inside a \enquote{forever}, so it keeps checking.
+  \item I can say which block is the event (doorbell) in each script.
+  \item When I gave or got feedback, it was kind and specific.
+\end{selfcheck}

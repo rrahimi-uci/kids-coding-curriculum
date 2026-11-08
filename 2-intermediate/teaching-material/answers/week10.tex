@@ -1,0 +1,110 @@
+% Level 2, Week 10 answers -- Project Studio 1
+\answersweek{10}{Project Studio 1}{Answers and marking notes for workbook chapter 10 and homework 10.}
+
+\begin{teachernote}[Marking project weeks]
+Project weeks have no single right answer. Mark against the milestone: \textbf{met} (it works),
+\textbf{partly} (started, not working yet) or \textbf{not yet}. Praise small working steps. The full
+project rubric is in the Project Teacher Guide.
+\end{teachernote}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 10.1: Paper prototype and plan check (M1)]
+A good plan names the loop, at least one decision, the data and 3 or more functions. Example for an
+arcade game:
+\begin{outputcode}
+set up screen, basket, keys (Left/Right), score = 0, best = load_high_score()
+every tick (50 ms):
+    move every star in the stars list down
+    for each star: if touching(basket, star): add 1 to score, move star to top
+    if a star reaches the bottom: lose a life
+    if lives == 0: save_high_score(best) and show GAME OVER
+\end{outputcode}
+Example for an Art Studio:
+\begin{outputcode}
+shapes = empty list
+repeat until the user types q:
+    ask: d = draw, s = save, l = load, q = quit
+    d: make a random shape dictionary, add it to shapes, draw it
+    s: save_design(shapes, "design.txt")
+    l: shapes = load_design("design.txt"), clear screen, draw them all
+\end{outputcode}
+\textbf{Look for:} the three checklist items ticked honestly. A plan with no data yet is fine at M1 if
+the team can say where the list, dictionary and file will go.
+\end{answer}
+
+\begin{answer}[Exercise 10.2: A fair task board]
+Typical functions for a catching game: \texttt{next\_x(x, direction)} → new x; \texttt{touching(x1, y1,
+x2, y2, how\_close)} → True/False; \texttt{add\_score(score, points)} → new score;
+\texttt{load\_high\_score(filename)} → number; \texttt{save\_high\_score(score, filename)} → nothing (writes a
+file); \texttt{draw\_star(t, x, y)} → nothing (draws). \textbf{Fair split:} each student owns at
+least one logic function (these get tested next week) and at least one drawing or key function.
+Watch for one student holding all the interesting notes.
+\end{answer}
+
+\begin{answer}[Exercise 10.3: Build the core loop (M2)]
+The arcade skeleton is printed in the lesson plan (week 10, \texttt{mygame.py}). Art Studio teams
+build a \texttt{while} menu loop. This version was run with the test turtle and in a real window:
+\begin{pycode}[studio.py -- Art Studio core loop (tested)]
+import random
+import turtle
+
+PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00", "#CC79A7"]
+
+def random_shape():
+    """Make one shape recipe as a dictionary."""
+    return {"x": random.randint(-250, 250), "y": random.randint(-200, 200),
+            "size": random.randint(10, 60), "colour": random.choice(PALETTE)}
+
+def draw_shape(pen, shape):
+    pen.penup()
+    pen.goto(shape["x"], shape["y"])
+    pen.dot(shape["size"], shape["colour"])
+
+def studio():
+    pen = turtle.Turtle()
+    pen.hideturtle()
+    shapes = []                       # the list remembers the design
+    while True:                       # the core loop: one turn per choice
+        choice = input("d = draw, q = quit: ")
+        if choice == "q":
+            break
+        if choice == "d":
+            shape = random_shape()
+            shapes.append(shape)
+            draw_shape(pen, shape)
+    print(f"Your design has {len(shapes)} shapes.")
+
+if __name__ == "__main__":
+    studio()
+    turtle.done()
+\end{pycode}
+\textbf{M2 met} when: it runs without an error, something repeats by itself (timer or menu), one key
+or menu choice works, start-up code is under the main guard. \textbf{Partly}: it runs but nothing
+repeats (usually \texttt{ontimer} is missing at the end of \texttt{game\_loop}) or keys do nothing
+(missing \texttt{screen.listen()}, or \texttt{onkey(go\_left(), "Left")} with brackets).
+\end{answer}
+
+\begin{answer}[Exercise 10.4: Partner code review]
+Good stars are specific: \enquote{\texttt{next\_x} has a clear name and a docstring},
+\enquote{all the speeds are in the SETTINGS dictionary}. Good wishes are kind and doable:
+\enquote{the function \texttt{do\_stuff} could have a name that says what it does}. Gently redirect
+comments about the person (\enquote{you are slow}) to comments about the code.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: dev log]
+Any honest three-line log is a full answer, including \enquote{I got stuck on line 14, the error
+said NameError: name 'player' is not defined}. That is exactly the kind of note that helps next week.
+\end{answer}
+
+\begin{answer}[Challenge: tests on paper]
+For \texttt{next\_x} with a step of 20 and edges at $\pm 280$: \texttt{next\_x(0, 1)} → \texttt{20}
+(normal); \texttt{next\_x(280, 1)} → \texttt{280} (edge: stays on screen); \texttt{next\_x(-280, -1)} →
+\texttt{-280} (edge); \texttt{next\_x(270, 1)} → \texttt{280} (edge: stops exactly at the wall). Accept any
+function whose examples match what the code should do.
+\end{answer}
+
+\begin{answer}[Creative: title screen sketch]
+Look for a name, the keys explained in words, palette colours and at least one non-colour difference
+(shape, size, label). Nickname only.
+\end{answer}

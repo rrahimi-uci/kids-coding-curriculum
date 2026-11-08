@@ -1,0 +1,71 @@
+% Level 1, Answers week 12 -- Showcase and Celebration   (input by answer-key.tex)
+\answersweek{12}{Showcase and Celebration}{Notes for workbook chapter 12 and homework 12. Exit assessment answers are in the Assessments section of this key.}
+
+\section{Workbook}
+\begin{answer}[Exercise 12.1: Prepare your 2-minute demo]
+A good script names the project, lets the visitor answer, connects one answer to the \texttt{if} (\enquote{because you said night, it drew a moon}), points at the function and the loop, and mentions one real bug. Use the \enquote{Explaining} row of the rubric in the Project Teacher Guide.
+\end{answer}
+
+\begin{answer}[Exercise 12.2: Be a great visitor]
+Any idea they admired, said specifically (\enquote{Mei's fish had random sizes so it looked like a real sea}).
+\end{answer}
+
+\begin{answer}[Exercise 12.3: What I can do now]
+The eight sentences match the Level 1 goals in order: L1.G1 algorithms, L1.G2 loops, L1.G3 conditionals, L1.G4 variables/input/random, L1.G5 functions, L1.G6 debugging, L1.G7 pair work and explaining, L1.G8 safety and credit. Unticked sentences are a useful note for the start of Level 2 --- not a failure.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: My Level 1 reflection]
+Open answers. Look for specifics (\enquote{I can read error messages now}) and a wish for Level 2 you can use when planning (games, art, quizzes).
+\end{answer}
+
+\begin{answer}[Challenge: holiday menu (sample solutions)]
+Menu 1 --- Magic spiral:
+\begin{pycode}
+import turtle
+
+t = turtle.Turtle()
+t.speed(0)
+t.color("#0072B2")
+
+for i in range(60):
+    t.forward(i * 3)
+    t.left(91)
+
+turtle.done()
+\end{pycode}
+Menu 3 --- Dice roller:
+\begin{pycode}
+import random
+
+print("Dice roller!")
+roll = random.randint(1, 6)
+print("You rolled", roll)
+if roll == 6:
+    print("A six! Roll again!")
+\end{pycode}
+Menu 4 --- City skyline (the drawing part):
+\begin{pycode}
+def building(height, colour):
+    t.pendown()
+    t.color("#000000", colour)
+    t.begin_fill()
+    for side in range(2):
+        t.forward(50)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+    t.end_fill()
+    t.penup()
+    t.forward(60)
+
+
+for i in range(12):
+    building(random.randint(50, 300), random.choice(PALETTE))
+\end{pycode}
+(Before the loop: \texttt{import random}, the \texttt{PALETTE} list, a turtle \texttt{t} and \texttt{t.penup()}, \texttt{t.goto(-350, -200)}; after it: \texttt{turtle.done()}.) Menu 2 is the Square Flower with \texttt{range(36)}, \texttt{t.left(10)} and \texttt{random.choice(PALETTE)}. Menu 5 extends homework 9 with more questions.
+\end{answer}
+
+\begin{answer}[Creative: invent a challenge]
+Any clear challenge. Bonus if it names the ingredients it needs (\enquote{a loop and random}) --- that is decomposition.
+\end{answer}

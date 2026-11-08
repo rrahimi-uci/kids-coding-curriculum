@@ -1,0 +1,162 @@
+% Level 3, Buffer session B1 -- Algorithm Olympics (unplugged)
+\kcpart{B1}{Algorithm Olympics}{Algorithms are not only code: you can run them with your feet, your hands and a pencil.}
+\lessoninfo{Concepts: sorting networks, comparisons in parallel, maze solving (wall follower, breadth-first numbering), sorting and searching (review)}{Tools: paper, tape or chalk, pencils, timer; Thonny optional}{CSTA: 3A-AP-15, 1B-AP-08}
+
+\begin{teachernote}[When to use this session]
+Use B1 any time after week 5: after a missed week, before a holiday, or when the group needs a screen-free day. No computers are needed. The maze event is a preview of breadth-first search, which the final project's \enquote{Chaser} ghost uses to find the player.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can run a sorting network by hand and explain why comparisons in the same round can happen at the same time. (L3.G2)
+  \item The student can solve a grid maze by hand with a wall-follower rule and with breadth-first numbering, and say which one finds the shortest path. (L3.G2)
+  \item The student can find the missing step in a broken sorting network and prove the fix with a test input. (L3.G8)
+  \item The student can compete fairly and cheer for good strategies, not only for the winner. (L3.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print (or copy by hand): the sorting network and the maze from this lesson, 2 copies of each per student. Pencils, 2 colours of highlighter.
+  \item 8 small paper cards per student with the numbers 1--8 (or playing cards), a timer, and a few paper \enquote{medals} (circles of paper; write \enquote{Best strategy}, \enquote{Best teamwork}, \enquote{Best bug find}).
+  \item Optional, for a floor version: masking tape or chalk to copy the 4-wire network onto the floor, big enough to walk.
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Opening ceremony: the \enquote{human comparator} game.}
+  \timeslot{8--18}{Concept}{Sorting networks: wires, comparators and rounds.}
+  \timeslot{18--28}{Guided demo}{Run the 4-wire network together on one input; then the broken network bug hunt.}
+  \timeslot{28--52}{Hands-on build}{Event 1: network time trials (8 min). Event 2: maze solving by hand, two algorithms (10 min). Event 3: free-build, design a maze or network for a partner (6 min).}
+  \timeslot{52--60}{Wrap-up}{Medal ceremony for strategies, reflection, exit ticket.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Human comparator]
+Give two students one number card each. Say: \enquote{You are a \textbf{comparator}. When I say \emph{compare}, show your cards: the smaller number steps to the left, the bigger to the right.} Do it 3 times with new cards. Then ask: \enquote{Did you need to know any other numbers? Did you need to think about the whole list?} (No: a comparator only ever looks at two things.) With 1 student, you are the other half of the comparator.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{In week 5, bubble sort compared two neighbours at a time, one pair after another. A \textbf{sorting network} is a different idea: lots of comparators that can work \emph{at the same time}. Numbers travel along \textbf{wires} from left to right. Where two wires are joined by a line, the two numbers compare: the smaller goes to the upper wire, the bigger to the lower wire. Comparators in the same \textbf{round} do not touch the same wires, so they can all happen at once. Real computer chips use this trick to sort very fast.}
+\end{teacherscript}
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=0.9cm]
+  \foreach \w in {0,1,2,3} {
+    \draw[line width=1pt] (0,-\w) -- (7,-\w);
+    \node[left,font=\small] at (0,-\w) {wire \w};
+  }
+  \foreach \x/\a/\b in {1.6/0/1, 1.6/2/3, 3.2/0/2, 3.9/1/3, 5.6/1/2} {
+    \draw[line width=1.6pt,kcblue] (\x,-\a) -- (\x,-\b);
+    \fill[kcblue] (\x,-\a) circle (3.5pt) (\x,-\b) circle (3.5pt);
+  }
+  \foreach \x/\r in {1.6/1, 3.55/2, 5.6/3} \node[font=\small\bfseries] at (\x,0.65) {round \r};
+  \draw[decorate,decoration={brace,amplitude=4pt},line width=0.8pt] (7.2,0.1) -- (7.2,-3.1) node[midway,right=6pt,font=\small,align=left]{out: smallest\\on top, largest\\at the bottom};
+\end{tikzpicture}
+\end{center}
+
+\begin{analogy}[A relay with checkpoints]
+Think of four runners on four lanes. At each checkpoint (a blue line), the two runners on the joined lanes show their numbers and swap lanes if they are in the wrong order. Checkpoints in the same round are on different lanes, so those pairs can meet at exactly the same moment. After three rounds, everyone is in order.
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Running the network on 3, 1, 4, 2]
+Put cards 3, 1, 4, 2 at the left end of wires 0 to 3. Move them along together, round by round:
+\begin{center}
+\begin{tabular}{@{}p{1.3cm}p{7.6cm}p{4.4cm}@{}}
+\toprule
+\textbf{Round} & \textbf{Comparisons (smaller goes up)} & \textbf{Wires 0--3 after the round} \\ \midrule
+start & --- & 3, 1, 4, 2 \\
+1 & wires 0/1: 3 vs 1 swap; wires 2/3: 4 vs 2 swap & 1, 3, 2, 4 \\
+2 & wires 0/2: 1 vs 2 keep; wires 1/3: 3 vs 4 keep & 1, 3, 2, 4 \\
+3 & wires 1/2: 3 vs 2 swap & 1, 2, 3, 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Point out: 5 comparisons, but only 3 rounds, because the comparisons inside a round happen together. Bubble sort on 4 items needs up to 6 comparisons, one after another.
+\end{workedexample}
+
+\begin{bughunt}[The broken network]
+Draw the network again but \textbf{leave out round 3} (the comparator between wires 1 and 2). Ask: \enquote{Is it still a sorting network? Find an input that comes out wrong.} Give the students 3 minutes with their cards. One answer: 2, 4, 1, 3 comes out as 1, 3, 2, 4, which is not sorted. Then put the last comparator back and run 2, 4, 1, 3 again: 1, 2, 3, 4. A single failing input is enough to prove a bug. To prove the network is correct you would have to try \emph{all} 24 orders (or think very cleverly), which is exactly what automatic tests are good at.
+\end{bughunt}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Runner and referee]
+In each event, the \textbf{runner} moves the cards or pencil; the \textbf{referee} checks every step against the rules and says \enquote{stop} at a mistake. Swap after each event.
+With \textbf{1 student}: you are the referee, then swap and let them referee you (make a deliberate mistake!). With \textbf{3}: two runners race on two copies while the third referees; rotate. With \textbf{4}: two pairs race each other.
+\end{pairroles}
+
+\textbf{Event 1: Network time trials (8 minutes).} Each runner gets a random order of the cards 1--4 (shuffle, deal 4). The referee times how long the run through the network takes. Three trials each; the referee writes the times. Then try it with words instead of numbers (alphabetical order) or with the floor version if you taped one: students walk the wires themselves.
+
+\textbf{Event 2: Maze solving by hand (10 minutes).} Give each student this maze (black squares are walls; you can move up, down, left or right).
+\begin{center}
+\begin{tikzpicture}[x=0.85cm,y=0.85cm]
+  \foreach \r/\c in {0/3, 1/0, 1/1, 1/3, 1/5, 1/6, 2/4, 3/1, 3/2, 3/6, 4/3, 4/5, 5/0, 5/2, 5/3}
+    \fill[black] (\c,-\r) rectangle ++(1,-1);
+  \draw[kcgrey,line width=0.5pt,step=0.85cm] (0,0) grid (8,-6);
+  \draw[line width=1.4pt] (0,0) rectangle (8,-6);
+  \node[font=\bfseries] at (0.5,-0.5) {S};
+  \node[font=\bfseries] at (7.5,-5.5) {G};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Algorithm A, wall follower:} start at S, keep your right hand on the wall and walk until you reach G. Draw the route with one highlighter and count the steps.
+  \item \textbf{Algorithm B, breadth-first numbering:} write 0 in S. Write 1 in every open square next to it, then 2 in every empty open square next to a 1, and so on, like a ripple spreading in a pond. When G gets a number, that number is the length of the \textbf{shortest} path. To find the path, start at G and keep stepping to a square with a number one smaller. Draw it with the second highlighter.
+  \item Compare: which algorithm found the shorter route? Which one was easier to do? Which one would a computer prefer?
+\end{enumerate}
+
+\begin{freebuild}[Event 3: design for a partner]
+Last 6 minutes: each student draws their own 6 by 6 maze on squared paper (or a 3-wire sorting network, or a broken 4-wire network with one comparator missing) and swaps it with a partner, who solves it with breadth-first numbering or finds the failing input. Make it tricky but fair: there must be a way through!
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Olympic spirit]
+Before giving out medals, ask: \enquote{What makes a competition fun for \emph{everyone}, including the people who did not win?} Agree on rules: we cheer for clever strategies and good refereeing; we never laugh at a mistake; the person who found a bug gets a medal too. Hand out the paper medals for \enquote{Best strategy}, \enquote{Best teamwork} and \enquote{Best bug find}, so that winning is not only about speed. The same rules apply online: in games and chats, be the teammate you would want to have.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} students moving both cards of a comparator at once; correct ripple numbers (no square skipped or numbered twice).\\
+\textbf{Ask:} \enquote{Why does the sorting network need only 3 rounds when bubble sort needs 6 comparisons for 4 cards?}\\
+\textbf{Answer:} comparisons in the same round use different wires, so they happen at the same time (in parallel).
+\end{formativecheck}
+
+\begin{reflection}[Talk]
+\begin{itemize}[itemsep=1pt]
+  \item Which event used the cleverest algorithm? Why?
+  \item Where could the ripple (breadth-first) idea be useful in a game? (A ghost that chases the player by the shortest route.)
+\end{itemize}
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Comparing in the wrong direction}: the smaller number must go to the \emph{upper} wire every time.
+  \item \textbf{Doing round 2 before round 1 is finished}: move all cards to the end of a round before starting the next.
+  \item \textbf{Ripple numbering through walls or diagonally}: only up, down, left and right into open squares.
+  \item \textbf{Giving a square two numbers}: once a square has a number it keeps the first (smallest) one.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use 3 wires and the comparators 0/1, 1/2, 0/1. For the maze, do the ripple numbering together up to 5, then let the student continue.
+\extensionpath Use the classic 6-wire network from CS Unplugged (optional reference, not needed: \texttt{csunplugged.org}, \enquote{Sorting Networks}) or design a 4-wire network with only 4 comparators and find an input that breaks it.
+\end{differentiation}
+
+\begin{stretchchallenge}[Check every order with Python]
+Write a function \texttt{run\_network(values, comparators)} where \texttt{comparators} is the list \texttt{[(0, 1), (2, 3), (0, 2), (1, 3), (1, 2)]}. For each pair \texttt{(a, b)}, if \texttt{values[a] > values[b]}, swap them. Then use \texttt{itertools.permutations([1, 2, 3, 4])} to test all 24 orders. Does every one come out sorted? Remove the last comparator: how many orders fail now?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Run Events 1 and 2 only and skip the time trials' word version. The medal ceremony can be 2 minutes, but keep it: it is where the fair-play talk happens.
+\end{teachernote}
+
+\begin{teachernote}[Maze answer: breadth-first numbers]
+Walls are shown as \#\#. G gets 12, so the shortest path has 12 steps: S, right 2, down 2, right 1, down 1, right 1, down 2, right 3 to G (numbers 0 to 12 in order). The long loop through the top-right corner (13 to 17) is a trap for the wall follower, which may walk it before reaching G.
+\begin{center}
+\ttfamily\small
+\begin{tabular}{cccccccc}
+0 & 1 & 2 & \#\# & 16 & 15 & 14 & 13 \\
+\#\# & \#\# & 3 & \#\# & 17 & \#\# & \#\# & 12 \\
+6 & 5 & 4 & 5 & \#\# & 9 & 10 & 11 \\
+7 & \#\# & \#\# & 6 & 7 & 8 & \#\# & 12 \\
+8 & 9 & 10 & \#\# & 8 & \#\# & 12 & 13 \\
+\#\# & 10 & \#\# & \#\# & 9 & 10 & 11 & G=12 \\
+\end{tabular}
+\end{center}
+\end{teachernote}

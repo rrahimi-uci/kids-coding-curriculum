@@ -1,0 +1,34 @@
+% Level 3 answer key, Week 10 -- Project Studio 1
+\answersweek{10}{Project Studio 1}{What good work looks like for workbook chapter 10 and homework 10.}
+
+\begin{teachernote}[Open-ended week]
+There is no single right answer this week: every project is different. Use these descriptions of good work, the Milestone 2 checklist and the Project teacher guide's rubric. The reference \emph{Maze Muncher} design (Maze, Player, Ghost, Chaser, Game) is one example, not the target.
+\end{teachernote}
+
+\section{Exercise 10.1: CRC cards}
+\begin{answer}[Good work looks like]
+Two to five cards. Each responsibility is short and starts with \enquote{knows...} or a verb (\enquote{moves}, \enquote{saves}). Each class has one clear job. At least one card says \enquote{is a ...} or holds another class. \textbf{Example (art app):} \emph{Shape} (knows position, colour; draws itself), \emph{Spiral is a Shape} (draws a recursive spiral), \emph{Gallery} (has a list of Shapes; saves and loads them to a file).
+\end{answer}
+
+\section{Exercise 10.2: Class diagram}
+\begin{answer}[Good work looks like]
+Boxes with name, attributes and methods; a hollow-triangle arrow from child to parent for inheritance; a diamond line on the \enquote{whole} side for composition. The sentence matches the drawing, e.g. \enquote{Chaser is a Ghost}, \enquote{Game has a Maze}. Common error: inheritance used for \enquote{has a} (\texttt{class Game(Maze)}) -- ask \enquote{is a game a kind of maze?}
+\end{answer}
+
+\section{Exercise 10.3: Milestone plan}
+\begin{answer}[Good work looks like]
+Each \enquote{what will work} line is something you could \emph{see} working (\enquote{the player moves and stops at walls}), not a vague goal (\enquote{make the game}). M2 is small enough for one session plus homework.
+\end{answer}
+
+\section{Exercise 10.4: Repository and first commits}
+\begin{answer}[Check]
+\texttt{git log --oneline} in the project folder shows 2 or more commits; messages start with a verb and say what changed (\enquote{Add Maze class that loads a grid}). Not acceptable: \enquote{stuff}, \enquote{update}, \enquote{asdf}. The \texttt{.git} folder must be inside the project folder, not in the home folder.
+\end{answer}
+
+\section{Homework 10}
+\begin{answer}[Core]
+3 or more new commits; at least one class has a working method (not only \py|pass|); the program runs without errors.
+\end{answer}
+\begin{answer}[Challenge and Creative]
+Challenge: one test file named \texttt{test\_*.py} with a test function named \texttt{test\_*} that fails when the code is broken. Creative: title screen shows the name and the controls in text, uses Okabe--Ito colours, and does not rely on colour alone.
+\end{answer}

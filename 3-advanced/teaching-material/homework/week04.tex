@@ -1,0 +1,47 @@
+% Level 3, Week 4 homework -- Searching
+\homeworkweek{4}{Searching and How Fast Is Fast?}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Growth Table (about 10 minutes)]
+\textbf{1. Predict first.} How many steps does each search need in the worst case? Fill in the empty boxes \emph{before} you run any code.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|r|p{3cm}|p{3cm}|}
+\hline
+\textbf{Items} & \textbf{Linear} & \textbf{Binary} \\ \hline
+10 & & \\ \hline
+100 & & \\ \hline
+1000 & & \\ \hline
+1\,000\,000 & & \\ \hline
+\end{tabular}
+\end{center}
+\textbf{2. Code.} Open \texttt{week04/hw-growth-table/starter.py}. Finish \texttt{linear\_worst(n)} and \texttt{halving\_steps(n)}: keep doing \texttt{n = n // 2} and count, until \texttt{n} is 0.\\
+\textbf{3. Check.} Run it and compare with your predictions. Then open \texttt{check\_my\_work.py} and press Run. Commit your work in \texttt{git-quest}.
+\end{core}
+
+\begin{challenge}[Trace it by hand]
+Use binary search to find \textbf{9} in \texttt{[1, 3, 5, 7, 9, 11, 13]}. Fill in one row per step.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|c|p{4cm}|}
+\hline
+\textbf{step} & \textbf{low} & \textbf{high} & \textbf{mid} & \textbf{items[mid]} & \textbf{so\ldots} \\ \hline
+1 & & & & & \\ \hline
+2 & & & & & \\ \hline
+3 & & & & & \\ \hline
+\end{tabular}
+\end{center}
+How many steps did it take? \rule{1.5cm}{0.4pt}\quad How many would linear search take? \rule{1.5cm}{0.4pt}
+\end{challenge}
+
+\begin{creative}[Draw the race]
+Draw a bar chart of your growth table on paper or with turtle: one pair of bars for each list size. Linear bars get too tall very quickly! How could you draw them so they still fit on the page? (Idea: let 1 cm stand for more and more steps, and write the real number on each bar.)
+\answerspace{3.5cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I wrote my predictions before running the code.
+  \item All checks pass in \texttt{hw-growth-table}.
+  \item I can explain why binary search grows so slowly.
+  \item I committed my work in \texttt{git-quest}.
+\end{selfcheck}

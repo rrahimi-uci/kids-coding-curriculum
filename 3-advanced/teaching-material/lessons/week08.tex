@@ -1,0 +1,113 @@
+% Level 3, Week 8 -- Data Detectives
+\lesson{8}{Data Detectives}{Data tells stories when you clean it, count it and chart it.}
+\lessoninfo{Concepts: CSV files, csv.DictReader, cleaning, counting with dicts, averages, bar charts}{Tools: Thonny, turtle, csv}{CSTA: 2-DA-08, 3A-DA-11, 3A-DA-12, 3A-IC-29}
+
+\begin{objectives}
+  \item The student can read a CSV file with \texttt{csv.DictReader} and clean it: strip spaces, skip empty rows, turn text into numbers. (L3.G6)
+  \item The student can count values with a dictionary and work out an average that skips missing data. (L3.G3, L3.G6)
+  \item The student can draw a bar chart with turtle where every bar is labelled with text, not colour alone. (L3.G6)
+  \item The student can explain why surveys need consent and how to anonymise answers before sharing. (L3.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 8 and homework 8 (one per student).
+  \item On each Mac: in Thonny open \texttt{3-advanced/excercises/week08/ex-survey-cleaner/starter.py} and \texttt{favourite\_games.csv} next to it (in \menu{File} $\rightarrow$ \menu{Open} choose \enquote{All files}).
+  \item Unplugged: one sticky note per person (including you), a large sheet of paper, a marker.
+  \item Prep (10 min): read this plan; run \texttt{ex-bar-chart/solution.py} once to see the finished chart.
+\end{materials}
+
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged paper survey with consent: anonymous sticky notes $\rightarrow$ tally $\rightarrow$ hand-drawn bar chart.}
+  \timeslot{8--18}{Concept}{What a CSV file is; \texttt{DictReader} gives one dictionary per row; why data must be cleaned; consent and anonymising.}
+  \timeslot{18--28}{Guided demo}{Type-along: Exercise 8.1 survey cleaner (19 messy rows $\rightarrow$ 17 clean ones).}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 8.2 stats (about 10 min), then 8.3 bar chart (about 10 min); swap every 8 min. Bug hunt. Last 4 min: free-build chart.}
+  \timeslot{52--60}{Wrap-up}{What story does our data tell? Exit ticket, hand out homework 8.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[The sticky-note survey]
+Say: \enquote{I would like to run a survey: \emph{What is your favourite game?} Taking part is your choice -- you can pass, and you do not write your name.} (This is \textbf{consent} and \textbf{anonymity}; you will name them in a moment.) Everyone, you included, writes one game on a sticky note, folds it and drops it in a pile. Shuffle. A volunteer reads them out; another makes a tally on the big sheet. Notice together: \enquote{Did someone write \emph{minecraft} and someone else \emph{Minecraft!}? Are they the same answer?} Agree on one spelling -- you just \textbf{cleaned} data. Draw a quick bar chart with a label under every bar.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{Real data detectives get answers from hundreds of people, so they keep them in a file. A \textbf{CSV} file -- comma-separated values -- is a table written as plain text: one line per row, commas between columns. The first line is the \textbf{header}: the column names.
+
+Python's \py|csv.DictReader| reads each row into a \textbf{dictionary}: column name $\rightarrow$ value. But every value arrives as \emph{text}: \py|"5"|, not \py|5|. And real data is messy: extra spaces, MiXeD capitals, empty rows. So the first job is always \textbf{cleaning}. Then we \textbf{count}, \textbf{average} and \textbf{chart}.}
+\end{teacherscript}
+
+Show \texttt{favourite\_games.csv} in Thonny and hunt for mess together: \texttt{ block craft } (spaces), \texttt{BLOCK CRAFT} (capitals), row 5 and an all-commas row (empty), row 7 (missing hours).
+
+\begin{analogy}[Washing vegetables]
+Data is like vegetables from the garden: you would not cook them with the mud still on. Cleaning comes first -- strip off the spaces, throw away the empty rows, cut text into numbers -- then you cook (count, average, chart).
+\end{analogy}
+
+\begin{teachernote}[The CS idea, for you]
+\enquote{Garbage in, garbage out}: counting messy data gives confidently wrong answers. Missing values become \texttt{None} and are skipped in averages -- counting them as 0 would drag the average down unfairly.
+\end{teachernote}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Exercise 8.1: survey cleaner (type-along)]
+\begin{enumerate}[itemsep=1pt]
+  \item Run \texttt{starter.py}. It says 19 answers and prints \texttt{block craft} with spaces. \enquote{Our detective is being fooled!}
+  \item TODO 1, \texttt{to\_number}: strip; empty text gives \py|None|; otherwise \py|int(text)|.
+  \item TODO 2, \texttt{is\_empty}: \py|return row["favourite_game"].strip() == ""|.
+  \item TODO 3: add \py|.title()| so all spellings become \texttt{Block Craft}. Run: \texttt{Clean answers: 17}.
+\end{enumerate}
+\end{workedexample}
+\pyfile[firstline=25,lastline=45]{../excercises/week08/ex-survey-cleaner/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Detective and recorder]
+The \textbf{driver} types. The \textbf{navigator} is the \enquote{recorder}: before each Run they write on paper what answer they \emph{expect} (e.g. Block Craft has 5 votes), then check. Swap at 8 minutes. With 1 student: you are the recorder. With 3: add a \textbf{checker} who runs \texttt{check\_my\_work.py}; rotate. With 4: two pairs; at the end each pair explains one function to the other.
+\end{pairroles}
+
+\textbf{Exercise 8.2} (about 10 min): \texttt{count\_by}, \texttt{average}, \texttt{most\_popular}. \textbf{Exercise 8.3} (about 10 min): scale the bars and write a name and a number on every bar.
+
+\begin{bughunt}[Numbers that are really words]
+In the Thonny shell type \py|hours = ["5", "3", "2"]| then \py|max(hours), sum(hours)|. \texttt{max} says \py|"5"| (looks fine!), but \texttt{sum} crashes: \texttt{TypeError: unsupported operand type(s) for +: 'int' and 'str'}. Try \py|max(["10", "9"])| -- it says \texttt{"9"}, because text is compared letter by letter. Fix: convert with \py|int()| while cleaning. Then the second bug: \py|int("")| crashes on an empty answer -- that is why \texttt{to\_number} returns \py|None| and \texttt{numbers\_in} skips it.
+\end{bughunt}
+
+\begin{freebuild}[Your chart, your question (last 4 minutes)]
+Chart a different column: change \texttt{count\_games} to count \texttt{genre} or \texttt{age\_group}. Or add a y-axis with a tick for every vote, or sort the bars alphabetically.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+Look at the chart together. Ask: \enquote{What story does it tell? What can it \emph{not} tell us?} (Only 17 people answered; \enquote{adventure} has 5.0 stars from just 2 answers -- small samples can mislead.)
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} students say \enquote{clean before counting}, and every bar has a label.
+\textbf{Question:} \enquote{Answers for hours: 4, 2, (blank), 6. What is the average, and what did you do with the blank?}
+\textbf{Answer:} 4 -- skip the blank: (4 + 2 + 6) / 3. Counting it as 0 would give 3, which is unfair.
+\end{formativecheck}
+
+\begin{reflection}
+What was the messiest thing in the data? Why do we write the name on each bar instead of only using colours? Would you answer a survey that asked for your full name? Why or why not?
+\end{reflection}
+
+\begin{safety}[Consent and anonymising survey data]
+Say: \enquote{Our survey asked first, let people pass, and had no names. That is \textbf{consent} and \textbf{anonymity}. Even without names, some answers together can point to one person -- \emph{the only 13-year-old in the chess club}. Before sharing data: keep only the columns you need, replace names with IDs like R1, R2, and never collect addresses, schools, birthdays or photos.} Homework 8 practises this.
+\end{safety}
+
+Hand out homework 8 (survey privacy: anonymise a CSV file).
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Forgetting \texttt{import csv}} or opening the file from the wrong folder: \texttt{FileNotFoundError}. Open \texttt{starter.py} from the exercise folder so the CSV sits next to it.
+  \item \textbf{Column name typos}: \py|row["game"]| instead of \py|row["favourite_game"]| gives \texttt{KeyError}. Copy names from the header line.
+  \item \textbf{Counting without \texttt{.get}}: \py|counts[value] += 1| crashes the first time (\texttt{KeyError}). Use \py|counts.get(value, 0) + 1|.
+  \item \textbf{Bars not scaled}: dividing by the wrong number, or integer maths. \py|value / biggest * MAX_HEIGHT| works.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 8.1 and 8.2 together as a group; skip 8.3 or run the solution and change only the colours and title. Trace \texttt{count\_by} on paper with a 4-row table.
+\extensionpath Work out the average stars \emph{per genre} (the solution's main block shows how), or write \texttt{save\_report()} that writes the results to \texttt{report.txt}.
+\end{differentiation}
+
+\begin{stretchchallenge}[Two-column detective]
+Make a grouped chart: for each game, two bars side by side -- one for the 10--11 group, one for the 12--13 group -- each with a text label. Which age group likes puzzle games more?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Shorten the warm-up to the tally only (no paper chart). Do 8.1 as the demo and 8.3 in pairs (it has its own loader); 8.2 can move to Buffer B2.
+\end{teachernote}

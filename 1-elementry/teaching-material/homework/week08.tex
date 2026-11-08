@@ -1,0 +1,62 @@
+% Level 1, Homework 8 -- Loop Fixer   (input by homework.tex)
+\homeworkweek{8}{Loop Fixer}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Loop Fixer (about 10 minutes)]
+Open \texttt{week08/hw-loop-fixer/starter.py}. It should draw a blue square and an orange star, but it has \textbf{2 loop bugs}.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Press Run and watch carefully. Count the sides of the square. How many times does its loop repeat?
+  \item The star is a straight line! Look at the spaces at the start of each line. Which line is \textbf{not} inside the loop?
+  \item Fix one bug, press Run, then fix the other. Finish with \texttt{check\_my\_work.py}.
+\end{enumerate}
+Bug 1 was on line \rule{1cm}{0.4pt}. I changed \rule{3.5cm}{0.4pt} to \rule{3.5cm}{0.4pt}.\par\smallskip
+Bug 2 was on line \rule{1cm}{0.4pt}. I fixed it by \rule{7cm}{0.4pt}.
+\par\textbf{No computer at home?} Circle the two bugs in the program below and write the fixes next to them.
+\begin{pycode}
+for i in range(3):
+    t.forward(100)
+    t.left(90)
+
+for i in range(5):
+    t.forward(150)
+t.right(144)
+\end{pycode}
+\end{core}
+
+\begin{challenge}[Count the taps]
+Without running it: how many times does this program print \texttt{tap}? \rule{1.5cm}{0.4pt}
+\begin{pycode}
+for i in range(3):
+    for j in range(2):
+        print("tap")
+\end{pycode}
+Then make a 7-pointed star: 7 lines of 150, turning \py|t.right(360 * 3 / 7)| each time (about 154 degrees).
+\end{challenge}
+
+\begin{creative}[Spiral lab]
+Make a new file \texttt{my-python/spiral-lab.py} with this loop (plus \texttt{import turtle}, \texttt{t = turtle.Turtle()} and \texttt{turtle.done()}). Change the turn number and record what you see.
+\begin{pycode}
+for i in range(60):
+    t.forward(i * 3)
+    t.left(91)
+\end{pycode}
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{2.5cm}p{10cm}@{}}
+\toprule
+Turn & What it looked like\\
+\midrule
+\texttt{91} & \\ \midrule
+\texttt{121} & \\ \midrule
+my choice: & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{creative}
+
+\begin{selfcheck}
+  \item My square has 4 sides and my star has 5 points.
+  \item I can explain why the spaces at the start of a line matter.
+  \item I know that \texttt{range(4)} makes a loop run 4 times.
+  \item If I got stuck, I used the help sentence: \enquote{I expected \ldots{} but \ldots{} happened.}
+\end{selfcheck}

@@ -1,0 +1,60 @@
+% Level 3, Week 1 answers -- Save Points: Git Basics
+\answersweek{1}{Save Points: Git Basics}{Answers for workbook chapter 1 and homework 1.}
+
+\begin{teachernote}[Placement quiz]
+The placement quiz answers and scoring guide are in the assessments section at the end of this answer key.
+\end{teachernote}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 1.1: The Git Quest]
+There is no code to mark: check the student's Terminal. In \texttt{Documents/git-quest} the commands
+\texttt{git log --oneline} and \texttt{git status} should give something like:
+\begin{outputcode}
+3e8d1f2 (HEAD -> main) Make star bigger
+9b0c7a4 Change badge colour to green
+7c41e0a Add hero badge drawing
+
+On branch main
+nothing to commit, working tree clean
+\end{outputcode}
+\textbf{What to look for:} 3 or more commits; messages that start with a verb and say what changed;
+\texttt{git config user.name} shows a nickname and \texttt{git config user.email} an \texttt{@example.com} address;
+the student can explain that \texttt{git restore} brought back the deleted \texttt{draw\_star} function.
+The commit ids will always be different from these.
+\end{answer}
+
+\subsection{Exercise 1.2: Commit Coach}
+\pyfile{../excercises/week01/ex-commit-coach/solution.py}
+\begin{answer}[Exercise 1.2: Commit Coach]
+\textbf{What to look for:} the rules can be written in any order and with \texttt{and}/\texttt{or}, as long as all five checks pass.
+In \texttt{find\_secrets}, the \texttt{break} stops a line being added twice when it has two secret words; a student who uses
+\texttt{any()} or a flag variable is also correct.
+\end{answer}
+
+\subsection{Exercise 1.3: Log Reader}
+\pyfile{../excercises/week01/ex-log-reader/solution.py}
+\begin{answer}[Exercise 1.3: Log Reader]
+\textbf{What to look for:} \texttt{split(" ", 1)} (split once) keeps messages with spaces in one piece. \texttt{oldest\_first} may use
+\texttt{reverse()}, \texttt{reversed()} or slicing \texttt{[::-1]}. The last automatic check builds a real git repository in a temporary
+folder; it is skipped on a Mac without git.
+\end{answer}
+
+\section{Homework}
+\subsection{Core: Inventory Review}
+\pyfile{../excercises/week01/hw-inventory-review/solution.py}
+\begin{answer}[Core: Inventory Review]
+Expected output includes \texttt{Gems: 3}, \texttt{Most common: gem} and \texttt{After using all potions: ['gem', 'key', 'gem', 'map', 'gem']}.
+Common slip: removing items from the list while looping over it (it skips items) instead of building a new list.
+The git step should add one more commit (\enquote{Add inventory review} or similar).
+\end{answer}
+
+\begin{answer}[Challenge: Message makeover]
+Any message that starts with a verb, says what changed and has 50 or fewer characters. Examples:
+\enquote{Make hero jump higher}, \enquote{Add sound when you score}, \enquote{Stop score going below zero}.
+All three should get \enquote{Great message!} from the Commit Coach.
+\end{answer}
+
+\begin{answer}[Creative: A badge with a history]
+\textbf{Good looks like:} at least 3 new commits, one change per commit, a timeline drawing whose circles match \texttt{git log --oneline}
+(oldest on the left). The hero name is invented. Praise small, focused commits more than one big one.
+\end{answer}

@@ -1,0 +1,145 @@
+% Level 1, Week 11 -- Project Studio   (input by lesson-plans.tex)
+\lesson{11}{Project Studio}{Build, test and improve your project in small steps.}
+\lessoninfo{Concepts: iterative development (I), all Level 1 concepts (R/E)}{Tools: Thonny + turtle (Scratch for the support path)}{CSTA: 1B-AP-13, 1B-AP-15, 1B-AP-16, 1B-AP-17}
+
+\begin{objectives}
+  \item The student can build a program in small steps: change one thing, run, check, repeat (L1.G1, L1.G9; L1.W11.1)
+  \item The student can make their project's main function work and call it in at least two places (Milestone M2) (L1.G5; L1.W11.2)
+  \item The student can add a question, an \texttt{if}, a loop and a random surprise to their project (Milestone M3) (L1.G2, L1.G3, L1.G4; L1.W11.3)
+  \item The student can test a partner's program, describe a bug kindly and act on feedback (L1.G6, L1.G7; L1.W11.4)
+\end{objectives}
+
+\begin{materials}
+  \item Students' plan sheets from homework 10 (Project Brief, page 4) and the milestone page of the brief.
+  \item Print: workbook chapter 11 and homework 11. Blank paper for the paper playtest.
+  \item On each Mac: Thonny open with the student's saved project file (in \texttt{1-elementry/project/starter/}).
+  \item Read \enquote{M2}, \enquote{M3} and \enquote{Unblocking common problems} in the Project Teacher Guide (5 minutes). Prep time: about 10 minutes.
+\end{materials}
+
+\needspace{20\baselineskip}
+\section{At a glance}
+Times are a guide. Today is studio time: you circulate and coach, students build.
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged paper playtest: a partner \enquote{runs} your plan sheet.}
+  \timeslot{8--13}{Concept}{The build--run--check loop; today's two milestones (M2, M3).}
+  \timeslot{13--20}{Guided demo}{Build a tiny art show in five small steps; save a version before a big change.}
+  \timeslot{20--36}{Hands-on build: sprint 1}{M2 Core drawing works: main function draws, called in 2+ places.}
+  \timeslot{36--42}{Partner bug hunt}{Swap seats: run each other's program, try a normal and a strange answer, two stars and a wish.}
+  \timeslot{42--52}{Hands-on build: sprint 2}{M3 Surprise and polish: questions, \texttt{if}, loop, random, title.}
+  \timeslot{52--60}{Wrap-up}{Practise explaining one part, milestone ticks, hand out homework 11.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Paper playtest]
+In pairs, each student hands their plan sheet to their partner. The partner is now \enquote{the computer}: they read the questions aloud, the owner answers, and the partner draws on blank paper \textbf{only} what the plan says. Swap after 3 minutes.
+Afterwards ask: \enquote{Did the computer draw what you imagined? What was missing from your plan?} Students add one thing to their plan sheet. With 1 student, you are the computer; with 3, rotate so everybody's plan gets played.
+\end{unplugged}
+\begin{teacherscript}
+\enquote{Real game designers test on paper first, because paper is fast to fix. You just found missing steps before writing any code. That's a superpower.}
+\end{teacherscript}
+
+\section{Concept (8--13 min)}
+\begin{teacherscript}
+\enquote{Big programs are not written in one go. Professionals go round a little loop all day: \textbf{build} one small thing, \textbf{run} it, \textbf{check} it, then the next small thing. If something breaks, you know it was the last little change. Today has two finish lines: first your main drawing works (M2), then you add the surprises (M3).}
+\end{teacherscript}
+\begin{analogy}[Building a LEGO set bag by bag]
+LEGO sets come in numbered bags. You finish bag 1 and check it looks like the picture before opening bag 2. If you tipped all the bags out at once and something looked wrong at the end, you would never find which piece was wrong. Code is the same: one bag at a time, and run after each one.
+\end{analogy}
+
+\section{Guided demo (13--20 min)}
+\begin{workedexample}[A tiny art show in five small steps]
+Type this on your Mac, step by step, pressing Run after \textbf{every} step. Say out loud which ingredient each step adds.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{Question:} \texttt{print} a welcome and ask \enquote{How many bubbles?} with \texttt{int(input(...))}. Run: answer 5.
+  \item \textbf{Function:} write \texttt{def bubble(x, y, colour):} and call it once: \texttt{bubble(0, 0, "\#0072B2")}. Run: one bubble.
+  \item \textbf{Loop:} put the call in \texttt{for i in range(how\_many):}. Run: all bubbles in one place --- that's fine for now!
+  \item \textbf{Random:} \texttt{x} and \texttt{y} from \texttt{random.randint}, colour from \texttt{random.choice(PALETTE)}. Run twice: different every time.
+  \item \textbf{If:} cap the number at 50 with a friendly message. Run with 500.
+\end{enumerate}
+Before step 4, show \menu{File} → \menu{Save as…} \texttt{bubble\_show\_v2.py}: \enquote{If my change goes wrong, version 1 is still safe.}
+\end{workedexample}
+\begin{pycode}[The finished tiny art show (all six ingredients)]
+import random
+import turtle
+
+PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
+           "#0072B2", "#D55E00", "#CC79A7", "#000000"]
+
+t = turtle.Turtle()
+t.speed(0)
+
+
+def bubble(x, y, colour):          # step 2: one function
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.dot(40, colour)
+
+
+print("Welcome to my Bubble Show!")
+how_many = int(input("How many bubbles? "))   # step 1: input
+
+if how_many > 50:                  # step 5: an if
+    print("That is a lot! I will draw 50.")
+    how_many = 50
+
+for i in range(how_many):          # step 3: a loop
+    x = random.randint(-300, 300)  # step 4: random
+    y = random.randint(-200, 200)
+    bubble(x, y, random.choice(PALETTE))
+
+turtle.done()
+\end{pycode}
+
+\section{Hands-on build: sprint 1 (20--36 min)}
+\begin{pairroles}[Studio pairs]
+Each student builds their own project; partners sit side by side as \enquote{studio buddies}: when one is stuck, the other becomes navigator for 2 minutes (reads the error aloud, asks \enquote{what did you change last?}). If two students share one project, swap driver and navigator every 8 minutes.
+With 1 student: you are the studio buddy. With 3: one trio of buddies, or a pair plus you. With 4: two pairs.
+\end{pairroles}
+\textbf{Goal: Milestone M2 --- Core drawing works.} Students turn the example \texttt{my\_shape} function in the starter into their own (rename it, change the drawing), draw it once at \texttt{(0, 0)}, then call it a second time somewhere else. Walk around and ask: \enquote{Show me where you \textbf{make} your function. Now where you \textbf{use} it.} Tick M2 on the brief when the drawing appears in two places with no red errors.
+
+\section{Partner bug hunt (36--42 min)}
+\begin{bughunt}[Partner swap]
+Partners swap seats. Each runs the other's program twice: once with a normal answer, once with a strange one (0, a very big number, a word, a capital letter). They write down what happened, without fixing anything. Then they swap back and give \enquote{two stars and a wish} (two things they liked, one wish). With 1 student: you swap with them --- they test the Night Sky Postcard while you test theirs. With 3: rotate in a circle.
+\end{bughunt}
+
+\section{Hands-on build: sprint 2 (42--52 min)}
+\textbf{Goal: Milestone M3 --- Surprise and polish.} Add the question(s) (numbers need \texttt{int(...)}), the \texttt{if} that changes something visible, the loop with \texttt{random} positions or sizes, and a title with \texttt{t.write(...)}. Students tick the six ingredients in the comment list at the top of their file as each one works.
+\begin{freebuild}[Personal touch (last 3 minutes)]
+One thing just for fun, not on the checklist: a background colour (\texttt{turtle.bgcolor(...)}), a goodbye message in the Shell, a signature in the corner with their \textbf{nickname}, or \texttt{t.hideturtle()} for a clean finish.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Giving and receiving helpful feedback]
+Giving: be kind, specific and helpful --- \enquote{I liked how the stars are different sizes} beats \enquote{cool}. A wish is about the program, never the person: \enquote{I wish the title was bigger}, not \enquote{you're bad at titles}. Receiving: say \enquote{thank you}, then \textbf{you} decide what to change --- it is your art. These rules work online too: if a comment is unkind, don't reply; tell a grown-up.
+\end{safety}
+Practise explaining: in pairs, each student points at one part of their code and says what it does in two sentences (\enquote{This is my loop. It draws a fish 10 times at random places.}). This prepares the 2-minute demo next week.
+\begin{formativecheck}[Exit ticket]
+\enquote{Which milestone did you reach? What is the next small step for your project?} (Written on a sticky note stuck to their plan sheet.) Look for: a concrete next step (\enquote{make the moon a crescent}), not \enquote{finish it}. Use the M2 and M3 checks in the Project Teacher Guide.
+\end{formativecheck}
+\begin{reflection}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item What bug did you find today? How did you find it?
+  \item What feedback did you get, and what will you do with it?
+\end{itemize}
+Hand out homework 11: finish M3 (if needed) and practise the 2-minute demo.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing everything, then running once.} Lots of errors at once feel awful. Fix: \enquote{Run after every two or three lines.}
+  \item \textbf{Function drawn on top of itself}: every call uses the same \texttt{x, y}, or the function ignores \texttt{x, y}. Fix: \texttt{t.penup()}, \texttt{t.goto(x, y)}, \texttt{t.pendown()} at the start of the function.
+  \item \textbf{\texttt{range(answer)} without \texttt{int}}: \texttt{TypeError}. Fix: \texttt{int(input(...))}.
+  \item \textbf{Scope creep}: a student adds features and never finishes the core. Fix: \enquote{M2 first. Extras go on the wish list.}
+  \item More fixes: the table \enquote{Unblocking common problems} in the Project Teacher Guide.
+\end{commonmistakes}
+\begin{differentiation}
+\supportpath Shrink the idea to one function plus one loop first; add the question and the \texttt{if} with you as navigator. The Scratch version of the art show (same rubric) is a full option. Students who missed week 10 can remix \texttt{ex-flower-stamp} as their project base.
+\extensionpath Add a second function that uses the first (like \texttt{house} uses \texttt{box} in the reference), handle strange answers kindly, or add a key press: \texttt{screen.onkey(...)} plus \texttt{screen.listen()} to redraw on the space bar.
+\end{differentiation}
+\begin{stretchchallenge}[Make it a tiny game]
+Ask the viewer to guess how many stars (or fish) were drawn, and use an \texttt{if} to say \enquote{Correct!} or \enquote{It was 17!}.
+\end{stretchchallenge}
+\begin{teachernote}[If you are short on time]
+Shorten the paper playtest to one plan (the volunteer's) and skip the guided demo: point at the step list in the workbook instead. Keep the partner bug hunt: it is the best test the projects will get before the showcase. Students who need more time can use Buffer B2 before week 12.
+\end{teachernote}

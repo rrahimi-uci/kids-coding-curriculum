@@ -1,0 +1,41 @@
+\documentclass[level=3]{kidscode}
+%% The card is measured first and shrunk only if it would not fit on the page
+%% (the dyslexia-friendly edition has larger, wider text).
+\newsavebox{\certbox}
+\newlength{\certroom}
+\begin{document}
+\kctitle{Certificate of Graduation}{Level 3: Advanced \textperiodcentered\ Python projects}
+\thispagestyle{empty}
+\vspace*{-0.6cm}
+
+\sbox{\certbox}{%
+\begin{tikzpicture}
+  \node[inner sep=16pt, text width=14.2cm, align=center] (card) {%
+    {\fontsize{36}{40}\selectfont\color{kcaccent}\faGraduationCap}\par\medskip
+    {\Large This certifies that}\par\vspace{1.0cm}
+    \rule{11cm}{0.6pt}\par
+    {\small\color{kcgrey} name or nickname}\par\medskip
+    {\large has graduated from \textbf{Kids Coding Level 3: Advanced}}\par\medskip
+    {\small and can design programs with classes, use algorithms like binary search, sorting,
+     recursion and breadth-first search, clean and chart data, explain how simple AI learns,
+     test code with pytest and track it with git.}\par\vspace{0.6cm}
+    \makebox[14.2cm][l]{Final project:\ \hrulefill}\par\vspace{1.0cm}
+    \makebox[6.2cm]{\hrulefill}\hfill\makebox[6.2cm]{\hrulefill}\par
+    \makebox[6.2cm]{\small\color{kcgrey} Date}\hfill\makebox[6.2cm]{\small\color{kcgrey} Teacher}\par
+    \bigskip
+    \textbf{Well done, graduate!} Keep building, keep testing, keep committing.};
+  % Okabe-Ito border (decoration only; no meaning is carried by colour)
+  \foreach \c [count=\i] in {kcorange,kcsky,kcgreen,kcyellow,kcblue,kcvermillion,kcpurple}
+    \draw[\c, line width=2.2pt] ([shift={(-\i*0.12,-\i*0.12)}]card.south west)
+      rectangle ([shift={(\i*0.12,\i*0.12)}]card.north east);
+\end{tikzpicture}}
+\par
+\setlength{\certroom}{\dimexpr\pagegoal-\pagetotal-2\baselineskip\relax}
+\begin{center}
+\ifdim\dimexpr\ht\certbox+\dp\certbox\relax>\certroom
+  \resizebox{!}{\certroom}{\usebox{\certbox}}%
+\else
+  \usebox{\certbox}%
+\fi
+\end{center}
+\end{document}

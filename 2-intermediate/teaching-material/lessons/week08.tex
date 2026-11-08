@@ -1,0 +1,181 @@
+% Level 2, Week 8 -- Testing: Prove It Works
+\lesson{8}{Testing: Prove It Works}{A test is a tiny program that checks your program, so bugs get caught before players find them.}
+\lessoninfo{Concepts: assert (I), pytest (I), normal and edge test cases (I), functions with return (R)}{Tools: Thonny with pytest, sticky notes}{CSTA: 2-AP-17, 2-CS-03, 2-IC-20}
+
+\begin{objectives}
+  \item The student can write a test function with \texttt{assert} that checks what a function returns. (L2.G6; L2.W08.1)
+  \item The student can run tests with pytest in Thonny and read \texttt{PASSED}, \texttt{FAILED} and the failure message. (L2.G6; L2.W08.2)
+  \item The student can choose normal and edge test cases (empty list, first, last, exactly on a limit) that catch hidden bugs. (L2.G6, L2.G3; L2.W08.3)
+  \item The student can use failing tests to find and fix bugs, and explain why people need to be able to trust software. (L2.G6, L2.G9; L2.W08.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 8 and homework 8 (one per student). Sticky notes and pencils.
+  \item \textbf{Before the session, once per Mac (needs internet once, about 2 minutes, no account):} in Thonny choose \menu{Tools > Manage packages\ldots},
+        type \texttt{pytest}, click \menu{Search on PyPI}, click \texttt{pytest}, then \menu{Install}. Close the window when it says it is done.
+  \item On each Mac: open \texttt{starter.py} in \texttt{2-intermediate/excercises/week08/ex-test-the-clamp} (\keys{Cmd}+\keys{O}).
+  \item Prep (5 minutes): press \menu{Run} on that \texttt{starter.py}. You should see three lines ending in \texttt{PASSED}. If you see
+        \texttt{No module named pytest}, repeat the install step.
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Test the toaster}: invent normal and edge tests for a gadget.}
+  \timeslot{8--18}{Concept}{\texttt{assert} in the Shell; a test is a function whose name starts with \texttt{test\_}; normal vs edge cases.}
+  \timeslot{18--28}{Guided demo}{Run pytest on Exercise 8.1, write TODO 1 together, make a test fail on purpose and read the message; the system-shell way.}
+  \timeslot{28--52}{Hands-on build}{Pairs: finish 8.1, then 8.2 Test the Best Score, then 8.3 Fix the Bugs. Swap every 8 minutes. Last 5 minutes: \enquote{Break it, catch it} game.}
+  \timeslot{52--60}{Wrap-up}{Real-world bugs and trust, exit ticket, reflection, hand out homework 8.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Test the toaster]
+Say: \enquote{A toaster company asks you to test their new toaster before it goes to the shops. What would you try?}
+Give each student two sticky notes. On each they write one test as \textbf{If I do \ldots{} I expect \ldots}, for example
+\enquote{If I put in one slice on setting 3, I expect golden toast.}
+Collect the notes on the table and sort them into two piles together:
+\textbf{normal} tests (what most people do every day) and \textbf{edge} tests (the strange corners: setting 0, the highest setting, an empty toaster, a giant bagel).
+Ask: \enquote{Which pile finds more problems?} (Usually the edge pile: that is where bugs hide.)
+With 1 student, you write notes too and play \enquote{toaster company} who argues back.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}[Say]
+\enquote{Testing by hand is slow: you run the game, press keys, check the score\ldots{} every time you change anything. Programmers write
+\textbf{tests}: tiny programs that check their program for them, in a second. The magic word is \texttt{assert}. It means
+\enquote{I am sure this is true}. If it is true, nothing happens. If it is false, Python shouts \texttt{AssertionError}.}
+\end{teacherscript}
+Type these in the Thonny \textbf{Shell} (bottom window), one at a time, asking for a prediction first:
+\begin{pycode}
+assert 2 + 2 == 4                       # nothing happens: good news!
+assert 2 + 2 == 5, "maths is broken"    # AssertionError: maths is broken
+\end{pycode}
+Then show the shape of a test on paper:
+\begin{pycode}
+from clamp_tools import clamp           # the function we are testing
+
+def test_too_big_comes_down_to_high():  # name starts with test_
+    assert clamp(99, 0, 10) == 10, "99 is too big, so it should become 10"
+\end{pycode}
+Say: \enquote{\textbf{pytest} is a helper that finds every function whose name starts with \texttt{test\_}, runs it, and tells us
+\texttt{PASSED} or \texttt{FAILED}. A test always has three parts: call the function with values you choose, say what you expect, and a message for
+when it goes wrong.}
+
+\begin{analogy}[Crash-test dummies]
+Car makers do not wait for real people to crash. They crash test cars with dummies inside, on purpose, in every strange way they can think of:
+from the front, the side, at low speed, at top speed. That is an edge test. Our tests are the crash-test dummies for our code: we try the strange
+cases on purpose (an empty list, a value exactly on the limit) so that players never meet those bugs.
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Run, write, fail, read]
+\begin{enumerate}[leftmargin=1.4em]
+  \item Open \texttt{clamp\_tools.py} in the same folder and read the docstring aloud: \enquote{clamp keeps a number between two limits, like a player who
+        cannot walk off the screen}. Then go back to \texttt{starter.py}.
+  \item Press \menu{Run} (\keys{F5}). The bottom of the screen shows one line per test, ending in \texttt{PASSED}. Ask: \enquote{The empty tests passed too.
+        Why?} (They have no \texttt{assert}, so they check nothing. A test that checks nothing can never fail, and never catches a bug.)
+  \item Write TODO 1 together: \py|assert clamp(-3, 0, 10) == 0, "-3 is too small, so it should become 0"|. Run: \texttt{PASSED}.
+  \item Now change the expected \texttt{0} to \texttt{5} and run again. Read the failure from the \textbf{bottom up}:
+\begin{outputcode}
+starter.py::test_middle_value_stays_the_same PASSED     [ 50%]
+starter.py::test_too_small_goes_up_to_low FAILED        [100%]
+>       assert clamp(-3, 0, 10) == 5, "-3 is too small, so it should become 0"
+E       AssertionError: -3 is too small, so it should become 0
+E       assert 0 == 5
+E        +  where 0 = clamp(-3, 0, 10)
+============ 1 failed, 1 passed in 0.03s ============
+\end{outputcode}
+        Say: \enquote{The last line is the score. The \texttt{E} lines say what happened: clamp gave back \texttt{0}, but the test expected \texttt{5}.
+        Here the \emph{test} is wrong, not clamp. When a test fails, always ask: is the code wrong, or is my expectation wrong?} Change it back to \texttt{0}.
+  \item \textbf{The programmer way.} Choose \menu{Tools > Open system shell\ldots}. A Terminal window opens in the exercise folder. Type
+        \texttt{python -m pytest starter.py -v} and press \keys{Return}. Same results! (If it says \enquote{command not found}, type \texttt{python3} instead.)
+  \item Finally open \texttt{check\_my\_work.py} and press \menu{Run}. Explain: \enquote{This checker tries your tests on three \textbf{broken} clamps.
+        Good tests pass on the real clamp and fail on the broken ones. Right now your tests miss some bugs: let's catch them all.}
+\end{enumerate}
+\end{workedexample}
+The finished tests for Exercise 8.1, for you:
+\pyfile{../excercises/week08/ex-test-the-clamp/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Tester and coder]
+The driver types; the navigator is the \textbf{edge-case hunter} who asks \enquote{What is the strangest value we could try?} before every new test.
+Swap at the 8-minute timer (about minutes 36 and 44).
+\textbf{1 student:} you are the edge-case hunter. \textbf{2 students:} one pair. \textbf{3 students:} a rotating trio with a \textbf{reader}
+who reads every \texttt{FAILED} message aloud, bottom-up. \textbf{4 students:} two pairs; they play \enquote{Break it, catch it} against each other at the end.
+\end{pairroles}
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Exercise 8.1 Test the Clamp} (about 6 minutes): TODO 2 and TODO 3, then \texttt{check\_my\_work.py} until all 5 checks pass.
+  \item \textbf{Exercise 8.2 Test the Best Score} (\texttt{week08/ex-test-best-score}, about 8 minutes). The bugs hide at the edges: an empty list, the last score.
+  \item \textbf{Exercise 8.3 Fix the Bugs} (\texttt{week08/ex-fix-the-bugs}, about 8 minutes). This time the tests are written and the code is broken.
+\end{enumerate}
+
+\begin{bughunt}[Fix buggy functions using failing tests (Exercise 8.3)]
+\texttt{starter.py} has four game helpers with one bug each. Rules: run \texttt{check\_my\_work.py}, pick \textbf{one} \texttt{TRY AGAIN}, read its hint,
+find the matching test in \texttt{test\_fix\_the\_bugs.py} and read it like a sentence, fix that one function, run again. \textbf{Never change the test}:
+it describes what the function should do. The four bugs (for you):
+\begin{itemize}[leftmargin=1.2em]
+  \item \texttt{lives\_after\_hit(1, 5)} gives $-4$: needs \texttt{if lives < 0: lives = 0}.
+  \item \texttt{medal(100)} gives silver: \texttt{>} should be \texttt{>=} (both lines). Edge cases at work!
+  \item \texttt{name\_tag()} prints instead of returning (the week 2 bug): \texttt{return f"Player: \{nickname.upper()\}"}.
+  \item \texttt{average\_score([])} crashes with \texttt{ZeroDivisionError}: add \texttt{if len(scores) == 0: return 0} first.
+\end{itemize}
+\end{bughunt}
+
+\begin{freebuild}[Break it, catch it]
+Last 5 minutes. One pair (or you) secretly changes \textbf{one} thing in \texttt{score\_tools.py} of Exercise 8.2 (for example \texttt{>} to \texttt{<}, or
+\texttt{scores[0]} to \texttt{scores[1]}) and writes the change on a sticky note, face down. The other pair runs \textbf{their} tests with \menu{Run}.
+Did a test go \texttt{FAILED}? Then they caught the bug! Turn over the note, undo the change (\keys{Cmd}+\keys{Z} or copy the note back), and swap roles.
+With 1 student, you do the breaking. Invent your own funny bug names (\enquote{the sneaky last-score skipper}).
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Trust: why apps need testing]
+Tell two true stories. \textbf{1999:} the Mars Climate Orbiter spacecraft was lost because one part of its software used one kind of units
+(pounds) and another part expected a different kind (newtons). Nobody had a test that checked the two parts together.
+\textbf{1996:} the first Ariane 5 rocket blew up 40 seconds after launch because a number got too big for the place it was stored, an edge case that was never tested.
+Ask: \enquote{Which apps do people trust every day?} (maps, messages, banking, games that save progress). \enquote{People can only trust software that has been
+tested. When you share a game, testing it is a way of being fair to the people who play it.}
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+A ride lets you on if you are \textbf{120 cm or taller}. Sam wrote \py|def can_ride(height): return height > 120|. Which test catches Sam's bug?
+\quad (a) \py|assert can_ride(150) == True| \quad (b) \py|assert can_ride(100) == False| \quad (c) \py|assert can_ride(120) == True|
+\par\textbf{Answer:} only (c), the edge case exactly on the limit (\texttt{>} should be \texttt{>=}). (a) and (b) pass even with the bug.
+\textbf{Look for:} students who choose (a) or (b) still think \enquote{any test catches any bug}; replay the \enquote{Break it, catch it} idea with them.
+\end{formativecheck}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item What is an edge case? Give one for a game you like.
+  \item When a test fails, what two things could be wrong?
+  \item Why can a test with no \texttt{assert} never catch a bug?
+\end{itemize}
+\end{reflection}
+Hand out homework 8 (Test the Cipher). Students may want their paper cipher wheel from week 5.
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Test name without \texttt{test\_}}: pytest silently skips it. If a test never shows up in the list, check its name.
+  \item \textbf{\texttt{=} instead of \texttt{==}} in an assert: \texttt{assert clamp(5, 0, 10) = 5} is a \texttt{SyntaxError}. \texttt{==} compares.
+  \item \textbf{Writing the expected answer by running the code}: a test that copies whatever the function returns also copies its bugs. Work the
+        answer out on paper (or with the cipher wheel) first.
+  \item \textbf{Changing the test to make it pass} in Exercise 8.3. The test is the specification: fix the function.
+  \item \textbf{Running \texttt{check\_my\_work.py} and thinking it runs their tests}: it \emph{tests their tests}. Their own tests run with \menu{Run} on \texttt{starter.py}.
+  \item \textbf{\texttt{No module named pytest}}: pytest is not installed in Thonny's Python. Redo \menu{Tools > Manage packages\ldots}.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Write the expected answers together on paper before typing (a two-column table: \enquote{I call\ldots} / \enquote{I expect\ldots}).
+In 8.2, give the edge-case list from the README as a checklist and do one test together. Skip 8.3 or do one bug as a pair with you.
+\extensionpath After 8.3, write tests for one of your own functions from an earlier week (for example \texttt{make\_key()} from week 5).
+Use the pytest trick \py|import pytest| and \py|with pytest.raises(ZeroDivisionError):| to test that something \emph{should} crash.
+\end{differentiation}
+
+\begin{stretchchallenge}[Write a broken version that fools the tests]
+In Exercise 8.2, invent a fourth broken \texttt{best\_score()} that still passes all your tests (for example one that returns 0 when every score is the same).
+Then write a new test that catches it. This is exactly how professional testers think: \enquote{How could this still be wrong?}
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip the system-shell step in the demo (Run is enough). In the build, do 8.1 and 8.3, and set 8.2 as an optional extra.
+Keep the exit ticket: it shows whether \enquote{edge cases} has landed, which matters for the project tests in week 11.
+\end{teachernote}

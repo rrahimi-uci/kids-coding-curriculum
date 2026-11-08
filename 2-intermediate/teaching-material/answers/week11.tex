@@ -1,0 +1,109 @@
+% Level 2, Week 11 answers -- Project Studio 2
+\answersweek{11}{Project Studio 2}{Answers and marking notes for workbook chapter 11 and homework 11.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 11.1: Add your data (M3)]
+Example for an arcade game: list \texttt{stars} (the falling star turtles); dictionary
+\texttt{SETTINGS} (speed, step, edges) or \texttt{state} (score, lives, running); file
+\texttt{highscore.txt} (the best score). Example for an Art Studio: list \texttt{shapes}; each shape is
+a dictionary \texttt{\{"x": …, "y": …, "size": …, "colour": …\}}; file \texttt{design.txt}, one shape
+per line. \textbf{M3 data met} when the data comes back after closing and re-running the program, and
+a missing file does not crash it (a \texttt{try}/\texttt{except FileNotFoundError}, as in week 7).
+\end{answer}
+
+\begin{answer}[Exercise 11.2: Write three tests]
+The arcade tests in the lesson plan (week 11, \texttt{test\_mygame.py}) pass against the skeleton
+from week 10 plus the two file functions. For Art Studio teams, this module and its tests were run
+with pytest (3 passed):
+\begin{pycode}[artstudio.py -- save and load a design (tested)]
+def shape_to_line(shape):
+    """Turn one shape dictionary into one line of text for the file."""
+    values = [shape["x"], shape["y"], shape["size"], shape["colour"]]
+    return ",".join(str(v) for v in values) + "\n"
+
+def line_to_shape(line):
+    """Turn one line from the file back into a shape dictionary."""
+    x, y, size, colour = line.strip().split(",")
+    return {"x": int(x), "y": int(y), "size": int(size), "colour": colour}
+
+def save_design(shapes, filename):
+    with open(filename, "w") as f:
+        for shape in shapes:
+            f.write(shape_to_line(shape))
+
+def load_design(filename):
+    with open(filename) as f:
+        return [line_to_shape(line) for line in f if line.strip()]
+\end{pycode}
+\begin{pycode}[test\_artstudio.py (tested)]
+from artstudio import line_to_shape, load_design, save_design, shape_to_line
+
+def test_shape_becomes_a_line():
+    shape = {"x": 10, "y": -20, "size": 30, "colour": "#0072B2"}
+    assert shape_to_line(shape) == "10,-20,30,#0072B2\n"
+
+def test_line_becomes_a_shape():
+    assert line_to_shape("5,6,7,#E69F00\n")["size"] == 7
+
+def test_save_then_load_gives_the_same_design():
+    shapes = [{"x": 1, "y": 2, "size": 3, "colour": "#009E73"}]
+    save_design(shapes, "test_design.txt")
+    assert load_design("test_design.txt") == shapes
+\end{pycode}
+\textbf{Requirement met} when at least 3 tests call the team's own functions, each has an
+\texttt{assert}, they all pass, and at least one would fail if the code were broken (ask the team to
+show you). \textbf{Not met}: \texttt{assert True}, tests of drawing functions only, or tests that use
+the real high-score file.
+\end{answer}
+
+\begin{answer}[Exercise 11.3: Playtest feedback and bug list]
+A useful bug line reads like: \enquote{I held the right arrow | the basket went off the screen | it
+should stop at the edge | MUST}. That one is a logic bug: a test like
+\texttt{assert next\_x(280, 1) == 280} shows it, then clamping fixes it. \enquote{The stars are hard to
+see on the blue background | SHOULD} is a polish item. Accept any honest list; check that MUST items
+were fixed first.
+\end{answer}
+
+\begin{answer}[Exercise 11.4: Accessibility review and polish (M4)]
+Good changes: different shapes for good and bad objects (\texttt{"circle"} vs \texttt{"square"}),
+a score written with \texttt{font=("Arial", 18, "normal")} or larger, an on-screen line explaining the
+keys, palette colours with enough contrast against the background, a slower first level. No
+flashing more than 3 times per second. \textbf{M4 met} when at least one change was made and the
+checklist is honestly ticked.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: three passing tests and one fix]
+The last line should read like \texttt{3 passed in 0.05s} (more tests are fine). If it says
+\texttt{collected 0 items}, the file or function names do not start with \texttt{test\_}, or the shell
+was in the wrong folder (\texttt{ls} shows the files in the current folder).
+\end{answer}
+
+\begin{answer}[Challenge: test first]
+Any test that failed before the change and passed after is a full answer. Seeing it fail first proves
+the test can catch the bug; a test that has never failed might not be checking anything. Example
+(also the lesson's stretch challenge), run with pytest (3 passed):
+\begin{pycode}[scores.py and test\_scores.py (tested)]
+def add_score(scores, new_score):
+    """Return a new list with the best five scores, biggest first."""
+    return sorted(scores + [new_score], reverse=True)[:5]
+
+# --- test_scores.py ---
+from scores import add_score
+
+def test_first_score_in_an_empty_list():
+    assert add_score([], 7) == [7]
+
+def test_small_score_does_not_get_in():
+    assert add_score([50, 40, 30, 20, 10], 5) == [50, 40, 30, 20, 10]
+
+def test_new_best_score_goes_to_the_top():
+    assert add_score([50, 40, 30, 20, 10], 99) == [99, 50, 40, 30, 20]
+\end{pycode}
+\end{answer}
+
+\begin{answer}[Creative: how to play]
+Look for the goal, the keys and the ending in three short lines, for example \enquote{Catch the
+stars, dodge the rocks. ← → to move. Three misses and the game is over.} The real test: a family
+member can start playing without asking a question.
+\end{answer}

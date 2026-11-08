@@ -1,0 +1,155 @@
+\documentclass[level=1]{kidscode}
+%% \gl{term}{where you meet it}{meaning}{example (optional)}
+\newcommand{\gl}[4]{\par\noindent\needspace{3\baselineskip}{\bfseries #1}\hfill{\footnotesize\color{kcgrey}#2}\par\nopagebreak
+  \noindent #3\ifstrempty{#4}{}{\par\nopagebreak\noindent{\small\color{kcgrey!80!black}Example: #4}}\par\vspace{5pt}}
+\newcommand{\letter}[1]{\par\needspace{7\baselineskip}\vspace{4pt}\noindent{\Large\bfseries\color{kcaccent}#1}\par\nopagebreak\vspace{2pt}}
+\begin{document}
+\kctitle{Glossary}{Every new word in Level 1, in A to Z order}
+
+\begin{tip}[How to use this glossary]
+Words are in alphabetical order. The grey label tells you which week you first meet the word
+(W1 = week 1, B1 = buffer session 1). Words in \texttt{this font} are typed exactly like that in Python.
+Found a word that is not here? Write it on the last page with your own meaning!
+\end{tip}
+
+\begin{multicols}{2}
+\letter{A}
+\gl{accessibility}{W5}{Making things that everyone can use, including people who see colours differently or need bigger text.}{Using colour-blind-safe colours and also different shapes.}
+\gl{algorithm}{W1}{A list of exact steps, in the right order, that solves a problem or does a job.}{A recipe for a sandwich.}
+\gl{angle}{W2}{How far you turn, measured in degrees. A full turn is 360 degrees. A shape with $n$ sides turns $360 \div n$ at each corner.}{A square turns 90 degrees at each corner.}
+
+\letter{B}
+\gl{backdrop}{W1}{The picture behind everything on the Scratch stage.}{}
+\gl{broadcast}{W5}{A Scratch message sent to every sprite. Sprites with a matching \enquote{when I receive} block start running.}{\enquote{broadcast start game}.}
+\gl{bug}{W1}{A mistake in a program that makes it do something we did not want. Bugs are normal: every programmer meets them every day.}{The turtle turns 90 instead of 120.}
+
+\letter{C}
+\gl{call}{W10}{To use a function, by writing its name with brackets.}{\texttt{house(0, 0, ORANGE)} calls the function \texttt{house}.}
+\gl{colour code}{W9}{A colour written as \# and six letters or numbers, so the computer knows exactly which colour you mean.}{\texttt{"\#0072B2"} is blue.}
+\gl{comment}{W7}{A note for humans in the code. Python ignores it. In Python it starts with \texttt{\#}.}{\texttt{\# draw the roof}}
+\gl{comparison}{W9}{A question that is True or False, made with $>$ (bigger), $<$ (smaller), \texttt{==} (equal) or \texttt{!=} (not equal).}{\texttt{stars > 5}}
+\gl{conditional}{W3}{Code that only runs if something is true. Also called an \textbf{if}.}{\enquote{If touching the edge, then bounce.}}
+\gl{coordinates}{W1}{Two numbers, $x$ and $y$, that give a place on the screen. $x$ is left--right, $y$ is down--up. The middle is $(0, 0)$.}{\texttt{t.goto(200, 150)}}
+\gl{costume}{W2}{One of the pictures a Scratch sprite can wear. Switching costumes quickly makes animation.}{}
+\gl{credit}{W4}{Saying who made the art, sounds or ideas you used. It is fair and kind.}{\enquote{Cat sounds from the Scratch library.}}
+
+\letter{D}
+\gl{debug}{W1}{To find a bug and fix it. A good strategy: read the error, check the last thing you changed, test one small part at a time.}{}
+\gl{decomposition}{W5}{Breaking a big problem into smaller parts that are easier to solve.}{A house = walls + roof + door + windows.}
+\gl{\texttt{def}}{W10}{The Python word that starts a new function (your own command).}{\texttt{def square(size):}}
+\gl{driver}{W1}{In pair programming, the person using the mouse and keyboard.}{}
+
+\letter{E}
+\gl{\texttt{elif}}{W9}{Short for \enquote{else if}: another question to check when the first \texttt{if} was false.}{\texttt{elif n == 10:}}
+\gl{else}{W3}{The part of an if that runs when the question is false.}{}
+\gl{error message}{W7}{The red text Python shows when it cannot run your code. It tells you the line number and a clue.}{\texttt{NameError: name 'Print' is not defined}}
+\gl{event}{W3}{Something that happens and starts code running.}{Clicking the green flag, pressing a key.}
+\gl{extension}{W2}{Extra blocks you can add to Scratch, like the Pen.}{}
+
+\letter{F}
+\gl{feedback}{W3}{Helpful comments about someone's work. We use \enquote{two stars and a wish}: two things you like, one idea to improve.}{}
+\gl{\texttt{for} loop}{W8}{Python's repeat block. The lines pushed in underneath it are repeated.}{\texttt{for i in range(4):}}
+\gl{forever}{W2}{A Scratch loop that never stops (until you click the red stop sign).}{}
+\gl{function}{W10}{A named set of steps you can use again and again. Python's version of a My Block.}{\texttt{square(50)}}
+
+\letter{G}
+\gl{green flag}{W1}{The Scratch button that starts a project.}{}
+
+\letter{I}
+\gl{if}{W3}{A block or line that asks a question and only runs its steps when the answer is true.}{\texttt{if mood == "happy":}}
+\gl{indentation}{W8}{Spaces at the start of a line (4 in Python). They show which lines are inside a loop, an if or a function.}{}
+\gl{input}{W9}{Information that goes into a program, often typed by the user. In Python \texttt{input()} asks a question and gives back the answer as text.}{\texttt{answer = input("How many? ")}}
+\gl{integer (\texttt{int})}{W9}{A whole number, like 3, 0 or $-7$. \texttt{int()} turns text like \texttt{"5"} into the number 5.}{\texttt{n = int(answer)}}
+
+\letter{L}
+\gl{loop}{W2}{Code that repeats. Loops save you writing the same steps again and again.}{repeat 4, \texttt{for i in range(4):}}
+
+\letter{M}
+\gl{My Block}{W5}{A block you make yourself in Scratch with \enquote{Make a Block}. It can have inputs.}{\enquote{define flower (size)}}
+
+\letter{N}
+\gl{navigator}{W1}{In pair programming, the person who reads the instructions, thinks ahead and spots bugs.}{}
+\gl{nested loop}{W8}{A loop inside another loop.}{Repeat 6 times: draw a square.}
+
+\letter{O}
+\gl{output}{W7}{What a program shows or does: text, a drawing, a sound.}{}
+
+\letter{P}
+\gl{pair programming}{W1}{Two people coding together on one computer: a driver and a navigator who swap roles.}{}
+\gl{parameter}{W5}{An input that a My Block or function needs. It makes the block flexible.}{In \texttt{square(size)}, \texttt{size} is a parameter.}
+\gl{pen}{W2}{Lets a sprite or turtle draw a line where it moves. Pen up: no line. Pen down: draw.}{}
+\gl{pixel}{B1}{One tiny square of colour. Screens make pictures out of millions of pixels.}{}
+\gl{playtest}{W11}{Letting someone try your program so you can see what works and what confuses them.}{}
+\gl{\texttt{print}}{W7}{The Python command that shows text in the Shell.}{\texttt{print("Hello!")}}
+\gl{privacy}{W1}{Keeping personal information (real name, address, school, photos, passwords) safe. We use nicknames.}{}
+\gl{program}{W1}{A set of instructions a computer follows.}{}
+\gl{Python}{W7}{A programming language where you type words instead of dragging blocks.}{}
+
+\letter{R}
+\gl{random}{W4}{Picked by chance, so you cannot guess it. Great for surprises and games.}{\texttt{random.randint(1, 6)}, \enquote{pick random 1 to 6}}
+\gl{\texttt{range}}{W8}{Tells a \texttt{for} loop how many times to repeat.}{\texttt{range(5)} repeats 5 times.}
+\gl{remix}{W4}{Making something new from someone else's work, and giving them credit.}{}
+\gl{repeat}{W2}{A Scratch loop that runs the blocks inside a set number of times.}{}
+\gl{run}{W1}{To start a program. In Thonny, the green Run button or \keys{F5}.}{}
+
+\letter{S}
+\gl{script}{W1}{A stack of Scratch blocks that are joined together.}{}
+\gl{sensing}{W3}{Scratch blocks that check things, like \enquote{touching edge?} or \enquote{key space pressed?}.}{}
+\gl{sequence}{W1}{Steps that happen one after another, in order. Order matters!}{}
+\gl{Shell}{W7}{The part of Thonny at the bottom where \texttt{print} shows text and you type answers.}{}
+\gl{sprite}{W1}{A character or object in Scratch that you can program.}{The Scratch cat.}
+\gl{stage}{W1}{The area in Scratch where the sprites move and the project plays.}{}
+\gl{string}{W9}{Text in a program, written inside quotes. \texttt{input()} always gives a string.}{\texttt{"day"}, \texttt{"25"}}
+\gl{syntax}{W7}{The spelling and grammar rules of a programming language.}{}
+\gl{syntax error}{W7}{An error because the code breaks Python's rules, like a missing bracket or colon.}{\texttt{print("hi"}}
+
+\letter{T}
+\gl{test}{W7}{Running a program on purpose to check that it works. \texttt{check\_my\_work.py} runs tests for you.}{}
+\gl{Thonny}{W7}{The app we use to write and run Python.}{}
+\gl{turtle}{W7}{A Python drawing tool: an arrow you move around the screen that draws lines.}{\texttt{t = turtle.Turtle()}}
+
+\letter{V}
+\gl{variable}{W4}{A labelled box that remembers a value, like a score or an answer. The value can change.}{\texttt{score = 0}}
+\end{multicols}
+
+\subsection*{More words from your workbook}
+\begin{multicols}{2}
+\begin{description}[leftmargin=0pt,itemsep=3pt,font=\bfseries]
+\item[accessible] Easy for everyone to use, including people who see or hear differently. {\small\color{kcgrey}(week 5)}
+\item[bug / debugging] A mistake in a program / finding and fixing it. {\small\color{kcgrey}(week 1)}
+\item[checkpoint] A short check that shows what you know and what to practise next. {\small\color{kcgrey}(week 6)}
+\item[debugging] Finding and fixing bugs, step by step, like a detective. {\small\color{kcgrey}(week 6)}
+\item[Demo] Short for demonstration: running your program and showing how it works. {\small\color{kcgrey}(week 12)}
+\item[driver / navigator] The driver clicks; the navigator reads, checks and helps. {\small\color{kcgrey}(week 1)}
+\item[Editor] The top part of Thonny where you write your program. {\small\color{kcgrey}(week 7)}
+\item[Feedback card] A card with two stars and a wish for an artist. {\small\color{kcgrey}(week 12)}
+\item[if / elif / else] Python's way to choose: \enquote{if this, else if that, otherwise\ldots} {\small\color{kcgrey}(week 9)}
+\item[if-else] Runs one set of blocks for yes and another for no. {\small\color{kcgrey}(week 3)}
+\item[Iterate] To improve something by going round the build--run--check loop again and again. {\small\color{kcgrey}(week 11)}
+\item[Milestone] A checkpoint on the way to finishing a project. {\small\color{kcgrey}(week 11)}
+\item[Off-by-one bug] When a loop runs one time too many or one time too few. {\small\color{kcgrey}(week 8)}
+\item[Reflection] Thinking back about what you did, what you learned and what you want next. {\small\color{kcgrey}(week 12)}
+\item[Showcase] An event where you show your work to others. {\small\color{kcgrey}(week 12)}
+\item[text code] Code made of typed words and symbols. {\small\color{kcgrey}(week 6)}
+\end{description}
+\end{multicols}
+
+
+\clearpage
+\section{My own words}
+Add new words you meet, and write the meaning in your own words.
+\begin{center}\renewcommand{\arraystretch}{2.2}
+\begin{tabularx}{\linewidth}{|p{4cm}|X|}
+\hline
+\textbf{Word} & \textbf{What it means (in my words)}\\ \hline
+ & \\ \hline
+ & \\ \hline
+ & \\ \hline
+ & \\ \hline
+ & \\ \hline
+ & \\ \hline
+ & \\ \hline
+ & \\ \hline
+\end{tabularx}
+\end{center}
+\end{document}

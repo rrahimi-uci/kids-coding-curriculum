@@ -1,0 +1,310 @@
+\documentclass[level=1,teacher]{kidscode}
+\newcommand{\lvA}{\faSeedling\ Just starting}
+\newcommand{\lvB}{\faShoePrints\ Getting there}
+\newcommand{\lvC}{\faCheckCircle\ Got it}
+\newcommand{\lvD}{\faRocket\ Expert}
+\begin{document}
+\kctitle{Final Project Teacher Guide}{My Interactive Art Show: milestones, rubric, reference solution and showcase}
+\tableofcontents
+
+\section{The project in one page}
+Each student (or pair) builds a Python turtle program that greets the viewer, asks one or two
+questions with \texttt{input()}, and draws a picture or pattern that depends on the answers.
+It must use six ingredients: \textbf{a question, a variable, an \texttt{if}, a loop, something random,
+and a function made with \texttt{def}}. Students present it at the week-12 showcase and explain one part.
+
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{2.4cm}>{\bfseries}p{3.4cm}X@{}}
+\toprule
+When & Milestone & What the students do\\
+\midrule
+Week 10, last 20 min & M1 Plan & Read the brief together, choose an idea, fill in the plan sheet, open the starter and save it with a project name.\\
+Week 11, first half & M2 Core drawing works & Turn the plan into a function that draws the main thing; call it in two or more places.\\
+Week 11, second half & M3 Surprise and polish & Add the questions, the \texttt{if}, the loop and \texttt{random}; partner playtest (\enquote{two stars and a wish}); add a title.\\
+Week 12 & M4 Showcase & Family gallery and 2-minute demos; exit assessment (20 min); certificates.\\
+\bottomrule
+\end{tabularx}
+
+\begin{materials}
+  \item Print one \textbf{Project Brief} per student (8 pages; the plan sheet is page 4).
+  \item On each Mac: the folder \texttt{1-elementry/\allowbreak{}project/\allowbreak{}starter/\allowbreak{}} with \texttt{my\_art\_show.py}
+        (it is already inside the copied course folder).
+  \item On \textbf{your} Mac only: \texttt{1-elementry/\allowbreak{}project/\allowbreak{}reference/\allowbreak{}night\_sky\_postcard.py}.
+        Run it once before week 10 (answer \texttt{40} and \texttt{night}, then try \texttt{5} and \texttt{day}) so you can demo it.
+  \item Week 12: feedback cards (last page of this guide), certificates (\texttt{extras/\allowbreak{}certificate}), the exit assessment.
+\end{materials}
+
+\begin{teachernote}[Why this project]
+The project pulls every Level 1 goal together (L1.G1--G9). It is deliberately an art project with
+an optional game twist: the group said they love games and visual art, and art has no
+\enquote{losing}, so every student can finish something they are proud of. The rubric values three
+things equally: \textbf{creativity}, \textbf{working code} and \textbf{being able to explain it}.
+\end{teachernote}
+
+\section{Milestone walkthrough}
+
+\subsection{M1 Plan (end of week 10, about 20 minutes)}
+\begin{teacherscript}
+\enquote{You are going to be artists who paint with code. Your program will say hello, ask the
+viewer a question or two, and draw something that changes because of the answers. Let me show
+you mine.} (Run the Night Sky Postcard twice: once with \texttt{40} / \texttt{night}, once with
+\texttt{5} / \texttt{day}.) \enquote{Same program, different answers, different picture. Now it is
+your turn to plan yours.}
+\end{teacherscript}
+\begin{enumerate}[itemsep=2pt]
+  \item Read page 1 and the six ingredients (page 2) aloud together. Ask: \enquote{Where was the
+        loop in my postcard? Where was the \texttt{if}?} (Stars; day or night.)
+  \item Students read the idea menu and choose or invent an idea (3 minutes). Pairs agree on one.
+  \item They fill in the plan sheet. Insist on the \textbf{sketch} and the \textbf{function name}:
+        those two make week 11 much easier.
+  \item Check each plan (sign \enquote{Teacher OK}). A good plan has: 1--2 questions that are not
+        personal, one function with a clear job, and an idea for each ingredient.
+  \item At the Macs: open \texttt{my\_art\_show.py} in Thonny, \menu{File > Save as\dots} with a project
+        name (no real names, e.g. \texttt{fish\_party.py}), press Run, see the orange square.
+\end{enumerate}
+\begin{formativecheck}[M1 is done when]
+The plan sheet has a sketch, the questions, a function name with its inputs, and a note for each
+ingredient, and the renamed file runs. Quick question: \enquote{What will your function draw, and
+what does it need to know?} (Good answer: \enquote{A fish; where to put it and what colour.})
+\end{formativecheck}
+
+\subsection{M2 Core drawing works (week 11, first 20--25 minutes of build time)}
+The goal is one working function that draws the main thing, called in at least two places.
+\begin{enumerate}[itemsep=2pt]
+  \item Students change the example \texttt{my\_shape} function into their own (rename it, change the drawing).
+  \item First draw it once at \texttt{(0, 0)}. Run. Then call it a second time at another spot,
+        e.g. \texttt{fish(-200, 100, PURPLE)}. Run.
+  \item Show the coordinate picture on page 3 of the brief when they ask \enquote{where is up?}.
+\end{enumerate}
+\begin{teacherscript}[Ask while you walk around]
+\enquote{Show me the line where you \emph{make} your function. Now show me the line where you
+\emph{use} it. What happens if you change this number?}
+\end{teacherscript}
+\begin{formativecheck}[M2 is done when]
+The function draws something recognisable in two different places (or colours) and the program runs
+without red errors.
+\end{formativecheck}
+
+\subsection{M3 Surprise and polish (week 11, second half)}
+\begin{enumerate}[itemsep=2pt]
+  \item Add the question(s) in Part 4. Numbers need \texttt{int(\dots)}.
+  \item Add the \texttt{if} in Part 5: one answer changes a colour, a shape, or what is drawn.
+  \item Put the function call inside a \texttt{for} loop in Part 6, with \texttt{random.randint} for the
+        places, sizes or the number of turns.
+  \item \textbf{Partner playtest (5 minutes):} partners swap seats, run each other's program, try a
+        normal answer and a strange one, and give \enquote{two stars and a wish}.
+  \item Polish: a title with \texttt{t.write(\dots)}, \texttt{t.hideturtle()}, a goodbye message.
+\end{enumerate}
+\begin{formativecheck}[M3 is done when]
+All six ingredients are ticked in the comment list at the top of the file, and you have seen each one
+work. Ask: \enquote{Run it twice. What is different? Why?} (The random part.)
+\end{formativecheck}
+
+\subsection{M4 Showcase (week 12)}
+See the showcase plan below. Before guests arrive, each student runs their program once and practises
+the 2-minute script with a partner.
+
+\section{Unblocking common problems}
+Read the red error message \textbf{with} the student (Thonny shows the line number). Ask them to read
+it aloud first: half the time they spot the problem themselves.
+
+{\small\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\RaggedRight}p{4.1cm}>{\RaggedRight}p{4.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-8.5cm-4\tabcolsep}@{}}
+\toprule
+What you see & Likely cause & What to say or do\\
+\midrule\endhead
+\bottomrule\endfoot
+The function draws nothing. & The function is defined but never called. & \enquote{A recipe card does nothing until someone cooks it. Where do you \emph{use} it?} Add e.g. \texttt{fish(0, 0, ORANGE)} below the \texttt{def} block, not indented.\\
+\midrule
+Everything is drawn on top of itself in the middle. & Every call uses the same \texttt{x, y}, or the function ignores its \texttt{x, y}. & Check the function starts with \texttt{t.penup()}, \texttt{t.goto(x, y)}, \texttt{t.pendown()}.\\
+\midrule
+Long lines across the picture. & The pen was down while moving to a new spot. & Add \texttt{t.penup()} before \texttt{goto} and \texttt{t.pendown()} after.\\
+\midrule
+\texttt{TypeError: 'str' object cannot be interpreted as an integer} & \texttt{range(answer)} with text from \texttt{input()}. & \enquote{\texttt{input} always gives words. Turn it into a number with \texttt{int(\dots)}.}\\
+\midrule
+\texttt{ValueError: invalid literal for int()} & The viewer typed a word like \texttt{lots}. & Fine for Level 1: tell viewers to type digits. Expert students can copy the \texttt{isdigit()} check from the reference.\\
+\midrule
+The \texttt{if} never happens. & The answer was \texttt{Day} or \texttt{day } but the code checks \texttt{"day"}. & Add \texttt{.strip().lower()} after \texttt{input(\dots)}, or print the answer to see exactly what was typed.\\
+\midrule
+\texttt{IndentationError} or \texttt{expected an indented block} & Missing 4 spaces under \texttt{def}, \texttt{for} or \texttt{if}; or a missing colon. & Show the \enquote{steps inside the loop are pushed in} rule. In Thonny, select lines and press \keys{Tab} or \keys{Shift}+\keys{Tab}.\\
+\midrule
+\texttt{NameError: name 'fish' is not defined} & The function is used before it is defined, or spelled differently. & Functions go in Part 3, above where they are used. Check spelling and capitals.\\
+\midrule
+\texttt{ValueError: empty range for randrange()} & \texttt{random.\allowbreak randint(100, 10)}: the smaller number must come first. & Swap the numbers.\\
+\midrule
+Fill colour spills or looks odd. & \texttt{begin\_fill()} and \texttt{end\_fill()} are around the wrong lines. & Put \texttt{begin\_fill()} right before the shape's first line and \texttt{end\_fill()} right after the last.\\
+\midrule
+Drawing is very slow. & Many shapes at normal speed. & \texttt{t.speed(0)} near the top. Keep loops under about 200.\\
+\midrule
+Part of the picture is missing at the edge. & Coordinates outside $-400\ldots400$ or $-300\ldots300$. & Use the coordinate picture on page 3 of the brief.\\
+\midrule
+The window will not close or Thonny says the program is still running. & \texttt{turtle.done()} keeps the window open on purpose. & Close the turtle window, or press the red \menu{Stop} in Thonny.\\
+\midrule
+Student is stuck on the idea, not the code. & Too big a plan. & Shrink it: \enquote{What is the ONE thing your picture needs? Let's draw just that.}\\
+\end{longtable}}
+
+\section{Full rubric and scoring}
+Use this rubric at M4 (you can also use it informally at M2/M3 to give feedback). Each row scores
+1--4 points: Just starting = 1, Getting there = 2, Got it = 3, Expert = 4. The three things we value
+most (creativity, working code, explaining) each have their own row, so a student whose code is
+simple but who explains it beautifully is rewarded.
+
+{\small\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\bfseries\RaggedRight}p{2.3cm}*{4}{>{\RaggedRight\arraybackslash}p{\dimexpr(\linewidth-2.3cm-8\tabcolsep)/4}}@{}}
+\toprule
+Criterion & \lvA\ (1) & \lvB\ (2) & \lvC\ (3) & \lvD\ (4)\\
+\midrule\endhead
+\bottomrule\endfoot
+Creativity (L1.G2, G5) & Example copied with no changes. & Example with new colours, sizes or numbers. & An own idea: own function, own picture, a real surprise. & Original idea with extra details, a twist, or a game element (e.g. \texttt{onkey}).\\
+\midrule
+Working code (L1.G6, G9) & Does not run yet. & Runs but stops with an error, or parts are missing. & Runs from start to end without errors for normal answers. & Also handles unexpected answers; tidy code with helpful comments.\\
+\midrule
+Six ingredients (L1.G1--G5) & 1--2 ingredients. & 3--4 ingredients. & All 6 used. & All 6, used meaningfully: function parameters are really used, the \texttt{if} changes the picture, the loop uses the answer.\\
+\midrule
+Explaining (L1.G7) & Can say what the program does. & Can point to the loop and the function. & Can explain how one part works, line by line, in own words. & Can explain why they chose it and describe a bug they found and fixed.\\
+\midrule
+Process and teamwork (L1.G7, G8) & Needed help to plan; worked mostly alone even when paired. & Followed the plan with reminders; took turns sometimes. & Met the milestones; swapped driver/navigator; gave kind playtest feedback. & Helped others, used feedback to improve, gave credit for any ideas borrowed.\\
+\end{longtable}}
+
+\textbf{Scoring.} Total = sum of the five rows (5--20). Use it to celebrate and to plan, not to rank:
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{15--20:} Level 1 goals met with room to spare. Point them to the Level 2 placement quiz with confidence.
+  \item \textbf{11--14:} Level 1 goals met. Note one row to grow in Level 2.
+  \item \textbf{5--10:} Celebrate what works, then use a buffer session (B2 Free-Build and Remix Studio) to finish before the certificate, or start Level 2 with extra support in weeks 1--2.
+\end{itemize}
+\textbf{Scratch support path:} use the same rubric. Replace \enquote{Python} with Scratch blocks
+(\textbf{ask and wait} + \textbf{answer}, \textbf{set/change} a variable, \textbf{if}, \textbf{repeat},
+\textbf{pick random}, a \textbf{My Block}). A Scratch project can score 4 in every row.
+\textbf{Pairs:} score each student separately for \enquote{Explaining} and \enquote{Process}; the other rows
+are shared.
+
+\section{Reference solution: Night Sky Postcard}
+The complete program below is the tested file in \texttt{project/\allowbreak{}reference/\allowbreak{}}. It passes 7 automated
+checks (\texttt{test\_night\_sky\_postcard.py}): it asks two questions, draws exactly the number of
+stars asked for in random places, uses a black sky at night and a sky-blue sky with a sun by day,
+draws four houses with the \texttt{house()} function, and copes with answers like \texttt{lots} or
+\texttt{5000}. You do not need to run the checks yourself.
+
+\pyfile{reference/night_sky_postcard.py}
+
+\subsection{Section by section}
+Use these notes to explain the example in week 10, or to answer \enquote{how did you do that?} questions.
+
+\begin{description}[leftmargin=0pt,itemsep=5pt,font=\bfseries]
+\item[Top comments.] A project starts by saying what it does and which ingredients it uses: good
+  habit to copy. The \texttt{SMOKE: run} line is only for the course's automatic window test; students do not need it.
+\item[PART 1: Colours.] Named colour variables from the colour-blind-safe Okabe-Ito palette.
+  Names like \texttt{ORANGE} are easier to read than \texttt{"\#E69F00"}. Capital letters are a
+  Python habit for \enquote{this never changes}.
+\item[PART 2: Screen and turtle.] An 800 by 600 window, so $x$ runs from $-400$ to $400$ and $y$
+  from $-300$ to $300$. \texttt{speed(0)} draws as fast as possible.
+\item[PART 3: Functions.] Two homemade commands. \texttt{box(x, y, width, height, fill\_colour)}
+  draws any filled rectangle: the \texttt{for} loop runs twice because a rectangle is \enquote{long
+  side, short side} twice. \texttt{house(x, y, colour)} uses \texttt{box()} three times (walls, door,
+  windows) and draws a triangle roof with a loop of 3 turns of 120 degrees ($360 \div 3$). This is
+  decomposition: a big job made of small named jobs, just like My Blocks in week 5.
+\item[PART 4: Greet and ask.] \texttt{print} says hello. The first \texttt{input} asks how many stars.
+  The check \texttt{isdigit()} is True only for whole numbers like \texttt{25}, so a word like
+  \texttt{lots} does not crash the program: the \texttt{else} picks 30 instead. A second \texttt{if}
+  caps the number at 200 so the drawing stays quick. The second \texttt{input} asks day or night;
+  \texttt{.strip().lower()} turns \texttt{" Day "} into \texttt{"day"}. Anything else becomes night.
+\item[PART 5: Choose colours.] An \texttt{if}/\texttt{else} stores two choices in variables
+  (\texttt{sky\_colour}, \texttt{star\_colour}) that later parts use. Day and night also differ by
+  \textbf{shape} (sun with rays vs crescent moon), not only by colour.
+\item[PART 6: Random stars.] The loop runs \texttt{star\_count} times, the viewer's number. Each time,
+  \texttt{random.\allowbreak randint} picks a new place and size, so every postcard is different.
+  \texttt{dot(size, colour)} draws a filled circle in one step.
+\item[PART 7: Sun or moon.] Another \texttt{if}. The sun is 12 rays (a loop turning 30 degrees,
+  $360 \div 12$) plus a filled circle on top. The moon is a yellow circle with a sky-coloured circle
+  drawn slightly to the right, leaving a crescent: a neat trick worth showing.
+\item[PART 8: Grass and houses.] \texttt{box()} draws the grass. \texttt{house()} is called four times
+  with different places and colours: one function, four houses. Ask: \enquote{How would you add a fifth house?}
+\item[PART 9: Message.] \texttt{t.write} puts text on the picture. \texttt{turtle.done()} keeps the
+  window open until the viewer closes it.
+\end{description}
+
+\begin{tip}[Questions to ask about the example]
+\enquote{Which line would you change to get 100 stars every time?} (None: you type 100 when it asks.)
+\enquote{How do we make the houses purple?} (Change the colour in the four \texttt{house(\dots)} lines.)
+\enquote{What happens if we delete \texttt{house(190, -140, WHITE)}?} (Only three houses.)
+\enquote{Why do we need \texttt{penup()} before \texttt{goto}?} (Otherwise it draws a line on the way.)
+\end{tip}
+
+\section{Showcase plan (week 12)}
+
+\subsection{The family gallery}
+Turn the room into a small gallery. Each project gets a \enquote{stand}: a Mac with Thonny open and the
+project file loaded, a printed plan sheet beside it, and a card with the project name and the
+artist's \textbf{nickname}. Invite the families of every student (the parent notes letter has an
+invitation line). 30--40 minutes is plenty.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{2.6cm}X@{}}
+\toprule
+Role & Job\\
+\midrule
+Artist & Runs the program for each visitor and gives the 2-minute demo.\\
+Assistant & (The partner or the next student.) Types the visitor's answers if the artist wants, resets the program, hands out feedback cards.\\
+Visitors & Answer the program's questions, ask one question, fill in a feedback card.\\
+Host (you) & Welcomes guests, keeps time (a timer per demo), makes sure every artist gets the same attention, reads the safety reminder.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{The 2-minute demo script}
+Print this or write it on a sticky note for each artist. Practise it once in pairs before guests arrive.
+\begin{enumerate}[itemsep=2pt]
+  \item \enquote{Hi! My project is called \underline{\hspace{3cm}}. It draws \underline{\hspace{4cm}}.}
+  \item \enquote{It will ask you a question. Do you want to answer it?} (Visitor answers; press Run.)
+  \item \enquote{Look: because you said \underline{\hspace{2cm}}, it drew \underline{\hspace{3cm}}. That is my \texttt{if}.}
+  \item Point to one part of the code: \enquote{This is my function \underline{\hspace{2cm}}. It draws \underline{\hspace{2.5cm}}.
+        Here is where I use it inside a loop.}
+  \item \enquote{One bug I fixed was \underline{\hspace{4cm}}.}
+  \item \enquote{Do you have a question for me?}
+\end{enumerate}
+
+\subsection{Feedback cards and certificates}
+Visitors use the feedback cards on the last page (\enquote{two stars and a wish}). Read them aloud
+to each artist afterwards, then hand out the Level 1 certificate (\texttt{extras/\allowbreak{}certificate}). Write
+the student's name on it by hand. A short round of \enquote{one thing I learned, one thing I want to
+make next} closes the session.
+
+\begin{safety}[Showcase safety]
+\begin{itemize}[itemsep=1pt]
+  \item Projects are shown \textbf{on the screen only}. Nothing is uploaded, posted or emailed.
+  \item Families may take photos of the artwork \textbf{only} if the artist agrees, and no faces or
+        names appear on the screen. Keep photos within the family.
+  \item Projects show nicknames only, and never ask visitors for private information.
+  \item Credit: if a student borrowed an idea (from a friend, the example, a book), the demo says so.
+\end{itemize}
+\end{safety}
+
+\begin{teachernote}[Fitting it into the week-12 hour]
+A workable plan: 0--10 set up stands and practise the script; 10--35 gallery and demos; 35--55
+exit assessment (students only, while families chat or leave); 55--60 certificates and celebration.
+If families can only come at the end, do the exit assessment first.
+\end{teachernote}
+
+\clearpage
+\section{Feedback cards (print and cut)}
+\newcommand{\feedbackcard}{%
+  \begin{tikzpicture}
+    \draw[kcpurple,line width=1.2pt,rounded corners=6pt] (0,0) rectangle (8.2,6.6);
+    \node[anchor=north west,font=\bfseries] at (0.3,6.4) {\faPalette\ Feedback for the artist};
+    \node[anchor=north west,font=\small] at (0.3,5.75) {Project name:};
+    \draw[kcgrey!60] (2.6,5.35) -- (7.9,5.35);
+    \node[anchor=north west] at (0.3,4.85) {\faStar\ I liked\dots};
+    \draw[kcgrey!60] (0.3,3.95) -- (7.9,3.95);
+    \node[anchor=north west] at (0.3,3.65) {\faStar\ I liked\dots};
+    \draw[kcgrey!60] (0.3,2.75) -- (7.9,2.75);
+    \node[anchor=north west] at (0.3,2.45) {\faMagic\ I wish\dots};
+    \draw[kcgrey!60] (0.3,1.55) -- (7.9,1.55);
+    \node[anchor=north west,font=\small] at (0.3,1.25) {From (first name or \enquote{a visitor}):};
+    \draw[kcgrey!60] (0.3,0.35) -- (7.9,0.35);
+  \end{tikzpicture}}
+\begin{center}
+\feedbackcard\hfill\feedbackcard\par\bigskip
+\feedbackcard\hfill\feedbackcard
+\end{center}
+
+\end{document}

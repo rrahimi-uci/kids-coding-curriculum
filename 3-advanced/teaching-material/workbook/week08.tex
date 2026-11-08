@@ -1,0 +1,124 @@
+% Level 3 workbook, Week 8 -- Data Detectives
+\chapterweek{8}{Data Detectives}{Data tells stories when you clean it, count it and chart it.}
+
+\section{What you will learn}
+\begin{itemize}[itemsep=1pt]
+  \item How to read a \textbf{CSV file} with Python's \texttt{csv} module.
+  \item How to \textbf{clean} messy data: extra spaces, MiXeD capitals, empty rows, missing numbers.
+  \item How to \textbf{count} with a dictionary and work out an \textbf{average}.
+  \item How to draw a \textbf{bar chart} that everyone can read -- and how to keep survey answers private.
+\end{itemize}
+
+\section{The big idea: the data detective's pipeline}
+A data detective always works in the same order. Skipping a step gives wrong answers!
+
+\begin{center}
+\begin{tikzpicture}[stage/.style={draw,rounded corners=3pt,minimum height=1.1cm,text width=2.3cm,align=center,font=\small},>=Stealth,node distance=4mm]
+  \node[stage,fill=kcsky!25] (a) {\textbf{1 Read}\\CSV file $\rightarrow$ rows};
+  \node[stage,fill=kcorange!25,right=of a] (b) {\textbf{2 Clean}\\spaces, capitals, empty rows};
+  \node[stage,fill=kcgreen!20,right=of b] (c) {\textbf{3 Count}\\dictionary tally};
+  \node[stage,fill=kcyellow!40,right=of c] (d) {\textbf{4 Calculate}\\averages};
+  \node[stage,fill=kcpurple!25,right=of d] (e) {\textbf{5 Chart}\\bars + labels};
+  \draw[->,thick] (a) -- (b); \draw[->,thick] (b) -- (c); \draw[->,thick] (c) -- (d); \draw[->,thick] (d) -- (e);
+\end{tikzpicture}
+\end{center}
+
+\subsection{1. Read: what is a CSV file?}
+\textbf{CSV} means \emph{comma-separated values}: a table saved as plain text. The first line is the \textbf{header} (the column names). Every other line is one \textbf{row}. Here is the start of \texttt{favourite\_games.csv} -- made-up, anonymous survey answers (a response number, no names):
+
+\begin{center}\small
+\begin{tabular}{@{}l@{}}
+\texttt{response,age\_group,favourite\_game,genre,hours\_per\_week,stars}\\
+\texttt{1,10-11,Block Craft,building,5,5}\\
+\texttt{2,12-13, block craft ,building,3,4}\\
+\texttt{5,,,,,}\\
+\texttt{7,12-13,Kart Dash,racing,,3}\\
+\end{tabular}
+\end{center}
+
+\py|csv.DictReader| turns each row into a \textbf{dictionary}: \py|row["favourite_game"]| is \py|"Block Craft"|.
+\begin{pycode}
+import csv
+with open("favourite_games.csv", newline="") as f:
+    for row in csv.DictReader(f):
+        print(row["favourite_game"], row["stars"])
+\end{pycode}
+
+\subsection{2. Clean: wash the data first}
+Every value arrives as \textbf{text}, even numbers: \py|"5"|, not \py|5|. And people type things in different ways. Spot the mess:
+
+\begin{center}\small
+\begin{tabular}{@{}p{3.3cm}p{4.1cm}p{\dimexpr\linewidth-7.4cm-4\tabcolsep}@{}}
+\toprule
+\textbf{Messy value} & \textbf{Problem} & \textbf{Clean it with}\\ \midrule
+\texttt{" block craft "} & extra spaces, small letters & \py|.strip().title()| $\rightarrow$ \texttt{"Block Craft"}\\
+\texttt{"BLOCK CRAFT"} & capitals & \py|.title()| $\rightarrow$ \texttt{"Block Craft"}\\
+\texttt{"5"} & a number stored as text & \py|int("5")| $\rightarrow$ \texttt{5}\\
+\texttt{""} (hours) & missing answer & use \py|None|, and skip it in averages\\
+\texttt{5,,,,,} & empty row & skip the whole row\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{3 and 4. Count and calculate}
+Counting with a dictionary is like a tally chart. The first time you see a game, \py|counts.get(game, 0)| gives 0:
+\begin{pycode}
+counts = {}
+for row in rows:
+    game = row["favourite_game"]
+    counts[game] = counts.get(game, 0) + 1
+# {"Block Craft": 5, "Kart Dash": 4, ...}
+\end{pycode}
+The \textbf{average} (mean) is the total divided by how many: \py|sum(numbers) / len(numbers)|. Leave out missing answers -- counting a blank as 0 would make the average unfairly small.
+
+\subsection{5. Chart: readable by everyone}
+A good chart never relies on colour alone. Write the \textbf{name} under each bar and the \textbf{number} on top, so someone who sees colours differently can still read it.
+\begin{center}
+\begin{tikzpicture}[x=1.2cm,y=0.45cm]
+  \foreach \x/\h/\name/\c in {0/5/Block Craft/kcorange,1/4/Kart Dash/kcsky,2/3/Puzzle Drop/kcgreen}{
+    \draw[fill=\c!60] (\x,0) rectangle (\x+0.8,\h);
+    \node[above,font=\small] at (\x+0.4,\h) {\h};
+    \node[below,font=\footnotesize] at (\x+0.4,0) {\name};
+  }
+  \draw (-0.2,0) -- (3,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Survey cleaner]
+Folder: \texttt{week08/ex-survey-cleaner}. Open \texttt{favourite\_games.csv} in Thonny and circle the mess you find. Then finish \texttt{to\_number()}, \texttt{is\_empty()} and add \py|.title()| to the game names. \textbf{Done:} \texttt{Clean answers: 17}.
+
+How many rows did the cleaner throw away, and why? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Survey stats]
+Folder: \texttt{week08/ex-survey-stats}. Finish \texttt{count\_by()}, \texttt{average()} and \texttt{most\_popular()}. Then answer from your program's report:
+
+Most popular game: \rule{4cm}{0.4pt} \quad Average hours per week: \rule{2cm}{0.4pt}
+
+Adventure games got 5.0 stars on average from only 2 answers. Should we trust that? Why? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Bar chart]
+Folder: \texttt{week08/ex-bar-chart}. Make \texttt{bar\_height()} scale the bars so the biggest is \texttt{MAX\_HEIGHT} pixels, and write a number on top and a name under every bar. \textbf{Done:} six labelled bars from Block Craft (5) to Space Chess (1).
+\end{exercise}
+
+\begin{safety}[Consent and privacy in surveys]
+Before collecting data, ask: \emph{Did people agree to answer? Can they skip a question? Do I really need this question?} Never collect real names, addresses, schools, birthdays or photos. Even without names, answers together can point to one person (\enquote{the only 13-year-old in the chess club}). Before sharing data, \textbf{anonymise} it: keep only the columns you need and give each row an ID like R1, R2.
+\end{safety}
+
+\begin{vocab}
+  \vocabword{CSV}{Comma-separated values: a table saved as plain text, one row per line.}
+  \vocabword{header}{The first line of a CSV file, with the column names.}
+  \vocabword{data cleaning}{Fixing messy data (spaces, capitals, missing or empty values) before using it.}
+  \vocabword{average (mean)}{The total divided by how many values there are.}
+  \vocabword{sample}{The group of people who answered. A small sample can give misleading results.}
+  \vocabword{consent}{Agreeing, freely, to take part -- with the choice to say no.}
+  \vocabword{anonymise}{Remove or replace anything that could show who gave an answer.}
+\end{vocab}
+
+\begin{reflection}
+What story does the bar chart tell? What can it \emph{not} tell us?
+\answerlines{2}
+Would you answer a survey that asked for your full name? Why or why not?
+\answerlines{1}
+\end{reflection}

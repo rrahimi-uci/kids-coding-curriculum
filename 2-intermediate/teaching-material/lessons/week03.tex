@@ -1,0 +1,170 @@
+% Level 2, Week 3 -- Lists: Collections of Things
+\lesson{3}{Lists: Collections of Things}{A list keeps many values in order, and the first one is number 0.}
+\lessoninfo{Concepts: lists, index, append, len, for x in list (I), random.choice (R)}{Tools: Thonny, word cards}{CSTA: 2-AP-11, 3A-AP-14, 2-IC-21}
+
+\begin{objectives}
+  \item The student can make a list, add to it with \texttt{append} and count it with \texttt{len}. (L2.G4; L2.W03.1)
+  \item The student can get an item by its index, starting from 0, and explain why \texttt{items[len(items)]} gives an \texttt{IndexError}. (L2.G4; L2.W03.2)
+  \item The student can loop over a list with \texttt{for item in items} and with \texttt{for i in range(len(items))}. (L2.G2; L2.W03.3)
+  \item The student can choose a colour-blind-safe palette and label a picture so it never relies on colour alone. (L2.G9; L2.W03.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print (one per student): workbook chapter 3, homework 3.
+  \item \enquote{Human list} cards (3 minutes): five cards reading \enquote{torch}, \enquote{rope}, \enquote{map}, \enquote{apple}, \enquote{key},
+        and five sticky notes numbered 0, 1, 2, 3, 4 for the floor. Fewer than 4 students? Stand cards up on chairs or hold them with soft toys.
+  \item On each Mac: open \texttt{2-intermediate/excercises/week03/ex-palette-stripes/starter.py} in Thonny (\keys{Cmd}+\keys{O}).
+  \item A timer, paper and pencils, and optionally coloured pencils for the Wrap-up.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+Times are a guide: set a timer for each phase and move on when it rings.
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Human list}: index from 0, \texttt{append}, \texttt{len} and a live \texttt{IndexError}.}
+  \timeslot{8--18}{Concept}{Lists in Python: square brackets, index, \texttt{append}, \texttt{len}, two kinds of \texttt{for} loop. Designing for everyone: colour-blind-safe palettes.}
+  \timeslot{18--28}{Guided demo}{Palette Stripes: append two colours, then turn one stripe into a loop that draws them all.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 3.1 Palette Stripes (finish), 3.2 Adventure Inventory, then 3.3 Top 3 High Scores. Swap every 8 minutes. Last 5 minutes: free-build.}
+  \timeslot{52--60}{Wrap-up}{Show the stripes, accessibility check, exit ticket, reflection, homework 3.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Human list]
+Stick the numbered notes on the floor in a row: 0, 1, 2, 3. Four students (or chairs) hold \enquote{torch}, \enquote{rope}, \enquote{map}, \enquote{apple}
+and stand on them. Say: \enquote{This line is a list called \texttt{backpack}.} Then call out, and let them act:
+\begin{itemize}[leftmargin=1.2em]
+  \item \enquote{\texttt{backpack[0]}, step forward!} (torch) \quad \enquote{\texttt{backpack[2]}!} (map)
+  \item \enquote{\texttt{len(backpack)}?} Everyone counts: 4.
+  \item \enquote{\texttt{backpack.append("key")}}: a new card joins at the \emph{end}, on note 4.
+  \item \enquote{\texttt{backpack[5]}!} Nobody is there. Everyone shouts \enquote{IndexError!}
+\end{itemize}
+Ask: \enquote{With 5 things in the list, what is the biggest index?} (4: always one less than the length, because we start at 0.)
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}[Say]
+\enquote{So far each variable held one value. A \textbf{list} holds many values in order, inside square brackets, separated by commas.
+Each item has a position number called its \textbf{index}, and Python starts counting at 0, just like our floor.
+\texttt{append} adds to the end, \texttt{len} counts the items, and a \texttt{for} loop visits every item in turn.}
+\end{teacherscript}
+
+\begin{pycode}[Lists in four lines]
+backpack = ["torch", "rope", "map"]
+backpack.append("apple")            # ["torch", "rope", "map", "apple"]
+print(len(backpack), backpack[0], backpack[-1])   # 4 torch apple
+for item in backpack:               # visits every item, in order
+    print(item)
+\end{pycode}
+
+\begin{analogy}[Lockers in a corridor]
+A list is a row of lockers. The first locker has the number 0 painted on it. To get something you need the locker number (the index),
+not the thing's name. If the corridor has 4 lockers, they are numbered 0 to 3: ask for locker 4 and the caretaker says
+\enquote{that locker does not exist}. That is Python's \texttt{IndexError}. \texttt{-1} is a shortcut for \enquote{the last locker}.
+\end{analogy}
+
+\begin{safety}[Colour-blind-safe palettes: designing for everyone]
+Say: \enquote{About 1 in 12 boys and 1 in 200 girls see some colours differently, often red and green. If a game shows danger
+only in red and safety only in green, those players cannot tell them apart.} Show the Okabe-Ito palette in the workbook: these
+8 colours stay different for almost everyone. Rule for our art and games: use these colours \textbf{and} add a label, number,
+shape or pattern, so colour is never the only clue. Our stripes are labelled with their index number for exactly this reason.
+\end{safety}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[From one stripe to a loop of stripes]
+\begin{enumerate}[leftmargin=1.4em]
+  \item Open \texttt{ex-palette-stripes/starter.py} and press \menu{Run} (\keys{F5}). One orange stripe labelled 0 appears.
+  \item TODO 1: under the first list, type \texttt{palette.append("\#0072B2")} and \texttt{palette.append("\#D55E00")}. Run: still one stripe.
+        Ask: \enquote{The list has 5 colours now. Why only one stripe?} (Because \texttt{draw\_stripes()} only draws \texttt{colours[0]}.)
+  \item TODO 3: replace the last line of \texttt{draw\_stripes()} with a loop. Type it slowly and say each part aloud:
+\begin{pycode}
+    for i in range(len(colours)):
+        draw_stripe(t, x, 100, width, 200, colours[i], str(i))
+        x = x + width
+\end{pycode}
+        \enquote{\texttt{len(colours)} is 5, so \texttt{i} goes 0, 1, 2, 3, 4. Each time we draw stripe \texttt{i} and move right.}
+        Run: five labelled stripes.
+  \item Ask: \enquote{Why \texttt{str(i)}?} (\texttt{write} shows text; \texttt{str} turns the number into text, like last week's types.)
+  \item Leave TODO 4 (print the first and last colour) for the pairs.
+\end{enumerate}
+\end{workedexample}
+The finished Palette Stripes, for you:
+\pyfile{../excercises/week03/ex-palette-stripes/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator and the index checker]
+The \textbf{driver} types; the \textbf{navigator} keeps a paper sketch of the list with index numbers under each item and
+checks every \texttt{[ ]}. Swap at the 8-minute timer.
+\textbf{1 student:} you are the navigator with the paper sketch. \textbf{3 students:} add a \textbf{tester} who runs
+\texttt{check\_my\_work.py} after each TODO. \textbf{4 students:} two pairs; pair A starts at 3.2 and pair B at 3.3, then swap and explain.
+\end{pairroles}
+
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Exercise 3.1 Palette Stripes}: finish TODO 4 (and TODO 2 for a sixth colour). About 4 minutes.
+  \item \textbf{Exercise 3.2 Adventure Inventory} (\texttt{week03/ex-inventory}, about 10 minutes). Starts with this week's bug hunt.
+  \item \textbf{Exercise 3.3 Top 3 High Scores} (\texttt{week03/ex-high-scores}, about 6 minutes, or for fast finishers).
+        New tricks: \texttt{sorted(scores, reverse=True)} and \texttt{best[:3]}.
+\end{enumerate}
+
+\begin{bughunt}[IndexError: one past the end]
+Adventure Inventory crashes with \texttt{IndexError: list index out of range} in \texttt{last\_item()}, which uses
+\texttt{backpack[len(backpack)]}. Do not give the answer. Ask: \enquote{How many items are in the backpack? What are their index
+numbers? So which index is the last one?} Let the navigator draw the four boxes 0--3. Two good fixes: \texttt{backpack[len(backpack) - 1]}
+or \texttt{backpack[-1]}. This is called an \textbf{off-by-one} bug: one of the most common bugs in all of programming.
+\end{bughunt}
+
+\begin{freebuild}[Pattern studio]
+Last 5 minutes: make your own stripes. Ideas: thinner stripes with \texttt{width=30}; the palette twice with \texttt{palette * 2};
+your own order of colours; a rainbow \enquote{flag} for your hero team. Keep labels on every stripe.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+Show the stripes. Do a quick accessibility check together: \enquote{If you could not see colour at all, could you still tell the stripes apart?}
+(Yes: the numbers.)
+
+\begin{formativecheck}[Exit ticket]
+\begin{pycode}
+pets = ["cat", "dog", "fish"]
+pets.append("frog")
+print(len(pets), pets[1], pets[-1])
+\end{pycode}
+What does it print? Which index would cause an \texttt{IndexError}?
+\textbf{Answer:} \texttt{4 dog frog}. Any index from 4 up (the indexes are 0--3).
+\textbf{Look for:} \enquote{cat} for \texttt{pets[1]} means the student still counts from 1. Repeat the floor game next week for 2 minutes.
+\end{formativecheck}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item Why do you think Python starts counting at 0? Does the locker analogy help?
+  \item What is one list you could use in a game you would like to make?
+  \item How did we make our stripes work for people who see colours differently?
+\end{itemize}
+\end{reflection}
+Hand out homework 3 (Loot Bag).
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Counting from 1.} \texttt{items[1]} is the \emph{second} item. The first is \texttt{items[0]}.
+  \item \textbf{One past the end.} \texttt{items[len(items)]} always crashes. The last item is \texttt{items[len(items) - 1]} or \texttt{items[-1]}.
+  \item \textbf{Forgetting the brackets or quotes.} \texttt{["torch", rope]} gives \texttt{NameError}: text needs quotes.
+  \item \textbf{\texttt{append} with an equals sign.} \texttt{backpack = backpack.append("map")} sets the list to \texttt{None}. Just write \texttt{backpack.append("map")}.
+  \item \textbf{Mixing up the loops.} In \texttt{for item in backpack}, \texttt{item} is the thing itself; in \texttt{for i in range(len(backpack))}, \texttt{i} is the index number.
+  \item \textbf{x not moving.} If every stripe lands in the same place, \texttt{x = x + width} is missing or not indented inside the loop.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Keep the floor numbers on the table during the build. In Palette Stripes, type the loop line together and let the
+pair type the body. Skip Exercise 3.3; it can be a homework extra. In Inventory, give \texttt{has\_item} as
+\texttt{return item in backpack} (a shortcut) so the pair can focus on the index bug.
+\extensionpath In Inventory, write \texttt{drop\_item(backpack, item)} with \texttt{backpack.remove(item)} and protect it with
+\texttt{has\_item}. In High Scores, store a made-up nickname with each score in a second list and print \texttt{1st: 300 (Comet)}.
+\end{differentiation}
+
+\begin{stretchchallenge}[Checkerboard palette]
+Draw two rows of stripes, where the second row uses the colours in reverse order. Tip: \texttt{list(reversed(palette))} or
+\texttt{palette[::-1]}. Can you label every square with its index in its own row?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Shorten the human list to \texttt{[0]}, \texttt{len} and the IndexError shout. Do 3.1 and 3.2 only; 3.3 becomes an optional homework extra.
+Keep the colour-blind-safe talk short but do not skip the accessibility check in the Wrap-up.
+\end{teachernote}

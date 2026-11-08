@@ -1,0 +1,3 @@
+# Only needed by the teacher / CI to run the automated checks.
+# Students using Thonny can install pytest via Tools > Manage packages.
+pytest>=7.4

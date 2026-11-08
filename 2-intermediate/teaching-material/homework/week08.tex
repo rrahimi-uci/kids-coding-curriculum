@@ -1,0 +1,46 @@
+% Level 2, Week 8 -- Testing: Prove It Works (homework)
+\homeworkweek{8}{Testing: Prove It Works}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Test the Cipher (about 10 minutes)]
+Folder: \texttt{excercises/week08/hw-test-the-cipher}. \texttt{encode()} in \texttt{cipher\_tools.py} is the Caesar cipher from week 5, and it is correct.
+Your job: write tests so nobody can ever break it without you noticing. Keep your paper cipher wheel nearby.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Read \texttt{cipher\_tools.py}. Then open \texttt{starter.py} (your test file) and press \menu{Run}.
+  \item TODO 1: work out \texttt{encode("xyz", 3)} with the wheel and write a test for it: \rule{3cm}{0.4pt}
+  \item TODO 2: test a message with a space and a \texttt{!} in it. My message and its secret version:
+  \answerlines{1}
+  \item TODO 3: one more test of your own (ideas: shift 0, or an empty message \texttt{""}).
+  \item Press \menu{Run}: all \texttt{PASSED}? Then run \texttt{check\_my\_work.py}. It tries your tests on three broken ciphers.
+\end{enumerate}
+\end{core}
+
+\begin{challenge}[Spot the edge]
+For each function, write one \textbf{normal} case and one \textbf{edge} case (no computer needed).
+\begin{center}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{6.4cm}p{3.6cm}p{3.6cm}@{}}
+\toprule
+\textbf{Function} & \textbf{Normal case} & \textbf{Edge case} \\ \midrule
+\texttt{count\_vowels(word)}: counts a, e, i, o, u & & \\ \midrule
+\texttt{lives\_left(lives, hits)}: never below 0 & & \\ \midrule
+\texttt{last\_item(items)}: the last item & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{challenge}
+
+\begin{creative}[Test something of yours]
+Pick a function you wrote in an earlier week (for example from your Monster Stats, Word Guess or Idea Notebook).
+In the same folder, make a new file called \texttt{my\_tests.py}. Import your function (\py|from starter import my_function|), write two tests
+(one normal, one edge), and copy the last three lines of this week's \texttt{starter.py} to the bottom so that \menu{Run} starts pytest.
+This is exactly how your final project's tests will work.
+Or: draw a comic strip of a \enquote{crash-test dummy} testing a game's strangest corner.
+\end{creative}
+
+\begin{selfcheck}
+  \item My test names all start with \texttt{test\_} and each has an \texttt{assert}.
+  \item All my tests say \texttt{PASSED} on the correct \texttt{encode()}.
+  \item \texttt{check\_my\_work.py} says my tests catch all three broken ciphers.
+  \item I can explain the difference between a normal case and an edge case.
+\end{selfcheck}

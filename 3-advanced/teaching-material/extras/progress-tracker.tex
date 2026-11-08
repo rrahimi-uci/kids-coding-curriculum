@@ -1,0 +1,56 @@
+\documentclass[level=3]{kidscode}
+%% Four tick boxes: Just starting / Getting there / Got it / Expert
+\newcommand{\fourboxes}{\large$\square$\,$\square$\,$\square$\,$\square$}
+
+\begin{document}
+\kctitle{Progress Tracker}{Two sides per student: what I can do, week by week}
+
+\namedateline
+
+\textbf{How to use it:} after each session, read the week's \enquote{I can\ldots} and tick
+\textbf{one} box --- \textbf{1} Just starting, \textbf{2} Getting there, \textbf{3} Got it,
+\textbf{4} Expert. Your teacher adds a note. You may come back later and tick a higher box!
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\bfseries}p{0.75cm}>{\raggedright\arraybackslash}p{8.1cm}>{\centering\arraybackslash}p{2.5cm}p{\dimexpr\linewidth-11.35cm-6\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Wk & I can\ldots & 1\ \ 2\ \ 3\ \ 4 & Teacher note\\ \midrule\endhead
+\bottomrule\endfoot
+1 & make save points with git and write a helpful commit message & \fourboxes & \\ \midrule
+2 & write a class with \texttt{\_\_init\_\_}, attributes and methods & \fourboxes & \\ \midrule
+3 & make a child class that inherits, overrides and uses \texttt{super()} & \fourboxes & \\ \midrule
+4 & explain why binary search is faster than linear search & \fourboxes & \\ \midrule
+5 & sort data and choose a stack or a queue for a job & \fourboxes & \\ \midrule
+6 & use the Thonny debugger to find a bug & \fourboxes & \\ \midrule
+7 & write a recursive function with a base case and use a 2D grid & \fourboxes & \\ \midrule
+8 & clean data from a CSV file, count it and draw a chart & \fourboxes & \\ \midrule
+9 & explain how a nearest-neighbour AI predicts and how it can be biased & \fourboxes & \\ \midrule
+10 & design my project with classes (CRC cards or a class diagram) & \fourboxes & \\ \midrule
+11 & test my project with 5+ pytest tests and write a README & \fourboxes & \\ \midrule
+12 & present my project and explain a design decision & \fourboxes & \\ \midrule
+B1 & race and compare algorithms by hand & \fourboxes & \\ \midrule
+B2 & build a mini game quickly and commit often & \fourboxes & \\
+\end{longtable}
+
+\subsection{My project milestones}
+\begin{checklist}
+  \item \textbf{M1 Pitch} (end of week 9): my idea and option (a/b/c). \hfill Date: \rule{2.5cm}{0.4pt}
+  \item \textbf{M2 Design + core classes} (week 10): CRC cards, first classes committed. \hfill Date: \rule{2.5cm}{0.4pt}
+  \item \textbf{M3 Features + 5 tests + playtest} (week 11, first half). \hfill Date: \rule{2.5cm}{0.4pt}
+  \item \textbf{M4 README + polish} (week 11, second half). \hfill Date: \rule{2.5cm}{0.4pt}
+  \item \textbf{Showcase} (week 12): I presented and explained a decision. \hfill Date: \rule{2.5cm}{0.4pt}
+\end{checklist}
+
+\subsection{Teacher's record}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}lX>{\bfseries}lX@{}}
+\toprule
+Placement quiz (/20) & & Path chosen & \\ \midrule
+Checkpoint (/20) & & Commits in project & \\ \midrule
+Exit assessment (/30) & & Project rubric (/24) & \\ \midrule
+Biggest strength & \multicolumn{3}{l}{} \\ \midrule
+Next step & \multicolumn{3}{l}{} \\
+\bottomrule
+\end{tabularx}
+
+\end{document}

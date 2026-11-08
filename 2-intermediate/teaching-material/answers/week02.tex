@@ -1,0 +1,48 @@
+% Level 2, Week 2 -- answer key
+\answersweek{2}{Functions That Give Back}{Answers for workbook chapter 2 and homework 2.}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 2.1 Game Math]
+\textbf{Step 1:} \texttt{xp\_needed} (it prints 500 and gives back \texttt{None}).\quad
+\textbf{Step 3:} \texttt{damage(12, 5)} = 7,\quad \texttt{damage(3, 5)} = 0.\quad
+\textbf{Step 5:} health left = $40 - 7 - 0 = 33$.\par
+\textbf{What to look for:} every function ends with a \texttt{return}; \texttt{damage()} never returns a negative number.
+Also correct: \texttt{return max(attack - shield, 0)}, or an \texttt{if}/\texttt{else} with two \texttt{return} lines.
+\end{answer}
+\pyfile{../excercises/week02/ex-game-math/solution.py}
+
+\begin{answer}[Exercise 2.2 Flower Garden]
+\textbf{Step 1:} 6 petals: 60 degrees.\quad \textbf{Step 4:} any values; check the flower appears where the student says it should.\par
+\textbf{What to look for:} \texttt{goto(x, y)} is used both before the stem and before the petals; the loop uses
+\texttt{range(petals)}. The petal shape and stem length may differ from the reference answer.
+\end{answer}
+\pyfile{../excercises/week02/ex-flower-garden/solution.py}
+
+\section{Homework}
+\begin{answer}[Core: What comes back?]
+\texttt{add\_three(4)} gives back \texttt{7};\quad \texttt{add\_three(add\_three(1))} gives back \texttt{7} (1 + 3 = 4, then 4 + 3 = 7);\quad
+\texttt{shout("hi")} shows \texttt{hi!} but gives back \texttt{None}.
+\end{answer}
+
+\begin{answer}[Core: Potion Shop Calculator]
+3 potions cost 36 and leave \textbf{14} coins. 5 potions cost 60: too expensive, so you keep all \textbf{50} coins.
+Any clear docstring for \texttt{coins\_left()} is fine, for example \enquote{Return the coins left after paying.}
+\end{answer}
+\pyfile{../excercises/week02/hw-shop-calculator/solution.py}
+
+\begin{answer}[Challenge: Sale day]
+\begin{pycode}
+def discount(cost):
+    """Return the sale price: 5 coins off if the cost is 40 or more."""
+    if cost >= 40:
+        return cost - 5
+    return cost
+\end{pycode}
+5 potions cost 60, so on sale day they cost \textbf{55} coins (still more than 50 coins).
+In the main program: \texttt{cost = discount(total\_cost(price, how\_many))}.
+\end{answer}
+
+\begin{answer}[Creative: Invent a function machine]
+Any rule is fine. Check that the function has parameters for the values that go in, a \texttt{return} for the answer
+and a docstring that describes the rule without giving away the secret too easily.
+\end{answer}

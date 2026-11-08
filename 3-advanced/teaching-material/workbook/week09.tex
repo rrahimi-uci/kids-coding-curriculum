@@ -1,0 +1,128 @@
+% Level 3 workbook, Week 9 -- How Do Machines Learn?
+\chapterweek{9}{How Do Machines Learn?}{AI finds patterns in examples -- and copies their mistakes.}
+
+\section{What you will learn}
+\begin{itemize}[itemsep=1pt]
+  \item The difference between a program that follows \textbf{rules} and one that \textbf{learns from examples}.
+  \item How a \textbf{nearest-neighbour classifier} sorts things, and how to measure its \textbf{accuracy}.
+  \item Why unbalanced or wrong examples make an AI unfair (\textbf{bias}).
+  \item How a tiny text generator writes sentences -- and why chatbots can be confidently wrong.
+\end{itemize}
+
+\section{Rules or examples?}
+A program with \textbf{rules} does exactly what you typed: \py|if teeth > 5: print("grumpy")|. A \textbf{learning} program gets lots of \textbf{examples} with the right answers (\textbf{labels}) and finds the pattern itself. The things it measures are called \textbf{features}.
+
+Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10). Put every example on a chart. To guess a \textbf{mystery} monster, find the closest example and copy its label. That is a \textbf{nearest-neighbour classifier}.
+
+\begin{center}
+\begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Stealth]
+  \draw[->] (0,0) -- (10.8,0) node[below left,font=\small] {fluff};
+  \draw[->] (0,0) -- (0,10.8) node[above,font=\small] {teeth};
+  \foreach \t in {0,5,10} {\node[below,font=\scriptsize] at (\t,0) {\t}; \node[left,font=\scriptsize] at (0,\t) {\t};}
+  \draw[dashed,thick] (5,2) -- (6,1);
+  \draw[dashed,thick] (3,6) -- (2,6);
+  \foreach \x/\y in {9/1,8/2,7/3,6/1,8/4} {
+    \draw[fill=kcorange!70] (\x,\y) circle (0.42); \node[font=\scriptsize\bfseries] at (\x,\y) {F};}
+  \foreach \x/\y in {2/9,3/8,1/7,4/9,2/6} {
+    \draw[fill=kcsky!70] (\x-0.4,\y-0.4) rectangle (\x+0.4,\y+0.4); \node[font=\scriptsize\bfseries] at (\x,\y) {G};}
+  \foreach \x/\y in {5/2,3/6} {
+    \draw[fill=white,thick] (\x,\y) circle (0.42); \node[font=\scriptsize\bfseries] at (\x,\y) {?};}
+  \node[font=\small,align=left,anchor=west] at (11.5,8) {\tikz\draw[fill=kcorange!70] (0,0) circle (0.2); F = friendly (circle)\\[2pt]
+    \tikz\draw[fill=kcsky!70] (0,0) rectangle (0.35,0.35); G = grumpy (square)\\[2pt]
+    \tikz\draw[fill=white,thick] (0,0) circle (0.2); ? = mystery monster\\[2pt]
+    dashed line = its nearest neighbour};
+\end{tikzpicture}
+\end{center}
+
+The mystery at (5, 2) is closest to a friendly monster, so the guess is \emph{friendly}. Distance is measured with Pythagoras: \py|math.sqrt(dx * dx + dy * dy)|.
+
+\section{Is it any good? Train, then test}
+Split the examples into two piles. The program learns from the \textbf{training} pile. The \textbf{test} pile stays secret until the end; then we count how many test cards it labels correctly.
+\[ \text{accuracy} = \frac{\text{correct guesses}}{\text{number of test cards}} \]
+Testing on cards it learned from would be like seeing the exam answers first.
+
+\begin{bughunt}[Bad examples, bad predictions]
+If the training pile has 8 grumpy monsters and only 1 friendly one, the program calls most friendly monsters grumpy. The code is fine -- the \emph{data} is the bug. This is called \textbf{bias}. When real AI decides things about people (faces, voices, job applications), biased examples can treat whole groups unfairly. That is why people must check the data, not just the code.
+\end{bughunt}
+
+\section{A tiny text generator}
+A \textbf{Markov chain} learns just one thing from a text: \emph{after each word, which words came next?}
+
+\begin{center}
+\begin{tikzpicture}[w/.style={draw,rounded corners=2pt,font=\small\ttfamily,fill=kcyellow!25,inner sep=3pt},>=Stealth]
+  \node[w] (the) at (0,0) {the};
+  \node[w] (dragon) at (3,1.2) {dragon};
+  \node[w] (robot) at (3,0) {robot};
+  \node[w] (cat) at (3,-1.2) {cat};
+  \node[w] (sat) at (6,0) {sat};
+  \node[w] (on) at (8.3,0) {on};
+  \draw[->] (the) -- (dragon); \draw[->] (the) -- (robot); \draw[->] (the) -- (cat);
+  \draw[->] (dragon) -- (sat); \draw[->] (robot) -- (sat); \draw[->] (cat) -- (sat);
+  \draw[->] (sat) -- (on);
+  \draw[->] (on) to[bend left=35] node[below,font=\scriptsize] {next word: the} (the);
+\end{tikzpicture}
+\end{center}
+To write, it starts with a word and keeps picking a \emph{random} next word from the list. The sentences \emph{sound} like the training text, but the machine does not understand them at all. Today's chatbots are enormously bigger and cleverer, but they also predict likely next words -- which is why they can sound sure and still be wrong.
+
+\section{The five big ideas of AI}
+\begin{center}\small
+\begin{tabular}{@{}p{3.4cm}p{6cm}p{4.4cm}@{}}
+\toprule
+\textbf{Big idea} & \textbf{What it means} & \textbf{Today}\\ \midrule
+1 Perception & Computers sense the world with cameras, microphones, sensors. & a camera measuring fluff?\\
+2 Representation \& reasoning & The world is stored as data the computer can reason about. & each monster = (fluff, teeth)\\
+3 Learning & Computers find patterns in examples. & nearest-neighbour classifier\\
+4 Natural interaction & Talking and writing like people is very hard. & Markov story machine\\
+5 Societal impact & AI can help or harm people. & bias, privacy, deepfakes\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Monster sorter]
+Folder: \texttt{week09/ex-monster-sorter}. Finish \texttt{distance(a, b)} and \texttt{nearest(training, mystery)}. Run it and look at the chart. What does it guess for (5, 5)? Do you agree? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Fair or biased?]
+Folder: \texttt{week09/ex-fair-or-biased}. Finish \texttt{label\_counts()} and \texttt{accuracy()}.
+Fair training accuracy: \rule{1.5cm}{0.4pt} \quad Biased training accuracy: \rule{1.5cm}{0.4pt}
+Why is the biased one worse? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Markov story machine]
+Folder: \texttt{week09/ex-markov-story}. Finish \texttt{build\_chain(words)}: each word maps to the list of words that came right after it (keep repeats!). Copy your silliest generated sentence: \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[My project pitch (Milestone 1)]
+For the next three weeks you will \emph{Build Something Big}. Read the Project brief, then fill in your pitch. Finish it at home.
+\begin{tabular}{@{}p{4.6cm}p{\dimexpr\linewidth-4.8cm-2\tabcolsep}@{}}
+Project title: & \rule{\linewidth}{0.4pt}\\[6pt]
+Option (circle one): & grid game \quad generative art app \quad data/AI app\\[6pt]
+In one sentence, it is...: & \rule{\linewidth}{0.4pt}\\[6pt]
+Two classes I will need: & \rule{\linewidth}{0.4pt}\\[6pt]
+Inheritance or composition: & \rule{\linewidth}{0.4pt}\\[6pt]
+Data structure (dict / stack / queue / grid): & \rule{\linewidth}{0.4pt}\\[6pt]
+Named algorithm: & \rule{\linewidth}{0.4pt}\\[6pt]
+File it will save: & \rule{\linewidth}{0.4pt}\\[6pt]
+The smallest fun version: & \rule{\linewidth}{0.4pt}\\
+\end{tabular}
+\end{exercise}
+
+\begin{safety}[Using AI wisely and safely]
+\textbf{AI can be wrong}, even when it sounds sure -- check important facts with a trusted source or adult. \textbf{Never share personal information} with a chatbot: no real name, address, school, passwords, photos or secrets; what you type may be stored. \textbf{Deepfakes} are fake pictures, voices or videos made by AI: ask \enquote{Who made this, and why?} before you believe or share, and never make fakes of real people. \textbf{Bias}: AI is only as fair as its examples.
+\end{safety}
+
+\begin{vocab}
+  \vocabword{feature}{Something we measure about an example, like fluff or teeth.}
+  \vocabword{label}{The right answer for an example, like \enquote{friendly}.}
+  \vocabword{training data}{The labelled examples a program learns from.}
+  \vocabword{test data}{Examples kept secret during training, used to check the guesses.}
+  \vocabword{accuracy}{Correct guesses divided by the number of test examples.}
+  \vocabword{classifier}{A program that sorts things into groups (labels).}
+  \vocabword{bias}{When unbalanced or unfair data makes a program treat some cases unfairly.}
+  \vocabword{deepfake}{A fake photo, voice or video made with AI.}
+\end{vocab}
+
+\begin{reflection}
+Where have you met AI this week (videos, games, phones, homework)? \answerlines{1}
+One thing you will never type into a chatbot, and why: \answerlines{1}
+\end{reflection}

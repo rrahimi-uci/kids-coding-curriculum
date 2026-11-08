@@ -1,0 +1,112 @@
+% Level 2, Week 3 -- Lists: Collections of Things (student workbook)
+\chapterweek{3}{Lists: Collections of Things}{A list keeps many values in order, and the first one is number 0.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em]
+  \item How to keep many values in one \textbf{list}.
+  \item How to find an item by its \textbf{index}, starting from 0.
+  \item How to add items with \texttt{append} and count them with \texttt{len}.
+  \item How to visit every item with a \texttt{for} loop.
+  \item How to pick colours that work for everyone.
+\end{itemize}
+
+\section{The big idea: a row of lockers}
+A list is like a row of lockers. Each locker has a number painted on it, called its \textbf{index}.
+The first locker is number \textbf{0}.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,
+  cell/.style={draw=black,thick,minimum width=2.2cm,minimum height=1cm,fill=kcsky!15}]
+  \foreach \thing [count=\i from 0] in {torch,rope,map,apple}{
+    \node[cell] (c\i) at (\i*2.2,0) {\texttt{"\thing"}};
+    \node[below=2pt of c\i] {index \textbf{\i}};
+  }
+  \node[left=4pt of c0,font=\small\ttfamily] {backpack =};
+  \node[cell,dashed,fill=white,right=0pt of c3] (c4) {?};
+  \node[below=2pt of c4,align=center] {index 4:\\\textbf{IndexError}};
+\end{tikzpicture}
+\end{center}
+
+\begin{pycode}[Making and using a list]
+backpack = ["torch", "rope", "map"]
+backpack.append("apple")    # adds to the END of the list
+print(len(backpack))        # 4   how many items
+print(backpack[0])          # torch   the first item
+print(backpack[-1])         # apple   -1 means the last item
+\end{pycode}
+With 4 items, the index numbers are 0, 1, 2 and 3. Asking for \texttt{backpack[4]} crashes with
+\texttt{IndexError: list index out of range}. This is called an \textbf{off-by-one} bug.
+
+\subsection{Two ways to loop over a list}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{0.47\linewidth}p{0.47\linewidth}@{}}
+\toprule
+\textbf{Visit every item} & \textbf{Visit every index number} \\ \midrule
+\texttt{for item in backpack:} & \texttt{for i in range(len(backpack)):} \\
+\texttt{\ \ \ \ print(item)} & \texttt{\ \ \ \ print(i, backpack[i])} \\
+Use it when you only need the items. & Use it when you also need the position number. \\ \bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Colours for everyone}
+Some people see colours differently, often red and green. These eight \textbf{Okabe-Ito} colours stay different for almost everyone.
+Use them, and always add a label, number or shape too, so colour is never the only clue.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}cll@{\hspace{1.5em}}cll@{}}
+\swatch{kcorange} & orange & \texttt{\#E69F00} & \swatch{kcblue} & blue & \texttt{\#0072B2} \\
+\swatch{kcsky} & sky blue & \texttt{\#56B4E9} & \swatch{kcvermillion} & vermillion & \texttt{\#D55E00} \\
+\swatch{kcgreen} & bluish green & \texttt{\#009E73} & \swatch{kcpurple} & reddish purple & \texttt{\#CC79A7} \\
+\swatch{kcyellow} & yellow & \texttt{\#F0E442} & \swatch{kcblack} & black & \texttt{\#000000} \\
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Palette Stripes]
+Folder: \texttt{excercises/week03/ex-palette-stripes}. Press \menu{Run}: only one stripe appears.
+\begin{enumerate}[leftmargin=1.4em]
+  \item TODO 1: add blue and vermillion with \texttt{palette.append(...)}.
+  \item TODO 3: draw a stripe for every colour with \texttt{for i in range(len(colours)):}. Label each stripe \texttt{str(i)} and move \texttt{x} along.
+  \item TODO 4: print the first colour (\texttt{palette[0]}) and the last colour (\texttt{palette[-1]}).
+  \item My palette has \rule{1cm}{0.4pt} colours, so the labels go from 0 to \rule{1cm}{0.4pt}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Adventure Inventory]
+Folder: \texttt{excercises/week03/ex-inventory}. Press \menu{Run}. It crashes!
+\begin{enumerate}[leftmargin=1.4em]
+  \item Read the error from the bottom up. Error name: \rule{3.5cm}{0.4pt}\quad In which function? \rule{3.5cm}{0.4pt}
+  \item Draw the backpack \texttt{["torch", "rope", "map", "apple"]} as boxes with their index numbers:
+  \answerspace{1.4cm}
+  \item TODO 3: fix \texttt{last\_item()}. TODO 1: \texttt{append} in \texttt{add\_item()}. TODO 2: loop in \texttt{has\_item()}.
+  \item Check your work with \texttt{check\_my\_work.py}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Top 3 High Scores]
+Folder: \texttt{excercises/week03/ex-high-scores}. Two new tricks:
+\texttt{sorted(scores, reverse=True)} makes a new list, biggest first, and \texttt{best[:3]} takes the first three items.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Predict: the top 3 of \texttt{[120, 45, 300, 80]} are \rule{4cm}{0.4pt}
+  \item TODO 1: sort, then take three. TODO 2: print \texttt{1st: 300}, \texttt{2nd: 120}, \texttt{3rd: 80} using the \texttt{places} list.
+\end{enumerate}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{list}{Many values kept in order inside square brackets, like \texttt{["torch", "rope"]}.}
+  \vocabword{item}{One value inside a list.}
+  \vocabword{index}{The position number of an item. The first item has index 0.}
+  \vocabword{append}{Add an item to the end of a list: \texttt{backpack.append("map")}.}
+  \vocabword{len}{Counts the items in a list: \texttt{len(backpack)}.}
+  \vocabword{IndexError}{The error you get when you ask for an index that does not exist.}
+  \vocabword{off-by-one}{A bug where a number is one too big or one too small, like using \texttt{len} as the last index.}
+  \vocabword{accessible}{Designed so that everyone can use it, including people who see colours differently.}
+\end{vocab}
+
+\begin{reflection}
+With a list of 10 items, what is the index of the last item? Why?
+\answerlines{1}
+Describe a list you could use in a game you would like to make:
+\answerlines{2}
+\end{reflection}

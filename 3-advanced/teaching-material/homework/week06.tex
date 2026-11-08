@@ -1,0 +1,54 @@
+% Level 3, Week 6 homework -- Review and Checkpoint
+\homeworkweek{6}{Review and Checkpoint}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Piggy Bank Bug Hunt (about 10 minutes)]
+\begin{enumerate}[itemsep=2pt]
+  \item Open \texttt{week06/hw-bug-bank/starter.py}. Read the expected output at the top of the file, then press Run. What is different?
+  \item Find the 3 bugs. Use the debugger: Debug, Step over, Step into, and watch \texttt{self.coins} and \texttt{self.log} in the Variables view.
+  \item Fill in your bug log, then open \texttt{check\_my\_work.py} and press Run until all checks pass. Commit the fixed file in \texttt{git-quest}.
+\end{enumerate}
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|p{1.4cm}|p{5.2cm}|p{5.2cm}|}
+\hline
+\textbf{Bug} & \textbf{Line} & \textbf{What was wrong} & \textbf{How I fixed it} \\ \hline
+1 & & & \\ \hline
+2 & & & \\ \hline
+3 & & & \\ \hline
+\end{tabular}
+\end{center}
+\end{core}
+
+\begin{challenge}[Trace table]
+Without running it, fill in the trace table for this code. Then check with the debugger.
+\begin{pycode}
+stack = []
+for word in ["red", "green", "blue"]:
+    stack.append(word)
+top = stack.pop()
+\end{pycode}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{3cm}|p{6cm}|p{3cm}|}
+\hline
+\textbf{After line} & \textbf{stack} & \textbf{top} \\ \hline
+append \enquote{red} & & \\ \hline
+append \enquote{green} & & \\ \hline
+append \enquote{blue} & & \\ \hline
+\texttt{top = stack.pop()} & & \\ \hline
+\end{tabular}
+\end{center}
+\end{challenge}
+
+\begin{creative}[Bug comic]
+Draw a 3-panel comic about a bug you met this term: panel 1, the bug appears; panel 2, the hunt (what strategy did you use?); panel 3, the fix. Bugs can be cute!
+\answerspace{4cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item All checks pass in \texttt{hw-bug-bank}.
+  \item I used the debugger at least once at home.
+  \item I changed one thing at a time and ran the program after each change.
+  \item I committed my fixed file in \texttt{git-quest}.
+\end{selfcheck}

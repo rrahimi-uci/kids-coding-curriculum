@@ -1,0 +1,365 @@
+\documentclass[level=3,teacher]{kidscode}
+%% Terminal and text-file listings: no Python keyword colouring.
+\lstdefinestyle{kcshell}{basicstyle=\ttfamily\small\setstretch{1.0},language={},
+  columns=fullflexible,keepspaces=true,breaklines=true,numbers=none,upquote=true,
+  showstringspaces=false}
+\begin{document}
+\kctitle{Project Teacher Guide}{Build Something Big: milestones, rubric, reference solution and showcase}
+
+\begin{tip}[In one minute]
+Students build one larger project in weeks 9--12, alone or in pairs, choosing a grid game, a
+generative art app or a data/AI app. Your job is to keep projects \textbf{small enough to finish},
+check the milestones, unblock with questions rather than code, and run a warm showcase. The
+reference solution, \textbf{Maze Muncher}, shows what a finished grid game looks like; keep its
+code to yourself until the showcase, but do play it with the group at the kickoff.
+\end{tip}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+%% =====================================================================
+\section{1. Overview and preparation}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\bfseries}p{1.6cm}>{\raggedright\arraybackslash}p{4.2cm}p{\dimexpr\linewidth-5.8cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} When & Milestone & In the session\\ \midrule\endhead
+\bottomrule\endfoot
+Week 9 & Kickoff $\rightarrow$ \textbf{M1 Pitch} (due end of week 9) & Last 15 minutes of the
+week 9 lesson: play Maze Muncher together, hand out the brief, read the must-haves, choose
+options. Pitch page is homework.\\ \midrule
+Week 10 & \textbf{M2 Design + core classes} & CRC cards and class diagram on paper (15 min), then
+build the core classes with the first 2 tests and commits. Partner code review at the end.\\ \midrule
+Week 11 & \textbf{M3 Features + 5 tests + playtest}, then \textbf{M4 README + polish} & First half:
+features and tests, 10-minute playtest swap. Second half: fix the top playtest issue, write the
+README, final commits.\\ \midrule
+Week 12 & \textbf{Showcase} & Exit assessment, then the showcase and certificates (see section 7).\\
+\end{longtable}
+
+\begin{materials}
+  \item Print: project brief (one per student, in week 9); 2 playtest cards each (in the brief);
+        CRC cards can be index cards or the brief's page B.
+  \item On each Mac: a copy of \texttt{project/starter} in the student's Documents folder (they
+        rename it in week 9), git set up with a nickname (Teacher Guide step 5.2).
+  \item On your Mac only: \texttt{project/reference}. Run \texttt{maze\_muncher.py} once in Thonny
+        so you know the controls (arrow keys; SPACE for the next level; R to restart).
+  \item Sticky notes, a timer, and a \enquote{parking lot} sheet for nice-to-have ideas.
+\end{materials}
+
+%% =====================================================================
+\section{2. Milestone walkthrough}
+
+\subsection{M1 Pitch (end of week 9)}
+\begin{teacherscript}
+\enquote{For the next four weeks you are the boss of your own project. Real developers start
+small and make it bigger step by step. Your pitch should be something you can finish in two
+sessions, plus ideas for later in the parking lot.}
+\end{teacherscript}
+\textbf{Check before you say \enquote{go}:} the pitch names 3 must-have features (not 10); it says
+which algorithm and data structure; it saves a file; the student can say the idea in one sentence.
+\textbf{Good question:} \enquote{If you only had one session, what would you build?} That answer
+is feature 1. Each student then copies the starter folder, renames it and makes the first commit
+(the starter README lists the exact Terminal lines).
+
+\subsection{M2 Design + core classes (week 10)}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Nouns become classes, verbs become methods.} Ask students to underline nouns in
+        their pitch (dragon, grid, treasure) and circle verbs (move, collect, save).
+  \item \textbf{CRC cards} (10 min): one card per class. If a card has more than about 5
+        responsibilities, split the class. If a class has no responsibilities, drop it.
+  \item \textbf{Inheritance or composition?} Ask \enquote{Is a Dragon \emph{a kind of}
+        Character?} (inheritance) and \enquote{Does a Game \emph{have} a Grid?} (composition).
+        Either one meets the requirement.
+  \item \textbf{Build the core:} the main classes with \texttt{\_\_init\_\_} and one or two
+        methods, a first test for each, and a commit after each green test.
+\end{itemize}
+\textbf{Check:} classes run without errors, 2 tests pass, at least 3 commits.
+
+\subsection{M3 Features + 5 tests + playtest (week 11, first half)}
+\begin{itemize}[itemsep=2pt]
+  \item Features are added one at a time: write or update a test, make it pass, commit.
+  \item \textbf{Playtest swap} (10 min): each student plays someone else's project with the
+        playtest card. With one student, you are the playtester; with an odd number, rotate.
+  \item Each student circles \textbf{one} wish on their card to fix first.
+\end{itemize}
+\textbf{Check:} must-have features work; \texttt{python3 -m pytest -q} shows 5 or more passing.
+
+\subsection{M4 README + polish (week 11, second half)}
+\begin{itemize}[itemsep=2pt]
+  \item Fix the circled playtest wish. Run the tests again. Commit.
+  \item Copy the README template from the starter \texttt{README.md}, fill in every section (15
+        minutes is enough). The \enquote{design decision} section is rehearsal for the showcase.
+  \item \texttt{git log --oneline}: count the commits. Fewer than 8? Usually the work is there
+        but was committed in big lumps; from now on commit after each small change.
+\end{itemize}
+
+%% =====================================================================
+\section{3. Unblocking tips}
+
+Coach with a question first; give the hint only if the question does not help.
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-8.2cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Symptom & Ask & Hint\\ \midrule\endhead
+\bottomrule\endfoot
+The idea is huge & \enquote{What is the smallest version that is still fun?} & Three features now; the
+rest goes on the parking-lot sheet. Finished beats perfect.\\ \midrule
+\enquote{I don't know which classes} & \enquote{What things are in your program? What do they do?} &
+Nouns $\rightarrow$ classes, verbs $\rightarrow$ methods. Start from the template's classes.\\ \midrule
+No algorithm yet & \enquote{Is there anything to find, order, or repeat inside itself?} &
+(a) BFS chaser, flood fill to reveal rooms; (b) recursive fractal, sort shapes by size before
+drawing; (c) sort for a top 3, nearest-neighbour search for the closest example.\\ \midrule
+Tests are hard because of turtle & \enquote{Which part decides, and which part draws?} & Move rules into a
+class or function with no turtle (like \texttt{muncher\_model.py}); test that part.\\ \midrule
+\texttt{ModuleNotFoundError} in tests & \enquote{What is your file called now?} & The test's
+\texttt{import} must match the file name, without \texttt{.py}, and the file name must not contain
+spaces or dashes.\\ \midrule
+Few commits & \enquote{When did something last work?} & Commit after every passing test. Messages
+start with a verb.\\ \midrule
+\enquote{I broke everything} & \enquote{What did you change since your last commit?} & \texttt{git diff}
+shows it; \texttt{git restore file.py} goes back to the last commit. Celebrate the safety net.\\ \midrule
+No saved file & \enquote{What would you want to keep when you close the program?} & High scores,
+levels, saved art (JSON), a results file. Create it if it is missing.\\ \midrule
+Pair disagreement & \enquote{Which class could each of you own?} & Split by class; swap driver every 8
+minutes; decide with a coin when stuck --- and write the decision in the README.\\ \midrule
+Finished early & \enquote{What would surprise your playtester?} & Extension path in the brief: a
+second level from a file, test-first, a settings JSON, k-nearest neighbours.\\
+\end{longtable}
+
+%% =====================================================================
+\section{4. Rubric and scoring}
+
+First check the \textbf{must-haves} (brief, section 2). Then score each criterion from 1 to 4
+(Just starting = 1, Getting there = 2, Got it = 3, Expert = 4). Total out of 24.
+
+\begingroup\small
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\bfseries\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.15cm}>{\raggedright\arraybackslash}p{3.15cm}>{\raggedright\arraybackslash}p{3.15cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-11.65cm-8\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Criterion & 1 Just starting & 2 Getting there & 3 Got it & 4 Expert\\ \midrule\endhead
+\bottomrule\endfoot
+Creativity & Copies an example with small changes & Changes an example noticeably & Own idea and
+own style (art, theme, rules) & Something genuinely new or surprising; thoughtful for its audience\\ \midrule
+Working code & Crashes during normal use & Runs; some features buggy or missing & All must-have
+features work in a normal demo & Robust to unexpected input; no crashes in the playtest\\ \midrule
+Design / OOP (L3.G1, G3) & One class, or classes that do not help & Two classes; responsibilities
+mixed; data structure used thinly & Clear classes with one job each; inheritance or composition
+used sensibly; suitable data structure & Design makes changes easy; student shows how (e.g.
+adding a new enemy is one small class)\\ \midrule
+Testing (L3.G8) & 0--2 tests & 3--4 tests, or some failing & 5+ passing tests of the logic & Edge
+cases (empty, unreachable, missing file); a test caught a real bug\\ \midrule
+Git history (L3.G4) & Under 4 commits & 4--7 commits or vague messages & 8+ commits, clear verb-first
+messages & The log tells the story; small steps; tests committed with features\\ \midrule
+Explaining design decisions (L3.G5) & Shows what it does & Explains how one part works & Explains
+why a design choice was made & Compares with an alternative and explains the trade-off\\
+\end{longtable}
+\endgroup
+
+\textbf{Scoring bands:} 21--24 Expert; 16--20 Got it; 11--15 Getting there; 10 or below Just
+starting. Explaining is weighted the same as working code on purpose: a smaller project explained
+with real understanding is a better Level 3 result than a big one the student cannot explain.
+
+\textbf{How to check quickly:} in the student's project folder run \texttt{git log --oneline} (read
+the messages, count the lines) and \texttt{python3 -m pytest -q} (count the passing tests); open
+the README; ask \enquote{Why did you design it this way?}
+
+%% =====================================================================
+\section{5. Reference solution: Maze Muncher}
+
+\subsection{What it is}
+A grid maze game: the player (\textbf{P}, orange circle) eats every pellet (small black dot) while
+a wandering ghost (\textbf{G}, sky-blue triangle) and a chasing ghost (\textbf{C}, vermillion
+diamond) try to catch them. Each character has a \textbf{shape and a letter}, so nobody needs to
+tell colours apart. Clearing level 1 unlocks level 2; the best five scores are saved. It meets
+every must-have:
+
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{4.2cm}X@{}}
+\toprule
+Must-have & Where in Maze Muncher\\ \midrule
+2+ classes, inheritance, composition & \texttt{Entity} $\rightarrow$ \texttt{Player}, \texttt{Ghost} $\rightarrow$ \texttt{Chaser}
+(inheritance); \texttt{Game} has a \texttt{Maze}, a \texttt{Player} and ghosts (composition)\\
+Data structure beyond a flat list & the maze is a 2D grid; BFS uses a queue (\texttt{deque}) and a dict\\
+Named algorithm & breadth-first search in \texttt{Maze.shortest\_path}\\
+Saved file & \texttt{high\_scores.txt} (\texttt{nickname,score} lines), created if missing\\
+5+ tests & 16 model tests + 5 view tests\\
+Accessible, private & shapes + letters; asks for a nickname, never a real name\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Files}
+\begin{tabularx}{\linewidth}{@{}>{\ttfamily}p{4.6cm}X@{}}
+muncher\_model.py & all the rules, no turtle: \texttt{Maze}, \texttt{Entity}, \texttt{Player},
+\texttt{Ghost}, \texttt{Chaser}, \texttt{Game}, high-score functions\\
+maze\_muncher.py & the turtle view: drawing, keys, the game clock (\texttt{MuncherApp})\\
+levels/level1.txt & the first maze, as text (\texttt{level2.txt} is the second)\\
+test\_muncher\_model.py & 16 tests of the rules\\
+test\_maze\_muncher.py & 5 tests of the view on a fake screen\\
+\end{tabularx}
+
+\subsection{The design}
+\begin{center}
+\begin{tikzpicture}[
+  cls/.style={draw, thick, rounded corners=2pt, align=left, font=\small, fill=kcsky!10, inner sep=4pt},
+  isa/.style={-{Triangle[open,length=7pt,width=7pt]}, thick},
+  hasa/.style={{Diamond[length=9pt,width=6pt]}-, thick}]
+  \node[cls] (app) at (0,0) {\textbf{MuncherApp} (view)\\ screen, pens, game\\ redraw(), tick(), on\_key()};
+  \node[cls] (game) at (6.4,0) {\textbf{Game}\\ maze, player, ghosts,\\ score, state\\ move\_player(), tick()};
+  \node[cls] (maze) at (11.6,0) {\textbf{Maze}\\ grid, starts\\ is\_wall(), neighbours(),\\ shortest\_path()};
+  \node[cls] (entity) at (6.4,-3.3) {\textbf{Entity}\\ pos, previous, symbol\\ try\_move()};
+  \node[cls] (player) at (2.6,-6.0) {\textbf{Player}\\ symbol = "P"};
+  \node[cls] (ghost) at (8.6,-6.0) {\textbf{Ghost}\\ symbol = "G"\\ choose\_step() (random)\\ take\_turn()};
+  \node[cls] (chaser) at (8.6,-9.0) {\textbf{Chaser}\\ symbol = "C"\\ choose\_step() (BFS)};
+  \draw[hasa] (app.east) -- node[above, font=\scriptsize] {has a} (game.west);
+  \draw[hasa] (game.east) -- node[above, font=\scriptsize] {has a} (maze.west);
+  \draw[hasa] (game.south) -- node[right, font=\scriptsize] {has} (entity.north);
+  \draw[isa] (player.north) -- node[left, font=\scriptsize] {is a} (entity.south west);
+  \draw[isa] (ghost.north) -- node[right, font=\scriptsize] {is a} (entity.south east);
+  \draw[isa] (chaser.north) -- node[right, font=\scriptsize] {is a} (ghost.south);
+\end{tikzpicture}
+\end{center}
+
+\textbf{Design decisions to point out at the showcase} (and to model the \enquote{explain your
+design} criterion):
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Logic and drawing are separate files.} \texttt{muncher\_model.py} never imports
+        turtle, so all its rules are tested in a fraction of a second without opening a window.
+  \item \textbf{Chaser inherits from Ghost and overrides only \texttt{choose\_step}.} The game clock
+        calls \texttt{ghost.take\_turn(\ldots)} for every ghost and each kind decides its own way
+        (polymorphism). Adding a new ghost type would be one small class.
+  \item \textbf{Levels are text files.} Anyone can design a new maze in Thonny without touching
+        code; a test checks that every pellet in every shipped level can be reached.
+  \item \textbf{One game clock.} \texttt{MuncherApp} never starts a second \texttt{ontimer} loop
+        (the \texttt{clock\_running} flag), a classic turtle-game bug.
+\end{enumerate}
+
+\subsection{The level file format}
+One line per row. \texttt{\#} wall, \texttt{.} pellet, \texttt{P} player start (exactly one),
+\texttt{G} wandering ghost, \texttt{C} chaser. Ghost squares also get a pellet underneath; short
+rows are padded with walls.
+\begin{tcolorbox}[kccode,left=6pt,title={\small\faFile*[regular]\ \texttt{levels/level1.txt}}]
+\lstinputlisting[style=kcshell]{reference/levels/level1.txt}
+\end{tcolorbox}
+
+\subsection{Breadth-first search, step by step}
+\texttt{Maze.shortest\_path(start, goal)} explores outwards in rings. Below, the number in each
+square is how many steps it is from \textbf{P}; BFS reaches every square in order 1, 2, 3, 4.
+When it first reaches the goal (here the \textbf{G} square, 4 steps away), it walks back through
+the \texttt{came\_from} dictionary to build the path (arrows).
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=-1cm]
+  \foreach \r/\c in {0/0,0/1,0/2,0/3,0/4,1/0,1/4,2/0,2/2,2/4,3/0,3/4,4/0,4/1,4/2,4/3,4/4}
+    \draw[fill=kcblue, draw=black] (\c,\r) rectangle ++(1,1);
+  \foreach \r/\c/\d in {1/1/P,1/2/1,1/3/2,2/1/1,2/3/3,3/1/2,3/2/3,3/3/4}
+    \draw (\c,\r) rectangle ++(1,1) node[midway, font=\bfseries] {\d};
+  \draw[very thick, -{Stealth[length=7pt]}] (1.5,1.75) -- (1.5,2.25);
+  \draw[very thick, -{Stealth[length=7pt]}] (1.5,2.75) -- (1.5,3.25);
+  \draw[very thick, -{Stealth[length=7pt]}] (1.75,3.5) -- (2.25,3.5);
+  \draw[very thick, -{Stealth[length=7pt]}] (2.75,3.5) -- (3.25,3.5);
+  \node[anchor=west, font=\small, align=left] at (5.4,2.5)
+    {filled blue squares = walls (\texttt{\#})\\ numbers = steps from P\\ arrows = the path BFS returns\\
+     goal = the square marked 4};
+\end{tikzpicture}
+\end{center}
+
+The queue matters: taking squares from the \emph{front} (\texttt{popleft}) means all 1-step squares
+are explored before any 2-step square. If you took them from the back (a stack), you would get
+\emph{a} path, but not always the shortest one. The \texttt{Chaser} simply takes \texttt{path[1]},
+the first step of that path, every tick.
+
+\subsection{Tests}
+\texttt{test\_muncher\_model.py} checks level parsing (size, starts, padding, exactly one P, every
+pellet reachable), walls blocking moves, eating pellets once, BFS on a corridor, around a wall and
+to an unreachable square, the chaser getting one step closer, the wandering ghost never walking
+into walls or turning back in a corridor, winning, losing, and the high-score file (created if
+missing, round trip, best five kept, broken lines skipped) using pytest's \texttt{tmp\_path}.
+\texttt{test\_maze\_muncher.py} loads the view on a fake screen (\texttt{kidtest.load\_module}),
+presses keys, runs the game clock and checks walls, letters, scores and saved high scores.
+
+\subsection{The code}
+\pyfile[basicstyle=\ttfamily\footnotesize\setstretch{1.0}]{reference/muncher_model.py}
+\pyfile[basicstyle=\ttfamily\footnotesize\setstretch{1.0}]{reference/maze_muncher.py}
+\pyfile[basicstyle=\ttfamily\footnotesize\setstretch{1.0}]{reference/test_muncher_model.py}
+\pyfile[basicstyle=\ttfamily\footnotesize\setstretch{1.0}]{reference/test_maze_muncher.py}
+
+%% =====================================================================
+\section{6. What a good git history looks like}
+
+This is the kind of \texttt{git log --oneline} you are hoping for (newest first). Every message
+starts with a verb, each commit is one small step, and tests arrive together with the features
+they check. Show it to students in week 10 as a model.
+
+\needspace{20\baselineskip}
+\begin{shellcode}
+$ git log --oneline
+6636dc1 Write README with controls and design decisions
+aa8bb0f Add level2.txt and SPACE for next level
+1a48e61 Draw letters P, G, C on characters for accessibility
+19fe9fa Save top-5 high scores to high_scores.txt (+2 tests)
+8871c26 Add win and lose states
+d107ee0 Test BFS on small mazes, including unreachable goal
+aef335f Add Chaser that uses BFS to find the player
+b6ac07e Add Ghost that wanders without turning back
+f48dbaf Eat pellets and keep score (+2 tests)
+e79159e Stop the player walking through walls (+2 tests)
+8ddc8c2 Add Player class and arrow-key movement
+e02d04b Draw walls and pellets with turtle
+1b438bc Add Maze class that reads levels/level1.txt
+61ad517 Start Maze Muncher from the grid game starter
+\end{shellcode}
+
+\begin{commonmistakes}
+  \item One giant commit at the end (\texttt{"finished project"}): the history tells no story and
+        nothing can be undone in small steps.
+  \item Messages that say nothing: \texttt{"stuff"}, \texttt{"fix"}, \texttt{"asdfg"}.
+  \item Committing personal information or a real name. The nickname setup prevents the author
+        line problem; check the files too.
+\end{commonmistakes}
+
+%% =====================================================================
+\clearpage
+\section{7. Showcase plan (week 12)}
+
+\subsection{Running order (60 minutes)}
+The exit assessment comes first, while everyone is fresh; the celebration comes last.
+
+\begin{timeplan}
+  \timeslot{0--20}{Assessment}{Quiet, paper only, while minds are fresh. Collect the papers;
+  mark them later.}
+  \timeslot{20--25}{Set-up}{Each project open on a Mac, window large, Thonny font enlarged. Families
+  sit where they can see. Hand out feedback cards.}
+  \timeslot{25--50}{Showcase}{Each student (or pair): a 3-minute talk using the brief's checklist,
+  then 2 minutes of questions and play. Audience writes two stars and a wish.}
+  \timeslot{50--55}{Reveal}{Play Maze Muncher and show its \texttt{git log}. Ask: \enquote{Which
+  design decision would you steal for your next project?}}
+  \timeslot{55--60}{Graduation}{Certificates (names written by hand), one specific compliment each,
+  photo only if every family agrees.}
+\end{timeplan}
+
+\subsection{Design-decision talk and demo script}
+\begin{teacherscript}[Prompt card for a nervous presenter]
+\enquote{My project is called \underline{\hspace{2.5cm}}. It is for \underline{\hspace{2.5cm}}.
+Let me show you \underline{\hspace{2.5cm}}. One decision I made was \underline{\hspace{2.5cm}}
+instead of \underline{\hspace{2.5cm}}, because \underline{\hspace{2.5cm}}. A bug I fixed was
+\underline{\hspace{2.5cm}}. Next I would add \underline{\hspace{2.5cm}}.}
+\end{teacherscript}
+Demo tips: start the program \emph{before} the talk; show the best feature first; if it crashes,
+smile and say \enquote{and that is the bug I will fix next} --- that is real software development.
+
+\subsection{Feedback cards}
+Each audience member fills one card per presenter: \textbf{Star:} something great.
+\textbf{Star:} something clever in the design. \textbf{Wish:} one idea for next time. Read the
+cards aloud only with the presenter's permission; otherwise they take them home.
+
+\begin{safety}[Showcase safety]
+Only nicknames on screen and in file names. No uploading or sharing projects online. Photos or
+videos only with every family's permission, and never with a screen showing personal details.
+Remind students where online communities have age limits (often 13+) before they share code later.
+\end{safety}
+
+\begin{differentiation}
+\supportpath Present together with a partner or with you as the \enquote{interviewer} asking the
+prompt-card questions. Demo one feature only.
+\extensionpath Explain an alternative design and its trade-off, or show a test that caught a bug.
+\end{differentiation}
+\end{document}

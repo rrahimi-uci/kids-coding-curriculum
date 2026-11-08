@@ -1,0 +1,40 @@
+% Level 3, Week 2 homework -- Objects
+\homeworkweek{2}{Objects: Blueprints and Things}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Coin Purse (about 10 minutes)]
+\begin{enumerate}[itemsep=2pt]
+  \item Open \texttt{week02/hw-coin-purse/starter.py} in Thonny. A \texttt{CoinPurse} object keeps a player's coins.
+  \item Finish \texttt{add} (ignore 0 or negative amounts), \texttt{can\_afford} and \texttt{spend} (only pay if you can afford it; return \texttt{True} or \texttt{False}).
+  \item Run it. The last line should be \texttt{Found 7 coins! Now: 9 coins}.
+  \item Open \texttt{check\_my\_work.py} and press Run until all checks pass.
+  \item Copy your file into \texttt{Documents/git-quest} and commit it with a helpful message.
+\end{enumerate}
+\textbf{Predict:} \texttt{purse = CoinPurse(10)}, then \texttt{purse.spend(4)}, then \texttt{purse.spend(7)}. What does the second \texttt{spend} return, and how many coins are left? \rule{5cm}{0.4pt}
+\end{core}
+
+\begin{challenge}[Design a class on a card]
+Choose a thing from a game: a spaceship, a plant, a door, a monster. Fill in its class card. Then, if you have time, write it in Python with \texttt{\_\_init\_\_} and two methods, and make two objects.
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|p{4cm}|p{9.5cm}|}
+\hline
+\textbf{Class name} & \\ \hline
+\textbf{Attributes} (facts) & \\ \hline
+\textbf{Methods} (actions) & \\ \hline
+\textbf{Two objects} & \\ \hline
+\end{tabular}
+\end{center}
+\end{challenge}
+
+\begin{creative}[Make the bubbles yours]
+Add a new method to your \texttt{Bubble} class from class, for example \texttt{pop(self, t)} that draws a ring of 8 small dots around the bubble, or \texttt{rainbow(self, t)} that draws 3 smaller dots inside it in different palette colours. Use it on some of the bubbles. Sketch your picture here:
+\answerspace{3cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item All checks pass in \texttt{hw-coin-purse}.
+  \item Every method I wrote has \texttt{self} as its first parameter.
+  \item I can explain the difference between a class and an object.
+  \item I committed my work in \texttt{git-quest} with a helpful message.
+\end{selfcheck}

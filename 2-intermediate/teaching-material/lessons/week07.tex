@@ -1,0 +1,170 @@
+% Level 2, Week 7 -- Files: Saving Your Stuff
+\lesson{7}{Files: Saving Your Stuff}{A program forgets everything when it closes, unless it writes things down in a file.}
+\lessoninfo{Concepts: open, with, read/write/append (I), strip and split (I), try/except FileNotFoundError (I), lists (R)}{Tools: Thonny, a paper notebook}{CSTA: 2-DA-08, 2-AP-11, 2-IC-23}
+
+\begin{objectives}
+  \item The student can save data to a text file with \texttt{open} and \texttt{with}, choosing \texttt{"a"} to add and \texttt{"w"} to replace. (L2.G5; L2.W07.1)
+  \item The student can read a file line by line and clean each line with \texttt{strip()} and \texttt{split()} into a list. (L2.G5, L2.G4; L2.W07.2)
+  \item The student can handle a missing file with \texttt{try}/\texttt{except FileNotFoundError} and explain why \texttt{"w"} can wipe data. (L2.G6; L2.W07.3)
+  \item The student can decide what should and should not be saved about a player, and keep personal information out of files. (L2.G9; L2.W07.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 7 and homework 7 (one per student).
+  \item A small paper notebook (the \enquote{file}), a pencil and an eraser. Five index cards for the privacy sort (write on them: \enquote{nickname}, \enquote{high score}, \enquote{favourite colour}, \enquote{home address}, \enquote{password}).
+  \item On each Mac: open Thonny and press \keys{Cmd}+\keys{O} to open \texttt{starter.py} in \texttt{2-intermediate/excercises/week07/ex-save-high-scores}.
+  \item A timer. Prep (5 minutes): run \texttt{solution.py} in that folder twice, so you have seen \texttt{high\_scores.txt} appear. Then delete that \texttt{high\_scores.txt} in Finder so students start fresh.
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Notebook memory}: the parent-program forgets, then remembers with a notebook.}
+  \timeslot{8--18}{Concept}{Files, \texttt{open} and \texttt{with}, the three modes \texttt{"r"}, \texttt{"w"}, \texttt{"a"}; \texttt{strip()} and \texttt{split()}.}
+  \timeslot{18--28}{Guided demo}{Write, append and read a tiny file in Thonny; then do TODO 1 of Exercise 7.1 together.}
+  \timeslot{28--52}{Hands-on build}{Pairs: 7.1 Save High Scores (everyone), then choose 7.2 Word Guess (game) or 7.3 Dot Art from a File (art). Swap every 8 minutes. Last 5 minutes: edit the data files.}
+  \timeslot{52--60}{Wrap-up}{Privacy card sort, exit ticket, reflection, hand out homework 7.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Notebook memory]
+You play \enquote{the program}. Say: \enquote{I am a game. Tell me your nickname and a score from 1 to 100.} Listen to each student.
+Then cover your eyes, count \enquote{3, 2, 1, the program closes\ldots{} and opens again!} and ask: \enquote{Hello, who are you? What is the high score?}
+Pretend you have no idea. \enquote{A program forgets everything when it closes. Its variables live in memory, and memory is wiped.}
+\par Now do it again, but this time \textbf{write} each nickname and score as one line in the notebook: \texttt{Ada,72}. Close, open,
+and \textbf{read} the notebook aloud: \enquote{Welcome back! The high score is Ada with 72.}
+\par Finally show the danger: say \enquote{Now I will save in \textbf{w} mode}, rub out the whole page and write only the newest score.
+Ask: \enquote{What happened to everyone else's score?} (Gone!) Then say \enquote{\textbf{a} mode means add to the bottom}, and add a line under the others.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}[Say]
+\enquote{A \textbf{file} is Python's notebook. It lives on the computer's disk, next to your program, and it stays there when the program closes.
+To use it, we \texttt{open} it and say what we want to do: \texttt{"r"} to \textbf{read}, \texttt{"w"} to \textbf{write} a fresh page (careful: it rubs out
+what was there!), or \texttt{"a"} to \textbf{append}, which means add to the end. We always open files with \texttt{with}: when the indented
+block ends, Python closes the file for us, like a drawer that shuts itself.}
+\end{teacherscript}
+Write this on paper and read it aloud together, line by line:
+\begin{pycode}
+with open("notes.txt", "a") as file:    # open for adding
+    file.write("Ada,72\n")              # \n = start a new line
+with open("notes.txt", "r") as file:    # open for reading
+    for line in file:                   # one line at a time
+        line = line.strip()             # "Ada,72\n" -> "Ada,72"
+        parts = line.split(",")         # "Ada,72"   -> ["Ada", "72"]
+        print(parts[0], int(parts[1]))  # text from a file is a str!
+\end{pycode}
+
+\begin{analogy}[The notebook in the drawer]
+Variables are like writing on your hand: handy, but gone after a wash. A file is a notebook in a drawer.
+\texttt{with open(...)} opens the drawer and shuts it again when you are done. \texttt{"r"} means just read the notebook.
+\texttt{"a"} means write on the next empty line. \texttt{"w"} means rip out every page and start a new notebook, so only use it when you
+\emph{want} to replace everything (like saving a new version of a drawing).
+\end{analogy}
+Point out two last things: \texttt{strip()} removes the invisible \texttt{\textbackslash n} and spaces at the ends of a line, and \texttt{split(",")}
+cuts a line into a list at each comma. Everything read from a file is \textbf{text}, so numbers need \texttt{int()} (just like \texttt{input()} in week 1).
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Saving and loading high scores]
+\begin{enumerate}[leftmargin=1.4em]
+  \item In the open \texttt{ex-save-high-scores/starter.py}, press \menu{Run} (\keys{F5}) twice, typing a nickname each time.
+        Ask: \enquote{Does it remember the first game?} (No: \enquote{Games saved so far: 0}.)
+  \item Together, do \textbf{TODO 1} in \texttt{save\_score()}: replace \texttt{pass} with the two lines from the hint. Run again.
+        Open Finder, go to the exercise folder: a new file \texttt{high\_scores.txt} has appeared! Double-click it (it opens in TextEdit) and show the line.
+  \item Ask the students to predict what \texttt{"w"} would do instead of \texttt{"a"}. Change it, run twice, look at the file (only one line!), and change it back.
+  \item Show \textbf{TODO 3} (the \texttt{try}/\texttt{except}): \enquote{\texttt{try} means: have a go. \texttt{except FileNotFoundError} means: if the file is not there yet,
+        do this instead. The very first game ever has no file, and that is not an error, it is normal.}
+  \item Leave TODO 2 (reading) for the pairs.
+\end{enumerate}
+\end{workedexample}
+The two finished file functions, for you (the whole program is in the answer key):
+\pyfile[firstline=12,lastline=33]{../excercises/week07/ex-save-high-scores/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Writer and reader]
+Driver types; navigator reads the TODO aloud and checks every \texttt{"a"}, \texttt{"w"} and \texttt{"r"}. Swap at the 8-minute timer (minutes 36 and 44).
+\textbf{1 student:} you are the navigator; ask \enquote{Which mode, and why?} before each \texttt{open}. \textbf{2 students:} one pair.
+\textbf{3 students:} a rotating trio: driver, navigator and \textbf{file checker}, who opens the \texttt{.txt} file after every run and reads it aloud.
+\textbf{4 students:} two pairs; after 7.1, one pair may choose 7.2 and the other 7.3, then demo to each other.
+\end{pairroles}
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Exercise 7.1 Save High Scores} (everyone, about 12 minutes): TODO 2 and TODO 3, then \texttt{check\_my\_work.py}.
+  \item \textbf{Choose one} (about 8 minutes): \textbf{7.2 Word Guess} (\texttt{week07/ex-word-guess}) reads secret words from \texttt{words.txt}, or
+        \textbf{7.3 Dot Art from a File} (\texttt{week07/ex-dot-art-file}) draws a picture whose dots live in \texttt{my\_art.txt}. The other one is a great extra.
+\end{enumerate}
+
+\begin{bughunt}[FileNotFoundError and the vanishing scores]
+Write this on paper and ask \enquote{What goes wrong?}
+\begin{pycode}
+with open("high_score.txt", "r") as file:   # the file is called high_scores.txt
+    print(file.read())
+\end{pycode}
+\textbf{Answer:} one missing \textbf{s}, so Python says \texttt{FileNotFoundError: [Errno 2] No such file or directory: 'high\_score.txt'}. Read the
+traceback bottom-up: the file name is printed in quotes, so compare it letter by letter with the name in Finder. Other causes: the program was saved in a
+different folder from the file, or the file has not been made yet (the job of \texttt{except FileNotFoundError}).
+Second bug: a student's high scores \enquote{keep vanishing}. Look for \texttt{open(..., "w")} in \texttt{save\_score()}: \texttt{"w"} wipes the file every time.
+\end{bughunt}
+
+\begin{freebuild}[Data, not code]
+Last 5 minutes: change the program \emph{without changing the code}. Word Guess pairs add their own words to \texttt{words.txt} (one per line, small letters).
+Dot Art pairs move, recolour or add lines in \texttt{my\_art.txt} (only palette colours from the README) to draw a new creature.
+Say: \enquote{Many real games keep their levels, words and pictures in data files like these.}
+To edit a \texttt{.txt} file: in Thonny use \menu{File > Open\ldots} (if you cannot see it, choose \enquote{all files} in the file-type menu), change it, press \keys{Cmd}+\keys{S}.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[What should (not) be saved?]
+Hold up the five index cards one by one and ask: \enquote{Should our game save this in a file? Thumbs up or down.}
+\enquote{Nickname}, \enquote{high score} and \enquote{favourite colour}: fine. \enquote{Home address} and \enquote{password}: never.
+Then say: \enquote{A file stays on the computer after the game closes. Anyone who uses this computer, or who gets a copy of the file, can read it.
+Real apps save data about you too, so it is good to ask: what are they saving, and do they really need it?}
+Agree the rule for our programs: \textbf{save only what the program needs, and never personal information.}
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\begin{pycode}
+with open("pets.txt", "w") as file:
+    file.write("cat\n")
+with open("pets.txt", "w") as file:
+    file.write("dog\n")
+\end{pycode}
+What is in \texttt{pets.txt} afterwards? How would you change the code so it keeps both pets?
+\textbf{Answer:} only \texttt{dog}, because the second \texttt{"w"} wiped the file. Use \texttt{"a"} (at least for the second \texttt{open}) to keep \texttt{cat} and \texttt{dog}.
+\textbf{Look for:} students who say \enquote{cat and dog} need the notebook demo again (rip out the page!).
+\end{formativecheck}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item What is the difference between a variable and a file?
+  \item When would you choose \texttt{"w"}, and when \texttt{"a"}?
+  \item Name one thing a game should never save about you.
+\end{itemize}
+\end{reflection}
+Hand out homework 7 (Game Idea Notebook). It takes 15--20 minutes, and the ideas list will help with the final project.
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Forgetting \texttt{\textbackslash n}}: all scores end up on one line (\texttt{Ada,72Kai,95}). Every \texttt{write} needs \texttt{\textbackslash n} at the end.
+  \item \textbf{Forgetting \texttt{int()}}: \texttt{"95" > "120"} is \texttt{True} for text (it compares the first characters). Convert scores with \texttt{int()}.
+  \item \textbf{Not stripping}: \texttt{"pixel\textbackslash n"} is not equal to \texttt{"pixel"}, and an empty last line becomes an empty word. Always \texttt{strip()} and skip \texttt{""}.
+  \item \textbf{Indentation after \texttt{with}}: code that uses the file must be indented inside the \texttt{with} block, or Python says the file is closed.
+  \item \textbf{Looking for the file in the wrong place}: the file is created next to the program, in the same folder. Use Finder to check.
+  \item \textbf{Using \texttt{"w"} to load}: \texttt{open(name, "w")} empties the file before you read anything. Reading is \texttt{"r"}.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do TODO 2 on paper first: write two lines of a score file, then cross out the \texttt{\textbackslash n}, draw the cut at the comma,
+and write the list that comes out. Pair the student as navigator for 7.1 and skip 7.2/7.3; give the hint lines from the starter as a checklist.
+\extensionpath Finish both 7.2 and 7.3. In 7.1, print a numbered leaderboard of all saved games, or count the games per nickname with a dictionary.
+In 7.3, do the mirror-picture extra from the README.
+\end{differentiation}
+
+\begin{stretchchallenge}[Top three only]
+Change 7.1 so that \texttt{high\_scores.txt} only ever keeps the three best games. Load the list, add the new game, sort it with
+\texttt{scores.sort(key=lambda entry: entry[1], reverse=True)} (explain: \enquote{sort by the score in position 1}), keep \texttt{scores[:3]}, then save the
+whole list with \texttt{"w"}. This is the one time \texttt{"w"} is exactly right.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Shorten the warm-up to the \enquote{forget, then notebook} part (skip the \texttt{"w"} rip-out and show it in the demo instead).
+Do only 7.1 in class and let students choose 7.2 or 7.3 as optional home practice. Keep the privacy card sort: it takes 2 minutes.
+\end{teachernote}

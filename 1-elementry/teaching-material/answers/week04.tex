@@ -1,0 +1,73 @@
+% Level 1, Week 4 -- answer key
+\answersweek{4}{Keeping Score}{Answers for workbook chapter 4 and homework 4.}
+
+\section{Lesson and workbook questions}
+\begin{answer}[Exit ticket]
+A \enquote{set score to 0} block under \enquote{when green flag clicked} (before the forever loop), so the score resets at the start of every game.
+\end{answer}
+
+\begin{answer}[Reflection: set vs change]
+\enquote{Set} replaces whatever is in the variable with a new value (use it at the start). \enquote{Change} adds to the value that is already there (use it during the game; a negative number takes away). Credit answer: e.g. \enquote{Apple and Bowl from the Scratch library; I added a credits comment.}
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 4.1: Pop the Balloon]
+\textbf{Expected behaviour:} on the green flag, \texttt{pops} shows 0 and the balloon sits in the middle. Each click on the balloon adds 1 to \texttt{pops}, plays a pop and moves the balloon to a random place on the stage (a different place each time).
+
+\textbf{Without \enquote{set pops to 0}:} the score does not reset; a new game starts with the old number (e.g. 7) and keeps counting from there.
+\end{answer}
+
+\begin{answer}[Exercise 4.2: Apple Catch]
+\textbf{Expected behaviour:} on the green flag the score shows 0, the bowl sits at the bottom and follows the mouse left and right (it never moves up or down). The apple starts at the top at a random x and falls steadily. If the bowl catches it, the score goes up by exactly 1, a sound plays and a new apple starts at the top in a new random place. If it is missed, it starts again at the top (no point). The game runs until the stop sign.
+
+\textbf{Mei's bug (no \enquote{go to} after scoring):} one catch adds many points (often 15--30). \textbf{Why:} the apple stays inside the bowl for many turns of the forever loop, and each turn asks \enquote{touching Bowl?} again and gets \enquote{yes}, so it adds 1 every time. \textbf{Fix:} move the apple back to the top right after \enquote{change score by 1}.
+
+\textbf{Marking:} \tickbox{} score variable shown on stage \quad \tickbox{} set to 0 at start \quad \tickbox{} +1 per catch \quad \tickbox{} random start position \quad \tickbox{} missed apples restart.
+\end{answer}
+
+\begin{answer}[Exercise 4.3: Lives and Game Over]
+\textbf{Expected behaviour:} \texttt{lives} shows 3 at the start; each missed apple takes one life; when lives reach 0 the apple says \enquote{Game over!} for 2 seconds and everything stops (the bowl stops following the mouse). Catches still score.
+
+Correct Apple script (one possible answer):
+\begin{center}
+\begin{scratch}[scale=0.72]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockvariable{set \selectmenu{lives} to \ovalnum{3}}
+\blockmove{go to x: \ovaloperator{pick random \ovalnum{-200} to \ovalnum{200}} y: \ovalnum{170}}
+\blockinfloop{forever}{
+  \blockmove{change y by \ovalnum{-5}}
+  \blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+    \blocksound{start sound \selectmenu{Chomp}}
+    \blockmove{go to x: \ovaloperator{pick random \ovalnum{-200} to \ovalnum{200}} y: \ovalnum{170}}
+  }
+  \blockif{if \booloperator{\ovalmove{y position} < \ovalnum{-170}} then}{
+    \blockvariable{change \selectmenu{lives} by \ovalnum{-1}}
+    \blockmove{go to x: \ovaloperator{pick random \ovalnum{-200} to \ovalnum{200}} y: \ovalnum{170}}
+  }
+  \blockif{if \booloperator{\ovalvariable{lives} = \ovalnum{0}} then}{
+    \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+}
+\end{scratch}
+\end{center}
+\textbf{Common slips:} \enquote{change lives by $-1$} placed in the \enquote{touching Bowl} block (you lose a life for catching!); \enquote{set lives to 3} missing (game over straight away on the second game).
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Magic Dice]
+\textbf{Expected behaviour:} on the green flag \texttt{rolls} shows 0 and the sprite says \enquote{Press space to roll!}. Each press of space picks a number from 1 to 6, adds 1 to \texttt{rolls}, and the sprite says e.g. \enquote{You rolled 4}. A 6 also plays a sound. After 10 rolls, \texttt{rolls} shows 10.
+\textbf{Predict?} No: the numbers are random, so nobody can predict the next one (that is the point!).
+\end{answer}
+
+\begin{answer}[Challenge: Doubles and Zoe's bug]
+Doubles: add \enquote{set roll2 to pick random 1 to 6} and \enquote{if roll = roll2 then say Doubles! for 2 seconds}. Any number of rolls is a correct answer (on average it takes about 6).
+
+Zoe's bug: \texttt{rolls} always shows 1, because every roll first resets it to 0 and then adds 1. \enquote{set} belongs under the green flag, once.
+\end{answer}
+
+\begin{answer}[Creative: real dice faces]
+Six costumes in order (costume 1 has one dot \ldots{} costume 6 has six dots) and \enquote{switch costume to (roll)} after the roll is picked. Scratch treats the number as the costume number. Look for a credits comment with the student's nickname.
+\end{answer}

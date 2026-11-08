@@ -1,0 +1,68 @@
+% Level 1, Week 1 -- answer key
+\answersweek{1}{Robots Need Instructions}{Answers for workbook chapter 1 and homework 1.}
+
+\section{Warm-up and paper tasks}
+\begin{answer}[Parent-robot picture cards (lesson warm-up)]
+The robot starts on the dot, facing the top of the page. One correct algorithm for each card (others can be right too: test by drawing them):
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Card A (square, side 3):} PEN DOWN, FORWARD 3, TURN RIGHT, FORWARD 3, TURN RIGHT, FORWARD 3, TURN RIGHT, FORWARD 3. (Point out that \enquote{FORWARD 3, TURN RIGHT} repeats: next week we meet loops.)
+  \item \textbf{Card B (stairs):} PEN DOWN, then three times: FORWARD 1, TURN RIGHT, FORWARD 1, TURN LEFT.
+  \item \textbf{Card C (letter T):} PEN DOWN, FORWARD 3, TURN LEFT, FORWARD 1, TURN RIGHT, TURN RIGHT (now facing right), FORWARD 2. Students may also use PEN UP to move without drawing; any version that draws the T is correct.
+\end{itemize}
+\end{answer}
+
+\begin{answer}[Jam sandwich order (workbook \enquote{Try it on paper})]
+1 Take two slices of bread. \quad 2 Open the jam jar. \quad 3 Spread jam on one slice. \quad 4 Put the other slice on top. \quad 5 Eat and enjoy!
+(\enquote{Open the jar} first and \enquote{take bread} second is also fine: the important part is that spreading comes after both, and eating comes last.)
+\end{answer}
+
+\begin{answer}[Exit ticket]
+The steps are in the wrong order. Swap them: put on socks first, then shoes.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 1.1: Hello, Cat!]
+\textbf{Expected behaviour:} when the green flag is clicked the cat jumps to the centre, says \enquote{Hi! I am} + nickname for 2 seconds, moves 100 steps to the right, plays the Meow sound to the end, then says \enquote{Bye!} for 2 seconds. Clicking the flag again repeats the same show from the centre.
+
+\textbf{What to look for:} all six blocks snapped in one stack under the hat block; a nickname (not a real name); the project saved in \texttt{Scratch Projects}.
+\textbf{Marking:} \tickbox{} runs from the flag \quad \tickbox{} correct order \quad \tickbox{} nickname used \quad \tickbox{} saved.
+\end{answer}
+
+\begin{answer}[Exercise 1.2: Mixed-Up Jump]
+\textbf{What the buggy script does:} the cat says \enquote{Watch me jump!}, then goes \textbf{down} 50 (half into the ground, near the bottom edge), waits, comes back up to where it started, and says \enquote{Ta-da!}. It never jumps up.
+
+\textbf{Which blocks are in the wrong order:} \enquote{change y by $-50$} and \enquote{change y by 50}. Fixed script:
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{-100}}
+\blocklook{say \ovalnum{Watch me jump!} for \ovalnum{2} seconds}
+\blockmove{change y by \ovalnum{50}}
+\blockcontrol{wait \ovalnum{0.5} seconds}
+\blockmove{change y by \ovalnum{-50}}
+\blocklook{say \ovalnum{Ta-da!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\textbf{Marking:} accept any order that makes the cat go up, pause, come down and then say \enquote{Ta-da!}. A great answer explains the fix in words: \enquote{y bigger means up, so the $+50$ has to come first.}
+\end{answer}
+
+\begin{answer}[Exercise 1.3: My Sprite Show]
+\textbf{Expected behaviour:} a sprite (any) and a backdrop (any) chosen from the library; at least 5 blocks under \enquote{when green flag clicked}; the blocks happen in the same order as the student's written plan.
+
+\textbf{What \enquote{good} looks like:} the plan and the script match line by line; the show starts in the same place every time (a \enquote{go to x: y:} block near the top); speech bubbles use \enquote{say \ldots{} for 2 seconds} so they can be read. Praise any extra: sounds, a second sprite, costume changes.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Walk and Talk]
+\textbf{Expected behaviour:} on the green flag the sprite appears on the left at $(-180, -100)$, speaks for 2 seconds, glides for 2 seconds to the centre, speaks, glides to the right at $(180, -100)$ and says \enquote{Bye!}. Total about 10 seconds. It restarts on the left every time.
+
+\textbf{Common slip:} the sprite starts where it last stopped because the \enquote{go to x: $-180$ y: $-100$} block is missing or below a glide.
+\end{answer}
+
+\begin{answer}[Challenge: family robot]
+Any 6 clear steps in a sensible order, for example: 1. Pick up the toothbrush. 2. Turn on the tap and wet the brush. 3. Put a pea-sized blob of toothpaste on the brush. 4. Brush all your teeth for two minutes. 5. Spit and rinse your mouth. 6. Rinse the brush and put it away. Good \enquote{what did you fix?} answers mention a missing step (opening the toothpaste cap) or a step that was too vague.
+\end{answer}
+
+\begin{answer}[Creative: three-scene story]
+Look for \enquote{switch backdrop to \ldots} blocks placed between the glides (and one near the top so the story always starts on the first backdrop). Any choice of backdrops is fine.
+\end{answer}

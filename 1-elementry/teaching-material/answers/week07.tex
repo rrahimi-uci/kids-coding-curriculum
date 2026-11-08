@@ -1,0 +1,50 @@
+% Level 1, Answers week 7 -- Hello, Python!   (input by answer-key.tex)
+\answersweek{7}{Hello, Python!}{Answers for workbook chapter 7 and homework 7.}
+
+\section{Workbook}
+\begin{answer}[Warm-up: Spot the difference]
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Card & Works & The difference\\
+\midrule
+1 & A \texttt{print("Hello")} & B has a capital P: \texttt{Print}\\
+2 & B \texttt{t.forward(100)} & A is missing an r: \texttt{forwad}\\
+3 & B \texttt{t.left(90)} & A is missing the closing bracket \texttt{)}\\
+4 & A \texttt{t.left(90)} & B has a capital L: \texttt{Left}\\
+5 & B \texttt{print("Hi there")} & A is missing the quote marks around the words\\
+\bottomrule
+\end{tabularx}
+\end{answer}
+
+\begin{answer}[Exercise 7.1: Hello, Python!]
+\pyfile{../excercises/week07/ex-hello-python/solution.py}
+What to look for: four \textbf{different} \texttt{print} lines, the last containing \enquote{bye}; a nickname, not a full name. Any messages are correct. Bonus: a comment of their own.
+\end{answer}
+
+\begin{answer}[Exercise 7.2: My First Square]
+\pyfile{../excercises/week07/ex-first-square/solution.py}
+What to look for: four \texttt{forward}/\texttt{left} pairs with the same distance. A square drawn with \texttt{right(90)} turns, or a different side length, is also correct.
+\end{answer}
+
+\begin{answer}[Exercise 7.3: Typo Hunt]
+\pyfile{../excercises/week07/ex-typo-hunt/solution.py}
+The four typos, in the order Python finds them: line 12 \texttt{Print} → \texttt{print} (\texttt{NameError}); line 16 \texttt{forwad} → \texttt{forward} (\texttt{AttributeError}); line 21 \texttt{Right} → \texttt{right}; line 26 \texttt{Done} → \texttt{done}. What to look for: the student fixed them one at a time and can say which line each error pointed to.
+\end{answer}
+
+\begin{answer}[Reflection]
+Open answers. Good signs: \enquote{you have to spell it exactly}, \enquote{I read the line number}, \enquote{capital letters matter}.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Triangle Time]
+\pyfile{../excercises/week07/hw-triangle/solution.py}
+Paper versions: accept any program with three \texttt{forward(120)}/\texttt{left(120)} pairs. A common mistake is \texttt{left(60)} (the inside angle): the turtle then draws half a hexagon. Ask: \enquote{How far does the turtle turn at a corner?}
+\end{answer}
+
+\begin{answer}[Challenge: Be the turtle]
+A line 100 to the right, then 50 up, then 100 back to the left: three sides of a rectangle, open on the left, like a backwards C (or a squared letter U lying on its side). The turtle ends above the starting dot.
+\end{answer}
+
+\begin{answer}[Creative: My initial]
+Any letter drawn with straight lines. Look for steps written as F/L/R with numbers, and a program that matches the plan. Example for L (starting at the top, facing down): \texttt{t.right(90)}, \texttt{t.forward(100)}, \texttt{t.left(90)}, \texttt{t.forward(60)}.
+\end{answer}

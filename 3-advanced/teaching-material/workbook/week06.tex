@@ -1,0 +1,106 @@
+% Level 3, Week 6 -- Review and Checkpoint (student workbook)
+\chapterweek{6}{Review and Checkpoint}{Connect the pieces, and use the debugger to watch your code think, one line at a time.}
+
+\section{What you will learn}
+\begin{checklist}
+  \item Use the Thonny debugger to run a program one line at a time and watch the variables.
+  \item Find and fix bugs in classes, sorts and searches.
+  \item Show what you know in the mid-level checkpoint.
+\end{checklist}
+
+\section{The Thonny debugger}
+A \textbf{debugger} is a slow-motion replay for your code. You can pause on every line and see the value of every variable.
+\begin{center}
+\begin{tikzpicture}[btn/.style={draw=black,line width=0.8pt,rounded corners=3pt,minimum width=2.05cm,minimum height=0.85cm,font=\small\bfseries,align=center},
+                    lab/.style={font=\small,align=center,text width=2.1cm}]
+  \foreach \x/\name/\col/\what in {0/Run/kcgreen/{runs at full speed},
+                                   2.35/Debug/kcorange/{starts slow motion (bug icon)},
+                                   4.7/Step over/kcsky/{run this line, stop at the next},
+                                   7.05/Step into/kcsky/{go inside a function call},
+                                   9.4/Resume/kcyellow/{run to the end or a breakpoint},
+                                   11.75/Stop/kcvermillion/{end the program}}{
+    \node[btn,fill=\col!35] at (\x,0) {\name};
+    \node[lab,below] at (\x,-0.55) {\what};
+  }
+\end{tikzpicture}
+\end{center}
+\begin{itemize}[itemsep=2pt]
+  \item Turn on \menu{View > Variables}. Click an object there to see its attributes.
+  \item The highlighted line is the one that will run \emph{next}.
+  \item \textbf{Breakpoint:} click a line number to put a red dot on it. Press Debug, then Resume: the program runs and pauses at the dot.
+\end{itemize}
+
+\section{A bug-hunting strategy}
+\begin{center}
+\begin{tikzpicture}[stp/.style={draw=black,line width=0.8pt,rounded corners=4pt,fill=kcsky!20,minimum height=1.1cm,text width=2.3cm,align=center,font=\small}]
+  \node[stp] (a) at (0,0) {\textbf{1. Read}\\the last line of the error};
+  \node[stp] (b) at (3.1,0) {\textbf{2. Predict}\\\enquote{I think line \ldots}};
+  \node[stp] (c) at (6.2,0) {\textbf{3. Watch}\\debug and step};
+  \node[stp] (d) at (9.3,0) {\textbf{4. Fix}\\ONE thing};
+  \node[stp,fill=kcgreen!25] (e) at (12.4,0) {\textbf{5. Check}\\run the tests};
+  \foreach \p/\q in {a/b,b/c,c/d,d/e} \draw[-{Stealth[length=3mm]},line width=1pt] (\p) -- (\q);
+  \draw[-{Stealth[length=3mm]},line width=1pt,dashed] (e.south) to[bend left=14] node[below,font=\small]{still failing? go round again} (a.south);
+\end{tikzpicture}
+\end{center}
+
+\begin{tip}[Reading an error]
+Start at the \textbf{bottom}. The last line says \emph{what} went wrong (\texttt{TypeError}, \texttt{NameError}, \texttt{IndexError}\ldots). The line above it says \emph{where}: the file and line number.
+\end{tip}
+
+\section{Weeks 1--5 in one page}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}p{3cm}p{10.3cm}@{}}
+\toprule
+\textbf{Week} & \textbf{Remember} \\ \midrule
+1 Git & \texttt{git add} then \texttt{git commit -m "Say what changed"}; \texttt{log}, \texttt{diff}, \texttt{restore}. \\
+2 Objects & \texttt{class}, \texttt{\_\_init\_\_}, attributes \texttt{self.x}, methods \texttt{def name(self):}. \\
+3 Families & \texttt{class Child(Parent):}, \texttt{super().\_\_init\_\_(\ldots)}, overriding; \enquote{has a} = composition. \\
+4 Searching & linear: one by one; binary: sorted list, check the middle, halve. \\
+5 Sorting & bubble and selection sort; \texttt{sorted(key=...)}; stack (undo) and queue (turns). \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Bug Hunt 1: Score Keeper]
+Folder: \texttt{week06/ex-bug-missing-self}. Three bugs, all the same kind. We debug this one together. Write each error and fix:
+\answerlines{3}
+\end{exercise}
+
+\begin{exercise}[Bug Hunt 2: Lost Scores]
+Folder: \texttt{week06/ex-bug-lost-items}. A sort that loses scores, and even empties the original list! Watch \texttt{scores}, \texttt{remaining} and \texttt{result} in the Variables view. Three bugs.
+\end{exercise}
+
+\begin{exercise}[Bug Hunt 3: Word Finder]
+Folder: \texttt{week06/ex-bug-binary-search}. Binary search with two off-by-one bugs. First trace the \emph{buggy} code by hand for \texttt{find\_word(["ant", "bee", "cat"], "ant")}:
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|c|c|c|p{5.2cm}|}
+\hline
+\textbf{low} & \textbf{high} & \textbf{low < high?} & \textbf{mid} & \textbf{words[mid] and so\ldots} \\ \hline
+\rule{1cm}{0pt} & \rule{1cm}{0pt} & \rule{1.8cm}{0pt} & \rule{1cm}{0pt} & \\ \hline
+ & & & & \\ \hline
+\end{tabular}
+\end{center}
+Why is \enquote{ant} never found? \rule{7cm}{0.4pt}
+\end{exercise}
+
+\begin{exercise}[Bug Hunt 4: Shape Party]
+Folder: \texttt{week06/ex-bug-shape-party}. Three inheritance bugs that appear one after another: nothing drawn, then a crash, then diamonds that are only dots.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{debugger}{A tool that runs your program in slow motion so you can watch every line and variable.}
+  \vocabword{step over}{Run the highlighted line in one go, then pause.}
+  \vocabword{step into}{Go inside the function or method that the line calls.}
+  \vocabword{breakpoint}{A marked line where the debugger pauses.}
+  \vocabword{traceback}{The error report Python prints. Read it from the bottom.}
+  \vocabword{trace table}{A paper table where you write each variable's value, step by step.}
+\end{vocab}
+
+\begin{reflection}
+My hardest bug today was \ldots{} and what helped me find it was \ldots
+\answerlines{2}
+The topic I feel strongest in, and the one I want to practise:
+\answerlines{2}
+\end{reflection}

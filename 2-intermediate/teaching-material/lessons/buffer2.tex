@@ -1,0 +1,207 @@
+% Level 2, Buffer B2 -- Generative Art Jam (can be used any week after week 3)
+\kcpart{B2}{Generative Art Jam}{Rules plus randomness make art that can surprise even its own artist.}
+\lessoninfo{Concepts: lists (R), random (R), functions with parameters and return (R), random seed (I, light), generative art (I)}{Tools: Thonny, dice, squared paper}{CSTA: 2-AP-12, 2-AP-14, 2-AP-16}
+
+\begin{teachernote}[When to use this session]
+Any time after week 3 (lists): after a missed week, before a holiday, or as a playful break. It
+also gives Art Studio project teams a head start. Nothing new and hard: lists, \texttt{random},
+functions and loops, used for fun.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can use a list of colours and random choices to make a picture that changes every run. (L2.G4, L2.G7)
+  \item The student can write a drawing function with parameters and call it many times from a loop. (L2.G3)
+  \item The student can use \texttt{random.seed} to get the same \enquote{random} picture again. (L2.G1, L2.G7)
+  \item The student can give credit when remixing someone else's art idea or code. (L2.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: nothing required. Optional: this page's challenge cards, cut out (or write them on index cards).
+  \item One die per pair, squared paper, coloured pencils (or plain pencils and the pattern key below).
+  \item On each Mac: Thonny, \menu{File > New}, save as \texttt{art\_jam.py} in \texttt{Documents}.
+  \item Prep (10 minutes): type the guided demo program once yourself and run it.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Dice art on squared paper: the same rules make different pictures.}
+  \timeslot{8--18}{Concept}{Generative art = rules + randomness. A seed lets you get the same picture back.}
+  \timeslot{18--28}{Guided demo}{Type the random flower garden: a palette list, a flower function, a list of recipes, a seed.}
+  \timeslot{28--52}{Hands-on build}{Art jam with challenge cards; artist and engineer roles swap every 8 minutes; bug hunt at minute 36.}
+  \timeslot{52--60}{Wrap-up}{Gallery: run each program twice (same seed, new seed). Credits, reflection, exit question.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Dice art]
+Each student draws a 6 × 6 grid on squared paper. For every square, roll the die once and follow
+the rule key (write it on the board):
+\textbf{1} = leave empty, \textbf{2} = dot, \textbf{3} = diagonal line /, \textbf{4} = diagonal line \textbackslash,
+\textbf{5} = filled square, \textbf{6} = circle. Colour optional: pick from orange, sky blue, green, blue.
+After 5 minutes, compare: everyone used the same rules, yet every picture is different.
+Then try this: one student reads out a list of rolls (\enquote{3, 3, 5, 1…}) and everyone follows the
+same list. Now the pictures match! That list of rolls is what programmers call a \textbf{seed}.
+With 1 student, you both draw and compare.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+“Generative art is art made by rules plus randomness. You write the rules: draw a flower, use these
+colours, put it somewhere on the screen. The computer rolls the dice: where exactly, how big, which
+colour. Every run is a brand-new picture.
+
+We need three things you already know. A list of colours, our palette. A function with parameters,
+like \texttt{flower(t, x, y, size, colour)}, so we can draw a flower anywhere, any size. And a loop to
+draw lots of them. One new trick: \texttt{random.seed(7)}. It is like reading out the same dice rolls:
+the random numbers come out the same every time, so if you love a picture, write down its seed and
+you can get it back.”
+\end{teacherscript}
+
+\begin{analogy}[A recipe with a handful of sprinkles]
+A cake recipe says \enquote{throw on a handful of sprinkles}. Same recipe, but every cake looks a
+bit different, because the sprinkles land in new places. If you filmed exactly where each sprinkle
+landed, you could make the very same cake again. The recipe is your code, the sprinkles are
+\texttt{random}, and the film is the seed.
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[A random flower garden]
+Type the program below in this order, running it (\keys{F5}) after steps 2 and 4:
+\begin{enumerate}
+  \item The \texttt{PALETTE} list (the Okabe--Ito colours we use all year).
+  \item \texttt{flower}: penup, go to (x, y), then one petal per loop (two arcs). Test it once with \texttt{flower(pen, 0, 0, 100, "\#E69F00")}.
+  \item \texttt{petal\_count}: a function that returns a number, so bigger flowers get more petals.
+  \item \texttt{make\_garden}: it does not draw anything. It returns a list of flower recipes (x, y, size, colour). Say: \enquote{Plan first, draw later: the list is the plan.}
+  \item The main part: draw every recipe in the list. \texttt{screen.tracer(0)} and \texttt{screen.update()} make it appear in one go.
+\end{enumerate}
+Run it twice: the same garden appears, because of \texttt{seed=7}. Change it to \texttt{seed=8}: a new garden.
+\end{workedexample}
+
+\begin{pycode}[art\_jam.py -- random flower garden (tested)]
+# Generative Art Jam - starter idea
+import random
+import turtle
+
+PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
+           "#0072B2", "#D55E00", "#CC79A7"]
+
+def petal_count(size):
+    """Bigger flowers get more petals (between 5 and 12)."""
+    return max(5, min(12, size // 10))
+
+def flower(t, x, y, size, colour):
+    """Draw one flower made of loops, centred at (x, y)."""
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color(colour)
+    petals = petal_count(size)
+    for _ in range(petals):
+        t.circle(size / 2, 60)
+        t.left(120)
+        t.circle(size / 2, 60)
+        t.left(120 + 360 / petals)   # finish the petal, then turn to the next one
+
+def make_garden(how_many, seed):
+    """Return a list of flower recipes: (x, y, size, colour)."""
+    random.seed(seed)  # same seed = same picture every time
+    recipes = []
+    for _ in range(how_many):
+        x = random.randint(-300, 300)
+        y = random.randint(-200, 200)
+        size = random.randint(30, 120)
+        recipes.append((x, y, size, random.choice(PALETTE)))
+    return recipes
+
+if __name__ == "__main__":
+    screen = turtle.Screen()
+    screen.bgcolor("black")
+    screen.tracer(0)          # draw everything at once
+    pen = turtle.Turtle()
+    pen.hideturtle()
+    pen.pensize(2)
+    for x, y, size, colour in make_garden(25, seed=7):
+        flower(pen, x, y, size, colour)
+    screen.update()
+    turtle.done()
+\end{pycode}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Artist and engineer]
+The \textbf{artist} decides what the picture should look like and describes it in words
+(\enquote{mirror it}, \enquote{tiny flowers at the top}). The \textbf{engineer} types and runs it.
+Swap every 8 minutes. \textbf{1 student:} you are the artist and the student engineers; swap once.
+\textbf{3:} add a \textbf{seed keeper} who writes down every seed and what it looked like. \textbf{4:} two pairs.
+\end{pairroles}
+
+\textbf{Challenge cards} (pick one, finish it, pick another):
+\begin{enumerate}
+  \item \textbf{Mirror world:} draw every flower twice, at \texttt{(x, y)} and at \texttt{(-x, y)}.
+  \item \textbf{Mood palette:} make a second list with only three colours and use it instead.
+  \item \textbf{Growing garden:} in the main loop, make flowers lower on the screen bigger (use y to choose the size).
+  \item \textbf{New shape:} write \texttt{star(t, x, y, size, colour)} (5 points: forward, right 144) and mix stars with flowers.
+  \item \textbf{Seed hunt:} try ten seeds and write down your three favourites.
+\end{enumerate}
+
+\begin{bughunt}[Three broken gardens (minute 36)]
+Write each bug on the board. Pairs predict what will happen, then fix it.
+\begin{enumerate}
+  \item \texttt{random.seed(seed)} moved \emph{inside} the \texttt{for} loop. All 25 flowers land in exactly the same spot (one flower!). Fix: seed once, before the loop.
+  \item \texttt{x = random.randint(300, -300)}: \texttt{ValueError: empty range for randrange()}. Fix: smaller number first.
+  \item \texttt{PALETTE = ["E69F00", …]} (no \texttt{\#}): \texttt{TurtleGraphicsError: bad color string: E69F00}. Fix: colour codes start with \texttt{\#}.
+\end{enumerate}
+\end{bughunt}
+
+\begin{freebuild}[Jam time (last 10 minutes of the build)]
+Free choice: combine challenge cards, invent a new shape function, or make art for a project title
+screen. The only rule: keep the palette list and a function with parameters.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+Gallery: each pair runs its program with the same seed twice, then with a new seed. Everyone names
+one thing they like in someone else's art.
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a palette list used with \texttt{random.choice}; a drawing function called with
+different arguments from a loop.
+\textbf{Ask:} \enquote{What does \texttt{random.seed(7)} do?}
+\textbf{Answer:} it makes the random numbers come out the same every run, so you get the same picture
+again. A different seed gives a different picture.
+\end{formativecheck}
+
+\begin{reflection}
+Which rule made the biggest difference to your picture? What surprised you? If you could print one of
+today's pictures as a poster, which seed would you choose?
+\end{reflection}
+
+\begin{safety}[Credit for generative art]
+Generative artists share ideas all the time, and they give credit. If you remix a friend's idea or
+code, add a comment such as \texttt{\# Mirror idea from Mei}, using a nickname. Seeds are a safe thing to
+share: they are just numbers and contain no personal information. Screenshots of your art stay on the
+family computer unless a parent decides otherwise.
+\end{safety}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The drawing is very slow.} \texttt{screen.tracer(0)} is missing, or \texttt{screen.update()} is not called at the end (then nothing appears).
+  \item \textbf{Nothing changes between runs.} The seed is fixed: that is correct! Change the number, or use \texttt{seed=None} (Python then seeds from the clock) to get a new garden every run.
+  \item \textbf{Mixing up parameters}: \texttt{flower(pen, size, x, y, colour)} puts flowers in odd places. Read the \texttt{def} line aloud and match each argument.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use the demo program unchanged and only change the numbers: \texttt{how\_many}, the seed,
+the size range, the background. Then try challenge card 2.
+\extensionpath Save favourite seeds to a file \texttt{favourites.txt} (one per line, with
+\texttt{"a"} mode) and write a menu that redraws a saved favourite: a mini Art Studio.
+\end{differentiation}
+
+\begin{stretchchallenge}[Rules that react]
+Make each flower's colour depend on where it is: flowers on the left use the first half of the palette,
+flowers on the right the second half. Use \texttt{if x < 0:} and list slices \texttt{PALETTE[:3]} and
+\texttt{PALETTE[3:]}.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip the dice art and show the analogy instead. Drop \texttt{petal\_count} from the demo (use a fixed
+\texttt{petals = 8}). Keep at least 10 minutes of jam time and the 2-minute gallery: that is the fun part.
+\end{teachernote}

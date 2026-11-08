@@ -1,0 +1,139 @@
+% Level 3, Week 1 -- Save Points: Git Basics (student workbook)
+\chapterweek{1}{Save Points: Git Basics}{Git is a save-game system for code: every commit is a save point you can go back to.}
+
+\section{What you will learn}
+\begin{checklist}
+  \item Use Terminal to move between folders.
+  \item Make save points (commits) with git and give them helpful messages.
+  \item Look back in time with \texttt{git log}, spot changes with \texttt{git diff}, and undo mistakes with \texttt{git restore}.
+  \item Warm up your Level 2 skills: functions, lists and loops.
+\end{checklist}
+
+\section{The big idea}
+In a video game, a save point lets you try something risky. If it goes wrong, you load the save and try again. \textbf{Git} gives your code save points. Each save point is called a \textbf{commit}. Every commit has a short id (like \texttt{a1b2c3d}) and a \textbf{message} that says what changed. Together the commits make a timeline: the story of your project.
+
+\begin{center}
+\begin{tikzpicture}[
+  commit/.style={circle,draw=black,line width=0.8pt,minimum size=9mm,font=\small\ttfamily},
+  label/.style={font=\small,align=center,text width=2.7cm}]
+  \draw[-{Stealth[length=3mm]},line width=1pt,kcgrey] (-0.6,0) -- (13.4,0) node[right,font=\small,text=black]{time};
+  \foreach \x/\id/\msg/\col in {0/a1b/Start game/kcsky, 3.3/c3d/Add hero/kcorange, 6.6/e5f/Add jump/kcgreen, 9.9/g7h/Fix walls/kcpurple}{
+    \node[commit,fill=\col!40] at (\x,0) {\id};
+    \node[label,below] at (\x,-0.6) {\enquote{\msg}};
+  }
+  \node[font=\small,align=center,anchor=west] at (10.5,1.3) {broken? jump back\\to any save point};
+  \draw[-{Stealth[length=2.5mm]},kcvermillion,line width=1pt,dashed] (10.4,1.3) to[bend right=20] (3.5,0.55);
+\end{tikzpicture}
+\end{center}
+
+Saving takes \textbf{two moves}, like taking a class photo:
+
+\begin{center}
+\begin{tikzpicture}[box/.style={draw=black,rounded corners=3pt,line width=0.8pt,minimum width=3.2cm,minimum height=1.5cm,align=center,font=\small}]
+  \node[box,fill=kcyellow!35] (work) at (0,0) {\textbf{Your folder}\\files you edit\\in Thonny};
+  \node[box,fill=kcsky!35] (stage) at (5.6,0) {\textbf{Ready to save}\\who is in\\the photo};
+  \node[box,fill=kcgreen!35] (hist) at (11.2,0) {\textbf{History}\\the photo album\\of commits};
+  \draw[-{Stealth[length=3mm]},line width=1pt] (work) -- node[above,font=\small\ttfamily]{git add} (stage);
+  \draw[-{Stealth[length=3mm]},line width=1pt] (stage) -- node[above,font=\small\ttfamily]{git commit} (hist);
+  \draw[-{Stealth[length=3mm]},line width=1pt,dashed] (hist.south) to[bend left=18] node[below,font=\small\ttfamily]{git restore} (work.south);
+\end{tikzpicture}
+\end{center}
+
+\section{Terminal survival kit}
+Terminal is a chat window with the computer: type a command, press \keys{Return}, read the answer.
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\ttfamily}l p{9.5cm}@{}}
+\toprule
+\normalfont\textbf{Type this} & \textbf{It means} \\ \midrule
+pwd & Where am I? (print working directory) \\
+ls & List the files in this folder. \\
+cd git-quest & Go into the folder \texttt{git-quest}. \\
+cd .. & Go up one folder. \\
+\normalfont\keys{Tab} & Finish a long name for you. Type \texttt{cd git-q} and press \keys{Tab}. \\
+\normalfont\keys{$\uparrow$} & Bring back the last command, so you do not retype it. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The six git commands}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\ttfamily}l p{5.6cm} p{3.6cm}@{}}
+\toprule
+\normalfont\textbf{Command} & \textbf{What it does} & \textbf{Game words} \\ \midrule
+git init & start a save system in this folder & new save file \\
+git status & what changed since the last save? & pause menu \\
+git add hero\_badge.py & choose what goes in the next save & pack your backpack \\
+git commit -m "Add star" & make a save point with a message & save the game \\
+git log --oneline & list the save points, newest first & load-game menu \\
+git diff & show exactly what changed & spot the difference \\
+git restore hero\_badge.py & throw away unsaved changes & reload last save \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{tip}[Stuck in a strange screen?]
+If you typed \texttt{git commit} without \texttt{-m}, git opens an editor called Vim. Press \keys{Esc}, type \texttt{:q!} and press \keys{Return}. Then try again with \texttt{-m "your message"}.
+\end{tip}
+
+\section{Good commit messages}
+A good message finishes the sentence \enquote{This commit will \ldots}. Start with a verb, keep it short (50 letters or fewer) and say \emph{what} changed.
+\begin{center}
+\begin{tabular}{@{}p{5.5cm}p{5.5cm}@{}}
+\toprule
+\textbf{\ding{55}\ Not helpful} & \textbf{\checkmark\ Helpful} \\ \midrule
+\texttt{stuff} & \texttt{Add jump to hero} \\
+\texttt{update} & \texttt{Make star twice as big} \\
+\texttt{fixed it} & \texttt{Fix score going below zero} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exercise}[The Git Quest]
+Folder: \texttt{week01/ex-git-quest}. Follow the 7 levels in \texttt{README.md}: make a folder called \texttt{git-quest} in Documents, set your nickname, \texttt{git init}, make your first commit, change the badge colour and look at \texttt{git diff}, break the file on purpose and rescue it with \texttt{git restore}, then make a commit of your own.\\
+\textbf{Done looks like:} \texttt{git log --oneline} shows 3 or more commits with helpful messages.\\
+Write your commit ids and messages here (newest first):
+\answerlines{3}
+\end{exercise}
+
+\begin{exercise}[Commit Coach]
+Folder: \texttt{week01/ex-commit-coach}. Finish the functions in \texttt{starter.py}:
+\begin{itemize}[itemsep=1pt]
+  \item \texttt{is\_good\_message(message)} returns \texttt{False} for empty, too long, boring or one-word messages.
+  \item \texttt{make\_message("add", "star shape")} returns \texttt{"Add star shape"}.
+  \item \texttt{find\_secrets(lines)} returns the lines that contain words like \texttt{password} or \texttt{api\_key}.
+\end{itemize}
+Check with \texttt{check\_my\_work.py}. Then Run it and test 3 messages of your own.
+\end{exercise}
+
+\begin{exercise}[Log Reader (if you finish early)]
+Folder: \texttt{week01/ex-log-reader}. Teach Python to read the text that \texttt{git log --oneline} prints. Each line is a commit id, a space, then the message:
+\begin{pycode}
+line = "5b7a913 Fix hero walking through walls"
+parts = line.split(" ", 1)   # split only at the FIRST space
+print(parts)   # ['5b7a913', 'Fix hero walking through walls']
+\end{pycode}
+Finish \texttt{parse\_log}, \texttt{count\_commits}, \texttt{find\_commits} and \texttt{oldest\_first}. Extra: paste your own \texttt{git log --oneline} into \texttt{SAMPLE\_LOG}.
+\end{exercise}
+
+\begin{tip}[Safety: history remembers everything]
+Git writes your \texttt{user.name} and \texttt{user.email} into every commit, forever. Use a nickname and an \texttt{@example.com} email. Never commit passwords, real names, addresses or photos of people. Deleting a file later does not delete it from the history.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{git}{A program that keeps save points of a folder, so you can look back and undo.}
+  \vocabword{repository (repo)}{A folder that git is tracking. Git keeps its notes in a hidden \texttt{.git} folder inside it.}
+  \vocabword{commit}{A save point: a snapshot of your files plus a message and an id.}
+  \vocabword{commit message}{A short label that says what changed, like \enquote{Add jump to hero}.}
+  \vocabword{commit id}{The short code name of a commit, like \texttt{a1b2c3d}.}
+  \vocabword{diff}{The differences between two versions: \texttt{-} lines were removed, \texttt{+} lines were added.}
+  \vocabword{Terminal}{An app where you type commands for the computer.}
+\end{vocab}
+
+\begin{reflection}
+Why does git need two steps (\texttt{add}, then \texttt{commit}) instead of one?
+\answerlines{2}
+Write the best commit message you made today, and why it is helpful:
+\answerlines{2}
+\end{reflection}

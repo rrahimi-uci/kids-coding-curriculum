@@ -1,0 +1,167 @@
+% Level 2, Week 4 -- While Loops and Game Loops
+\lesson{4}{While Loops and Game Loops}{A while loop repeats until something changes, and every game is a loop.}
+\lessoninfo{Concepts: while (I), break (I), input validation (I), nested loops for pixel art (E)}{Tools: Thonny, paper, pencils}{CSTA: 2-AP-12, 2-AP-16, 2-IC-23}
+
+\begin{objectives}
+  \item The student can write a \texttt{while} loop that stops because a variable changes, and explain why a loop that never changes runs for ever. (L2.G2; L2.W04.1)
+  \item The student can use \texttt{while True} with \texttt{break} or \texttt{return} to keep asking until an answer is valid. (L2.G2; L2.W04.2)
+  \item The student can use a loop inside a loop to visit every pixel of a grid made from a list of strings. (L2.G7; L2.W04.3)
+  \item The student can say what makes a game fair and name one trick a game should not play on its players. (L2.G9; L2.W04.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print (one per student): workbook chapter 4, homework 4.
+  \item For the warm-up: a pencil and a scrap of paper per student (for the secret number). Nothing else.
+  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{excercises/week04/ex-guess-number}.
+  \item Know where Thonny's red \menu{Stop} button is (top toolbar, a red stop sign). Today someone will need it!
+  \item A timer.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+Times are a guide: set a timer for each phase and move on when it rings.
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Guess my number} with higher/lower. Count the guesses.}
+  \timeslot{8--18}{Concept}{\texttt{for} versus \texttt{while}. The loop condition. What changes inside the loop? The infinite loop and the Stop button.}
+  \timeslot{18--28}{Guided demo}{Run the Guess My Number starter: it never ends. Fix it live with \texttt{tries} and \texttt{break}. Then type \enquote{banana}.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 4.1 (input validation), then 4.2 Pixel Art. Swap every 8 minutes. Last 6 minutes: design your own pixel picture.}
+  \timeslot{52--60}{Wrap-up}{Fair-play talk, exit ticket, reflection, hand out homework 4.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Guess my number]
+You think of a secret number from 1 to 20 and write it on a scrap of paper (face down). Students take turns guessing.
+After each guess you say only \enquote{higher}, \enquote{lower} or \enquote{correct!}. One student counts the guesses with tally marks.
+Play twice, then let a student be the secret-keeper.
+\par\textbf{Ask:} \enquote{What did I do after every guess?} (Checked it and answered.) \enquote{When did the game stop?} (When the guess was right.)
+\enquote{What is the smartest first guess?} (10: the middle cuts the numbers in half. With halving, 5 guesses are always enough for 1 to 20.)
+\par\textbf{The point:} the game is a loop. \emph{While} the guess is not correct: guess, check, answer. That is today's new loop.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}[Say]
+\enquote{In Level 1 you used \texttt{for} loops. A \texttt{for} loop knows in advance how many times to go round: \texttt{for i in range(4)} is
+always four times. But in our guessing game nobody knew how many guesses it would take. For that we need a
+\textbf{while loop}. It keeps going round \emph{while} something is true, and checks again at the top every time.
+Important: something inside the loop must change, or the check never becomes false and the loop never stops.
+That is called an \textbf{infinite loop}. If it happens, press the red Stop button. It is not a disaster: every programmer does it.}
+\end{teacherscript}
+Write this on paper or a whiteboard and trace it together, writing the value of \texttt{n} each time round:
+\begin{pycode}[Countdown with while]
+n = 3
+while n > 0:
+    print(n)
+    n = n - 1        # the change that lets the loop end
+print("Go!")
+\end{pycode}
+Prints \texttt{3}, \texttt{2}, \texttt{1}, \texttt{Go!}. Ask: \enquote{What happens if I rub out the line \texttt{n = n - 1}?} (It prints 3 for ever.)
+Then show the other pattern: \texttt{while True:} goes round for ever on purpose, and \texttt{break} jumps out of the loop when we say so.
+
+\begin{analogy}[The car journey]
+\enquote{Are we there yet?} is a while loop. While we are not there: drive a bit, then ask again. It works because the car moves.
+If the car stays parked, you can ask \enquote{Are we there yet?} for ever and the answer never changes: an infinite loop.
+\texttt{break} is like the driver saying \enquote{We are here, everybody out!}
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Fixing the game loop together]
+\begin{enumerate}[leftmargin=1.4em]
+  \item Open \texttt{week04/ex-guess-number/starter.py}. Press \menu{Run} (\keys{F5}). Guess until you hit the secret number.
+        It says \texttt{Correct}\ldots{} and asks again! Press the red \menu{Stop} button. Say: \enquote{An infinite loop. Why?}
+  \item Point at \texttt{while True:} in \texttt{play()}. \enquote{Nothing in here ever leaves the loop.} Under \texttt{print(result)}, at the same indent, type
+        \texttt{if result == "Correct":} and, indented one more step on the next line, \texttt{break}.
+  \item Run again. It stops, but says \enquote{You got it in 0 tries}. Ask the students for the fix: \texttt{tries = tries + 1} inside the loop (TODO 1).
+  \item Run again and type \texttt{banana} as a guess. \texttt{ValueError} (read bottom-up: \texttt{invalid literal for int()}). Leave that one for the students: it is TODO 2.
+\end{enumerate}
+\end{workedexample}
+The finished program, for you. Note how \texttt{ask\_number()} uses \texttt{while True} and leaves with \texttt{return} only when the answer is good:
+\pyfile{../excercises/week04/ex-guess-number/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator, tester]
+Swap roles when the 8-minute timer rings (about minutes 36 and 44).
+\textbf{1 student:} you are the navigator and the tester: type silly answers like \texttt{banana}, \texttt{99} and \texttt{-3} to try to break the game.
+\textbf{2 students:} driver and navigator. \textbf{3 students:} driver, navigator and \textbf{tester} (the tester plays the game after every
+change and tries to break it). \textbf{4 students:} two pairs; at minute 44 each pair tries to break the other pair's guessing game.
+\end{pairroles}
+
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Exercise 4.1 Guess My Number} (about 10 minutes): finish TODO 2, input validation. Hint for stuck pairs:
+        \texttt{answer.isdigit()} is \texttt{True} only when every character is a digit, so \texttt{int(answer)} is then safe.
+  \item \textbf{Exercise 4.2 Pixel Art} (folder \texttt{ex-pixel-art}, about 10 minutes): only the top row is drawn.
+        Fix: wrap the drawing in the outer loop \texttt{for row in grid:}, and after each row move down
+        with \texttt{y = y - size}. Last, students finish the function \texttt{count\_pixels()} (TODO 2).
+  \item After each exercise: open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+
+\begin{bughunt}[The loop that never ends]
+In the starter, the game loop has no way out. Ask the pair to say in words: \enquote{The loop stops when \ldots{}} If they cannot finish the
+sentence, the loop has no exit. Two questions find almost every infinite loop:
+(1) \enquote{What is checked at the top (or where is the \texttt{break})?} and (2) \enquote{What changes inside the loop, so that check can change?}
+In the homework (Slime Battle) the same bug happens if \texttt{health} never goes down.
+\end{bughunt}
+
+\begin{freebuild}[My own pixel picture]
+Last 6 minutes: copy \texttt{INVADER}, give it a new name (e.g. \texttt{HEART}, \texttt{MUSHROOM}, \texttt{ROBOT}) and change the letters.
+Design it on squared paper first if that helps. Every row must be the same length. Remember to change the line
+\texttt{draw\_grid(t, INVADER, 30)} to use the new name.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Fair play]
+Ask: \enquote{Could we make the guessing game cheat? How?} (Change the secret number after each guess; say \enquote{too low} when it is not.)
+\enquote{Would that be fun?} Then talk about tricks real games sometimes use: a timer that pressures you to buy something,
+\enquote{only 1 left!} messages that are not true, rewards that make you feel you must come back every day, or nagging you to spend money.
+Agree a class rule for our games: \textbf{the rules are honest, the player can stop any time, and nobody is pressured}.
+Students can check their own games with this rule from now on.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+How many times does this print \texttt{"jump"}, and what is the bug if we delete the last line?
+\begin{pycode}
+energy = 6
+while energy > 0:
+    print("jump")
+    energy = energy - 2
+\end{pycode}
+\textbf{Answer:} 3 times (energy 6, 4, 2; then 0 stops it). Without the last line, energy stays 6 and it prints \texttt{jump} for ever: an infinite loop.
+\textbf{Look for:} students who answer 2 or 4 need a trace table next week (the week 6 warm-up practises exactly this).
+\end{formativecheck}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item When would you choose \texttt{while} instead of \texttt{for}?
+  \item What did you do when your program got stuck in a loop?
+  \item In the pixel art, which loop is the outer one, and what does it do?
+\end{itemize}
+\end{reflection}
+Hand out homework 4 (Slime Battle). It takes 15--20 minutes.
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Nothing changes inside the loop.} The condition can never become false. Fix: change the variable inside the loop (\texttt{n = n - 1}).
+  \item \textbf{The change is outside the loop.} \texttt{tries = tries + 1} written with no indent runs once, after the loop. Indentation decides what is inside.
+  \item \textbf{\texttt{int()} before checking.} \texttt{int("banana")} crashes. Check with \texttt{answer.isdigit()} first, then convert.
+  \item \textbf{\texttt{break} in the wrong place.} A \texttt{break} that is not inside an \texttt{if} leaves the loop on the first round.
+  \item \textbf{Pixel art: inner loop not indented under the outer loop}, or \texttt{x} not reset at the start of each row, so the picture slants off to the right.
+  \item \textbf{Rows of different lengths} make a lopsided picture. Count the characters in each row.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do the countdown trace on paper together before touching the computer. In 4.1, give the pair the skeleton for TODO 2 on paper:
+\texttt{while True:} / \texttt{answer = input(...)} / \texttt{if answer.isdigit():} / \texttt{return int(answer)} and add the range check later.
+Pixel Art can move to next week's free-build time.
+\extensionpath Limit the guessing game to 5 tries (\texttt{while tries < 5}) and print \enquote{Out of tries!} with the secret number.
+In Pixel Art, make \texttt{draw\_grid} take a starting \texttt{x} and \texttt{y} and draw the invader three times in a row.
+\end{differentiation}
+
+\begin{stretchchallenge}[Computer guesses YOUR number]
+Turn the game round: the player thinks of a number from 1 to 100 and the computer guesses, using the halving trick from the warm-up.
+Keep \texttt{low = 1} and \texttt{high = 100}; guess \texttt{(low + high) // 2}; if the player says \enquote{higher}, set \texttt{low = guess + 1},
+if \enquote{lower}, \texttt{high = guess - 1}. How many guesses does it ever need? (At most 7.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Shorten the warm-up to one round. Do Exercise 4.1 fully (it holds the infinite-loop bug hunt and input validation) and give Pixel Art
+as an extra at home or in buffer session B2. Keep the fair-play talk: it takes 3 minutes.
+\end{teachernote}

@@ -1,0 +1,134 @@
+\documentclass[level=2]{kidscode}
+\newcommand{\bx}{$\square$}
+\begin{document}
+\kctitle{Progress Tracker}{My Level 2 journey (one copy per student) and the group page (for the teacher)}
+
+\begin{tip}[How to use it]
+\textbf{Students:} at the end of each session, tick the \enquote{I can} statement if it is true,
+and colour a star if you are proud of something. \textbf{Teacher:} fill in the group page
+(last page) in the last two minutes of the session: \checkmark\ = got it, -- = not yet, ? = check
+again next week. Use pencil: paths and levels change, and that is the point.
+\end{tip}
+
+\section{My Level 2 journey}
+\namedateline
+
+{\small
+\renewcommand{\arraystretch}{1.45}
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{7.6cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{1.1cm}@{}}
+\toprule
+Wk & Session & I can\ldots & Done & Proud \\ \midrule\endhead
+1 & Welcome Back, Python & tell int, float, str and bool apart and build a message with an f-string. & \bx & \faStar[regular] \\ \midrule
+2 & Functions That Give Back & write a function that uses \texttt{return}. & \bx & \faStar[regular] \\ \midrule
+3 & Lists & make a list, add to it and loop over it. & \bx & \faStar[regular] \\ \midrule
+4 & While Loops & write a \texttt{while} loop that stops when something changes. & \bx & \faStar[regular] \\ \midrule
+5 & Dictionaries & look up and change values in a dictionary. & \bx & \faStar[regular] \\ \midrule
+6 & Review and Checkpoint & use a debugging strategy: traceback, print-debugging or rubber duck. & \bx & \faStar[regular] \\ \midrule
+7 & Files & save data to a file and load it again. & \bx & \faStar[regular] \\ \midrule
+8 & Testing & write a pytest test for a normal case and an edge case. & \bx & \faStar[regular] \\ \midrule
+9 & Event-Driven Games & make a turtle game react to keys and a timer. & \bx & \faStar[regular] \\ \midrule
+10 & Project Studio 1 & plan my project and build its core loop. & \bx & \faStar[regular] \\ \midrule
+11 & Project Studio 2 & test, playtest and improve my project. & \bx & \faStar[regular] \\ \midrule
+12 & Showcase & explain how my project works and why I built it that way. & \bx & \faStar[regular] \\ \midrule
+B1 & Cipher \& Puzzle Day & encode and decode a secret message. & \bx & \faStar[regular] \\ \midrule
+B2 & Generative Art Jam & make art with lists, random and functions. & \bx & \faStar[regular] \\
+\bottomrule
+\end{longtable}}
+
+\section{My skills}
+Colour in the box that fits, once in week 6 and once in week 12. JS = Just starting,
+GT = Getting there, GI = Got it, EX = Expert.
+
+{\small
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{7.2cm}*{4}{>{\centering\arraybackslash}p{0.62cm}}p{0.2cm}*{4}{>{\centering\arraybackslash}p{0.62cm}}@{}}
+\toprule
+& \multicolumn{4}{c}{\textbf{Week 6}} & & \multicolumn{4}{c}{\textbf{Week 12}} \\
+\textbf{I can\ldots} & JS & GT & GI & EX & & JS & GT & GI & EX \\ \midrule\endhead
+use different types and f-strings (G1) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+combine while loops, nested loops and \texttt{and}/\texttt{or} (G2) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+write functions with parameters and \texttt{return} (G3) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+use lists and dictionaries (G4) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+save and load files (G5) & & & & & & \bx & \bx & \bx & \bx \\
+debug with a strategy and write tests (G6) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+build games and art that react to keys and timers (G7) & & & & & & \bx & \bx & \bx & \bx \\
+plan, work in a team and use feedback (G8) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+make safe, fair and private choices (G9) & \bx & \bx & \bx & \bx & & \bx & \bx & \bx & \bx \\
+\bottomrule
+\end{longtable}}
+
+\section{My final project milestones}
+\begin{checklist}
+  \item \textbf{M1 Pitch and plan} (end of week 9): my idea, my pseudocode or flowchart, our task split.
+  \item \textbf{M2 Core loop works} (week 10): the main thing happens on screen.
+  \item \textbf{M3 Data and tests} (week 11, first half): list, dictionary, file and 3 tests.
+  \item \textbf{M4 Polish} (week 11, second half): playtest feedback used, accessibility checked.
+  \item \textbf{Showcase} (week 12): I showed it and explained one part.
+\end{checklist}
+
+%% ---------------------------------------------------------------------
+\clearpage
+\section{Group page (teacher)}
+Write each student's nickname at the top of a column.
+
+{\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{4.2cm}*{4}{|X}@{}}
+\toprule
+Student (nickname) & \rule{0pt}{1.2em} & & & \\ \midrule
+Placement score / 14 & & & & \\ \midrule
+Path from week 1 (S / Std / Ext) & & & & \\ \midrule
+Checkpoint score / 18 and level & & & & \\ \midrule
+Path from week 7 & & & & \\ \midrule
+Exit score / 20 and level & & & & \\ \midrule
+Project rubric / 16 & & & & \\
+\bottomrule
+\end{tabularx}}
+
+\subsection{Weekly exit tickets and homework}
+\checkmark\ = got it \quad -- = not yet \quad ? = check again. Two question marks in a row on the
+same idea: revisit it in the next warm-up.
+
+{\small
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{3.0cm}*{4}{|p{1.55cm}}|p{3.2cm}@{}}
+\toprule
+Wk & Focus & & & & & Notes \\ \midrule\endhead
+1 & types, f-strings & & & & & \\ \midrule
+2 & return & & & & & \\ \midrule
+3 & lists & & & & & \\ \midrule
+4 & while & & & & & \\ \midrule
+5 & dictionaries & & & & & \\ \midrule
+6 & debugging & & & & & \\ \midrule
+7 & files & & & & & \\ \midrule
+8 & tests & & & & & \\ \midrule
+9 & events & & & & & \\ \midrule
+10 & M1, M2 & & & & & \\ \midrule
+11 & M3, M4 & & & & & \\ \midrule
+12 & showcase & & & & & \\ \midrule
+B1 & ciphers & & & & & \\ \midrule
+B2 & art jam & & & & & \\
+\bottomrule
+\end{longtable}}
+
+\subsection{Goals at week 6 and week 12}
+Write JS, GT, GI or EX in each box (week 6 / week 12).
+
+{\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{4.6cm}*{4}{|X}@{}}
+\toprule
+Goal & & & & \\ \midrule
+G1 types, f-strings & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G2 control structures & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G3 functions & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G4 lists, dictionaries & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G5 files & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G6 debugging, tests & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G7 events, games, art & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G8 plan, team, feedback & \quad / & \quad / & \quad / & \quad / \\ \midrule
+G9 safe, fair, private & \quad / & \quad / & \quad / & \quad / \\
+\bottomrule
+\end{tabularx}}
+
+\end{document}

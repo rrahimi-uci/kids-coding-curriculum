@@ -1,0 +1,124 @@
+% Level 1, Week 6 -- Review Studio and Checkpoint (Scratch)
+\lesson{6}{Review Studio and Checkpoint}{Show what you know; get ready for text code.}
+\lessoninfo{Concepts: all Scratch concepts (R), Scratch $\rightarrow$ Python card sort (I)}{Tools: Scratch 3 offline app, printed cards, Assessments booklet}{CSTA: 1B-AP-10, 1B-AP-15, 1B-CS-03, 1B-IC-19}
+
+\begin{objectives}
+  \item The student can match Scratch blocks to the Python lines that do the same job. (L1.G9) [L1.W06.1]
+  \item The student can use the four detective steps to find and fix bugs in projects someone else made. (L1.G6, L1.G7) [L1.W06.2]
+  \item The student can show what they know about sequence, loops, events, conditionals, variables and My Blocks in the mid-level checkpoint. (L1.G1, L1.G2, L1.G3, L1.G4, L1.G5) [L1.W06.3]
+  \item The student can explain what makes a project fun and fair for everyone. (L1.G8) [L1.W06.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 6 (one per student) and homework 6. Print one extra copy of the two card-sort pages per pair, cut the cards apart (3 minutes, or let students cut them during the warm-up) and put each set in an envelope.
+  \item Print: the \textbf{Mid-level checkpoint in the Assessments booklet}, one per student, plus pencils. Keep the answer key (\enquote{Assessments} section of the Answer Key) for yourself.
+  \item On each Mac: the Scratch app with a new project. The three relay projects are built from the workbook cards, so there is nothing to prepare on the computers.
+  \item A timer. Optional: stickers or a stamp for the relay baton sheet.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{\enquote{Blocks to words} card sort: pairs match 12 Scratch cards to 12 Python cards.}
+  \timeslot{8--13}{Concept}{Review map of our six big ideas. Recap the four detective steps for bugs.}
+  \timeslot{13--18}{Guided demo}{Detective demo: you debug a tiny broken script aloud, using the four steps.}
+  \timeslot{18--38}{Hands-on build}{Bug-hunt relay: three broken projects (A, B, C), about 6 minutes each. Pairs record each fix on the relay baton sheet. Early finishers: Review Studio free-build.}
+  \timeslot{38--53}{Checkpoint}{Mid-level checkpoint (15 minutes, individual, in the Assessments booklet).}
+  \timeslot{53--60}{Wrap-up}{Reflection: what makes a project fun and fair for everyone? Celebrate six weeks of Scratch. Hand out homework 6.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Blocks to words card sort]
+\enquote{Next week we start writing code with words instead of blocks, in a language called \textbf{Python}. Good news: you already know the ideas! Let's see if you can guess which Python line does the same job as each block.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Give each pair an envelope of cards. Block cards have letters (A--L); Python cards have numbers (1--12).
+  \item Pairs lay out the block cards in a column and put the Python card they think matches next to each one. Encourage guessing from clues: \enquote{forward sounds like move\ldots}
+  \item Check together using the answer key (Answer Key, week 6). Celebrate clever guesses even when wrong. Point out: Python has brackets, quotes and colons, and every letter matters. Next week we learn why.
+\end{enumerate}
+With 1 student: work together; the child places, you ask \enquote{why that one?}. Students copy their matches into the workbook table.
+\end{unplugged}
+
+\section{Concept (8--13 min)}
+\begin{teacherscript}
+Point to the review map in the workbook. \enquote{In six weeks you learned the six big ideas that \textbf{every} programming language has: sequence (steps in order), loops (repeat), events (doorbells), conditionals (if), variables (labelled boxes) and My Blocks (named parts). Python has all six too.}
+
+\enquote{Today you are bug detectives. Remember the four detective steps: \textbf{1.} What did I expect? \textbf{2.} What actually happened? \textbf{3.} Read the blocks one at a time, with your finger, and act them out. \textbf{4.} Change one thing, then test again.}
+\end{teacherscript}
+
+\begin{analogy}[A detective at a crime scene]
+\enquote{A good detective does not guess wildly. They look at the clues one at a time and test one idea at a time. If you change five things at once and it works, you don't know which change fixed it. If it breaks, you don't know which change broke it.}
+\end{analogy}
+
+\section{Guided demo (13--18 min)}
+\begin{workedexample}[Detective demo: the cat that won't talk]
+Build this on your screen (it takes one minute). The \enquote{say} block is placed a little \textbf{below} the stack, not snapped on, so there is a gap.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{0}}
+\blockspace[0.8]
+\blocklook{say \ovalnum{Hello, detectives!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+Think aloud through the four steps: \enquote{1. I expected the cat to say hello. 2. It went to the middle, but it said nothing. 3. Let me point at each block: when flag clicked, yes; go to, yes; say\ldots{} wait, there's a gap! This block is not connected, so it is not part of the script. 4. One change: snap it on. Test. It works!} Ask: \enquote{Which step found the bug?}
+\end{workedexample}
+
+\section{Hands-on build (18--38 min)}
+\begin{pairroles}[Relay teams]
+Pairs are relay teams: the driver builds the broken project from the card \textbf{exactly as printed}, the navigator reads the card and fills in the relay baton sheet (expected / happened / bug / fix). Swap roles at every new project. With 4 students: pair 1 starts at project A, pair 2 at project B, then rotate. With 3: a trio does all three together, rotating driver, navigator and baton writer. With 2: one team. With 1 student: you build, the child is the detective who finds and fixes (then swap for the next project).
+\end{pairroles}
+
+\begin{bughunt}[Bug-hunt relay: three broken projects]
+The workbook has three project cards, 6.1 to 6.3. Each card says what the project \textbf{should} do and shows the blocks exactly as the buggy version was built. Each project has \textbf{two} bugs. The list of bugs is only in the answer key (week 6): do not show it to students. Give hints in this order, only when a team is stuck for 2 minutes: 1. \enquote{Read the card's \enquote{should do} again: what is different on the stage?} 2. Point at the part of the script where the bug lives. 3. Ask a yes/no question (\enquote{Is the pen up block inside or outside the loop?}).
+
+A team \enquote{finishes the leg} when the project matches the \enquote{should do} and the baton sheet has both bugs and fixes written down. Give a sticker or stamp for each leg.
+\end{bughunt}
+
+\begin{freebuild}[Review Studio]
+Teams that finish all three legs early open their favourite project from weeks 1--5 (\menu{File} $\rightarrow$ \menu{Load from your computer}) and add one improvement: a sound, a score, a new My Block, a message, a second level.
+\end{freebuild}
+
+\section{Checkpoint (38--53 min)}
+\begin{teachernote}[Running the mid-level checkpoint]
+Hand out the \textbf{Mid-level checkpoint in the Assessments booklet}. Say: \enquote{This is not a test you pass or fail. It shows you and me what you already know and what we should practise. Do your best; if you are stuck, skip that question and come back.} Students work alone and quietly for about 15 minutes. You may read any question aloud to any student (reading is not what we are checking). Mark it after the session with the answer key and note one strength and one next step per student for the progress tracker.
+\end{teachernote}
+
+\section{Wrap-up (53--60 min)}
+\begin{reflection}[Fun and fair for everyone]
+Ask the group: \enquote{Think of the best game you have ever played. What made it \textbf{fun}?} (a clear goal, surprises, the right amount of challenge, cool art and sounds). \enquote{What makes a game \textbf{fair}?} (same rules for everyone, the score starts at 0, no tricks, everyone can see and read it, no pressure to keep playing forever). Students write one \enquote{fun} idea and one \enquote{fair} idea in the workbook reflection box. Then celebrate: \enquote{Six weeks ago you had never coded. Now you've made animations, art, games and shows!}
+\end{reflection}
+
+\begin{safety}[Fun and fair, online too]
+Connect the reflection to digital citizenship: \enquote{A fair game doesn't trick players or make them feel bad for stopping. A fair project gives credit, uses colours everyone can see, and keeps players' private information private. These are the same rules we use whenever we're online.}
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for (during the relay):} teams say \enquote{expected / happened} before changing blocks; they change one thing at a time; they can name the bug in words.
+
+\textbf{Ask:} \enquote{Which Python line matches the Scratch block \enquote{move 100 steps}?}
+\textbf{Answer:} \texttt{t.forward(100)}.
+\end{formativecheck}
+
+Hand out homework 6 (Remix Studio). \enquote{Next week: Python!}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Fixing while building.} Teams \enquote{correct} the bug while copying the card, so they never see it. Insist: build it exactly as printed, click the flag, then hunt.
+  \item \textbf{Changing many things at once.} The project ends up different from the card and new bugs appear. Ask: \enquote{What is the one thing you'll change first?}
+  \item \textbf{Stopping after one bug.} Every project has two. Ask them to compare the stage with the \enquote{should do} again.
+  \item \textbf{Card sort: matching by length.} Students match long block to long line. Ask them to look for a keyword (forward, print, random).
+  \item \textbf{Checkpoint worries.} Some children panic. Read the question aloud and remind them that skipping is allowed.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do the card sort with 6 pairs of cards only (move, turn, pen down, pen up, repeat, say). In the relay, do projects A and C only, and give hint 2 straight away. Read the checkpoint aloud.
+\extensionpath After fixing a relay project, add a third bug of your own and swap with another team. Can they find it? In the card sort, write the Python line for one block that is not on a card (for example \enquote{turn left 45 degrees} $\rightarrow$ \texttt{t.left(45)}).
+\end{differentiation}
+
+\begin{stretchchallenge}[Write it in words]
+Pick one of your Scratch projects and write it in \enquote{Python-ish} words on paper, using the card sort as a dictionary, for example: \texttt{for i in range(4):} then, indented, \texttt{t.forward(100)} and \texttt{t.right(90)}. Bring it next week and we will type it into Python!
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+The checkpoint has priority: never cut it. Shorten the card sort to 6 cards (see the support path) and do only two relay projects (A and B). Move the fun-and-fair reflection into homework if needed.
+\end{teachernote}

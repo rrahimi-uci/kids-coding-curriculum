@@ -1,0 +1,132 @@
+% Level 1, Week 4 -- Keeping Score (Scratch)
+\lesson{4}{Keeping Score}{Variables are labelled boxes that remember things.}
+\lessoninfo{Concepts: variables (I), random (I), conditionals (R), events (R)}{Tools: Scratch 3 offline app}{CSTA: 1B-AP-09, 1B-AP-10, 1B-AP-14}
+
+\begin{objectives}
+  \item The student can make a variable, set it at the start of a game and change it while the game runs. (L1.G4) [L1.W04.1]
+  \item The student can use \enquote{pick random} to put a sprite in a surprising place. (L1.G4) [L1.W04.2]
+  \item The student can combine events, a forever loop and if-blocks to build a catch game, and fix a score that never resets or goes up too fast. (L1.G3, L1.G6) [L1.W04.3]
+  \item The student can say whose art and sounds a project uses and add a credits note. (L1.G8) [L1.W04.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 4 and homework 4 (one per student).
+  \item Unplugged: two envelopes or paper cups labelled \textbf{SCORE} and \textbf{LIVES}, a few slips of paper, a pencil, one scrunched-up paper ball, a six-sided die if you have one (if not, ask someone to think of a number from 1 to 6).
+  \item On each Mac: the Scratch app with a new project.
+  \item A timer.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Label the boxes: a paper-ball catch game where the scorekeeper changes the numbers in the SCORE and LIVES boxes.}
+  \timeslot{8--18}{Concept}{Variables: a labelled box holding one value. \enquote{set} vs \enquote{change}. \enquote{pick random} is a dice roll. Credit and remix.}
+  \timeslot{18--28}{Guided demo}{Pop the Balloon: make a variable \texttt{pops}, set it to 0, change it by 1 on a click, jump to a random place. Show the never-resets bug.}
+  \timeslot{28--52}{Hands-on build}{Pairs, swap every 8 minutes. Exercise 4.1 Pop the Balloon, 4.2 Apple Catch (with the too-fast score bug hunt), 4.3 Lives and Game Over (bonus). Last 5 minutes free-build: a twist on the game + credits note.}
+  \timeslot{52--60}{Wrap-up}{Play each other's games, exit ticket, reflection, hand out homework 4.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Label the boxes]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Show the two boxes. \enquote{This box is called SCORE. Inside is a slip of paper with one number on it. This one is called LIVES.} Put a slip saying \texttt{0} in SCORE and \texttt{3} in LIVES. \enquote{That is \textbf{set score to 0} and \textbf{set lives to 3}.}
+  \item One student is the scorekeeper. You toss the paper ball to the others in turn. Catch: the scorekeeper takes out the slip, adds 1, writes the new number on a fresh slip and puts it back (\textbf{change score by 1}). Drop: \textbf{change lives by $-1$}. At 0 lives: \enquote{Game over!}
+  \item Play again, but this time \textbf{do not} reset the boxes. \enquote{Hmm, we start with a score of 5? That's not fair!} (Bug: no \enquote{set score to 0} at the start.)
+  \item Last trick: tell the scorekeeper to add 1 for \textbf{every second} someone holds the ball. Hold it for 5 seconds: the score jumps by 5 for one catch. (Bug: score changes too fast.)
+\end{enumerate}
+With 1 student: the child is the scorekeeper and you catch, then swap.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{In Scratch, a \textbf{variable} is a labelled box that remembers one thing, like a score. The orange \menu{Variables} blocks work just like our paper game. \textbf{set score to 0} throws away whatever was in the box and puts in 0. \textbf{change score by 1} adds 1 to what is already there. We always \textbf{set} at the start (when the green flag is clicked) and \textbf{change} during the game.}
+
+\enquote{Games are more fun when you cannot guess what comes next. The green \textbf{pick random 1 to 6} block in \menu{Operators} is like rolling a die: each time it runs it gives a number, and you can't know which one. If we use it for the x position, the apple falls from a different place every time.}
+\end{teacherscript}
+
+\begin{analogy}[A scoreboard]
+\enquote{A variable is like the scoreboard at a football match. It has a name (HOME), it shows one number, and that number changes during the game. Before the next match, someone resets it to 0. If they forget, the new match starts with the old score!}
+\end{analogy}
+
+\begin{safety}[Credit and remix: whose art is it?]
+\enquote{Today we use the Apple and the Bowl from the Scratch library. Real people drew those, and the Scratch team shares them so everyone can use them in Scratch projects. When we use someone else's art, sounds or ideas, we \textbf{give credit}: we say who made it. When we change someone's project to make our own version, that is a \textbf{remix}, and we also say whose project we started from.}
+Show how to add a credits note: right-click an empty part of the code area $\rightarrow$ \menu{Add Comment}, and type: \enquote{Credits: Apple and Bowl sprites and sounds from the Scratch library. Game idea: our coding club.} \enquote{We do not copy pictures from websites into our games: we use the library or draw our own with the Paint editor.}
+\end{safety}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Pop the Balloon (Exercise 4.1)]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item New project. Delete the cat. \menu{Choose a Sprite} $\rightarrow$ \textbf{Balloon1}.
+  \item Click \menu{Variables} $\rightarrow$ \menu{Make a Variable}. Type \texttt{pops}, keep \enquote{For all sprites}, click \menu{OK}. A box showing \texttt{pops 0} appears on the stage (the tick next to the variable shows or hides it).
+  \item Build the two scripts. The \enquote{pick random} blocks are in \menu{Operators}: drop them into the x and y slots of \enquote{go to x: y:}.
+  \item Click the flag and pop the balloon a few times. The score goes up and the balloon jumps somewhere new.
+  \item Now pull \enquote{set pops to 0} away and click the flag again. \enquote{The score kept the old number! That is the never-resets bug.} Put it back.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{pops} to \ovalnum{0}}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{0}}
+\end{scratch}
+\hspace{0.5cm}
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{pops} by \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\blockmove{go to x: \ovaloperator{pick random \ovalnum{-200} to \ovalnum{200}} y: \ovaloperator{pick random \ovalnum{-140} to \ovalnum{140}}}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator and game tester]
+Swap every 8 minutes. The navigator reads the steps and checks that each block goes into the right sprite (Apple or Bowl). When a game works, the non-driver \textbf{plays} it while the driver watches the score box. With 1 student: you navigate, then swap. With 3: driver, navigator, tester (plays, and reports one bug or one idea). With 4: two pairs, then swap games to test each other's.
+\end{pairroles}
+
+Work through the workbook: \textbf{4.1} Pop the Balloon (own copy of the demo), \textbf{4.2} Apple Catch (Bowl follows the mouse, Apple falls from a random place, score goes up on a catch), \textbf{4.3} Lives and Game Over (bonus, for pairs who finish 4.2).
+
+\begin{bughunt}[One catch, twenty points]
+In Exercise 4.2 the workbook shows Mei's apple script, which is missing the \enquote{go to the top} block after scoring. Students try it: when the apple lands in the bowl, the score races up (about 20 points) while the apple slides through the bowl. Ask: \enquote{How many times does the forever loop ask \enquote{touching Bowl?} while the apple is inside the bowl?} (Many times, so it scores many times.) Fix: send the apple back to the top straight after \enquote{change score by 1}. Link to the warm-up trick with the ball.
+\end{bughunt}
+
+\begin{freebuild}[Make it your game]
+Last 5 minutes: \enquote{Add your own twist, then add a credits comment.} Ideas: a different falling sprite (Bananas, a Star); a backdrop; a sound when you miss; make it faster (change $-5$ to $-8$); \enquote{say} a message when the score reaches 10.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{teacherscript}
+Everyone plays someone else's game for one minute. \enquote{What was your score? Show me where the game remembers the score.} Each player gives the maker two stars and a wish, like last week.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} a variable created and shown on the stage; \enquote{set} under the green flag and \enquote{change} inside an if; \enquote{pick random} used for a position.
+
+\textbf{Ask:} \enquote{Omar's game starts with a score of 12 every time he clicks the green flag. What is missing?}
+\textbf{Answer:} a \enquote{set score to 0} block under \enquote{when green flag clicked}, so the score resets at the start of every game.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What is the difference between \enquote{set} and \enquote{change}?} and \enquote{Whose art did you use today, and how did you give credit?} Students answer in the workbook. Hand out homework 4 (Magic Dice).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{No reset.} \enquote{set score to 0} is missing or sits inside the forever loop (then the score is reset all the time and stays 0). It belongs once, under the green flag, before the loop.
+  \item \textbf{Score changes too fast.} The apple is not moved after a catch, so \enquote{touching Bowl?} stays true for many loop turns. Move the apple away right after scoring.
+  \item \textbf{Scripts on the wrong sprite.} The bowl script ended up on the apple (both follow the mouse!). Check the highlighted sprite in the sprite pane.
+  \item \textbf{Variable made \enquote{For this sprite only}.} Other sprites cannot see it. Choose \enquote{For all sprites} when making score and lives.
+  \item \textbf{Typing into the dropdown.} The variable name in \enquote{set} and \enquote{change} must be chosen from the dropdown (score, not my variable).
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 4.1 and the Bowl part of 4.2 with you as navigator; for the apple, start with \enquote{go to x: 0 y: 170} (no random) and add random once it works. Skip 4.3.
+\extensionpath Add a \texttt{speed} variable: set it to 4 at the start, change it by 0.5 on every catch, and use \enquote{change y by (0 $-$ speed)} so the game gets harder as you score.
+\end{differentiation}
+
+\begin{stretchchallenge}[High score]
+Make a variable \texttt{best}. Do \textbf{not} reset it when the flag is clicked. At game over: \enquote{if score > best then set best to score}. Now the game remembers the best score while the project stays open. Why must \texttt{best} not be reset?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do the Label-the-boxes game with steps 1 and 2 only. Skip 4.1 as a separate exercise (the demo shows it) and spend all hands-on time on Apple Catch; 4.3 becomes an idea for free time or homework Challenge. Keep the credits comment: it takes one minute.
+\end{teachernote}

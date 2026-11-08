@@ -1,0 +1,48 @@
+% Level 2, Week 6 -- homework
+\homeworkweek{6}{Review and Checkpoint}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Pixel Pet bug hunt (Thonny, 15 minutes)]
+Open \texttt{excercises/week06/hw-bug-pixel-pet/starter.py}. It is a virtual pet stored in a dictionary, and it has \textbf{three} bugs.
+The rules: \texttt{feed()} takes 3 from hunger (never below 0); \texttt{play()} adds 2 to happiness and 1 to hunger;
+\texttt{mood()} says \texttt{"grumpy"} if hunger is 8 or more \textbf{or} happiness is 2 or less, otherwise \texttt{"happy"}.
+\begin{enumerate}[leftmargin=1.4em]
+  \item Press \menu{Run}. Read the traceback bottom-up and fix bug 1.
+  \item Run again and look at the printed dictionary. Is there a key that should not be there? That is bug 2.
+  \item Bug 3 does not crash. Explain \texttt{mood()} out loud (rubber duck!) and compare it with the rules.
+  \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
+\end{enumerate}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|p{1.4cm}|p{3.2cm}|p{1.3cm}|p{6.4cm}|}
+\hline \textbf{Bug} & \textbf{Error name (or \enquote{no crash})} & \textbf{Line} & \textbf{What I changed} \\ \hline
+1 & & & \\ \hline
+2 & & & \\ \hline
+3 & & & \\ \hline
+\end{tabular}
+\end{core}
+
+\begin{challenge}[Trace it]
+Fill in a trace table on scrap paper and write what this prints:
+\begin{pycode}
+coins = 1
+days = 0
+while coins < 20:
+    coins = coins * 2
+    days = days + 1
+print(days, coins)
+\end{pycode}
+It prints: \rule{3cm}{0.4pt}
+\end{challenge}
+
+\begin{creative}[Bug comic]
+Draw a 3-panel comic about a bug and the detective who finds it. Panel 1: the program breaks. Panel 2: the detective uses
+one of the four tools. Panel 3: fixed! Give your bug a name.
+\answerspace{4cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I read tracebacks from the bottom up.
+  \item I used at least two different detective tools this week.
+  \item I wrote a bug report for each Pixel Pet bug.
+  \item When I got stuck, I tried one thing at a time instead of changing everything.
+\end{selfcheck}

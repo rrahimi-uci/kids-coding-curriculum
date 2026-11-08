@@ -1,0 +1,334 @@
+\documentclass[level=1]{kidscode}
+\newcommand{\lvA}{\faSeedling\ Just starting}
+\newcommand{\lvB}{\faShoePrints\ Getting there}
+\newcommand{\lvC}{\faCheckCircle\ Got it}
+\newcommand{\lvD}{\faRocket\ Expert}
+%% "I can" self-rating table: \begin{icantable} \ican{I can ...} \end{icantable}
+\newenvironment{icantable}{\par\small\renewcommand{\arraystretch}{1.45}%
+  \tabularx{\linewidth}{@{}>{\RaggedRight}X*{4}{>{\centering\arraybackslash}p{1.9cm}}@{}}
+  \toprule
+  & \lvA & \lvB & \lvC & \lvD\\ \midrule}
+  {\bottomrule\endtabularx\par}
+\newcommand{\ican}[1]{#1 & \tickbox & \tickbox & \tickbox & \tickbox\\}
+\newcommand{\qnum}[1]{\textbf{\color{kcaccent}#1}\quad}
+\newcommand{\pts}[1]{\hfill{\small(#1)}}
+\begin{document}
+\kctitle{Assessments}{Week 1 survey, week 6 checkpoint and week 12 exit assessment}
+
+\begin{tip}[For students: these are not tests to be scared of]
+These papers help your teacher see what you already know and what to teach next.
+Nobody fails. If you are not sure, write your best guess, or write \enquote{I am not sure yet}:
+that is an honest and useful answer. You can ask for a word to be read aloud at any time.
+\end{tip}
+
+\begin{teachernote}[For the teacher]
+Print each paper only in the week you use it. Answers, scoring and teacher rubrics are in the
+Answer Key (\enquote{Assessment answer keys}). Allow extra time, oral answers or a scribe for any
+student who needs it: we are checking coding ideas, not handwriting or spelling.
+\end{teachernote}
+
+%% =====================================================================
+\kcpart{Week 1}{Interest and Comfort Survey}{About 10 minutes. Not graded. There are no wrong answers.}
+
+Nickname (no real names needed): \rule{6cm}{0.4pt}\hfill Date: \rule{3.5cm}{0.4pt}
+
+\section{1. What do I like?}
+Tick everything you enjoy.
+\begin{multicols}{3}
+\begin{checklist}
+  \item Drawing and painting
+  \item Video or board games
+  \item Cartoons and animation
+  \item Music and dancing
+  \item Stories and comics
+  \item Puzzles and riddles
+  \item Building (blocks, LEGO)
+  \item Animals and nature
+  \item Space and science
+\end{checklist}
+\end{multicols}
+Something else I love making or doing: \rule{7cm}{0.4pt}
+
+\section{2. How do I feel about coding right now?}
+Circle one face.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{cccc}
+{\Huge\faFrown[regular]} & {\Huge\faMeh[regular]} & {\Huge\faSmile[regular]} & {\Huge\faGrinStars[regular]}\\
+Worried & Not sure & Curious & Super excited\\
+\end{tabular}
+\end{center}
+
+\section{3. Where am I starting?}
+Tick one box in each row. Most people tick \enquote{Just starting} for many rows in week 1. That is exactly right!
+\begin{icantable}
+\ican{I can use a mouse or trackpad to drag things on the screen.}
+\ican{I can type words on a keyboard.}
+\ican{I can follow step-by-step instructions in the right order.}
+\ican{I can explain what a computer program is.}
+\ican{I can keep trying when something does not work the first time.}
+\ican{I can work with a partner and take turns.}
+\end{icantable}
+
+\section{4. How do I like to learn?}
+Tick any that are true for you.
+\begin{multicols}{2}
+\begin{checklist}
+  \item I like to see it done first.
+  \item I like to try it myself straight away.
+  \item I like to read the instructions.
+  \item I like someone to read instructions aloud.
+  \item Bigger letters on the screen or paper help me.
+  \item A quiet spot helps me think.
+  \item Short breaks help me focus.
+  \item I like to talk ideas through with a partner.
+\end{checklist}
+\end{multicols}
+In pairs, I would like to start as:\quad \tickbox\ the driver (mouse and keyboard)\quad
+\tickbox\ the navigator (reads and helps)\quad \tickbox\ I don't mind
+
+\section{5. My dream project}
+By the end of Level 1, I would love to make\dots{} (draw it or write it)
+\answerspace{4.2cm}
+
+One question I have about coding:
+\answerlines{1}
+
+%% =====================================================================
+\kcpart{Week 6}{Mid-Level Checkpoint}{About 15 minutes. Scratch reading, putting steps in order, and bug finding.}
+\namedateline
+
+\section{Part A: What will the sprite do?}
+Read each script. Do not run it: think it through in your head.
+
+\begin{minipage}[t]{0.42\linewidth}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.55\linewidth}
+\qnum{A1} What does the sprite draw? Circle one.\pts{1 point}\par\medskip
+a line \qquad a square \qquad a triangle \qquad a circle
+\end{minipage}
+
+\bigskip\needspace{9\baselineskip}
+\begin{minipage}[t]{0.42\linewidth}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockrepeat{repeat \ovalnum{3}}{
+  \blockvariable{change \selectmenu{score} by \ovalnum{2}}
+}
+\blocklook{say \ovalvariable{score}}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.55\linewidth}
+\qnum{A2} What number does the sprite say?\pts{1 point}\par
+\answerlines{1}
+\end{minipage}
+
+\bigskip\needspace{9\baselineskip}
+\begin{minipage}[t]{0.42\linewidth}
+\begin{scratch}[scale=0.75]
+\blockinit{when \selectmenu{space} key pressed}
+\blocksensing{ask \ovalnum{Do you like cats?} and wait}
+\blockifelse{if \booloperator{\ovalsensing{answer} = \ovalnum{yes}} then}
+  {\blocklook{say \ovalnum{Me too!} for \ovalnum{2} seconds}}
+  {\blocklook{say \ovalnum{OK, dogs then!} for \ovalnum{2} seconds}}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.55\linewidth}
+\qnum{A3} When does this script start?\pts{1 point}\par
+\answerlines{1}
+\qnum{A4} You type \texttt{no}. What does the sprite say?\pts{1 point}\par
+\answerlines{1}
+\end{minipage}
+
+\section{Part B: Put the steps in order}
+\qnum{B1} These steps for planting a seed are mixed up. Number them 1 to 6 so a robot could follow them.\pts{1 point}
+\begin{center}\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|p{1.2cm}|p{8cm}|}
+\hline
+\textbf{Step} & \textbf{Instruction}\\ \hline
+ & Drop the seed into the hole.\\ \hline
+ & Fill the pot with soil.\\ \hline
+ & Water the pot.\\ \hline
+ & Make a small hole in the soil with your finger.\\ \hline
+ & Put the pot in a sunny place.\\ \hline
+ & Cover the seed with soil.\\ \hline
+\end{tabular}
+\end{center}
+
+\qnum{B2} This dance is long to write. Rewrite it using a \textbf{repeat} so it is shorter.\pts{1 point}\par
+\begin{center}
+\fbox{\parbox{0.8\linewidth}{\centering clap, stomp, clap, stomp, clap, stomp, clap, stomp, bow}}
+\end{center}
+\answerlines{2}
+
+\section{Part C: Find the bug}
+\begin{minipage}[t]{0.42\linewidth}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{3}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.55\linewidth}
+\qnum{C1} Leo wants a \textbf{triangle} but gets a shape that is not closed.
+Circle the bug in the script and write the fix.\pts{1 point}\par
+\answerlines{2}
+\end{minipage}
+
+\bigskip\needspace{9\baselineskip}
+\begin{minipage}[t]{0.42\linewidth}
+{\small\textbf{Cat sprite:}}\par
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockevent{broadcast \selectmenu{start game}}
+\end{scratch}
+\par\smallskip{\small\textbf{Dog sprite:}}\par
+\begin{scratch}[scale=0.75]
+\blockinit{when I receive \selectmenu{begin}}
+\blocklook{say \ovalnum{Let's play!}}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.55\linewidth}
+\qnum{C2} Mei clicks the green flag but the dog never says \enquote{Let's play!}. Why not? How would you fix it?\pts{1 point}\par
+\answerlines{3}
+\end{minipage}
+
+\section{How am I doing?}
+Tick one box in each row. Be honest: this helps your teacher help you.
+\begin{icantable}
+\ican{I can put instructions in the right order. (G1)}
+\ican{I can use a repeat loop to draw a pattern. (G2)}
+\ican{I can make a sprite react with events and if. (G3)}
+\ican{I can use a variable and pick random. (G4)}
+\ican{I can use messages and make My Blocks. (G5)}
+\ican{I can find a bug and fix it. (G6)}
+\end{icantable}
+
+%% =====================================================================
+\kcpart{Week 12}{Exit Assessment}{About 20 minutes. Read Python, fix bugs, build something small, explain.}
+\namedateline
+
+\section{Part A: Predict (paper only)}
+\qnum{A1} Draw what this turtle draws. The turtle starts in the middle, facing right.\pts{1 point}\par
+\begin{minipage}[t]{0.5\linewidth}
+\begin{pycode}
+import turtle
+t = turtle.Turtle()
+for i in range(3):
+    t.forward(100)
+    t.left(120)
+turtle.done()
+\end{pycode}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}\vspace{2pt}
+\answerspace{3.6cm}
+\end{minipage}
+
+\qnum{A2} Write exactly what this program prints.\pts{1 point}\par
+\begin{minipage}[t]{0.5\linewidth}
+\begin{pycode}
+for i in range(3):
+    print("Hip")
+print("Hooray!")
+\end{pycode}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}\vspace{2pt}
+\answerspace{2.8cm}
+\end{minipage}
+
+\needspace{10\baselineskip}\qnum{A3} What does this program print? And what would it print if the first line were \texttt{stars = 5}?\pts{2 points}
+\begin{pycode}
+stars = 7
+if stars > 5:
+    print("Wow, a starry night!")
+else:
+    print("Just a few stars.")
+\end{pycode}
+With \texttt{stars = 7}: \rule{8cm}{0.4pt}\par\medskip
+With \texttt{stars = 5}: \rule{8cm}{0.4pt}
+
+\needspace{15\baselineskip}\qnum{A4} How many squares does this program draw? Which one is bigger?\pts{1 point}
+\begin{pycode}
+import turtle
+t = turtle.Turtle()
+
+def square(size):
+    for i in range(4):
+        t.forward(size)
+        t.left(90)
+
+square(50)
+square(100)
+turtle.done()
+\end{pycode}
+\answerlines{2}
+
+\section{Part B: Fix the bugs (paper only)}
+\needspace{13\baselineskip}\qnum{B1} Omar's program should ask for a number of sides and draw that shape.
+It has \textbf{3 bugs}. Circle each one and write the fixed line next to it.\pts{3 points}
+\begin{pycode}
+import turtle
+t = turtle.Turtle()
+sides = input("How many sides? ")
+for i in range(sides)
+    t.forwad(80)
+    t.left(360 / sides)
+turtle.done()
+\end{pycode}
+\answerlines{3}
+
+\needspace{15\baselineskip}\qnum{B2} Zoe runs this program. No error appears, but nothing is drawn. Why? Write the line she needs to add.\pts{1 point}
+\begin{pycode}
+import turtle
+t = turtle.Turtle()
+
+def flower(colour):
+    t.color(colour)
+    for i in range(6):
+        t.circle(40)
+        t.left(60)
+
+turtle.done()
+\end{pycode}
+\answerlines{2}
+
+\section{Part C: Build it (at the computer, about 7 minutes)}
+\qnum{C1} Open Thonny and start a new file. Write a program that:\pts{3 points}
+\begin{checklist}
+  \item asks the viewer \texttt{How many circles?}
+  \item draws that many circles,
+  \item puts each circle in a random place.
+\end{checklist}
+Extra (if you have time): put the circle-drawing in your own function, or give the circles colours.
+Save it as \texttt{exit\_circles.py} and show your teacher.
+
+\section{Part D: Explain it}
+\needspace{8\baselineskip}\qnum{D1} Look at the \texttt{square(size)} program in A4. In your own words: what does \texttt{size} do,
+and why is making a function like \texttt{square} useful? (You can say your answer to your teacher instead of writing it.)\pts{2 points}
+\answerlines{4}
+
+\section{How am I doing?}
+Tick one box in each row. Look back at your week 1 survey: how far have you come?
+\begin{icantable}
+\ican{I can read Python code and predict what it does. (G9)}
+\ican{I can use a \texttt{for} loop to repeat things. (G2)}
+\ican{I can use \texttt{input}, variables and \texttt{if}. (G3, G4)}
+\ican{I can use \texttt{random} to add a surprise. (G4)}
+\ican{I can make and use a function with \texttt{def}. (G5)}
+\ican{I can find and fix bugs. (G6)}
+\ican{I can explain my code to someone else. (G7)}
+\end{icantable}
+
+\end{document}

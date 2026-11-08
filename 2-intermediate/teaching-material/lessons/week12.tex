@@ -1,0 +1,148 @@
+% Level 2, Week 12 -- Showcase and Celebration
+\lesson{12}{Showcase and Celebration}{Share what you built, explain how it works, and see how far you have come.}
+\lessoninfo{Concepts: explaining design (R), feedback (R), all Level 2 (R)}{Tools: Thonny, feedback cards, Assessments booklet, certificates}{CSTA: 2-AP-19, 2-AP-15, 2-IC-23}
+
+\begin{objectives}
+  \item The student can present the team's project and explain one design decision and one piece of code (a function, the loop, the list, the dictionary or the file). (L2.G8)
+  \item The student can give kind, specific feedback to other makers during a gallery walk. (L2.G8)
+  \item The student can show what they learned in Level 2 on the exit assessment. (L2.G1, L2.G3, L2.G4, L2.G6)
+  \item The student can explain how to share a project safely: family only, nicknames, no personal information on screen. (L2.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: the Exit assessment in the Assessments booklet (one per student) and its answer page from the answer key (for you only); workbook chapter 12; homework 12; one Level 2 certificate per student (the Certificate document in \texttt{extras}); 4 feedback cards per student.
+  \item On each Mac: the team's project open in Thonny, with a backup copy saved (\menu{File > Save as…} \texttt{mygame-showcase.py}) in case of last-minute accidents.
+  \item Optional: invite family members to the showcase (minutes 28--50). Snacks make it a celebration!
+  \item Pencils, a timer. Prep: 10 minutes, mostly printing.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Freeze and rehearse: last save, fill in the presentation card, set up each computer as a gallery station.}
+  \timeslot{8--28}{Concept}{Concept check: the Exit assessment in the Assessments booklet (20 minutes, individual, quiet).}
+  \timeslot{28--38}{Guided demo}{Showcase presentations: you model a 1-minute pitch with Star Catcher, then each team presents (3 minutes + 1 question).}
+  \timeslot{38--50}{Hands-on build}{Gallery walk: everyone plays every project and leaves feedback cards. Last minutes: one live tweak or free play.}
+  \timeslot{50--60}{Wrap-up}{Read feedback cards, certificates, reflection, Level 3 preview, homework 12.}
+\end{timeplan}
+
+\begin{teachernote}[Why the phases look different today]
+The \enquote{Concept} slot is a concept check (the exit assessment) while minds are fresh; the
+celebration comes afterwards. Unfinished projects are normal: teams present what works and say what
+they would add next.
+\end{teachernote}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Freeze and rehearse]
+Say \enquote{Code freeze!}: no more new features (only fixing a crash is allowed). Each student fills in
+the presentation card in workbook chapter 12 (What is it? How does one part work? What would you add
+next?) and practises the pitch once to their partner, quietly, in one minute. Then set up the gallery:
+each computer shows its project, with a stack of feedback cards next to it.
+\end{unplugged}
+
+\section{Concept (8--28 min)}
+\begin{teacherscript}
+“Before the party, one last challenge. This is not a test you can fail: it shows you, and me, how much you
+learned since week 1. Read each question carefully. If you get stuck, skip it and come back. You can
+use Thonny for the build question, but no notes and no partner this time. You have 20 minutes.”
+\end{teacherscript}
+Hand out the Exit assessment from the Assessments booklet. Keep the room quiet; one student working
+alone at a laptop for the build question is fine. At 20 minutes, collect papers, even unfinished ones.
+Mark them later with the answer key (assessment section); do not mark during the session.
+
+\begin{analogy}[A video game save screen]
+At the end of a level, a game shows your stats: coins collected, time, secrets found. The exit
+assessment is that stats screen for Level 2. It is not the boss fight. It shows what you have
+unlocked so far.
+\end{analogy}
+
+\section{Guided demo (28--38 min)}
+\begin{workedexample}[Model a 1-minute pitch]
+Go first, so students see that a pitch is short and simple. Run Star Catcher (or any team's game, with
+permission) and say:
+\begin{enumerate}
+  \item \textbf{What it is:} \enquote{This is Star Catcher. You catch falling stars with a basket and dodge meteors.}
+  \item \textbf{How one part works:} \enquote{A timer runs the game loop many times a second. Each time, it moves every star in a list, and a logic function returns True when a star is close enough to the basket. That function has tests.}
+  \item \textbf{A design decision:} \enquote{Stars and meteors have different shapes, not only different colours, so everyone can tell them apart.}
+  \item \textbf{What next:} \enquote{I would add a slow mode for beginners.}
+\end{enumerate}
+Then each team presents for 3 minutes and takes one question. Audience questions to suggest:
+\enquote{Which part was hardest?} \enquote{Show us one of your tests.} \enquote{What does your file save?}
+\end{workedexample}
+
+\begin{pairroles}[Presenter roles]
+\textbf{2 per team:} one is the \textbf{demo driver} (plays the game, clicks), the other is the
+\textbf{explainer}; swap halfway so both speak. \textbf{1 student:} the student does both; you ask the
+question. \textbf{3:} driver, explainer, and \textbf{code guide} who shows one function on screen.
+\textbf{4:} two teams, each presents to the other (and to any guests).
+\end{pairroles}
+
+\section{Hands-on build (38--50 min)}
+\begin{safety}[Showcase safety]
+Before guests play, check each screen and file together:
+\begin{checklist}
+  \item High-score files and saved designs use nicknames only (open \texttt{highscore.txt} and look).
+  \item No real names, school names, addresses, ages or photos appear in the code, the window or the title.
+  \item The showcase is for family. If someone wants to take a photo or video, film the screen, not faces, and ask everyone first.
+  \item Nothing gets uploaded or posted anywhere without a parent deciding together with the student.
+\end{checklist}
+Say: \enquote{You can be proud of your work and still keep yourself private. Your nickname is your artist name.}
+\end{safety}
+
+\textbf{Gallery walk (10 minutes).} Everyone moves from station to station, plays each project for
+2--3 minutes and fills in a feedback card: \textbf{two stars} (two specific things that are good) and
+\textbf{a wish} (one kind idea). Leave the card face down next to the computer. Makers do not explain or
+defend during the walk; they just watch people play (that is great playtest data!). Guests can fill in
+cards too.
+
+\begin{freebuild}[Last two minutes: live tweak]
+Each team may make one tiny live change suggested by a card (a colour, a speed, a message) while
+others watch, or simply play each other's games.
+\end{freebuild}
+
+\section{Wrap-up (50--60 min)}
+Makers read their feedback cards (2 minutes). Then hand out certificates one by one: say one specific
+thing each student did well this level (\enquote{You kept going when your collision test failed, and
+you found the bug}). Read the Level 3 preview: \enquote{In Level 3 you will save your code with
+\textbf{git save points}, build your own \textbf{classes} (blueprints for objects), and the big example
+is \textbf{Maze Muncher}, a maze game where a ghost finds you with a clever search.} Hand out homework 12:
+a reflection and the holiday \enquote{keep coding} menu.
+
+\begin{formativecheck}[What to look for]
+\textbf{In the pitch:} the student names a real function or the loop and says what goes in and what
+comes out; mentions at least one data structure (list, dictionary or file).
+\textbf{Exit-ticket question:} \enquote{Which Level 2 tool would you use to make a program remember
+something after it closes?}
+\textbf{Answer:} a file (\texttt{open} with \texttt{"w"} or \texttt{"a"} to save, \texttt{"r"} to load).
+\end{formativecheck}
+
+\begin{reflection}
+What are you proudest of in your project? What did you learn about working in a team? Which
+Level 2 skill do you want to use again, and what do you want to build next?
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The project crashes during the demo.} Open the backup copy and carry on; say \enquote{that is live coding!} Every professional demo has had this happen.
+  \item \textbf{Apologising for unfinished parts} (\enquote{it is bad, it does not work}). Coach: \enquote{Say what works, then what you would add next.}
+  \item \textbf{Vague feedback} (\enquote{good}, \enquote{cool}). Ask: \enquote{Which part exactly? What did you do when you smiled?}
+  \item \textbf{Comparing projects} (\enquote{ours is better}). Remind the group: every team started from a different idea; we compare with our own week 1 selves, not with each other.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Give the presentation card with sentence starters already written (\enquote{My project is…},
+\enquote{This function…}); let a shy student present to you alone, or let the partner drive while they
+point. For the assessment, read questions aloud if reading slows them down (note it on the paper).
+\extensionpath Ask the student to show and explain one of their tests and the bug it caught, or to
+write a short \enquote{How to play} text file (\texttt{README.txt}) for players.
+\end{differentiation}
+
+\begin{stretchchallenge}[Version 2 plan]
+Write a \enquote{version 2} plan for the project: three new features in pseudocode, which list or
+dictionary each would need, and one new test for each. Keep it for Level 3 week 1.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the exit assessment and the certificates. Shorten the presentations to 2 minutes each and do the
+gallery walk with one card per student. The reflection can move to homework 12.
+\end{teachernote}

@@ -1,0 +1,95 @@
+% Level 3, Week 12 -- Showcase and Graduation
+\lesson{12}{Showcase and Graduation}{Share what you built, explain your choices, and plan what comes next.}
+\lessoninfo{Concepts: presenting design decisions, giving feedback, reflection, safe next steps online}{Tools: projects on the Macs, feedback cards, certificates}{CSTA: 3A-AP-23, 2-AP-18, 3A-IC-24}
+
+\begin{objectives}
+  \item The student can present their project in two minutes, explaining at least one design decision and why they made it. (L3.G5, L3.G1)
+  \item The student can give specific, kind feedback on someone else's project. (L3.G5)
+  \item The student can show what they learned in Level 3 in the exit assessment. (L3.G1--L3.G9)
+  \item The student can name safe ways to keep learning and to find coding communities online, together with a parent. (L3.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: the \textbf{Exit assessment} from the Assessments booklet (one per student); a certificate for each student (\texttt{extras/certificate}); workbook chapter 12; homework 12; 3 feedback cards per student.
+  \item On each Mac: the student's project ready to run, plus a Terminal showing \texttt{git log --oneline}.
+  \item Optional: a snack, and family members as guests (show the project on screen only -- no recording or posting).
+  \item Prep (10 min): read this plan; fill in the certificates; read the exit assessment and its answer key.
+\end{materials}
+
+\begin{timeplan}
+  \timeslot{0--4}{Warm-up}{Set up showcase stations; one-word check-in (\enquote{How do you feel about your project?}).}
+  \timeslot{4--8}{Concept}{What a design-decision talk is: Problem $\rightarrow$ Choice $\rightarrow$ Why $\rightarrow$ What I would change.}
+  \timeslot{8--12}{Guided demo}{You model a 2-minute talk about Maze Muncher.}
+  \timeslot{12--34}{Hands-on build}{Gallery walk (6 min) with feedback cards, then 2-minute talks with 1 question each (about 4 min per student).}
+  \timeslot{34--60}{Wrap-up}{Exit assessment (20 min, individual). Certificates, reflection and safe next steps (6 min).}
+\end{timeplan}
+
+\section{Warm-up (0--4 min)}
+Students open their projects and Terminal side by side. Go round: one word each about how they feel. Say: \enquote{Every feeling is normal. Professional programmers feel nervous at demos too.}
+
+\section{Concept (4--8 min)}
+\begin{teacherscript}
+\enquote{A showcase is not only \emph{look what it does}. The interesting part is \emph{why you built it this way}. Use four steps: the \textbf{problem} you had, the \textbf{choice} you made, \textbf{why} you chose it, and \textbf{what you would change} next time. Two minutes is short -- pick \emph{one} decision.}
+\end{teacherscript}
+
+\begin{analogy}[A museum guide]
+A museum guide does not read every label. They stop at one painting and tell you why the artist painted it that way. You are the guide of your own gallery today.
+\end{analogy}
+
+\section{Guided demo (8--12 min)}
+\begin{workedexample}[A 2-minute design talk (read or adapt)]
+\enquote{This is Maze Muncher. You eat all the dots without being caught. [Play 20 seconds.] \textbf{Problem:} my first ghost moved randomly, and it was too easy. \textbf{Choice:} I made a Chaser class that \emph{is a} Ghost, so it shares the drawing and position code, but its move method uses breadth-first search with a queue to find the shortest path to the player. \textbf{Why:} inheritance meant I only wrote the new part, and BFS always finds the shortest path. I have 7 tests, one checks the Chaser goes round a wall. \textbf{Change:} the Chaser is now too clever -- next time it would only chase every other turn. [Show \texttt{git log}.] My history has 12 commits. Questions?}
+\end{workedexample}
+
+\section{Hands-on build (12--34 min)}
+\begin{unplugged}[Gallery walk (6 min)]
+Everyone walks around the stations and tries each project. On a feedback card per project, write \textbf{one star} (something specific you liked) and \textbf{one wish} (a specific idea), and leave it face down by the Mac. Parents and guests can join. No phones or cameras pointed at screens.
+\end{unplugged}
+
+\begin{pairroles}[Presenter, timekeeper and questioner]
+Each student gives a 2-minute talk at their own Mac. One listener is the \textbf{timekeeper} (shows a hand at 1:30, stops at 2:00); another is the \textbf{questioner} (asks one question starting with \enquote{Why did you...?}). Rotate roles after each talk. With 1 student: you are timekeeper and questioner, and invite a family member as audience. With 2: swap roles. With 3 or 4: rotate around the circle.
+\end{pairroles}
+
+\begin{freebuild}[Celebration play]
+Any spare minute before the assessment: play each other's projects freely. Owners may make one last commit (\texttt{Polish for showcase}).
+\end{freebuild}
+
+\section{Wrap-up (34--60 min)}
+\textbf{Exit assessment (34--54).} Give out the \textbf{Exit assessment in the Assessments booklet}. Students work alone and quietly, with Thonny open if the paper says so. Read the instructions aloud; then you may read any question aloud on request, but do not hint. Mark it later with the answer key.
+
+\textbf{Certificates and next steps (54--60).} Hand out the certificates one by one with a specific sentence each (\enquote{Sam, your Chaser class used inheritance really well}).
+
+\begin{safety}[Showcase safety and next steps online]
+Say: \enquote{Your project is yours to keep. If you want to share it: share with family, or post only with a parent, never with your real name, school, face or location in the project or the account. If you join a coding community, choose one with a parent: look for clear rules, moderators and a code of conduct, and use a nickname. Never move to private chats with strangers, never send photos, and tell an adult if anything feels wrong.} Point to the \enquote{keep coding} menu in homework 12 for what to learn next.
+\end{safety}
+
+\begin{formativecheck}[What to look for today]
+\textbf{Look for:} each talk names one design decision \emph{and} a reason; feedback cards are specific (\enquote{the score text was easy to read}, not just \enquote{cool}). The exit assessment is the summative check -- use its rubric in the answer key.
+\textbf{Quick question at the door:} \enquote{Name one thing you would build next.} Any honest answer counts.
+\end{formativecheck}
+
+\begin{reflection}
+Read your feedback cards: which star made you proudest? Look at your first Level 3 program and your project: what changed in how you work? What is the next thing you want to learn?
+\end{reflection}
+
+Hand out homework 12 (reflection letter + \enquote{keep coding} menu).
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Talk is a feature list} (\enquote{it has this, and this...}). Prompt: \enquote{Pick one thing and tell us \emph{why}.}
+  \item \textbf{Live demo crashes}: normal! Say \enquote{that is a bug for the next version} and let them show the code or tests instead.
+  \item \textbf{Vague feedback} (\enquote{nice}). Ask the writer: \enquote{What exactly made it nice?}
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Students who are anxious may present sitting down, to you only, or use the talk card from homework 11 as a script. A finished smaller version is a full success.
+\extensionpath Ask strong students to explain their algorithm on paper (e.g. draw the BFS queue step by step) or to answer a \enquote{what would you change for 100 players?} question.
+\end{differentiation}
+
+\begin{stretchchallenge}[Version 2 plan]
+Write three new issues for your project, each as a git-style task (\enquote{Add a level editor}, \enquote{Test the save file}) and order them by importance -- your roadmap for after the course.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Give the exit assessment first (it needs 20 calm minutes), then do talks without the gallery walk. Or run the exit assessment in a separate short session that week. Never skip the certificates.
+\end{teachernote}

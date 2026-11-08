@@ -1,0 +1,48 @@
+% Level 3, Week 4 answers -- Searching and How Fast Is Fast?
+\answersweek{4}{Searching and How Fast Is Fast?}{Answers for workbook chapter 4 and homework 4.}
+
+\section{Workbook exercises}
+\subsection{Exercise 4.1: Search Race}
+\pyfile{../excercises/week04/ex-search-race/solution.py}
+\begin{answer}[Exercise 4.1: Search Race]
+\textbf{Prediction:} 10000 items need 14 binary steps (the program prints 10, 100, 1000, 10000 linear steps and 4, 7, 10, 14 binary steps).\\
+\textbf{What to look for:} \texttt{steps} goes up once per loop, before the comparison; \texttt{//} for \texttt{mid}; \texttt{mid + 1} and \texttt{mid - 1}.
+A version that counts two comparisons per loop gives bigger step numbers and may fail the \enquote{10 steps for 1000 items} check; explain that we count one \enquote{look} per loop.
+\end{answer}
+
+\subsection{Exercise 4.2: Guess-the-Number Bot}
+\pyfile{../excercises/week04/ex-guess-bot/solution.py}
+\begin{answer}[Exercise 4.2: Guess-the-Number Bot]
+\textbf{What to look for:} \texttt{next\_guess} returns \texttt{(low + high) // 2} (rounding up is also accepted); the bot never needs more than 7 guesses for 1 to 100. Typical games take 5 to 7 guesses; secret 50 takes 1.
+If a student answers wrongly on purpose, \texttt{low} passes \texttt{high} and the bot says the answers do not add up: a nice discussion about input you cannot trust.
+\end{answer}
+
+\section{Homework}
+\subsection{Core: Growth Table}
+\pyfile{../excercises/week04/hw-growth-table/solution.py}
+\begin{answer}[Core: Growth Table]
+\begin{outputcode}
+   items |  linear |  binary
+      10 |      10 |       4
+     100 |     100 |       7
+    1000 |    1000 |      10
+ 1000000 | 1000000 |      20
+\end{outputcode}
+Predictions do not need to be right: what matters is that the student noticed the binary column grows by about 3 for each \enquote{times 10}.
+\end{answer}
+
+\begin{answer}[Challenge: Trace it by hand]
+\begin{tabular}{@{}cccccl@{}}
+\toprule
+step & low & high & mid & items[mid] & so\ldots \\ \midrule
+1 & 0 & 6 & 3 & 7 & too small: low = 4 \\
+2 & 4 & 6 & 5 & 11 & too big: high = 4 \\
+3 & 4 & 4 & 4 & 9 & found at index 4 \\
+\bottomrule
+\end{tabular}\\[4pt]
+3 steps with binary search; linear search would take 5.
+\end{answer}
+
+\begin{answer}[Creative: Draw the race]
+Any chart where the pairs of bars are labelled with the real numbers. Good ideas: a broken bar with a zig-zag, a different scale for each pair (clearly labelled), or bars for binary only next to written linear numbers. Discuss: a chart can mislead if the scale is hidden.
+\end{answer}

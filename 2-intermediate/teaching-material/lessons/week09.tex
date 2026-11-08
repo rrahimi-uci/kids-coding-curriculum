@@ -1,0 +1,169 @@
+% Level 2, Week 9 -- Event-Driven Games (+ final project kickoff)
+\lesson{9}{Event-Driven Games}{Keys and timers make things happen; a game loop moves the world one frame at a time.}
+\lessoninfo{Concepts: onkey and listen (I), ontimer game loop (I), game state in a dictionary (I), collision with distance (I), lists of turtles (E); final project kickoff}{Tools: Thonny, squared paper, coins}{CSTA: 2-AP-12, 2-AP-16, 2-AP-10}
+
+\begin{objectives}
+  \item The student can connect keys to handler functions with \texttt{onkey} and \texttt{listen}, passing the function without brackets. (L2.G7; L2.W09.1)
+  \item The student can build a game loop with \texttt{ontimer} that moves a list of objects one frame at a time and stops on game over. (L2.G7, L2.G2; L2.W09.2)
+  \item The student can detect a collision with a distance check and keep the game state in a dictionary. (L2.G4, L2.G3; L2.W09.3)
+  \item The student can choose a final-project option and describe its idea, and explain why borrowed images and sounds need a licence and credit. (L2.G8, L2.G9; L2.W09.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 9, homework 9, and the \textbf{Project Brief} (one each). Squared paper, 4 coins and one other small token per pair.
+  \item On each Mac: open \texttt{starter.py} in \texttt{2-intermediate/excercises/week09/ex-etch-a-sketch} (\keys{Cmd}+\keys{O}).
+  \item Prep (10 minutes): run \texttt{solution.py} in \texttt{week09/ex-dodge-meteors} and play once (click the window first, then use the arrows).
+        Then run \texttt{2-intermediate/project/reference/star\_catcher.py}, the Star Catcher example you will show at the kickoff.
+  \item A timer. Today is busy: watch the clock so the project kickoff gets its full 14 minutes.
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--6}{Warm-up}{Unplugged \enquote{Game loop board game}: every clap is one frame.}
+  \timeslot{6--13}{Concept}{Events and handlers (\texttt{onkey}, \texttt{listen}); the timer loop (\texttt{ontimer}); game state; touching = close enough.}
+  \timeslot{13--20}{Guided demo}{Make the Etch-a-Sketch listen; connect one key; show the brackets bug.}
+  \timeslot{20--42}{Hands-on build}{Pairs: 9.1 Etch-a-Sketch, then 9.2 Dodge the Meteors. Swap every 7 minutes. Last 3 minutes: free-build tweaks.}
+  \timeslot{42--60}{Wrap-up}{Exit ticket and attribution talk (4 min), then the \textbf{final project kickoff} (14 min).}
+\end{timeplan}
+
+\section{Warm-up (0--6 min)}
+\begin{unplugged}[Game loop board game]
+Draw a grid 6 squares wide and 8 tall on squared paper. Put the player token on the bottom row and 3--4 coins (meteors) on the top row.
+Roles: the \textbf{clock} claps; the \textbf{player} may say \enquote{left}, \enquote{right} or nothing; the \textbf{computer} does the frame.
+On every clap the computer does exactly three things, in order: (1) move the player if they asked, (2) move every meteor down one square,
+(3) check: a meteor on the player's square means \textbf{game over}; a meteor that falls off the bottom goes back to the top and the player scores 1.
+Play for about 10 claps. Ask: \enquote{What did the computer do on every single clap?} (The same three steps: that is the \textbf{game loop}.)
+With 1 student: you are the clock and the computer. With 3--4: rotate roles after a game over.
+\end{unplugged}
+
+\section{Concept (6--13 min)}
+\begin{teacherscript}[Say]
+\enquote{Until now our programs ran from top to bottom and then finished. Games are different: they \textbf{wait} for things to happen.
+A key press is an \textbf{event}. We write a function for it, called a \textbf{handler}, and tell turtle: when this key is pressed, call this function.
+Turtle also has an alarm clock: \texttt{ontimer} calls a function after some milliseconds. Our game loop does one frame, then sets the alarm again,
+just like the clap in our board game.}
+\end{teacherscript}
+\begin{pycode}
+screen.onkey(go_left, "Left")       # when Left is pressed, call go_left
+screen.listen()                     # start listening for keys
+screen.ontimer(game_loop, 50)       # call game_loop in 50 ms
+\end{pycode}
+\begin{analogy}[The doorbell and the kitchen timer]
+You do not stand by the front door all day checking for visitors: the \textbf{doorbell} calls you. \texttt{onkey} is a doorbell for a key, and the handler
+is you answering the door. But the bell only works if it is switched on: that is \texttt{listen()}. The game loop is a \textbf{kitchen timer}:
+when it rings you do one job (one frame), then you set it again. Forget to set it again and the game freezes after one frame.
+\end{analogy}
+Two more ideas: the game remembers its \textbf{state} (score, running or over) in a dictionary, \py|state = {"score": 0, "running": True}|.
+And two things are \textbf{touching} when the distance between them is small: \py|math.dist((x1, y1), (x2, y2)) < 30|.
+
+\section{Guided demo (13--20 min)}
+\begin{workedexample}[Make the Etch-a-Sketch listen]
+\begin{enumerate}[leftmargin=1.4em]
+  \item In the open \texttt{ex-etch-a-sketch/starter.py}, press \menu{Run}. \textbf{Click the turtle window once} (on a Mac the window must be clicked
+        before it hears keys). Press the Up arrow: nothing happens. Ask: \enquote{Which line is missing?} Point at the \texttt{listen} TODO.
+  \item Type \texttt{screen.listen()} at TODO 1. Run, click the window, press Up: a line! Say: \enquote{The doorbell is switched on.}
+  \item Show the most famous event bug. Change the line to \py|screen.onkey(go_up(), "Up")| and run. The turtle moves once at the start,
+        then Up does nothing. Explain: \enquote{With brackets, Python calls \texttt{go\_up} right now and hands \texttt{onkey} its answer, which is nothing.
+        Without brackets, we hand over the function itself, for turtle to call later.} Remove the brackets again.
+  \item Leave TODO 2--4 (the other arrows, the keys, clear) to the pairs.
+\end{enumerate}
+\end{workedexample}
+The heart of Exercise 9.2, for you (the full program is in the answer key): the two logic functions students finish, and the game loop.
+\pyfile[firstline=37,lastline=46]{../excercises/week09/ex-dodge-meteors/solution.py}
+\pyfile[firstline=87,lastline=101]{../excercises/week09/ex-dodge-meteors/solution.py}
+
+\section{Hands-on build (20--42 min)}
+\begin{pairroles}[Player and programmer]
+Driver types; navigator is the \textbf{player-tester} who plays the game after every run and says what happened. Swap at the 7-minute timer.
+\textbf{1 student:} you are the player-tester. \textbf{2 students:} one pair. \textbf{3 students:} a rotating trio with a \textbf{rules keeper}
+who reads the README steps aloud. \textbf{4 students:} two pairs; at minute 39, swap seats and play the other pair's meteors game.
+\end{pairroles}
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Exercise 9.1 Etch-a-Sketch} (about 8 minutes): TODO 2--4, then \texttt{check\_my\_work.py}.
+  \item \textbf{Exercise 9.2 Dodge the Meteors} (\texttt{week09/ex-dodge-meteors}, about 11 minutes): \texttt{move\_player()} uses \texttt{clamp()} from
+        last week, \texttt{is\_touching()} uses \texttt{math.dist}, then the keys, then \texttt{ontimer} at the end of \texttt{game\_loop()}.
+        If it is not finished, it can be finished at home or in week 10.
+\end{enumerate}
+
+\begin{bughunt}[The handler that never runs]
+Write on paper and ask \enquote{Why does nothing happen when I press Left?}
+\begin{pycode}
+def go_left():
+    player.setx(player.xcor() - 20)
+
+screen.onkey(go_left(), "Left")
+turtle.done()
+\end{pycode}
+\textbf{Two bugs:} the brackets in \texttt{go\_left()} (the function runs once, now, instead of on each key press), and no \texttt{screen.listen()}.
+And a third one that is not in the code: on a Mac, the turtle window must be \textbf{clicked} before it hears the keyboard.
+Bonus bug: the meteors move once and freeze. Cause: \texttt{game\_loop()} does not call \texttt{screen.ontimer(game\_loop, FRAME\_MS)} again.
+\end{bughunt}
+
+\begin{freebuild}[Tweak the game]
+Last 3 minutes: change the constants at the top of the meteors game and play: \texttt{METEOR\_SPEED}, \texttt{NUMBER\_OF\_METEORS}, \texttt{PLAYER\_STEP},
+the player's shape or the Okabe--Ito colours. Or draw your nickname with the Etch-a-Sketch. Ask: \enquote{Which change made it more fun? Which made it unfair?}
+\end{freebuild}
+
+\section{Wrap-up (42--60 min)}
+\begin{formativecheck}[Exit ticket (2 minutes)]
+Ask each student: \enquote{The meteors moved once and stopped. What is missing?} \textbf{Answer:} the game loop must plan the next frame with
+\texttt{screen.ontimer(game\_loop, FRAME\_MS)} at the end. Second question: \enquote{What is wrong with \py|screen.onkey(jump(), "space")|?}
+\textbf{Answer:} the brackets: write \texttt{jump} without \texttt{()}. \textbf{Look for:} students who cannot answer the first one need the kitchen-timer analogy again.
+\end{formativecheck}
+
+\begin{safety}[Attribution and open licences (2 minutes)]
+Say: \enquote{Your project may want a picture or a sound. Pictures and sounds belong to the person who made them, just like your code belongs to you.
+Some creators share their work with an \textbf{open licence} that says how you may use it. CC0 means anyone may use it. CC BY means you may use it if you
+\textbf{credit} the creator. If there is no licence, do not use it.} Rules for our projects: use turtle's own shapes and your own drawings first; if you
+use something else, a grown-up helps you find it (no accounts, no downloads alone), and you write a credit, for example
+\texttt{\# Star sound by Mei (CC BY)}, in your code and on your game's title screen.
+\end{safety}
+
+\subsection{Final project kickoff (46--60 min)}
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Show Star Catcher (3 minutes).} Run \texttt{2-intermediate/project/reference/star\_catcher.py} and let a student play.
+        Say: \enquote{This uses everything we have learned: functions, a list of falling things, a settings dictionary, a game loop, a high-score file and tests.
+        In three weeks you will have your own.}
+  \item \textbf{Hand out the Project Brief (3 minutes).} Read Step 1 (the two options) and Step 2 (the six must-haves) aloud together.
+  \item \textbf{Choose (3 minutes).} Each student or pair picks \textbf{Option A: Arcade Game} (keys + timer + score) or \textbf{Option B: Art Studio}
+        (generative art that saves and loads designs). Teams: pairs if possible; 1 student works with you as partner; with 3, one trio.
+  \item \textbf{Start Planning page 1, \enquote{My pitch} (4 minutes).} Project name, one sentence, how you play it, what the list, dictionary, file and loop will do.
+  \item \textbf{Explain milestone M1 (1 minute):} the pitch page, Planning page 2 (pseudocode or flowchart) and, for pairs, Planning page 3 (task split)
+        are due at the start of week 10. They are part of homework 9.
+\end{enumerate}
+
+\begin{reflection}[Say it or write it]
+\begin{itemize}[leftmargin=1.2em]
+  \item What is an event? Name two events in a game you like.
+  \item What does the game loop do on every frame?
+  \item Which option did you choose for your project, and why?
+\end{itemize}
+\end{reflection}
+Hand out homework 9 (Stamp Studio + the project pitch).
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Brackets after the handler}: \texttt{onkey(go\_left(), "Left")}. Hand over the function name only.
+  \item \textbf{No \texttt{listen()}}, or not clicking the window on a Mac. Keys do nothing, and there is no error message.
+  \item \textbf{Key names}: they are case-sensitive and exact: \texttt{"Left"}, \texttt{"Up"}, \texttt{"space"}, \texttt{"a"}.
+  \item \textbf{Using a \texttt{while True} loop for the game}: it freezes the turtle window, because turtle never gets a chance to check the keys. Use \texttt{ontimer}.
+  \item \textbf{Forgetting to reschedule} the loop, or rescheduling it twice (the game speeds up and goes wild). Exactly one \texttt{ontimer} per frame.
+  \item \textbf{Touching that never triggers}: the distance limit is too small for the shapes, or \texttt{is\_touching()} uses \texttt{>} instead of \texttt{<}.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 9.1 only, together, and play the finished meteors game (\texttt{solution.py}) to talk about which parts are logic and which are drawing.
+Write TODO 1 of 9.2 (\texttt{move\_player()}) on paper first: \enquote{from x=265, one step right: where do you end up?}
+\extensionpath In 9.2, make the meteors speed up every 5 points (store the speed in \texttt{state}), add 3 lives, or save the high score in a file (week 7).
+In 9.1, add keys \texttt{w}/\texttt{s} for a thicker or thinner pen.
+\end{differentiation}
+
+\begin{stretchchallenge}[Stars to catch]
+Add a second list, \texttt{stars}, of small yellow turtles with the \texttt{"triangle"} shape. Catching a star (touching it) gives 5 points and sends it back to
+the top; letting it fall costs nothing. Now the player has a choice: chase stars or stay safe. (This is the heart of Star Catcher.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Never cut the project kickoff: the next three weeks depend on it. Cut the warm-up to three claps, and do only 9.1 in class plus a quick play of the
+meteors \texttt{solution.py}; Exercise 9.2 can be finished at the start of week 10 as a starting point for arcade projects.
+\end{teachernote}

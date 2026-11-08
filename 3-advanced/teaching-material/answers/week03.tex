@@ -1,0 +1,46 @@
+% Level 3, Week 3 answers -- Families of Objects
+\answersweek{3}{Families of Objects}{Answers for workbook chapter 3 and homework 3.}
+
+\section{Workbook exercises}
+\subsection{Exercise 3.1: Enemy Family}
+\pyfile{../excercises/week03/ex-enemy-family/solution.py}
+\begin{answer}[Exercise 3.1: Enemy Family]
+\textbf{Prediction:} after 3 moves the Zigzagger is at (3, 1): x goes 1, 2, 3 and y goes 1, 0, 1.\\
+\textbf{What to look for:} \texttt{Zigzagger.move} calls \texttt{super().move()} (copying the two lines from \texttt{Enemy.move} also passes, but praise reuse).
+\texttt{Sprinter.\_\_init\_\_} calls \texttt{super().\_\_init\_\_(name, x, y)} \emph{before} or after setting \texttt{speed}; both are fine.
+\end{answer}
+
+\subsection{Exercise 3.2: Shape Family}
+\pyfile{../excercises/week03/ex-shape-family/solution.py}
+\begin{answer}[Exercise 3.2: Shape Family]
+\textbf{What to look for:} each child overrides \texttt{draw} and starts with \texttt{self.start(t)}; the triangle and star end where they started.
+\texttt{Polygon} keeps its extra attribute \texttt{sides} and calls \texttt{super().\_\_init\_\_(x, y, size, colour)}. The picture is a 4 by 3 grid; each kind of shape also has its own outline, so it can be told apart without colour.
+\end{answer}
+
+\subsection{Exercise 3.3: Game Roster}
+\pyfile{../excercises/week03/ex-game-roster/solution.py}
+\begin{answer}[Exercise 3.3: Game Roster]
+\textbf{What to look for:} \texttt{add\_player} \emph{returns} the new \texttt{Player}; \texttt{give\_points} reuses \texttt{find}; \texttt{leader} returns \texttt{None} for an empty game.
+Using \texttt{max(self.players, key=...)} is fine for students who know it (sorting keys come in week 5).
+\end{answer}
+
+\section{Homework}
+\subsection{Core: Hero Party}
+\pyfile{../excercises/week03/hw-hero-party/solution.py}
+\begin{answer}[Core: Hero Party]
+\textbf{Is a / has a:} a Healer \emph{is a} Hero; a Party \emph{has} Heroes; a Builder \emph{is a} Hero.\\
+Expected output: \enquote{Amara heals the team.}, \enquote{Kenji builds a bridge.}, \enquote{Sofia maps the cave.}, \enquote{Ravi cheers the team on.}
+\end{answer}
+
+\begin{answer}[Challenge: Predict the output]
+\begin{outputcode}
+Olu says hoo
+Fen makes a sound
+Ash makes a sound
+\end{outputcode}
+The Owl overrides \texttt{speak}. The Fox has no \texttt{speak} of its own, so it inherits \texttt{Animal.speak}.
+\end{answer}
+
+\begin{answer}[Creative: Your own hero]
+\textbf{Good looks like:} \texttt{class Musician(Hero):} with \texttt{super().\_\_init\_\_(name, "music")} and an \texttt{action} that returns a sentence using \texttt{self.name}; two new objects added with \texttt{party.add(...)}. Celebrate names and drawings that show a variety of people.
+\end{answer}

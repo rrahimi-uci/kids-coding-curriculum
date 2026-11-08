@@ -1,0 +1,149 @@
+% Level 1, Week 3 -- workbook chapter
+\chapterweek{3}{When This Happens\ldots}{Events start code; conditionals choose what happens.}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item How \textbf{events} (like a key press or a click) start your scripts.
+  \item How \textbf{if} and \textbf{if-else} let a sprite choose what to do.
+  \item Why an \textbf{if} needs a \textbf{forever} loop to keep checking.
+  \item How to give kind feedback: \textbf{two stars and a wish}.
+\end{itemize}
+
+\section{The big idea}
+\textbf{Events are doorbells.} A script that starts with a yellow \menu{Events} hat block waits quietly. When its doorbell rings (the flag is clicked, a key is pressed, the sprite is clicked), it runs.
+
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\end{scratch}\hspace{0.6cm}
+\begin{scratch}[scale=0.8]
+\blockinit{when \selectmenu{space} key pressed}
+\end{scratch}\hspace{0.6cm}
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\end{scratch}
+\end{center}
+
+\textbf{Conditionals ask a yes/no question.} An \textbf{if} block runs the blocks inside it only when the answer is \enquote{yes}. An \textbf{if-else} block has two mouths: \enquote{yes} blocks and \enquote{no} blocks. Exactly one of them runs.
+
+\textbf{Keep checking!} An \textbf{if} checks only once, when it runs. To keep watching, put it inside \textbf{forever}, like a goalkeeper who never stops watching the ball.
+
+\begin{center}
+\begin{tikzpicture}[node distance=0.9cm and 1.3cm,
+  box/.style={draw,rounded corners=3pt,thick,align=center,font=\small,inner sep=5pt,minimum height=0.9cm},
+  q/.style={draw,diamond,aspect=2.4,thick,align=center,font=\small,inner sep=1pt,fill=kcsky!20},
+  >={Stealth}]
+  \node[box,fill=kcyellow!40] (start) {when green flag clicked};
+  \node[q,below=of start] (ask) {touching\\mouse-pointer?};
+  \node[box,fill=kcgreen!20,below left=0.8cm and 0.2cm of ask] (yes) {set size to 150 \%\\say \enquote{Boo!}};
+  \node[box,fill=kcorange!20,below right=0.8cm and 0.2cm of ask] (no) {set size to 100 \%\\say nothing};
+  \draw[->,thick] (start) -- (ask);
+  \draw[->,thick] (ask.west) -| node[pos=0.25,above,font=\small\bfseries]{yes} (yes.north);
+  \draw[->,thick] (ask.east) -| node[pos=0.25,above,font=\small\bfseries]{no} (no.north);
+  \coordinate (bottom) at ($(yes.south)!0.5!(no.south)+(0,-0.6)$);
+  \draw[thick] (yes.south) |- (bottom) -| (no.south);
+  \draw[->,thick,kcblue] (bottom) -- ++(4.2,0) |- node[pos=0.25,right,font=\small\bfseries,align=left]{forever:\\check\\again} ($(start.south)!0.5!(ask.north)$);
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Arrow-Key Explorer]
+Make a sprite move with the arrow keys. Each key is its own doorbell.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item New project. From \menu{Events}, drag four \enquote{when space key pressed} blocks. Click each dropdown and choose \textbf{right arrow}, \textbf{left arrow}, \textbf{up arrow} and \textbf{down arrow}.
+  \item Under each, snap a \menu{Motion} block: \enquote{change x by 10} (right), \enquote{change x by $-10$} (left), \enquote{change y by 10} (up), \enquote{change y by $-10$} (down).
+  \item Click the stage once, then press the arrow keys. Save as \texttt{explorer}: you need it for 3.3!
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.78]
+\blockinit{when \selectmenu{right arrow} key pressed}
+\blockmove{change x by \ovalnum{10}}
+\end{scratch}\hspace{0.4cm}
+\begin{scratch}[scale=0.78]
+\blockinit{when \selectmenu{left arrow} key pressed}
+\blockmove{change x by \ovalnum{-10}}
+\end{scratch}\hspace{0.4cm}
+\begin{scratch}[scale=0.78]
+\blockinit{when \selectmenu{up arrow} key pressed}
+\blockmove{change y by \ovalnum{10}}
+\end{scratch}
+
+\medskip
+\begin{scratch}[scale=0.78]
+\blockinit{when \selectmenu{down arrow} key pressed}
+\blockmove{change y by \ovalnum{-10}}
+\end{scratch}
+\end{center}
+\textbf{x} is left and right. \textbf{y} is up and down. Which key makes y bigger? \rule{3cm}{0.4pt}
+\end{exercise}
+
+\begin{exercise}[Tickle the Ghost]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item New project. Delete the cat (right-click $\rightarrow$ \menu{delete}). \menu{Choose a Sprite}: pick \textbf{Ghost}.
+  \item Build the script. The pointy \enquote{touching mouse-pointer?} block is in \menu{Sensing}. For the last \enquote{say}, delete the text so the box is empty.
+  \item Click the flag, then move your mouse over the ghost and away again.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85,else word=else]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockifelse{if \boolsensing{touching \ovalsensing*{mouse-pointer} ?} then}
+    {\blocklook{set size to \ovalnum{150} \%}
+     \blocklook{say \ovalnum{Boo! That tickles!}}}
+    {\blocklook{set size to \ovalnum{100} \%}
+     \blocklook{say \ovalnum{\ \ \ }}}
+}
+\end{scratch}
+\end{center}
+Predict first: what will happen if you take away the \enquote{forever}? \answerlines{1}
+\end{exercise}
+
+\begin{exercise}[Treasure Hunt]
+Steer your explorer to the treasure!
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open your \texttt{explorer} project (\menu{File} $\rightarrow$ \menu{Load from your computer}).
+  \item \menu{Choose a Sprite}: add a \textbf{Star}. Give the star this script so it waits in the top-right corner and spins:
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{180} y: \ovalnum{120}}
+\blockinfloop{forever}{
+  \blockmove{turn \turnright{} \ovalnum{5} degrees}
+}
+\end{scratch}
+\hspace{1cm}
+\begin{minipage}[t]{0.5\linewidth}
+\textbf{Bug hunt!} Sam gave the explorer this script:\\[3pt]
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{-180} y: \ovalnum{-120}}
+\blockif{if \boolsensing{touching \ovalsensing*{Star} ?} then}{
+  \blocklook{say \ovalnum{Treasure found!} for \ovalnum{2} seconds}
+  \blockmove{go to x: \ovalnum{-180} y: \ovalnum{-120}}
+}
+\end{scratch}
+\end{minipage}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,start=3]
+  \item Click your explorer sprite and build Sam's script. Click the flag and steer onto the star. What happens? \answerlines{1}
+  \item Why? Fix it! (Remember the goalkeeper.) \answerlines{1}
+\end{enumerate}
+\textbf{Done when:} every time the explorer touches the star, it says \enquote{Treasure found!} and goes back to the start.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{event}{Something that happens (a click, a key press) that starts a script.}
+  \vocabword{condition}{A yes/no question, like \enquote{touching edge?}.}
+  \vocabword{if}{Runs the blocks inside only when the condition is yes.}
+  \vocabword{if-else}{Runs one set of blocks for yes and another for no.}
+  \vocabword{sensing}{Blocks that let a sprite notice things: touching, keys, the mouse.}
+  \vocabword{feedback}{Comments that help someone improve their work.}
+\end{vocab}
+
+\begin{reflection}[Two stars and a wish]
+Show your project to a partner. Write what they said.\\[4pt]
+\faStar\ Star 1: \answerlines{1}
+\faStar\ Star 2: \answerlines{1}
+Wish (an idea to make it better): \answerlines{1}
+What is the difference between \enquote{when space key pressed} and \enquote{if touching\ldots}? \answerlines{2}
+\end{reflection}

@@ -1,0 +1,109 @@
+% Level 3, Week 5 -- Sorting, Stacks and Queues (student workbook)
+\chapterweek{5}{Sorting, Stacks and Queues}{Sorting puts data in order; a stack remembers what to undo; a queue makes sure everyone gets a turn.}
+
+\section{What you will learn}
+\begin{checklist}
+  \item Sort a list with bubble sort and selection sort, and count the swaps.
+  \item Sort a leaderboard with \texttt{sorted(key=..., reverse=True)}.
+  \item Use a stack to undo, and a queue to take turns.
+\end{checklist}
+
+\section{Two ways to sort}
+\textbf{Selection sort:} find the smallest item and swap it to the front. Then find the smallest of the rest and swap it into second place. Repeat.\\
+\textbf{Bubble sort:} walk along the list comparing neighbours. If the left one is bigger, swap them. After each pass the biggest item has \enquote{bubbled} to the end.
+
+\begin{center}
+\begin{tikzpicture}[card/.style={draw=black,line width=0.8pt,rounded corners=2pt,minimum width=0.8cm,minimum height=0.9cm,font=\small\bfseries}]
+  \foreach \row/\a/\b/\c/\d/\note/\done in {
+      0/5/2/4/1/{start}/0,
+      1/2/4/1/5/{after pass 1: 5 is in place}/1,
+      2/2/1/4/5/{after pass 2: 4 is in place}/2,
+      3/1/2/4/5/{after pass 3: sorted!}/4}{
+    \foreach \v [count=\k from 0] in {\a,\b,\c,\d}{
+      \pgfmathtruncatemacro{\placed}{\k >= 4-\done ? 1 : 0}
+      \ifnum\placed=1
+        \node[card,fill=kcgreen!35,line width=1.8pt] at (\k*1.0,-1.15*\row) {\v};
+      \else
+        \node[card,fill=white] at (\k*1.0,-1.15*\row) {\v};
+      \fi
+    }
+    \node[anchor=west,font=\small] at (3.8,-1.15*\row) {\note};
+  }
+  \node[anchor=west,font=\small] at (3.8,0.8) {green, thick border = in its final place};
+\end{tikzpicture}
+\end{center}
+
+\section{Python's own sort}
+Python can sort for you. The \textbf{key} is a function that says \emph{what to sort by}:
+\begin{pycode}
+scores = [("Ada", 120), ("Leo", 95), ("Mei", 150)]
+
+def points_of(entry):
+    return entry[1]                  # sort by the number
+
+best_first = sorted(scores, key=points_of, reverse=True)
+print(best_first)   # [('Mei', 150), ('Ada', 120), ('Leo', 95)]
+\end{pycode}
+\texttt{sorted} makes a \textbf{new} list and leaves the old one alone.
+
+\section{Stacks and queues}
+\begin{center}
+\begin{tikzpicture}[item/.style={draw=black,line width=0.8pt,minimum width=2.2cm,minimum height=0.6cm,font=\small},
+                    q/.style={draw=black,line width=0.8pt,rounded corners=4pt,minimum width=1.15cm,minimum height=0.8cm,font=\small}]
+  % stack
+  \node[item,fill=kcsky!25] at (0,0) {stroke 1};
+  \node[item,fill=kcsky!25] at (0,0.6) {stroke 2};
+  \node[item,fill=kcorange!40,line width=1.4pt] at (0,1.2) {stroke 3 (top)};
+  \draw[line width=1pt] (-1.25,1.6) -- (-1.25,-0.35) -- (1.25,-0.35) -- (1.25,1.6);
+  \draw[-{Stealth[length=3mm]},line width=1pt] (2.0,2.3) -- node[right,font=\small]{push} (0.8,1.65);
+  \draw[-{Stealth[length=3mm]},line width=1pt] (-0.8,1.65) -- node[left,font=\small]{pop} (-2.0,2.3);
+  \node[font=\small\bfseries] at (0,-0.9) {Stack: last in, first out};
+  % queue
+  \foreach \n/\x in {Priya/6, Sam/7.3, Kai/8.6, Zoe/9.9}{\node[q,fill=kcyellow!40] at (\x,0.6) {\n};}
+  \draw[-{Stealth[length=3mm]},line width=1pt] (5.4,0.6) -- (4.4,0.6) node[left,font=\small,align=center]{leaves\\(popleft)};
+  \draw[-{Stealth[length=3mm]},line width=1pt] (11.6,0.6) -- (10.6,0.6);
+  \node[font=\small,align=center] at (11.6,1.35) {joins\\(append)};
+  \node[font=\small] at (5.9,1.35) {front};
+  \node[font=\small\bfseries] at (7.8,-0.9) {Queue: first in, first out};
+\end{tikzpicture}
+\end{center}
+A \textbf{stack} is like a pile of plates: you can only take the top one. \enquote{Undo} uses a stack: the last thing you did is the first thing undone. A \textbf{queue} is like a lunch line: join at the back, leave from the front. In Python, \texttt{collections.deque} is a fast queue.
+
+\begin{exercise}[Sort Race]
+Folder: \texttt{week05/ex-sort-race}. \texttt{selection\_sort} is done. Finish the swap inside \texttt{bubble\_sort}:
+\begin{pycode}
+if result[i] > result[i + 1]:
+    # swap both at once:
+    result[i], result[i + 1] = result[i + 1], result[i]
+    swaps = swaps + 1
+\end{pycode}
+Swaps for the 8 cards: selection \rule{1.5cm}{0.4pt}\quad bubble \rule{1.5cm}{0.4pt}
+\end{exercise}
+
+\begin{exercise}[Leaderboard]
+Folder: \texttt{week05/ex-leaderboard}. Finish \texttt{name\_of} (sort A to Z, ignoring capitals), \texttt{top\_scores} and the fair tie rule in \texttt{rank\_lines}: equal points share a place, so the board reads 1, 2, 3, 3, 5.
+\end{exercise}
+
+\begin{exercise}[Undo Paint]
+Folder: \texttt{week05/ex-undo-paint}. Finish the \texttt{Stack} class: \texttt{push}, \texttt{pop}, \texttt{peek} and \texttt{size}. Then run it, click the window, draw with the arrow keys and press \texttt{u} to undo. Each stroke is one item on the stack.
+\end{exercise}
+
+\begin{tip}[Kind leaderboards]
+A good leaderboard uses nicknames, lets ties share a place, and celebrates personal bests and \enquote{most improved}, not only the winner.
+\end{tip}
+
+\begin{vocab}
+  \vocabword{sort}{Put items in order, for example smallest to largest.}
+  \vocabword{swap}{Two items change places.}
+  \vocabword{key function}{A function that tells \texttt{sorted} what to sort by.}
+  \vocabword{stack}{A collection where the last item in is the first out (push and pop).}
+  \vocabword{queue}{A collection where the first item in is the first out (join at the back, leave at the front).}
+  \vocabword{deque}{Python's fast queue, from \texttt{collections}. Say \enquote{deck}.}
+\end{vocab}
+
+\begin{reflection}
+Where do you see a stack and a queue in real life or in apps you use?
+\answerlines{2}
+Why is \enquote{undo} a stack and not a queue?
+\answerlines{1}
+\end{reflection}
