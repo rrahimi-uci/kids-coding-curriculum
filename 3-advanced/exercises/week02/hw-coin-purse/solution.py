@@ -4,11 +4,11 @@ What the program does: it models a player's purse of game coins. The player can 
 and spend coins in a small shop, but the purse refuses to spend more than it has, so the
 number of coins can never go below zero.
 
-Key ideas practiced: a class that "protects" its own data, `if` checks inside methods, a
+Key ideas practiced: a class that "protects" its own data, if checks inside methods, a
 method that calls another method, and returning True or False to report success.
 
-Approach: `can_afford` answers the yes/no question. `spend` asks `can_afford` first and only
-then changes `self.coins`, so the check and the payment can never disagree.
+Approach: can_afford answers the yes/no question. spend asks can_afford first and only
+then changes self.coins, so the check and the payment can never disagree.
 """
 
 SHOP = {"potion": 5, "shield": 12, "map": 3}
@@ -57,10 +57,10 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Using `>` in can_afford, so a purse with exactly 10 coins cannot buy a price-10 item.
+# - Using > in can_afford, so a purse with exactly 10 coins cannot buy a price-10 item.
 # - Taking the coins away BEFORE checking, so the purse can go below zero.
-# - Forgetting `return True` after paying, so spend returns None (the test wants True).
-# - Writing `self.coins + amount` without `self.coins =` in front, so nothing changes.
+# - Forgetting return True after paying, so spend returns None (the test wants True).
+# - Writing self.coins + amount without self.coins = in front, so nothing changes.
 #
 # Another correct way for spend (check first, leave early):
 #     if price > self.coins:

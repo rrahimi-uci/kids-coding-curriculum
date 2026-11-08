@@ -29,7 +29,7 @@ BIASED_TRAINING = [
 ]
 
 
-# ---------------------------------------------------------------- the classifier (from 9.1)
+# ---------------------- the classifier (from 9.1)
 def distance(a, b):
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
@@ -43,7 +43,7 @@ def classify(training, mystery):
     return best[2]
 
 
-# ---------------------------------------------------------------- testing the classifier
+# ------------------------- testing the classifier
 def label_counts(cards):
     """How many cards have each label, e.g. {"friendly": 8, "grumpy": 8}."""
     counts = {}

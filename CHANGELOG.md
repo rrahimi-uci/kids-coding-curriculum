@@ -5,10 +5,10 @@ Dates are in ISO format.
 
 ## Unreleased
 
-Teacher answer files (not published on the website).
+Teacher answer files (kept in the course folder, never published on this website).
 
-- Every Scratch and Terminal exercise now has a teacher reference `solution.md` (finished script block by block, expected result, bug-hunt answers, talking points, common mistakes, check-off list).
-- All 81 Python `solution.py` files were reviewed and rewritten as commented teacher references (what it does, why each step, common mistakes, another correct way); new repository tests enforce this.
+- Every Scratch and Terminal exercise now has a teacher reference answer: the finished script block by block, what you should see, bug-hunt answers, talking points, common mistakes and a check-off list.
+- Every Python reference answer was reviewed and rewritten with comments a parent can follow (what it does, why each step, common mistakes, another correct way); new repository tests keep it that way.
 
 ## 1.1.0 - 2026-11-08
 

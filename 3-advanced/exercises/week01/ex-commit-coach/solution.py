@@ -5,12 +5,12 @@ save a version of your project) and tells the child if the note is helpful. It c
 a message from a verb and a thing, and it can spot lines of code that hold a secret such as a
 password, so the child learns not to save secrets in git.
 
-Key ideas practiced: functions that `return` a value, `if` checks, lists, `for` loops, and
-text tools like `strip()`, `lower()`, `split()` and `capitalize()`.
+Key ideas practiced: functions that return a value, if checks, lists, for loops, and
+text tools like strip(), lower(), split() and capitalize().
 
-Approach: `is_good_message` turns each rule into one early `return False`; if no rule
-catches the message, it is good. `find_secrets` loops over every line and over every secret
-word, using `break` so a line is only added once.
+Approach: is_good_message turns each rule into one early return False; if no rule
+catches the message, it is good. find_secrets loops over every line and over every secret
+word, using break so a line is only added once.
 """
 
 # Messages that do not tell future-you anything useful.
@@ -88,12 +88,12 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Forgetting `.lower()` in find_secrets, so "API_KEY" is missed (the test hints at this).
-# - Checking `word in line` for the wrong direction, or appending the line once per
-#   matching word (without `break`) so a line shows up twice.
-# - Using `print` instead of `return`: the function shows text but gives nothing back, so
-#   the tests (and coach_tip) see `None`.
-# - Forgetting that `len(text)` must be checked on the stripped text, not the raw message.
+# - Forgetting .lower() in find_secrets, so "API_KEY" is missed (the test hints at this).
+# - Checking word in line for the wrong direction, or appending the line once per
+#   matching word (without break) so a line shows up twice.
+# - Using print instead of return: the function shows text but gives nothing back, so
+#   the tests (and coach_tip) see None.
+# - Forgetting that len(text) must be checked on the stripped text, not the raw message.
 #
 # Another correct way for find_secrets, using any() instead of an inner loop:
 #     for line in lines:

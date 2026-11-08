@@ -4,11 +4,11 @@ What the program does: it opens a black window and paints 40 colorful bubbles in
 places. Every bubble has a little white shine. Small bubbles are grown a bit, and all bubbles
 float up a little before they are painted.
 
-Key ideas practiced: a class as a blueprint, `__init__` and `self`, methods that change an
+Key ideas practiced: a class as a blueprint, __init__ and self, methods that change an
 object's own numbers, and a loop that makes many objects and keeps them in a list.
 
-Approach: a `Bubble` remembers its own x, y, size and color. Its methods (`grow`, `move`,
-`draw`) only touch `self`, so every bubble is independent. `make_bubbles` creates the objects
+Approach: a Bubble remembers its own x, y, size and color. Its methods (grow, move,
+draw) only touch self, so every bubble is independent. make_bubbles creates the objects
 in a loop with random values and collects them in a list.
 """
 
@@ -89,12 +89,12 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Writing `size = size` or `x = x` in __init__ (no `self.`): the value is thrown away and
-#   the bubble forgets it, so `b.size` fails.
-# - Writing `size + amount` in grow without assigning it back to `self.size`.
+# - Writing size = size or x = x in __init__ (no self.): the value is thrown away and
+#   the bubble forgets it, so b.size fails.
+# - Writing size + amount in grow without assigning it back to self.size.
 # - Using one Bubble outside the loop and appending it 40 times: all 40 list items are the
 #   same bubble. Make the Bubble INSIDE the loop.
-# - Forgetting `t.penup()` so lines are drawn between bubbles (already done in the starter).
+# - Forgetting t.penup() so lines are drawn between bubbles (already done in the starter).
 #
 # Another correct way for make_bubbles (a list comprehension):
 #     return [Bubble(random.randint(-300, 300), random.randint(-200, 200),

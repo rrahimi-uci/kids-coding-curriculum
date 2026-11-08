@@ -6,11 +6,11 @@ counts the steps each way needs. It prints a table that shows binary search winn
 more as the list gets bigger.
 
 Key ideas practiced: counting steps to compare two algorithms, the binary search loop with
-`low`, `high` and `mid`, and why a list must be sorted for binary search.
+low, high and mid, and why a list must be sorted for binary search.
 
-Approach: `low` and `high` mark the part of the list that could still hold the target. Each
+Approach: low and high mark the part of the list that could still hold the target. Each
 step looks at the middle item. If it is too small, everything to its left is too small as
-well, so `low` jumps past the middle; if it is too big, `high` jumps below it.
+well, so low jumps past the middle; if it is too big, high jumps below it.
 """
 
 
@@ -66,11 +66,11 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Writing `low = mid` or `high = mid` (without + 1 or - 1): the range may stop shrinking
+# - Writing low = mid or high = mid (without + 1 or - 1): the range may stop shrinking
 #   and the loop runs forever.
-# - Using `while low < high`, which skips the last remaining item, so some numbers (and
+# - Using while low < high, which skips the last remaining item, so some numbers (and
 #   the missing-item checks) go wrong.
-# - Forgetting to count the step, or counting it after the `return`.
+# - Forgetting to count the step, or counting it after the return.
 # - Trying binary search on an unsorted list: "bigger or smaller" no longer says which half.
 #
 # Another correct way: Python's bisect module does the halving for you (no step counter):

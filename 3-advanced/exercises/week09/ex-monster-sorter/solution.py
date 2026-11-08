@@ -53,7 +53,7 @@ def classify(training, mystery):
     return nearest(training, mystery)[2]  # index 2 is the label
 
 
-# ---------------------------------------------------------------- drawing
+# ---------------------------------------- drawing
 # Everything below is given code that draws the chart. It is not part of
 # the exercise. Each card shows a LETTER and a SHAPE (F circle, G square),
 # so the chart can be read without telling colors apart.

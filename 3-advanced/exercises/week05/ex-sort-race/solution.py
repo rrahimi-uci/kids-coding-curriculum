@@ -6,11 +6,11 @@ needs 5 swaps and bubble sort needs 16, so the child sees that two correct metho
 very different amounts of work.
 
 Key ideas practiced: nested loops, comparing neighbors, swapping two items with one line
-(`a, b = b, a`), copying a list so the original is not changed, and counting work.
+(a, b = b, a), copying a list so the original is not changed, and counting work.
 
 Approach: bubble sort walks along the list and swaps any neighbors that are in the wrong
 order. After the first pass the biggest item has "bubbled" to the end, so each next pass can
-stop one place earlier (`end` shrinks).
+stop one place earlier (end shrinks).
 """
 
 
@@ -59,12 +59,12 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Swapping with two lines (`result[i] = result[i + 1]` then the reverse): the first line
+# - Swapping with two lines (result[i] = result[i + 1] then the reverse): the first line
 #   overwrites a value, so one card is lost and another is doubled (the test warns that both
 #   3s must stay).
-# - Using `>=` so equal neighbors are swapped too, which gives a wrong swap count.
-# - Looping `range(end + 1)`, so `result[i + 1]` goes past the end of the list (IndexError).
-# - Forgetting `swaps = swaps + 1`, or sorting the original list instead of the copy.
+# - Using >= so equal neighbors are swapped too, which gives a wrong swap count.
+# - Looping range(end + 1), so result[i + 1] goes past the end of the list (IndexError).
+# - Forgetting swaps = swaps + 1, or sorting the original list instead of the copy.
 #
 # Another correct way: stop early when a whole pass makes no swap (the list is sorted):
 #     for end in range(len(result) - 1, 0, -1):

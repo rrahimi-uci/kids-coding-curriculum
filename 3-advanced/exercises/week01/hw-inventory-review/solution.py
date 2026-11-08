@@ -4,11 +4,11 @@ What the program does: it treats a game backpack as a list of item names (like
 ["gem", "key", "gem"]) and answers questions about it: how many of one item, what is the most
 common item, and what is left after removing every copy of an item.
 
-Key ideas practiced: functions that `return`, lists, `for` loops, `if` checks, a counter
+Key ideas practiced: functions that return, lists, for loops, if checks, a counter
 variable, and a dictionary that maps a name to a count.
 
-Approach: `count_item` and `remove_all` are one loop each. `most_common` reuses the finished
-`tally` dictionary and keeps the "best so far", the same pattern as finding the highest score.
+Approach: count_item and remove_all are one loop each. most_common reuses the finished
+tally dictionary and keeps the "best so far", the same pattern as finding the highest score.
 """
 
 
@@ -23,7 +23,7 @@ def count_item(items, name):
 
 def remove_all(items, name):
     """Return a NEW list without any copies of name (the old list is not changed)."""
-    # Building a new list (instead of deleting from `items` while looping over it) keeps the
+    # Building a new list (instead of deleting from items while looping over it) keeps the
     # caller's backpack safe and avoids a classic bug where items get skipped.
     kept = []
     for item in items:
@@ -68,11 +68,11 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Using `items.remove(name)` or `del` inside the loop: it changes the original list (a
+# - Using items.remove(name) or del inside the loop: it changes the original list (a
 #   test checks this) and can skip items. Build a new list instead.
-# - Starting `count = 1` or putting `return count` inside the loop, so the answer is wrong
+# - Starting count = 1 or putting return count inside the loop, so the answer is wrong
 #   after the first item.
-# - In most_common, setting `best_count` to the wrong starting value, or using `>=` so the
+# - In most_common, setting best_count to the wrong starting value, or using >= so the
 #   LAST tied item wins, or forgetting to return None for an empty backpack.
 #
 # Another correct way for count_item (lists can count for you):

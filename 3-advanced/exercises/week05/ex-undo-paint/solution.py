@@ -1,14 +1,14 @@
 """TEACHER REFERENCE SOLUTION: Undo Paint
 
 What the program does: a tiny drawing program. The arrow keys draw a short line (a "stroke"),
-`c` changes the color and `u` undoes the last stroke, as many times as you like.
+c changes the color and u undoes the last stroke, as many times as you like.
 
 Key ideas practiced: a stack (last in, first out, like a pile of plates), the four stack
 actions push, pop, peek and size, and why a stack is the natural tool for "undo": the most
 recent thing is always the first to be taken back.
 
-Approach: the `Stack` class wraps a Python list and uses the END of the list as the top. The
-`Painter` (already written) pushes every stroke when it draws. To undo, it pops the last
+Approach: the Stack class wraps a Python list and uses the END of the list as the top. The
+Painter (already written) pushes every stroke when it draws. To undo, it pops the last
 stroke, clears the screen and redraws all strokes that are still on the stack.
 """
 
@@ -157,11 +157,11 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Using `self.items.insert(0, item)` or `self.items[0]`: that treats the FRONT of the list as
+# - Using self.items.insert(0, item) or self.items[0]: that treats the FRONT of the list as
 #   the top, so the oldest stroke is undone first (that is a queue, not a stack).
-# - Forgetting the empty check, so pressing `u` too often crashes with "pop from empty list".
-# - In `peek`, using `self.items.pop()`, which removes the item instead of just looking.
-# - Forgetting `return` in pop, peek or size, so they give back None.
+# - Forgetting the empty check, so pressing u too often crashes with "pop from empty list".
+# - In peek, using self.items.pop(), which removes the item instead of just looking.
+# - Forgetting return in pop, peek or size, so they give back None.
 #
 # Another correct way for pop and peek (a try/except instead of the empty check):
 #     try:

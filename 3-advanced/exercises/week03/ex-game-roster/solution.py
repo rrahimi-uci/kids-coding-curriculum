@@ -1,15 +1,15 @@
 """TEACHER REFERENCE SOLUTION: Game Roster
 
-What the program does: a `Game` keeps a roster (a list) of `Player` objects. It can add a
+What the program does: a Game keeps a roster (a list) of Player objects. It can add a
 player, give points to a player by nickname, tell who is leading and list the players who
 still have lives left.
 
 Key ideas practiced: composition (a Game HAS players, unlike inheritance where something IS
 a parent), a list that holds objects, searching a list, and "best so far" tracking.
 
-Approach: `Player` is already finished. `Game` does not copy any player data; it only keeps
-the Player objects and asks them to do things (`add_points`, `is_out`). `give_points` reuses
-`find`, and `leader` keeps a "best so far" while looping.
+Approach: Player is already finished. Game does not copy any player data; it only keeps
+the Player objects and asks them to do things (add_points, is_out). give_points reuses
+find, and leader keeps a "best so far" while looping.
 """
 
 
@@ -98,12 +98,12 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - In add_player, creating the Player but forgetting `append` (the list stays empty) or
-#   forgetting `return player`.
-# - In leader, starting with `best = 0` and comparing scores to it; then `best` is a number
-#   and `best.nickname` crashes. `best` must be a Player (or None).
+# - In add_player, creating the Player but forgetting append (the list stays empty) or
+#   forgetting return player.
+# - In leader, starting with best = 0 and comparing scores to it; then best is a number
+#   and best.nickname crashes. best must be a Player (or None).
 # - In give_points, not handling a nickname that does not exist.
-# - Writing `player.is_out` without brackets: a method object is always "true", so nobody
+# - Writing player.is_out without brackets: a method object is always "true", so nobody
 #   is ever counted as out.
 #
 # Another correct way for leader (built-in max picks the player with the highest score):

@@ -5,10 +5,10 @@ and for binary search on lists of 10, 100, 1000 and 1000000 items. The child see
 search grows as fast as the list, but binary search barely grows at all (20 steps for a
 million items).
 
-Key ideas practiced: how an algorithm's work grows with the size of the problem, a `while`
+Key ideas practiced: how an algorithm's work grows with the size of the problem, a while
 loop that halves a number, and building a table from a list of rows.
 
-Approach: in the worst case linear search looks at every item, so the answer is `n`. For
+Approach: in the worst case linear search looks at every item, so the answer is n. For
 binary search we count how many times a number can be halved (using whole-number division)
 before it reaches 0. That count is the number of steps binary search needs at most.
 """
@@ -53,10 +53,10 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Writing `while n > 1` or `while n >= 1` instead of `while n > 0`: the count is off by one
+# - Writing while n > 1 or while n >= 1 instead of while n > 0: the count is off by one
 #   (10 should give 4, 1 should give 1).
-# - Forgetting `steps = steps + 1` inside the loop, or putting `return steps` inside it.
-# - Using `/` instead of `//`, which never reaches 0 (the numbers just get smaller forever).
+# - Forgetting steps = steps + 1 inside the loop, or putting return steps inside it.
+# - Using / instead of //, which never reaches 0 (the numbers just get smaller forever).
 # - Thinking the answer for linear search is 1 because "it might be the first item".
 #
 # Another correct way for halving_steps (bit_length counts the binary digits of n):

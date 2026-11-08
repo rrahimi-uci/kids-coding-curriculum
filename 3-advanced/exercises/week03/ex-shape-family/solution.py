@@ -4,11 +4,11 @@ What the program does: it draws a 4 x 3 grid of shapes (squares, triangles, star
 hexagons) in seven colors. Each kind of shape is a different class, but the picture-drawing
 loop treats them all the same.
 
-Key ideas practiced: inheritance, overriding `draw()`, `super().__init__` for a child with
+Key ideas practiced: inheritance, overriding draw(), super().__init__ for a child with
 an extra attribute, turtle angles (a shape closes when the turns add up to a multiple of
 360 degrees), and polymorphism.
 
-Approach: `Shape` stores x, y, size and color and has a helper `start()` that gets the
+Approach: Shape stores x, y, size and color and has a helper start() that gets the
 turtle ready. Square, Triangle and Star differ only in the number of sides and the turn
 angle: 4 x 90, 3 x 120 and 5 x 144 (twice around the circle, which makes the star points).
 """
@@ -134,11 +134,11 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Using `left(144)` for the star: it still draws, but mirrored and hanging the other way
+# - Using left(144) for the star: it still draws, but mirrored and hanging the other way
 #   up; a wrong angle such as 72 makes a pentagon, not a star.
-# - Forgetting `self.start(t)` in draw, so the shape is drawn wherever the turtle was last.
-# - Forgetting `super().__init__(...)` in Polygon, so `color` (and x, y, size) are missing.
-# - Writing `for _ in range(3): ... left(90)` for the triangle: the turns must add up to 360.
+# - Forgetting self.start(t) in draw, so the shape is drawn wherever the turtle was last.
+# - Forgetting super().__init__(...) in Polygon, so color (and x, y, size) are missing.
+# - Writing for _ in range(3): ... left(90) for the triangle: the turns must add up to 360.
 #
 # Another correct way: one shared helper that every regular shape uses:
 #     def draw_sides(self, t, sides, turn):

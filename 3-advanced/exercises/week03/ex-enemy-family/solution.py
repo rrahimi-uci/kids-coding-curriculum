@@ -2,16 +2,16 @@
 
 What the program does: it makes four kinds of enemy that all move differently each turn. A
 plain Enemy steps right, a Guard stands still, a Zigzagger steps right and bobs up and down,
-and a Sprinter takes bigger steps. `move_all` moves every enemy and each one does it its own
+and a Sprinter takes bigger steps. move_all moves every enemy and each one does it its own
 way.
 
 Key ideas practiced: inheritance (a child class "is a" parent class), overriding a method,
-`super()` to reuse the parent's code, and polymorphism (one call, `enemy.move()`, many
+super() to reuse the parent's code, and polymorphism (one call, enemy.move(), many
 behaviors).
 
-Approach: the parent `Enemy` holds what all enemies share. Each child changes only what is
-different. Zigzagger calls `super().move()` and adds the up/down bob; Sprinter calls
-`super().__init__` so the parent still sets up name, x, y and steps.
+Approach: the parent Enemy holds what all enemies share. Each child changes only what is
+different. Zigzagger calls super().move() and adds the up/down bob; Sprinter calls
+super().__init__ so the parent still sets up name, x, y and steps.
 """
 
 
@@ -89,10 +89,10 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Forgetting `super().__init__(name, x, y)` in Sprinter, so `name` is missing.
-# - In Zigzagger, forgetting `super().move()`, so it bobs up and down but never goes right.
-# - Writing `move_all` with `enemy.move` (no brackets) so nothing actually moves.
-# - Writing `if type(enemy) == Guard: ...` inside move_all instead of trusting move().
+# - Forgetting super().__init__(name, x, y) in Sprinter, so name is missing.
+# - In Zigzagger, forgetting super().move(), so it bobs up and down but never goes right.
+# - Writing move_all with enemy.move (no brackets) so nothing actually moves.
+# - Writing if type(enemy) == Guard: ... inside move_all instead of trusting move().
 #
 # Another correct way for the bob in Zigzagger.move (one line instead of if/else):
 #     self.y = self.y + (1 if self.steps % 2 == 1 else -1)

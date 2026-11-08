@@ -5,12 +5,12 @@ asking "Is it ...?". The child answers h (higher), l (lower) or c (correct). The
 needs 7 guesses or fewer. It can also play alone against a known secret number.
 
 Key ideas practiced: binary search (always guess the middle of what is left, so every answer
-throws away half of the numbers), a `while` loop that shrinks a range, and functions that
+throws away half of the numbers), a while loop that shrinks a range, and functions that
 return a result.
 
-Approach: the bot remembers a range `low..high`. `next_guess` picks the middle. After each
-answer, the range shrinks: "higher" moves `low` up past the guess, "lower" moves `high` down
-below it. Only `check` and `next_guess` are TODOs; the loops around them are provided.
+Approach: the bot remembers a range low..high. next_guess picks the middle. After each
+answer, the range shrinks: "higher" moves low up past the guess, "lower" moves high down
+below it. Only check and next_guess are TODOs; the loops around them are provided.
 """
 
 
@@ -80,9 +80,9 @@ if __name__ == "__main__":
 # Common mistakes children make here:
 # - Turning check around ("higher" when the guess is too big), so the bot searches the wrong
 #   half and never finds the number.
-# - Using `/` instead of `//` in next_guess, which gives a decimal like 50.5.
+# - Using / instead of // in next_guess, which gives a decimal like 50.5.
 # - Guessing a random number in the range: it works, but sometimes needs more than 7 guesses.
-# - (In their own versions of the loop) setting `low = guess` instead of `guess + 1`, which
+# - (In their own versions of the loop) setting low = guess instead of guess + 1, which
 #   can repeat the same guess forever.
 #
 # Another correct way for next_guess (stay away from the very edge of big numbers):

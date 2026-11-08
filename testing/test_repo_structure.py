@@ -139,6 +139,7 @@ def test_teacher_solution_is_documented(folder):
     assert commented >= 8, "solution.py needs explanatory comments for the teacher"
     assert not any(ln.lstrip().startswith("# TODO") for ln in lines), "solution.py still has a starter '# TODO' marker"
     assert max(len(ln) for ln in lines) <= 100, "solution.py has a line longer than 100 characters"
+    assert "`" not in "\n".join(lines), "solution.py uses a backtick, which the PDF code font cannot show"
 
 
 def python_files():

@@ -5,11 +5,11 @@ the line plays, then walks to the back of the line. A player who has to leave ca
 of the line. The sample run prints who plays during 6 turns, then shows the line after Kai
 goes home.
 
-Key ideas practiced: a queue (first in, first out), `collections.deque` with `append` and
-`popleft`, and returning None or True/False to report what happened.
+Key ideas practiced: a queue (first in, first out), collections.deque with append and
+popleft, and returning None or True/False to report what happened.
 
-Approach: `popleft()` takes the front player, `append()` puts the same player at the back, so
-the line rotates and everybody plays once before anybody plays twice. `leave` checks that the
+Approach: popleft() takes the front player, append() puts the same player at the back, so
+the line rotates and everybody plays once before anybody plays twice. leave checks that the
 player is really in the line before removing them.
 """
 
@@ -61,11 +61,11 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Using `queue.pop()` (takes from the BACK) instead of `popleft()`, so the turn order is
+# - Using queue.pop() (takes from the BACK) instead of popleft(), so the turn order is
 #   backwards and the same player keeps playing.
-# - Forgetting to `append` the player again, so players disappear after one turn.
-# - Calling `queue.remove(nickname)` for someone who is not there (crash) or forgetting
-#   `return True` / `return False`.
+# - Forgetting to append the player again, so players disappear after one turn.
+# - Calling queue.remove(nickname) for someone who is not there (crash) or forgetting
+#   return True / return False.
 # - Forgetting to check for an empty queue in take_turn.
 #
 # Another correct way for take_turn (a deque can rotate itself):

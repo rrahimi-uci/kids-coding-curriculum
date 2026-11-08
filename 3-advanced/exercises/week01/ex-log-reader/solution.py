@@ -1,14 +1,14 @@
 """TEACHER REFERENCE SOLUTION: Log Reader
 
-What the program does: it reads the text that `git log --oneline` prints (one line per saved
+What the program does: it reads the text that git log --oneline prints (one line per saved
 version of a project: a short id, then the message) and turns it into data Python can use. It
 counts the commits, finds the ones about a word, and lists the messages oldest first.
 
-Key ideas practiced: `splitlines()`, tuples like (id, message), looping over a list of
+Key ideas practiced: splitlines(), tuples like (id, message), looping over a list of
 tuples, reusing one function inside others, and reversing a list.
 
-Approach: `parse_log` does the hard work once (one tuple per non-empty line). The other three
-functions all start from `parse_log`, so none of them needs to know how a log line looks.
+Approach: parse_log does the hard work once (one tuple per non-empty line). The other three
+functions all start from parse_log, so none of them needs to know how a log line looks.
 """
 
 SAMPLE_LOG = """9c1e2d4 Add high score file
@@ -80,10 +80,10 @@ if __name__ == "__main__":
 # Common mistakes children make here:
 # - Forgetting to skip empty lines, so the blank line at the end becomes a fake commit
 #   (count is one too big).
-# - Comparing `word in message` without `.lower()`, so "HERO" finds nothing.
-# - Writing `messages = messages.reverse()`: reverse() changes the list in place and returns
-#   None, so the answer becomes None. Use `messages.reverse()` alone or `messages[::-1]`.
-# - Using `print` instead of `return`.
+# - Comparing word in message without .lower(), so "HERO" finds nothing.
+# - Writing messages = messages.reverse(): reverse() changes the list in place and returns
+#   None, so the answer becomes None. Use messages.reverse() alone or messages[::-1].
+# - Using print instead of return.
 #
 # Another correct way for oldest_first (one line, using a slice to reverse):
 #     return [message for commit_id, message in parse_log(text)][::-1]

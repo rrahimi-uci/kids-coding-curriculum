@@ -92,7 +92,7 @@ def paint(grid, row, col, new):
     flood_fill(grid, row, col, old, new)
 
 
-# ---------------------------------------------------------------- drawing
+# ---------------------------------------- drawing
 # Everything below is given code that shows the grid on screen and turns
 # mouse clicks into grid positions. It is not part of the exercise.
 def cell_corner(grid, row, col):

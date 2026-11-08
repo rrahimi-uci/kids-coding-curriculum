@@ -13,7 +13,7 @@ import csv
 FILENAME = "favorite_games.csv"
 
 
-# ---------------------------------------------------------------- loading
+# ---------------------------------------- loading
 # (This is the cleaner from Exercise 8.1, ready to use. Not part of the TODOs.)
 def to_number(text):
     text = text.strip()
@@ -41,7 +41,7 @@ def numbers_in(rows, column):
     return [row[column] for row in rows if row[column] is not None]
 
 
-# ---------------------------------------------------------------- your detective work
+# ---------------------------- your detective work
 def count_by(rows, column):
     """Count how many rows have each value in this column.
     Example: count_by(rows, "genre") -> {"building": 5, "racing": 4, ...}"""

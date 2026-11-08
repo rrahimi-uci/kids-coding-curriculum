@@ -4,11 +4,11 @@ What the program does: it builds a party of heroes (a Healer, a Builder, an Expl
 plain Hero). When the party takes a turn, every hero says what it does, and the sentences
 are collected in a list and printed.
 
-Key ideas practiced: inheritance (each hero type is a Hero), `super().__init__` to set the
-parent's attributes, overriding `action()`, and composition (a Party HAS a list of heroes).
+Key ideas practiced: inheritance (each hero type is a Hero), super().__init__ to set the
+parent's attributes, overriding action(), and composition (a Party HAS a list of heroes).
 
 Approach: Builder and Explorer copy the pattern of the finished Healer: pass their own power
-word to the parent and replace `action()`. `Party.take_turn` simply asks each hero for its
+word to the parent and replace action(). Party.take_turn simply asks each hero for its
 action; it never checks which type a hero is, because each hero already knows what to say.
 """
 
@@ -80,11 +80,11 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Forgetting `super().__init__(name, "building")`, so `name` and `power` are never set.
-# - Writing `class Builder:` without `(Hero)`, so Builder is not a Hero.
-# - Returning from inside the loop in take_turn (only the first hero acts), or using `print`
-#   instead of `return`.
-# - Forgetting the brackets in `hero.action()`, which stores the method, not the sentence.
+# - Forgetting super().__init__(name, "building"), so name and power are never set.
+# - Writing class Builder: without (Hero), so Builder is not a Hero.
+# - Returning from inside the loop in take_turn (only the first hero acts), or using print
+#   instead of return.
+# - Forgetting the brackets in hero.action(), which stores the method, not the sentence.
 #
 # Another correct way for take_turn (a list comprehension):
 #     return [hero.action() for hero in self.heroes]
