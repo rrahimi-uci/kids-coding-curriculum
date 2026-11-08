@@ -7,11 +7,11 @@ The placement quiz answers and scoring guide are in the assessments section at t
 
 \section{Workbook exercises}
 \begin{answer}[Exercise 1.1: The Git Quest]
-There is no code to mark: check the student's Terminal. In \texttt{Documents/git-quest} the commands
+There is no code to score: check the student's Terminal. In \texttt{Documents/git-quest} the commands
 \texttt{git log --oneline} and \texttt{git status} should give something like:
 \begin{outputcode}
 3e8d1f2 (HEAD -> main) Make star bigger
-9b0c7a4 Change badge colour to green
+9b0c7a4 Change badge color to green
 7c41e0a Add hero badge drawing
 
 On branch main
@@ -24,7 +24,7 @@ The commit ids will always be different from these.
 \end{answer}
 
 \subsection{Exercise 1.2: Commit Coach}
-\pyfile{../excercises/week01/ex-commit-coach/solution.py}
+\pyfile{../exercises/week01/ex-commit-coach/solution.py}
 \begin{answer}[Exercise 1.2: Commit Coach]
 \textbf{What to look for:} the rules can be written in any order and with \texttt{and}/\texttt{or}, as long as all five checks pass.
 In \texttt{find\_secrets}, the \texttt{break} stops a line being added twice when it has two secret words; a student who uses
@@ -32,7 +32,7 @@ In \texttt{find\_secrets}, the \texttt{break} stops a line being added twice whe
 \end{answer}
 
 \subsection{Exercise 1.3: Log Reader}
-\pyfile{../excercises/week01/ex-log-reader/solution.py}
+\pyfile{../exercises/week01/ex-log-reader/solution.py}
 \begin{answer}[Exercise 1.3: Log Reader]
 \textbf{What to look for:} \texttt{split(" ", 1)} (split once) keeps messages with spaces in one piece. \texttt{oldest\_first} may use
 \texttt{reverse()}, \texttt{reversed()} or slicing \texttt{[::-1]}. The last automatic check builds a real git repository in a temporary
@@ -41,7 +41,7 @@ folder; it is skipped on a Mac without git.
 
 \section{Homework}
 \subsection{Core: Inventory Review}
-\pyfile{../excercises/week01/hw-inventory-review/solution.py}
+\pyfile{../exercises/week01/hw-inventory-review/solution.py}
 \begin{answer}[Core: Inventory Review]
 Expected output includes \texttt{Gems: 3}, \texttt{Most common: gem} and \texttt{After using all potions: ['gem', 'key', 'gem', 'map', 'gem']}.
 Common slip: removing items from the list while looping over it (it skips items) instead of building a new list.

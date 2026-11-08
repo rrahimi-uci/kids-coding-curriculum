@@ -14,7 +14,7 @@ Use B1 any time after week 5: after a missed week, before a holiday, or when the
 \end{objectives}
 
 \begin{materials}
-  \item Print (or copy by hand): the sorting network and the maze from this lesson, 2 copies of each per student. Pencils, 2 colours of highlighter.
+  \item Print (or copy by hand): the sorting network and the maze from this lesson, 2 copies of each per student. Pencils, 2 colors of highlighter.
   \item 8 small paper cards per student with the numbers 1--8 (or playing cards), a timer, and a few paper \enquote{medals} (circles of paper; write \enquote{Best strategy}, \enquote{Best teamwork}, \enquote{Best bug find}).
   \item Optional, for a floor version: masking tape or chalk to copy the 4-wire network onto the floor, big enough to walk.
 \end{materials}
@@ -35,7 +35,7 @@ Give two students one number card each. Say: \enquote{You are a \textbf{comparat
 
 \section{Concept (8--18 min)}
 \begin{teacherscript}
-\enquote{In week 5, bubble sort compared two neighbours at a time, one pair after another. A \textbf{sorting network} is a different idea: lots of comparators that can work \emph{at the same time}. Numbers travel along \textbf{wires} from left to right. Where two wires are joined by a line, the two numbers compare: the smaller goes to the upper wire, the bigger to the lower wire. Comparators in the same \textbf{round} do not touch the same wires, so they can all happen at once. Real computer chips use this trick to sort very fast.}
+\enquote{In week 5, bubble sort compared two neighbors at a time, one pair after another. A \textbf{sorting network} is a different idea: lots of comparators that can work \emph{at the same time}. Numbers travel along \textbf{wires} from left to right. Where two wires are joined by a line, the two numbers compare: the smaller goes to the upper wire, the bigger to the lower wire. Comparators in the same \textbf{round} do not touch the same wires, so they can all happen at once. Real computer chips use this trick to sort very fast.}
 \end{teacherscript}
 
 \begin{center}
@@ -91,7 +91,7 @@ With \textbf{1 student}: you are the referee, then swap and let them referee you
 \begin{tikzpicture}[x=0.85cm,y=0.85cm]
   \foreach \r/\c in {0/3, 1/0, 1/1, 1/3, 1/5, 1/6, 2/4, 3/1, 3/2, 3/6, 4/3, 4/5, 5/0, 5/2, 5/3}
     \fill[black] (\c,-\r) rectangle ++(1,-1);
-  \draw[kcgrey,line width=0.5pt,step=0.85cm] (0,0) grid (8,-6);
+  \draw[kcgray,line width=0.5pt,step=0.85cm] (0,0) grid (8,-6);
   \draw[line width=1.4pt] (0,0) rectangle (8,-6);
   \node[font=\bfseries] at (0.5,-0.5) {S};
   \node[font=\bfseries] at (7.5,-5.5) {G};

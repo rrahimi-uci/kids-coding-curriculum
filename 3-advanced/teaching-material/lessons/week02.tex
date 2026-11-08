@@ -5,15 +5,15 @@
 \begin{objectives}
   \item The student can write a class with \texttt{\_\_init\_\_}, attributes and methods, and make several objects from it. (L3.G1)
   \item The student can explain what \texttt{self} means and fix a method that forgets it. (L3.G8)
-  \item The student can use a list of objects to make turtle art in which every object keeps its own position, size and colour. (L3.G3)
+  \item The student can use a list of objects to make turtle art in which every object keeps its own position, size and color. (L3.G3)
   \item The student can name game mechanics that are unkind to players and design a virtual pet without them. (L3.G9)
 \end{objectives}
 
 \begin{materials}
   \item Print: workbook chapter 2 and homework 2 (one per student).
-  \item For the unplugged warm-up: 1 sheet of card, scissors, coloured pencils, 4--6 sheets of plain paper.
+  \item For the unplugged warm-up: 1 sheet of card, scissors, colored pencils, 4--6 sheets of plain paper.
   \item Before the session, cut a simple cookie shape (a star or gingerbread person) out of the card: that is your \enquote{cookie cutter}.
-  \item On each Mac: Thonny with \texttt{3-advanced/excercises/week02} open; Terminal in \texttt{Documents/git-quest} (\texttt{cd \textasciitilde/Documents/git-quest}).
+  \item On each Mac: Thonny with \texttt{3-advanced/exercises/week02} open; Terminal in \texttt{Documents/git-quest} (\texttt{cd \textasciitilde/Documents/git-quest}).
 \end{materials}
 
 \section{At a glance}
@@ -27,7 +27,7 @@
 
 \section{Warm-up (0--8 min)}
 \begin{unplugged}[Cookie-cutter classes]
-Show the card cutter. Each student traces it twice on paper and cuts out two \enquote{cookies}. Then each student decorates their cookies differently (sprinkles, colour, a face). On the back of each cookie they write three facts: \texttt{flavour}, \texttt{sprinkles} (a number) and \texttt{bites\_left = 3}.
+Show the card cutter. Each student traces it twice on paper and cuts out two \enquote{cookies}. Then each student decorates their cookies differently (sprinkles, color, a face). On the back of each cookie they write three facts: \texttt{flavor}, \texttt{sprinkles} (a number) and \texttt{bites\_left = 3}.
 Now play: \enquote{Ada's chocolate cookie, take a bite!} Only that cookie changes its \texttt{bites\_left} to 2. Ask:
 \begin{itemize}[itemsep=1pt]
   \item \enquote{How many cutters do we have? How many cookies?} (One cutter, many cookies.)
@@ -72,7 +72,7 @@ Open \texttt{week02/ex-pet-class/starter.py} on your Mac with everyone watching.
   \item Press Run and type \texttt{q} to quit the menu. Thonny remembers the class, so in the Shell (bottom of Thonny) try: \texttt{pip = Pet("Pip", "dragon")}, \texttt{pip.hunger}, \texttt{pip.feed()}, \texttt{pip.hunger}. Students predict each answer first.
   \item Live-code \texttt{play()} together, asking the students what to type at each line. Press Run, type \texttt{p}, and check that Pip's numbers change. The finished method (the full class is in the answer key):
 \end{enumerate}
-\pyfile[firstline=22,lastline=29]{../excercises/week02/ex-pet-class/solution.py}
+\pyfile[firstline=22,lastline=29]{../exercises/week02/ex-pet-class/solution.py}
 \end{workedexample}
 
 \section{Hands-on build (28--52 min)}
@@ -82,7 +82,7 @@ With \textbf{1 student}: you are the navigator and ask \enquote{whose hunger is 
 \end{pairroles}
 \begin{enumerate}[itemsep=2pt]
   \item \textbf{Exercise 2.1 Pet Class} (about 10 minutes): finish \texttt{play}, \texttt{mood} and \texttt{describe}. Run it and play with Pip; notice Bo never changes.
-  \item \textbf{Exercise 2.2 Bubble Art} (about 10 minutes): finish the \texttt{Bubble} class and \texttt{make\_bubbles}. Forty bubble objects, each with its own \texttt{x}, \texttt{y}, \texttt{size} and \texttt{colour}, fill the window.
+  \item \textbf{Exercise 2.2 Bubble Art} (about 10 minutes): finish the \texttt{Bubble} class and \texttt{make\_bubbles}. Forty bubble objects, each with its own \texttt{x}, \texttt{y}, \texttt{size} and \texttt{color}, fill the window.
 \end{enumerate}
 
 \begin{bughunt}[Forgot self]
@@ -128,8 +128,8 @@ Ask: \enquote{Some pet apps say \enquote{Your pet is sad, you forgot it!} or let
 \end{commonmistakes}
 
 \begin{differentiation}
-\supportpath Do Exercise 2.1 only, one \texttt{TODO} at a time, running \texttt{check\_my\_work.py} after each. Keep the labelled class picture from the workbook beside the keyboard.
-\extensionpath Add a \texttt{nap()} method and a third pet, or give \texttt{Bubble} a method \texttt{is\_touching(other)} that returns \texttt{True} when two bubbles overlap (distance between centres less than the sum of their radii).
+\supportpath Do Exercise 2.1 only, one \texttt{TODO} at a time, running \texttt{check\_my\_work.py} after each. Keep the labeled class picture from the workbook beside the keyboard.
+\extensionpath Add a \texttt{nap()} method and a third pet, or give \texttt{Bubble} a method \texttt{is\_touching(other)} that returns \texttt{True} when two bubbles overlap (distance between centers less than the sum of their radii).
 \end{differentiation}
 
 \begin{stretchchallenge}[Floating bubbles]

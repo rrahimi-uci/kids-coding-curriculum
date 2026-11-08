@@ -14,7 +14,7 @@
   \item Scissors, and a split pin (paper fastener) or a pencil point to hold the two wheels together.
   \item Before the session (5 minutes): write a secret message on a sticky note with shift 3: \texttt{brx duh d frgh euhdnhu}
         (it says \enquote{you are a code breaker}).
-  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{excercises/week05/ex-monster-stats}.
+  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{exercises/week05/ex-monster-stats}.
   \item A timer.
 \end{materials}
 
@@ -31,7 +31,7 @@ Times are a guide: set a timer for each phase and move on when it rings.
 
 \section{Warm-up (0--8 min)}
 \begin{unplugged}[Paper Caesar wheel]
-Students cut out the two wheels from the workbook page, put the small one on top of the big one and pin the centres
+Students cut out the two wheels from the workbook page, put the small one on top of the big one and pin the centers
 (split pin, or a pencil point). Turn the inner wheel so that inner \textbf{a} sits under outer \textbf{d}: that is a \textbf{shift of 3}.
 \par To \textbf{encode}, find the plain letter on the inner wheel and write the outer letter. To \textbf{decode}, go the other way: outer to inner.
 \par Show your sticky note \texttt{brx duh d frgh euhdnhu} and say: \enquote{This was made with shift 3. Who can crack it?}
@@ -51,7 +51,7 @@ Write on paper, with arrows from each key to its value:
 monster = {"name": "Blobby", "health": 30, "attack": 4}
 monster["health"]              # 30   look up by key
 monster["health"] = 40         # change a value
-monster["colour"] = "green"    # add a new key
+monster["color"] = "green"    # add a new key
 monster["magic"]               # KeyError: 'magic'  (no such key!)
 \end{pycode}
 
@@ -82,7 +82,7 @@ blobby["Attack"]                          # KeyError (capital A!)
 \end{enumerate}
 \end{workedexample}
 The finished Monster Stats, for you:
-\pyfile{../excercises/week05/ex-monster-stats/solution.py}
+\pyfile{../exercises/week05/ex-monster-stats/solution.py}
 
 \section{Hands-on build (28--52 min)}
 \begin{pairroles}[Codemakers]
@@ -119,7 +119,7 @@ Extension: decode one without being told the shift.
 
 \section{Wrap-up (52--60 min)}
 \begin{safety}[Encryption and passwords]
-Say: \enquote{You just cracked a Caesar cipher in a minute! Real apps use much stronger \textbf{encryption}, maths so hard
+Say: \enquote{You just cracked a Caesar cipher in a minute! Real apps use much stronger \textbf{encryption}, math so hard
 that even fast computers cannot undo it without the key. That keeps messages and bank details safe.} Agree these rules together:
 (1) a real password is only for you and your parent or carer: not for friends, games or chat;
 (2) never type a real password into a program you or a friend wrote: we only use made-up game passwords;
@@ -149,7 +149,7 @@ Hand out homework 5 (Word Counter). It takes 15--20 minutes.
 
 \section{Notes for the teacher}
 \begin{commonmistakes}
-  \item \textbf{Square or round brackets instead of curly ones} when making a dictionary. Making: \texttt{\{ \}}. Looking up: \texttt{monster["health"]}.
+  \item \textbf{Square brackets or parentheses instead of curly braces} when making a dictionary. Making: \texttt{\{ \}}. Looking up: \texttt{monster["health"]}.
   \item \textbf{Key without quotes} (\texttt{monster[health]} gives \texttt{NameError}), or \textbf{wrong spelling/capitals} (a quiet bug that makes a new key: print the dictionary to spot it).
   \item \textbf{\texttt{for key in monster:}} gives only the keys. To get both, use \texttt{for key, value in monster.items():}.
   \item \textbf{Caesar: losing the spaces}. Letters not in the key (spaces, \texttt{!}) must be added unchanged in an \texttt{else}.

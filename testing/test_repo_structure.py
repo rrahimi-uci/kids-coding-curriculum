@@ -13,7 +13,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = ["1-elementry", "2-intermediate", "3-advanced"]
+LEVELS = ["1-introduction", "2-intermediate", "3-advanced"]
 WEEKS = [f"week{n:02d}" for n in range(1, 13)]
 BUFFERS = ["buffer1", "buffer2"]
 
@@ -102,7 +102,7 @@ def test_workbook_and_homework_shape(level):
 
 def exercise_dirs():
     for level in LEVELS:
-        base = ROOT / level / "excercises"
+        base = ROOT / level / "exercises"
         if base.is_dir():
             for d in sorted(base.glob("week*/*")):
                 if d.is_dir() and not d.name.startswith(("_", ".")) and d.name != "__pycache__":

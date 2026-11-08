@@ -18,14 +18,14 @@ Your project works the same way. The \textbf{core loop} is your skateboard:
   \item \textbf{Arcade Game:} a window, a player that moves with the keys, and a timer loop that keeps running (\texttt{screen.ontimer}).
   \item \textbf{Art Studio:} a \texttt{while} loop that asks what to do (draw, save, load, quit) and does it.
 \end{itemize}
-No score, no title screen, no fancy colours yet. Those come later, and they are easy once the
+No score, no title screen, no fancy colors yet. Those come later, and they are easy once the
 skeleton walks.
 
 \begin{center}
 \begin{tikzpicture}[font=\small, align=center,
   ms/.style={rounded corners=3pt, draw=kcblack, thick, minimum height=1.3cm, text width=2.35cm},
   arr/.style={-Stealth, thick}]
-  \node[ms, fill=kcgrey!15] (m1) {\textbf{M1}\\Pitch and plan\\(week 9)};
+  \node[ms, fill=kcgray!15] (m1) {\textbf{M1}\\Pitch and plan\\(week 9)};
   \node[ms, fill=kcorange!35, right=0.35cm of m1, line width=2pt] (m2) {\textbf{M2}\\Core loop works\\(week 10)};
   \node[ms, fill=kcsky!30, right=0.35cm of m2] (m3) {\textbf{M3}\\Data and tests\\(week 11)};
   \node[ms, fill=kcgreen!20, right=0.35cm of m3] (m4) {\textbf{M4}\\Polish\\(week 11)};
@@ -67,12 +67,12 @@ Here is the flowchart for a catching game:
   \draw[arr] (over.west) -- ++(-2.2,0) coordinate (c) |- (move.west);
   \node[above] at ($(over.west)!0.5!(c)$) {no};
   \node[left] at ($(c)!0.5!(c|-move.west)$) {next\\tick};
-  \node[right=1.2cm of start, draw=kcgrey, rounded corners, text width=4.2cm, align=left, font=\footnotesize] {Oval = start or end\\Rectangle = a step\\Diamond = a yes/no question};
+  \node[right=1.2cm of start, draw=kcgray, rounded corners, text width=4.2cm, align=left, font=\footnotesize] {Oval = start or end\\Rectangle = a step\\Diamond = a yes/no question};
 \end{tikzpicture}
 \end{center}
 
 The same plan as pseudocode:
-\begin{tcolorbox}[colback=white,colframe=kcgrey,boxrule=0.6pt,arc=2pt,title={\small\bfseries Pseudocode},coltitle=white,colbacktitle=kcgrey]
+\begin{tcolorbox}[colback=white,colframe=kcgray,boxrule=0.6pt,arc=2pt,title={\small\bfseries Pseudocode},coltitle=white,colbacktitle=kcgray]
 \ttfamily\small
 set up the screen, the player and the keys\\
 repeat every tick:\\

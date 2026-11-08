@@ -1,12 +1,12 @@
 % Level 2, Week 11 answers -- Project Studio 2
-\answersweek{11}{Project Studio 2}{Answers and marking notes for workbook chapter 11 and homework 11.}
+\answersweek{11}{Project Studio 2}{Answers and scoring notes for workbook chapter 11 and homework 11.}
 
 \section{Workbook exercises}
 \begin{answer}[Exercise 11.1: Add your data (M3)]
 Example for an arcade game: list \texttt{stars} (the falling star turtles); dictionary
 \texttt{SETTINGS} (speed, step, edges) or \texttt{state} (score, lives, running); file
 \texttt{highscore.txt} (the best score). Example for an Art Studio: list \texttt{shapes}; each shape is
-a dictionary \texttt{\{"x": …, "y": …, "size": …, "colour": …\}}; file \texttt{design.txt}, one shape
+a dictionary \texttt{\{"x": …, "y": …, "size": …, "color": …\}}; file \texttt{design.txt}, one shape
 per line. \textbf{M3 data met} when the data comes back after closing and re-running the program, and
 a missing file does not crash it (a \texttt{try}/\texttt{except FileNotFoundError}, as in week 7).
 \end{answer}
@@ -18,13 +18,13 @@ with pytest (3 passed):
 \begin{pycode}[artstudio.py -- save and load a design (tested)]
 def shape_to_line(shape):
     """Turn one shape dictionary into one line of text for the file."""
-    values = [shape["x"], shape["y"], shape["size"], shape["colour"]]
+    values = [shape["x"], shape["y"], shape["size"], shape["color"]]
     return ",".join(str(v) for v in values) + "\n"
 
 def line_to_shape(line):
     """Turn one line from the file back into a shape dictionary."""
-    x, y, size, colour = line.strip().split(",")
-    return {"x": int(x), "y": int(y), "size": int(size), "colour": colour}
+    x, y, size, color = line.strip().split(",")
+    return {"x": int(x), "y": int(y), "size": int(size), "color": color}
 
 def save_design(shapes, filename):
     with open(filename, "w") as f:
@@ -39,14 +39,14 @@ def load_design(filename):
 from artstudio import line_to_shape, load_design, save_design, shape_to_line
 
 def test_shape_becomes_a_line():
-    shape = {"x": 10, "y": -20, "size": 30, "colour": "#0072B2"}
+    shape = {"x": 10, "y": -20, "size": 30, "color": "#0072B2"}
     assert shape_to_line(shape) == "10,-20,30,#0072B2\n"
 
 def test_line_becomes_a_shape():
     assert line_to_shape("5,6,7,#E69F00\n")["size"] == 7
 
 def test_save_then_load_gives_the_same_design():
-    shapes = [{"x": 1, "y": 2, "size": 3, "colour": "#009E73"}]
+    shapes = [{"x": 1, "y": 2, "size": 3, "color": "#009E73"}]
     save_design(shapes, "test_design.txt")
     assert load_design("test_design.txt") == shapes
 \end{pycode}
@@ -67,9 +67,9 @@ were fixed first.
 \begin{answer}[Exercise 11.4: Accessibility review and polish (M4)]
 Good changes: different shapes for good and bad objects (\texttt{"circle"} vs \texttt{"square"}),
 a score written with \texttt{font=("Arial", 18, "normal")} or larger, an on-screen line explaining the
-keys, palette colours with enough contrast against the background, a slower first level. No
+keys, palette colors with enough contrast against the background, a slower first level. No
 flashing more than 3 times per second. \textbf{M4 met} when at least one change was made and the
-checklist is honestly ticked.
+checklist is honestly checked.
 \end{answer}
 
 \section{Homework}

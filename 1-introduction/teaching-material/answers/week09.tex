@@ -1,0 +1,52 @@
+% Level 1, Answers week 9 -- Variables, Input and Choices   (input by answer-key.tex)
+\answersweek{9}{Variables, Input and Choices}{Answers for workbook chapter 9 and homework 9.}
+
+\section{Workbook}
+\begin{answer}[Exercise 9.1: Square of Any Size]
+\pyfile{../exercises/week09/ex-size-it/solution.py}
+The bug: \texttt{size = answer} keeps the text \texttt{"120"}; the turtle cannot walk text, so Python raises a \texttt{TypeError}. Fix: \texttt{size = int(answer)}. Also correct: \texttt{size = int(input(...))} on one line.
+\end{answer}
+
+\begin{answer}[Exercise 9.2: Pick a Color]
+\pyfile{../exercises/week09/ex-color-choice/solution.py}
+What to look for: \texttt{elif} (not a second \texttt{if}) for green; \texttt{else:} with no condition; a friendly message. Typing \texttt{Blue} goes to \texttt{else} --- that is expected (Python is picky); the stretch challenge adds \texttt{.lower()}.
+\end{answer}
+
+\begin{answer}[Exercise 9.3: How Many Stars?]
+\pyfile{../exercises/week09/ex-star-row/solution.py}
+Checks: 3 → 3 stars; 25 → message and 10 stars; 0 or a negative number → message and 1 star. Any friendly wording is fine.
+\end{answer}
+
+\begin{answer}[Questions a program should NOT ask]
+\textbf{OK}: favorite color, how many stars, hero name, favorite animal. \textbf{Never}: where you live, password, school, full name. Accept a thoughtful \enquote{it depends} for hero name if the student explains it must not be their real name.
+\end{answer}
+
+\begin{answer}[Reflection]
+Games that ask then decide: \enquote{Play again? yes/no}, choosing a character, a quiz. \texttt{int} is needed for sizes because the turtle needs a number to walk; color names are compared as text, so they stay text.
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: Mini Math Quiz]
+\pyfile{../exercises/week09/hw-math-quiz/solution.py}
+What to look for: question 2 copies the pattern of question 1 (\texttt{int(input(...))}, \texttt{if answer == 24:}, \texttt{score = score + 1}); the final \texttt{print} is not indented, so it runs once at the end.
+\end{answer}
+
+\begin{answer}[Challenge: Perfect score]
+Add before the last line (and change \enquote{out of 2} to \enquote{out of 3}):
+\begin{pycode}
+answer = int(input("What is 6 x 6? "))
+if answer == 36:
+    print("Correct!")
+    score = score + 1
+else:
+    print("Good try! 6 x 6 = 36")
+
+print("You scored", score, "out of 3")
+if score == 3:
+    print("Perfect score - amazing!")
+\end{pycode}
+\end{answer}
+
+\begin{answer}[Creative: Choose your path]
+Example plan: \texttt{choice = input("Door or tunnel? ")}; \texttt{if choice == "door":} print a treasure ending; \texttt{elif choice == "tunnel":} print a dragon ending; \texttt{else:} print \enquote{You stay home and have a snack.} Look for: three endings, a question about a choice (not about the player).
+\end{answer}

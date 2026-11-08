@@ -16,7 +16,7 @@
         \texttt{"True"}\quad \texttt{100}\quad \texttt{"3.5"}\quad \texttt{2.0}\quad \texttt{0}\quad \texttt{" "}.
         Then four bin labels: \textbf{int} (whole number), \textbf{float} (decimal number), \textbf{str} (text in quotes), \textbf{bool} (True or False).
   \item On each Mac: the \texttt{kids-coding} folder from Level 1. In Thonny open
-        \texttt{2-intermediate/excercises/week01/ex-hero-card/starter.py} (\keys{Cmd}+\keys{O}). Run \texttt{check\_my\_work.py} once; if it asks
+        \texttt{2-intermediate/exercises/week01/ex-hero-card/starter.py} (\keys{Cmd}+\keys{O}). Run \texttt{check\_my\_work.py} once; if it asks
         for pytest: \menu{Tools} → \menu{Manage packages…} → \texttt{pytest} → \menu{Install} (no account needed).
   \item A timer, paper and pencils.
 \end{materials}
@@ -25,7 +25,7 @@
 \section{At a glance}
 Times are a guide: set a timer for each phase and move on when it rings.
 \begin{timeplan}
-  \timeslot{0--15}{Warm-up}{Welcome back (2 min), then the 15-minute Placement quiz from the Assessments booklet (pencil and paper, no computers). Collect it; mark it after the session.}
+  \timeslot{0--15}{Warm-up}{Welcome back (2 min), then the 15-minute Placement quiz from the Assessments booklet (pencil and paper, no computers). Collect it; score it after the session.}
   \timeslot{15--23}{Concept}{Unplugged \enquote{Type sorting} with the value cards. Name the four types. Personal-information talk: hero names, not real names.}
   \timeslot{23--31}{Guided demo}{In the Thonny Shell: \texttt{type()}, the \texttt{"5" + 5} bug, \texttt{int()}, f-strings. Then run the Hero Card starter together.}
   \timeslot{31--53}{Hands-on build}{Pairs: Exercise 1.1 Hero Card, then 1.2 Mood Meter. Swap driver and navigator every 8 minutes. Last 5 minutes: free-build.}
@@ -33,7 +33,7 @@ Times are a guide: set a timer for each phase and move on when it rings.
 \end{timeplan}
 
 \begin{teachernote}[About the placement quiz]
-It checks what stuck from Level 1 and is not for marks: say so. Answers and marking guide: Answer Key.
+It checks what stuck from Level 1 and is not graded: say so. Answers and scoring guide: Answer Key.
 Use the result to pick the support or extension path below. You may instead give it earlier in the week and start here at the Concept phase.
 \end{teachernote}
 
@@ -41,7 +41,7 @@ Use the result to pick the support or extension path below. You may instead give
 \begin{teacherscript}[Say]
 \enquote{Welcome to Level 2! You already know a lot of Python: loops, variables, questions with \texttt{input},
 choices with \texttt{if}, and your own commands with \texttt{def}. Today we start with a short quiz so I know
-what to help with. It is not for marks. If you do not know an answer, write \enquote{not sure} and move on. That is
+what to help with. It is not graded. If you do not know an answer, write \enquote{not sure} and move on. That is
 useful to me too.}
 \end{teacherscript}
 Hand out the quiz, start a 15-minute timer, and sit with the group. Do not help with answers; you may read a question aloud.
@@ -69,9 +69,9 @@ Text like \texttt{"5"} is a sticker with a 5 printed on it. You can put stickers
 \end{analogy}
 
 \begin{safety}[Hero names, not real names]
-Ask: \enquote{Which of these would be OK to type into a game we make?} Read out: a made-up hero name, your favourite colour,
-your full real name, the name of your school, your home address, your birthday, your favourite animal.
-Agree together: made-up names, colours and favourites are fine; real names, schools, addresses and birthdays are
+Ask: \enquote{Which of these would be OK to type into a game we make?} Read out: a made-up hero name, your favorite color,
+your full real name, the name of your school, your home address, your birthday, your favorite animal.
+Agree together: made-up names, colors and favorites are fine; real names, schools, addresses and birthdays are
 \textbf{personal information}, which we keep private. All our programs ask for a \enquote{hero name} or \enquote{nickname} instead.
 Tell students: if any app or website asks for personal information, they check with you first.
 \end{safety}
@@ -105,7 +105,7 @@ level >= 3 and name == "Nova"  # True
 \end{enumerate}
 \end{workedexample}
 The finished Hero Card, for you (students build it themselves):
-\pyfile{../excercises/week01/ex-hero-card/solution.py}
+\pyfile{../exercises/week01/ex-hero-card/solution.py}
 
 \section{Hands-on build (31--53 min)}
 \begin{pairroles}[Driver and navigator]
@@ -130,7 +130,7 @@ Two good fixes: wrap the input in \texttt{int(...)} (TODO 1), and use an f-strin
 \end{bughunt}
 
 \begin{freebuild}[Make the card yours]
-Last 5 minutes: add a sidekick name, a favourite colour, a border made with \texttt{"+" + "-" * 30 + "+"}, or a fourth mood
+Last 5 minutes: add a sidekick name, a favorite color, a border made with \texttt{"+" + "-" * 30 + "+"}, or a fourth mood
 (\enquote{Sleepy} for energy 0 or 1) in the Mood Meter. Everything stays made-up: hero names only.
 \end{freebuild}
 

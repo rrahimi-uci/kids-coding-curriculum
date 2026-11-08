@@ -14,7 +14,7 @@
   \item Five station cards (2 minutes): write \enquote{Station 1: Hero Card} \ldots{} \enquote{Station 4: Loot Shop} and \enquote{Station 5: Paper detectives}
         on sheets of paper. Put cards 1--4 by the computers and card 5 on a table with pencils (station 5 is in the workbook).
   \item A rubber duck, a soft toy or any small figure: the \enquote{duck}.
-  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{excercises/week06/ex-bug-hero-card}.
+  \item On each Mac: in Thonny press \keys{Cmd}+\keys{O} and open \texttt{starter.py} in the folder \texttt{2-intermediate/} \texttt{exercises/week06/ex-bug-hero-card}.
         The other stations are the folders \texttt{ex-bug-high-scores}, \texttt{ex-bug-countdown} and \texttt{ex-bug-loot-shop}.
   \item A timer.
 \end{materials}
@@ -31,8 +31,8 @@ Times are a guide: set a timer for each phase and move on when it rings.
 \end{timeplan}
 
 \begin{teachernote}[About the checkpoint]
-The checkpoint shows what has stuck from weeks 1--5. Say clearly that it is not for marks: it tells you what to revisit.
-Answers and marking guide are in the Answer Key. If your group is tired at minute 42, give the checkpoint at the
+The checkpoint shows what has stuck from weeks 1--5. Say clearly that it is not graded: it tells you what to revisit.
+Answers and scoring guide are in the Answer Key. If your group is tired at minute 42, give the checkpoint at the
 \emph{start} of next session instead and extend today's workshop to minute 55.
 \end{teachernote}
 
@@ -67,7 +67,7 @@ start & 0 & 3 \\ \hline
 
 \section{Concept (6--14 min)}
 \begin{teacherscript}[Say]
-\enquote{Today is detective day. Every programmer in the world writes bugs every day, including the ones who built your favourite games.
+\enquote{Today is detective day. Every programmer in the world writes bugs every day, including the ones who built your favorite games.
 The difference is that good programmers have \textbf{tools} for finding them. Here are four.
 One: \textbf{read the traceback from the bottom up}. The last line says what went wrong; the line above says where.
 Two: \textbf{print-debugging}. Add a \texttt{print()} to see what is really inside a variable, then remove it when you are done.
@@ -96,7 +96,7 @@ is like taking random medicine: it rarely helps and can make things worse. Chang
   \item Fill in the Station 1 bug report in the workbook together, as a model.
 \end{enumerate}
 \end{workedexample}
-\pyfile{../excercises/week06/ex-bug-hero-card/solution.py}
+\pyfile{../exercises/week06/ex-bug-hero-card/solution.py}
 
 \section{Hands-on build (20--42 min)}
 \begin{pairroles}[Detective pairs]
@@ -146,7 +146,7 @@ Being kind to yourself and to others when code breaks is part of being a good di
 IndexError: list index out of range
 \end{outputcode}
 \enquote{What went wrong, and where?} \textbf{Answer:} an \texttt{IndexError} on line 8 in the function \texttt{best\_item}: the list has fewer than 4 items,
-so index 3 does not exist. \textbf{Look for:} students who name the error type \emph{and} the line. If they read the top of the traceback first, practise bottom-up again.
+so index 3 does not exist. \textbf{Look for:} students who name the error type \emph{and} the line. If they read the top of the traceback first, practice bottom-up again.
 \end{formativecheck}
 
 \begin{reflection}[Say it or write it]

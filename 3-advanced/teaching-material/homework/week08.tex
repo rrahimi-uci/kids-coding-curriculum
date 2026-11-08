@@ -2,11 +2,11 @@
 \homeworkweek{8}{Data Detectives}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
 \namedateline
 
-\begin{core}[Anonymise a survey (about 10 minutes)]
-Open \texttt{3-advanced/excercises/week08/hw-survey-privacy/starter.py} and press \keys{F5}. The file \texttt{snack\_survey.csv} is made up, but it has a \texttt{nickname} and a \texttt{club} column. Together they could show exactly who answered.
+\begin{core}[Anonymize a survey (about 10 minutes)]
+Open \texttt{3-advanced/exercises/week08/hw-survey-privacy/starter.py} and press \keys{F5}. The file \texttt{snack\_survey.csv} is made up, but it has a \texttt{nickname} and a \texttt{club} column. Together they could show exactly who answered.
 \begin{enumerate}[itemsep=1pt]
-  \item Finish \texttt{anonymise(rows, keep)}: each new row gets an \texttt{id} (R1, R2, ...) and only the columns in \texttt{keep}.
-  \item Run again. The first row should be \texttt{\{'id': 'R1', 'favourite\_snack': 'apple slices', 'minutes\_reading': '20'\}}.
+  \item Finish \texttt{anonymize(rows, keep)}: each new row gets an \texttt{id} (R1, R2, ...) and only the columns in \texttt{keep}.
+  \item Run again. The first row should be \texttt{\{'id': 'R1', 'favorite\_snack': 'apple slices', 'minutes\_reading': '20'\}}.
   \item Run \texttt{check\_my\_work.py}.
 \end{enumerate}
 Why is \texttt{club} risky even without a name? \answerlines{1}
@@ -17,7 +17,7 @@ Finish \texttt{save\_csv(rows, filename)} with \py|csv.DictWriter|: open the fil
 \end{challenge}
 
 \begin{creative}[Design a kind, safe survey]
-Plan a 4-question survey for your family about a fun topic (favourite board game, best pizza topping, dream pet). Rules: start with a consent sentence (\enquote{You can skip any question}); no names, ages, addresses or schools; at least one question with a number answer you could average.
+Plan a 4-question survey for your family about a fun topic (favorite board game, best pizza topping, dream pet). Rules: start with a consent sentence (\enquote{You can skip any question}); no names, ages, addresses or schools; at least one question with a number answer you could average.
 \answerlines{5}
 \end{creative}
 

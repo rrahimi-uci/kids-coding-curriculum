@@ -9,7 +9,7 @@ functions and loops, used for fun.
 \end{teachernote}
 
 \begin{objectives}
-  \item The student can use a list of colours and random choices to make a picture that changes every run. (L2.G4, L2.G7)
+  \item The student can use a list of colors and random choices to make a picture that changes every run. (L2.G4, L2.G7)
   \item The student can write a drawing function with parameters and call it many times from a loop. (L2.G3)
   \item The student can use \texttt{random.seed} to get the same \enquote{random} picture again. (L2.G1, L2.G7)
   \item The student can give credit when remixing someone else's art idea or code. (L2.G9)
@@ -17,7 +17,7 @@ functions and loops, used for fun.
 
 \begin{materials}
   \item Print: nothing required. Optional: this page's challenge cards, cut out (or write them on index cards).
-  \item One die per pair, squared paper, coloured pencils (or plain pencils and the pattern key below).
+  \item One die per pair, squared paper, colored pencils (or plain pencils and the pattern key below).
   \item On each Mac: Thonny, \menu{File > New}, save as \texttt{art\_jam.py} in \texttt{Documents}.
   \item Prep (10 minutes): type the guided demo program once yourself and run it.
 \end{materials}
@@ -37,7 +37,7 @@ functions and loops, used for fun.
 Each student draws a 6 × 6 grid on squared paper. For every square, roll the die once and follow
 the rule key (write it on the board):
 \textbf{1} = leave empty, \textbf{2} = dot, \textbf{3} = diagonal line /, \textbf{4} = diagonal line \textbackslash,
-\textbf{5} = filled square, \textbf{6} = circle. Colour optional: pick from orange, sky blue, green, blue.
+\textbf{5} = filled square, \textbf{6} = circle. Color optional: pick from orange, sky blue, green, blue.
 After 5 minutes, compare: everyone used the same rules, yet every picture is different.
 Then try this: one student reads out a list of rolls (\enquote{3, 3, 5, 1…}) and everyone follows the
 same list. Now the pictures match! That list of rolls is what programmers call a \textbf{seed}.
@@ -47,11 +47,11 @@ With 1 student, you both draw and compare.
 \section{Concept (8--18 min)}
 \begin{teacherscript}
 “Generative art is art made by rules plus randomness. You write the rules: draw a flower, use these
-colours, put it somewhere on the screen. The computer rolls the dice: where exactly, how big, which
-colour. Every run is a brand-new picture.
+colors, put it somewhere on the screen. The computer rolls the dice: where exactly, how big, which
+color. Every run is a brand-new picture.
 
-We need three things you already know. A list of colours, our palette. A function with parameters,
-like \texttt{flower(t, x, y, size, colour)}, so we can draw a flower anywhere, any size. And a loop to
+We need three things you already know. A list of colors, our palette. A function with parameters,
+like \texttt{flower(t, x, y, size, color)}, so we can draw a flower anywhere, any size. And a loop to
 draw lots of them. One new trick: \texttt{random.seed(7)}. It is like reading out the same dice rolls:
 the random numbers come out the same every time, so if you love a picture, write down its seed and
 you can get it back.”
@@ -68,10 +68,10 @@ landed, you could make the very same cake again. The recipe is your code, the sp
 \begin{workedexample}[A random flower garden]
 Type the program below in this order, running it (\keys{F5}) after steps 2 and 4:
 \begin{enumerate}
-  \item The \texttt{PALETTE} list (the Okabe--Ito colours we use all year).
+  \item The \texttt{PALETTE} list (the Okabe--Ito colors we use all year).
   \item \texttt{flower}: penup, go to (x, y), then one petal per loop (two arcs). Test it once with \texttt{flower(pen, 0, 0, 100, "\#E69F00")}.
   \item \texttt{petal\_count}: a function that returns a number, so bigger flowers get more petals.
-  \item \texttt{make\_garden}: it does not draw anything. It returns a list of flower recipes (x, y, size, colour). Say: \enquote{Plan first, draw later: the list is the plan.}
+  \item \texttt{make\_garden}: it does not draw anything. It returns a list of flower recipes (x, y, size, color). Say: \enquote{Plan first, draw later: the list is the plan.}
   \item The main part: draw every recipe in the list. \texttt{screen.tracer(0)} and \texttt{screen.update()} make it appear in one go.
 \end{enumerate}
 Run it twice: the same garden appears, because of \texttt{seed=7}. Change it to \texttt{seed=8}: a new garden.
@@ -89,12 +89,12 @@ def petal_count(size):
     """Bigger flowers get more petals (between 5 and 12)."""
     return max(5, min(12, size // 10))
 
-def flower(t, x, y, size, colour):
-    """Draw one flower made of loops, centred at (x, y)."""
+def flower(t, x, y, size, color):
+    """Draw one flower made of loops, centered at (x, y)."""
     t.penup()
     t.goto(x, y)
     t.pendown()
-    t.color(colour)
+    t.color(color)
     petals = petal_count(size)
     for _ in range(petals):
         t.circle(size / 2, 60)
@@ -103,7 +103,7 @@ def flower(t, x, y, size, colour):
         t.left(120 + 360 / petals)   # finish the petal, then turn to the next one
 
 def make_garden(how_many, seed):
-    """Return a list of flower recipes: (x, y, size, colour)."""
+    """Return a list of flower recipes: (x, y, size, color)."""
     random.seed(seed)  # same seed = same picture every time
     recipes = []
     for _ in range(how_many):
@@ -120,8 +120,8 @@ if __name__ == "__main__":
     pen = turtle.Turtle()
     pen.hideturtle()
     pen.pensize(2)
-    for x, y, size, colour in make_garden(25, seed=7):
-        flower(pen, x, y, size, colour)
+    for x, y, size, color in make_garden(25, seed=7):
+        flower(pen, x, y, size, color)
     screen.update()
     turtle.done()
 \end{pycode}
@@ -137,10 +137,10 @@ Swap every 8 minutes. \textbf{1 student:} you are the artist and the student eng
 \textbf{Challenge cards} (pick one, finish it, pick another):
 \begin{enumerate}
   \item \textbf{Mirror world:} draw every flower twice, at \texttt{(x, y)} and at \texttt{(-x, y)}.
-  \item \textbf{Mood palette:} make a second list with only three colours and use it instead.
+  \item \textbf{Mood palette:} make a second list with only three colors and use it instead.
   \item \textbf{Growing garden:} in the main loop, make flowers lower on the screen bigger (use y to choose the size).
-  \item \textbf{New shape:} write \texttt{star(t, x, y, size, colour)} (5 points: forward, right 144) and mix stars with flowers.
-  \item \textbf{Seed hunt:} try ten seeds and write down your three favourites.
+  \item \textbf{New shape:} write \texttt{star(t, x, y, size, color)} (5 points: forward, right 144) and mix stars with flowers.
+  \item \textbf{Seed hunt:} try ten seeds and write down your three favorites.
 \end{enumerate}
 
 \begin{bughunt}[Three broken gardens (minute 36)]
@@ -148,7 +148,7 @@ Write each bug on the board. Pairs predict what will happen, then fix it.
 \begin{enumerate}
   \item \texttt{random.seed(seed)} moved \emph{inside} the \texttt{for} loop. All 25 flowers land in exactly the same spot (one flower!). Fix: seed once, before the loop.
   \item \texttt{x = random.randint(300, -300)}: \texttt{ValueError: empty range for randrange()}. Fix: smaller number first.
-  \item \texttt{PALETTE = ["E69F00", …]} (no \texttt{\#}): \texttt{TurtleGraphicsError: bad color string: E69F00}. Fix: colour codes start with \texttt{\#}.
+  \item \texttt{PALETTE = ["E69F00", …]} (no \texttt{\#}): \texttt{TurtleGraphicsError: bad color string: E69F00}. Fix: color codes start with \texttt{\#}.
 \end{enumerate}
 \end{bughunt}
 
@@ -185,18 +185,18 @@ family computer unless a parent decides otherwise.
 \begin{commonmistakes}
   \item \textbf{The drawing is very slow.} \texttt{screen.tracer(0)} is missing, or \texttt{screen.update()} is not called at the end (then nothing appears).
   \item \textbf{Nothing changes between runs.} The seed is fixed: that is correct! Change the number, or use \texttt{seed=None} (Python then seeds from the clock) to get a new garden every run.
-  \item \textbf{Mixing up parameters}: \texttt{flower(pen, size, x, y, colour)} puts flowers in odd places. Read the \texttt{def} line aloud and match each argument.
+  \item \textbf{Mixing up parameters}: \texttt{flower(pen, size, x, y, color)} puts flowers in odd places. Read the \texttt{def} line aloud and match each argument.
 \end{commonmistakes}
 
 \begin{differentiation}
 \supportpath Use the demo program unchanged and only change the numbers: \texttt{how\_many}, the seed,
 the size range, the background. Then try challenge card 2.
-\extensionpath Save favourite seeds to a file \texttt{favourites.txt} (one per line, with
-\texttt{"a"} mode) and write a menu that redraws a saved favourite: a mini Art Studio.
+\extensionpath Save favorite seeds to a file \texttt{favorites.txt} (one per line, with
+\texttt{"a"} mode) and write a menu that redraws a saved favorite: a mini Art Studio.
 \end{differentiation}
 
 \begin{stretchchallenge}[Rules that react]
-Make each flower's colour depend on where it is: flowers on the left use the first half of the palette,
+Make each flower's color depend on where it is: flowers on the left use the first half of the palette,
 flowers on the right the second half. Use \texttt{if x < 0:} and list slices \texttt{PALETTE[:3]} and
 \texttt{PALETTE[3:]}.
 \end{stretchchallenge}

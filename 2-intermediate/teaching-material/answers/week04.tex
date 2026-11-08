@@ -9,14 +9,14 @@
 Also correct: \texttt{if low <= number <= high:}, or a loop \texttt{while not answer.isdigit():}. Note that \texttt{-3} is rejected
 because \texttt{"-3".isdigit()} is \texttt{False}; that is fine here because negative guesses are out of range anyway.
 \end{answer}
-\pyfile{../excercises/week04/ex-guess-number/solution.py}
+\pyfile{../exercises/week04/ex-guess-number/solution.py}
 
 \begin{answer}[Exercise 4.2 Pixel Art]
 \textbf{What to look for:} \texttt{x} is reset at the start of every row (inside the outer loop, before the inner loop) and
 \texttt{y = y - size} is inside the outer loop but after the inner loop. The Shell shows \texttt{Green pixels: 46}.
 Own designs: every row has the same length and uses the palette letters; pictures may be anything kind and school-appropriate.
 \end{answer}
-\pyfile{../excercises/week04/ex-pixel-art/solution.py}
+\pyfile{../exercises/week04/ex-pixel-art/solution.py}
 
 \section{Homework}
 \begin{answer}[Core: Trace it first]
@@ -32,7 +32,7 @@ hits: & 0 & 1 & 2 & 3 & 4 & 5 \\
 \textbf{What to look for:} both lines inside the \texttt{while health > 0:} loop are indented. If a student reports that Thonny
 \enquote{froze}, the subtraction is missing or outside the loop: a perfect example of this week's bug.
 \end{answer}
-\pyfile{../excercises/week04/hw-slime-battle/solution.py}
+\pyfile{../exercises/week04/hw-slime-battle/solution.py}
 
 \begin{answer}[Challenge: Count up to a target]
 \begin{pycode}

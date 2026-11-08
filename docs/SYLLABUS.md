@@ -47,12 +47,12 @@ Python's built-in `turtle` for weeks 7–12.
 | 1 | Robots Need Instructions | A program is a list of exact steps in order. | sequence (I), algorithm (I), sprite/stage/green flag (I) | “Parent-robot drawing”: kids instruct the parent-robot to draw a simple picture | Steps in the wrong order | Class agreements; Scratch offline app, no accounts; use a nickname, never your real name/address in projects |
 | 2 | Loop-de-Loop | Loops repeat steps so we don't have to. | repeat/forever (I), costumes/animation (I), pen extension (I), angles 360/n (I) | “Dance loops”: write a dance with repeat cards and perform it | Wrong turn angle in a shape | Screen-time balance: stretch break, 20-20-20 eyes rule |
 | 3 | When This Happens… | Events start code; conditionals choose what happens. | events (I), if / if-else (I), touching/sensing (I), sequence (R), loops (R) | “Simon says IF”: conditional commands game | A sprite that never reacts (missing forever loop) | Kindness when giving feedback: “two stars and a wish” |
-| 4 | Keeping Score | Variables are labelled boxes that remember things. | variables (I), random (I), conditionals (R), events (R) | “Label the boxes”: paper boxes for score/lives that change during a game | Score never resets / changes too fast | Credit & remix: whose art/sounds are we using? Use built-in library, give credit |
-| 5 | Messages and My Blocks | Break big programs into named parts. | broadcast messages (I), My Blocks/custom blocks with inputs (I), decomposition (I), variables (R) | “Recipe cards”: split a party plan into named sub-recipes | Broadcast sent but nobody receives it | Accessibility: colour-blind-safe colours + shapes, readable text size |
+| 4 | Keeping Score | Variables are labeled boxes that remember things. | variables (I), random (I), conditionals (R), events (R) | “Label the boxes”: paper boxes for score/lives that change during a game | Score never resets / changes too fast | Credit & remix: whose art/sounds are we using? Use built-in library, give credit |
+| 5 | Messages and My Blocks | Break big programs into named parts. | broadcast messages (I), My Blocks/custom blocks with inputs (I), decomposition (I), variables (R) | “Recipe cards”: split a party plan into named sub-recipes | Broadcast sent but nobody receives it | Accessibility: color-blind-safe colors + shapes, readable text size |
 | 6 | Review Studio and Checkpoint | Show what you know; get ready for text code. | all Scratch concepts (R), Scratch→Python card sort (I) | “Blocks to words” card sort: match Scratch blocks to Python lines | Bug-hunt relay (3 broken Scratch projects) | Reflection: what makes a project fun and fair for everyone? |
 | 7 | Hello, Python! | Text code is just blocks written as words — and Python is picky. | Thonny (I), print (I), comments (I), turtle forward/left (I), syntax errors (I), sequence (R) | “Python is picky”: spot spelling/capital/bracket differences on cards | Typo hunt: `Print`, missing `)`, `forwad` | Saving files safely: where your work lives, sensible file names |
 | 8 | Loops in Python | `for` loops + indentation = Scratch's repeat block. | for/range (I), indentation (I), loops (R), angles (R), nested loop (I, light) | “Indent the line-up”: kids stand in/out of a loop to show indentation | Indentation and off-by-one in range | Asking for help well: describe what you expected vs what happened |
-| 9 | Variables, Input and Choices | Programs can ask questions, remember answers and decide. | variables (R→text), `input` + `int` (I), `if/elif/else` (R→text), comparison operators (I), colour palette (I) | “Choose your path” story: walk an if/elif/else maze drawn on the floor | `input` gives text, not a number | Questions a program should NOT ask (personal info) |
+| 9 | Variables, Input and Choices | Programs can ask questions, remember answers and decide. | variables (R→text), `input` + `int` (I), `if/elif/else` (R→text), comparison operators (I), color palette (I) | “Choose your path” story: walk an if/elif/else maze drawn on the floor | `input` gives text, not a number | Questions a program should NOT ask (personal info) |
 | 10 | Random Art and My Own Commands | `random` makes surprises; `def` makes your own command (like My Blocks). | random (R→text), functions with `def` + parameters (I in Python, R from My Blocks), decomposition (R); final project kickoff (plan) | “Function machine”: input → rule → output cards | Function defined but never called | Being an original artist: remix with credit |
 | 11 | Project Studio | Build, test and improve your project in small steps. | iterative development (I), all concepts (R/E) | Paper prototype + playtest feedback | Partner swap bug hunt | Giving and receiving helpful feedback |
 | 12 | Showcase and Celebration | Share, explain, reflect. | explaining code (R), reflection | Gallery walk with feedback cards | — (exit assessment) | Showcase safety: share with family only, no personal info on screen |
@@ -62,7 +62,7 @@ program greets the viewer, asks 1–2 questions (`input`), and draws a scene or
 pattern using at least: a loop, a variable, an `if`, `random`, and at least
 one function made with `def`. Reference solution: *Night Sky Postcard* (asks
 how many stars and day/night; draws sky, moon/sun, random stars, houses with a
-`house(x, y, colour)` function). Support path: Scratch version with the same
+`house(x, y, color)` function). Support path: Scratch version with the same
 rubric. Extension path: add key presses (`onkey`).
 
 **Assessments:** interest & comfort survey (week 1, not graded), mid-level
@@ -89,7 +89,7 @@ week 8.
 |---|---|---|
 | L2.G1 | use clearly named variables of different types (int, float, str, bool) and f-strings | 2-AP-11 |
 | L2.G2 | combine control structures: while loops, nested loops, compound conditions | 2-AP-12 |
-| L2.G3 | write functions with parameters and return values to organise code | 2-AP-14, 2-AP-13 |
+| L2.G3 | write functions with parameters and return values to organize code | 2-AP-14, 2-AP-13 |
 | L2.G4 | store and process collections with lists and dictionaries | 2-AP-11, 3A-AP-14 |
 | L2.G5 | read and write text files to save and load data | 2-DA-08 |
 | L2.G6 | debug systematically (read tracebacks, print-debugging, rubber duck) and write simple tests | 2-AP-17, 2-AP-19 |
@@ -103,13 +103,13 @@ week 8.
 |---|---|---|---|---|---|---|
 | 1 | Welcome Back, Python | Values have types; f-strings build messages. Placement quiz (15 min). | data types (I), f-strings (I), `input` (R), `if/elif/else` (R), `and/or/not` (I) | “Type sorting”: sort value cards into int/float/str/bool bins | `"5" + 5` TypeError | Hero names, not real names: what is personal information? |
 | 2 | Functions That Give Back | `return` hands a value back; parameters make functions flexible. | parameters (R), `return` (I), docstrings (I), scope (I, light) | “Function machines” with in/out cards and a mystery rule | Printing instead of returning | Writing comments for future-you and friends |
-| 3 | Lists: Collections of Things | A list keeps many values in order. | lists, index, `append`, `len`, `for x in list` (I), `random.choice` (R) | “Human list”: kids hold cards, index from 0 | IndexError / off-by-one | Colour-blind-safe palettes: designing for everyone |
+| 3 | Lists: Collections of Things | A list keeps many values in order. | lists, index, `append`, `len`, `for x in list` (I), `random.choice` (R) | “Human list”: kids hold cards, index from 0 | IndexError / off-by-one | Color-blind-safe palettes: designing for everyone |
 | 4 | While Loops and Game Loops | Repeat until something changes; games are loops. | `while` (I), `break` (I), input validation (I), nested loops for grids/pixel art (E) | “Guess my number” with higher/lower | Infinite loop that never ends | Fair play: games that don't trick or pressure players |
 | 5 | Dictionaries and Secret Codes | Look things up by name, not number. | dict, keys/values, `.items()` (I), Caesar cipher (I), strings (R) | Paper Caesar wheel: encode/decode messages | KeyError and wrong key spelling | Encryption & passwords: why secrets need protecting |
-| 6 | Review and Checkpoint | Practise strategies for finding bugs. | debugging strategies (I): tracebacks, print-debugging, rubber duck; all (R) | “Debugging detectives” trace tables on paper | Bug-hunt workshop (5 stations) | Reflection on growth mindset |
+| 6 | Review and Checkpoint | Practice strategies for finding bugs. | debugging strategies (I): tracebacks, print-debugging, rubber duck; all (R) | “Debugging detectives” trace tables on paper | Bug-hunt workshop (5 stations) | Reflection on growth mindset |
 | 7 | Files: Saving Your Stuff | Files let programs remember after they close. | `open`, `with`, read/write/append (I), strings `split/strip` (I), lists (R) | “Notebook memory”: what does a program forget? | FileNotFoundError & overwriting with `"w"` | What should (not) be saved: data privacy |
 | 8 | Testing: Prove It Works | Tests are automatic checks that catch bugs early. | `assert` (I), pytest (I), normal/edge test cases (I), functions (R) | “Test the toaster”: invent normal/edge tests for a gadget | Fix buggy functions using failing tests | Trust: why apps need testing (real-world bugs) |
-| 9 | Event-Driven Games | Keys and timers make things happen; collisions end games. | `onkey`, `ontimer`, game state (I), `distance` collision (I), lists of sprites (E); final project kickoff | “Game loop board game”: each turn = one frame | Handler not called (missing `listen()`, function called with `()`) | Attribution for sounds/images; open licences |
+| 9 | Event-Driven Games | Keys and timers make things happen; collisions end games. | `onkey`, `ontimer`, game state (I), `distance` collision (I), lists of sprites (E); final project kickoff | “Game loop board game”: each turn = one frame | Handler not called (missing `listen()`, function called with `()`) | Attribution for sounds/images; open licenses |
 | 10 | Project Studio 1 | Plan, then build the core. | pseudocode/flowchart (I), decomposition (R), all (R/E) | Paper prototype | Partner code review | Collaboration: splitting tasks fairly |
 | 11 | Project Studio 2 | Test, playtest, polish. | tests for own functions (R), feedback (R) | Playtest feedback cards | Playtest bug list | Accessibility review of own game |
 | 12 | Showcase and Celebration | Share, explain, reflect. | explaining design (R) | Gallery walk | — (exit assessment) | Showcase safety |
@@ -146,10 +146,10 @@ Line Tools; no GitHub account), Python standard library only (`turtle`,
 | L3.G3 | choose data structures: lists of objects, dicts, stacks, queues, 2D grids | 3A-AP-14, 3A-DA-10 |
 | L3.G4 | track their work with git (init, add, commit, log, diff, restore) | 3A-AP-22, 2-AP-19 |
 | L3.G5 | plan and build a larger program iteratively, using feedback | 3A-AP-16, 3A-AP-19, 3A-AP-23, 2-AP-18 |
-| L3.G6 | collect, clean, analyse and visualise data | 2-DA-08, 3A-DA-11, 3A-DA-12 |
+| L3.G6 | collect, clean, analyze and visualize data | 2-DA-08, 3A-DA-11, 3A-DA-12 |
 | L3.G7 | explain how simple AI learns from data and where it fails | AI4K12 Big Ideas 1–5, 3A-IC-24 |
 | L3.G8 | test and debug larger programs | 2-AP-17, 3A-AP-21 |
-| L3.G9 | reason about privacy, bias, ethics and licences | 3A-IC-24, 3A-IC-25, 3A-IC-29, 3A-AP-20 |
+| L3.G9 | reason about privacy, bias, ethics and licenses | 3A-IC-24, 3A-IC-25, 3A-IC-29, 3A-AP-20 |
 
 ### Level 3 weeks
 
@@ -162,9 +162,9 @@ Line Tools; no GitHub account), Python standard library only (`turtle`,
 | 5 | Sorting, Stacks and Queues | Order data; stacks undo, queues take turns. | selection/bubble sort (I), `sorted(key=…)` (I), stack (I), queue/`deque` (I) | Human sorting race; plate stack; lunch queue | Sort that loses items / wrong comparison | Leaderboards: fairness & kindness |
 | 6 | Review and Checkpoint | Connect the pieces. | OOP/algorithms (R), debugging with the Thonny debugger (I) | Algorithm match-up cards | Bug-hunt workshop | Growth mindset reflection |
 | 7 | Grids, Recursion and Fractal Art | Functions that call themselves; worlds made of grids. | 2D lists (I), recursion (I), flood fill (I), fractal trees (I), turtle (R) | Russian dolls / recursive drawing | Missing base case (RecursionError) | Credit for generative art & algorithms |
-| 8 | Data Detectives | Data tells stories when you clean and chart it. | CSV reading (I), counting with dicts (R), averages (I), bar charts with turtle (I) | Class survey on paper (favourite games) → tally → chart | Numbers read as strings; empty rows | Consent & anonymising survey data |
-| 9 | How Do Machines Learn? | AI finds patterns in examples — and copies their mistakes. | training data (I), features (I), nearest-neighbour classifier (I), Markov text generator (I), bias (I) | “Train the teacher”: classify mystery cards by features | Bad training data → bad predictions | AI ethics: privacy with chatbots, deepfakes, bias; final project kickoff |
-| 10 | Project Studio 1 | Design first: classes, data, milestones. | class diagrams (I), decomposition (R), git workflow (R) | Paper class diagram (CRC cards) | Partner code review | Licences of assets/libraries |
+| 8 | Data Detectives | Data tells stories when you clean and chart it. | CSV reading (I), counting with dicts (R), averages (I), bar charts with turtle (I) | Class survey on paper (favorite games) → tally → chart | Numbers read as strings; empty rows | Consent & anonymizing survey data |
+| 9 | How Do Machines Learn? | AI finds patterns in examples — and copies their mistakes. | training data (I), features (I), nearest-neighbor classifier (I), Markov text generator (I), bias (I) | “Train the teacher”: classify mystery cards by features | Bad training data → bad predictions | AI ethics: privacy with chatbots, deepfakes, bias; final project kickoff |
+| 10 | Project Studio 1 | Design first: classes, data, milestones. | class diagrams (I), decomposition (R), git workflow (R) | Paper class diagram (CRC cards) | Partner code review | Licenses of assets/libraries |
 | 11 | Project Studio 2 | Test, playtest, polish, document. | tests (R), README docs (I), feedback (R) | Playtest feedback | Playtest bug triage | Accessibility & usability review |
 | 12 | Showcase and Graduation | Share, explain, reflect, plan next steps. | presenting design decisions (R) | Gallery walk | — (exit assessment) | Showcase safety; next steps online safely |
 
@@ -199,4 +199,4 @@ free-build, git commit practice).
 | Debugging & testing | every week (bug hunt), W6 relay | W6 E (strategies), W8 E (pytest) | W6 E (debugger), project E (5+ tests) |
 | Collaboration | pair roles every week | W10 E (task split) | W1 E (git), W10 E (code review) |
 | Art & games | W2 pen art, W4 catch game, W10 random art | W3 palettes, W4 pixel art, W9 games | W3 shape families, W7 fractals, project |
-| Citizenship & AI ethics | privacy, credit, kindness, accessibility | data privacy, encryption, fair games, attribution | git secrets, consent, bias, AI ethics, licences |
+| Citizenship & AI ethics | privacy, credit, kindness, accessibility | data privacy, encryption, fair games, attribution | git secrets, consent, bias, AI ethics, licenses |

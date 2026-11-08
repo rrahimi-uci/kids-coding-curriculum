@@ -1,0 +1,133 @@
+% Level 1, Week 3 -- When This Happens... (Scratch)
+\lesson{3}{When This Happens\ldots}{Events start code; conditionals choose what happens.}
+\lessoninfo{Concepts: events (I), if / if-else (I), touching / sensing (I), sequence (R), loops (R)}{Tools: Scratch 3 offline app}{CSTA: 1B-AP-10, 1B-AP-15, 1B-IC-21}
+
+\begin{objectives}
+  \item The student can start different scripts with different events: green flag, a key press or a click on a sprite. (L1.G3) [L1.W03.1]
+  \item The student can use \enquote{if} and \enquote{if-else} with a sensing question (\enquote{touching \ldots?}) to choose what a sprite does. (L1.G3) [L1.W03.2]
+  \item The student can explain why an \enquote{if} must sit inside \enquote{forever} to keep checking, and fix a sprite that never reacts. (L1.G2, L1.G6) [L1.W03.3]
+  \item The student can give a partner kind, specific feedback with \enquote{two stars and a wish}. (L1.G7, L1.G8) [L1.W03.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 3 and homework 3 (one per student).
+  \item Two sticky notes per student for \enquote{two stars and a wish} (or use the workbook box).
+  \item On each Mac: the Scratch app with a new project. Students may open last week's projects from \texttt{Scratch Projects} (\menu{File} $\rightarrow$ \menu{Load from your computer}).
+  \item A timer.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Simon says IF: follow commands only when the condition is true; finish with a FOREVER round.}
+  \timeslot{8--18}{Concept}{Events (\enquote{when \ldots}) are doorbells. \enquote{if} asks a yes/no question; \enquote{if-else} picks one of two paths. \enquote{forever} + \enquote{if} = keep checking.}
+  \timeslot{18--28}{Guided demo}{Tickle the Ghost: build the if-else without forever (bug: nothing happens), then wrap it in forever.}
+  \timeslot{28--52}{Hands-on build}{Pairs, swap every 8 minutes. Exercise 3.1 Arrow-Key Explorer, 3.2 Tickle the Ghost, 3.3 Treasure Hunt (with the never-reacts bug hunt). Last 5 minutes free-build: add a reaction of your own.}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell with two stars and a wish, exit ticket, reflection, hand out homework 3.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Simon says IF]
+Everyone stands. You read a command; students only do the action \textbf{if} the condition is true for them. Use conditions anyone can check without sharing private information:
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt]
+  \item \enquote{IF you are holding a pencil, THEN touch your nose.}
+  \item \enquote{IF your nickname has the letter A in it, THEN jump once.}
+  \item \enquote{IF you are wearing socks, THEN wave, ELSE clap.} (Point out: everyone does \textbf{one} of the two.)
+\end{itemize}
+\textbf{FOREVER round:} \enquote{FOREVER: IF my hand is up, THEN freeze, ELSE wiggle.} Raise and lower your hand several times over 30 seconds. They have to keep checking! Then let one student be the caller and invent a rule.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{In Scratch, the yellow \menu{Events} blocks are like \textbf{doorbells}. \enquote{When green flag clicked}, \enquote{when space key pressed}, \enquote{when this sprite clicked}: the script waits quietly until its doorbell rings, then it runs. One sprite can have lots of scripts with different doorbells.}
+
+\enquote{The orange \textbf{if} block asks a yes/no question. If the answer is yes, it runs the blocks inside. If not, it skips them. \textbf{if-else} has two mouths: one for yes, one for no. Exactly one of them runs, just like \enquote{wave ELSE clap}.}
+
+\enquote{The question goes in the pointy six-sided slot. The light-blue \menu{Sensing} blocks ask questions like \enquote{touching mouse-pointer?} or \enquote{touching edge?}.}
+
+\enquote{Here is the trick from our FOREVER round: an \textbf{if} checks only \textbf{once}, at the moment it runs. If we want the sprite to keep watching, we put the \textbf{if} inside \textbf{forever}.}
+\end{teacherscript}
+
+\begin{analogy}[The goalkeeper]
+\enquote{A goalkeeper who looks at the ball once at the start of the match and then reads a book will miss every goal. A good goalkeeper keeps checking, again and again: \enquote{Is the ball coming? If yes, jump!} That is \textbf{forever} with an \textbf{if} inside.}
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Tickle the Ghost (Exercise 3.2)]
+\par\noindent\begin{minipage}[t]{0.56\linewidth}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \menu{File} $\rightarrow$ \menu{New}. Right-click the cat in the sprite pane $\rightarrow$ \menu{delete}. Click \menu{Choose a Sprite} and pick \textbf{Ghost} (or any sprite you like).
+  \item From \menu{Control}, drag \enquote{if \ldots{} then \ldots{} else}. From \menu{Sensing}, drop \enquote{touching mouse-pointer?} into the six-sided slot.
+  \item In the top mouth: \enquote{set size to 150 \%} (\menu{Looks}) and \enquote{say Boo! That tickles!}. In the bottom mouth: \enquote{set size to 100 \%} and \enquote{say} with an empty box (delete the text) to remove the bubble.
+  \item Put \enquote{when green flag clicked} on top \textbf{without} forever. Click the flag, then move the mouse over the ghost. \enquote{Nothing happens! Why?} (It checked once, when the mouse was far away, and then the script finished.)
+  \item Drag the whole if-else into a \enquote{forever} block and snap it under the flag. Click the flag. Now the ghost grows and talks whenever the mouse touches it.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}\vspace{4pt}\centering
+\begin{scratch}[scale=0.66,else word=else]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockifelse{if \boolsensing{touching \ovalsensing*{mouse-pointer} ?} then}
+    {\blocklook{set size to \ovalnum{150} \%}
+     \blocklook{say \ovalnum{Boo! That tickles!}}}
+    {\blocklook{set size to \ovalnum{100} \%}
+     \blocklook{say \ovalnum{\ \ \ }}}
+}
+\end{scratch}
+\end{minipage}
+
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator and a predictor]
+Swap every 8 minutes. New job for the navigator this week: before each click on the green flag, \textbf{predict} out loud what will happen (\enquote{I think the ghost will grow when the mouse touches it}). Then check. With 1 student: you predict while your child drives, then swap. With 3: driver, navigator, tester (tests every key and every edge, and checks off the checklist). With 4: two pairs.
+\end{pairroles}
+
+Work through the workbook: \textbf{3.1} Arrow-Key Explorer (four \enquote{when key pressed} scripts), \textbf{3.2} Tickle the Ghost (on their own, after the demo), \textbf{3.3} Treasure Hunt (an explorer finds a spinning star).
+
+\begin{bughunt}[The explorer who never notices]
+In Exercise 3.3, the workbook shows Sam's explorer script: \enquote{when green flag clicked, go to start, if touching Star then say Treasure found!}, with no forever. Students build it, steer the explorer onto the star with the arrow keys and\ldots{} nothing. Ask: \enquote{When did the if check? What was true at that moment?} Fix: put the if inside a forever. Link it to the goalkeeper.
+\end{bughunt}
+
+\begin{freebuild}[Add a reaction]
+Last 5 minutes: \enquote{Add one more reaction of your own.} Ideas: \enquote{when this sprite clicked, play a sound}; \enquote{if touching edge, say Ouch!}; \enquote{when space key pressed, next costume}; a second ghost that hides when touched.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Kindness when giving feedback: two stars and a wish]
+\enquote{When we look at someone's project, we give \textbf{two stars and a wish}. Two stars: two things you really like, and say exactly what (\enquote{I like how the ghost grows when I touch it}). A wish: one idea to make it even better, said kindly (\enquote{What if it also played a sound?}). We talk about the project, not the person. And when you get feedback, say \enquote{Thank you}; you decide what to use.} Each student shows one project (1 minute) and gets two stars and a wish from a partner (or from you).
+Remind them: the same kindness rules apply to comments anywhere online, in games and in messages.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} at least one event other than the green flag; an if or if-else with a sensing question; the if inside forever.
+
+\textbf{Ask:} \enquote{This script should make the cat say \enquote{Ouch!} every time it touches the edge: \enquote{when green flag clicked}, then \enquote{if touching edge? then say Ouch!}. Why does it never say Ouch, and how do you fix it?}
+\textbf{Answer:} the if checks only once, right after the flag is clicked, when the cat is not at the edge. Put the if inside a forever loop so it keeps checking.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What is the difference between \enquote{when space key pressed} and \enquote{if touching \ldots}?} (One waits for something to happen; the other asks a question each time it runs.) Students write the two stars and a wish they received in the workbook. Hand out homework 3 (Pet Reactions).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{If without forever.} The most common bug of the week. The script runs once and the sprite never reacts. Fix: wrap the if in forever.
+  \item \textbf{Wrong slot.} Students try to drop the \enquote{touching} block into a round slot or next to the if. Only six-sided (pointy) blocks fit the if slot.
+  \item \textbf{\enquote{touching} not set.} The dropdown still says \enquote{mouse-pointer} when they wanted \enquote{Star} or \enquote{edge}. Click the little triangle and choose.
+  \item \textbf{Code on the wrong sprite.} The explorer's script was built on the star. Check which sprite is highlighted in the sprite pane.
+  \item \textbf{Arrow keys do nothing.} The stage must be clicked once first so Scratch \enquote{hears} the keyboard; also check \enquote{when right arrow key pressed} says right arrow, not space.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build Exercise 3.1 with only two keys (left and right), then do Tickle the Ghost with \enquote{if} only (no else). Keep the goalkeeper analogy visible.
+\extensionpath In Treasure Hunt, paint a \enquote{lava} sprite (\menu{Choose a Sprite} $\rightarrow$ \menu{Paint}: a rectangle with a zigzag pattern and the word LAVA, so it does not rely on color). Add \enquote{if touching Lava? then go back to the start}.
+\end{differentiation}
+
+\begin{stretchchallenge}[Two-player tag]
+Make two sprites. One moves with the arrow keys, the other with W, A, S, D (four \enquote{when key pressed} scripts each). The chaser says \enquote{Tag!} when it touches the runner: \enquote{forever: if touching runner? then say Tag! for 1 seconds}.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do only one Simon says round plus the FOREVER round. In the hands-on part, build 3.1 with two keys and skip the Star's spinning script in 3.3. Always keep the never-reacts bug hunt and the two-stars-and-a-wish wrap-up.
+\end{teachernote}

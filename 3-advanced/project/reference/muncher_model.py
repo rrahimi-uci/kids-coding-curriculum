@@ -82,7 +82,7 @@ class Maze:
     def pellets_left(self):
         return sum(row.count(PELLET) for row in self.grid)
 
-    def neighbours(self, pos):
+    def neighbors(self, pos):
         """The open squares next to pos, in the order up, down, left, right."""
         row, col = pos
         result = []
@@ -109,7 +109,7 @@ class Maze:
             current = queue.popleft()  # from the FRONT: first in, first out
             if current == goal:
                 break
-            for nxt in self.neighbours(current):
+            for nxt in self.neighbors(current):
                 if nxt not in came_from:  # never visit a square twice
                     came_from[nxt] = current
                     queue.append(nxt)
@@ -135,7 +135,7 @@ def load_maze(filename):
 class Entity:
     """Anything that stands on a square: the base class of every character."""
 
-    symbol = "?"  # the letter drawn on screen (so we never rely on colour)
+    symbol = "?"  # the letter drawn on screen (so we never rely on color)
 
     def __init__(self, pos):
         self.pos = pos
@@ -161,7 +161,7 @@ class Ghost(Entity):
     symbol = "G"
 
     def choose_step(self, maze, player_pos):
-        options = maze.neighbours(self.pos)
+        options = maze.neighbors(self.pos)
         if len(options) > 1 and self.previous in options:
             options.remove(self.previous)
         if not options:

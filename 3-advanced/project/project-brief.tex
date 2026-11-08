@@ -32,7 +32,7 @@ objects; enemies can use an algorithm to move. & \texttt{grid\_game\_template.py
 (b) Generative art app & An app that makes pictures from rules: fractals, patterns, tiles. Shapes
 are objects; your art can be saved and loaded again. & \texttt{art\_app\_template.py}\\ \midrule
 (c) Data / AI app & An app that answers questions about data, draws charts, or predicts things
-with a nearest-neighbour \enquote{AI}. & \texttt{data\_app\_template.py} and \texttt{data/games.csv}\\
+with a nearest-neighbor \enquote{AI}. & \texttt{data\_app\_template.py} and \texttt{data/games.csv}\\
 \bottomrule
 \end{tabularx}
 
@@ -41,7 +41,7 @@ tells you how to copy the folder and make your first git commit.
 
 \section{2. The must-haves}
 
-Whatever you build, your finished project must have all of these. Tick them off as you go.
+Whatever you build, your finished project must have all of these. Check them off as you go.
 
 \begin{selfcheck}
   \item \textbf{At least 2 classes} that you wrote, and one of them uses \textbf{inheritance}
@@ -52,7 +52,7 @@ Whatever you build, your finished project must have all of these. Tick them off 
   \item At least \textbf{5 pytest tests} that pass.
   \item A \textbf{git history with 8 or more meaningful commits} (small steps with clear messages).
   \item A short \textbf{README.md}: what it is, how to run it, how it is built, credits.
-  \item \textbf{Fair and safe}: nicknames only, no personal data, never colour alone (use shapes,
+  \item \textbf{Fair and safe}: nicknames only, no personal data, never color alone (use shapes,
         letters or words too), credit for anything you did not make.
 \end{selfcheck}
 
@@ -64,13 +64,13 @@ Pick one, mix two, or invent your own. Small and finished beats huge and broken!
 \rowcolor{kcaccent!15}\textbf{(a) Grid games} & \textbf{(b) Generative art} & \textbf{(c) Data / AI}\\ \midrule\endhead
 \bottomrule\endfoot
 Dungeon crawler: collect keys, open doors, a monster that hunts you with BFS &
-Fractal forest: trees with different depth, angle and season palettes; save your favourite settings &
-Game-night stats: survey your family's favourite games, clean the data, chart it\\ \midrule
+Fractal forest: trees with different depth, angle and season palettes; save your favorite settings &
+Game-night stats: survey your family's favorite games, clean the data, chart it\\ \midrule
 Sokoban-style box pusher with levels in text files and an undo stack &
 Quilt maker: tiles of shape classes in a grid, mirror and rotate rules &
-Monster sorter: a nearest-neighbour AI guesses the type of a new monster from its features\\ \midrule
+Monster sorter: a nearest-neighbor AI guesses the type of a new monster from its features\\ \midrule
 Snake on a grid with a queue for the body &
-Flood-fill colouring book: click a region to fill it (recursion or BFS) &
+Flood-fill coloring book: click a region to fill it (recursion or BFS) &
 Weather or reading log: average, best week, a bar chart, a prediction\\ \midrule
 Farm or garden simulator: plants are objects that grow each tick &
 Spirograph studio: pattern classes, sliders by keys, a gallery saved as JSON &
@@ -148,7 +148,7 @@ triangle} for \enquote{is a} (inheritance) and a line with a \textbf{diamond} fo
   \node[cls] (hero) at (-2.6,-2.5) {\textbf{Hero}\\ treasure\\ collect()};
   \node[cls] (dragon) at (2.6,-2.5) {\textbf{Dragon}\\ speed\\ choose\_step()};
   \node[cls] (game) at (7.2,0) {\textbf{Game}\\ grid, hero, dragons\\ tick()};
-  \node[cls] (grid) at (7.2,-2.5) {\textbf{Grid}\\ cells\\ neighbours()};
+  \node[cls] (grid) at (7.2,-2.5) {\textbf{Grid}\\ cells\\ neighbors()};
   \draw[isa] (hero.north) -- node[left, font=\scriptsize] {is a} (char.south west);
   \draw[isa] (dragon.north) -- node[right, font=\scriptsize] {is a} (char.south east);
   \draw[hasa] (game.west) -- node[above, font=\scriptsize] {has} (char.east);
@@ -190,11 +190,11 @@ Project: \rule{5cm}{0.4pt} \quad Playtester (nickname): \rule{4cm}{0.4pt}\par
 \textbf{Star 1} (something great): \answerlines{1}
 \textbf{Star 2} (something else great): \answerlines{1}
 \textbf{A wish} (one thing to improve): \answerlines{1}
-Did anything confuse you or break? Could someone who is colour-blind play it? \answerlines{1}
+Did anything confuse you or break? Could someone who is color-blind play it? \answerlines{1}
 \end{reflection}
 
 \section{8. How your project is judged}
-Your teacher uses the same rubric. Before the showcase, tick one box in each row: where do \emph{you} think you are?
+Your teacher uses the same rubric. Before the showcase, check one box in each row: where do \emph{you} think you are?
 
 \begingroup\small
 \renewcommand{\arraystretch}{1.3}
@@ -218,7 +218,7 @@ Explaining design decisions & $\square$ I can show what it does & $\square$ I ca
 is fine to finish fewer features well.
 \extensionpath Add a second level or mode loaded from a file; write tests \emph{before} the code
 (test-first); use BFS or recursion in a second place; add a settings dictionary saved as JSON; try
-k-nearest neighbours (3 vote) for option (c).
+k-nearest neighbors (3 vote) for option (c).
 \end{differentiation}
 
 \section{10. Showcase: your 3-minute talk}

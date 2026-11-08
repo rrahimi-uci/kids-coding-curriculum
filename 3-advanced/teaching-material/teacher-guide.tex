@@ -1,5 +1,5 @@
 \documentclass[level=3,teacher]{kidscode}
-%% Terminal and text-file listings: no Python keyword colouring.
+%% Terminal and text-file listings: no Python keyword coloring.
 \lstdefinestyle{kcshell}{basicstyle=\ttfamily\small\setstretch{1.0},language={},
   columns=fullflexible,keepspaces=true,breaklines=true,numbers=none,upquote=true,
   showstringspaces=false}
@@ -56,7 +56,7 @@ for a good intuition, not perfect definitions.\\
 \begin{teachernote}[You do not need to be an expert]
 Every lesson plan tells you exactly what to say, type and look for, and every program in the
 answer key is tested. When a student asks something you do not know, the best answer is:
-\enquote{Great question --- let's find out together.} Then try it in Thonny. Modelling curiosity
+\enquote{Great question --- let's find out together.} Then try it in Thonny. Modeling curiosity
 matters more than knowing everything.
 \end{teachernote}
 
@@ -87,7 +87,7 @@ the middle, then the middle of the correct half, and so on, takes at most about 
 search but doubles the work for linear search. That is the whole idea; no formulas are needed.
 
 \item[Sorting (week 5).] Putting items in order. Students act out \textbf{selection sort} (find the
-smallest, swap it to the front, repeat) and \textbf{bubble sort} (swap neighbours that are in the
+smallest, swap it to the front, repeat) and \textbf{bubble sort} (swap neighbors that are in the
 wrong order, repeat), then learn Python's built-in \py|sorted(items, key=...)|.
 
 \item[Stack and queue (week 5).] A \textbf{stack} is a pile of plates: the last one put on is the
@@ -111,7 +111,7 @@ Muncher reference project uses BFS for its chasing ghost.
 \textbf{Cleaning} means fixing those before counting or charting. A \textbf{CSV} file is a
 spreadsheet saved as plain text with commas between the columns.
 
-\item[Nearest-neighbour classifier (week 9).] The simplest machine learning. You have labelled
+\item[Nearest-neighbor classifier (week 9).] The simplest machine learning. You have labeled
 examples (\textbf{training data}), each described by numbers (\textbf{features}, such as size and
 number of spikes). To label a mystery item, find the example most similar to it (smallest
 distance) and copy its label. If the examples are unfair or incomplete, the predictions are too:
@@ -142,10 +142,10 @@ L3.G2 & explain and compare searching/sorting algorithms and use recursion & 3A-
 L3.G3 & choose data structures: lists of objects, dicts, stacks, queues, 2D grids & 3A-AP-14, 3A-DA-10\\
 L3.G4 & track their work with git (init, add, commit, log, diff, restore) & 3A-AP-22, 2-AP-19\\
 L3.G5 & plan and build a larger program iteratively, using feedback & 3A-AP-16, 3A-AP-19, 3A-AP-23, 2-AP-18\\
-L3.G6 & collect, clean, analyse and visualise data & 2-DA-08, 3A-DA-11, 3A-DA-12\\
+L3.G6 & collect, clean, analyze and visualize data & 2-DA-08, 3A-DA-11, 3A-DA-12\\
 L3.G7 & explain how simple AI learns from data and where it fails & AI4K12 Big Ideas 1--5, 3A-IC-24\\
 L3.G8 & test and debug larger programs & 2-AP-17, 3A-AP-21\\
-L3.G9 & reason about privacy, bias, ethics and licences & 3A-IC-24, 3A-IC-25, 3A-IC-29, 3A-AP-20\\
+L3.G9 & reason about privacy, bias, ethics and licenses & 3A-IC-24, 3A-IC-25, 3A-IC-29, 3A-AP-20\\
 \bottomrule
 \end{tabularx}
 
@@ -164,7 +164,7 @@ L3.G9 & reason about privacy, bias, ethics and licences & 3A-IC-24, 3A-IC-25, 3A
 6 & Review and Checkpoint & Connect the pieces. & Mid-level checkpoint (15 min); Thonny debugger; bug-hunt workshop\\ \midrule
 7 & Grids, Recursion and Fractal Art & Functions that call themselves; worlds made of grids. & Fractal trees, flood fill on a grid\\ \midrule
 8 & Data Detectives & Data tells stories when you clean and chart it. & Survey CSV $\rightarrow$ counts, averages, turtle bar chart\\ \midrule
-9 & How Do Machines Learn? & AI finds patterns in examples --- and copies their mistakes. & Nearest-neighbour classifier, Markov text; project kickoff (pitch)\\ \midrule
+9 & How Do Machines Learn? & AI finds patterns in examples --- and copies their mistakes. & Nearest-neighbor classifier, Markov text; project kickoff (pitch)\\ \midrule
 10 & Project Studio 1 & Design first: classes, data, milestones. & CRC cards, class diagram, core classes + first tests\\ \midrule
 11 & Project Studio 2 & Test, playtest, polish, document. & 5+ tests, playtest, README, polish\\ \midrule
 12 & Showcase and Graduation & Share, explain, reflect, plan next steps. & Showcase, exit assessment (20 min), certificates\\ \midrule
@@ -226,7 +226,7 @@ git config --global core.editor nano
 \subsection{5.4 Copy the course files}
 \begin{checklist}
   \item On each Mac make a folder \texttt{Documents/coding-L3-<nickname>} (one per student, or per pair).
-  \item Copy \texttt{3-advanced/excercises} and \texttt{3-advanced/project/starter} into it.
+  \item Copy \texttt{3-advanced/exercises} and \texttt{3-advanced/project/starter} into it.
   \item Students create their own git repositories \emph{inside their copy} (week 1 shows how).
         Never let students run git commands inside the curriculum folder you received: it may
         already be a git repository, and a repository inside a repository is confusing.
@@ -258,9 +258,9 @@ students cannot see)\\
         \menu{Theme \& Font}.
   \item \textbf{Terminal font size:} \keys{Cmd}+\keys{+} in the Terminal window; to keep it,
         \menu{Terminal} $\rightarrow$ \menu{Settings} $\rightarrow$ \menu{Profiles} $\rightarrow$ \menu{Text}.
-  \item \textbf{Colour filters:} \menu{System Settings} $\rightarrow$ \menu{Accessibility}
-        $\rightarrow$ \menu{Display} $\rightarrow$ \menu{Color filters} (helpful for colour
-        blindness). All course colours are from the colour-blind-safe Okabe--Ito palette, and games
+  \item \textbf{Color filters:} \menu{System Settings} $\rightarrow$ \menu{Accessibility}
+        $\rightarrow$ \menu{Display} $\rightarrow$ \menu{Color filters} (helpful for color
+        blindness). All course colors are from the color-blind-safe Okabe--Ito palette, and games
         always use shapes and letters too.
   \item \textbf{Zoom:} \menu{Accessibility} $\rightarrow$ \menu{Zoom} lets students enlarge any
         part of the screen during demos.
@@ -342,7 +342,7 @@ cards, cookie-cutter classes, human sorting race, plate stack and lunch queue, R
 paper survey, \enquote{train the teacher}, CRC cards. Do not skip them; they are where most
 \enquote{aha} moments happen.
 \item[Free-build.] Five minutes at the end of the build for students to make something their own
-(new colours, a new character, a silly feature). It keeps motivation high, especially for the
+(new colors, a new character, a silly feature). It keeps motivation high, especially for the
 artists in the group.
 \item[Reflection.] One prompt at the end of each session, answered aloud or in the workbook.
 Rotate who answers first. Good follow-up: \enquote{What would you tell someone starting this
@@ -378,14 +378,14 @@ independently on Python projects.\\ \midrule
 Project rubric & Weeks 9--12 & Six criteria: creativity, working code, design/OOP, testing, git
 history, explaining design decisions. Explaining counts as much as code. Full rubric in the
 project teacher guide.\\ \midrule
-Progress tracker & Every week & One page per student (\texttt{progress-tracker.pdf}): tick the
+Progress tracker & Every week & One page per student (\texttt{progress-tracker.pdf}): check the
 week's \enquote{I can} statements together during wrap-up.\\
 \end{longtable}
 
 \begin{teachernote}[Every student gets a voice]
 Each paper ends with student-friendly \enquote{I can\ldots} statements scored
 \textbf{Just starting / Getting there / Got it / Expert}. Ask students to fill these in
-\emph{before} you mark, then compare. A student who rates themself \enquote{Got it} but struggled
+\emph{before} you score, then compare. A student who rates themself \enquote{Got it} but struggled
 is a conversation, not a correction.
 \end{teachernote}
 
@@ -403,10 +403,10 @@ Every lesson plan has a support path and an extension path. In short:
 3 & One parent class, one child that overrides one method & Composition: a Team that has a list of characters\\ \midrule
 4 & Linear search only, count steps on paper & Binary search on 1000 numbers, compare step counts in a table\\ \midrule
 5 & Use \texttt{sorted(key=...)} instead of writing a sort & Write bubble sort and count the swaps; undo with a stack\\ \midrule
-6 & Redo one favourite exercise from weeks 2--5 & Fix the hardest bug-hunt station with the debugger only\\ \midrule
+6 & Redo one favorite exercise from weeks 2--5 & Fix the hardest bug-hunt station with the debugger only\\ \midrule
 7 & Draw fractal trees by changing depth/angle only & Flood fill on a grid; then try BFS shortest path\\ \midrule
 8 & Count with a dict; chart already drawn & Clean a messier CSV; add averages and a second chart\\ \midrule
-9 & Classify by hand first, then run the given classifier & k-nearest neighbours (3 vote); compare accuracy\\ \midrule
+9 & Classify by hand first, then run the given classifier & k-nearest neighbors (3 vote); compare accuracy\\ \midrule
 10 & Start from a starter template; two classes only & Design an extra class with composition; write tests first\\ \midrule
 11 & Five simple tests (one per method); README from the template & Edge-case tests; tests for the saved file with \texttt{tmp\_path}\\ \midrule
 12 & Present with a prompt card; demo one feature & Explain one alternative design and why they rejected it\\
@@ -431,8 +431,8 @@ Keep it a discussion, not a lecture: ask, listen, then share one fact.
 7 & Credit for algorithms and art & \enquote{If you use someone's fractal idea, how do you give credit?}\\ \midrule
 8 & Consent and anonymous data & \enquote{May we put someone's survey answer in our chart without asking?}\\ \midrule
 9 & AI ethics: chatbots, deepfakes, bias & \enquote{What should you never type into a chatbot? How could an AI be unfair?}\\ \midrule
-10 & Licences & \enquote{Can you use any picture or sound you find? What does a licence say?}\\ \midrule
-11 & Accessibility and usability & \enquote{Could someone who is colour-blind play your game?}\\ \midrule
+10 & Licenses & \enquote{Can you use any picture or sound you find? What does a license say?}\\ \midrule
+11 & Accessibility and usability & \enquote{Could someone who is color-blind play your game?}\\ \midrule
 12 & Showcase safety; next steps online & \enquote{If you join a coding website later, what will you keep private?}\\
 \end{longtable}
 
@@ -631,7 +631,7 @@ Abstraction / functions & W5 I (My Blocks), W10 R (def) & W2 E (return), W8 R (t
 Debugging \& testing & every week (bug hunt), W6 relay & W6 E (strategies), W8 E (pytest) & W6 E (debugger), project E (5+ tests)\\ \midrule
 Collaboration & pair roles every week & W10 E (task split) & W1 E (git), W10 E (code review)\\ \midrule
 Art \& games & W2 pen art, W4 catch game, W10 random art & W3 palettes, W4 pixel art, W9 games & W3 shape families, W7 fractals, project\\ \midrule
-Citizenship \& AI ethics & privacy, credit, kindness, accessibility & data privacy, encryption, fair games, attribution & git secrets, consent, bias, AI ethics, licences\\
+Citizenship \& AI ethics & privacy, credit, kindness, accessibility & data privacy, encryption, fair games, attribution & git secrets, consent, bias, AI ethics, licenses\\
 \end{longtable}
 \endgroup
 
@@ -646,7 +646,7 @@ Your graduates can now learn from real programming books on their own. Some safe
 \enquote{The Big Book of Small Python Projects} (Al Sweigart); later \enquote{Python Crash Course}
 (Eric Matthes). Your local library probably has several.
 \item[Offline projects.] Turn Maze Muncher into a level editor; build a turtle drawing program that
-saves to JSON; analyse family-friendly data (weather you measure, a reading log, a sports season);
+saves to JSON; analyze family-friendly data (weather you measure, a reading log, a sports season);
 write a text adventure with classes for rooms and items; keep everything in git.
 \item[Local, in-person clubs.] Library coding clubs, CoderDojo or Code Club sessions, school
 robotics teams (for example FIRST LEGO League), maker spaces and summer coding camps.

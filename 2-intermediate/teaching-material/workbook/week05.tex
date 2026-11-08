@@ -31,7 +31,7 @@ and the thing it gives back is its \textbf{value}. Dictionaries use curly bracke
 monster = {"name": "Blobby", "health": 30, "attack": 4, "speed": 2}
 print(monster["health"])          # 30
 monster["health"] = 40            # change a value
-monster["colour"] = "green"       # add a new key
+monster["color"] = "green"       # add a new key
 for key, value in monster.items():
     print(f"{key}: {value}")      # every key with its value
 \end{pycode}
@@ -64,7 +64,7 @@ Your real passwords stay between you and your parent or carer. Never type a real
 \end{tip}
 
 \begin{exercise}[Monster Stats]
-Folder: \texttt{excercises/week05/ex-monster-stats}. Open \texttt{starter.py} and press \menu{Run}.
+Folder: \texttt{exercises/week05/ex-monster-stats}. Open \texttt{starter.py} and press \menu{Run}.
 \begin{enumerate}[leftmargin=1.4em]
   \item TODO 1: in \texttt{stat\_report()}, loop with \texttt{for key, value in monster.items():} and build lines like \texttt{health: 30}.
   \item TODO 2: \texttt{level\_up()} adds 10 to health and 2 to attack.
@@ -75,7 +75,7 @@ Folder: \texttt{excercises/week05/ex-monster-stats}. Open \texttt{starter.py} an
 \end{exercise}
 
 \begin{exercise}[Caesar Cipher]
-Folder: \texttt{excercises/week05/ex-caesar-cipher}. Run \texttt{starter.py} first and look at the dictionary it prints.
+Folder: \texttt{exercises/week05/ex-caesar-cipher}. Run \texttt{starter.py} first and look at the dictionary it prints.
 \begin{enumerate}[leftmargin=1.4em]
   \item TODO 1: finish \texttt{encode()}. For each letter: if it is in the key, add \texttt{key[letter]}; otherwise add the letter itself.
   \item TODO 2: finish \texttt{decode()}. Hint: shifting by \texttt{-shift} goes backwards.
@@ -106,7 +106,7 @@ Why should a real password never go into a program or a message?
 \clearpage
 \section{Cut-out: your Caesar cipher wheel}
 Cut out both wheels along the thick outer circles. Put the small wheel on top of the big one and push a split pin
-(or a pencil point) through both centres. Turn the small wheel so that small \textbf{a} sits under big \textbf{d}: that is shift 3.
+(or a pencil point) through both centers. Turn the small wheel so that small \textbf{a} sits under big \textbf{d}: that is shift 3.
 Encode: small wheel → big wheel. Decode: big wheel → small wheel.
 \begin{center}
 \begin{tikzpicture}[font=\small\ttfamily]

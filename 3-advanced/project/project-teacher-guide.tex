@@ -1,5 +1,5 @@
 \documentclass[level=3,teacher]{kidscode}
-%% Terminal and text-file listings: no Python keyword colouring.
+%% Terminal and text-file listings: no Python keyword coloring.
 \lstdefinestyle{kcshell}{basicstyle=\ttfamily\small\setstretch{1.0},language={},
   columns=fullflexible,keepspaces=true,breaklines=true,numbers=none,upquote=true,
   showstringspaces=false}
@@ -108,7 +108,7 @@ rest goes on the parking-lot sheet. Finished beats perfect.\\ \midrule
 Nouns $\rightarrow$ classes, verbs $\rightarrow$ methods. Start from the template's classes.\\ \midrule
 No algorithm yet & \enquote{Is there anything to find, order, or repeat inside itself?} &
 (a) BFS chaser, flood fill to reveal rooms; (b) recursive fractal, sort shapes by size before
-drawing; (c) sort for a top 3, nearest-neighbour search for the closest example.\\ \midrule
+drawing; (c) sort for a top 3, nearest-neighbor search for the closest example.\\ \midrule
 Tests are hard because of turtle & \enquote{Which part decides, and which part draws?} & Move rules into a
 class or function with no turtle (like \texttt{muncher\_model.py}); test that part.\\ \midrule
 \texttt{ModuleNotFoundError} in tests & \enquote{What is your file called now?} & The test's
@@ -123,7 +123,7 @@ levels, saved art (JSON), a results file. Create it if it is missing.\\ \midrule
 Pair disagreement & \enquote{Which class could each of you own?} & Split by class; swap driver every 8
 minutes; decide with a coin when stuck --- and write the decision in the README.\\ \midrule
 Finished early & \enquote{What would surprise your playtester?} & Extension path in the brief: a
-second level from a file, test-first, a settings JSON, k-nearest neighbours.\\
+second level from a file, test-first, a settings JSON, k-nearest neighbors.\\
 \end{longtable}
 
 %% =====================================================================
@@ -170,7 +170,7 @@ the README; ask \enquote{Why did you design it this way?}
 A grid maze game: the player (\textbf{P}, orange circle) eats every pellet (small black dot) while
 a wandering ghost (\textbf{G}, sky-blue triangle) and a chasing ghost (\textbf{C}, vermillion
 diamond) try to catch them. Each character has a \textbf{shape and a letter}, so nobody needs to
-tell colours apart. Clearing level 1 unlocks level 2; the best five scores are saved. It meets
+tell colors apart. Clearing level 1 unlocks level 2; the best five scores are saved. It meets
 every must-have:
 
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{4.2cm}X@{}}
@@ -204,7 +204,7 @@ test\_maze\_muncher.py & 5 tests of the view on a fake screen\\
   hasa/.style={{Diamond[length=9pt,width=6pt]}-, thick}]
   \node[cls] (app) at (0,0) {\textbf{MuncherApp} (view)\\ screen, pens, game\\ redraw(), tick(), on\_key()};
   \node[cls] (game) at (6.4,0) {\textbf{Game}\\ maze, player, ghosts,\\ score, state\\ move\_player(), tick()};
-  \node[cls] (maze) at (11.6,0) {\textbf{Maze}\\ grid, starts\\ is\_wall(), neighbours(),\\ shortest\_path()};
+  \node[cls] (maze) at (11.6,0) {\textbf{Maze}\\ grid, starts\\ is\_wall(), neighbors(),\\ shortest\_path()};
   \node[cls] (entity) at (6.4,-3.3) {\textbf{Entity}\\ pos, previous, symbol\\ try\_move()};
   \node[cls] (player) at (2.6,-6.0) {\textbf{Player}\\ symbol = "P"};
   \node[cls] (ghost) at (8.6,-6.0) {\textbf{Ghost}\\ symbol = "G"\\ choose\_step() (random)\\ take\_turn()};
@@ -325,7 +325,7 @@ The exit assessment comes first, while everyone is fresh; the celebration comes 
 
 \begin{timeplan}
   \timeslot{0--20}{Assessment}{Quiet, paper only, while minds are fresh. Collect the papers;
-  mark them later.}
+  score them later.}
   \timeslot{20--25}{Set-up}{Each project open on a Mac, window large, Thonny font enlarged. Families
   sit where they can see. Hand out feedback cards.}
   \timeslot{25--50}{Showcase}{Each student (or pair): a 3-minute talk using the brief's checklist,

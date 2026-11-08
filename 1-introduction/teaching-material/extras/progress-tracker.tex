@@ -1,0 +1,133 @@
+\documentclass[level=1]{kidscode}
+\newcommand{\sticker}{\tikz[baseline=-0.35cm]\draw[kcgray,dashed,rounded corners=3pt] (0,0) rectangle (1.5,-1.5);}
+\newcommand{\lvboxes}{\small\tickbox\ Getting there\par\tickbox\ Got it\par\tickbox\ Expert}
+%% \wkrow{week}{I can statements (\item ...)}{concept tags}
+\newcommand{\ican}{\par\hangindent=1.2em\hangafter=1\noindent\faCheck\ }
+\newcommand{\wkrow}[3]{\textbf{\large #1} &
+  \vspace{-0.6\baselineskip}#2\par\smallskip
+  {\footnotesize\color{kcgray!70!black}#3} &
+  \vspace{-0.6\baselineskip}\lvboxes & \sticker\\ \midrule}
+%% breakable table (the dyslexia edition needs more than one page per half)
+\makeatletter\ifkc@dyslexia\newcommand{\wkstretch}{1.25}\else\newcommand{\wkstretch}{1.9}\fi\makeatother
+\newenvironment{weektable}{\par\noindent\renewcommand{\arraystretch}{\wkstretch}%
+  \longtable{@{}>{\centering}p{1.15cm}>{\RaggedRight}p{\dimexpr\linewidth-5.95cm-6\tabcolsep}>{\RaggedRight}p{2.8cm}c@{}}
+  \toprule
+  \textbf{Week} & \textbf{I can\dots} & \textbf{How it went} & \textbf{Sticker}\\ \midrule\endhead}
+  {\endlongtable\par}
+%% badge: \badge{color}{icon}{name}{how to earn it}{shape: circle|diamond|rectangle}
+\newcommand{\badge}[5]{%
+  \begin{tikzpicture}
+    \node[#5,draw=#1!80!black,line width=1.6pt,fill=#1!12,minimum size=2.5cm,inner sep=1pt,
+          align=center,font=\small\bfseries,text width=2.2cm] (b) {{\Large #2}\\[2pt] #3};
+    \node[below=3pt of b,text width=3.8cm,align=center,font=\footnotesize] {#4\\[2pt] Date: \rule{1.8cm}{0.4pt}};
+  \end{tikzpicture}}
+\begin{document}
+\kctitle{Progress Tracker}{One copy per student: what I can do, week by week}
+
+\begin{tip}[How the tracker works]
+At the end of each session (2 minutes, during the Wrap-up), read the \enquote{I can\dots} lines with the
+student. The \textbf{student} checks how it went, and you add a sticker or a stamp. Checks are about
+\emph{this week}: it is completely normal to check \enquote{Getting there} for a new idea, because it comes
+back later (look at the tags). Keep the trackers in a folder and bring them out at the showcase: students love seeing how far they have come.
+\end{tip}
+
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Tag} & \textbf{Means} & \textbf{So\dots}\\
+\midrule
+\cvI & Introduced: brand new this week & \enquote{Getting there} is great.\\
+\cvR & Revisited: we practice it again & Aim for \enquote{Got it}.\\
+\cvE & Extended: we go further with it & Try for \enquote{Expert}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{teachernote}[Levels]
+\textbf{Getting there:} can do it with help or by copying an example. \textbf{Got it:} can do it alone.
+\textbf{Expert:} can do it alone, explain it, and use it in a new way. The formal snapshots are the week-6
+checkpoint and the week-12 exit assessment (see the Teacher Guide); this tracker is the everyday picture.
+\end{teachernote}
+
+\clearpage
+\section{My progress: weeks 1--6 (Scratch)}
+\noindent Nickname: \rule{6cm}{0.4pt}\par
+\begin{weektable}
+\wkrow{1}{\ican I can give exact step-by-step instructions in the right order.
+  \ican I can make a sprite move when the green flag is clicked.}{sequence \cvI\ \ algorithm \cvI\ \ sprite, stage \cvI}
+\wkrow{2}{\ican I can use a repeat loop to draw a shape with the pen.
+  \ican I can work out the turn: $360 \div$ number of sides.}{loops \cvI\ \ costumes \cvI\ \ angles \cvI}
+\wkrow{3}{\ican I can start code with events (flag, keys).
+  \ican I can use if and if-else to make a sprite react.}{events \cvI\ \ if \cvI\ \ sequence \cvR\ \ loops \cvR}
+\wkrow{4}{\ican I can use a variable to keep score.
+  \ican I can use pick random for a surprise.}{variables \cvI\ \ random \cvI\ \ if \cvR\ \ events \cvR}
+\wkrow{5}{\ican I can send and receive broadcast messages.
+  \ican I can make a My Block with an input.}{broadcast \cvI\ \ My Blocks \cvI\ \ decomposition \cvI\ \ variables \cvR}
+\wkrow{6}{\ican I can find and fix bugs in a Scratch project.
+  \ican I can match Scratch blocks to Python lines.}{all Scratch ideas \cvR\ \ Scratch to Python \cvI}
+\end{weektable}
+
+\clearpage
+\section{My progress: weeks 7--12 (Python)}
+\noindent Nickname: \rule{6cm}{0.4pt}\par
+\begin{weektable}
+\wkrow{7}{\ican I can write and run a turtle program in Thonny.
+  \ican I can find and fix typos and syntax errors.}{Python \cvI\ \ print, comments \cvI\ \ syntax errors \cvI\ \ sequence \cvR}
+\wkrow{8}{\ican I can repeat with a \texttt{for} loop and \texttt{range}.
+  \ican I can indent the lines that belong inside a loop.}{for/range \cvI\ \ indentation \cvI\ \ loops \cvE\ \ nested loop \cvI}
+\wkrow{9}{\ican I can ask with \texttt{input} and change the answer to a number with \texttt{int}.
+  \ican I can choose with \texttt{if}, \texttt{elif} and \texttt{else}.}{input \cvI\ \ comparisons \cvI\ \ if/elif/else \cvE\ \ variables \cvE}
+\wkrow{10}{\ican I can make my own function with \texttt{def} and use it.
+  \ican I can use \texttt{random} in Python and plan my project.}{functions \cvI\ \ My Blocks \cvR\ \ random \cvE\ \ decomposition \cvR}
+\wkrow{11}{\ican I can build my project in small steps and test it.
+  \ican I can give and use helpful feedback.}{small steps \cvI\ \ all ideas \cvR\ \ feedback \cvR}
+\wkrow{12}{\ican I can show my project and explain my code.
+  \ican I can say what I want to learn next.}{explaining code \cvE\ \ reflection \cvR}
+\end{weektable}
+
+\clearpage
+\section{My final project milestones}
+\noindent Nickname: \rule{6cm}{0.4pt}\qquad Project name: \rule{5cm}{0.4pt}\par\medskip
+{\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.4cm}X>{\centering}p{1.8cm}c@{}}
+\toprule
+Milestone & Done when\dots & Date & Sticker\\
+\midrule
+M1 Plan\newline{\normalfont\small end of week 10} & My plan sheet has a sketch, my questions and my function, and my teacher said OK. & & \sticker\\ \midrule
+M2 Core drawing\newline{\normalfont\small week 11} & My function draws my main thing in at least two places. & & \sticker\\ \midrule
+M3 Surprise and polish\newline{\normalfont\small week 11} & All six ingredients work and a partner playtested it. & & \sticker\\ \midrule
+M4 Showcase\newline{\normalfont\small week 12} & I ran my project for visitors and explained one part. & & \sticker\\
+\bottomrule
+\end{tabularx}}
+
+\section{My badges}
+Your teacher gives a badge sticker (or a signature) when you earn it. Every badge can be earned by anyone, at any time.
+\begin{center}
+\badge{kcvermillion}{\faBug}{Bug Hunter}{Found and fixed 5 bugs, and said how.}{circle}\hfill
+\badge{kcblue}{\faRedo}{Loop Legend}{Used a loop inside a loop.}{rectangle}\hfill
+\badge{kcpurple}{\faUserFriends}{Kind Partner}{Great driver \emph{and} navigator; gave kind feedback.}{diamond}\hfill
+\badge{kcgreen}{\faShield*}{Safety Star}{Chose a nickname and kept private things private.}{circle}
+\par\medskip
+\badge{kcorange}{\faTh}{Pixel Artist}{Made a pixel picture on grid paper (B1).}{rectangle}\hfill
+\badge{kcsky}{\faMagic}{Function Wizard}{Made a function with two or more inputs.}{diamond}\hfill
+\badge{kcyellow}{\faRecycle}{Remix Master}{Remixed a project and gave credit.}{circle}\hfill
+\badge{kcblack}{\faStar}{Showcase Star}{Showed and explained my project.}{rectangle}
+\end{center}
+
+\clearpage
+\section{Group overview (for the teacher)}
+One line per student. Write the band: \textbf{J} Just starting, \textbf{G} Getting there, \textbf{O} Got it, \textbf{X} Expert.
+Use the checkpoint and exit columns for the formal assessments; the week columns are your quick impression.
+\begin{center}\small\renewcommand{\arraystretch}{2.3}
+\begin{tabularx}{\linewidth}{|>{\RaggedRight}X|*{6}{c|}>{\columncolor{kcsky!15}}c|*{5}{c|}>{\columncolor{kcsky!15}}c|c|}
+\hline
+\textbf{Nickname} & 1 & 2 & 3 & 4 & 5 & 6 & \makecell{Check-\\point} & 7 & 8 & 9 & 10 & 11 & \makecell{Exit} & \makecell{Project\\/20}\\ \hline
+ & & & & & & & & & & & & & & \\ \hline
+ & & & & & & & & & & & & & & \\ \hline
+ & & & & & & & & & & & & & & \\ \hline
+ & & & & & & & & & & & & & & \\ \hline
+\end{tabularx}
+\end{center}
+\textbf{Notes} (support or extension ideas, things to celebrate):
+\answerlines{6}
+\end{document}

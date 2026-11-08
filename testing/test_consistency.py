@@ -15,7 +15,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = {1: "1-elementry", 2: "2-intermediate", 3: "3-advanced"}
+LEVELS = {1: "1-introduction", 2: "2-intermediate", 3: "3-advanced"}
 
 sys.path.insert(0, str(ROOT / "tools"))
 import coverage  # noqa: E402  (tools/coverage.py)
@@ -93,3 +93,53 @@ def test_workbook_vocabulary_is_in_the_glossary(level):
             if key and key not in glossary:
                 missing.append(f"{path.stem}: {term}")
     assert not missing, "Add these workbook words to the glossary:\n" + "\n".join(missing)
+
+
+# Common UK spellings, with the US form to use instead (docs/AUTHORING.md section 8).
+UK_TO_US = {
+    r"colour": "color",
+    r"favourite": "favorite",
+    r"behaviour": "behavior",
+    r"neighbour": "neighbor",
+    r"armour": "armor",
+    r"flavour": "flavor",
+    r"centre": "center",
+    r"\bgrey": "gray",
+    r"\bmaths\b": "math",
+    r"\bmum\b": "mom",
+    r"licence": "license",
+    r"labelled": "labeled",
+    r"travelled": "traveled",
+    r"modelling": "modeling",
+    r"\bpractis(e|ed|es|ing)\b": "practice",
+    r"\b(organ|recogn|visual|anonym|apolog|initial|summar|custom|memor|random|optim|categor)is(e|ed|es|ing|ation)\b": "-ize",
+    r"\banalys(e|ed|ing)\b": "analyze",
+    r"\b(elementry|excercises?)\b": "elementary / exercise",
+}
+
+
+def text_files():
+    skip = {".pdf", ".png", ".jpg", ".sb3"}
+    for path in sorted(ROOT.rglob("*")):
+        rel = path.relative_to(ROOT)
+        if (path.is_file() and path.suffix not in skip and rel.parts[0] not in
+                {".git", ".venv", "build"} and "__pycache__" not in rel.parts
+                and path.name != "test_consistency.py"):
+            yield path
+
+
+def test_us_english_spelling():
+    bad = []
+    for path in text_files():
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        for n, line in enumerate(text.splitlines(), 1):
+            for pattern, us in UK_TO_US.items():
+                m = re.search(pattern, line, re.I)
+                if m:
+                    bad.append(f"{path.relative_to(ROOT)}:{n}: '{m.group(0)}' -> {us}")
+    paths = [str(p.relative_to(ROOT)) for p in text_files()
+             if re.search(r"colour|favourite|maths|elementry|excercise", str(p.relative_to(ROOT)))]
+    assert not bad and not paths, "Use US English (docs/AUTHORING.md):\n" + "\n".join(bad + paths)

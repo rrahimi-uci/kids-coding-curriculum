@@ -11,7 +11,7 @@
 
 \begin{materials}
   \item Print: workbook chapter 7 and homework 7 (one per student).
-  \item On each Mac: the whole \texttt{kids-coding} folder (Check my work needs it). In Thonny open \texttt{3-advanced/excercises/week07/ex-fractal-tree/starter.py}.
+  \item On each Mac: the whole \texttt{kids-coding} folder (Check my work needs it). In Thonny open \texttt{3-advanced/exercises/week07/ex-fractal-tree/starter.py}.
   \item Unplugged: 3--4 nesting objects (stacking cups, boxes or nesting dolls); paper and pencils.
   \item Prep (10 min): read this plan; run \texttt{ex-fractal-tree/solution.py} once to see the trees grow.
 \end{materials}
@@ -21,7 +21,7 @@
   \timeslot{8--18}{Concept}{Recursion = a function that calls itself on a smaller problem. Base case + recursive case. Grids: \texttt{grid[row][col]}.}
   \timeslot{18--28}{Guided demo}{Type-along: Exercise 7.2 fractal tree. Count lines at depth 1, 2, 3.}
   \timeslot{28--52}{Hands-on build}{Pairs: Exercise 7.1 (about 7 min), then 7.3 paint bucket (about 12 min); swap driver every 8 min. Bug hunt. Last 5 min: fractal free-build.}
-  \timeslot{52--60}{Wrap-up}{Show-and-tell (30 s per pair: favourite fractal + one change), exit ticket, credit for algorithms, homework 7.}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell (30 s per pair: favorite fractal + one change), exit ticket, credit for algorithms, homework 7.}
 \end{timeplan}
 
 \section{Warm-up (0--8 min)}
@@ -44,7 +44,7 @@ Forget the base case and the function calls itself forever. Python gives up afte
 You are at the back of a long queue and want to know your place. You ask the person in front: \enquote{What number are you?} They do not know either, so they ask the person in front of \emph{them}... until the first person says \enquote{I am number 1!} (base case). The answers come back down the line, plus one each time. Nobody counted the whole queue.
 \end{analogy}
 
-\textbf{Grids (3 min).} Draw a 3-by-4 table of letters on the board. Say: \enquote{A grid is a list of rows; each row is a list. \texttt{grid[1][2]} means row 1, then column 2 -- both counted from 0.} Point at it together. \enquote{Game maps and pixel pictures are grids. A paint-bucket tool is recursion on a grid: paint this square, then ask each neighbour to do the same.}
+\textbf{Grids (3 min).} Draw a 3-by-4 table of letters on the board. Say: \enquote{A grid is a list of rows; each row is a list. \texttt{grid[1][2]} means row 1, then column 2 -- both counted from 0.} Point at it together. \enquote{Game maps and pixel pictures are grids. A paint-bucket tool is recursion on a grid: paint this square, then ask each neighbor to do the same.}
 
 \begin{teachernote}[The CS idea, for you]
 Each call waits for its smaller calls to finish on a \textbf{call stack} (the plate stack from week 5); a missing base case overflows it. Recursion shines for things made of smaller copies of themselves: trees, fractals, mazes, folders.
@@ -60,17 +60,17 @@ Everyone opens \texttt{ex-fractal-tree/starter.py}; drivers type along with you.
   \item Point at \py|penup()| and \py|back(length)|: \enquote{every recursive drawing must leave the turtle where it found it.}
 \end{enumerate}
 \end{workedexample}
-\pyfile[firstline=16,lastline=33]{../excercises/week07/ex-fractal-tree/solution.py}
+\pyfile[firstline=16,lastline=33]{../exercises/week07/ex-fractal-tree/solution.py}
 
 \section{Hands-on build (28--52 min)}
 \begin{pairroles}[Driver, navigator, tester]
 The \textbf{driver} types; the \textbf{navigator} reads the README aloud and checks each line before Run; swap at the 8-minute timer. With 1 student: you are the navigator and ask \enquote{where is the base case?} before each run. With 3: add a \textbf{tester} who runs \texttt{check\_my\_work.py} and reads hints aloud; rotate roles. With 4: two pairs.
 \end{pairroles}
 
-\textbf{Exercise 7.1} (about 7 min): finish \texttt{sum\_to} and \texttt{reverse}. \textbf{Exercise 7.3} (about 12 min): finish \texttt{count\_tiles} and the flood fill, then press keys 1--5 and click to paint (each paint has a letter as well as a colour).
+\textbf{Exercise 7.1} (about 7 min): finish \texttt{sum\_to} and \texttt{reverse}. \textbf{Exercise 7.3} (about 12 min): finish \texttt{count\_tiles} and the flood fill, then press keys 1--5 and click to paint (each paint has a letter as well as a color).
 
 \begin{bughunt}[The never-ending dolls]
-In a new Thonny file type \py|def sum_to(n): return n + sum_to(n - 1)| and \py|print(sum_to(3))|. Ask \enquote{What will happen?} Run: it ends in \texttt{RecursionError: maximum recursion depth exceeded}. Ask: \enquote{Which part is missing?} (The base case.) Strategy to remember: \textbf{RecursionError? Look for the base case first.} The same bug appears in 7.3 if the \enquote{stop when this cell is not the old colour} line is missing.
+In a new Thonny file type \py|def sum_to(n): return n + sum_to(n - 1)| and \py|print(sum_to(3))|. Ask \enquote{What will happen?} Run: it ends in \texttt{RecursionError: maximum recursion depth exceeded}. Ask: \enquote{Which part is missing?} (The base case.) Strategy to remember: \textbf{RecursionError? Look for the base case first.} The same bug appears in 7.3 if the \enquote{stop when this cell is not the old color} line is missing.
 \end{bughunt}
 
 \begin{freebuild}[Grow your own fractal (last 5 minutes)]
@@ -89,7 +89,7 @@ Where have you seen things made of smaller copies of themselves (ferns, broccoli
 \end{reflection}
 
 \begin{safety}[Credit for generative art and algorithms]
-Say: \enquote{The fractal tree and the Koch snowflake (Helge von Koch, 1904) are famous ideas. When you show generative art, say where the idea came from: \emph{Fractal tree, based on a classic recursive algorithm; my colours and angles.} Your code is yours; the idea has a history; giving credit is what real artists and programmers do.} Each student adds a comment line \texttt{\# Based on: ...} at the top of their fractal file.
+Say: \enquote{The fractal tree and the Koch snowflake (Helge von Koch, 1904) are famous ideas. When you show generative art, say where the idea came from: \emph{Fractal tree, based on a classic recursive algorithm; my colors and angles.} Your code is yours; the idea has a history; giving credit is what real artists and programmers do.} Each student adds a comment line \texttt{\# Based on: ...} at the top of their fractal file.
 \end{safety}
 
 Hand out homework 7 (treasure-map grid; optional Koch snowflake).

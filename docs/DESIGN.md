@@ -82,8 +82,8 @@ methods (L3 W2).
   with larger size, 1.5 line spacing, extra letter and word spacing,
   ragged-right text, no italics and a cream page. Both fonts ship with
   TeX Live, so the build is reproducible.
-* **Colour.** Only the Okabe–Ito colour-blind-safe palette. Every coloured
-  box also has an icon and a word label, so no meaning relies on colour.
+* **Color.** Only the Okabe–Ito color-blind-safe palette. Every colored
+  box also has an icon and a word label, so no meaning relies on color.
 * **Single source of truth for code.** PDFs include solutions with
   `\pyfile{…}` directly from the tested `.py` files, so printed code can
   never drift from the code that passes the tests.
@@ -98,12 +98,12 @@ methods (L3 W2).
   **Run** on `check_my_work.py` in Thonny (kid-friendly PASS / TRY AGAIN
   output with hints).
 * `testing/kidtest` provides a **fake turtle** that records lines, fills,
-  colours, text, key handlers and timers, so drawing programs and games are
+  colors, text, key handlers and timers, so drawing programs and games are
   tested headlessly and fast (CI runs on Linux without a display).
 * A separate **smoke run** (`make smoke`) opens every turtle program in a
   real Tk window on the Mac, proving the code also works with the real
   `turtle` module.
-* Scratch exercises are described (expected behaviour + checklist), because
+* Scratch exercises are described (expected behavior + checklist), because
   Scratch projects cannot be meaningfully unit-tested.
 * Games keep logic (pure functions/classes) apart from drawing (turtle).
   That is good design to teach and it makes logic unit-testable.
@@ -123,6 +123,6 @@ coverage tables current.
 ## 9. Privacy and safety by design
 
 No accounts, no internet requirement, no personal data: programs ask for
-nicknames or favourite colours, git uses a nickname and a placeholder email,
+nicknames or favorite colors, git uses a nickname and a placeholder email,
 data exercises use made-up anonymous data, certificates are filled in by
 hand, and showcases happen on screen at home with nothing uploaded.

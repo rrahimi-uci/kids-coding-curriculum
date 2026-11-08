@@ -12,7 +12,7 @@
 \begin{materials}
   \item Print: workbook chapter 3 and homework 3 (one per student).
   \item Unplugged: a large sheet of paper, sticky notes (or small paper squares), markers.
-  \item On each Mac: Thonny with \texttt{3-advanced/excercises/week03} open; Terminal in \texttt{Documents/git-quest}.
+  \item On each Mac: Thonny with \texttt{3-advanced/exercises/week03} open; Terminal in \texttt{Documents/git-quest}.
 \end{materials}
 
 \section{At a glance}
@@ -53,7 +53,7 @@ Open \texttt{week03/ex-enemy-family/starter.py} with everyone watching.
   \item Press Run. Point at the crash: \texttt{AttributeError: 'Sprinter' object has no attribute 'name'}. Say: \enquote{Keep this clue for later!}
   \item Live-code \texttt{Zigzagger.move}, with the students telling you each line:
 \end{enumerate}
-\pyfile[firstline=30,lastline=38]{../excercises/week03/ex-enemy-family/solution.py}
+\pyfile[firstline=30,lastline=38]{../exercises/week03/ex-enemy-family/solution.py}
 Explain: \texttt{super().move()} runs the parent's move (one step right, count a step); then the child adds its own part (up or down). Leave \texttt{Sprinter} and \texttt{move\_all} for the pairs.
 \end{workedexample}
 
@@ -109,7 +109,7 @@ Ask: \enquote{In games you know, who are the heroes? Who are the villains? Do th
   \item \textbf{Forgetting the parent in brackets}: \texttt{class Sprinter:} makes a brand-new class, not a child. Write \texttt{class Sprinter(Enemy):}.
   \item \textbf{\texttt{super.\_\_init\_\_(...)}} without the brackets after \texttt{super}. It must be \texttt{super().\_\_init\_\_(name, x, y)}, and \texttt{self} is \emph{not} passed.
   \item \textbf{Child \texttt{\_\_init\_\_} without \texttt{super()}}: the parent's attributes are missing, so you get an \texttt{AttributeError}.
-  \item \textbf{Misspelled override} (\texttt{drow}, \texttt{mvoe}): no error, only the wrong behaviour.
+  \item \textbf{Misspelled override} (\texttt{drow}, \texttt{mvoe}): no error, only the wrong behavior.
   \item \textbf{Using inheritance for \enquote{has a}}: \texttt{class Game(Player)} is wrong; a game is not a player. Say the sentence aloud.
 \end{commonmistakes}
 
@@ -119,9 +119,9 @@ Ask: \enquote{In games you know, who are the heroes? Who are the villains? Do th
 \end{differentiation}
 
 \begin{stretchchallenge}[Grandchildren]
-Make \texttt{BigStar(Star)} whose \texttt{\_\_init\_\_} doubles the size by calling \texttt{super().\_\_init\_\_(x, y, size * 2, colour)}. A BigStar is a Star, and a Star is a Shape. Test: \texttt{isinstance(BigStar(0, 0, 50, "\#E69F00"), Shape)}. What does it print, and why?
+Make \texttt{BigStar(Star)} whose \texttt{\_\_init\_\_} doubles the size by calling \texttt{super().\_\_init\_\_(x, y, size * 2, color)}. A BigStar is a Star, and a Star is a Shape. Test: \texttt{isinstance(BigStar(0, 0, 50, "\#E69F00"), Shape)}. What does it print, and why?
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]
-Keep the family tree to one branch and skip Exercise 3.3: the homework also practises composition.
+Keep the family tree to one branch and skip Exercise 3.3: the homework also practices composition.
 \end{teachernote}

@@ -38,7 +38,7 @@ Week 12 & Showcase & Exit assessment (20 min), then the Family Arcade (40 min). 
 
 %% ====================================================================
 \section{2. Pairs or solo?}
-Both are fine. Pairs build bigger, more fun projects and practise L2.G8; solo projects suit a
+Both are fine. Pairs build bigger, more fun projects and practice L2.G8; solo projects suit a
 child with a very clear vision. In a pair:
 \begin{itemize}[itemsep=1pt]
   \item Use the task-split page in the brief. Each child must write at least \textbf{one function
@@ -66,7 +66,7 @@ smallest version that would still be fun?}
 \textbf{Too big} (\enquote{an open-world game with 50 levels}): ask for the one-screen version first;
 the rest goes on a \enquote{later} list. \textbf{No idea:} use the idea menu, or remix Star Catcher with a
 new theme (that is allowed, and they will still make it their own). \textbf{Art studio unsure about the
-list:} a gallery of designs, or a list of colours, both count.
+list:} a gallery of designs, or a list of colors, both count.
 \end{tip}
 
 \subsection{3.2 M2: Core loop works (week 10)}
@@ -106,7 +106,7 @@ with an empty list.
 
 \subsection{3.4 M4: Polish (week 11, second half)}
 \textbf{Look for:} a playtest happened (pairs swap computers for 5 minutes and fill in a feedback card),
-the child changed one thing because of it, and the accessibility checklist in the brief is ticked.
+the child changed one thing because of it, and the accessibility checklist in the brief is checked.
 
 \begin{teacherscript}[Say]
 \enquote{A playtester is a gift: they find the problems before your family does. Watch quietly,
@@ -131,14 +131,14 @@ level together.
 \begin{longtable}{@{}>{\bfseries\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.2cm}@{}}
 \toprule
 Criterion & 1 Just starting & 2 Getting there & 3 Got it & 4 Expert \\ \midrule\endhead
-Creativity & The template with small changes (colours, numbers). & Own theme and one new idea or rule. & An original idea with its own rules and look; it feels like theirs. & A surprising twist (modes, levels, custom shapes); others want to play again. \\ \midrule
+Creativity & The template with small changes (colors, numbers). & Own theme and one new idea or rule. & An original idea with its own rules and look; it feels like theirs. & A surprising twist (modes, levels, custom shapes); others want to play again. \\ \midrule
 Working code & Runs but crashes, or the core does not work yet. & Core works; 3--5 must-haves present. & Does what the pitch promised without crashing; all 6 must-haves. & Also handles edge cases: walls, missing file, playing again; it restarts cleanly. \\ \midrule
 Code quality and tests & One long block, unclear names, no passing tests. & Some functions; 1--2 tests pass. & Small functions with clear names and comments; 3+ passing tests of own functions. & Rules separated from drawing (own module or section); tests include edge cases and a file test. \\ \midrule
 Explaining it & Can show what it does. & With prompts, explains what one function does. & Explains how one part works (what goes in, what comes out) and one design decision. & Explains design choices and trade-offs, what they would change, and a bug a test caught. \\
 \bottomrule
 \end{longtable}}
 
-\begin{rubric}[Must-have checklist (tick at M3 and again at the showcase)]
+\begin{rubric}[Must-have checklist (check at M3 and again at the showcase)]
 \begin{tabularx}{\linewidth}{@{}X>{\centering\arraybackslash}p{1.4cm}>{\centering\arraybackslash}p{1.6cm}@{}}
 \toprule
 Must-have & M3 & Showcase \\ \midrule
@@ -168,7 +168,7 @@ At least 3 passing pytest tests of their own functions & \bx & \bx \\
 (small, five-pointed, yellow) fall from the top: catching one gives a point. Meteors (big, round,
 vermillion) cost a life. After three lives the game shows GAME OVER and saves the score in a
 high-score file. Space starts a new game. Stars and meteors differ in \textbf{shape and size}, not only
-colour.
+color.
 
 \subsection{5.1 Try it yourself (5 minutes)}
 \begin{enumerate}[itemsep=1pt]
@@ -193,7 +193,7 @@ You should see about 20 tests, all \texttt{PASSED}. (The children's own tests ar
 Must-have & Where in Star Catcher \\ \midrule
 Functions with return & \texttt{move\_basket}, \texttt{step\_objects}, \texttt{is\_caught}, \texttt{update\_score}, \texttt{add\_score}, \ldots \\
 List & \texttt{game["objects"]}: the falling stars and meteors; the high-score list. \\
-Dictionary & \texttt{SETTINGS} (every number that controls the game), \texttt{POINTS}, each falling object, the \texttt{game} state, \texttt{LOOKS} (shape, size, colour). \\
+Dictionary & \texttt{SETTINGS} (every number that controls the game), \texttt{POINTS}, each falling object, the \texttt{game} state, \texttt{LOOKS} (shape, size, color). \\
 Game loop & \texttt{game\_loop} reschedules itself with \texttt{ontimer} every 40 ms. \\
 File & \texttt{load\_high\_scores} / \texttt{save\_high\_scores}; a missing file gives an empty list. \\
 Tests & 13 tests of the rules in \texttt{test\_starcatcher\_logic.py}, 5 tests of the window in \texttt{test\_star\_catcher.py}. \\
@@ -234,8 +234,8 @@ Points to show the children:
 Points to show the children:
 \begin{itemize}[itemsep=1pt]
   \item \texttt{screen.tracer(0)} plus \texttt{screen.update()} once per frame: smooth, no flicker.
-  \item The \texttt{LOOKS} dictionary gives every kind its \textbf{shape, size and colour}, so stars and
-        meteors never differ by colour alone.
+  \item The \texttt{LOOKS} dictionary gives every kind its \textbf{shape, size and color}, so stars and
+        meteors never differ by color alone.
   \item \texttt{onkey(go\_left, "Left")}: no brackets after \texttt{go\_left}; \texttt{listen()} is called.
   \item \texttt{game\_loop} schedules itself again with \texttt{ontimer} until the game is over.
   \item The score file is found with \texttt{Path(\_\_file\_\_).parent}, so it is always created next to

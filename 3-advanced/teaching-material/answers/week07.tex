@@ -7,32 +7,32 @@ Three lines: \texttt{***}, then \texttt{**}, then \texttt{*}. The base case \py|
 \end{answer}
 
 \section{Exercise 7.1: Recursion warm-up}
-\pyfile{../excercises/week07/ex-countdown-sum/solution.py}
+\pyfile{../exercises/week07/ex-countdown-sum/solution.py}
 \begin{answer}[What to look for]
 Base case of \texttt{sum\_to}: \py|if n <= 0: return 0| (\py|n == 0| is also fine). The test \enquote{sum to calls itself} fails if a student used a loop: praise the working loop, then ask them to rewrite it recursively -- that is the point of the exercise. For \texttt{reverse}, another correct recursive case is \py|return reverse(word[1:]) + word[0]|.
 \end{answer}
 
 \section{Exercise 7.2: Fractal tree}
-\pyfile{../excercises/week07/ex-fractal-tree/solution.py}
+\pyfile{../exercises/week07/ex-fractal-tree/solution.py}
 \begin{answer}[Table and pattern]
 Depth 1, 2, 3, 4, 5 $\rightarrow$ 1, 3, \textbf{7, 15, 31} lines. Pattern: each depth doubles the previous number and adds 1 (the new trunk); it is always one less than a power of 2 ($2^{\text{depth}} - 1$). Accept \enquote{it doubles (plus one)}. The tests also accept trees that walk back with the pen down, and any \texttt{ANGLE}/\texttt{SHRINK} values.
 \end{answer}
 
 \section{Exercise 7.3: Paint bucket}
-\pyfile[firstline=39,lastline=77]{../excercises/week07/ex-paint-bucket/solution.py}
+\pyfile[firstline=39,lastline=77]{../exercises/week07/ex-paint-bucket/solution.py}
 \begin{answer}[What to look for]
-The paint stops at the \textbf{edge of the grid}, at \textbf{walls} (\texttt{\#}) and at any cell that is \textbf{not the old colour} (including cells already painted). Those are the base cases. The four recursive calls can be in any order. A missing \enquote{not the old colour} check gives \texttt{RecursionError} -- the planned bug hunt. The drawing and click code (lines 79 onwards in \texttt{solution.py}) is given to students unchanged.
+The paint stops at the \textbf{edge of the grid}, at \textbf{walls} (\texttt{\#}) and at any cell that is \textbf{not the old color} (including cells already painted). Those are the base cases. The four recursive calls can be in any order. A missing \enquote{not the old color} check gives \texttt{RecursionError} -- the planned bug hunt. The drawing and click code (lines 79 onwards in \texttt{solution.py}) is given to students unchanged.
 \end{answer}
 
 \section{Homework 7}
 \subsection{Core: Treasure map}
-\pyfile[firstline=24,lastline=61]{../excercises/week07/hw-treasure-map/solution.py}
+\pyfile[firstline=24,lastline=61]{../exercises/week07/hw-treasure-map/solution.py}
 \begin{answer}[Core]
-A corner cell has \textbf{2} neighbours (an edge cell 3); a middle cell has \textbf{4}. The program prints \texttt{Next to the start: [(1, 3), (3, 3), (2, 2), (2, 4)]} and the title \enquote{Treasure on this map: 2}. A loop with \py|if cell == tile| instead of \py|.count()| is equally good.
+A corner cell has \textbf{2} neighbors (an edge cell 3); a middle cell has \textbf{4}. The program prints \texttt{Next to the start: [(1, 3), (3, 3), (2, 2), (2, 4)]} and the title \enquote{Treasure on this map: 2}. A loop with \py|if cell == tile| instead of \py|.count()| is equally good.
 \end{answer}
 
 \subsection{Challenge: Koch snowflake}
-\pyfile[firstline=13,lastline=32]{../excercises/week07/hw-koch-snowflake/solution.py}
+\pyfile[firstline=13,lastline=32]{../exercises/week07/hw-koch-snowflake/solution.py}
 \begin{answer}[Challenge]
 Depth 2 = \textbf{16} lines per side, depth 3 = \textbf{64} (each level multiplies by 4). Base case: depth 0 draws one straight line. If a student turns \texttt{left(120)} in \texttt{snowflake()}, the bumps point inwards -- an \enquote{anti-snowflake}, also a nice result.
 \end{answer}

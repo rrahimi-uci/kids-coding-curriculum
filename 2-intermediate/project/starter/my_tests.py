@@ -34,8 +34,8 @@ def test_touching_only_when_close():
 # ---- Example for option B (art studio)
 
 def test_design_to_text_makes_one_line_per_setting():
-    text = art.design_to_text({"petals": 6, "colour": "#009E73"})
-    assert text == "petals=6\ncolour=#009E73\n"
+    text = art.design_to_text({"petals": 6, "color": "#009E73"})
+    assert text == "petals=6\ncolor=#009E73\n"
 
 
 # When you have finished TODO 2 in art_studio_template.py, remove the #
@@ -43,7 +43,7 @@ def test_design_to_text_makes_one_line_per_setting():
 # design (a "round trip").
 #
 # def test_text_to_design_undoes_design_to_text():
-#     design = {"petals": 6, "size": 120, "colour": "#009E73"}
+#     design = {"petals": 6, "size": 120, "color": "#009E73"}
 #     assert art.text_to_design(art.design_to_text(design)) == design
 
 

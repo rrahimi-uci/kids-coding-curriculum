@@ -16,7 +16,7 @@ In a video game, a save point lets you try something risky. If it goes wrong, yo
 \begin{tikzpicture}[
   commit/.style={circle,draw=black,line width=0.8pt,minimum size=9mm,font=\small\ttfamily},
   label/.style={font=\small,align=center,text width=2.7cm}]
-  \draw[-{Stealth[length=3mm]},line width=1pt,kcgrey] (-0.6,0) -- (13.4,0) node[right,font=\small,text=black]{time};
+  \draw[-{Stealth[length=3mm]},line width=1pt,kcgray] (-0.6,0) -- (13.4,0) node[right,font=\small,text=black]{time};
   \foreach \x/\id/\msg/\col in {0/a1b/Start game/kcsky, 3.3/c3d/Add hero/kcorange, 6.6/e5f/Add jump/kcgreen, 9.9/g7h/Fix walls/kcpurple}{
     \node[commit,fill=\col!40] at (\x,0) {\id};
     \node[label,below] at (\x,-0.6) {\enquote{\msg}};
@@ -91,7 +91,7 @@ A good message finishes the sentence \enquote{This commit will \ldots}. Start wi
 \end{center}
 
 \begin{exercise}[The Git Quest]
-Folder: \texttt{week01/ex-git-quest}. Follow the 7 levels in \texttt{README.md}: make a folder called \texttt{git-quest} in Documents, set your nickname, \texttt{git init}, make your first commit, change the badge colour and look at \texttt{git diff}, break the file on purpose and rescue it with \texttt{git restore}, then make a commit of your own.\\
+Folder: \texttt{week01/ex-git-quest}. Follow the 7 levels in \texttt{README.md}: make a folder called \texttt{git-quest} in Documents, set your nickname, \texttt{git init}, make your first commit, change the badge color and look at \texttt{git diff}, break the file on purpose and rescue it with \texttt{git restore}, then make a commit of your own.\\
 \textbf{Done looks like:} \texttt{git log --oneline} shows 3 or more commits with helpful messages.\\
 Write your commit ids and messages here (newest first):
 \answerlines{3}

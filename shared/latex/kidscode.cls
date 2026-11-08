@@ -3,7 +3,7 @@
 %% Engine: LuaLaTeX (fontspec). Build with `make pdf` from the repo root.
 %%
 %% Class options
-%%   level=1|2|3      level number (sets accent colour + running header)
+%%   level=1|2|3      level number (sets accent color + running header)
 %%   teacher          marks the document TEACHER ONLY (banner + header)
 %%   student          (default) student-facing document
 %%
@@ -12,9 +12,9 @@
 %%   -> Lexend Deca, larger size, 1.5 line spacing, extra letter/word
 %%      spacing, cream page, no italics, ragged-right text.
 %%
-%% All colours come from the Okabe-Ito colour-blind-safe palette and every
-%% coloured box also carries a text label + symbol, so meaning never
-%% depends on colour alone. See docs/AUTHORING.md for the macro reference.
+%% All colors come from the Okabe-Ito color-blind-safe palette and every
+%% colored box also carries a text label + symbol, so meaning never
+%% depends on color alone. See docs/AUTHORING.md for the macro reference.
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{kidscode}[2026/11/07 Kids Coding curriculum class]
@@ -131,8 +131,8 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.55em}
 
-%% ---------------------------------------------------------------- colours
-%% Okabe-Ito palette (colour-blind safe)
+%% ---------------------------------------------------------------- colors
+%% Okabe-Ito palette (color-blind safe)
 \definecolor{kcorange}{HTML}{E69F00}
 \definecolor{kcsky}{HTML}{56B4E9}
 \definecolor{kcgreen}{HTML}{009E73}
@@ -141,7 +141,7 @@
 \definecolor{kcvermillion}{HTML}{D55E00}
 \definecolor{kcpurple}{HTML}{CC79A7}
 \definecolor{kcblack}{HTML}{000000}
-\definecolor{kcgrey}{HTML}{555555}
+\definecolor{kcgray}{HTML}{555555}
 \definecolor{kcpaper}{HTML}{FFFFFF}
 
 \ifcase\kc@level\relax
@@ -190,7 +190,7 @@
       \fill[\c] ([xshift={(\i-1)*3cm},yshift=-1.2cm]current page.north west) rectangle ++(3cm,-0.25cm);
   \end{tikzpicture}%
   \vspace*{2.2cm}
-  {\color{kcgrey}\Large\bfseries Kids Coding \textperiodcentered{} \kclevelname\par}
+  {\color{kcgray}\Large\bfseries Kids Coding \textperiodcentered{} \kclevelname\par}
   \vspace{0.6cm}
   {\fontsize{30}{36}\selectfont\bfseries #1\par}
   \vspace{0.4cm}
@@ -217,15 +217,15 @@
   basicstyle=\ttfamily\small\setstretch{1.0},
   keywordstyle=\bfseries\color{kcblue},
   stringstyle=\color{kcvermillion!85!black},
-  commentstyle=\itshape\color{kcgrey},
+  commentstyle=\itshape\color{kcgray},
   showstringspaces=false,
   columns=fullflexible,
   keepspaces=true,
   breaklines=true,
   breakatwhitespace=true,
-  postbreak=\mbox{\textcolor{kcgrey}{$\hookrightarrow$}\space},
+  postbreak=\mbox{\textcolor{kcgray}{$\hookrightarrow$}\space},
   numbers=left,
-  numberstyle=\tiny\color{kcgrey},
+  numberstyle=\tiny\color{kcgray},
   numbersep=6pt,
   tabsize=4,
   upquote=true,
@@ -262,16 +262,16 @@
 \AfterEndEnvironment{pycode}{\kc@codeclose}
 
 %% Shell / Terminal block
-\lstnewenvironment{shellcode}{\lstset{style=kcshell}\ifkc@inbox\lstset{style=kcinbox,rulecolor=\color{kcgrey},title={\small\faTerminal\ Terminal}}\fi}{}
-\BeforeBeginEnvironment{shellcode}{\kc@codeopen{colback=kcblack!4,colframe=kcgrey,left=6pt,title={\small\faTerminal\ Terminal}}}
+\lstnewenvironment{shellcode}{\lstset{style=kcshell}\ifkc@inbox\lstset{style=kcinbox,rulecolor=\color{kcgray},title={\small\faTerminal\ Terminal}}\fi}{}
+\BeforeBeginEnvironment{shellcode}{\kc@codeopen{colback=kcblack!4,colframe=kcgray,left=6pt,title={\small\faTerminal\ Terminal}}}
 \AfterEndEnvironment{shellcode}{\kc@codeclose}
 
 %% Program output block
-\lstnewenvironment{outputcode}{\lstset{style=kcshell}\ifkc@inbox\lstset{style=kcinbox,rulecolor=\color{kcgrey!60},title={\small Output}}\fi}{}
-\BeforeBeginEnvironment{outputcode}{\kc@codeopen{colback=kcblack!3,colframe=kcgrey!60,left=6pt,title={\small Output}}}
+\lstnewenvironment{outputcode}{\lstset{style=kcshell}\ifkc@inbox\lstset{style=kcinbox,rulecolor=\color{kcgray!60},title={\small Output}}\fi}{}
+\BeforeBeginEnvironment{outputcode}{\kc@codeopen{colback=kcblack!3,colframe=kcgray!60,left=6pt,title={\small Output}}}
 \AfterEndEnvironment{outputcode}{\kc@codeclose}
 
-%% Include a tested code file: \pyfile{../excercises/week07/square/solution.py}
+%% Include a tested code file: \pyfile{../exercises/week07/square/solution.py}
 \newcommand{\pyfile}[2][]{\par
   \ifkc@inbox
     \lstinputlisting[style=kcpython,style=kcinbox,title={\small\faFile*[regular]\ \texttt{\detokenize{#2}}},#1]{#2}%
@@ -283,14 +283,14 @@
 \newcommand{\py}{\lstinline[style=kcpython,basicstyle=\ttfamily\normalsize,columns=fullflexible]}
 
 %% ---------------------------------------------------------------- boxes
-%% Generic labelled box. Every box has an icon AND a word label.
+%% Generic labeled box. Every box has an icon AND a word label.
 \newtcolorbox{kc@box}[3][]{enhanced,breakable,colback=#2!8,colframe=#2!80!black,
   boxrule=0.8pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt,
   fonttitle=\bfseries,coltitle=black,colbacktitle=#2!35,
   title={#3},before upper={\kc@inboxtrue},#1}
 
 \newenvironment{objectives}{\begin{kc@box}{kcblue}{\faBullseye\ Learning objectives}\begin{itemize}[leftmargin=1.2em,itemsep=2pt]}{\end{itemize}\end{kc@box}}
-\newenvironment{materials}{\begin{kc@box}{kcgrey}{\faToolbox\ Materials \& preparation}\begin{itemize}[leftmargin=1.2em,itemsep=1pt]}{\end{itemize}\end{kc@box}}
+\newenvironment{materials}{\begin{kc@box}{kcgray}{\faToolbox\ Materials \& preparation}\begin{itemize}[leftmargin=1.2em,itemsep=1pt]}{\end{itemize}\end{kc@box}}
 \newenvironment{teacherscript}[1][Say]{\begin{kc@box}[colback=white]{kcorange}{\faComment*[regular]\ Teacher script: #1}}{\end{kc@box}}
 \newenvironment{analogy}[1][]{\begin{kc@box}{kcyellow}{\faLightbulb[regular]\ Kid-friendly analogy\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{unplugged}[1][]{\begin{kc@box}{kcgreen}{\faCut\ Unplugged activity (no computer)\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
@@ -307,7 +307,7 @@
 \newenvironment{workedexample}[1][]{\begin{kc@box}[colback=white]{kcblue}{\faChalkboardTeacher\ Worked example\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{tip}[1][]{\begin{kc@box}{kcsky}{\faInfoCircle\ Tip\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{safety}[1][]{\begin{kc@box}{kcgreen}{\faShield*\ Digital citizenship \& safety\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
-\newenvironment{teachernote}[1][]{\begin{kc@box}{kcgrey}{\faStickyNote[regular]\ Teacher note\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
+\newenvironment{teachernote}[1][]{\begin{kc@box}{kcgray}{\faStickyNote[regular]\ Teacher note\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{scratchspec}[1][]{\begin{kc@box}[colback=white]{kcorange}{\faCat\ Scratch exercise\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 
 %% Vocabulary box:  \begin{vocab} \vocabword{loop}{Code that repeats.} \end{vocab}
@@ -353,7 +353,7 @@
   \renewcommand{\kc@week}{#1}\setcounter{kcexercise}{0}%
   \phantomsection
   \addcontentsline{toc}{kcweek}{#1: #2}%
-  \begin{tcolorbox}[enhanced,colback=kcgrey,colframe=kcgrey,coltext=white,arc=2pt,left=8pt]
+  \begin{tcolorbox}[enhanced,colback=kcgray,colframe=kcgray,coltext=white,arc=2pt,left=8pt]
     {\large\bfseries #1}\hfill{\small\kclevelname}\par
     {\LARGE\bfseries #2}\par\smallskip
     {\normalsize #3}
@@ -375,9 +375,9 @@
 
 %% ---------------------------------------------------------------- writing space
 \newcommand{\answerlines}[1]{\par\begin{tikzpicture}
-  \foreach \i in {1,...,#1}{\draw[kcgrey!60] (0,-\i*0.9) -- (\linewidth,-\i*0.9);}
+  \foreach \i in {1,...,#1}{\draw[kcgray!60] (0,-\i*0.9) -- (\linewidth,-\i*0.9);}
   \end{tikzpicture}\par}
-\newcommand{\answerspace}[1]{\par\noindent\begin{tikzpicture}\draw[kcgrey!60,rounded corners=2pt] (0,0) rectangle (\linewidth,-#1);\end{tikzpicture}\par}
+\newcommand{\answerspace}[1]{\par\noindent\begin{tikzpicture}\draw[kcgray!60,rounded corners=2pt] (0,0) rectangle (\linewidth,-#1);\end{tikzpicture}\par}
 \newcommand{\tickbox}{$\square$}
 \newcommand{\namedateline}{\par\noindent Name (nickname is fine): \rule{6cm}{0.4pt}\hfill Date: \rule{3.5cm}{0.4pt}\par\medskip}
 

@@ -1,0 +1,178 @@
+% Level 1, Week 1 -- workbook chapter
+\chapterweek{1}{Robots Need Instructions}{A program is a list of exact steps, done in order.}
+
+\section{Our class agreements}
+\begin{safety}[How we work together]
+\begin{enumerate}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{Be kind.} We laugh with each other, never at a mistake. Bugs are normal!
+  \item \textbf{Share the mouse.} The driver clicks, the navigator helps. We swap when the timer rings.
+  \item \textbf{Point, don't grab.} To help a partner, point at the screen and explain.
+  \item \textbf{Nicknames only.} No real full names, addresses, school names, birthdays or photos in our projects.
+  \item \textbf{Offline and private.} Scratch stays on this Mac. No accounts, no sharing online. If something asks for your name or a password, stop and get a grown-up.
+  \item \textbf{Look after your body.} Take stretch breaks and rest your eyes.
+\end{enumerate}
+\medskip
+My coding nickname: \rule{5cm}{0.4pt}\qquad I agree: \rule{4cm}{0.4pt}
+\end{safety}
+
+\section{What you will learn}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item What an \textbf{algorithm} is, and why the order of steps matters.
+  \item How to find your way around the Scratch app.
+  \item How to snap blocks together and start them with the \textbf{green flag}.
+  \item How to find and fix a bug when steps are in the wrong order.
+\end{itemize}
+
+\section{The big idea}
+A computer is like a robot. It does \textbf{exactly} what you tell it, \textbf{in the order} you tell it. It never guesses what you meant.
+
+A list of exact steps in order is called an \textbf{algorithm}. When a computer follows an algorithm, we call it a \textbf{program}. A mistake in a program is a \textbf{bug}. Finding and fixing it is called \textbf{debugging}.
+
+\begin{tip}[Try it on paper]
+Number these steps 1 to 5 so a robot can make a jam sandwich.
+
+\begin{tabular}{@{}l@{\hspace{2em}}l@{}}
+\rule{1cm}{0.4pt}\ Spread jam on one slice. & \rule{1cm}{0.4pt}\ Put the other slice on top. \\[4pt]
+\rule{1cm}{0.4pt}\ Take two slices of bread. & \rule{1cm}{0.4pt}\ Open the jam jar. \\[4pt]
+\rule{1cm}{0.4pt}\ Eat and enjoy! & \\
+\end{tabular}
+\end{tip}
+
+\subsection{Meet Scratch}
+Scratch is a coding app. You make programs by snapping blocks together, like puzzle pieces.
+
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\small\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=2pt},
+  num/.style={circle,fill=kcblack,text=white,font=\scriptsize\bfseries,inner sep=1pt,minimum size=1.1em}]
+  % window
+  \draw[rounded corners=3pt,line width=0.8pt] (0,0) rectangle (15,8.6);
+  \fill[kcblue!25] (0,8) rectangle (15,8.6);
+  \node[anchor=west,font=\small] at (0.2,8.3) {File \quad Edit \quad (project title)};
+  % tabs
+  \node[anchor=west,font=\scriptsize] at (0.2,7.7) {Code \;|\; Costumes \;|\; Sounds};
+  % categories
+  \draw (0,0) rectangle (1.4,7.4);
+  \foreach \c [count=\i] in {kcblue,kcpurple,kcpurple!70,kcyellow,kcorange,kcsky,kcgreen,kcorange!70,kcvermillion!70}
+     \fill[\c,draw=black] (0.7,7.35-\i*0.7) circle (0.22);
+  % palette
+  \draw (1.4,0) rectangle (4.4,7.4);
+  \foreach \y in {6.6,5.9,5.2,4.5,3.8}
+     \fill[kcblue!60,rounded corners=2pt] (1.7,\y) rectangle (3.9,\y+0.45);
+  % code area
+  \draw (4.4,0) rectangle (9.6,7.4);
+  \fill[kcyellow,rounded corners=2pt] (5.2,5.8) rectangle (7.6,6.4);
+  \fill[kcblue!60,rounded corners=2pt] (5.2,5.25) rectangle (7.9,5.75);
+  \fill[kcpurple!60,rounded corners=2pt] (5.2,4.7) rectangle (8.2,5.2);
+  % add extension
+  \fill[kcblue] (0.15,0.15) rectangle (1.25,0.85);
+  \node[text=white,font=\bfseries] at (0.7,0.5) {+};
+  % flag and stop
+  \fill[kcgreen] (9.9,7.0) -- (10.3,7.15) -- (9.9,7.3) -- cycle; \draw (9.9,6.9) -- (9.9,7.35);
+  \fill[kcvermillion] (10.6,7.12) circle (0.18);
+  % stage
+  \draw[line width=0.8pt] (9.8,3.6) rectangle (14.8,6.8);
+  \node at (12.3,5.2) {\faCat};
+  % sprite pane
+  \draw (9.8,0.2) rectangle (13.6,3.4);
+  \draw[fill=kcsky!30] (10.0,0.5) rectangle (10.9,1.4); \node[font=\scriptsize] at (10.45,0.95) {\faCat};
+  \fill[kcblue] (13.1,0.6) circle (0.28); \node[text=white,font=\scriptsize] at (13.1,0.6) {\faCat};
+  % backdrop pane
+  \draw (13.7,0.2) rectangle (14.8,3.4);
+  \fill[kcblue] (14.25,0.6) circle (0.28); \node[text=white,font=\scriptsize] at (14.25,0.6) {\faImage};
+  % callouts
+  \node[num] at (0.7,7.2) {1};
+  \node[num] at (4.05,6.8) {2};
+  \node[num] at (7.0,7.0) {3};
+  \node[num] at (12.3,6.45) {4};
+  \node[num] at (10.75,7.55) {5};
+  \node[num] at (11.6,2.9) {6};
+  \node[num] at (13.1,1.2) {7};
+  \node[num] at (1.65,0.5) {8};
+\end{tikzpicture}
+\end{center}
+
+\begin{tabular}{@{}p{0.48\linewidth}p{0.48\linewidth}@{}}
+\textbf{1} Block categories (colored circles: Motion, Looks, Sound, Events, \ldots) & \textbf{5} Green flag (start) and red stop sign \\
+\textbf{2} Blocks you can drag & \textbf{6} Sprite pane: all your sprites \\
+\textbf{3} Code area: snap blocks here to make a \textbf{script} & \textbf{7} Choose a Sprite button (and Choose a Backdrop, far right) \\
+\textbf{4} Stage: where your sprites act & \textbf{8} Add Extension button (we use it in week 2) \\
+\end{tabular}
+
+\begin{exercise}[Hello, Cat!]
+Make the cat say hello, walk and say bye.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \menu{Events}: drag \enquote{when green flag clicked} into the code area.
+  \item \menu{Motion}: snap \enquote{go to x: 0 y: 0} under it. That is the middle of the stage.
+  \item \menu{Looks}: snap \enquote{say Hello! for 2 seconds}. Type \enquote{Hi! I am} and your nickname.
+  \item \menu{Motion}: snap \enquote{move 10 steps}. Change 10 to 100.
+  \item \menu{Sound}: snap \enquote{play sound Meow until done}.
+  \item \menu{Looks}: snap one more \enquote{say \ldots{} for 2 seconds} and type \enquote{Bye!}.
+  \item Click the green flag. Save: \menu{File} $\rightarrow$ \menu{Save to your computer}, folder \texttt{Scratch Projects}.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{0}}
+\blocklook{say \ovalnum{Hi! I am Pixel Panda} for \ovalnum{2} seconds}
+\blockmove{move \ovalnum{100} steps}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blocklook{say \ovalnum{Bye!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\textbf{Done when:} the cat talks, walks, meows and says bye, in that order, every time you click the flag.
+\end{exercise}
+
+\begin{exercise}[Mixed-Up Jump (bug hunt)]
+The cat should say \enquote{Watch me jump!}, jump \textbf{up}, come back down to the ground and say \enquote{Ta-da!}.
+Build this script \textbf{exactly} as it is, bug and all. (\menu{change y by} is in \menu{Motion}: y is up and down.)
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{-100}}
+\blocklook{say \ovalnum{Watch me jump!} for \ovalnum{2} seconds}
+\blockmove{change y by \ovalnum{-50}}
+\blockcontrol{wait \ovalnum{0.5} seconds}
+\blockmove{change y by \ovalnum{50}}
+\blocklook{say \ovalnum{Ta-da!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+Click the flag. What did the cat do? \answerlines{1}
+Which two blocks are in the wrong order? \answerlines{1}
+Now drag them into the right order and test again. Did the cat jump up? \tickbox{} yes
+\end{exercise}
+
+\begin{tip}[Debugging steps]
+1. What did I \textbf{expect}? \quad 2. What \textbf{happened}? \quad 3. Read the blocks one at a time with your finger. \quad 4. Change \textbf{one} thing and test again.
+\end{tip}
+
+\begin{exercise}[My Sprite Show]
+Make your own little show.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click \menu{Choose a Sprite} (the cat-face button, bottom right) and pick any sprite you like.
+  \item Click \menu{Choose a Backdrop} (far bottom right) and pick a place for your show.
+  \item Plan 5 steps below, then build them under \enquote{when green flag clicked}.
+\end{enumerate}
+My show plan (one step per line):
+\answerlines{5}
+\textbf{Done when:} your show starts with the green flag and the steps happen in your planned order.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{algorithm}{A list of exact steps, in order, that solves a problem.}
+  \vocabword{program}{An algorithm that a computer can follow.}
+  \vocabword{sequence}{Steps that happen one after another, in order.}
+  \vocabword{bug / debugging}{A mistake in a program / finding and fixing it.}
+  \vocabword{sprite}{A character or object on the Scratch stage, like the cat.}
+  \vocabword{stage}{The area where your sprites act.}
+  \vocabword{script}{A stack of blocks snapped together.}
+  \vocabword{green flag}{The button that starts your program.}
+  \vocabword{driver / navigator}{The driver clicks; the navigator reads, checks and helps.}
+\end{vocab}
+
+\begin{reflection}
+What surprised you about giving instructions to a robot?
+\answerlines{2}
+One thing I want to make in Scratch:
+\answerlines{1}
+\end{reflection}

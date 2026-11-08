@@ -8,7 +8,7 @@
   basicstyle=\ttfamily\footnotesize\setstretch{1.0},
   keywordstyle=\bfseries\color{kcblue},
   stringstyle=\color{kcvermillion!85!black},
-  commentstyle=\color{kcgrey},
+  commentstyle=\color{kcgray},
   showstringspaces=false, columns=fullflexible, keepspaces=true,
   breaklines=true, numbers=none, tabsize=4, upquote=true,
   morekeywords={True,False,None,self}}
@@ -87,7 +87,7 @@ Binary search, at most & 4 & 10 & 20\\
 
 \subsection{Sorting}
 \textbf{Selection sort:} find the smallest, swap it to the front, repeat with the rest.
-\textbf{Bubble sort:} swap neighbours in the wrong order; repeat until nothing swaps.
+\textbf{Bubble sort:} swap neighbors in the wrong order; repeat until nothing swaps.
 \begin{sheetcode}
 print(sorted([7, 3, 9]))  # [3, 7, 9]
 
@@ -139,11 +139,11 @@ grid[1][2] = "#"          # [row][col]
 for row in grid:
     print("".join(row))
 \end{sheetcode}
-Neighbours of \texttt{(r, c)}: up \texttt{(r-1, c)}, down \texttt{(r+1, c)}, left
+Neighbors of \texttt{(r, c)}: up \texttt{(r-1, c)}, down \texttt{(r+1, c)}, left
 \texttt{(r, c-1)}, right \texttt{(r, c+1)}.
 
 \textbf{BFS (shortest path):} put the start in a \texttt{deque}. Repeat: \texttt{popleft()} a square, add
-its unvisited neighbours to the back, remember where each came from.
+its unvisited neighbors to the back, remember where each came from.
 
 \subsection{CSV data}
 \begin{sheetcode}

@@ -11,7 +11,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = ["1-elementry", "2-intermediate", "3-advanced"]
+LEVELS = ["1-introduction", "2-intermediate", "3-advanced"]
 
 
 def turtle_programs():

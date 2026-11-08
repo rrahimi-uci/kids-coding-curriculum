@@ -1,25 +1,25 @@
 % Level 3, Week 9 -- How Do Machines Learn?
 \lesson{9}{How Do Machines Learn?}{AI finds patterns in examples -- and copies their mistakes.}
-\lessoninfo{Concepts: rules vs learning, features, training/test data, nearest neighbour, accuracy, bias, Markov text}{Tools: Thonny, turtle, random}{CSTA: 3A-IC-24, 3A-DA-12; AI4K12 Big Ideas 1--5}
+\lessoninfo{Concepts: rules vs learning, features, training/test data, nearest neighbor, accuracy, bias, Markov text}{Tools: Thonny, turtle, random}{CSTA: 3A-IC-24, 3A-DA-12; AI4K12 Big Ideas 1--5}
 
 \begin{objectives}
-  \item The student can explain the difference between a program with hand-written rules and a program that learns from labelled examples. (L3.G7)
-  \item The student can build a nearest-neighbour classifier and measure its accuracy on a separate test set. (L3.G7, L3.G2)
+  \item The student can explain the difference between a program with hand-written rules and a program that learns from labeled examples. (L3.G7)
+  \item The student can build a nearest-neighbor classifier and measure its accuracy on a separate test set. (L3.G7, L3.G2)
   \item The student can show how unbalanced or wrong training data leads to bad predictions, and why that is unfair. (L3.G7, L3.G9)
   \item The student can explain how a Markov text generator makes sentences, and why chatbots can be confidently wrong. (L3.G7, L3.G9)
 \end{objectives}
 
 \begin{materials}
   \item Print: workbook chapter 9, homework 9, and the \textbf{Project brief} (one per student, from \texttt{3-advanced/project/}).
-  \item On each Mac: in Thonny open \texttt{3-advanced/excercises/week09/ex-monster-sorter/starter.py}.
-  \item Unplugged: 11 index cards with quick monster doodles: 4 friendly (fluffy, few teeth) and 4 grumpy (bald, many teeth), labelled F or G; 3 unlabelled mystery cards.
+  \item On each Mac: in Thonny open \texttt{3-advanced/exercises/week09/ex-monster-sorter/starter.py}.
+  \item Unplugged: 11 index cards with quick monster doodles: 4 friendly (fluffy, few teeth) and 4 grumpy (bald, many teeth), labeled F or G; 3 unlabeled mystery cards.
   \item Prep (10 min): read this plan, make the cards, skim the Project brief.
 \end{materials}
 
 \begin{timeplan}
-  \timeslot{0--6}{Warm-up}{Unplugged \enquote{Train the teacher}: you learn to sort monster cards from labelled examples.}
+  \timeslot{0--6}{Warm-up}{Unplugged \enquote{Train the teacher}: you learn to sort monster cards from labeled examples.}
   \timeslot{6--14}{Concept}{Rules vs learning; features, labels, training and test data; the five big ideas of AI.}
-  \timeslot{14--22}{Guided demo}{Type-along: Exercise 9.1 monster sorter (nearest neighbour on a chart).}
+  \timeslot{14--22}{Guided demo}{Type-along: Exercise 9.1 monster sorter (nearest neighbor on a chart).}
   \timeslot{22--42}{Hands-on build}{Pairs: Exercise 9.2 fair or biased (about 10 min), 9.3 Markov story machine (about 8 min). Bug hunt: bad training data. Swap at 10 min.}
   \timeslot{42--60}{Wrap-up}{AI ethics talk (5 min), exit ticket, then \textbf{final project kickoff} (about 13 min): brief, three options, milestones, pitch card.}
 \end{timeplan}
@@ -29,12 +29,12 @@ Run 9.3's solution together instead of building it. Never cut the ethics talk or
 
 \section{Warm-up (0--6 min)}
 \begin{unplugged}[Train the teacher]
-Say: \enquote{I am a robot who knows nothing about monsters. Teach me -- with examples only, no rules.} Students show you 8 labelled cards (\enquote{This one is friendly}). Hold up a mystery card and think aloud: \enquote{It looks most like \emph{this} friendly one, so I guess friendly.} Ask: \enquote{What did I look at?} (Fluffiness and teeth -- the \textbf{features}.) Then cheat on purpose: \enquote{What if you had only shown me grumpy monsters?} (Everything looks grumpy to the robot.)
+Say: \enquote{I am a robot who knows nothing about monsters. Teach me -- with examples only, no rules.} Students show you 8 labeled cards (\enquote{This one is friendly}). Hold up a mystery card and think aloud: \enquote{It looks most like \emph{this} friendly one, so I guess friendly.} Ask: \enquote{What did I look at?} (Fluffiness and teeth -- the \textbf{features}.) Then cheat on purpose: \enquote{What if you had only shown me grumpy monsters?} (Everything looks grumpy to the robot.)
 \end{unplugged}
 
 \section{Concept (6--14 min)}
 \begin{teacherscript}
-\enquote{Your programs so far follow \textbf{rules} you typed: \emph{if teeth > 5, say grumpy}. A \textbf{learning} program gets \textbf{examples} with the right answers (\textbf{labels}) and finds the pattern itself. What it measures are \textbf{features} -- here fluff and teeth. Our learner is the simplest: \textbf{nearest neighbour}. Put the examples on a chart; for a mystery monster, copy the label of the closest one. To check it, we hide some examples in a \textbf{test} pile, train on the rest and count how many test cards it gets right: its \textbf{accuracy}. Never test on cards it learned from -- that is seeing the exam answers first.}
+\enquote{Your programs so far follow \textbf{rules} you typed: \emph{if teeth > 5, say grumpy}. A \textbf{learning} program gets \textbf{examples} with the right answers (\textbf{labels}) and finds the pattern itself. What it measures are \textbf{features} -- here fluff and teeth. Our learner is the simplest: \textbf{nearest neighbor}. Put the examples on a chart; for a mystery monster, copy the label of the closest one. To check it, we hide some examples in a \textbf{test} pile, train on the rest and count how many test cards it gets right: its \textbf{accuracy}. Never test on cards it learned from -- that is seeing the exam answers first.}
 \end{teacherscript}
 
 
@@ -52,10 +52,10 @@ A child who has seen 100 robins and 2 crows calls every black bird \enquote{a di
   \item Read the \texttt{TRAINING} list aloud: each card is \texttt{(fluff, teeth, label)}, e.g. \py|(9, 1, "friendly")|.
   \item TODO 1: distance is Pythagoras: \py|math.sqrt(dx * dx + dy * dy)|. Check: from (0, 0) to (3, 4) is 5.
   \item TODO 2: \texttt{nearest} keeps the closest card so far -- \enquote{the same pattern as finding the smallest number in a list}.
-  \item Run. Circles with F are friendly, squares with G grumpy; each white ? has a line to its nearest neighbour. Ask: \enquote{Do you agree with the guess for (5, 5), right in the middle?}
+  \item Run. Circles with F are friendly, squares with G grumpy; each white ? has a line to its nearest neighbor. Ask: \enquote{Do you agree with the guess for (5, 5), right in the middle?}
 \end{enumerate}
 \end{workedexample}
-\pyfile[firstline=25,lastline=39]{../excercises/week09/ex-monster-sorter/solution.py}
+\pyfile[firstline=25,lastline=39]{../exercises/week09/ex-monster-sorter/solution.py}
 
 \section{Hands-on build (22--42 min)}
 \begin{pairroles}[Data scientist and critic]

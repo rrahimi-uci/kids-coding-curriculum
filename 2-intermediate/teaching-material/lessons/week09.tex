@@ -6,12 +6,12 @@
   \item The student can connect keys to handler functions with \texttt{onkey} and \texttt{listen}, passing the function without brackets. (L2.G7; L2.W09.1)
   \item The student can build a game loop with \texttt{ontimer} that moves a list of objects one frame at a time and stops on game over. (L2.G7, L2.G2; L2.W09.2)
   \item The student can detect a collision with a distance check and keep the game state in a dictionary. (L2.G4, L2.G3; L2.W09.3)
-  \item The student can choose a final-project option and describe its idea, and explain why borrowed images and sounds need a licence and credit. (L2.G8, L2.G9; L2.W09.4)
+  \item The student can choose a final-project option and describe its idea, and explain why borrowed images and sounds need a license and credit. (L2.G8, L2.G9; L2.W09.4)
 \end{objectives}
 
 \begin{materials}
   \item Print: workbook chapter 9, homework 9, and the \textbf{Project Brief} (one each). Squared paper, 4 coins and one other small token per pair.
-  \item On each Mac: open \texttt{starter.py} in \texttt{2-intermediate/excercises/week09/ex-etch-a-sketch} (\keys{Cmd}+\keys{O}).
+  \item On each Mac: open \texttt{starter.py} in \texttt{2-intermediate/exercises/week09/ex-etch-a-sketch} (\keys{Cmd}+\keys{O}).
   \item Prep (10 minutes): run \texttt{solution.py} in \texttt{week09/ex-dodge-meteors} and play once (click the window first, then use the arrows).
         Then run \texttt{2-intermediate/project/reference/star\_catcher.py}, the Star Catcher example you will show at the kickoff.
   \item A timer. Today is busy: watch the clock so the project kickoff gets its full 14 minutes.
@@ -69,8 +69,8 @@ And two things are \textbf{touching} when the distance between them is small: \p
 \end{enumerate}
 \end{workedexample}
 The heart of Exercise 9.2, for you (the full program is in the answer key): the two logic functions students finish, and the game loop.
-\pyfile[firstline=37,lastline=46]{../excercises/week09/ex-dodge-meteors/solution.py}
-\pyfile[firstline=87,lastline=101]{../excercises/week09/ex-dodge-meteors/solution.py}
+\pyfile[firstline=37,lastline=46]{../exercises/week09/ex-dodge-meteors/solution.py}
+\pyfile[firstline=87,lastline=101]{../exercises/week09/ex-dodge-meteors/solution.py}
 
 \section{Hands-on build (20--42 min)}
 \begin{pairroles}[Player and programmer]
@@ -101,7 +101,7 @@ Bonus bug: the meteors move once and freeze. Cause: \texttt{game\_loop()} does n
 
 \begin{freebuild}[Tweak the game]
 Last 3 minutes: change the constants at the top of the meteors game and play: \texttt{METEOR\_SPEED}, \texttt{NUMBER\_OF\_METEORS}, \texttt{PLAYER\_STEP},
-the player's shape or the Okabe--Ito colours. Or draw your nickname with the Etch-a-Sketch. Ask: \enquote{Which change made it more fun? Which made it unfair?}
+the player's shape or the Okabe--Ito colors. Or draw your nickname with the Etch-a-Sketch. Ask: \enquote{Which change made it more fun? Which made it unfair?}
 \end{freebuild}
 
 \section{Wrap-up (42--60 min)}
@@ -111,10 +111,10 @@ Ask each student: \enquote{The meteors moved once and stopped. What is missing?}
 \textbf{Answer:} the brackets: write \texttt{jump} without \texttt{()}. \textbf{Look for:} students who cannot answer the first one need the kitchen-timer analogy again.
 \end{formativecheck}
 
-\begin{safety}[Attribution and open licences (2 minutes)]
+\begin{safety}[Attribution and open licenses (2 minutes)]
 Say: \enquote{Your project may want a picture or a sound. Pictures and sounds belong to the person who made them, just like your code belongs to you.
-Some creators share their work with an \textbf{open licence} that says how you may use it. CC0 means anyone may use it. CC BY means you may use it if you
-\textbf{credit} the creator. If there is no licence, do not use it.} Rules for our projects: use turtle's own shapes and your own drawings first; if you
+Some creators share their work with an \textbf{open license} that says how you may use it. CC0 means anyone may use it. CC BY means you may use it if you
+\textbf{credit} the creator. If there is no license, do not use it.} Rules for our projects: use turtle's own shapes and your own drawings first; if you
 use something else, a grown-up helps you find it (no accounts, no downloads alone), and you write a credit, for example
 \texttt{\# Star sound by Mei (CC BY)}, in your code and on your game's title screen.
 \end{safety}

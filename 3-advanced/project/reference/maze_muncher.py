@@ -5,7 +5,7 @@ Eat every pellet (small dots) before the ghosts catch you.
   Space                 : next level (after you clear one)
   R                     : play again (after you are caught or win)
 
-Every character has a shape AND a letter, so nobody needs to tell colours
+Every character has a shape AND a letter, so nobody needs to tell colors
 apart: P = player (circle), G = ghost (triangle), C = chaser (diamond).
 All the rules live in muncher_model.py, which has its own tests.
 """
@@ -22,11 +22,11 @@ HIGH_SCORE_FILE = HERE / "high_scores.txt"
 CELL = 32        # size of one square in pixels
 TICK_MS = 400    # the ghosts move once every TICK_MS milliseconds
 
-# Okabe-Ito colour-blind-safe palette
-WALL_COLOUR = "#0072B2"     # blue
-PLAYER_COLOUR = "#E69F00"   # orange
-GHOST_COLOUR = "#56B4E9"    # sky blue
-CHASER_COLOUR = "#D55E00"   # vermillion
+# Okabe-Ito color-blind-safe palette
+WALL_COLOR = "#0072B2"     # blue
+PLAYER_COLOR = "#E69F00"   # orange
+GHOST_COLOR = "#56B4E9"    # sky blue
+CHASER_COLOR = "#D55E00"   # vermillion
 INK = "#000000"             # black: pellets, letters and messages
 FONT = ("Arial", 14, "bold")
 
@@ -56,18 +56,18 @@ class MuncherApp:
         return pen
 
     # ---------------------------------------------------- grid -> screen
-    def cell_centre(self, pos):
-        """Turn a (row, col) square into the (x, y) of its centre on screen."""
+    def cell_center(self, pos):
+        """Turn a (row, col) square into the (x, y) of its center on screen."""
         row, col = pos
         maze = self.game.maze
         left = -maze.width * CELL / 2
         top = maze.height * CELL / 2
         return left + col * CELL + CELL / 2, top - row * CELL - CELL / 2
 
-    def polygon(self, pen, centre, points, colour):
-        """Fill a shape given as (dx, dy) corners around a centre point."""
-        x, y = centre
-        pen.color(INK, colour)
+    def polygon(self, pen, center, points, color):
+        """Fill a shape given as (dx, dy) corners around a center point."""
+        x, y = center
+        pen.color(INK, color)
         pen.goto(x + points[0][0], y + points[0][1])
         pen.pendown()
         pen.begin_fill()
@@ -76,8 +76,8 @@ class MuncherApp:
         pen.end_fill()
         pen.penup()
 
-    def letter(self, pen, centre, text):
-        x, y = centre
+    def letter(self, pen, center, text):
+        x, y = center
         pen.goto(x, y - 9)
         pen.color(INK)
         pen.write(text, align="center", font=FONT)
@@ -91,25 +91,25 @@ class MuncherApp:
         for row in range(maze.height):
             for col in range(maze.width):
                 if maze.is_wall((row, col)):
-                    centre = self.cell_centre((row, col))
-                    self.polygon(self.wall_pen, centre, square, WALL_COLOUR)
+                    center = self.cell_center((row, col))
+                    self.polygon(self.wall_pen, center, square, WALL_COLOR)
 
     def draw_character(self, character):
         r = CELL * 0.42
         # Check Chaser first: a Chaser is also a Ghost.
         if isinstance(character, model.Chaser):
-            shape, colour = [(0, r), (r, 0), (0, -r), (-r, 0)], CHASER_COLOUR
+            shape, color = [(0, r), (r, 0), (0, -r), (-r, 0)], CHASER_COLOR
         elif isinstance(character, model.Ghost):
-            shape, colour = [(-r, -r), (r, -r), (0, r)], GHOST_COLOUR
+            shape, color = [(-r, -r), (r, -r), (0, r)], GHOST_COLOR
         else:
-            shape, colour = None, PLAYER_COLOUR
-        centre = self.cell_centre(character.pos)
+            shape, color = None, PLAYER_COLOR
+        center = self.cell_center(character.pos)
         if shape is None:  # the player is a round muncher
-            self.sprite_pen.goto(centre)
-            self.sprite_pen.dot(CELL * 0.85, colour)
+            self.sprite_pen.goto(center)
+            self.sprite_pen.dot(CELL * 0.85, color)
         else:
-            self.polygon(self.sprite_pen, centre, shape, colour)
-        self.letter(self.sprite_pen, centre, character.symbol)
+            self.polygon(self.sprite_pen, center, shape, color)
+        self.letter(self.sprite_pen, center, character.symbol)
 
     def redraw(self):
         pen = self.sprite_pen
@@ -118,7 +118,7 @@ class MuncherApp:
         for row in range(maze.height):
             for col in range(maze.width):
                 if maze.has_pellet((row, col)):
-                    pen.goto(self.cell_centre((row, col)))
+                    pen.goto(self.cell_center((row, col)))
                     pen.dot(7, INK)
         for character in [self.game.player] + self.game.ghosts:
             self.draw_character(character)

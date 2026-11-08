@@ -39,7 +39,7 @@ class Sprinter(Enemy):                  # a Sprinter IS AN Enemy
 \texttt{super().\_\_init\_\_(name, x, y)} runs the parent's setup. \texttt{super().move()} runs the parent's \texttt{move}, so the child can add something on top. If a child has its own \texttt{\_\_init\_\_} and forgets \texttt{super().\_\_init\_\_}, its parent's attributes are missing and you get an \texttt{AttributeError}.
 \end{tip}
 
-\section{Polymorphism: one call, many behaviours}
+\section{Polymorphism: one call, many behaviors}
 \begin{pycode}
 enemies = [Enemy("Blob"), Guard("Rocky"), Sprinter("Zoom")]
 for enemy in enemies:

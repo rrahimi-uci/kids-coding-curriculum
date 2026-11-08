@@ -12,7 +12,7 @@
 \begin{materials}
   \item Print: workbook chapter 5 and homework 5 (one per student).
   \item Unplugged: 8 playing cards or paper cards numbered 1--8; 3 plates, books or cups to stack; 4 small toys or pencils for a \enquote{lunch queue}.
-  \item On each Mac: Thonny with \texttt{3-advanced/excercises/week05} open; Terminal in \texttt{Documents/git-quest}.
+  \item On each Mac: Thonny with \texttt{3-advanced/exercises/week05} open; Terminal in \texttt{Documents/git-quest}.
 \end{materials}
 
 \section{At a glance}
@@ -28,14 +28,14 @@
 \begin{unplugged}[Human sorting race]
 Shuffle the 8 cards and lay them face up in a row. Copy the row on paper so you can reset it.
 \textbf{Selection rules:} find the smallest card, swap it with the first card; then find the smallest of the rest, swap it into second place, and so on.
-\textbf{Bubble rules:} start at the left; compare two neighbours; if the left one is bigger, swap them; move one step right; at the end, start again from the left until a whole pass has no swaps.
+\textbf{Bubble rules:} start at the left; compare two neighbors; if the left one is bigger, swap them; move one step right; at the end, start again from the left until a whole pass has no swaps.
 One student sorts with selection rules while another keeps a tally of \textbf{swaps}. Reset the row; swap jobs and sort with bubble rules. (With 1 student: you keep the tally. With 3--4: two sorters race on two copies of the row.)
 Ask: \enquote{Which rules needed more swaps? Which felt easier to follow?} (Bubble usually needs many more swaps; selection needs at most 7.)
 \end{unplugged}
 
 \section{Concept (8--18 min)}
 \begin{teacherscript}
-\enquote{Computers sort all the time: high scores, contacts, songs. Both of today's sorts give the same answer, but they do different amounts of work. \textbf{Selection sort} finds the smallest item and swaps it into place: few swaps, lots of looking. \textbf{Bubble sort} compares neighbours and swaps them: big items \enquote{bubble} to the end, like bubbles rising in a drink.
+\enquote{Computers sort all the time: high scores, contacts, songs. Both of today's sorts give the same answer, but they do different amounts of work. \textbf{Selection sort} finds the smallest item and swaps it into place: few swaps, lots of looking. \textbf{Bubble sort} compares neighbors and swaps them: big items \enquote{bubble} to the end, like bubbles rising in a drink.
 
 Python also has a built-in sort: \texttt{sorted(scores, key=points\_of, reverse=True)}. The \textbf{key} is a function that tells Python \emph{what to sort by}, for example the points in each \texttt{("Ada", 120)} pair.}
 \end{teacherscript}
@@ -60,7 +60,7 @@ Lay out 5, 2, 4, 1. A student does the bubble rules while you write each row:
 \end{tabular}
 \end{center}
 After every pass, the biggest unsorted card has reached its place (bold), so each pass can stop one card earlier. Now read the code; the inner \texttt{for} loop is one pass:
-\pyfile[firstline=22,lastline=32]{../excercises/week05/ex-sort-race/solution.py}
+\pyfile[firstline=22,lastline=32]{../exercises/week05/ex-sort-race/solution.py}
 Point at the swap line: \texttt{result[i], result[i + 1] = result[i + 1], result[i]}. Python swaps both at once.
 \end{workedexample}
 
@@ -81,7 +81,7 @@ With \textbf{1 student}: you are the navigator holding the cards. With \textbf{3
 \end{pairroles}
 \begin{enumerate}[itemsep=2pt]
   \item \textbf{Exercise 5.1 Sort Race} (about 8 minutes): finish \texttt{bubble\_sort}. Run it: same sorted cards, but 5 swaps for selection and 16 for bubble.
-  \item \textbf{Exercise 5.3 Undo Paint} (about 10 minutes): finish the \texttt{Stack} class. The drawing program is ready: arrow keys draw, \texttt{c} changes colour, \texttt{u} undoes. Click the turtle window before pressing keys.
+  \item \textbf{Exercise 5.3 Undo Paint} (about 10 minutes): finish the \texttt{Stack} class. The drawing program is ready: arrow keys draw, \texttt{c} changes color, \texttt{u} undoes. Click the turtle window before pressing keys.
   \item \textbf{Exercise 5.2 Leaderboard} for fast pairs: \texttt{sorted} with a \texttt{key} function, and a fair rule for ties.
 \end{enumerate}
 
@@ -129,5 +129,5 @@ If a whole pass of bubble sort makes no swaps, the list is already sorted. Add a
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]
-Skip the plates and lunch line (the analogy box is enough). Do 5.1 and 5.3. The Leaderboard and the fair-leaderboard talk can open next week's review session; the queue is practised in homework 5.
+Skip the plates and lunch line (the analogy box is enough). Do 5.1 and 5.3. The Leaderboard and the fair-leaderboard talk can open next week's review session; the queue is practiced in homework 5.
 \end{teachernote}

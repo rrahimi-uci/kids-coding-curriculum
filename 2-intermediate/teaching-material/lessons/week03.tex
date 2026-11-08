@@ -6,15 +6,15 @@
   \item The student can make a list, add to it with \texttt{append} and count it with \texttt{len}. (L2.G4; L2.W03.1)
   \item The student can get an item by its index, starting from 0, and explain why \texttt{items[len(items)]} gives an \texttt{IndexError}. (L2.G4; L2.W03.2)
   \item The student can loop over a list with \texttt{for item in items} and with \texttt{for i in range(len(items))}. (L2.G2; L2.W03.3)
-  \item The student can choose a colour-blind-safe palette and label a picture so it never relies on colour alone. (L2.G9; L2.W03.4)
+  \item The student can choose a color-blind-safe palette and label a picture so it never relies on color alone. (L2.G9; L2.W03.4)
 \end{objectives}
 
 \begin{materials}
   \item Print (one per student): workbook chapter 3, homework 3.
   \item \enquote{Human list} cards (3 minutes): five cards reading \enquote{torch}, \enquote{rope}, \enquote{map}, \enquote{apple}, \enquote{key},
         and five sticky notes numbered 0, 1, 2, 3, 4 for the floor. Fewer than 4 students? Stand cards up on chairs or hold them with soft toys.
-  \item On each Mac: open \texttt{2-intermediate/excercises/week03/ex-palette-stripes/starter.py} in Thonny (\keys{Cmd}+\keys{O}).
-  \item A timer, paper and pencils, and optionally coloured pencils for the Wrap-up.
+  \item On each Mac: open \texttt{2-intermediate/exercises/week03/ex-palette-stripes/starter.py} in Thonny (\keys{Cmd}+\keys{O}).
+  \item A timer, paper and pencils, and optionally colored pencils for the Wrap-up.
 \end{materials}
 
 \needspace{16\baselineskip}
@@ -22,8 +22,8 @@
 Times are a guide: set a timer for each phase and move on when it rings.
 \begin{timeplan}
   \timeslot{0--8}{Warm-up}{Unplugged \enquote{Human list}: index from 0, \texttt{append}, \texttt{len} and a live \texttt{IndexError}.}
-  \timeslot{8--18}{Concept}{Lists in Python: square brackets, index, \texttt{append}, \texttt{len}, two kinds of \texttt{for} loop. Designing for everyone: colour-blind-safe palettes.}
-  \timeslot{18--28}{Guided demo}{Palette Stripes: append two colours, then turn one stripe into a loop that draws them all.}
+  \timeslot{8--18}{Concept}{Lists in Python: square brackets, index, \texttt{append}, \texttt{len}, two kinds of \texttt{for} loop. Designing for everyone: color-blind-safe palettes.}
+  \timeslot{18--28}{Guided demo}{Palette Stripes: append two colors, then turn one stripe into a loop that draws them all.}
   \timeslot{28--52}{Hands-on build}{Pairs: Exercise 3.1 Palette Stripes (finish), 3.2 Adventure Inventory, then 3.3 Top 3 High Scores. Swap every 8 minutes. Last 5 minutes: free-build.}
   \timeslot{52--60}{Wrap-up}{Show the stripes, accessibility check, exit ticket, reflection, homework 3.}
 \end{timeplan}
@@ -62,33 +62,33 @@ not the thing's name. If the corridor has 4 lockers, they are numbered 0 to 3: a
 \enquote{that locker does not exist}. That is Python's \texttt{IndexError}. \texttt{-1} is a shortcut for \enquote{the last locker}.
 \end{analogy}
 
-\begin{safety}[Colour-blind-safe palettes: designing for everyone]
-Say: \enquote{About 1 in 12 boys and 1 in 200 girls see some colours differently, often red and green. If a game shows danger
+\begin{safety}[Color-blind-safe palettes: designing for everyone]
+Say: \enquote{About 1 in 12 boys and 1 in 200 girls see some colors differently, often red and green. If a game shows danger
 only in red and safety only in green, those players cannot tell them apart.} Show the Okabe-Ito palette in the workbook: these
-8 colours stay different for almost everyone. Rule for our art and games: use these colours \textbf{and} add a label, number,
-shape or pattern, so colour is never the only clue. Our stripes are labelled with their index number for exactly this reason.
+8 colors stay different for almost everyone. Rule for our art and games: use these colors \textbf{and} add a label, number,
+shape or pattern, so color is never the only clue. Our stripes are labeled with their index number for exactly this reason.
 \end{safety}
 
 \section{Guided demo (18--28 min)}
 \begin{workedexample}[From one stripe to a loop of stripes]
 \begin{enumerate}[leftmargin=1.4em]
-  \item Open \texttt{ex-palette-stripes/starter.py} and press \menu{Run} (\keys{F5}). One orange stripe labelled 0 appears.
+  \item Open \texttt{ex-palette-stripes/starter.py} and press \menu{Run} (\keys{F5}). One orange stripe labeled 0 appears.
   \item TODO 1: under the first list, type \texttt{palette.append("\#0072B2")} and \texttt{palette.append("\#D55E00")}. Run: still one stripe.
-        Ask: \enquote{The list has 5 colours now. Why only one stripe?} (Because \texttt{draw\_stripes()} only draws \texttt{colours[0]}.)
+        Ask: \enquote{The list has 5 colors now. Why only one stripe?} (Because \texttt{draw\_stripes()} only draws \texttt{colors[0]}.)
   \item TODO 3: replace the last line of \texttt{draw\_stripes()} with a loop. Type it slowly and say each part aloud:
 \begin{pycode}
-    for i in range(len(colours)):
-        draw_stripe(t, x, 100, width, 200, colours[i], str(i))
+    for i in range(len(colors)):
+        draw_stripe(t, x, 100, width, 200, colors[i], str(i))
         x = x + width
 \end{pycode}
-        \enquote{\texttt{len(colours)} is 5, so \texttt{i} goes 0, 1, 2, 3, 4. Each time we draw stripe \texttt{i} and move right.}
-        Run: five labelled stripes.
+        \enquote{\texttt{len(colors)} is 5, so \texttt{i} goes 0, 1, 2, 3, 4. Each time we draw stripe \texttt{i} and move right.}
+        Run: five labeled stripes.
   \item Ask: \enquote{Why \texttt{str(i)}?} (\texttt{write} shows text; \texttt{str} turns the number into text, like last week's types.)
-  \item Leave TODO 4 (print the first and last colour) for the pairs.
+  \item Leave TODO 4 (print the first and last color) for the pairs.
 \end{enumerate}
 \end{workedexample}
 The finished Palette Stripes, for you:
-\pyfile{../excercises/week03/ex-palette-stripes/solution.py}
+\pyfile{../exercises/week03/ex-palette-stripes/solution.py}
 
 \section{Hands-on build (28--52 min)}
 \begin{pairroles}[Driver, navigator and the index checker]
@@ -99,7 +99,7 @@ checks every \texttt{[ ]}. Swap at the 8-minute timer.
 \end{pairroles}
 
 \begin{enumerate}[leftmargin=1.4em]
-  \item \textbf{Exercise 3.1 Palette Stripes}: finish TODO 4 (and TODO 2 for a sixth colour). About 4 minutes.
+  \item \textbf{Exercise 3.1 Palette Stripes}: finish TODO 4 (and TODO 2 for a sixth color). About 4 minutes.
   \item \textbf{Exercise 3.2 Adventure Inventory} (\texttt{week03/ex-inventory}, about 10 minutes). Starts with this week's bug hunt.
   \item \textbf{Exercise 3.3 Top 3 High Scores} (\texttt{week03/ex-high-scores}, about 6 minutes, or for fast finishers).
         New tricks: \texttt{sorted(scores, reverse=True)} and \texttt{best[:3]}.
@@ -114,11 +114,11 @@ or \texttt{backpack[-1]}. This is called an \textbf{off-by-one} bug: one of the 
 
 \begin{freebuild}[Pattern studio]
 Last 5 minutes: make your own stripes. Ideas: thinner stripes with \texttt{width=30}; the palette twice with \texttt{palette * 2};
-your own order of colours; a rainbow \enquote{flag} for your hero team. Keep labels on every stripe.
+your own order of colors; a rainbow \enquote{flag} for your hero team. Keep labels on every stripe.
 \end{freebuild}
 
 \section{Wrap-up (52--60 min)}
-Show the stripes. Do a quick accessibility check together: \enquote{If you could not see colour at all, could you still tell the stripes apart?}
+Show the stripes. Do a quick accessibility check together: \enquote{If you could not see color at all, could you still tell the stripes apart?}
 (Yes: the numbers.)
 
 \begin{formativecheck}[Exit ticket]
@@ -136,7 +136,7 @@ What does it print? Which index would cause an \texttt{IndexError}?
 \begin{itemize}[leftmargin=1.2em]
   \item Why do you think Python starts counting at 0? Does the locker analogy help?
   \item What is one list you could use in a game you would like to make?
-  \item How did we make our stripes work for people who see colours differently?
+  \item How did we make our stripes work for people who see colors differently?
 \end{itemize}
 \end{reflection}
 Hand out homework 3 (Loot Bag).
@@ -160,11 +160,11 @@ pair type the body. Skip Exercise 3.3; it can be a homework extra. In Inventory,
 \end{differentiation}
 
 \begin{stretchchallenge}[Checkerboard palette]
-Draw two rows of stripes, where the second row uses the colours in reverse order. Tip: \texttt{list(reversed(palette))} or
+Draw two rows of stripes, where the second row uses the colors in reverse order. Tip: \texttt{list(reversed(palette))} or
 \texttt{palette[::-1]}. Can you label every square with its index in its own row?
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]
 Shorten the human list to \texttt{[0]}, \texttt{len} and the IndexError shout. Do 3.1 and 3.2 only; 3.3 becomes an optional homework extra.
-Keep the colour-blind-safe talk short but do not skip the accessibility check in the Wrap-up.
+Keep the color-blind-safe talk short but do not skip the accessibility check in the Wrap-up.
 \end{teachernote}

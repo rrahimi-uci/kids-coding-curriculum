@@ -24,11 +24,11 @@ A data detective always works in the same order. Skipping a step gives wrong ans
 \end{center}
 
 \subsection{1. Read: what is a CSV file?}
-\textbf{CSV} means \emph{comma-separated values}: a table saved as plain text. The first line is the \textbf{header} (the column names). Every other line is one \textbf{row}. Here is the start of \texttt{favourite\_games.csv} -- made-up, anonymous survey answers (a response number, no names):
+\textbf{CSV} means \emph{comma-separated values}: a table saved as plain text. The first line is the \textbf{header} (the column names). Every other line is one \textbf{row}. Here is the start of \texttt{favorite\_games.csv} -- made-up, anonymous survey answers (a response number, no names):
 
 \begin{center}\small
 \begin{tabular}{@{}l@{}}
-\texttt{response,age\_group,favourite\_game,genre,hours\_per\_week,stars}\\
+\texttt{response,age\_group,favorite\_game,genre,hours\_per\_week,stars}\\
 \texttt{1,10-11,Block Craft,building,5,5}\\
 \texttt{2,12-13, block craft ,building,3,4}\\
 \texttt{5,,,,,}\\
@@ -36,12 +36,12 @@ A data detective always works in the same order. Skipping a step gives wrong ans
 \end{tabular}
 \end{center}
 
-\py|csv.DictReader| turns each row into a \textbf{dictionary}: \py|row["favourite_game"]| is \py|"Block Craft"|.
+\py|csv.DictReader| turns each row into a \textbf{dictionary}: \py|row["favorite_game"]| is \py|"Block Craft"|.
 \begin{pycode}
 import csv
-with open("favourite_games.csv", newline="") as f:
+with open("favorite_games.csv", newline="") as f:
     for row in csv.DictReader(f):
-        print(row["favourite_game"], row["stars"])
+        print(row["favorite_game"], row["stars"])
 \end{pycode}
 
 \subsection{2. Clean: wash the data first}
@@ -65,14 +65,14 @@ Counting with a dictionary is like a tally chart. The first time you see a game,
 \begin{pycode}
 counts = {}
 for row in rows:
-    game = row["favourite_game"]
+    game = row["favorite_game"]
     counts[game] = counts.get(game, 0) + 1
 # {"Block Craft": 5, "Kart Dash": 4, ...}
 \end{pycode}
 The \textbf{average} (mean) is the total divided by how many: \py|sum(numbers) / len(numbers)|. Leave out missing answers -- counting a blank as 0 would make the average unfairly small.
 
 \subsection{5. Chart: readable by everyone}
-A good chart never relies on colour alone. Write the \textbf{name} under each bar and the \textbf{number} on top, so someone who sees colours differently can still read it.
+A good chart never relies on color alone. Write the \textbf{name} under each bar and the \textbf{number} on top, so someone who sees colors differently can still read it.
 \begin{center}
 \begin{tikzpicture}[x=1.2cm,y=0.45cm]
   \foreach \x/\h/\name/\c in {0/5/Block Craft/kcorange,1/4/Kart Dash/kcsky,2/3/Puzzle Drop/kcgreen}{
@@ -85,7 +85,7 @@ A good chart never relies on colour alone. Write the \textbf{name} under each ba
 \end{center}
 
 \begin{exercise}[Survey cleaner]
-Folder: \texttt{week08/ex-survey-cleaner}. Open \texttt{favourite\_games.csv} in Thonny and circle the mess you find. Then finish \texttt{to\_number()}, \texttt{is\_empty()} and add \py|.title()| to the game names. \textbf{Done:} \texttt{Clean answers: 17}.
+Folder: \texttt{week08/ex-survey-cleaner}. Open \texttt{favorite\_games.csv} in Thonny and circle the mess you find. Then finish \texttt{to\_number()}, \texttt{is\_empty()} and add \py|.title()| to the game names. \textbf{Done:} \texttt{Clean answers: 17}.
 
 How many rows did the cleaner throw away, and why? \answerlines{1}
 \end{exercise}
@@ -99,11 +99,11 @@ Adventure games got 5.0 stars on average from only 2 answers. Should we trust th
 \end{exercise}
 
 \begin{exercise}[Bar chart]
-Folder: \texttt{week08/ex-bar-chart}. Make \texttt{bar\_height()} scale the bars so the biggest is \texttt{MAX\_HEIGHT} pixels, and write a number on top and a name under every bar. \textbf{Done:} six labelled bars from Block Craft (5) to Space Chess (1).
+Folder: \texttt{week08/ex-bar-chart}. Make \texttt{bar\_height()} scale the bars so the biggest is \texttt{MAX\_HEIGHT} pixels, and write a number on top and a name under every bar. \textbf{Done:} six labeled bars from Block Craft (5) to Space Chess (1).
 \end{exercise}
 
 \begin{safety}[Consent and privacy in surveys]
-Before collecting data, ask: \emph{Did people agree to answer? Can they skip a question? Do I really need this question?} Never collect real names, addresses, schools, birthdays or photos. Even without names, answers together can point to one person (\enquote{the only 13-year-old in the chess club}). Before sharing data, \textbf{anonymise} it: keep only the columns you need and give each row an ID like R1, R2.
+Before collecting data, ask: \emph{Did people agree to answer? Can they skip a question? Do I really need this question?} Never collect real names, addresses, schools, birthdays or photos. Even without names, answers together can point to one person (\enquote{the only 13-year-old in the chess club}). Before sharing data, \textbf{anonymize} it: keep only the columns you need and give each row an ID like R1, R2.
 \end{safety}
 
 \begin{vocab}
@@ -113,7 +113,7 @@ Before collecting data, ask: \emph{Did people agree to answer? Can they skip a q
   \vocabword{average (mean)}{The total divided by how many values there are.}
   \vocabword{sample}{The group of people who answered. A small sample can give misleading results.}
   \vocabword{consent}{Agreeing, freely, to take part -- with the choice to say no.}
-  \vocabword{anonymise}{Remove or replace anything that could show who gave an answer.}
+  \vocabword{anonymize}{Remove or replace anything that could show who gave an answer.}
 \end{vocab}
 
 \begin{reflection}

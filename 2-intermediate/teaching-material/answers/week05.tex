@@ -8,7 +8,7 @@
 (\texttt{monster["health"] = monster["health"] + 10}) rather than adding keys with different spelling;
 \texttt{get\_stat()} checks \texttt{if stat in monster:} before the lookup. Also correct: \texttt{return monster.get(stat, 0)}.
 \end{answer}
-\pyfile{../excercises/week05/ex-monster-stats/solution.py}
+\pyfile{../exercises/week05/ex-monster-stats/solution.py}
 
 \begin{answer}[Exercise 5.2 Caesar Cipher]
 \textbf{Step 4:} \texttt{zhoo grqh!} decodes to \texttt{well done!}\par
@@ -16,11 +16,11 @@
 Also correct: \texttt{encode(secret, 26 - shift)}, or building a reversed dictionary. Step 3: check the partner can decode the message
 with the same shift.
 \end{answer}
-\pyfile{../excercises/week05/ex-caesar-cipher/solution.py}
+\pyfile{../exercises/week05/ex-caesar-cipher/solution.py}
 
 \section{Homework}
 \begin{answer}[Core: Keys and values]
-\texttt{pet["legs"]} gives \texttt{4}.\quad \texttt{pet["colour"] = "purple"}.\quad \texttt{pet["Legs"]} crashes with
+\texttt{pet["legs"]} gives \texttt{4}.\quad \texttt{pet["color"] = "purple"}.\quad \texttt{pet["Legs"]} crashes with
 \texttt{KeyError: 'Legs'} (capital L: keys must match exactly).
 \end{answer}
 
@@ -29,7 +29,7 @@ Most common word: \texttt{the} (3 times).
 \textbf{What to look for:} the \texttt{if word in counts:} / \texttt{else:} pattern; \texttt{most\_common()} remembers both the best word and the best count.
 Also correct: \texttt{counts[word] = counts.get(word, 0) + 1}.
 \end{answer}
-\pyfile{../excercises/week05/hw-word-counter/solution.py}
+\pyfile{../exercises/week05/hw-word-counter/solution.py}
 
 \begin{answer}[Challenge: Crack the code]
 Shift \textbf{3}: \texttt{it is safe to play}. Students who tried every shift systematically (1, 2, 3 \ldots) used a real codebreaking method

@@ -3,30 +3,30 @@
 
 \section{Workbook exercises}
 \subsection{Exercise 5.1: Sort Race}
-\pyfile{../excercises/week05/ex-sort-race/solution.py}
+\pyfile{../exercises/week05/ex-sort-race/solution.py}
 \begin{answer}[Exercise 5.1: Sort Race]
 \textbf{Swaps for the 8 cards} \texttt{[7, 3, 9, 1, 5, 3, 8, 2]}: selection 5, bubble 16. Both give \texttt{[1, 2, 3, 3, 5, 7, 8, 9]} and the original list is unchanged.\\
 \textbf{What to look for:} the tuple swap; \texttt{swaps} counted only when a swap happens; a copy made with \texttt{list(items)} before sorting.
 \end{answer}
 
 \subsection{Exercise 5.2: Leaderboard}
-\pyfile{../excercises/week05/ex-leaderboard/solution.py}
+\pyfile{../exercises/week05/ex-leaderboard/solution.py}
 \begin{answer}[Exercise 5.2: Leaderboard]
 Expected board: \texttt{1. Mei - 150}, \texttt{2. Ada - 120}, \texttt{3. Leo - 95}, \texttt{3. Omar - 95}, \texttt{5. Zoe - 80}.\\
 \textbf{What to look for:} \texttt{key=points\_of} without brackets; \texttt{[:n]} to keep the top \texttt{n}; the tie rule changes \texttt{place} only when the points differ from the previous entry. A \texttt{lambda} key is fine for students who know it.
 \end{answer}
 
 \subsection{Exercise 5.3: Undo Paint}
-\pyfile{../excercises/week05/ex-undo-paint/solution.py}
+\pyfile{../exercises/week05/ex-undo-paint/solution.py}
 \begin{answer}[Exercise 5.3: Undo Paint]
 \textbf{What to look for:} \texttt{push} appends to the end; \texttt{pop} and \texttt{peek} return \texttt{None} on an empty stack instead of crashing; \texttt{peek} does not remove anything.
 In the program, pressing \texttt{u} repeatedly removes strokes newest first, and pressing it on an empty canvas does nothing.
-The colour name is written at the top, so players do not have to rely on colour alone.
+The color name is written at the top, so players do not have to rely on color alone.
 \end{answer}
 
 \section{Homework}
 \subsection{Core: Turn Queue}
-\pyfile{../excercises/week05/hw-turn-queue/solution.py}
+\pyfile{../exercises/week05/hw-turn-queue/solution.py}
 \begin{answer}[Core: Turn Queue]
 \textbf{Prediction:} Priya, Sam, Kai, Zoe, Priya, Sam. After Priya plays and Kai leaves, the queue is Sam, Zoe, Priya.
 \end{answer}

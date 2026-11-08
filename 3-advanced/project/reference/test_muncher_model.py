@@ -127,7 +127,7 @@ def test_ghost_wanders_only_onto_open_squares_and_does_not_turn_back():
         old = ghost.pos
         ghost.take_turn(maze, (1, 1))
         assert not maze.is_wall(ghost.pos)
-        assert ghost.pos in maze.neighbours(old)
+        assert ghost.pos in maze.neighbors(old)
     # In a corridor with no dead end the ghost keeps going forwards.
     corridor = model.Maze(["#######", "#P....#", "#######"])
     ghost = model.Ghost((1, 3))

@@ -22,9 +22,9 @@
     \foreach \i in {0,...,7}{
       \pgfmathtruncatemacro{\v}{\vals[\i]}
       \ifnum\i<\lo
-        \node[cell,fill=kcgrey!25,text=kcgrey] at (\i,-1.3*\row) {\v};
+        \node[cell,fill=kcgray!25,text=kcgray] at (\i,-1.3*\row) {\v};
       \else\ifnum\i>\hi
-        \node[cell,fill=kcgrey!25,text=kcgrey] at (\i,-1.3*\row) {\v};
+        \node[cell,fill=kcgray!25,text=kcgray] at (\i,-1.3*\row) {\v};
       \else\ifnum\i=\mid
         \node[cell,fill=kcorange!45,line width=1.4pt] at (\i,-1.3*\row) {\v};
       \else
@@ -34,11 +34,11 @@
     \node[font=\scriptsize,above] at (\mid,-1.3*\row+0.3) {mid};
     \node[anchor=west,font=\small,text width=5.2cm] at (8.0,-1.3*\row) {\note};
   }
-  \foreach \i in {0,...,7} \node[font=\scriptsize,text=kcgrey] at (\i,-3.15) {\i};
-  \node[font=\scriptsize,text=kcgrey,anchor=east] at (-0.6,-3.15) {index};
+  \foreach \i in {0,...,7} \node[font=\scriptsize,text=kcgray] at (\i,-3.15) {\i};
+  \node[font=\scriptsize,text=kcgray,anchor=east] at (-0.6,-3.15) {index};
 \end{tikzpicture}
 \end{center}
-Grey boxes have been thrown away; the thick orange box is the one we look at (\texttt{mid}). Searching for 44 took 3 steps. Linear search would take 7.
+Gray boxes have been thrown away; the thick orange box is the one we look at (\texttt{mid}). Searching for 44 took 3 steps. Linear search would take 7.
 
 \section{How fast is fast?}
 To compare algorithms, count the \textbf{steps} in the \textbf{worst case} (the unluckiest search).

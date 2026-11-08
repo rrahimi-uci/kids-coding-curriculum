@@ -2,7 +2,7 @@
 
 Exercise tests swap this in for the real module so that drawing programs run
 instantly, without opening a window, and so that tests can inspect what was
-drawn (lines, dots, fills, text, colours, key handlers, timers...).
+drawn (lines, dots, fills, text, colors, key handlers, timers...).
 
 The geometry follows the real ``turtle`` module closely (standard mode:
 heading 0 = east, ``left`` turns counter-clockwise, ``circle`` is drawn as the
@@ -605,7 +605,7 @@ class FakeTurtle:
 
     # ----- helpers for tests
     @property
-    def distance_travelled(self) -> float:
+    def distance_traveled(self) -> float:
         return sum(line.length for line in self.lines)
 
     @property

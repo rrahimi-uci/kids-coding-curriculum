@@ -15,30 +15,30 @@ from pathlib import Path
 
 SAVE_FILE = Path(__file__).resolve().parent / "my_art.json"
 
-# Okabe-Ito colour-blind-safe palette
+# Okabe-Ito color-blind-safe palette
 PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
            "#0072B2", "#D55E00", "#CC79A7", "#000000"]
 
 
 class Shape:
-    """Base class: every shape has a kind, a position, a size and a colour."""
+    """Base class: every shape has a kind, a position, a size and a color."""
 
     kind = "dot"
 
-    def __init__(self, x, y, size, colour):
+    def __init__(self, x, y, size, color):
         self.x = x
         self.y = y
         self.size = size
-        self.colour = colour
+        self.color = color
 
     def draw(self, pen):
         pen.goto(self.x, self.y)
-        pen.dot(self.size, self.colour)
+        pen.dot(self.size, self.color)
 
     def to_dict(self):
         """Turn the shape into a dictionary so json can save it."""
         return {"kind": self.kind, "x": self.x, "y": self.y,
-                "size": self.size, "colour": self.colour}
+                "size": self.size, "color": self.color}
 
 
 class Square(Shape):
@@ -48,7 +48,7 @@ class Square(Shape):
 
     def draw(self, pen):
         pen.goto(self.x - self.size / 2, self.y - self.size / 2)
-        pen.color(self.colour)
+        pen.color(self.color)
         pen.pendown()
         pen.begin_fill()
         for _ in range(4):
@@ -69,7 +69,7 @@ SHAPE_CLASSES = {"dot": Shape, "square": Square}  # TODO: add your classes here
 def shape_from_dict(data):
     """The opposite of to_dict: build the right kind of shape again."""
     shape_class = SHAPE_CLASSES[data["kind"]]
-    return shape_class(data["x"], data["y"], data["size"], data["colour"])
+    return shape_class(data["x"], data["y"], data["size"], data["color"])
 
 
 class Gallery:

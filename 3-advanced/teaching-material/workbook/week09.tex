@@ -4,7 +4,7 @@
 \section{What you will learn}
 \begin{itemize}[itemsep=1pt]
   \item The difference between a program that follows \textbf{rules} and one that \textbf{learns from examples}.
-  \item How a \textbf{nearest-neighbour classifier} sorts things, and how to measure its \textbf{accuracy}.
+  \item How a \textbf{nearest-neighbor classifier} sorts things, and how to measure its \textbf{accuracy}.
   \item Why unbalanced or wrong examples make an AI unfair (\textbf{bias}).
   \item How a tiny text generator writes sentences -- and why chatbots can be confidently wrong.
 \end{itemize}
@@ -12,7 +12,7 @@
 \section{Rules or examples?}
 A program with \textbf{rules} does exactly what you typed: \py|if teeth > 5: print("grumpy")|. A \textbf{learning} program gets lots of \textbf{examples} with the right answers (\textbf{labels}) and finds the pattern itself. The things it measures are called \textbf{features}.
 
-Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10). Put every example on a chart. To guess a \textbf{mystery} monster, find the closest example and copy its label. That is a \textbf{nearest-neighbour classifier}.
+Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10). Put every example on a chart. To guess a \textbf{mystery} monster, find the closest example and copy its label. That is a \textbf{nearest-neighbor classifier}.
 
 \begin{center}
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Stealth]
@@ -30,7 +30,7 @@ Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10
   \node[font=\small,align=left,anchor=west] at (11.5,8) {\tikz\draw[fill=kcorange!70] (0,0) circle (0.2); F = friendly (circle)\\[2pt]
     \tikz\draw[fill=kcsky!70] (0,0) rectangle (0.35,0.35); G = grumpy (square)\\[2pt]
     \tikz\draw[fill=white,thick] (0,0) circle (0.2); ? = mystery monster\\[2pt]
-    dashed line = its nearest neighbour};
+    dashed line = its nearest neighbor};
 \end{tikzpicture}
 \end{center}
 
@@ -71,7 +71,7 @@ To write, it starts with a word and keeps picking a \emph{random} next word from
 \textbf{Big idea} & \textbf{What it means} & \textbf{Today}\\ \midrule
 1 Perception & Computers sense the world with cameras, microphones, sensors. & a camera measuring fluff?\\
 2 Representation \& reasoning & The world is stored as data the computer can reason about. & each monster = (fluff, teeth)\\
-3 Learning & Computers find patterns in examples. & nearest-neighbour classifier\\
+3 Learning & Computers find patterns in examples. & nearest-neighbor classifier\\
 4 Natural interaction & Talking and writing like people is very hard. & Markov story machine\\
 5 Societal impact & AI can help or harm people. & bias, privacy, deepfakes\\
 \bottomrule
@@ -114,7 +114,7 @@ The smallest fun version: & \rule{\linewidth}{0.4pt}\\
 \begin{vocab}
   \vocabword{feature}{Something we measure about an example, like fluff or teeth.}
   \vocabword{label}{The right answer for an example, like \enquote{friendly}.}
-  \vocabword{training data}{The labelled examples a program learns from.}
+  \vocabword{training data}{The labeled examples a program learns from.}
   \vocabword{test data}{Examples kept secret during training, used to check the guesses.}
   \vocabword{accuracy}{Correct guesses divided by the number of test examples.}
   \vocabword{classifier}{A program that sorts things into groups (labels).}

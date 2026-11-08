@@ -1,0 +1,140 @@
+% Level 1, Week 5 -- Messages and My Blocks (Scratch)
+\lesson{5}{Messages and My Blocks}{Break big programs into named parts.}
+\lessoninfo{Concepts: broadcast messages (I), My Blocks with inputs (I), decomposition (I), variables (R)}{Tools: Scratch 3 offline app + Pen extension}{CSTA: 1B-AP-11, 1B-AP-12, 1B-AP-15, 1B-IC-19}
+
+\begin{objectives}
+  \item The student can break a big job into smaller named parts (decomposition). (L1.G5) [L1.W05.1]
+  \item The student can make a My Block with an input, like \enquote{polygon (sides) (length)}, and use it with different values. (L1.G5) [L1.W05.2]
+  \item The student can make sprites work together with \enquote{broadcast} and \enquote{when I receive}, and fix a message that nobody receives. (L1.G3, L1.G6) [L1.W05.3]
+  \item The student can choose color-blind-safe colors, add shapes or words so color is not the only clue, and keep text readable. (L1.G8) [L1.W05.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 5 and homework 5 (one per student).
+  \item Recipe cards: 5 index cards (or paper strips) and a pen per pair.
+  \item On each Mac: the Scratch app with a new project. Optional: students' Apple Catch from last week, for the accessibility check.
+  \item Know where the Mac's grayscale switch is: \menu{System Settings} $\rightarrow$ \menu{Accessibility} $\rightarrow$ \menu{Display} $\rightarrow$ \menu{Color Filters} (turn on, choose \menu{Grayscale}). Turn it off again afterwards.
+  \item A timer.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Recipe cards: split \enquote{Throw a party} into named sub-recipes; one card has a blank to fill in (an input).}
+  \timeslot{8--18}{Concept}{My Blocks = a named recipe card; inputs = the blank. Broadcast = an announcement; \enquote{when I receive} = listening for exactly that announcement.}
+  \timeslot{18--28}{Guided demo}{Shape Machine: make the My Block \enquote{polygon (sides) (length)} and draw four shapes with one line each.}
+  \timeslot{28--52}{Hands-on build}{Pairs, swap every 8 minutes. 5.1 Shape Machine, 5.2 Stamp Garden, 5.3 Show Time (with the nobody-receives bug hunt). Accessibility check with grayscale. Last 5 minutes free-build.}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell, exit ticket, reflection, hand out homework 5. Remind: next week is review and the checkpoint.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Recipe cards]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{We are planning a party. That is a big job! Let's break it into smaller jobs and give each one a name.} Together, list 4 parts: \textbf{INVITATIONS}, \textbf{DECORATE}, \textbf{CAKE}, \textbf{GAMES}.
+  \item Each pair takes one or two parts and writes a recipe card: the name at the top, then 3--4 steps (\enquote{CAKE: mix flour, eggs and sugar; bake; add icing}).
+  \item Now write the main plan on one card using only names: \enquote{INVITATIONS, DECORATE, CAKE, GAMES}. \enquote{Look how short the main plan is! Anyone can read it.}
+  \item Add a blank: change the cake card to \textbf{CAKE (size)}: \enquote{use \underline{\ \ \ } eggs}. The main plan can now say \enquote{CAKE (big)} or \enquote{CAKE (small)}. Same recipe, different result.
+\end{enumerate}
+With 1 student: do the cards together; the child writes the main plan.
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{Breaking a big job into named parts is called \textbf{decomposition}. In Scratch, the pink \menu{My Blocks} category lets you make your own block, give it a name, and put the steps under a \textbf{define} hat. Then you use your new block like any other block. If you give it an \textbf{input}, like the blank on our cake card, you can use the same block with different numbers: \enquote{polygon 3 100} draws a triangle, \enquote{polygon 6 50} a small hexagon.}
+
+\enquote{Sprites can also talk to each other. \textbf{broadcast} sends a message to every sprite, like an announcement over a loudspeaker. A script that starts with \textbf{when I receive} that message runs when it hears it. But it only hears its own message: the names must match exactly.}
+\end{teacherscript}
+
+\begin{analogy}[The school loudspeaker]
+\enquote{When the loudspeaker says \enquote{Lunch time!}, everyone who is listening for \enquote{Lunch time!} goes to lunch. If you are listening for \enquote{Snack time!}, you stay in your seat, even though there was an announcement. Broadcasts work the same way.}
+\end{analogy}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Shape Machine (Exercise 5.1)]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item New project. Add the \menu{Pen} extension (blue button, bottom left). Set the cat's \menu{Size} to 40.
+  \item Click \menu{My Blocks} $\rightarrow$ \menu{Make a Block}. Type \texttt{polygon}. Click \menu{Add an input (number or text)} and type \texttt{sides}. Click it again and type \texttt{length}. Click \menu{OK}. Leave \enquote{Run without screen refresh} unticked. A pink \enquote{define polygon (sides) (length)} hat appears.
+  \item Build the recipe under the define hat. To use an input, drag the little \texttt{sides} or \texttt{length} oval \textbf{out of the define hat} into a slot. The \enquote{/} block is in \menu{Operators}.
+  \item Build the main script, using the new pink \enquote{polygon} block from the palette four times. Click the flag.
+  \item Ask: \enquote{How would you add a pentagon?} (One more block: polygon 5 70.) \enquote{That's the power of a My Block.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.78]
+\initmoreblocks{define \namemoreblocks{polygon \ovalmoreblocks{sides} \ovalmoreblocks{length}}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalmoreblocks{sides}}{
+  \blockmove{move \ovalmoreblocks{length} steps}
+  \blockmove{turn \turnright{} \ovaloperator{\ovalnum{360} / \ovalmoreblocks{sides}} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\hspace{0.8cm}
+\begin{scratch}[scale=0.78]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockmove{go to x: \ovalnum{0} y: \ovalnum{0}}
+\blockmove{point in direction \ovalnum{90}}
+\blockmoreblocks{polygon \ovalnum{3} \ovalnum{120}}
+\blockmoreblocks{polygon \ovalnum{4} \ovalnum{100}}
+\blockmoreblocks{polygon \ovalnum{6} \ovalnum{60}}
+\blockmoreblocks{polygon \ovalnum{8} \ovalnum{40}}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator and block namer]
+Swap every 8 minutes. Before building a My Block, the navigator says its name and inputs out loud (\enquote{flower, with an input called size}) and checks the spelling in the dialog. With 1 student: you navigate, then swap. With 3: driver, navigator, tester (checks every sprite's scripts and checks off the checklist). With 4: two pairs, and in Show Time each pair builds one sprite of the other pair's show.
+\end{pairroles}
+
+Work through the workbook: \textbf{5.1} Shape Machine (own copy, then add a pentagon and a star), \textbf{5.2} Stamp Garden (paint a flower, a \enquote{flower (size)} block and a \enquote{grass} block), \textbf{5.3} Show Time (a presenter and a dancer pass messages).
+
+\begin{bughunt}[The show that never starts]
+In Exercise 5.3, the workbook shows Ada's dancer listening for \enquote{when I receive show start} while the presenter broadcasts \enquote{start show}. Students build it as printed: the presenter speaks and then\ldots{} nothing. Ask: \enquote{Was a message sent? Who was listening for it?} Fix: in the dancer's hat block, pick \enquote{start show} from the dropdown, so both use the same message. Tip: always choose messages from the dropdown instead of making a new one with a similar name.
+\end{bughunt}
+
+\begin{safety}[Accessibility: designs everyone can use]
+\enquote{About 1 in 12 boys and 1 in 200 girls see some colors differently, often red and green. Good designers make sure color is never the only clue: add a shape, a pattern or a word.} Turn on grayscale (see Materials) and look at a project together: \enquote{Can you still tell the apple from the bowl? The flowers from the grass? Can you read the words?} Then turn it off. Rules for our projects: use the color-safe paint box in the workbook; never \enquote{red means bad, green means good} without a word or shape too; text in Paint at least as big as a speech bubble.
+\end{safety}
+
+\begin{freebuild}[Your own My Block]
+Last 5 minutes: \enquote{Invent a My Block of your own.} Ideas: \enquote{star (size)}, \enquote{house}, \enquote{bounce (times)}, or a third sprite in the show that waits for the \enquote{finale} message.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{teacherscript}
+\enquote{Show us one My Block you made. What is its name? What does its input change?} Point out how the main scripts are now short and readable, like the party plan.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} a define hat with at least one input that is used inside; the new block used more than once with different values; a broadcast with a matching \enquote{when I receive}.
+
+\textbf{Ask:} \enquote{The cat broadcasts \texttt{go}. The dog's script starts with \enquote{when I receive Go!}. What happens, and how do you fix it?}
+\textbf{Answer:} nothing happens to the dog, because \texttt{go} and \texttt{Go!} are different messages. Choose the same message in the dog's dropdown.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Why is \enquote{polygon 6 60} easier to read than the blocks inside it?} and \enquote{What did you change to make your project easier for everyone to see?} Students write in the workbook. Hand out homework 5 (Starry Sky). \enquote{Next week is our Review Studio. We will hunt bugs in a relay and do a short checkpoint, like a quiz to show what you know. No studying needed!}
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing the input name instead of dragging it.} Writing the word \texttt{sides} into the repeat slot does nothing useful. Drag the oval out of the define hat.
+  \item \textbf{Define block with nothing calling it.} The recipe exists but nobody uses it. The pink block must appear in a script that starts with an event.
+  \item \textbf{Message names that do not match.} \enquote{start show} vs \enquote{show start} vs \enquote{Start Show}. Pick from the dropdown.
+  \item \textbf{Stamping does not appear.} The sprite is hidden while stamping (hide before the loop) or \enquote{erase all} comes after the stamps. Hide only at the end.
+  \item \textbf{Flowers all the same color.} \enquote{change color effect} needs to be inside the My Block or the loop; \enquote{clear graphic effects} at the start resets it.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Make the My Block with one input only (\enquote{polygon (sides)} with move 80). In Stamp Garden, skip the grass block. Build Show Time with one message only.
+\extensionpath Give \enquote{flower} a second input, \texttt{petals}, and draw the flower with the pen instead of stamping: repeat (petals) \{ polygon 6 (size) ; turn 360 / petals \}. A My Block can use another My Block!
+\end{differentiation}
+
+\begin{stretchchallenge}[Message chain]
+Make a show with three sprites that pass the action along like a relay: A broadcasts \enquote{one}, B reacts and broadcasts \enquote{two}, C reacts and broadcasts \enquote{three}, and A takes a bow. Draw the chain as arrows on paper first.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do steps 1--3 of the recipe cards only. In the hands-on part, do 5.1 and 5.3 (My Blocks and messages are the two big ideas) and leave Stamp Garden for free time or home. Keep the grayscale check: it takes two minutes and children remember it.
+\end{teachernote}

@@ -7,25 +7,25 @@
 \texttt{int(parts[1])} so the score is a number; empty lines skipped. Step 4: the first line looks like \texttt{Priya,90} (any nickname,
 a multiple of 10 from 30 to 180). Accept \texttt{os.path.exists()} instead of \texttt{try}/\texttt{except} if a student knows it.
 \end{answer}
-\pyfile{../excercises/week07/ex-save-high-scores/solution.py}
+\pyfile{../exercises/week07/ex-save-high-scores/solution.py}
 
 \begin{answer}[Exercise 7.2 Word Guess]
 \textbf{What to look for:} \texttt{strip().lower()} on every line and the empty-line check (the checks feed a file with capitals, spaces and a blank line).
 Any new words are fine if they are one word, small letters, no spaces. A student who writes \texttt{" ".join(...)} in \texttt{show\_progress()} is also correct.
 \end{answer}
-\pyfile{../excercises/week07/ex-word-guess/solution.py}
+\pyfile{../exercises/week07/ex-word-guess/solution.py}
 
 \begin{answer}[Exercise 7.3 Dot Art from a File]
 \textbf{Which mode in \texttt{save\_dots()}?} \texttt{"w"}, because saving a design should \emph{replace} the old version. With \texttt{"a"},
-every save would add another copy of every dot. \textbf{Step 4:} any new picture; check that each line has 4 parts separated by commas and uses palette colours.
+every save would add another copy of every dot. \textbf{Step 4:} any new picture; check that each line has 4 parts separated by commas and uses palette colors.
 \end{answer}
-\pyfile{../excercises/week07/ex-dot-art-file/solution.py}
+\pyfile{../exercises/week07/ex-dot-art-file/solution.py}
 
 \section{Homework}
 \begin{answer}[Core: Game Idea Notebook]
 Any idea in the box is fine. If it contains a real name, address or school, gently point back to the privacy rule.
 \end{answer}
-\pyfile{../excercises/week07/hw-idea-notebook/solution.py}
+\pyfile{../exercises/week07/hw-idea-notebook/solution.py}
 
 \begin{answer}[Challenge: Mode detective]
 Program A: \texttt{test.txt} holds only \texttt{blue} (each \texttt{"w"} rips out the page). Program B: \texttt{red} then \texttt{blue} on two lines.
@@ -33,6 +33,6 @@ Delete-all: \texttt{with open(filename, "w") as file: file.write("")}, opening w
 \end{answer}
 
 \begin{answer}[Creative]
-Good dot art has every line in the form \texttt{x,y,size,colour}, coordinates roughly between $-300$ and $300$, and palette colours.
+Good dot art has every line in the form \texttt{x,y,size,color}, coordinates roughly between $-300$ and $300$, and palette colors.
 Good word lists have one lowercase word per line. Praise planning on squared paper: that is designing data.
 \end{answer}

@@ -1,0 +1,50 @@
+% Level 1, Answers week 11 -- Project Studio   (input by answer-key.tex)
+\answersweek{11}{Project Studio}{What \enquote{good} looks like for workbook chapter 11 and homework 11 (Milestones M2 and M3).}
+
+\begin{teachernote}[Where the project answers live]
+The project has no single right answer. The reference solution (\textbf{Night Sky Postcard}), the milestone checks, the rubric and a table of common problems and fixes are in the \textbf{Project Teacher Guide}.
+\end{teachernote}
+
+\section{Workbook}
+\begin{answer}[Exercise 11.1: Sprint 1 (M2 core drawing works)]
+Done when: the student's own function (renamed from \texttt{my\_shape}) draws something recognisable, it is called at least twice in different places or colors, and the program runs without red errors. Quick check: \enquote{Show me where you make your function. Now where you use it.}
+\end{answer}
+
+\begin{answer}[Exercise 11.2: Partner bug hunt]
+Typical findings and fixes:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item A word instead of a number → \texttt{ValueError}. Fine for Level 1; experts can check with \texttt{answer.isdigit()} (see the reference).
+  \item \texttt{Night} instead of \texttt{night} → the \texttt{if} never happens. Fix: \texttt{input(...).strip().lower()}.
+  \item A giant number → very slow drawing. Fix: an \texttt{if} that caps it, with a friendly message.
+  \item Everything drawn in one place → the function ignores \texttt{x, y}, or every call uses the same values.
+\end{itemize}
+Feedback should be specific and kind; a wish is about the program, never the person.
+\end{answer}
+
+\begin{answer}[Exercise 11.3: Sprint 2 (M3 surprise and polish)]
+Done when: all six ingredients are checked in the comment list at the top of the file and the student has seen each one work. Ask: \enquote{Run it twice. What is different? Why?} (The random part.)
+\end{answer}
+
+\begin{answer}[Reflection]
+Look for a concrete bug (\enquote{my fish all appeared in the middle because I forgot \texttt{goto}}) and a concrete plan to use feedback (\enquote{make the title bigger}).
+\end{answer}
+
+\section{Homework}
+\begin{answer}[Core: finish and practice]
+Good signs: the student names any missing ingredient honestly and says how they will add it; they practiced the demo script aloud; the family visitor's two stars and a wish are written down.
+\end{answer}
+
+\begin{answer}[Challenge: strange answers]
+Example for a number question and a day/night question:
+\begin{pycode}
+stars = int(input("How many stars? "))
+if stars > 200:
+    print("That is a lot! I will draw 200.")
+    stars = 200
+time_of_day = input("Day or night? ").strip().lower()
+\end{pycode}
+\end{answer}
+
+\begin{answer}[Creative: stand card]
+Title, \textbf{nickname} (not a full name) and one sentence. Check before the showcase that no real full names, addresses or photos appear on the card or the screen.
+\end{answer}

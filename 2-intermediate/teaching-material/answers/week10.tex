@@ -1,8 +1,8 @@
 % Level 2, Week 10 answers -- Project Studio 1
-\answersweek{10}{Project Studio 1}{Answers and marking notes for workbook chapter 10 and homework 10.}
+\answersweek{10}{Project Studio 1}{Answers and scoring notes for workbook chapter 10 and homework 10.}
 
-\begin{teachernote}[Marking project weeks]
-Project weeks have no single right answer. Mark against the milestone: \textbf{met} (it works),
+\begin{teachernote}[Scoring project weeks]
+Project weeks have no single right answer. Score against the milestone: \textbf{met} (it works),
 \textbf{partly} (started, not working yet) or \textbf{not yet}. Praise small working steps. The full
 project rubric is in the Project Teacher Guide.
 \end{teachernote}
@@ -28,7 +28,7 @@ repeat until the user types q:
     s: save_design(shapes, "design.txt")
     l: shapes = load_design("design.txt"), clear screen, draw them all
 \end{outputcode}
-\textbf{Look for:} the three checklist items ticked honestly. A plan with no data yet is fine at M1 if
+\textbf{Look for:} the three checklist items checked honestly. A plan with no data yet is fine at M1 if
 the team can say where the list, dictionary and file will go.
 \end{answer}
 
@@ -53,12 +53,12 @@ PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#0072B2", "#D55E00", "#CC79A7"]
 def random_shape():
     """Make one shape recipe as a dictionary."""
     return {"x": random.randint(-250, 250), "y": random.randint(-200, 200),
-            "size": random.randint(10, 60), "colour": random.choice(PALETTE)}
+            "size": random.randint(10, 60), "color": random.choice(PALETTE)}
 
 def draw_shape(pen, shape):
     pen.penup()
     pen.goto(shape["x"], shape["y"])
-    pen.dot(shape["size"], shape["colour"])
+    pen.dot(shape["size"], shape["color"])
 
 def studio():
     pen = turtle.Turtle()
@@ -105,6 +105,6 @@ function whose examples match what the code should do.
 \end{answer}
 
 \begin{answer}[Creative: title screen sketch]
-Look for a name, the keys explained in words, palette colours and at least one non-colour difference
+Look for a name, the keys explained in words, palette colors and at least one non-color difference
 (shape, size, label). Nickname only.
 \end{answer}

@@ -99,9 +99,9 @@ A \textbf{grid} is a list of rows, and each row is a list of cells. You find a c
 \end{tikzpicture}
 \end{center}
 
-You can make a grid from strings: \py|grid = [list(row) for row in ["~~~~", "~.T~", "~.^~"]]|. Change a cell with \py|grid[2][1] = "T"|. The \textbf{neighbours} of a cell are the cells up, down, left and right of it (watch out for the edges!).
+You can make a grid from strings: \py|grid = [list(row) for row in ["~~~~", "~.T~", "~.^~"]]|. Change a cell with \py|grid[2][1] = "T"|. The \textbf{neighbors} of a cell are the cells up, down, left and right of it (watch out for the edges!).
 
-A \textbf{paint bucket} (flood fill) uses recursion on a grid: paint this cell, then ask each neighbour to do the same -- but stop at the edge, at walls, and at cells you have already painted. Those are the base cases.
+A \textbf{paint bucket} (flood fill) uses recursion on a grid: paint this cell, then ask each neighbor to do the same -- but stop at the edge, at walls, and at cells you have already painted. Those are the base cases.
 
 \begin{exercise}[Recursion warm-up]
 Folder: \texttt{week07/ex-countdown-sum}. Read \texttt{countdown()}. Then finish \texttt{sum\_to(n)} (so \texttt{sum\_to(5)} is 15) and \texttt{reverse(word)} (so \texttt{reverse("turtle")} is \texttt{"eltrut"}) using recursion. Check with \texttt{check\_my\_work.py}.
@@ -124,7 +124,7 @@ What pattern do you see? \answerlines{1}
 \end{exercise}
 
 \begin{exercise}[Paint bucket]
-Folder: \texttt{week07/ex-paint-bucket}. Finish \texttt{count\_tiles(grid, symbol)} with two loops, then the flood fill: add the base case \enquote{stop if this cell is not the old colour} and four recursive calls (up, down, left, right). Run it, press keys \textbf{1}--\textbf{5} to choose a paint and click inside a shape. Every paint has a letter as well as a colour.
+Folder: \texttt{week07/ex-paint-bucket}. Finish \texttt{count\_tiles(grid, symbol)} with two loops, then the flood fill: add the base case \enquote{stop if this cell is not the old color} and four recursive calls (up, down, left, right). Run it, press keys \textbf{1}--\textbf{5} to choose a paint and click inside a shape. Every paint has a letter as well as a color.
 
 \textbf{Which cells does the paint stop at?} \answerlines{1}
 \end{exercise}
@@ -140,7 +140,7 @@ In Thonny, click the bug icon (Debug) and press \keys{F7} (Step into) again and 
   \vocabword{RecursionError}{Python's error when a function calls itself too many times -- usually a missing base case.}
   \vocabword{fractal}{A shape made of smaller copies of itself, like a tree, a fern or a snowflake.}
   \vocabword{grid (2D list)}{A list of rows, where each row is a list. \texttt{grid[row][col]} is one cell.}
-  \vocabword{flood fill}{Filling every touching cell of the same colour, like a paint bucket tool.}
+  \vocabword{flood fill}{Filling every touching cell of the same color, like a paint bucket tool.}
 \end{vocab}
 
 \begin{reflection}

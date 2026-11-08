@@ -1,0 +1,67 @@
+% Level 1, Week 2 -- homework
+\homeworkweek{2}{Loop-de-Loop}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Shape Gallery (Scratch, about 10 minutes)]
+Draw a triangle, a square and a hexagon in a row, like pictures in a gallery.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open Scratch. Click \menu{Add Extension} (bottom left) and choose \menu{Pen}. Set the cat's \menu{Size} to \texttt{40}.
+  \item Build the script. \enquote{pen up} before each \enquote{go to} stops the cat drawing a line between the shapes.
+  \item Fill in the two missing numbers for the hexagon (use the rule \textbf{turn = 360 ÷ sides}).
+  \item Click the flag. Save as \texttt{shape-gallery}.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.72]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockmove{point in direction \ovalnum{90}}
+\blockpen{pen up}
+\blockmove{go to x: \ovalnum{-200} y: \ovalnum{50}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{3}}{
+  \blockmove{move \ovalnum{80} steps}
+  \blockmove{turn \turnright{} \ovalnum{120} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\hspace{0.6cm}
+\begin{scratch}[scale=0.72]
+\blockmove{go to x: \ovalnum{-60} y: \ovalnum{50}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{80} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\blockmove{go to x: \ovalnum{80} y: \ovalnum{50}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{\ \ ?\ \ }}{
+  \blockmove{move \ovalnum{50} steps}
+  \blockmove{turn \turnright{} \ovalnum{\ \ ?\ \ } degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{center}
+{\small (The right-hand stack snaps under the left-hand one: it is one long script, split in two to fit the page.)}
+
+My hexagon numbers: repeat \rule{1.5cm}{0.4pt} \quad turn \rule{1.5cm}{0.4pt}
+\end{core}
+
+\begin{challenge}[The circle trick]
+Draw a shape with \enquote{repeat 36}, \enquote{move 10 steps}, \enquote{turn 10 degrees}. What does it look like? Why do you think it looks like that? (Hint: 36 × 10 = ?)
+\answerlines{2}
+What turn would you need for a shape with 10 sides? \rule{2cm}{0.4pt}
+\end{challenge}
+
+\begin{creative}[Your own loop art]
+Make a picture with loops. Ideas: put \enquote{change pen color by 10} inside a loop; put \enquote{change pen size by 1} inside a loop; repeat a square 12 times and turn 30 degrees after each one. Draw a tiny sketch of your favorite result here:
+\answerspace{3cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I used \enquote{repeat} instead of copying the same blocks again and again.
+  \item My move and turn blocks are \textbf{inside} the repeat.
+  \item Every shape closes (it ends where it started).
+  \item I can explain the rule: turn = 360 ÷ number of sides.
+  \item I did the 20-20-20 eye break when I used the screen.
+\end{selfcheck}

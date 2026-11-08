@@ -22,7 +22,7 @@ You get to build your own program! Pick ONE option:
 ## Your project must have
 
 - [ ] functions with parameters that **return** a value
-- [ ] a **list** (enemies, coins, colours, a gallery of designs...)
+- [ ] a **list** (enemies, coins, colors, a gallery of designs...)
 - [ ] a **dictionary** (settings, a design, a player...)
 - [ ] a `while` loop or a game loop with `ontimer`
 - [ ] a **file** (high scores or saved designs), created if it is missing

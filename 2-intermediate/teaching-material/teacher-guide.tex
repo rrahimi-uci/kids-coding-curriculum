@@ -28,7 +28,7 @@ error message together} is almost always the right first move.
 \toprule
 In Level 1 & In Level 2 \\ \midrule
 Scratch, then Python & Python in Thonny every week. No Scratch. \\
-Short scripts & Programs organised into functions with \texttt{return}, with the main program under
+Short scripts & Programs organized into functions with \texttt{return}, with the main program under
 \texttt{if \_\_name\_\_ == "\_\_main\_\_":} (the lesson plans explain this line when it first appears). \\
 Variables & Values of different \textbf{types} (whole numbers, decimals, text, True/False), lists and dictionaries. \\
 Programs forget everything & Programs \textbf{save and load files} (week 7). \\
@@ -74,7 +74,7 @@ widely used list of what children should learn in computing; you do not need to 
 Code & By the end of Level 2 the student can\ldots & CSTA \\ \midrule\endhead
 L2.G1 & use clearly named variables of different types (int, float, str, bool) and f-strings & 2-AP-11 \\
 L2.G2 & combine control structures: while loops, nested loops, compound conditions & 2-AP-12 \\
-L2.G3 & write functions with parameters and return values to organise code & 2-AP-14, 2-AP-13 \\
+L2.G3 & write functions with parameters and return values to organize code & 2-AP-14, 2-AP-13 \\
 L2.G4 & store and process collections with lists and dictionaries & 2-AP-11, 3A-AP-14 \\
 L2.G5 & read and write text files to save and load data & 2-DA-08 \\
 L2.G6 & debug systematically (read tracebacks, print-debugging, rubber duck) and write simple tests & 2-AP-17, 2-AP-19 \\
@@ -99,7 +99,7 @@ Wk & Title & Big idea & New concepts \\ \midrule\endhead
 3 & Lists: Collections of Things & A list keeps many values in order. & lists, index, \texttt{append}, \texttt{len}, \texttt{for x in list} \\
 4 & While Loops and Game Loops & Repeat until something changes; games are loops. & \texttt{while}, \texttt{break}, input validation, nested loops for pixel art \\
 5 & Dictionaries and Secret Codes & Look things up by name, not number. & dict, keys/values, \texttt{.items()}, Caesar cipher \\
-6 & Review and Checkpoint & Practise strategies for finding bugs. & tracebacks, print-debugging, rubber duck. \textbf{Checkpoint (15 min).} \\
+6 & Review and Checkpoint & Practice strategies for finding bugs. & tracebacks, print-debugging, rubber duck. \textbf{Checkpoint (15 min).} \\
 7 & Files: Saving Your Stuff & Files let programs remember after they close. & \texttt{open}, \texttt{with}, read/write/append, \texttt{split}/\texttt{strip} \\
 8 & Testing: Prove It Works & Tests are automatic checks that catch bugs early. & \texttt{assert}, pytest, normal and edge cases \\
 9 & Event-Driven Games & Keys and timers make things happen; collisions end games. & \texttt{onkey}, \texttt{ontimer}, game state, \texttt{distance} collision. \textbf{Project kickoff.} \\
@@ -113,7 +113,7 @@ B2 & Generative Art Jam & Free-build with lists, random and functions. & (use an
 
 %% ====================================================================
 \section{4. Before you start: setup checklist}
-Allow about one hour, once, before week 1. Tick each line.
+Allow about one hour, once, before week 1. Check off each line.
 
 \subsection{4.1 Thonny (on every Mac)}
 \begin{checklist}
@@ -146,8 +146,8 @@ This needs the internet once. No account, login or personal data is involved.
         child's \menu{Documents} folder. Copy the \emph{whole} folder: the exercises use the
         \texttt{testing} folder inside it to check work.
   \item Level 2 lives in \texttt{kids-coding/2-intermediate/}. The exercises are in
-        \texttt{excercises/week01/}, \texttt{excercises/week02/} and so on (the spelling of
-        \texttt{excercises} is intentional: it matches the original folder).
+        \texttt{exercises/week01/}, \texttt{exercises/week02/} and so on (the spelling of
+        \texttt{exercises} is intentional: it matches the original folder).
   \item Each exercise folder holds:
         \begin{itemize}[itemsep=0pt]
           \item \texttt{README.md}: the task, in kid-friendly words;
@@ -163,9 +163,9 @@ This needs the internet once. No account, login or personal data is involved.
 \subsection{4.4 Files and folders on a Mac (teach this in week 1, revisit in week 7)}
 \begin{itemize}[itemsep=1pt]
   \item In \textbf{Finder}, show file extensions so \texttt{.py} and \texttt{.txt} are visible:
-        \menu{Finder > Settings > Advanced}, tick \enquote{Show all filename extensions}.
+        \menu{Finder > Settings > Advanced}, check \enquote{Show all filename extensions}.
   \item In Thonny, open files with \menu{File > Open} and walk to
-        \menu{Documents > kids-coding > 2-intermediate > excercises > week\ldots}.
+        \menu{Documents > kids-coding > 2-intermediate > exercises > week\ldots}.
         Thonny remembers the last folder.
   \item Save new programs in the child's own folder with a clear name: lowercase, no spaces,
         ending in \texttt{.py} (for example \texttt{space\_snack.py}). Never name a file
@@ -194,14 +194,14 @@ Lesson plan, Answer Key pages & For you; reading on a screen is fine. \\
 \subsection{4.6 Accessibility}
 \begin{itemize}[itemsep=1pt]
   \item \textbf{Dyslexia-friendly edition:} every PDF also exists in a dyslexia-friendly version
-        (Lexend font, larger text, wider spacing, cream paper colour, no italics). After building
+        (Lexend font, larger text, wider spacing, cream paper color, no italics). After building
         the PDFs they are in \texttt{build/\allowbreak pdf/\allowbreak dyslexia/\allowbreak 2-intermediate/}. Offer it to any child
         who prefers it; it is not a label.
   \item \textbf{Thonny font size:} \menu{View > Increase font size}. For a lasting change use
         \menu{Tools > Options > Theme \& Font} and choose a larger editor and Shell font.
-  \item \textbf{Colour:} all course colours come from the Okabe--Ito palette, which works for the
-        common kinds of colour-blindness, and games always use shape and size as well as colour.
-        For extra help, macOS has colour filters: \menu{System Settings > Accessibility > Display >
+  \item \textbf{Color:} all course colors come from the Okabe--Ito palette, which works for the
+        common kinds of color-blindness, and games always use shape and size as well as color.
+        For extra help, macOS has color filters: \menu{System Settings > Accessibility > Display >
         Color Filters}. \menu{Zoom} on the same page magnifies the screen.
   \item \textbf{Keys:} if a child finds arrow keys awkward, any key can be used in a game
         (\texttt{"a"} and \texttt{"d"}, for example). Changing keys is a great extension task.
@@ -277,7 +277,7 @@ pens and sticky notes. They are also your plan B if the computers misbehave.
 \end{unplugged}
 
 \begin{freebuild}[Last 5--6 minutes of the build]
-The children change the day's program in any way they like: colours from the palette, new
+The children change the day's program in any way they like: colors from the palette, new
 shapes, a silly message, a different rule. Free-build is where many of them fall in love with
 coding; protect these minutes.
 \end{freebuild}
@@ -302,7 +302,7 @@ grades and no rankings. Results are shared kindly and privately.
         joining) take it too.
   \item \textbf{Tell the children:} \enquote{This is not a test you pass or fail. It helps me choose
         the right challenges for you.}
-  \item \textbf{Marking:} use the Answer Key (Assessments section). It takes about 3 minutes per child.
+  \item \textbf{Scoring:} use the Answer Key (Assessments section). It takes about 3 minutes per child.
   \item \textbf{Using the results:} the decision guide in the Answer Key places each child on the
         \textbf{support path}, the \textbf{standard path} or the \textbf{extension path}
         (see section~9). Write the path on the progress tracker. A child can change path at any
@@ -313,13 +313,13 @@ grades and no rankings. Results are shared kindly and privately.
 
 \subsection{8.2 Formative checks (every week)}
 Every lesson plan ends with a \textbf{formative check}: what to look for while the children work,
-plus one exit-ticket question with its answer. Record a quick tick, a dash or a question mark on
+plus one exit-ticket question with its answer. Record a quick check mark, a dash or a question mark on
 the progress tracker. Two question marks in a row on the same goal means: revisit it in the next
 warm-up or use a buffer session.
 
 \subsection{8.3 Mid-level checkpoint (week 6, about 15 minutes)}
 Covers types, functions with \texttt{return}, lists, \texttt{while} loops and dictionaries:
-predict, fix and write questions. Mark it with the Answer Key, fill in the \enquote{I can} rubric
+predict, fix and write questions. Score it with the Answer Key, fill in the \enquote{I can} rubric
 together with each child, and adjust paths for weeks 7--12.
 
 \subsection{8.4 Exit assessment (week 12, about 20 minutes)}
@@ -381,15 +381,15 @@ up to a real understanding of privacy, fairness and credit.
 Wk & Theme & The key message \\ \midrule\endhead
 1 & Hero names, not real names & Personal information is anything that identifies you: name, address, school, birthday, photos. Programs use a hero name. \\
 2 & Comments for future-you & Code is read by people. Clear comments are a kindness to friends and to yourself next month. \\
-3 & Colour-blind-safe palettes & About 1 in 12 boys and 1 in 200 girls see some colours differently. Design for everyone: safe colours plus shapes and labels. \\
+3 & Color-blind-safe palettes & About 1 in 12 boys and 1 in 200 girls see some colors differently. Design for everyone: safe colors plus shapes and labels. \\
 4 & Fair play & Good games do not trick or pressure players (no fake timers, no \enquote{pay to win}). \\
 5 & Encryption and passwords & Secrets need protecting. Never share passwords; a Caesar cipher is fun but easy to break. \\
 6 & Growth mindset & Mistakes are how programmers learn. Compare yourself with last month's you. \\
 7 & What should (not) be saved & Only save what you need. Never save other people's private information in a file. \\
 8 & Why apps need testing & Real bugs have cost money and caused problems; testing is how we earn people's trust. \\
-9 & Attribution and open licences & Use your own art or library art; credit other people's work; check the licence. \\
+9 & Attribution and open licenses & Use your own art or library art; credit other people's work; check the license. \\
 10 & Splitting tasks fairly & In a team everyone gets interesting work and everyone's ideas are heard. \\
-11 & Accessibility review & Check your own game: colours, shapes, text size, key choices. \\
+11 & Accessibility review & Check your own game: colors, shapes, text size, key choices. \\
 12 & Showcase safety & Share with family only; no personal information on screen; nothing uploaded. \\
 \bottomrule
 \end{longtable}}
@@ -542,7 +542,7 @@ Abstraction / functions & W5 My Blocks, W10 \texttt{def} & W2 \texttt{return}, W
 Debugging \& testing & weekly bug hunts, W6 relay & W6 strategies, W8 pytest & W6 debugger, project with 5+ tests \\
 Collaboration & driver/navigator every week & code reviewer role, W10 task split & W1 git, W10 code review \\
 Art \& games & W2 pen art, W4 catch game, W10 random art & W3 palettes, W4 pixel art, W9 games & W3 shape families, W7 fractals, project \\
-Citizenship \& ethics & privacy, credit, kindness, accessibility & data privacy, encryption, fair games, attribution & git secrets, consent, bias, AI ethics, licences \\
+Citizenship \& ethics & privacy, credit, kindness, accessibility & data privacy, encryption, fair games, attribution & git secrets, consent, bias, AI ethics, licenses \\
 \bottomrule
 \end{longtable}}
 

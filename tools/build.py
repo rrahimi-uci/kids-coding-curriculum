@@ -24,7 +24,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = {"1": "1-elementry", "2": "2-intermediate", "3": "3-advanced"}
+LEVELS = {"1": "1-introduction", "2": "2-intermediate", "3": "3-advanced"}
 VARIANTS = ("standard", "dyslexia")
 
 

@@ -58,7 +58,7 @@ class Grid:
     def is_open(self, row, col):
         return self.in_bounds(row, col) and self.cells[row][col] != "#"
 
-    def neighbours(self, row, col):
+    def neighbors(self, row, col):
         """Open squares next to (row, col): up, down, left, right."""
         result = []
         for d_row, d_col in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -100,8 +100,8 @@ class Hero:
 
 
 # ---------------------------------------------------------------- drawing
-# Shapes AND letters, so the game never depends on colour alone.
-COLOURS = {"#": "#0072B2", "*": "#E69F00", "H": "#009E73"}
+# Shapes AND letters, so the game never depends on color alone.
+COLORS = {"#": "#0072B2", "*": "#E69F00", "H": "#009E73"}
 
 
 def draw(pen, grid, hero):
@@ -113,9 +113,9 @@ def draw(pen, grid, hero):
             letter = grid.get(row, col)
             x = left + col * CELL
             y = top - row * CELL
-            if letter in COLOURS:
+            if letter in COLORS:
                 pen.goto(x, y)
-                pen.color("black", COLOURS[letter])
+                pen.color("black", COLORS[letter])
                 pen.begin_fill()
                 for _ in range(4):
                     pen.forward(CELL)

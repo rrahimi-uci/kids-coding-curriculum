@@ -9,20 +9,20 @@ Accept any fix that makes \texttt{check\_my\_work.py} pass and keeps the program
 \texttt{TypeError} on line 10, in \texttt{card\_line}. Expected \texttt{Level: 4}; it crashed. Change: \texttt{return f"\{label\}: \{value\}"}.
 Also correct: \texttt{label + ": " + str(value)}.
 \end{answer}
-\pyfile{../excercises/week06/ex-bug-hero-card/solution.py}
+\pyfile{../exercises/week06/ex-bug-hero-card/solution.py}
 
 \begin{answer}[Station 2: High Scores]
 Bug 1: \texttt{IndexError} in \texttt{highest()}: \texttt{in\_order[len(in\_order)]} is one past the end. Change to \texttt{in\_order[-1]}
 (or \texttt{len(in\_order) - 1}).\par
 Bug 2: \texttt{IndexError} in \texttt{podium()}: \texttt{range(3)} with only 2 scores. Change to \texttt{range(len(best))}.
 \end{answer}
-\pyfile{../excercises/week06/ex-bug-high-scores/solution.py}
+\pyfile{../exercises/week06/ex-bug-high-scores/solution.py}
 
 \begin{answer}[Station 3: Rocket Countdown]
 Trace table (starter): round 2: \texttt{n} = 5, numbers \texttt{[5, 5]}; round 3: \texttt{n} = 5, numbers \texttt{[5, 5, 5]}.
 \texttt{n} should get smaller but never changes. Change: add \texttt{n = n - 1} inside the loop. The safety net stays.
 \end{answer}
-\pyfile{../excercises/week06/ex-bug-countdown/solution.py}
+\pyfile{../exercises/week06/ex-bug-countdown/solution.py}
 
 \begin{answer}[Station 4: Loot Shop]
 Paper answers: total 47, cheapest 5, yes (47 is less than 50).\par
@@ -30,7 +30,7 @@ Bugs: (1) \texttt{return total} indented inside the loop, so the total is 12; un
 instead of \texttt{smallest}. (3) \texttt{can\_buy()} prints instead of returning, so it gives back \texttt{None} and the shop always says
 \enquote{cannot buy}; change \texttt{print(...)} to \texttt{return ...}.
 \end{answer}
-\pyfile{../excercises/week06/ex-bug-loot-shop/solution.py}
+\pyfile{../exercises/week06/ex-bug-loot-shop/solution.py}
 
 \begin{answer}[Station 5: Paper detectives]
 \begin{tabular}{@{}llll@{}}
@@ -52,7 +52,7 @@ Fix: \texttt{best = numbers[0]} (start with the first real number). Python's bui
 Line numbers in the starter: bug 1 line 22, bug 2 line 13, bug 3 line 28. Fixed output:
 \texttt{\{'name': 'Pixel', 'hunger': 4, 'happiness': 9\}} and \texttt{Pixel feels happy.}
 \end{answer}
-\pyfile{../excercises/week06/hw-bug-pixel-pet/solution.py}
+\pyfile{../exercises/week06/hw-bug-pixel-pet/solution.py}
 
 \begin{answer}[Challenge: Trace it]
 coins 1 → 2 → 4 → 8 → 16 → 32; days 0 → 5. It prints \texttt{5 32}.
@@ -63,4 +63,4 @@ Any comic that shows a real tool (traceback, print, duck or trace table) being u
 \end{answer}
 
 \section{Mid-level checkpoint}
-The checkpoint answers and marking guide are in the \textbf{Assessments} section at the end of this Answer Key.
+The checkpoint answers and scoring guide are in the \textbf{Assessments} section at the end of this Answer Key.

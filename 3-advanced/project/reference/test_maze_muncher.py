@@ -38,7 +38,7 @@ def test_start_draws_walls_letters_and_listens(tmp_path):
     texts = all_texts(screen)
     for letter in "PGC":
         assert letter in texts, \
-            f"Write the letter {letter} on its character (not colour only)."
+            f"Write the letter {letter} on its character (not color only)."
     arrows = {"Up", "Down", "Left", "Right"}
     assert screen.listening and arrows <= set(screen.key_handlers)
     assert screen.timers, "The game clock (ontimer) should be running."

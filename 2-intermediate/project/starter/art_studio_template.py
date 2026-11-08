@@ -19,7 +19,7 @@ import random
 import turtle
 from pathlib import Path
 
-# Okabe-Ito colours: safe for colour-blind viewers.
+# Okabe-Ito colors: safe for color-blind viewers.
 PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
            "#0072B2", "#D55E00", "#CC79A7", "#000000"]
 
@@ -38,7 +38,7 @@ def random_design():
     return {
         "petals": random.randint(3, 12),
         "size": random.randint(60, 180),
-        "colour": random.choice(PALETTE[:7]),
+        "color": random.choice(PALETTE[:7]),
     }
 
 
@@ -76,7 +76,7 @@ def draw_spiral(t, size):
 def draw_design(t, design):
     """Draw one design: petals in a circle, then a spiral."""
     t.clear()
-    t.color(design["colour"])
+    t.color(design["color"])
     t.pensize(2)
     for _ in range(design["petals"]):
         t.penup()

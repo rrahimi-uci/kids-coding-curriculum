@@ -79,7 +79,7 @@ def is_caught(obj, basket_x, settings):
     """True when the object is close enough to the basket to touch it."""
     dx = obj["x"] - basket_x
     dy = obj["y"] - settings["basket_y"]
-    # Pythagoras, the same maths as turtle's distance()
+    # Pythagoras, the same math as turtle's distance()
     distance = (dx * dx + dy * dy) ** 0.5
     return distance <= settings["catch_distance"]
 

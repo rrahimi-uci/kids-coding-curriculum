@@ -1,5 +1,5 @@
 \documentclass[level=3]{kidscode}
-%% Student "I can..." rubric: one row per statement, four tick boxes.
+%% Student "I can..." rubric: one row per statement, four checkboxes.
 \newenvironment{icanrubric}{\par\noindent\renewcommand{\arraystretch}{1.5}%
   \tabularx{\linewidth}{@{}X*{4}{>{\centering\arraybackslash}p{1.75cm}}@{}}
   \toprule
@@ -18,7 +18,7 @@
 
 \begin{tip}[For students: read this first]
 These papers are not tests you pass or fail. They show you (and your teacher) what you already
-know and what to practise next. Write your answers on the paper. If you are stuck, write what you
+know and what to practice next. Write your answers on the paper. If you are stuck, write what you
 \emph{think} and why --- that counts too. No computer needed unless your teacher says so.
 \end{tip}
 
@@ -71,11 +71,11 @@ print(n)
 \answerlines{1}
 
 \question{Dictionaries}{(a) What does line 3 print? \quad (b) What happens if we run
-\py|print(colours["grass"])|?}
+\py|print(colors["grass"])|?}
 \begin{pycode}
-colours = {"sky": "#56B4E9", "leaf": "#009E73"}
-colours["sun"] = "#F0E442"
-print(len(colours), colours["leaf"])
+colors = {"sky": "#56B4E9", "leaf": "#009E73"}
+colors["sun"] = "#F0E442"
+print(len(colors), colors["leaf"])
 \end{pycode}
 \answerlines{2}
 
@@ -129,7 +129,7 @@ print(mo.energy)
 \end{pycode}
 \answerlines{2}
 
-\question{Families of objects}{A \py|Knight| is a \py|Character| with armour.}
+\question{Families of objects}{A \py|Knight| is a \py|Character| with armor.}
 \begin{pycode}
 class Character:
     def __init__(self, name):
@@ -144,7 +144,7 @@ class Character:
 
 class Knight(Character):
     def hit(self):
-        self.health = self.health - 1   # armour helps
+        self.health = self.health - 1   # armor helps
 
 zoe = Character("Zoe")
 omar = Knight("Omar")
@@ -325,7 +325,7 @@ print(total)
 
 \subsection{Part C: How machines learn}
 
-\question{Nearest neighbour}{An AI sorts monsters into \textbf{dragon} or \textbf{slime} using two
+\question{Nearest neighbor}{An AI sorts monsters into \textbf{dragon} or \textbf{slime} using two
 features. Distance = (difference in size) + (difference in spikes).}
 
 \begin{center}
@@ -373,7 +373,7 @@ now).}
 \ican{I can write a recursive function with a base case.}
 \ican{I can use a 2D grid (\texttt{grid[row][col]}).}
 \ican{I can clean data from a CSV file and chart it.}
-\ican{I can explain how a nearest-neighbour AI makes a prediction, and how it can be unfair.}
+\ican{I can explain how a nearest-neighbor AI makes a prediction, and how it can be unfair.}
 \ican{I can track my project with git and test it with pytest.}
 \ican{I can explain why I designed my program the way I did.}
 \end{icanrubric}

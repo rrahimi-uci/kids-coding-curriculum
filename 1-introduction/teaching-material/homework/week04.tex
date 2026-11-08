@@ -1,0 +1,50 @@
+% Level 1, Week 4 -- homework
+\homeworkweek{4}{Keeping Score}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Magic Dice (Scratch, about 10 minutes)]
+Make a dice roller that remembers how many times you rolled.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open Scratch. Make two variables (\menu{Variables} $\rightarrow$ \menu{Make a Variable}): \texttt{roll} and \texttt{rolls}.
+  \item Build the two scripts. \enquote{join} and \enquote{pick random} are in \menu{Operators}. Type a space after \enquote{You rolled} so the words don't squash together.
+  \item Click the flag, then press \keys{space} to roll.
+  \item Save as \texttt{magic-dice}.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.78]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{rolls} to \ovalnum{0}}
+\blocklook{say \ovalnum{Press space to roll!}}
+\end{scratch}
+\hspace{0.5cm}
+\begin{scratch}[scale=0.78]
+\blockinit{when \selectmenu{space} key pressed}
+\blockvariable{set \selectmenu{roll} to \ovaloperator{pick random \ovalnum{1} to \ovalnum{6}}}
+\blockvariable{change \selectmenu{rolls} by \ovalnum{1}}
+\blocklook{say \ovaloperator{join \ovalnum{You rolled } \ovalvariable{roll}}}
+\blockif{if \booloperator{\ovalvariable{roll} = \ovalnum{6}} then}{
+  \blocksound{start sound \selectmenu{Meow}}
+}
+\end{scratch}
+\end{center}
+Roll 10 times. Write your numbers: \rule{8cm}{0.4pt}
+
+Could you predict the next number? \rule{4cm}{0.4pt}\quad What does \texttt{rolls} show now? \rule{2cm}{0.4pt}
+\end{core}
+
+\begin{challenge}[Doubles!]
+Add a second variable \texttt{roll2} and set it to \enquote{pick random 1 to 6} too. Make the sprite say \enquote{Doubles!} when \texttt{roll} = \texttt{roll2}. Roll until you get doubles. How many rolls did it take? \rule{2cm}{0.4pt}
+
+Bug check: Zoe put \enquote{set rolls to 0} inside the \enquote{when space key pressed} script. What will \texttt{rolls} always show? Why? \answerlines{1}
+\end{challenge}
+
+\begin{creative}[Real dice faces]
+Click the \menu{Costumes} tab and paint 6 costumes, one for each dice face, with 1 to 6 dots (dots, not colors, show the number). Put them in order. Then add \enquote{switch costume to (roll)} to your space-key script so the dice shows the face you rolled. Credit yourself: add a comment \enquote{Dice faces drawn by} + your nickname.
+\end{creative}
+
+\begin{selfcheck}
+  \item I made variables and chose \enquote{For all sprites}.
+  \item \texttt{rolls} starts at 0 every time I click the green flag.
+  \item \texttt{rolls} goes up by exactly 1 for each roll.
+  \item I can explain the difference between \enquote{set} and \enquote{change}.
+\end{selfcheck}

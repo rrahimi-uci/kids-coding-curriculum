@@ -11,7 +11,7 @@
 
 \begin{materials}
   \item Print: workbook chapter 10 and homework 10 (one per student). Each team brings its Project Brief and its Milestone M1 sheet from week 9.
-  \item Paper, pencils and a few coins (paper prototype); per team a task board: a sheet folded into three columns labelled \textbf{TO DO}, \textbf{DOING}, \textbf{DONE}, plus 10 sticky notes.
+  \item Paper, pencils and a few coins (paper prototype); per team a task board: a sheet folded into three columns labeled \textbf{TO DO}, \textbf{DOING}, \textbf{DONE}, plus 10 sticky notes.
   \item On each Mac: Thonny open and a folder \texttt{Documents/my-project} per team (Finder, \keys{Cmd}+\keys{Shift}+\keys{N}). Teams may copy the files from \texttt{2-intermediate/project/starter/} into it, or start from a blank file.
   \item A timer for 8-minute swaps. Prep: read this plan (10 minutes). Milestones: M1 plan (week 9) → \textbf{M2 core loop (today)} → M3 data and tests, M4 polish (week 11) → Showcase (week 12); full rubric in the Project Teacher Guide.
 \end{materials}
@@ -23,7 +23,7 @@
   \timeslot{8--18}{Concept}{From plan to code: name the functions, build the \enquote{skateboard} first, split tasks fairly on a task board.}
   \timeslot{18--28}{Guided demo}{You type a core-loop skeleton from pseudocode: settings dictionary, state dictionary, one logic function, keys, timer loop.}
   \timeslot{28--52}{Hands-on build}{Teams build their own core loop (M2). Swap every 8 minutes. Minute 44: partner code review. Last 4 minutes: free-build personal touch.}
-  \timeslot{52--60}{Wrap-up}{Each team shows its core running (30 seconds). Tick M2. Exit ticket, reflection, homework 10.}
+  \timeslot{52--60}{Wrap-up}{Each team shows its core running (30 seconds). Check off M2. Exit ticket, reflection, homework 10.}
 \end{timeplan}
 
 
@@ -46,7 +46,7 @@ three function names. Add anything missing in pencil now.
 \section{Concept (8--18 min)}
 \begin{teacherscript}
 “Today your plan becomes a program that runs. Game makers build the smallest version that works
-first: a window, a player that moves, a loop that keeps going. No score, no fancy colours yet. Then
+first: a window, a player that moves, a loop that keeps going. No score, no fancy colors yet. Then
 every new feature is small and safe. Look at your pseudocode. Each line that does one job becomes a function. \enquote{Move the player
 left but not off the screen} is a function. What goes in? The x position and the direction. What
 comes out? The new x. Parameters in, return value out, and next week we can test it. Now the team part. Write every function name on its own sticky note and put them in TO DO. Take
@@ -135,7 +135,7 @@ after each change), rotating all three roles. \textbf{4:} two teams; you float b
 Goal by minute 44, \textbf{M2}: arcade teams have a player that moves with keys and one thing that
 moves by itself on the timer; Art Studio teams have a menu loop that draws something and quits
 cleanly. Teams may remix the week 9 \enquote{Dodge the Meteors} exercise
-(\texttt{excercises/week09/ex-dodge-meteors/}) or pieces of Star Catcher, with a credit comment at
+(\texttt{exercises/week09/ex-dodge-meteors/}) or pieces of Star Catcher, with a credit comment at
 the top, for example \texttt{\# Movement code remixed from Dodge the Meteors}.
 
 \begin{bughunt}[Partner code review (minute 44, 6 minutes)]
@@ -155,11 +155,11 @@ with the wish: it is their project.
 
 \begin{freebuild}[Personal touch (last 4 minutes)]
 Add one thing that makes it yours: a window title (\texttt{screen.title("Comet Catch")}), a palette
-background colour, or a player shape (\texttt{"turtle"}, \texttt{"circle"}, \texttt{"triangle"}).
+background color, or a player shape (\texttt{"turtle"}, \texttt{"circle"}, \texttt{"triangle"}).
 \end{freebuild}
 
 \section{Wrap-up (52--60 min)}
-Each team runs its program for 30 seconds; clap for every working loop, however small. Tick M2 on
+Each team runs its program for 30 seconds; clap for every working loop, however small. Check off M2 on
 the Project Brief (or write \enquote{M2: first 10 minutes next week}). Hand out homework 10.
 
 \begin{formativecheck}[Exit ticket]
@@ -185,7 +185,7 @@ used it is not.} Real names are not needed anywhere in the code.
 
 \section{Notes for the teacher}
 \begin{commonmistakes}
-  \item \textbf{Fancy parts first} (title screen, colours) before anything moves. Point at the skateboard: \enquote{What is the smallest thing that can run?}
+  \item \textbf{Fancy parts first} (title screen, colors) before anything moves. Point at the skateboard: \enquote{What is the smallest thing that can run?}
   \item \textbf{A file named \texttt{turtle.py} or \texttt{random.py}.} Python imports the team's file instead of the real module and odd errors appear. Rename it (\texttt{mygame.py}).
   \item \textbf{Keys do nothing.} Click inside the turtle window, check \texttt{screen.listen()}, and check key names: \texttt{"Left"} with a capital L, \texttt{"space"} in lower case.
   \item \textbf{One student hogs the keyboard.} Keep the timer strict and say \enquote{swap!} cheerfully.

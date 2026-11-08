@@ -35,7 +35,7 @@ where useful, how to change it.
 9. **Scratch.** The free offline Scratch 3 app (“Scratch app”) is installed
    on each Mac; no Scratch account is created and nothing is shared online.
 10. **Scratch exercise files.** Scratch exercises are specified as build
-    steps + expected behaviour + checklist (no `.sb3` starter files), because
+    steps + expected behavior + checklist (no `.sb3` starter files), because
     generated `.sb3` files cannot be verified without the Scratch app and
     building from scratch is part of the learning.
 11. **Thonny.** Thonny 4.x with its bundled Python (3.10+) is installed on
@@ -45,7 +45,7 @@ where useful, how to change it.
     account). Students who cannot install it can still do every exercise;
     only `check_my_work.py` needs pytest.
 12. **Repository on the Macs.** The whole repository folder (or at least
-    the level's `excercises/` folder together with the top-level `testing/`
+    the level's `exercises/` folder together with the top-level `testing/`
     folder, `conftest.py` and `pytest.ini`) is copied to each Mac, e.g. via
     USB stick or AirDrop. `check_my_work.py` finds the helpers by walking up
     the folders.
@@ -65,12 +65,11 @@ where useful, how to change it.
 
 ## Content and pedagogy
 
-17. **Folder names.** The repository keeps the top-level folder names the
-    owner created (`1-elementry`, `2-intermediate`, `3-advanced`, with
-    `excercises/`, `project/`, `teaching-material/` inside), including their
-    spelling, so existing links and habits keep working. Renaming is a
-    one-line change in `tools/build.py`, `tools/coverage.py`, the tests and
-    `pytest.ini`.
+17. **Folder names.** Levels live in `1-introduction`, `2-intermediate` and
+    `3-advanced` (named after the level titles), each with `exercises/`,
+    `project/` and `teaching-material/` inside. The first draft kept the
+    owner's original, misspelled folder names; they were corrected before
+    the first merge, while nothing linked to them yet.
 18. **Level 1 placement.** No placement quiz before Level 1 (the brief says
     no prior experience); an ungraded interest & comfort survey is used
     instead. Placement quizzes are given before Levels 2 and 3 as requested.
@@ -90,7 +89,7 @@ where useful, how to change it.
     code font used in the PDFs cannot render emoji and older Thonny/Tk builds
     on macOS show them inconsistently.
 23. **Data and AI.** All datasets are small, made-up and anonymous; AI is
-    taught through transparent, hand-built models (nearest neighbour,
+    taught through transparent, hand-built models (nearest neighbor,
     Markov chains) rather than online AI services, which would need
     accounts and send data off the computer.
 24. **Inclusive examples.** Examples use a varied set of first names and
@@ -98,7 +97,7 @@ where useful, how to change it.
 
 ## Workflow
 
-25. **Version control.** The repository was initialised for this work with an
+25. **Version control.** The repository was initialized for this work with an
     empty commit on `main`; all content arrives through a pull request from a
     feature branch, following the owner's PR-only policy, and the PR is left
     open for the owner to review and merge.
@@ -131,7 +130,7 @@ where useful, how to change it.
     parent's Mac.
 33. **Scratch details.** The Mac App Store listing is “Scratch 3”; library
     sprites used (Balloon1, Bowl, Apple, Ghost, Star, Ballerina) exist in the
-    Scratch library; palette colours are given as Scratch colour/saturation/
+    Scratch library; palette colors are given as Scratch color/saturation/
     brightness values (e.g. bluish green = 45/100/62).
 34. **Git practice.** Each Level 3 student keeps one `Documents/git-quest`
     repository for the term and builds the final project in
@@ -146,3 +145,7 @@ where useful, how to change it.
     pages first planned: the extra space is teacher script, printable cards
     and setup steps a non-teacher parent needs. Each plan opens with an
     “At a glance” table that fits on one page for quick reading.
+38. **US English.** All text and code use US spelling and school vocabulary
+    (color, favorite, math, check off, score), matching the US setting
+    (#3) and Python's own `color`, so kids never meet two spellings of one word.
+    `make test` rejects common UK spellings (`testing/test_consistency.py`).

@@ -20,14 +20,14 @@ SETTINGS = logic.SETTINGS
 # The high-score file sits in the same folder as this program.
 SCORE_FILE = Path(__file__).parent / "star_catcher_scores.txt"
 
-# Okabe-Ito colours (safe for colour-blind players). Stars and meteors
-# also have different SHAPES and SIZES: nobody needs colour to tell them
+# Okabe-Ito colors (safe for color-blind players). Stars and meteors
+# also have different SHAPES and SIZES: nobody needs color to tell them
 # apart.
 SKY = "#000000"
-TEXT_COLOUR = "#F0E442"
-BASKET_COLOUR = "#56B4E9"
+TEXT_COLOR = "#F0E442"
+BASKET_COLOR = "#56B4E9"
 LOOKS = {
-    # kind:     (shape,    size, colour)
+    # kind:     (shape,    size, color)
     "star":   ("star",   1.0, "#F0E442"),
     "meteor": ("circle", 1.8, "#D55E00"),
 }
@@ -53,7 +53,7 @@ def setup_window():
     basket = turtle.Turtle()
     basket.shape("square")
     basket.shapesize(1, 4)            # 1 tall and 4 wide: a flat basket
-    basket.color(BASKET_COLOUR)
+    basket.color(BASKET_COLOR)
     basket.penup()
 
     pen = turtle.Turtle()             # stamps every falling thing
@@ -64,7 +64,7 @@ def setup_window():
     hud = turtle.Turtle()             # writes the score and messages
     hud.hideturtle()
     hud.penup()
-    hud.color(TEXT_COLOUR)
+    hud.color(TEXT_COLOR)
 
     screen.onkey(go_left, "Left")     # no () after go_left: we pass the
     screen.onkey(go_right, "Right")   # function, turtle calls it later
@@ -86,10 +86,10 @@ def draw():
     pen = view["pen"]
     pen.clearstamps()                 # rub out the last frame's shapes
     for obj in game["objects"]:
-        shape, size, colour = LOOKS[obj["kind"]]
+        shape, size, color = LOOKS[obj["kind"]]
         pen.shape(shape)
         pen.shapesize(size)
-        pen.color(colour)
+        pen.color(color)
         pen.goto(obj["x"], obj["y"])
         pen.stamp()
     view["basket"].goto(game["basket_x"], SETTINGS["basket_y"])

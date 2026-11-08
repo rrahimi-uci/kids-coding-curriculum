@@ -7,11 +7,25 @@ art**.
 
 | Level | Weeks | Language | Final project (reference solution) |
 |---|---|---|---|
-| [1 Introduction](1-elementry/) | 12 + 2 buffer | Scratch, then Python turtle in Thonny | *My Interactive Art Show* (*Night Sky Postcard*) |
+| [1 Introduction](1-introduction/) | 12 + 2 buffer | Scratch, then Python turtle in Thonny | *My Interactive Art Show* (*Night Sky Postcard*) |
 | [2 Intermediate](2-intermediate/) | 12 + 2 buffer | Python: functions, lists, dicts, files, testing, games | *Arcade Game or Art Studio* (*Star Catcher*) |
 | [3 Advanced](3-advanced/) | 12 + 2 buffer | Python projects: OOP, algorithms, git, data, simple AI | *Build Something Big* (*Maze Muncher*) |
 
 No accounts, no internet needed during lessons, and no personal data.
+
+## Repository layout
+
+```
+1-introduction/        Level 1: Scratch, then Python turtle
+2-intermediate/        Level 2: Python functions, data, files, testing, games
+3-advanced/            Level 3: OOP, algorithms, git, data, simple AI
+docs/                  syllabus, design decisions, standards, authoring guide, assumptions
+shared/latex/          kidscode.cls: the one document class (fonts, palette, boxes)
+shared/templates/      blank lesson / workbook / homework / answer files to copy
+testing/               fake turtle + test runners, repository quality checks
+tools/                 build.py (PDFs) and coverage.py (objective coverage tables)
+.github/               CI workflow and pull request template
+```
 
 ## What is in each level
 
@@ -31,7 +45,7 @@ No accounts, no internet needed during lessons, and no personal data.
                          exit assessment, each with a rubric
   extras/                cheat sheet, glossary, progress tracker, parent notes,
                          certificate
-<level>/excercises/weekNN/<exercise>/
+<level>/exercises/weekNN/<exercise>/
   README.md  starter.py  solution.py  test_*.py  check_my_work.py
 <level>/project/
   project-brief          student brief, milestones, rubric
@@ -42,7 +56,7 @@ No accounts, no internet needed during lessons, and no personal data.
 
 Every document is built in two editions: **standard** (Atkinson Hyperlegible)
 and **dyslexia-friendly** (Lexend, larger and wider spacing, cream page).
-All colours come from the colour-blind-safe Okabe–Ito palette.
+All colors come from the color-blind-safe Okabe–Ito palette.
 
 ## Quick start for the parent
 

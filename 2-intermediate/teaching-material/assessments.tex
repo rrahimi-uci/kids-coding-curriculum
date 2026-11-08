@@ -7,7 +7,7 @@
 \newcommand{\question}[2]{\stepcounter{kcq}\par\needspace{5\baselineskip}\medskip
   \noindent{\large\bfseries Question \arabic{kcq}}\hfill{\small\bfseries #1}\par\nopagebreak
   \noindent #2\par}
-% "I can" rubric row: four tick boxes.
+% "I can" rubric row: four checkboxes.
 \newcommand{\icanrow}[1]{#1 & $\square$ & $\square$ & $\square$ & $\square$ \\ \midrule}
 \newenvironment{icanrubric}{\par\noindent\renewcommand{\arraystretch}{1.35}%
   \tabularx{\linewidth}{@{}X*{4}{>{\centering\arraybackslash}p{1.65cm}}@{}}
@@ -21,7 +21,7 @@
 \begin{tip}[For the teacher]
 Print one paper per child when you need it: the \textbf{placement quiz} at the start of week 1,
 the \textbf{checkpoint} in week 6 and the \textbf{exit assessment} in week 12. Children work alone,
-with pencil and paper, no computer. You may read any question aloud. Answers, marking guides and
+with pencil and paper, no computer. You may read any question aloud. Answers, scoring guides and
 the placement decision guide are in the Answer Key (section \enquote{Assessments}).
 \end{tip}
 
@@ -120,7 +120,7 @@ b) Which star is bigger, the first or the second? \rule{3cm}{0.4pt}
 \question{Bonus, 1 point}{Change your program so it prints the numbers 1, 2, 3, 4 before each \texttt{Go team!}}
 \answerspace{2cm}
 
-\subsection{How did that feel? (not marked)}
+\subsection{How did that feel? (not scored)}
 \begin{icanrubric}
 \icanrow{I can read a short Python program and say what it prints.}
 \icanrow{I can use a \texttt{for} loop with \texttt{range}.}
@@ -170,10 +170,10 @@ print(double(double(1)))
 
 \question{2 points}{What does this print?}
 \begin{pycode}
-colours = ["orange", "sky blue", "green"]
-colours.append("purple")
-print(len(colours))
-print(colours[1])
+colors = ["orange", "sky blue", "green"]
+colors.append("purple")
+print(len(colors))
+print(colors[1])
 \end{pycode}
 \answerlines{2}
 
@@ -230,7 +230,7 @@ print(pets["Cat"])
 \answerlines{2}
 
 \subsection{My checkpoint rubric}
-Tick one box in each row. Be honest: this helps us plan the next weeks.
+Check one box in each row. Be honest: this helps us plan the next weeks.
 \begin{icanrubric}
 \icanrow{I can tell int, float, str and bool apart and build messages with f-strings.}
 \icanrow{I can write a function that uses \texttt{return}.}

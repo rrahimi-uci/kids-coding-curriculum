@@ -7,7 +7,7 @@ enforce most of it.
 ## 1. Repository layout
 
 ```
-<level>/                         1-elementry | 2-intermediate | 3-advanced
+<level>/                         1-introduction | 2-intermediate | 3-advanced
   teaching-material/
     teacher-guide.tex            Teacher Guide (main document)
     lesson-plans.tex             main doc -> \input{lessons/weekNN}, buffer1, buffer2
@@ -21,7 +21,7 @@ enforce most of it.
     answers/week01.tex … week12.tex, assessments.tex
     extras/cheat-sheet.tex, glossary.tex, progress-tracker.tex,
            parent-notes.tex, certificate.tex          (each a main document)
-  excercises/
+  exercises/
     weekNN/<slug>/               one folder per exercise (in-class "ex-" or homework "hw-")
   project/
     project-brief.tex            student-facing brief, milestones, rubric
@@ -32,8 +32,9 @@ shared/latex/kidscode.cls        the document class (all styling lives here)
 testing/kidtest/                 fake turtle + runners used by every test
 ```
 
-The folder names `1-elementry` and `excercises` keep the spelling of the
-folders the project owner created (see ASSUMPTIONS.md).
+Names are lowercase kebab-case for folders and documents (`lesson-plans.tex`,
+`ex-star-row/`) and snake_case for Python files (`test_star_row.py`), because
+Python files must be importable.
 
 Main documents (files with `\documentclass`) are found automatically by
 `tools/build.py`. Week files never contain `\documentclass` or
@@ -54,7 +55,7 @@ Main documents (files with `\documentclass`) are found automatically by
   ``` `` ''```** (the font has no backtick glyph).
 * Do not load extra packages in week files; ask for them in the class.
 * Avoid italics for body text (harder for dyslexic readers). Use bold sparingly.
-* Diagrams: TikZ, using the palette colours below, always with text labels.
+* Diagrams: TikZ, using the palette colors below, always with text labels.
 * Scratch blocks: use the `scratch3` package environment
   `\begin{scratch} … \end{scratch}` (commands like `\blockinit{when \greenflag clicked}`,
   `\blockmove{move \ovalnum{10} steps}`, `\blockrepeat{repeat \ovalnum{4}}{…}`,
@@ -65,7 +66,7 @@ Main documents (files with `\documentclass`) are found automatically by
   `\blockevent{when \selectmenu{space} key pressed}`, `\blockcontrol{wait \ovalnum{1} seconds}`,
   `\blocksensing{ask \ovalnum{What's your name?} and wait}`, `\blockmoreblocks{define \ovalmoreblocks{flower}}`).
 * Code shown in PDFs must be **the tested file**: include it with
-  `\pyfile{../excercises/week07/ex-square/solution.py}` (path relative to the
+  `\pyfile{../exercises/week07/ex-square/solution.py}` (path relative to the
   main document's folder, i.e. `teaching-material/`; from `project/` use
   `reference/…`). Short illustrative snippets may use
   `\begin{pycode}[title] … \end{pycode}`. Inline code: `\py{print("hi")}` or
@@ -75,17 +76,17 @@ Main documents (files with `\documentclass`) are found automatically by
 * Writing space for students: `\answerlines{3}`, `\answerspace{4cm}`,
   `\namedateline`.
 
-### Box environments (all carry an icon + word label, never colour alone)
+### Box environments (all carry an icon + word label, never color alone)
 
 | Environment | Use |
 |---|---|
 | `objectives` | `\item The student can …` (every item must start exactly like that) |
-| `materials` | itemised list of what to prepare |
+| `materials` | itemized list of what to prepare |
 | `timeplan` + `\timeslot{0--8}{Warm-up}{…}` | minute-by-minute table |
 | `teacherscript[Say]` | words the parent can read aloud |
 | `analogy[title]` | kid-friendly analogy |
 | `workedexample[title]` | step-by-step worked example |
-| `commonmistakes` | itemised misconceptions + fixes |
+| `commonmistakes` | itemized misconceptions + fixes |
 | `differentiation` with `\supportpath …` and `\extensionpath …` | |
 | `stretchchallenge[title]` | stretch challenge |
 | `formativecheck[title]` | quick check for understanding / exit ticket |
@@ -95,7 +96,7 @@ Main documents (files with `\documentclass`) are found automatically by
 | `teachernote[title]`, `tip[title]` | side notes |
 | `vocab` + `\vocabword{term}{kid-friendly definition}` | vocabulary box |
 | `exercise[title]` | numbered in-class exercise (auto “Exercise 7.2”) |
-| `scratchspec[title]` | Scratch exercise: expected behaviour + checklist |
+| `scratchspec[title]` | Scratch exercise: expected behavior + checklist |
 | `core`, `challenge`, `creative`, `selfcheck` | homework tiers + self-check list |
 | `checklist` | ☐ list anywhere |
 | `answer[title]`, `rubric[title]` | answer key / rubrics |
@@ -140,7 +141,7 @@ picture, 2–4 `exercise` boxes (in-class, matching the exercise folders), a
 
 Copy `shared/templates/homework.tex`. `core` (everyone, ~10 min), `challenge`
 (optional, harder), `creative` (open-ended art/game twist) and `selfcheck`
-(tick list). Coding homework lives in `excercises/weekNN/hw-<slug>/`. Week 10–12
+(checklist). Coding homework lives in `exercises/weekNN/hw-<slug>/`. Week 10–12
 homework is project work / reflection. Never require internet, accounts or
 sharing personal data.
 
@@ -148,12 +149,12 @@ sharing personal data.
 
 `answers/weekNN.tex`: answers for every workbook exercise and homework task
 (include the tested solution via `\pyfile`, plus what “good” looks like for
-open-ended tasks), expected Scratch behaviour, and marking notes.
+open-ended tasks), expected Scratch behavior, and scoring notes.
 `answers/assessments.tex`: answers + rubrics for placement/checkpoint/exit.
 
 ## 7. Exercise code and tests
 
-Each **Python** exercise folder `excercises/weekNN/<slug>/` contains:
+Each **Python** exercise folder `exercises/weekNN/<slug>/` contains:
 
 | File | Purpose |
 |---|---|
@@ -165,7 +166,7 @@ Each **Python** exercise folder `excercises/weekNN/<slug>/` contains:
 | `smoke_inputs.txt` | (only if the program calls `input()` and uses turtle) one answer per line for the real-window smoke run |
 
 Slugs: `ex-<name>` for in-class, `hw-<name>` for homework, lowercase with
-hyphens, e.g. `excercises/week08/ex-polygon-party/`.
+hyphens, e.g. `exercises/week08/ex-polygon-party/`.
 
 Each **Scratch** exercise folder has only `README.md` with the sections
 `## Expected behavior` and `## Checklist` (a `- [ ]` list), plus the build
@@ -177,15 +178,15 @@ Python code rules:
   only**, **ASCII only** (no emoji: the PDF code font cannot print them).
 * Kid-readable: clear names, short functions, comments that explain *why*.
   Level 1 code is top-level script code until functions are taught (week 10).
-* Colours: use the colour-blind-safe Okabe–Ito palette and never rely on
-  colour alone in games (use shape/size/text too):
+* Colors: use the color-blind-safe Okabe–Ito palette and never rely on
+  color alone in games (use shape/size/text too):
 
   ```python
   PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
              "#0072B2", "#D55E00", "#CC79A7", "#000000"]
   ```
 * Never ask for real names, ages, addresses, schools, photos or passwords.
-  Use “nickname”, “hero name”, “favourite colour”.
+  Use “nickname”, “hero name”, “favorite color”.
 * Turtle programs end with `turtle.done()`. From Level 2, put the main
   program under `if __name__ == "__main__":` and keep logic in functions
   so tests can import them.
@@ -203,11 +204,11 @@ Test rules (pytest, see `conftest.py` and `testing/kidtest`):
   `inputs([...])` is a context manager that answers `input()` calls.
 * `RunResult.turtle` is a `FakeTurtle` with `.lines` (each has `.start`,
   `.end`, `.color`, `.length`), `.dots`, `.fills`, `.texts`, `.stamps`,
-  `.total_turn`, `.distance_travelled`, `.colors_used`, `.count("forward")`,
+  `.total_turn`, `.distance_traveled`, `.colors_used`, `.count("forward")`,
   `.position()`, `.heading()`, `.is_back_at_start()`.
   The screen supports `.press("Left")`, `.click(x, y)`, `.run_timers(n)`,
   `.bg`, `.key_handlers`.
-* Test behaviour the student can see, not exact code. Accept many correct
+* Test behavior the student can see, not exact code. Accept many correct
   solutions (e.g. any square of side ≥ 50, not exactly 100).
 * Assertion messages are for a 10–13-year-old: say what was expected and a
   hint, e.g. `assert n == 4, f"A square needs 4 sides, but your turtle drew {n}."`
@@ -232,13 +233,16 @@ python3 tools/build.py --level 1 --variant standard   # PDFs for a level
 * Celebrate mistakes (“bugs are normal”); never “easy”/“just”/“obviously”.
 * Every lesson works with 1–4 students: say what to do with 1 student
   (parent is navigator) and with an odd number (rotating trio).
-* Colour-blind safe: palette above; diagrams also use labels/patterns.
+* Color-blind safe: palette below; diagrams also use labels/patterns.
+* US English everywhere: color, favorite, center, behavior, math, mom,
+  “check off” (not “tick”), “score” (not “mark”). `make test` rejects common
+  UK spellings.
 * Offline-first: no accounts, no logins, no uploading. Links are optional
   references, never required.
 
 ## 9. Palette
 
-| Name | Hex | LaTeX colour |
+| Name | Hex | LaTeX color |
 |---|---|---|
 | Orange | `#E69F00` | `kcorange` |
 | Sky blue | `#56B4E9` | `kcsky` |

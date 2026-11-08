@@ -15,7 +15,7 @@ from pathlib import Path
 
 DATA_FILE = Path(__file__).resolve().parent / "data" / "games.csv"
 NUMBER_COLUMNS = ["players", "minutes", "action", "puzzle", "rating"]
-BAR_COLOURS = ["#0072B2", "#E69F00", "#009E73",
+BAR_COLORS = ["#0072B2", "#E69F00", "#009E73",
                "#CC79A7", "#56B4E9", "#D55E00"]
 
 
@@ -68,14 +68,14 @@ def distance(a, b, features):
     return sum(abs(a[f] - b[f]) for f in features)
 
 
-# TODO (AI): write nearest_neighbour(dataset, mystery, features) that finds
+# TODO (AI): write nearest_neighbor(dataset, mystery, features) that finds
 # the row with the SMALLEST distance to the mystery game and returns its
 # genre. Try mystery = {"action": 5, "puzzle": 1}. Then test it!
-# TODO (stretch): k-nearest neighbours - let the 3 closest rows vote.
+# TODO (stretch): k-nearest neighbors - let the 3 closest rows vote.
 
 
 def draw_bar_chart(counts, title):
-    """Bars with the label AND the number written on them (not colour only)."""
+    """Bars with the label AND the number written on them (not color only)."""
     pen = turtle.Turtle()
     pen.hideturtle()
     pen.penup()
@@ -85,7 +85,7 @@ def draw_bar_chart(counts, title):
     pen.write(title, align="center", font=("Arial", 16, "bold"))
     for i, (label, count) in enumerate(sorted(counts.items())):
         pen.goto(x, -150)
-        pen.color("black", BAR_COLOURS[i % len(BAR_COLOURS)])
+        pen.color("black", BAR_COLORS[i % len(BAR_COLORS)])
         pen.pendown()
         pen.begin_fill()
         for side in [width, count * scale, width, count * scale]:

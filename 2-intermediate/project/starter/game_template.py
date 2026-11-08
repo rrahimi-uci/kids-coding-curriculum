@@ -16,7 +16,7 @@ Project checklist - your finished game needs all of these:
 import random
 import turtle
 
-# Okabe-Ito colours: safe for colour-blind players. Use shapes too!
+# Okabe-Ito colors: safe for color-blind players. Use shapes too!
 PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
            "#0072B2", "#D55E00", "#CC79A7", "#000000"]
 
