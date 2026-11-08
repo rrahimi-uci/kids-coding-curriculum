@@ -22,17 +22,17 @@ where useful, how to change it.
    apps opened before the session starts (listed in each lesson's
    materials box).
 6. **Reading level.** Level 1 student materials target a Grade 5 reading
-   level; Levels 2–3 target Grade 6–7.
-7. **Homework.** Optional but encouraged, 15–20 minutes, done at home on a
+   level; Levels 2â3 target Grade 6â7.
+7. **Homework.** Optional but encouraged, 15â20 minutes, done at home on a
    Mac with Scratch/Thonny. Core tier for everyone; Challenge and Creative
    are optional. No homework needs internet.
 8. **Teacher background.** The parent has no CS teaching background.
-   Lessons include teacher scripts, analogies and (Level 3) short “CS
-   background for the parent” notes.
+   Lessons include teacher scripts, analogies and (Level 3) short âCS
+   background for the parentâ notes.
 
 ## Software and setup
 
-9. **Scratch.** The free offline Scratch 3 app (“Scratch app”) is installed
+9. **Scratch.** The free offline Scratch 3 app (âScratch appâ) is installed
    on each Mac; no Scratch account is created and nothing is shared online.
 10. **Scratch exercise files.** Scratch exercises are specified as build
     steps + expected behavior + checklist (no `.sb3` starter files), because
@@ -41,7 +41,7 @@ where useful, how to change it.
 11. **Thonny.** Thonny 4.x with its bundled Python (3.10+) is installed on
     each Mac. All code targets **Python 3.10** and uses the standard library
     only, so no packages are needed apart from **pytest**, which is installed
-    once through Thonny's *Tools → Manage packages* (needs internet once, no
+    once through Thonny's *Tools â Manage packages* (needs internet once, no
     account). Students who cannot install it can still do every exercise;
     only `check_my_work.py` needs pytest.
 12. **Repository on the Macs.** The whole repository folder (or at least
@@ -53,7 +53,7 @@ where useful, how to change it.
     (`xcode-select --install`). No GitHub or other hosting account is used
     by students; `user.name` is a nickname and `user.email` a placeholder.
 14. **Games library.** Games use `turtle` (`onkey`, `ontimer`) rather than
-    pygame, so nothing extra is installed (see DESIGN.md §1).
+    pygame, so nothing extra is installed (see DESIGN.md Â§1).
 15. **PDF tooling.** The parent (or CI) builds PDFs with TeX Live/MacTeX and
     LuaLaTeX (`make pdf`). PDFs are not committed; CI attaches them to each
     PR as a downloadable artifact.
@@ -74,7 +74,7 @@ where useful, how to change it.
     no prior experience); an ungraded interest & comfort survey is used
     instead. Placement quizzes are given before Levels 2 and 3 as requested.
 19. **Standards.** CSTA K-12 CS Standards (revised 2017) and AI4K12's Five
-    Big Ideas. Level 3 deliberately borrows some grades 9–10 (3A) standards
+    Big Ideas. Level 3 deliberately borrows some grades 9â10 (3A) standards
     (see STANDARDS.md). Standard wording is abridged and should be verified
     against the official documents for formal use.
 20. **Grading.** Assessments are formative and celebratory, not grades:
@@ -101,25 +101,25 @@ where useful, how to change it.
     empty commit on `main`; all content arrives through a pull request from a
     feature branch, following the owner's PR-only policy, and the PR is left
     open for the owner to review and merge.
-26. **Hosting.** The GitHub repository is created as **private** under the
-    owner's account, because it contains teacher-only answer keys.
+26. **Hosting.** The GitHub repository `kids-coding-curriculum` is created as
+    **private** under the owner’s account, because it contains teacher-only answer keys.
 
 ## Decisions made while writing the levels
 
 27. **Scoring scales.** Level 1: checkpoint /8, exit /14, project rubric
-    5–20. Level 2: placement /14 (0–6 support path, 7–11 standard, 12–14
+    5â20. Level 2: placement /14 (0â6 support path, 7â11 standard, 12â14
     extension), checkpoint /18, exit /20, project /16. Level 3: project /24
-    (6 criteria × 4). Scores guide support, they are never grades.
-28. **Sample calendars** use Saturday sessions: Level 1 Jan–Apr 2027 with
-    spring break 29 Mar–2 Apr; Level 2 8 May–21 Aug 2027 with the two-week
-    summer gap before week 9; Level 3 11 Sep–18 Dec 2027 skipping
+    (6 criteria Ã 4). Scores guide support, they are never grades.
+28. **Sample calendars** use Saturday sessions: Level 1 JanâApr 2027 with
+    spring break 29 Marâ2 Apr; Level 2 8 Mayâ21 Aug 2027 with the two-week
+    summer gap before week 9; Level 3 11 Sepâ18 Dec 2027 skipping
     Thanksgiving week.
 29. **Placement and checkpoint timing.** Placement quizzes take the first 15
     minutes of week 1's warm-up; mid-level checkpoints (15 min) sit inside
     week 6's hands-on build.
 30. **pytest in Thonny.** Installed once by the parent during Level 1 week 7
     prep (needs internet once). Students run pytest from Thonny's
-    *Tools → Open system shell…* (`python -m pytest`), because macOS's own
+    *Tools â Open system shellâ¦* (`python -m pytest`), because macOS's own
     Terminal `python3` does not have pytest.
 31. **Student-written tests (Level 2 week 8).** The student's test file is
     checked like a tiny mutation test: at least 3 tests, all passing on the
@@ -128,7 +128,7 @@ where useful, how to change it.
 32. **Starter files never contain syntax errors**, because the quality gate
     compiles every `.py`; syntax-error bug hunts are done on paper or on the
     parent's Mac.
-33. **Scratch details.** The Mac App Store listing is “Scratch 3”; library
+33. **Scratch details.** The Mac App Store listing is âScratch 3â; library
     sprites used (Balloon1, Bowl, Apple, Ghost, Star, Ballerina) exist in the
     Scratch library; palette colors are given as Scratch color/saturation/
     brightness values (e.g. bluish green = 45/100/62).
@@ -136,15 +136,15 @@ where useful, how to change it.
     repository for the term and builds the final project in
     `~/Documents/coding-projects/<name>`, starting from a copy of
     `project/starter`.
-35. **Partial code listings** in Level 3 use `\pyfile[firstline=…,lastline=…]`;
+35. **Partial code listings** in Level 3 use `\pyfile[firstline=â¦,lastline=â¦]`;
     if a solution file changes, those line ranges must be checked.
-36. **Glossaries** contain the level's core vocabulary plus a “More words from
-    your workbook” section, so every word in a workbook vocabulary box is in
+36. **Glossaries** contain the level's core vocabulary plus a âMore words from
+    your workbookâ section, so every word in a workbook vocabulary box is in
     the glossary (checked by `make test`).
-37. **Lesson length.** Lesson plans run about 5–7 pages rather than the 3–5
+37. **Lesson length.** Lesson plans run about 5â7 pages rather than the 3â5
     pages first planned: the extra space is teacher script, printable cards
     and setup steps a non-teacher parent needs. Each plan opens with an
-    “At a glance” table that fits on one page for quick reading.
+    âAt a glanceâ table that fits on one page for quick reading.
 38. **US English.** All text and code use US spelling and school vocabulary
     (color, favorite, math, check off, score), matching the US setting
     (#3) and Python's own `color`, so kids never meet two spellings of one word.
