@@ -2,6 +2,10 @@
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 import { u, siteInfo, levels, resources } from '../lib/data';
+// The three fonts almost every page uses: fetched early so text does not reflow when they arrive.
+import fontRegular from '../fonts/atkinson-regular.woff2?url';
+import fontBold from '../fonts/atkinson-bold.woff2?url';
+import fontMono from '../fonts/atkinson-mono-regular.woff2?url';
 
 interface Props { title: string; description?: string; level?: number; pagefind?: boolean; noindex?: boolean; }
 const { title, description = 'A free, friendly programming course for kids: Scratch, then Python. Lessons, exercises and projects for families.', level, pagefind = true, noindex = false } = Astro.props;
@@ -35,6 +39,7 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={u('favicon.svg')} type="image/svg+xml" />
+    {[fontRegular, fontBold, fontMono].map((f) => <link rel="preload" href={f} as="font" type="font/woff2" crossorigin />)}
     <meta property="og:title" content={full} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
