@@ -20,7 +20,10 @@ No accounts, no internet needed during lessons, and no personal data.
 2-intermediate/        Level 2: Python functions, data, files, testing, games
 3-advanced/            Level 3: OOP, algorithms, git, data, simple AI
 docs/                  syllabus, design decisions, standards, authoring guide, assumptions
-shared/latex/          kidscode.cls (the one document class: fonts, palette, boxes)
+parents/               parent information evening: research-based slide deck,
+                       speaker notes and one-page handout (see parents/README.md)
+shared/latex/          kidscode.cls (the one document class: fonts, boxes),
+                       kidscode-colors.sty (the shared Okabe-Ito palette)
                        and kidscode-breaks.lua (lets long code names wrap)
 shared/templates/      blank lesson / workbook / homework / answer files to copy
 testing/               fake turtle + test runners, repository quality checks
@@ -73,6 +76,10 @@ All colors come from the color-blind-safe Okabe–Ito palette.
 
 Students check their own Python work by opening `check_my_work.py` in an
 exercise folder and pressing **Run** in Thonny.
+
+**Recruiting families?** [parents/](parents/) has a 25-minute information
+evening deck on why coding matters and what the research shows, with speaker
+notes and a one-page handout (`make -C parents`).
 
 ## For maintainers
 

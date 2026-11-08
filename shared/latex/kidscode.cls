@@ -135,17 +135,8 @@
 \setlength{\parskip}{0.55em}
 
 %% ---------------------------------------------------------------- colors
-%% Okabe-Ito palette (color-blind safe)
-\definecolor{kcorange}{HTML}{E69F00}
-\definecolor{kcsky}{HTML}{56B4E9}
-\definecolor{kcgreen}{HTML}{009E73}
-\definecolor{kcyellow}{HTML}{F0E442}
-\definecolor{kcblue}{HTML}{0072B2}
-\definecolor{kcvermillion}{HTML}{D55E00}
-\definecolor{kcpurple}{HTML}{CC79A7}
-\definecolor{kcblack}{HTML}{000000}
-\definecolor{kcgray}{HTML}{555555}
-\definecolor{kcpaper}{HTML}{FFFFFF}
+%% Okabe-Ito palette (color-blind safe), shared with the parent slide deck.
+\RequirePackage{kidscode-colors}
 
 \ifcase\kc@level\relax
   \colorlet{kcaccent}{kcblue}\or

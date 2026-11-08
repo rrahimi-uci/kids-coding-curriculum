@@ -1,0 +1,93 @@
+%% handout.tex -- one-page parent handout, built from the same shared text
+%% (content/shared.tex) and bibliography (references.bib) as the slide deck.
+\documentclass[level=1]{kidscode}
+\usepackage[style=apa,backend=biber,uniquename=false]{biblatex}
+\addbibresource{references.bib}
+\input{content/shared}
+
+\makeatletter
+\renewcommand{\kclevelname}{Family information}
+\renewcommand{\kc@doctitle}{One-page summary}
+\makeatother
+\newgeometry{margin=0.55in,headheight=15pt,includehead,includefoot}
+\setstretch{1.05}
+\setlength{\parskip}{0.3em}
+\setlist{itemsep=1pt,topsep=2pt,leftmargin=1.1em}
+\titlespacing*{\section}{0pt}{0.5em}{0.2em}
+\titleformat{\section}{\large\bfseries\color{kcaccent}}{}{0pt}{}
+\hypersetup{pdftitle={Why Coding? One-page summary for families},pdfauthor={Kids Coding}}
+
+%% evidence labels: icon + word + color, readable in black and white
+\newcommand{\evlabel}[3]{\textcolor{#1}{\textbf{#2\ #3}}}
+\newcommand{\evS}{\evlabel{kcgreentext}{\faCheckCircle}{Strong}}
+\newcommand{\evM}{\evlabel{kcorangetext}{\faAdjust}{Mixed}}
+\newcommand{\evO}{\evlabel{kcpurpletext}{\faQuestionCircle}{Open}}
+
+\begin{document}
+\thispagestyle{fancy}
+\begin{tikzpicture}[remember picture,overlay]
+  \foreach \c [count=\i from 0] in {kcorange,kcsky,kcgreen,kcyellow,kcblue,kcvermillion,kcpurple}
+    \fill[\c] ([xshift={\i*\paperwidth/7}]current page.north west) rectangle ++(\paperwidth/7,-0.12in);
+\end{tikzpicture}%
+{\fontsize{24}{28}\selectfont\bfseries Why Coding?\ \mdseries A one-page guide for families\par}
+\vspace{0.1em}
+{\color{kcgray}\CourseName{} \textperiodcentered{} \CourseShape{} \textperiodcentered{} \SessionLength{} \textperiodcentered{} starts \StartDate\par}
+
+\begin{multicols}{2}
+\raggedright\small
+
+\section{What the research says}
+\begin{itemize}
+  \item \evS\enspace Children learn to program; problem solving and planning improve
+    \parencite{scherer2019transfer,montuori2024ct}.
+  \item \evM\enspace Math and creativity gains shrink in stricter studies; reading and grades
+    benefit least \parencite{scherer2019transfer}.
+  \item \evM\enspace Blocks before text: no lasting harm or edge \parencite{xu2019blocks}.
+  \item \evO\enspace General persistence; long-term effects of AI \parencite{kazemitabaar2023codex}.
+\end{itemize}
+\textbf{Our promise:} capable, confident beginner programmers. No promises about grades, jobs or college.
+
+\section{How we teach, and why}
+Real projects in games and art \parencite{resnick2009scratch}; pair programming
+\parencite{umapathy2017pair}; a bug hunt every week \parencite{michaeli2019debugging}; unplugged
+and predict-then-run activities \parencite{sentance2019primm}; ideas that return, deeper, each level.
+
+\section{How you can help (no coding needed)}
+\begin{itemize}
+  \HelpItems
+\end{itemize}
+
+\section{The three levels}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.45cm}>{\RaggedRight\arraybackslash}X@{}}
+  \textcolor{kcbluetext}{1} & \textbf{\LevelOneName} (\LevelOneTools): \LevelOneLearn.
+    \textit{Project:} \LevelOneProject.\\
+  \textcolor{kcgreentext}{2} & \textbf{\LevelTwoName} (\LevelTwoTools): \LevelTwoLearn.
+    \textit{Project:} \LevelTwoProject.\\
+  \textcolor{kcvermilliontext}{3} & \textbf{\LevelThreeName} (\LevelThreeTools): \LevelThreeLearn.
+    \textit{Project:} \LevelThreeProject.\\
+\end{tabularx}
+\par\smallskip
+Each level takes \CourseLength. Checkpoint in week 6, showcase in week 12; rubrics guide support, no grades.
+
+\section{A typical session}
+\begin{tikzpicture}[x=0.135cm]
+  \foreach \m/\name/\c/\x/\fg in {8/Warm-up/kcorange/0/kcink, 10/Idea/kcsky/8/kcink,
+      10/Demo/kcblue/18/white, 24/Build in pairs/kcgreen/28/kcink, 8/Show/kcpurple/52/kcink}{
+    \fill[\c] (\x+0.1,0) rectangle (\x+\m-0.1,0.6);
+    \node[font=\scriptsize\bfseries, text=\fg] at (\x+\m/2,0.3) {\m\,min};
+    \node[anchor=north, font=\scriptsize] at (\x+\m/2,-0.03) {\name};
+  }
+\end{tikzpicture}\par
+\textbf{Group:} \GroupSize. \textbf{Homework:} \Homework. \textbf{Equipment:} \Equipment.
+
+\begin{safety}[our promises]
+\begin{itemize}[itemsep=0pt]
+  \SafetyItems
+\end{itemize}
+\end{safety}
+
+\textbf{Questions?} \Presenter{} \textperiodcentered{} \ContactLine\par
+{\footnotesize\color{kcgray}Full references and study notes: appendix of the slide deck.}
+\end{multicols}
+\end{document}

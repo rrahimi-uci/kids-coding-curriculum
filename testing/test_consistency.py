@@ -122,8 +122,10 @@ def text_files():
     skip = {".pdf", ".png", ".jpg", ".sb3"}
     for path in sorted(ROOT.rglob("*")):
         rel = path.relative_to(ROOT)
+        # build/ output (root or e.g. parents/build) is generated, never authored
         if (path.is_file() and path.suffix not in skip and rel.parts[0] not in
-                {".git", ".venv", "build"} and "__pycache__" not in rel.parts
+                {".git", ".venv"} and "build" not in rel.parts
+                and "__pycache__" not in rel.parts
                 and path.name != "test_consistency.py"):
             yield path
 

@@ -46,3 +46,31 @@ jobs:
           name: curriculum-pdfs
           path: build/pdf/
           if-no-files-found: warn
+
+  parent-deck:
+    name: Build parent deck, speaker notes and handout
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            scheme-basic
+            luatex luaotfload fontspec iftex kvoptions geometry xcolor graphics
+            pgf tcolorbox environ trimspaces tikzfill pdfcol enumitem booktabs
+            tools makecell fancyhdr lastpage titlesec etoolbox setspace ragged2e
+            amsfonts psnfss listings needspace fontawesome5 scratch3 simplekv
+            xstring microtype newunicodechar csquotes hyperref atkinson lexend
+            colortbl caption float wrapfig pgfplots qrcode l3packages l3kernel
+            epstopdf-pkg infwarerr kvsetkeys ltxcmds pdftexcmds bookmark
+            beamer translator biblatex biblatex-apa biber babel-english logreq
+            hyphen-english
+      - name: Build deck, notes and handout
+        run: make -C parents
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-deck-pdfs
+          path: parents/build/*.pdf
+          if-no-files-found: warn
