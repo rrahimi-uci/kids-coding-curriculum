@@ -1,7 +1,13 @@
-# Fruit detective - reference solution
-# k-NEAREST NEIGHBORS: instead of trusting only the single closest card,
-# look at the k closest cards (k = 3) and let them VOTE.
-# One wrongly-labeled card can fool k = 1, but it gets outvoted with k = 3.
+# TEACHER REFERENCE SOLUTION: Homework 9 - Fruit detective (k nearest neighbors)
+#
+# What the program does: guesses a fruit from its size and sweetness. With
+# k = 1 one wrongly labeled card fools it (apple); with k = 3 the three
+# closest cards vote and the wrong card is outvoted (lemon).
+# Key ideas: k-nearest neighbors, sorting with key=, voting with a counting
+# dictionary, and why one bad training example matters less with voting.
+# Approach: k_nearest sorts all cards by distance to the mystery fruit and
+# keeps the first k. vote counts the labels and returns the most common
+# one, with ties going to the label that came first.
 
 import math
 
@@ -15,14 +21,17 @@ TRAINING = [
 
 
 def distance(a, b):
+    # (Given code.) Straight-line distance using the first two numbers.
     return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
 def k_nearest(training, point, k):
     """The k training cards closest to point, closest first."""
-    # sorted() with key= (week 5): sort the cards by their distance to point
+    # sorted() with key=: the lambda tells sorted() to compare cards by their
+    # distance to the point, closest first. sorted() makes a new list, so
+    # the TRAINING list itself is not reordered.
     by_distance = sorted(training, key=lambda card: distance(card, point))
-    return by_distance[:k]
+    return by_distance[:k]  # slicing keeps just the first k cards
 
 
 def vote(labels):
@@ -30,7 +39,9 @@ def vote(labels):
     that appears first in the list wins."""
     counts = {}
     for label in labels:
-        counts[label] = counts.get(label, 0) + 1
+        counts[label] = counts.get(label, 0) + 1  # a tally chart of votes
+    # Start with the first label, and change only for a STRICTLY bigger
+    # count. That is why a tie goes to the label that appears first.
     winner = labels[0]
     for label in labels:
         if counts[label] > counts[winner]:
@@ -39,6 +50,7 @@ def vote(labels):
 
 
 def classify(training, point, k=3):
+    # (Given code.) Take the k nearest cards, then let their labels vote.
     neighbors = k_nearest(training, point, k)
     return vote([card[2] for card in neighbors])
 
@@ -50,3 +62,17 @@ if __name__ == "__main__":
     print("k = 3 says:", classify(TRAINING, mystery, k=3))
     for fruit in [(7, 7), (2, 8), (6, 2)]:
         print(fruit, "->", classify(TRAINING, fruit))
+
+
+# Common mistakes children make here:
+#   - Sorting without key=, or comparing the whole card tuples, which sorts
+#     by size first and not by distance.
+#   - Returning the highest COUNT instead of the LABEL that has it, or
+#     returning a list of labels from vote().
+#   - Trying a very large k (like 13): every card votes, so the biggest
+#     group always wins and local detail is lost.
+#
+# Another correct way for vote: use collections.Counter.
+#   from collections import Counter
+#   return Counter(labels).most_common(1)[0][0]
+#   (Counter also breaks ties by first appearance.)

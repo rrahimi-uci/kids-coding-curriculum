@@ -15,6 +15,11 @@ Clearer navigation and easier reading.
 - Smaller, standard icons (Lucide) throughout, including the colored boxes (tip, safety, challenge, bug hunt and so on); smaller week numbers, step numbers and hint markers.
 - Search results use the site colors in dark mode.
 
+Teacher answer files (kept in the course folder, never published on this website):
+
+- Every Scratch and Terminal exercise now has a teacher reference answer: the finished script block by block, what you should see, bug-hunt answers, talking points, common mistakes and a check-off list.
+- Every Python reference answer was reviewed and rewritten with comments a parent can follow (what it does, why each step, common mistakes, another correct way); new repository tests keep it that way.
+
 ## 1.1.0 - 2026-11-08
 
 Levels 2 and 3, projects and resources.

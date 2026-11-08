@@ -1,12 +1,18 @@
-# Dodge the Meteors - reference solution
-# Move the turtle left and right. Meteors fall from the sky.
-# Every meteor you dodge is worth 1 point. One hit and the game is over.
+# TEACHER REFERENCE SOLUTION: Exercise 9.2 - Dodge the Meteors
 #
-# Two parts:
+# What it does: an arcade game. You steer a blue turtle left and right with
+# the arrow keys while orange meteors fall. Each meteor that reaches the
+# ground scores 1 point. One hit and the game is over.
+# Key ideas: event-driven programming (keys call our functions), a game loop
+# that runs one frame at a time with screen.ontimer(), and collision
+# detection by measuring the distance between two points.
+# Approach: the LOGIC part (move_player, is_touching) has no turtle in it, so
+# it is easy to test. The DRAWING part connects keys to handlers, and
+# game_loop() moves the meteors, checks for hits, then schedules itself again.
+#
+# Layout of the file:
 #   LOGIC   - small functions with no turtle in them (easy to test)
 #   DRAWING - turtles, keys and the game loop
-# The game loop is ONE frame of the game. At the end it asks turtle to run
-# it again in FRAME_MS milliseconds with screen.ontimer(game_loop, FRAME_MS).
 
 import math
 import random
@@ -37,17 +43,21 @@ def clamp(value, low, high):
 def move_player(x, direction, step, limit):
     """New x after moving one step. direction is -1 (left) or 1 (right).
     The player never goes past -limit or +limit."""
+    # Work out where one step would land us, then let clamp() hold the player
+    # back at the walls so the turtle cannot walk off the screen.
     return clamp(x + direction * step, -limit, limit)
 
 
 def is_touching(x1, y1, x2, y2, how_close):
     """True when the two points are closer than how_close."""
+    # math.dist measures the straight-line distance between two points.
+    # "Less than" means touching; exactly how_close apart is only just missing.
     return math.dist((x1, y1), (x2, y2)) < how_close
 
 
 # ---------------------------------------- DRAWING
 
-state = {"score": 0, "running": True}
+state = {"score": 0, "running": True}   # one dictionary so functions can change it
 meteors = []
 
 
@@ -81,7 +91,8 @@ def go_right():
 
 def game_over():
     scorer.clear()
-    scorer.write(f"GAME OVER!  Score: {state['score']}", align="center", font=("Arial", 22, "bold"))
+    scorer.write(f"GAME OVER!  Score: {state['score']}", align="center",
+                 font=("Arial", 22, "bold"))
 
 
 def game_loop():
@@ -91,13 +102,19 @@ def game_loop():
         if is_touching(meteor.xcor(), meteor.ycor(), player.xcor(), player.ycor(), HIT_DISTANCE):
             state["running"] = False
         elif meteor.ycor() < BOTTOM:
+            # The meteor reached the ground without hitting us: a point!
             drop_from_the_top(meteor)
             state["score"] = state["score"] + 1
             show_score()
+    # tracer(0) turned off automatic drawing, so we redraw once per frame.
     screen.update()
     if state["running"]:
-        screen.ontimer(game_loop, FRAME_MS)   # run me again soon
+        # Turtle will call game_loop again after FRAME_MS milliseconds. This
+        # is what keeps the game going (no while loop, which would freeze the
+        # window and make the keys stop working).
+        screen.ontimer(game_loop, FRAME_MS)
     else:
+        # No new timer is scheduled, so the loop simply stops here.
         game_over()
 
 
@@ -124,10 +141,29 @@ if __name__ == "__main__":
     for number in range(NUMBER_OF_METEORS):
         meteors.append(make_meteor())
 
+    # Hand over the functions themselves: no brackets after go_left, because
+    # we want turtle to call them LATER, when the key is pressed.
     screen.onkey(go_left, "Left")
     screen.onkey(go_right, "Right")
-    screen.listen()
+    screen.listen()         # without this the window ignores the keyboard
 
     show_score()
     screen.ontimer(game_loop, FRAME_MS)   # start the game loop
     turtle.done()
+
+
+# Common mistakes children make here:
+# - Writing screen.onkey(go_left(), "Left") with brackets. That calls
+#   go_left straight away (and passes its answer to onkey) instead of
+#   waiting for the key.
+# - Forgetting screen.listen(): the keys do nothing at all.
+# - Forgetting the screen.ontimer line at the end of game_loop(): the
+#   meteors move once and then stop.
+# - Comparing only the x values in is_touching(): a meteor far above the
+#   player would count as a hit. The distance must use both x and y.
+# - Writing the clamp the wrong way round, e.g. clamp(x, limit, -limit),
+#   which makes the player stick or jump.
+#
+# Another correct way: is_touching() without math.dist, using Pythagoras:
+#     dx, dy = x1 - x2, y1 - y2
+#     return (dx * dx + dy * dy) ** 0.5 < how_close

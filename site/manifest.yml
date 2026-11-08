@@ -70,6 +70,7 @@ private:
   # Sources whose distinctive lines must not appear anywhere in the output (fingerprint check).
   fingerprint_sources:
     - "{dir}/exercises/week*/*/solution.py"
+    - "{dir}/exercises/week*/*/solution.md"
     - "{dir}/project/reference/**/*.py"
     - "{dir}/teaching-material/answers/*.tex"
     - "{dir}/teaching-material/answer-key.tex"
