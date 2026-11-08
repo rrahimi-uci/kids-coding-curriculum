@@ -41,7 +41,7 @@ const doneKey = `kc:done:${l.slug}/${w.slug}`;
     <div class="lesson-layout">
       <aside class="lesson-side" aria-label="On this page">
         <nav class="toc" aria-label="Table of contents">
-          <details open>
+          <details>
             <summary>On this page</summary>
             <ol>
               {toc.map((t: any) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}
