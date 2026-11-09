@@ -220,11 +220,7 @@ a.card h2, a.card h3 { color: var(--brand); }
 a.week-item:hover { border-color: var(--accent, var(--brand)); box-shadow: var(--shadow); }
 .week-num { width: 2.25rem; height: 2.25rem; border-radius: 8px; display: grid; place-items: center; font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums; background: var(--accent); color: var(--on-accent); }
 .week-item h3 { margin: 0; font-size: 1.0625rem; } .week-item p { margin: 0; color: var(--muted); font-size: .9375rem; line-height: 1.5; }
-.done-badge { display: none; font-weight: 700; color: var(--l2); font-size: .875rem; }
-.week-item[data-done="true"] .done-badge { display: inline-flex; gap: .3rem; align-items: center; }
 .week-item.soon { border-style: dashed; }
-.progress { height: .5rem; background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
-.progress > span { display: block; height: 100%; width: 0; background: var(--accent, var(--brand)); transition: width .3s; }
 
 /* ---------- lesson pages ---------- */
 .page-head { margin-bottom: 1.5rem; }
@@ -308,11 +304,6 @@ a.week-item:hover { border-color: var(--accent, var(--brand)); box-shadow: var(-
 }
 .callout ul, .callout ol { padding-left: 1.4rem; }
 .callout li > p { margin: 0; }
-.callout ul.checks, .callout .check-item { list-style: none; }
-.callout li.check-item { margin-left: -1.4rem; }
-.check-item label { display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; }
-.check-item input { width: 1.4rem; height: 1.4rem; margin-top: .2rem; accent-color: var(--l2); flex: none; }
-.check-item label:has(input:checked) { text-decoration: line-through; text-decoration-color: var(--muted); color: var(--muted); }
 .vocab-list { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.2rem; margin: 0; }
 .vocab-list dt { font-weight: 700; } .vocab-list dd { margin: 0; } .vocab-list dd p { margin: 0; }
 @media (max-width: 36rem) { .vocab-list { grid-template-columns: 1fr; } .vocab-list dd { margin-bottom: .6rem; } }
@@ -334,14 +325,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .ex-link:hover { border-color: var(--accent, var(--brand)); }
 .ex-link .no { font-weight: 700; color: var(--accent, var(--brand)); min-width: 2.6rem; }
 .hints { display: grid; gap: .8rem; margin: 1rem 0; }
-.hint { border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
-.hint summary { cursor: pointer; padding: .7rem 1rem; font-weight: 700; list-style: none; display: flex; gap: .6rem; align-items: center; }
-.hint summary::-webkit-details-marker { display: none; }
-.hint summary::before { content: ""; width: 1rem; height: 1rem; flex: none; background: var(--accent, var(--brand)); -webkit-mask: var(--chev) center/contain no-repeat; mask: var(--chev) center/contain no-repeat; transition: transform .15s ease; }
-.hint[open] summary::before { transform: rotate(90deg); }
-.hint { --chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E"); }
-.hint .body { padding: 0 1.1rem 1rem; } .hint .body p:last-child { margin: 0; }
-.hint[data-locked="true"] { opacity: .65; } .hint[data-locked="true"] summary { cursor: not-allowed; }
+.hint { border: 1px solid var(--line); border-left: 4px solid var(--accent, var(--brand)); border-radius: var(--radius-sm); background: var(--surface); padding: .8rem 1.1rem; }
+.hint .hint-title { margin: 0 0 .35rem; font-size: 1rem; }
+.hint .body { padding: 0; } .hint .body p:last-child { margin: 0; }
 .hint-note { font-size: .9375rem; color: var(--muted); }
 
 /* parents */
@@ -363,7 +349,6 @@ a.cite { white-space: nowrap; }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1rem 0; }
 .chips li { margin: 0; }
 
-.done-btn[aria-pressed="true"] { background: var(--l2); border-color: var(--l2); color: var(--on-accent); }
 .pagination { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; flex-wrap: wrap; }
 .pagination a { flex: 1 1 14rem; }
 .pagination .next { text-align: right; }

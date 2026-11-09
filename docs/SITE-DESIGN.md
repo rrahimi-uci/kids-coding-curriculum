@@ -52,7 +52,9 @@ fails rather than publishing something wrong.
 
 * **Content-heavy and static**: pages are generated from JSON and HTML fragments at build time.
 * **Zero JavaScript by default.** The only scripts are a small progressive-enhancement file (display
-  toggles, copy buttons, browser-only progress, hint reveal) and, on the search page only, Pagefind.
+  toggles, the phone menu, copy buttons) and, on the search page only, Pagefind. The pages are made for
+  **reading**: no checkboxes, progress bars, "mark as done" buttons or hints that lock and unlock; the
+  self-check lists are ordinary lists and the hints are plain sections in order.
 * Dynamic routes (`levels/[level]/[week]`, `exercises/[slug]`) make the level and week pages come out of the
   data automatically; `base` support makes it work as a GitHub project page.
 * **Pagefind** gives offline-capable, no-server site search.
@@ -95,9 +97,9 @@ No children's names, photos or personal data are used; the site has no analytics
 * **Curriculum** (`/curriculum/`): three-level timeline (weeks 1–12 with the checkpoint, project and
   showcase), what is learned, final projects, how progress is measured.
 * **Level pages** and **week pages**: objectives, lesson content, exercises, new words, homework tiers
-  (Core, Challenge, Creative), downloads (week PDF, starter-file ZIP), previous/next, a self-check list and a
-  "mark as done" button that live only in the browser (local storage).
-* **Exercises**: steps, starter code with copy and download, hints that open one at a time. No solutions.
+  (Core, Challenge, Creative), downloads (week PDF, starter-file ZIP), previous/next and a self-check list
+  (an ordinary list to read, not checkboxes).
+* **Exercises**: steps, starter code with copy and download, three hints, in order, from a small nudge to a bigger one. No solutions.
 * **Projects** (`/levels/level-N/project/`): the final-project brief with plan sheet and rubric, and the
   starter files (templates, never the reference solution) to read, copy and download.
 * **Resources** (`/resources/`): Mac setup guide and troubleshooting (written for the web from the teacher
@@ -138,8 +140,8 @@ and self-hosted.
 
 ## Accessibility (WCAG 2.2 AA)
 
-Skip link, semantic landmarks and heading order, visible focus, keyboard-operable everything (hints, menu,
-toggles), accessible names for scrollable tables, alt text for every figure and slide image, no flashing or
+Skip link, semantic landmarks and heading order, visible focus, keyboard-operable everything (menu,
+toggles, copy buttons), accessible names for scrollable tables, alt text for every figure and slide image, no flashing or
 autoplay, text resize to 200% without loss, reduced-motion support. Verified by `site/qa/a11y.mjs` (axe-core
 with the WCAG 2.0 to 2.2 A and AA rule sets) in light and dark mode and a phone-width overflow check.
 

@@ -165,7 +165,7 @@ where useful, how to change it.
     deck and handout. Assessments (placement, checkpoint and exit quizzes) are not published.
 41. **Hints and alt text** are new, reviewed content: three hints per exercise (`hints.md`) and a `%% alt:`
     description above each diagram. They are written for a Grade 5 reader and checked by the build.
-42. **No analytics, cookies or accounts.** Progress ticks and display settings are stored only in the
-    visitor's browser (local storage).
+42. **No analytics, cookies or accounts.** Only the display settings (dark mode, easy-read font) are
+    stored, in the visitor's own browser (local storage). The pages have no progress tracking.
 43. **Invented character names** (such as the children in bug-hunt exercises) appear in a few exercises; they
     are fictional, not real children.

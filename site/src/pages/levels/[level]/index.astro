@@ -5,7 +5,6 @@ import { u, levels, fix } from '../../../lib/data';
 export function getStaticPaths() { return levels().map((l) => ({ params: { level: l.slug }, props: { l } })); }
 const { l } = Astro.props;
 const hasWeeks = l.weeks.length > 0;
-const keys = l.weeks.map((w: any) => `kc:done:${l.slug}/${w.slug}`);
 const wk = Object.fromEntries(l.weeks.map((w: any) => [w.n, w]));
 const dls = l.downloads || {};
 ---
@@ -16,12 +15,6 @@ const dls = l.downloads || {};
     <h1>{l.name}</h1>
     <p class="lead">{l.languages}. 10 to 12 weeks, one session a week.</p>
     <p class="measure" set:html={fix(l.tools)} />
-    {hasWeeks && (
-      <div class="card" style="max-width:40rem">
-        <div class="progress" data-progress-level={keys.join(',')} aria-hidden="true"><span></span></div>
-        <p class="small muted" style="margin:.6rem 0 0" data-progress-text>0 of {l.weeks.length} weeks done on this device</p>
-      </div>
-    )}
   </div>
 
   <section class={`l${l.number}`} aria-labelledby="weeks" style="margin-top:2.5rem">
@@ -32,10 +25,9 @@ const dls = l.downloads || {};
         const body = (<>
           <span class="week-num" aria-hidden="true">{w.n}</span>
           <div><h3><span class="visually-hidden">Week {w.n}: </span><span set:html={fix(w.title)} /></h3><p set:html={fix(w.idea)} /></div>
-          <span class="done-badge"><Icon name="check" /> Done</span>
         </>);
         return <li>{hasWeeks
-          ? <a class="week-item" href={u(`levels/${l.slug}/${w.slug}/`)} data-week-key={`kc:done:${l.slug}/${w.slug}`}>{body}</a>
+          ? <a class="week-item" href={u(`levels/${l.slug}/${w.slug}/`)}>{body}</a>
           : <div class="week-item soon">{body}</div>}</li>;
       })}
     </ol>

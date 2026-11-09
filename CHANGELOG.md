@@ -3,6 +3,15 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.4.0 - 2026-11-08
+
+The pages are for reading, not for clicking.
+
+- Self-check lists are ordinary lists (no checkboxes), and the "mark this as done" button, the progress bar and the "Done" badges are gone. Nothing on the lesson pages looks like a form any more.
+- Hints are three plain sections in order (a small nudge, a bigger nudge, the most specific), instead of boxes that lock and unlock.
+- The only things left that you can press are for reading comfort: the menu, the search box, Dark mode, Easy-read font, and the Copy button on code and commands.
+- Nothing about a child's progress is stored in the browser any more.
+
 ## 1.3.0 - 2026-11-08
 
 One command to set up a Mac.

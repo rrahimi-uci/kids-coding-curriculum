@@ -47,7 +47,7 @@ class Page(HTMLParser):
             self._depth += 1
         if self._in_obj and tag == "li":
             self.objectives_li += 1
-        if tag == "details" and "hint" in (a.get("class") or "").split():
+        if tag == "section" and "hint" in (a.get("class") or "").split():
             self.hints += 1
 
     def handle_endtag(self, tag):
