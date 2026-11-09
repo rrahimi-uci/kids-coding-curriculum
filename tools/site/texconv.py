@@ -490,12 +490,10 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
             head.append(lab)
             if title and title != label:
                 tt = soup.new_tag("span", attrs={"class": "callout-heading"})
-                tt.string = title
+                # print edition: tick boxes; the web page is for reading, so the title asks the question instead
+                tt.string = title.replace("tick each box when it is true", "read each line and ask: is it true for me?")
                 head.append(tt)
             div.insert(0, head)
-            if env in ("selfcheck",):
-                for i, li in enumerate(div.find_all("li")):
-                    li["class"] = "check-item"
             if env == "vocab":
                 for dl in div.find_all("dl"):
                     dl["class"] = "vocab-list"
@@ -503,23 +501,12 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
                         dd = dt.find_next_sibling("dd")
                         res.vocab.append((dt.get_text(" ", strip=True),
                                           dd.get_text(" ", strip=True) if dd else ""))
-    for env in ("checklist",):
-        for div in body.find_all("div", class_=env):
-            div["class"] = ["checklist"]
-            for li in div.find_all("li"):
-                li["class"] = "check-item"
-    # real, labeled checkboxes for every self-check item (progress is kept in the browser)
-    for li in body.find_all("li", class_="check-item"):
-        if li.find("input"):
-            continue
+    for div in body.find_all("div", class_="checklist"):
+        div["class"] = ["checklist"]
+    # Self-check and checklist items are ordinary list items: the page is for reading, not for ticking.
+    for li in body.select(".callout-selfcheck li, .checklist li"):
         for p in li.find_all("p", recursive=False):
             p.unwrap()
-        label = soup.new_tag("label")
-        for child in list(li.children):
-            label.append(child.extract())
-        box = soup.new_tag("input", attrs={"type": "checkbox"})
-        label.insert(0, box)
-        li.append(label)
 
     # ---- inline markers
     def rewrite_text(node):

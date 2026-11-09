@@ -17,26 +17,16 @@ const n = await page.locator('.pagefind-ui__result').count();
 ok(n > 0, `search for "turtle" returns results (${n})`);
 
 await page.goto(url + 'levels/level-1/exercises/week07-ex-first-square/', { waitUntil: 'networkidle' });
-const hints = page.locator('details.hint');
-ok((await hints.count()) === 3, 'three hints');
-await page.locator('details.hint').nth(1).locator('summary').click();
-ok(!(await hints.nth(1).evaluate((e) => e.open)), 'hint 2 stays locked until hint 1 is opened');
-await hints.nth(0).locator('summary').click();
-await hints.nth(1).locator('summary').click();
-ok(await hints.nth(1).evaluate((e) => e.open), 'hint 2 opens after hint 1');
+ok((await page.locator('section.hint').count()) === 3, 'three hints, all visible as plain text');
+ok((await page.locator('details.hint, .hint summary').count()) === 0, 'hints are not collapsible widgets');
 ok((await page.locator('.starter-code pre').innerText()).includes('turtle'), 'starter code shown');
 ok((await page.locator('.starter-code .copy-btn').count()) === 1, 'copy button present');
 
 await page.goto(url + 'levels/level-1/week-07/', { waitUntil: 'networkidle' });
-const done = page.locator('[data-done-key]');
-await done.click();
-ok((await done.getAttribute('aria-pressed')) === 'true', 'mark as done toggles');
-const box = page.locator('.callout-selfcheck input[type=checkbox]').first();
-await box.check();
-await page.reload({ waitUntil: 'networkidle' });
-ok(await page.locator('.callout-selfcheck input[type=checkbox]').first().isChecked(), 'checkbox progress survives a reload (local storage)');
+ok((await page.locator('main input[type=checkbox], main .done-btn, main [data-done-key]').count()) === 0, 'week page has no checkboxes or mark-as-done button');
+ok((await page.locator('.callout-selfcheck li').count()) > 0, 'self-check list is shown as a plain list');
 await page.goto(url + 'levels/level-1/', { waitUntil: 'networkidle' });
-ok((await page.locator('[data-week-key][data-done="true"]').count()) === 1, 'level page shows week 7 as done');
+ok((await page.locator('.progress, [data-progress-level]').count()) === 0, 'level page has no progress bar');
 
 await page.click('#theme-toggle');
 const t1 = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));

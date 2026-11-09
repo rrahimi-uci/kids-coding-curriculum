@@ -39,18 +39,17 @@ const label = e.homework ? 'Homework exercise' : `Exercise ${e.number}`;
       )}
 
       <section aria-labelledby="hints">
-        <h2 id="hints">Stuck? Open a hint</h2>
-        <p class="hint-note">Try on your own first. Hints open one at a time, from a small nudge to a bigger one. None of them gives the answer away.</p>
+        <h2 id="hints">Stuck? Read a hint</h2>
+        <p class="hint-note">Try on your own first. Read the hints in order, from a small nudge to a bigger one. None of them gives the answer away.</p>
         <div class="hints">
-          {e.hints.map((h: any, i: number) => (
-            <details class="hint" data-locked={i > 0 ? 'true' : 'false'}>
-              <summary>{h.label}: {h.title}</summary>
+          {e.hints.map((h: any) => (
+            <section class="hint">
+              <h3 class="hint-title">{h.label}: {h.title}</h3>
               <div class="body" set:html={fix(h.html)} />
-            </details>
+            </section>
           ))}
         </div>
       </section>
-
       <div class="btn-row">
         <a class="btn secondary" href={u(`levels/${l.slug}/week-${String(e.week).padStart(2, '0')}/`)}><Icon name="back" /> Back to week {e.week}</a>
       </div>

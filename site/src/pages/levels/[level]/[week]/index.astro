@@ -17,7 +17,6 @@ const hwEx = w.exercises.filter((e: any) => e.homework);
 const toc = [
   ...w.toc.filter((t: any) => t.level === 2),
 ].map((t: any) => t);
-const doneKey = `kc:done:${l.slug}/${w.slug}`;
 ---
 <Base title={`Level ${l.number}, week ${w.n}: ${w.title}`} level={l.number} description={w.idea}>
   <div class={`l${l.number}`}>
@@ -34,7 +33,6 @@ const doneKey = `kc:done:${l.slug}/${w.slug}`;
       <div class="btn-row">
         {w.downloads.pdf && <a class="btn secondary small" href={fix(w.downloads.pdf.url)}><Icon name="download" /> Print this week (PDF, {w.downloads.pdf.kb} KB)</a>}
         {w.downloads.starter && <a class="btn secondary small" href={fix(w.downloads.starter.url)}><Icon name="download" /> Starter files (ZIP)</a>}
-        <button class="btn small done-btn" type="button" data-done-key={doneKey} aria-pressed="false"><Icon name="check" /> <span class="txt">Mark this as done</span></button>
       </div>
     </header>
 
