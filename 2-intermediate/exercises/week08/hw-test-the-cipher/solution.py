@@ -3,11 +3,11 @@
 What it does: pytest tests for encode() (the Caesar cipher in
 cipher_tools.py): one normal case and three edge cases. Press Run to see
 four PASSED lines.
-Key ideas: edge cases for a cipher are wrapping round after z, leaving
+Key ideas: edge cases for a cipher are wrapping around after z, leaving
 spaces and symbols alone, and the "do nothing" shift of 0.
 Approach: each test calls encode() with a message we chose and asserts the
 answer worked out by hand on the paper cipher wheel. Together they catch
-three broken versions: no wrap-round, spaces thrown away, and shifting
+three broken versions: no wrap-around, spaces thrown away, and shifting
 the wrong way.
 """
 
@@ -20,10 +20,10 @@ def test_normal_word_shift_1():
     assert encode("abc", 1) == "bcd", "a->b, b->c, c->d"
 
 
-def test_wraps_round_after_z():
-    # Edge case: after z comes a again. Without wrap-round, "z" + 3 would
+def test_wraps_around_after_z():
+    # Edge case: after z comes a again. Without wrap-around, "z" + 3 would
     # become a symbol such as "}" instead of "c".
-    assert encode("xyz", 3) == "abc", "x->a, y->b, z->c (wrap round)"
+    assert encode("xyz", 3) == "abc", "x->a, y->b, z->c (wrap around)"
 
 
 def test_spaces_and_symbols_stay_the_same():
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
 # Common mistakes children make here:
 # - Working out the expected answer wrongly, e.g. encode("xyz", 3) == "{|}"
-#   (forgetting to wrap round). If a test fails on the correct encode(),
+#   (forgetting to wrap around). If a test fails on the correct encode(),
 #   the test is wrong: check it with the paper wheel.
 # - Only testing a shift of 0 or 13, where going forwards and backwards
 #   give the same answer, so a backwards cipher slips through.

@@ -83,6 +83,8 @@ Done looks like: an orange triangle, a sky-blue square and a green hexagon, all 
 
 \section{A loop inside a loop}
 A loop can hold another loop. The \textbf{outer} loop picks a color. The \textbf{inner} loop draws a whole square. Then the turtle turns a little and the outer loop goes again.
+
+\texttt{PALETTE} is a \textbf{list}: our 8 color-blind-safe colors, written inside square brackets \texttt{[ ]} at the top of the starter. \texttt{for color in PALETTE:} takes the colors one at a time, a new one each time round the loop.
 \begin{pycode}
 for color in PALETTE:          # 8 colors: runs 8 times
     t.color(color)
@@ -108,6 +110,7 @@ Stuck? First try \enquote{three before me}: read the red message, check this wor
   \vocabword{range}{Gives the loop its numbers. \texttt{range(4)} means 0, 1, 2, 3: four times.}
   \vocabword{Indentation}{The spaces at the start of a line. They show which lines are inside the loop.}
   \vocabword{Nested loop}{A loop inside another loop.}
+  \vocabword{List}{Several values kept together in square brackets, like the 8 colors in \texttt{PALETTE}.}
   \vocabword{Off-by-one bug}{When a loop runs one time too many or one time too few.}
 \end{vocab}
 

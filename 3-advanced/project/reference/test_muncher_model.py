@@ -1,6 +1,7 @@
 """Tests for the Maze Muncher game logic (muncher_model.py).
 
-Run them in Terminal from this folder with:   python3 -m pytest -q
+Run them from this folder in Thonny's system shell (Tools > Open system shell...)
+with:   python -m pytest -q
 """
 
 import random

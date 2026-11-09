@@ -343,6 +343,9 @@ def prepare(tex: str, file_label: str, week_hint: str = "") -> tuple[str, Result
         code = re.sub(r"([_#%&$])", r"\\\1", code.replace("\\_", "_"))
         return r"\texttt{" + code + "}"
 
+    # "\_<name>" makes Pandoc swallow "<name>" as an HTML tag, so angle brackets inside \texttt become macros
+    s = re.sub(r"\\texttt\{([^{}]*)\}",
+               lambda m: "\\texttt{" + m.group(1).replace("<", "\\textless{}").replace(">", "\\textgreater{}") + "}", s)
     s = re.sub(r"\\py\|([^|\n]*)\|", lambda m: _tt(m.group(1)), s)
     s = replace_cmd(s, "py", 1, _tt)
     s = replace_cmd(s, "answerlines", 1, lambda a: f"\n\nLINESTOKEN{a.strip()}X\n\n")

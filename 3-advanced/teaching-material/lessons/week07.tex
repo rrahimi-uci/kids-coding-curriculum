@@ -20,7 +20,7 @@
   \timeslot{0--8}{Warm-up}{Unplugged \enquote{Russian dolls}, then everyone draws a recursive \enquote{Y} tree on paper.}
   \timeslot{8--18}{Concept}{Recursion = a function that calls itself on a smaller problem. Base case + recursive case. Grids: \texttt{grid[row][col]}.}
   \timeslot{18--28}{Guided demo}{Type-along: Exercise 7.2 fractal tree. Count lines at depth 1, 2, 3.}
-  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 7.1 (about 7 min), then 7.3 paint bucket (about 12 min); swap driver every 8 min. Bug hunt. Last 5 min: fractal free-build.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 7.1 (about 7 min), then 7.3 paint bucket (about 12 min); swap driver every 8 min. Bug hunt. Last 5 min: fractal free-build (or the optional BFS stretch, see the teacher note below).}
   \timeslot{52--60}{Wrap-up}{Show-and-tell (30 s per pair: favorite fractal + one change), exit ticket, credit for algorithms, homework 7.}
 \end{timeplan}
 
@@ -60,7 +60,7 @@ Everyone opens \texttt{ex-fractal-tree/starter.py}; drivers type along with you.
   \item Point at \py|penup()| and \py|back(length)|: \enquote{every recursive drawing must leave the turtle where it found it.}
 \end{enumerate}
 \end{workedexample}
-\pyfile[firstline=16,lastline=33]{../exercises/week07/ex-fractal-tree/solution.py}
+\pyfile[firstline=23,lastline=44]{../exercises/week07/ex-fractal-tree/solution.py}
 
 \section{Hands-on build (28--52 min)}
 \begin{pairroles}[Driver, navigator, tester]
@@ -72,6 +72,28 @@ The \textbf{driver} types; the \textbf{navigator} reads the README aloud and che
 \begin{bughunt}[The never-ending dolls]
 In a new Thonny file type \py|def sum_to(n): return n + sum_to(n - 1)| and \py|print(sum_to(3))|. Ask \enquote{What will happen?} Run: it ends in \texttt{RecursionError: maximum recursion depth exceeded}. Ask: \enquote{Which part is missing?} (The base case.) Strategy to remember: \textbf{RecursionError? Look for the base case first.} The same bug appears in 7.3 if the \enquote{stop when this cell is not the old color} line is missing.
 \end{bughunt}
+
+\begin{teachernote}[Optional stretch (4--5 min, only if 7.3 is finished early): BFS with the week 5 queue]
+Use the last minutes of the hands-on block for pairs that are done, or do it as a short demo at the whiteboard. Nothing later is blocked if you skip it: the project brief lists BFS as an option, so this is the place to meet it.
+
+\textbf{Say:} \enquote{Our paint bucket dives deep down one path first. There is another way: spread in \emph{rings}, nearest squares first, like ripples in a pond. Remember the lunch line from week 5? A \textbf{queue} is first in, first out. We put squares that are waiting to be visited in the line, and always take the one at the front.}
+
+\textbf{Board demo (3 min).} Draw an empty 3-by-3 grid and put a coin on the top-left square. Visit order is up, down, left, right. Take the front square, write the next number in it, and add its unvisited neighbors to the back of the line (write the line as a row of squares beside the grid). You get:
+
+\begin{center}
+\begin{tabular}{ccc}
+1 & 3 & 6\\ 2 & 5 & 8\\ 4 & 7 & 9\\
+\end{tabular}
+\qquad ring (distance): \quad
+\begin{tabular}{ccc}
+0 & 1 & 2\\ 1 & 2 & 3\\ 2 & 3 & 4\\
+\end{tabular}
+\end{center}
+
+Point at the rings: \enquote{Squares with the same distance were visited together. That is why BFS can say how far each square is from the start.} Then show the loop (workbook, Stretch section): \py|popleft()| takes from the front, \py|append()| joins the back, and marking a square when it joins the line (a \enquote{visited} mark) stops it joining twice.
+
+\textbf{The CS idea, for you.} Recursive flood fill and BFS paint the same squares. BFS never hits \texttt{RecursionError}, because the waiting squares live in a queue, not on the call stack, and it gives shortest distances. Pairs that want more write \texttt{flood\_fill\_queue} in 7.3 (see the README; \texttt{solution.py} has a finished version). Do not give an exit ticket on it.
+\end{teachernote}
 
 \begin{freebuild}[Grow your own fractal (last 5 minutes)]
 Change \texttt{ANGLE} and \texttt{SHRINK}: a tree leaning in the wind (different left and right angles), three branches instead of two, or \py|t.dot(6)| as a leaf in the base case. Or draw your own picture in \texttt{PICTURE} in the paint bucket.
@@ -92,7 +114,7 @@ Where have you seen things made of smaller copies of themselves (ferns, broccoli
 Say: \enquote{The fractal tree and the Koch snowflake (Helge von Koch, 1904) are famous ideas. When you show generative art, say where the idea came from: \emph{Fractal tree, based on a classic recursive algorithm; my colors and angles.} Your code is yours; the idea has a history; giving credit is what real artists and programmers do.} Each student adds a comment line \texttt{\# Based on: ...} at the top of their fractal file.
 \end{safety}
 
-Hand out homework 7 (treasure-map grid; optional Koch snowflake).
+Hand out homework 7 (treasure-map grid; optional Koch snowflake or BFS paint bucket).
 
 \section{Notes for the teacher}
 \begin{commonmistakes}
@@ -111,5 +133,5 @@ Hand out homework 7 (treasure-map grid; optional Koch snowflake).
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]
-Skip Part 2 of the warm-up and do 7.1 as a whole-group discussion. Keep the fractal tree (the wow moment); the paint bucket can be finished in Buffer B2 or at the start of week 8.
+Skip Part 2 of the warm-up and do 7.1 as a whole-group discussion. Keep the fractal tree (the wow moment); the paint bucket can be finished in Buffer B2 or at the start of week 8. Skip the BFS stretch; it is optional and can wait for the project.
 \end{teachernote}

@@ -11,7 +11,7 @@ and use it to draw many shapes with one block each.
 2. Click **My Blocks > Make a Block**. Type `polygon`.
 3. Click **Add an input (number or text)** and type `sides`.
    Click it again and type `length`. Click **OK**.
-   (Leave "Run without screen refresh" unticked.)
+   (Leave "Run without screen refresh" unchecked.)
 4. A pink **define polygon (sides) (length)** hat appears. Build the steps under it.
    To use an input, **drag** the little `sides` or `length` oval out of the define hat
    into a slot. The **/** (divide) block is in **Operators**.

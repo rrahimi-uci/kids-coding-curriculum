@@ -33,7 +33,7 @@ def damage(attack, shield):
 hit = damage(12, 5)       # 12 goes into attack, 5 goes into shield
 print(f"Ouch! {hit} damage")
 \end{pycode}
-The values in the brackets when you \emph{call} the function (\texttt{12} and \texttt{5}) are \textbf{arguments}.
+The values in the parentheses when you \emph{call} the function (\texttt{12} and \texttt{5}) are \textbf{arguments}.
 They fill the \textbf{parameters} (\texttt{attack} and \texttt{shield}) in the same order.
 
 \subsection{Print or return?}
@@ -58,6 +58,15 @@ Thonny shows it when you hover over the function name, and your friends can read
 \subsection{What happens in a function stays in a function}
 Variables you make inside a function (like \texttt{result}) only exist inside it. Outside the function, Python says
 \texttt{NameError}. If you need the value outside, \texttt{return} it.
+\begin{pycode}[Inside stays inside]
+def damage(attack, shield):
+    result = attack - shield    # result lives only inside damage()
+    return result
+
+hit = damage(12, 5)
+print(hit)        # 7     the returned value, caught in hit
+print(result)     # NameError: name 'result' is not defined
+\end{pycode}
 
 \begin{exercise}[Game Math]
 Folder: \texttt{exercises/week02/ex-game-math}. Open \texttt{starter.py} and press \menu{Run}.
@@ -78,6 +87,8 @@ Folder: \texttt{exercises/week02/ex-flower-garden}. Press \menu{Run}: all three 
   \item TODO 1: \texttt{petal\_turn(petals)} should return \texttt{360 / petals}. How far does it turn for 6 petals? \rule{1.5cm}{0.4pt}
   \item TODO 2 and 3: use \texttt{t.goto(x, y)} so each flower appears where it was asked to.
   \item TODO 4: repeat once for each petal: \texttt{range(petals)}.
+  \item Look at the \texttt{def} line: \texttt{size=60} is a \textbf{default value}. If a call leaves out the size, it is 60;
+        \texttt{draw\_flower(t, 0, 80, 8, SKY, 70)} hands in 70 instead.
   \item Fill in the arguments you used for your favorite flower:\par
         \texttt{draw\_flower(t,} x = \rule{1.2cm}{0.4pt}, y = \rule{1.2cm}{0.4pt}, petals = \rule{1.2cm}{0.4pt}, color = \rule{2.2cm}{0.4pt}\texttt{)}
 \end{enumerate}

@@ -49,13 +49,13 @@ Data is like vegetables from the garden: you would not cook them with the mud st
 \section{Guided demo (18--28 min)}
 \begin{workedexample}[Exercise 8.1: survey cleaner (type-along)]
 \begin{enumerate}[itemsep=1pt]
-  \item Run \texttt{starter.py}. It says 19 answers and prints \texttt{block craft} with spaces. \enquote{Our detective is being fooled!}
+  \item Run \texttt{starter.py}. It says 19 answers, prints \texttt{block craft} in small letters and shows an empty answer. \enquote{Our detective is being fooled!}
   \item TODO 1, \texttt{to\_number}: strip; empty text gives \py|None|; otherwise \py|int(text)|.
   \item TODO 2, \texttt{is\_empty}: \py|return row["favorite_game"].strip() == ""|.
   \item TODO 3: add \py|.title()| so all spellings become \texttt{Block Craft}. Run: \texttt{Clean answers: 17}.
 \end{enumerate}
 \end{workedexample}
-\pyfile[firstline=25,lastline=45]{../exercises/week08/ex-survey-cleaner/solution.py}
+\pyfile[firstline=17,lastline=45]{../exercises/week08/ex-survey-cleaner/solution.py}
 
 \section{Hands-on build (28--52 min)}
 \begin{pairroles}[Detective and recorder]
@@ -96,7 +96,7 @@ Hand out homework 8 (survey privacy: anonymize a CSV file).
   \item \textbf{Forgetting \texttt{import csv}} or opening the file from the wrong folder: \texttt{FileNotFoundError}. Open \texttt{starter.py} from the exercise folder so the CSV sits next to it.
   \item \textbf{Column name typos}: \py|row["game"]| instead of \py|row["favorite_game"]| gives \texttt{KeyError}. Copy names from the header line.
   \item \textbf{Counting without \texttt{.get}}: \py|counts[value] += 1| crashes the first time (\texttt{KeyError}). Use \py|counts.get(value, 0) + 1|.
-  \item \textbf{Bars not scaled}: dividing by the wrong number, or integer math. \py|value / biggest * MAX_HEIGHT| works.
+  \item \textbf{Bars not scaled}: dividing the wrong way round (\py|biggest / value| makes the biggest bar the shortest) or using \py|//|, which rounds down. \py|value / biggest * MAX_HEIGHT| works.
 \end{commonmistakes}
 
 \begin{differentiation}

@@ -11,7 +11,7 @@ Setup (teacher, once per Mac): `git --version` prints a version number; if a win
 cd ~/Documents                                   # go to Documents
 mkdir git-quest                                  # make the quest folder
 cd git-quest                                     # go inside it
-# copy hero_badge.py into git-quest (drag in Finder or Save As in Thonny)
+# copy hero_badge.py into git-quest (Save as in Thonny, or Option-drag in Finder)
 ls                                               # shows hero_badge.py
 git config --global user.name "PixelFox"         # a nickname, never a real name
 git config --global user.email "pixelfox@example.com"   # pretend address
@@ -23,11 +23,11 @@ git log --oneline                                # one line: id and message
 # Thonny: change BADGE_COLOR to "#009E73" and HERO_NAME to a made-up name, save, run
 git diff                                         # - lines removed, + lines added
 git add hero_badge.py                            # pack the backpack again
-git commit -m "Change badge color to green"      # second save point
+git commit -m "Change badge color and hero name" # second save point
 # Thonny: delete the whole draw_star function, save, run (it crashes)
 git status                                       # shows hero_badge.py modified
 git restore hero_badge.py                        # reload the last save point
-# Thonny: close and reopen the file (or click Yes to reload); draw_star is back
+# Thonny: click Yes to reload (or close and reopen the tab); draw_star is back
 # Level 7: make any change of your own (bigger star, new color, second star)
 git diff                                         # check the change
 git add hero_badge.py
@@ -38,9 +38,9 @@ git status                                       # nothing to commit, working tr
 
 ## What you should see
 - `git log --oneline` lists at least 3 commits, newest first, for example (ids always differ):
-  `3e8d1f2 (HEAD -> main) Make star bigger`, `9b0c7a4 Change badge color to green`, `7c41e0a Add hero badge drawing`. The branch may say `master`; both are fine.
+  `3e8d1f2 (HEAD -> master) Make star bigger`, `9b0c7a4 Change badge color and hero name`, `7c41e0a Add hero badge drawing`. Apple's git calls the branch `master`; if it says `main`, that is fine too.
 - Each message starts with a verb and says what changed (not "stuff" or "update").
-- `git status` ends with "On branch main" and "nothing to commit, working tree clean".
+- `git status` starts with "On branch master" (or "main") and ends with "nothing to commit, working tree clean". An untracked `.DS_Store` (a hidden Finder file) is harmless: do not commit it.
 - `git config user.name` shows a nickname and `git config user.email` an address ending in `@example.com`.
 - After `git restore`, the `draw_star` function is back and the program runs and shows the star.
 
@@ -55,7 +55,10 @@ git status                                       # nothing to commit, working tr
 - `git init` in the wrong folder (for example the home folder): `git status` lists hundreds of files. Do not commit. Delete that `.git` folder (Finder, Cmd+Shift+. to show hidden files), then `cd` into `git-quest` and start again.
 - "Please tell me who you are" error: the two `git config` lines were skipped. Type them, then commit again.
 - `git diff` shows nothing (file not saved, so press Cmd+S) or "nothing added to commit" (`git add` forgotten).
-- After `git restore`, Thonny still shows the broken code: click Yes if it offers to reload, otherwise close the tab and open the file again.
+- After `git restore`, Thonny still shows the broken code: click Yes if it offers to reload, otherwise close the tab and open the file again. Pressing Run or Save first writes the broken code back (Thonny saves before it runs); if that happens, run `git restore hero_badge.py` again.
+- Dragging `hero_badge.py` in Finder MOVES it out of the exercise folder (same disk). Hold Option while dragging to copy, or use Save as in Thonny.
+- macOS asks whether Terminal may access the Documents folder: click Allow. `git init` prints yellow `hint:` lines about the branch name `master`: ignore them.
+- `git diff` or `git log` fills the screen and shows `:` or `(END)`: that is a pager; press `q`.
 
 ## Check-off list
 - [ ] `git --version` shows a version number.

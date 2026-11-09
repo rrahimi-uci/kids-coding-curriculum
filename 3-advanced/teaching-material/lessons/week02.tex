@@ -72,7 +72,7 @@ Open \texttt{week02/ex-pet-class/starter.py} on your Mac with everyone watching.
   \item Press Run and type \texttt{q} to quit the menu. Thonny remembers the class, so in the Shell (bottom of Thonny) try: \texttt{pip = Pet("Pip", "dragon")}, \texttt{pip.hunger}, \texttt{pip.feed()}, \texttt{pip.hunger}. Students predict each answer first.
   \item Live-code \texttt{play()} together, asking the students what to type at each line. Press Run, type \texttt{p}, and check that Pip's numbers change. The finished method (the full class is in the answer key):
 \end{enumerate}
-\pyfile[firstline=22,lastline=29]{../exercises/week02/ex-pet-class/solution.py}
+\pyfile[firstline=32,lastline=41]{../exercises/week02/ex-pet-class/solution.py}
 \end{workedexample}
 
 \section{Hands-on build (28--52 min)}
@@ -95,14 +95,14 @@ Python complains with \texttt{TypeError: Pet.play() takes 0 positional arguments
 \end{bughunt}
 
 \begin{freebuild}[Bubble remix]
-Last 6 minutes: change Bubble Art any way you like: more bubbles, a different background, bubbles that grow towards the top, or a new method such as \texttt{shine(t)} that adds a second highlight. Then commit it: copy the file into \texttt{git-quest}, \texttt{git add}, \texttt{git commit -m "Add bubble art"}.
+Last 6 minutes: change Bubble Art any way you like: more bubbles, a different background, bubbles that grow towards the top, or a new method such as \texttt{shine(t)} that adds a second highlight. Then commit it: \menu{File > Save as...} into \texttt{git-quest} with a new name such as \texttt{bubble\_art.py} (every week's file needs its own name, or it replaces the last one), then \texttt{git add bubble\_art.py} and \texttt{git commit -m "Add bubble art"}.
 \end{freebuild}
 
 \section{Wrap-up (52--60 min)}
 Show-and-tell: each pair shows one bubble picture and names one attribute and one method.
 
 \begin{safety}[Designing virtual pets kindly]
-Ask: \enquote{Some pet apps say \enquote{Your pet is sad, you forgot it!} or let the pet get sick unless you pay or log in every day. How does that make players feel?} Talk about fair design: our pets never die, never blame the player, and never need money or daily streaks. Point to the comment at the top of \texttt{solution.py}: \enquote{Kind design.} Programmers choose how their games treat people.
+Ask: \enquote{Some pet apps say \enquote{Your pet is sad, you forgot it!} or let the pet get sick unless you pay or log in every day. How does that make players feel?} Talk about fair design: our pets never die, never blame the player, and never need money or daily streaks. Point to the comment at the top of \texttt{starter.py}: \enquote{Kind design: our pets never get sick, run away or make you feel guilty.} Programmers choose how their games treat people.
 \end{safety}
 
 \begin{formativecheck}[Exit ticket]
@@ -122,7 +122,7 @@ Ask: \enquote{Some pet apps say \enquote{Your pet is sad, you forgot it!} or let
 \begin{commonmistakes}
   \item \textbf{Forgetting \texttt{self}} as the first parameter, or writing \texttt{hunger} instead of \texttt{self.hunger}. Ask \enquote{whose hunger?}
   \item \textbf{Typing \texttt{\_\_int\_\_} or \texttt{\_init\_}} instead of \texttt{\_\_init\_\_}. The error is \texttt{TypeError: Pet() takes no arguments}. Count the underscores: two on each side.
-  \item \textbf{Calling a method without brackets}: \texttt{pip.feed} does nothing. It must be \texttt{pip.feed()}.
+  \item \textbf{Calling a method without parentheses}: \texttt{pip.feed} does nothing. It must be \texttt{pip.feed()}.
   \item \textbf{Methods not indented} under the class, so they become ordinary functions. All methods line up 4 spaces in.
   \item \textbf{Thinking \texttt{Pet} is the pet.} \texttt{Pet} is the blueprint; \texttt{pip} is the pet.
 \end{commonmistakes}

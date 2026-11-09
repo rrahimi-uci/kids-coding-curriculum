@@ -8,13 +8,20 @@ on a game backpack.
 3. Press **Run**. You should see:
 
 ```
+Backpack: ['gem', 'key', 'potion', 'gem', 'map', 'gem', 'potion']
 Gems: 3
 Most common: gem
 After using all potions: ['gem', 'key', 'gem', 'map', 'gem']
+  3 x gem
+  1 x key
+  2 x potion
+  1 x map
 ```
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 
-**Then (git practice):** copy your finished `starter.py` into your
-`Documents/git-quest` folder, and make a commit with a helpful message,
-for example `git add starter.py` then `git commit -m "Add inventory review"`.
+**Then (git practice):** when every check passes, use **File > Save as...**
+in Thonny to save a copy in your `Documents/git-quest` folder with the name
+`inventory_review.py`. Then, in Terminal inside `git-quest`, make a commit
+with a helpful message: `git add inventory_review.py` then
+`git commit -m "Add inventory review"`.

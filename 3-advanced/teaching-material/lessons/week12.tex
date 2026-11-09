@@ -38,7 +38,7 @@ A museum guide does not read every label. They stop at one painting and tell you
 
 \section{Guided demo (8--12 min)}
 \begin{workedexample}[A 2-minute design talk (read or adapt)]
-\enquote{This is Maze Muncher. You eat all the dots without being caught. [Play 20 seconds.] \textbf{Problem:} my first ghost moved randomly, and it was too easy. \textbf{Choice:} I made a Chaser class that \emph{is a} Ghost, so it shares the drawing and position code, but its move method uses breadth-first search with a queue to find the shortest path to the player. \textbf{Why:} inheritance meant I only wrote the new part, and BFS always finds the shortest path. I have 7 tests, one checks the Chaser goes round a wall. \textbf{Change:} the Chaser is now too clever -- next time it would only chase every other turn. [Show \texttt{git log}.] My history has 12 commits. Questions?}
+\enquote{This is Maze Muncher. You eat all the dots without being caught. [Play 20 seconds.] \textbf{Problem:} my first ghost moved randomly, and it was too easy. \textbf{Choice:} I made a Chaser class that \emph{is a} Ghost, so it shares the position and turn-taking code, but its move method uses breadth-first search with a queue to find the shortest path to the player. \textbf{Why:} inheritance meant I only wrote the new part, and BFS always finds the shortest path. I have 16 tests of the rules; one checks that BFS finds the way round a wall. \textbf{Change:} the Chaser is now too clever -- next time it would only chase every other turn. [Show \texttt{git log}.] My history has 14 commits. Questions?}
 \end{workedexample}
 
 \section{Hands-on build (12--34 min)}

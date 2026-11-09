@@ -42,8 +42,8 @@ first, and ask a partner before asking you (\enquote{ask three, then me}). Your 
 explaining to coaching: \enquote{What did you expect? What happened? What will you try next?}\\ \midrule
 Projects, not exercises & From week 9 the group works on one larger project each (or per pair).
 Weekly exercises become building blocks they can reuse.\\ \midrule
-Terminal & Students type commands in the Mac Terminal: \texttt{git} for save points and
-\texttt{python3 -m pytest} for tests. You will learn the five commands they use; the cheat
+Terminal & Students type commands in the Mac Terminal: \texttt{git} for save points, and
+\texttt{python -m pytest} for tests in Thonny's system shell (step 5.3). You will learn the five commands they use; the cheat
 sheet lists them.\\ \midrule
 Tests and history matter & A project is not only \enquote{does it run?} but also \enquote{does it
 have tests?}, \enquote{can I see how it grew in the git log?} and \enquote{can you explain why you
@@ -101,7 +101,7 @@ problem, like Russian dolls. It must have a \textbf{base case} where it stops; w
 gives up with a \texttt{RecursionError}. Fractal trees and flood fill (the paint bucket tool) are
 recursive.
 
-\item[Breadth-first search, BFS (week 7 extension and the final project).] How a computer finds the
+\item[Breadth-first search, BFS (buffer B1 and the final project).] How a computer finds the
 shortest way through a maze. Imagine dropping ink at the start: it spreads one square in every
 direction, then one more, ring after ring. The first time the ink reaches the goal, that is a
 shortest path. A \textbf{queue} keeps the squares in the order the ink reached them. The Maze
@@ -177,6 +177,11 @@ B2 & Mini Game Jam & Small ideas, quick builds, many commits. & 90-second game i
 
 Do this on each Mac a week before session 1. Nothing here needs an Apple ID, a GitHub account or
 any personal data. Internet is needed once, for the Apple download.
+\textbf{One workspace per child (or per pair).} Git stores the author name per Mac user account
+(\texttt{git config --global}), and the exercise files are edited in place. If two children share one
+Mac user account they overwrite each other's \texttt{starter.py} files and their commits carry the same
+nickname. Give each child (or each pair) their own macOS user account or their own copy of the course
+folder, and set a different git nickname in each.
 
 \subsection{5.1 git: Apple Command Line Tools}
 \begin{checklist}
@@ -220,17 +225,22 @@ git config --global core.editor nano
   \item Find \menu{Tools} $\rightarrow$ \menu{Open system shell\ldots}. This opens a Terminal that
         uses \emph{Thonny's} Python, which has pytest. \textbf{Run tests from this Terminal.}
         (Plain Terminal's \texttt{python3} is Apple's own copy, which does not have pytest.)
-  \item Test it: in that shell type \texttt{python3 -m pytest --version}. It prints a version number.
+  \item Test it: in that shell type \texttt{python -m pytest --version}. It prints a version number.
+        (If \texttt{python} is not found, type \texttt{python3} instead.)
 \end{checklist}
 
 \subsection{5.4 Copy the course files}
 \begin{checklist}
-  \item On each Mac make a folder \texttt{Documents/coding-L3-<nickname>} (one per student, or per pair).
-  \item Copy \texttt{3-advanced/exercises} and \texttt{3-advanced/project/starter} into it.
-  \item Students create their own git repositories \emph{inside their copy} (week 1 shows how).
-        Never let students run git commands inside the curriculum folder you received: it may
-        already be a git repository, and a repository inside a repository is confusing.
-  \item Keep \texttt{project/reference} (the Maze Muncher solution) on your Mac only until week 12.
+  \item Copy the \textbf{whole} \texttt{kids-coding-curriculum} folder onto each Mac (for example
+        into Documents). \texttt{check\_my\_work.py} looks for the \texttt{testing} folder above
+        the exercise, so a single exercise folder copied on its own cannot check itself.
+  \item Students keep their own work in two git repositories \emph{outside} that folder:
+        \texttt{Documents/git-quest} (made in week 1) and
+        \texttt{Documents/coding-projects/<project>} (a copy of \texttt{project/starter}, made in
+        week 10). Never let students run git commands inside the curriculum folder: it may already
+        be a git repository, and a repository inside a repository is confusing.
+  \item Delete \texttt{3-advanced/project/reference} (the Maze Muncher solution) from the
+        students' copies; keep it on your Mac only until week 12.
 \end{checklist}
 
 \subsection{5.5 Printing}
@@ -360,7 +370,7 @@ in the answer key (\enquote{Assessments} section).
 \toprule
 \rowcolor{kcaccent!15} What & When & How you use it\\ \midrule\endhead
 \bottomrule\endfoot
-Placement quiz & Before week 1 (ideally at home the week before), 15 min & Covers Level 2:
+Placement quiz & Start of week 1 (in the warm-up), 15 min & Covers Level 2:
 functions with return, lists, dicts, \texttt{while}, files, a pytest test. Score out of 20.
 \textbf{16--20:} standard path, offer extension tasks. \textbf{10--15:} standard path with the
 support notes in weeks 1--3, plus the refresher listed in the answer key. \textbf{Below 10:} run a
@@ -374,7 +384,8 @@ queues. Use the results to choose the focus of the week 6 review and whether to 
 before week 7.\\ \midrule
 Exit assessment & Week 12, 20 min & Recursion, grids, data, AI concepts: read, predict, fix,
 design and explain. Combined with the project, it tells you whether a student is ready to work
-independently on Python projects.\\ \midrule
+independently on Python projects. It has nine questions, two of them written answers, so watch the
+clock: if children are still writing at 20 minutes, give up to 5 more minutes from the gallery walk.\\ \midrule
 Project rubric & Weeks 9--12 & Six criteria: creativity, working code, design/OOP, testing, git
 history, explaining design decisions. Explaining counts as much as code. Full rubric in the
 project teacher guide.\\ \midrule
@@ -404,9 +415,9 @@ Every lesson plan has a support path and an extension path. In short:
 4 & Linear search only, count steps on paper & Binary search on 1000 numbers, compare step counts in a table\\ \midrule
 5 & Use \texttt{sorted(key=...)} instead of writing a sort & Write bubble sort and count the swaps; undo with a stack\\ \midrule
 6 & Redo one favorite exercise from weeks 2--5 & Fix the hardest bug-hunt station with the debugger only\\ \midrule
-7 & Draw fractal trees by changing depth/angle only & Flood fill on a grid; then try BFS shortest path\\ \midrule
-8 & Count with a dict; chart already drawn & Clean a messier CSV; add averages and a second chart\\ \midrule
-9 & Classify by hand first, then run the given classifier & k-nearest neighbors (3 vote); compare accuracy\\ \midrule
+7 & Exercises 7.1 and 7.2 only; trace \texttt{sum\_to(3)} with sticky notes or the debugger & Count separate regions with flood fill; Sierpinski triangle\\ \midrule
+8 & Do 8.1 and 8.2 as a group; run the bar chart solution and change only colors & Average stars per genre; save a report to a text file; grouped bar chart\\ \midrule
+9 & Do 9.1 together and act out \texttt{nearest} with the cards; just run 9.3 & Markov chain keyed on two words; a confusion table for 9.2\\ \midrule
 10 & Start from a starter template; two classes only & Design an extra class with composition; write tests first\\ \midrule
 11 & Five simple tests (one per method); README from the template & Edge-case tests; tests for the saved file with \texttt{tmp\_path}\\ \midrule
 12 & Present with a prompt card; demo one feature & Explain one alternative design and why they rejected it\\
@@ -564,15 +575,15 @@ well before the winter holidays. Move it to any weekday you like.
 \toprule
 \rowcolor{kcaccent!15} Date & Session & Notes\\ \midrule\endhead
 \bottomrule\endfoot
-Sat 4 Sep & --- (no session) & Labor Day weekend. Hand out the placement quiz to do at home.\\
-Sat 11 Sep & Week 1: Save Points & Collect the placement quiz; parent notes go home.\\
+Sat 4 Sep & --- (no session) & Labor Day weekend.\\
+Sat 11 Sep & Week 1: Save Points & Placement quiz in the warm-up; parent notes go home.\\
 Sat 18 Sep & Week 2: Objects &\\
 Sat 25 Sep & Week 3: Families of Objects &\\
 Sat 2 Oct & Week 4: Searching &\\
 Sat 9 Oct & Week 5: Sorting, Stacks, Queues & Indigenous Peoples'/Columbus Day is Mon 11 Oct.\\
 Sat 16 Oct & Week 6: Review + Checkpoint & Never skip.\\
 Sat 23 Oct & Week 7: Fractal Art &\\
-Sat 30 Oct & Week 8: Data Detectives & Halloween weekend. Collect the paper survey the week before.\\
+Sat 30 Oct & Week 8: Data Detectives & Halloween weekend.\\
 Sat 6 Nov & Week 9: Machines Learn + kickoff & Hand out the project brief.\\
 Sat 13 Nov & Week 10: Project Studio 1 &\\
 Sat 20 Nov & Week 11: Project Studio 2 &\\
@@ -593,23 +604,24 @@ harder way). Written from the master syllabus.
 \toprule
 \rowcolor{kcaccent!15} Goal & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & B1 & B2\\ \midrule
 G1 OOP     &     & \cvI & \cvE &      &      & \cvR &      &      &      & \cvE & \cvR & \cvR &      &     \\
-G2 Algor.  &     &      &      & \cvI & \cvE & \cvR & \cvE &      &      &      &      & \cvR & \cvR &     \\
-G3 Data str.& \cvR & \cvR &     &      & \cvI & \cvR & \cvE & \cvR &      & \cvR &      & \cvR & \cvR &     \\
+G2 Algor.  &     &      &      & \cvI & \cvE & \cvR & \cvE &      & \cvR &      &      & \cvR & \cvR &     \\
+G3 Data str.& \cvR & \cvR & \cvR &      & \cvI & \cvR & \cvE & \cvR &      & \cvR &      & \cvR & \cvR &     \\
 G4 git     & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR &      & \cvR\\
 G5 Project &     &      &      &      &      &      &      &      & \cvI & \cvR & \cvE & \cvR &      & \cvR\\
 G6 Data    &     &      &      &      &      &      &      & \cvI & \cvR &      &      & \cvR &      &     \\
 G7 AI      &     &      &      &      &      &      &      &      & \cvI &      &      & \cvR &      &     \\
-G8 Test/debug & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR &  & \cvR\\
-G9 Ethics  & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & \cvR &      &     \\
+G8 Test/debug & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & \cvR\\
+G9 Ethics  & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & \cvR & \cvR &     \\
 \bottomrule
 \end{tabularx}
 \endgroup
 
-\textbf{Notes.} G4: from week 2 every session ends with a commit (R); week 11 needs a project
-history of 8+ meaningful commits (\textbf{E}\textsuperscript{+}). G8: bug hunts revisit debugging
+\textbf{Notes.} G4: from week 2 every session ends with a commit (R); weeks 10--11 build a project
+history towards 8+ meaningful commits by the showcase (\textbf{E}\textsuperscript{+} in week 11). G8: bug hunts revisit debugging
 every week; the Thonny debugger is introduced in week 6; project tests extend testing in week 11.
-G3: lists and dicts are revisited in weeks 1, 2 and 8; stacks/queues are new in week 5 and grids in
-week 7.
+G3: lists and dicts are revisited in weeks 1, 2, 3 (a class that holds a list of objects) and 8;
+stacks/queues are new in week 5 and grids in week 7. G2 in week 9: \texttt{nearest} is the
+\enquote{find the smallest} pattern, and k-nearest neighbors sorts with \texttt{key=}.
 
 \subsection{(b) Objectives $\rightarrow$ lessons}
 The table below is generated automatically from the lesson plans' objectives.

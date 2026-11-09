@@ -10,6 +10,8 @@ def print_card(hero_name, power, level):
     print(f"  HERO:         {hero_name}")
     # TODO 2: add a line that shows the power, like the HERO line above.
     print(f"  Level:        {level}")
+    # TODO 1, part 2: this line glues text and a number together with "+",
+    #         which still crashes after part 1. Write it as an f-string too.
     print("  Next level:   " + level + 1)
     # TODO 3: show power_points with an f-string.
     # TODO 4: make a variable health = level * 12.5 and show it.
@@ -23,6 +25,6 @@ if __name__ == "__main__":
     print("Welcome to the Hero Card Maker!")
     hero_name = input("Hero name (make one up - not your real name): ")
     power = input("Super power: ")
-    # TODO 1: input() always gives back TEXT. Turn it into a whole number.
+    # TODO 1, part 1: input() always gives back TEXT. Turn it into a whole number.
     level = input("Level (a whole number, 1 to 20): ")
     print_card(hero_name, power, level)

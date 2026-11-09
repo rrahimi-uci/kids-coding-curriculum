@@ -23,7 +23,7 @@
   \timeslot{0--8}{Warm-up}{Recipe cards: split \enquote{Throw a party} into named sub-recipes; one card has a blank to fill in (an input).}
   \timeslot{8--18}{Concept}{My Blocks = a named recipe card; inputs = the blank. Broadcast = an announcement; \enquote{when I receive} = listening for exactly that announcement.}
   \timeslot{18--28}{Guided demo}{Shape Machine: make the My Block \enquote{polygon (sides) (length)} and draw four shapes with one line each.}
-  \timeslot{28--52}{Hands-on build}{Pairs, swap every 8 minutes. 5.1 Shape Machine, 5.2 Stamp Garden, 5.3 Show Time (with the nobody-receives bug hunt). Accessibility check with grayscale. Last 5 minutes free-build.}
+  \timeslot{28--52}{Hands-on build}{Pairs, swap every 8 minutes. 5.1 Shape Machine (own copy, about 5 min), 5.3 Show Time (with the nobody-receives bug hunt), then 5.2 Stamp Garden if there is time (otherwise at home). Accessibility check with grayscale (2 min). Last 5 minutes free-build.}
   \timeslot{52--60}{Wrap-up}{Show-and-tell, exit ticket, reflection, hand out homework 5. Remind: next week is review and the checkpoint.}
 \end{timeplan}
 
@@ -53,7 +53,7 @@ With 1 student: do the cards together; the child writes the main plan.
 \begin{workedexample}[Shape Machine (Exercise 5.1)]
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
   \item New project. Add the \menu{Pen} extension (blue button, bottom left). Set the cat's \menu{Size} to 40.
-  \item Click \menu{My Blocks} $\rightarrow$ \menu{Make a Block}. Type \texttt{polygon}. Click \menu{Add an input (number or text)} and type \texttt{sides}. Click it again and type \texttt{length}. Click \menu{OK}. Leave \enquote{Run without screen refresh} unticked. A pink \enquote{define polygon (sides) (length)} hat appears.
+  \item Click \menu{My Blocks} $\rightarrow$ \menu{Make a Block}. Type \texttt{polygon}. Click \menu{Add an input (number or text)} and type \texttt{sides}. Click it again and type \texttt{length}. Click \menu{OK}. Leave \enquote{Run without screen refresh} unchecked. A pink \enquote{define polygon (sides) (length)} hat appears.
   \item Build the recipe under the define hat. To use an input, drag the little \texttt{sides} or \texttt{length} oval \textbf{out of the define hat} into a slot. The \enquote{/} block is in \menu{Operators}.
   \item Build the main script, using the new pink \enquote{polygon} block from the palette four times. Click the flag.
   \item Ask: \enquote{How would you add a pentagon?} (One more block: polygon 5 70.) \enquote{That's the power of a My Block.}
@@ -87,7 +87,7 @@ With 1 student: do the cards together; the child writes the main plan.
 Swap every 8 minutes. Before building a My Block, the navigator says its name and inputs out loud (\enquote{flower, with an input called size}) and checks the spelling in the dialog. With 1 student: you navigate, then swap. With 3: driver, navigator, tester (checks every sprite's scripts and checks off the checklist). With 4: two pairs, and in Show Time each pair builds one sprite of the other pair's show.
 \end{pairroles}
 
-Work through the workbook: \textbf{5.1} Shape Machine (own copy, then add a pentagon and a star), \textbf{5.2} Stamp Garden (paint a flower, a \enquote{flower (size)} block and a \enquote{grass} block), \textbf{5.3} Show Time (a presenter and a dancer pass messages).
+Work through the workbook: \textbf{5.1} Shape Machine (own copy, then add a pentagon), \textbf{5.3} Show Time (a presenter and a dancer pass messages), then \textbf{5.2} Stamp Garden (paint a flower, a \enquote{flower (size)} block and a \enquote{grass} block). The three exercises take more than 24 minutes, so do 5.1 and 5.3 first: they hold the two big ideas. Stamp Garden is for fast pairs, free time or home.
 
 \begin{bughunt}[The show that never starts]
 In Exercise 5.3, the workbook shows Ada's dancer listening for \enquote{when I receive show start} while the presenter broadcasts \enquote{start show}. Students build it as printed: the presenter speaks and then\ldots{} nothing. Ask: \enquote{Was a message sent? Who was listening for it?} Fix: in the dancer's hat block, pick \enquote{start show} from the dropdown, so both use the same message. Tip: always choose messages from the dropdown instead of making a new one with a similar name.
@@ -121,7 +121,7 @@ Ask: \enquote{Why is \enquote{polygon 6 60} easier to read than the blocks insid
 \begin{commonmistakes}
   \item \textbf{Typing the input name instead of dragging it.} Writing the word \texttt{sides} into the repeat slot does nothing useful. Drag the oval out of the define hat.
   \item \textbf{Define block with nothing calling it.} The recipe exists but nobody uses it. The pink block must appear in a script that starts with an event.
-  \item \textbf{Message names that do not match.} \enquote{start show} vs \enquote{show start} vs \enquote{Start Show}. Pick from the dropdown.
+  \item \textbf{Message names that do not match.} \enquote{start show} vs \enquote{show start} vs \enquote{startshow}. Pick from the dropdown. (Scratch ignores capital letters in message names, so \enquote{Start Show} would still work; word order, spaces and punctuation do matter.)
   \item \textbf{Stamping does not appear.} The sprite is hidden while stamping (hide before the loop) or \enquote{erase all} comes after the stamps. Hide only at the end.
   \item \textbf{Flowers all the same color.} \enquote{change color effect} needs to be inside the My Block or the loop; \enquote{clear graphic effects} at the start resets it.
 \end{commonmistakes}

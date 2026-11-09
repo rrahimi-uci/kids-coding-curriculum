@@ -6,7 +6,7 @@
    moment the **safety net** stops the loop with a `RuntimeError`.
    (Without a safety net, you would press the red **Stop** button.)
 2. Make a trace table on paper. Follow the code line by line and write down
-   the value of each variable every time round the loop:
+   the value of each variable every time through the loop:
 
 | round | n | numbers |
 |---|---|---|
@@ -14,7 +14,7 @@
 | 2 | | |
 | 3 | | |
 
-3. What should change every time round the loop, but never does? Fix it.
+3. What should change every time through the loop, but never does? Fix it.
 
 **Done looks like:**
 

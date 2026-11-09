@@ -141,7 +141,7 @@ if __name__ == "__main__":
     for number in range(NUMBER_OF_METEORS):
         meteors.append(make_meteor())
 
-    # Hand over the functions themselves: no brackets after go_left, because
+    # Hand over the functions themselves: no parentheses after go_left, because
     # we want turtle to call them LATER, when the key is pressed.
     screen.onkey(go_left, "Left")
     screen.onkey(go_right, "Right")
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Writing screen.onkey(go_left(), "Left") with brackets. That calls
+# - Writing screen.onkey(go_left(), "Left") with parentheses. That calls
 #   go_left straight away (and passes its answer to onkey) instead of
 #   waiting for the key.
 # - Forgetting screen.listen(): the keys do nothing at all.
@@ -161,7 +161,7 @@ if __name__ == "__main__":
 #   meteors move once and then stop.
 # - Comparing only the x values in is_touching(): a meteor far above the
 #   player would count as a hit. The distance must use both x and y.
-# - Writing the clamp the wrong way round, e.g. clamp(x, limit, -limit),
+# - Writing the clamp the wrong way around, e.g. clamp(x, limit, -limit),
 #   which makes the player stick or jump.
 #
 # Another correct way: is_touching() without math.dist, using Pythagoras:

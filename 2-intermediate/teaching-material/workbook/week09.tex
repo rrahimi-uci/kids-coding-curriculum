@@ -20,8 +20,8 @@ def go_left():
 screen.onkey(go_left, "Left")   # when Left is pressed, call go_left
 screen.listen()                 # switch on the "doorbell" for keys
 \end{pycode}
-Notice: \texttt{go\_left} has \textbf{no brackets} in the \texttt{onkey} line. We hand turtle the function, and turtle calls it later.
-With brackets, Python would call it right away, only once.
+Notice: \texttt{go\_left} has \textbf{no parentheses} in the \texttt{onkey} line. We hand turtle the function, and turtle calls it later.
+With parentheses, Python would call it right away, only once.
 
 \subsection{The game loop}
 A game is like a flip book: every \textbf{frame} the world moves a tiny bit. Our game loop does one frame, then asks turtle to call it again soon.
@@ -60,6 +60,8 @@ def game_loop():
 \subsection{Touching = close enough}
 Two things touch when the distance between them is small. \texttt{math.dist} measures the distance between two points:
 \py|math.dist((0, 0), (30, 40))| gives \texttt{50.0}. If that is less than about 30, the meteor hit the player.
+Turtles have the same measure built in: \py|player.distance(meteor)| is the distance between two turtles, so
+\py|player.distance(meteor) < 30| also means \enquote{touching}.
 
 \begin{exercise}[Etch-a-Sketch]
 Folder: \texttt{exercises/week09/ex-etch-a-sketch}. Run \texttt{starter.py}, \textbf{click the window}, press the Up arrow.
@@ -95,7 +97,8 @@ A program that makes designs (often random) and can save and load them, like Dot
 \end{tabular}
 \end{center}
 Both must use: functions that return values, a list, a dictionary, a loop or game loop, a file, and at least 3 tests.
-\textbf{Milestone M1 (start of next week):} Planning page 1 (pitch), page 2 (pseudocode or flowchart) and, in a pair, page 3 (task split).
+\textbf{Milestone M1:} Planning page 1 (your pitch) is homework this week. Page 2 (pseudocode or flowchart) and, in a pair,
+page 3 (task split) are finished together at the start of next week; you may start page 2 at home if you like.
 
 \begin{tip}[Borrowing pictures or sounds]
 Pictures and sounds belong to the people who made them. Only use ones with an open license (CC0: free for anyone; CC BY: free if you give credit),

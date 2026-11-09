@@ -14,5 +14,6 @@ all closed.
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 
-**Extra:** add a fourth shape below the others (try `t.goto(-50, -200)`):
-an octagon (8 sides) in purple `"#CC79A7"`.
+**Extra:** add a fourth shape below the others: an octagon (8 sides) in
+purple `"#CC79A7"`. Lift the pen first, like the other shapes, then try
+`t.goto(-50, -200)`.

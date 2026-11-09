@@ -7,6 +7,8 @@ four data types (text, whole numbers, decimal numbers and True/False).
 2. Type a made-up hero name (never your real name), a power and a level.
 3. A red error appears: `TypeError: can only concatenate str (not "int") to str`.
    That is this week's bug hunt! Read the last line of the error, then do **TODO 1**.
+   It has two parts: part 1 turns the level into a number with `int()`, and
+   part 2 rewrites the `Next level` line as an f-string. You need both.
 4. Do TODO 2 to TODO 5. Run after each one.
 
 **Done looks like:**

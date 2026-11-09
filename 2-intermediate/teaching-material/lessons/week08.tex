@@ -76,13 +76,14 @@ cases on purpose (an empty list, a value exactly on the limit) so that players n
   \item Write TODO 1 together: \py|assert clamp(-3, 0, 10) == 0, "-3 is too small, so it should become 0"|. Run: \texttt{PASSED}.
   \item Now change the expected \texttt{0} to \texttt{5} and run again. Read the failure from the \textbf{bottom up}:
 \begin{outputcode}
-starter.py::test_middle_value_stays_the_same PASSED     [ 50%]
-starter.py::test_too_small_goes_up_to_low FAILED        [100%]
+starter.py::test_middle_value_stays_the_same PASSED     [ 33%]
+starter.py::test_too_small_goes_up_to_low FAILED        [ 66%]
+starter.py::test_too_big_comes_down_to_high PASSED      [100%]
 >       assert clamp(-3, 0, 10) == 5, "-3 is too small, so it should become 0"
 E       AssertionError: -3 is too small, so it should become 0
 E       assert 0 == 5
 E        +  where 0 = clamp(-3, 0, 10)
-============ 1 failed, 1 passed in 0.03s ============
+============ 1 failed, 2 passed in 0.03s ============
 \end{outputcode}
         Say: \enquote{The last line is the score. The \texttt{E} lines say what happened: clamp gave back \texttt{0}, but the test expected \texttt{5}.
         Here the \emph{test} is wrong, not clamp. When a test fails, always ask: is the code wrong, or is my expectation wrong?} Change it back to \texttt{0}.
@@ -104,8 +105,8 @@ who reads every \texttt{FAILED} message aloud, bottom-up. \textbf{4 students:} t
 \end{pairroles}
 \begin{enumerate}[leftmargin=1.4em]
   \item \textbf{Exercise 8.1 Test the Clamp} (about 6 minutes): TODO 2 and TODO 3, then \texttt{check\_my\_work.py} until all 5 checks pass.
-  \item \textbf{Exercise 8.2 Test the Best Score} (\texttt{week08/ex-test-best-score}, about 8 minutes). The bugs hide at the edges: an empty list, the last score.
-  \item \textbf{Exercise 8.3 Fix the Bugs} (\texttt{week08/ex-fix-the-bugs}, about 8 minutes). This time the tests are written and the code is broken.
+  \item \textbf{Exercise 8.2 Test the Best Score} (\texttt{week08/ex-test-best-score}, about 7 minutes). The bugs hide at the edges: an empty list, the last score.
+  \item \textbf{Exercise 8.3 Fix the Bugs} (\texttt{week08/ex-fix-the-bugs}, about 6 minutes). This time the tests are written and the code is broken.
 \end{enumerate}
 
 \begin{bughunt}[Fix buggy functions using failing tests (Exercise 8.3)]
@@ -131,7 +132,7 @@ With 1 student, you do the breaking. Invent your own funny bug names (\enquote{t
 \begin{safety}[Trust: why apps need testing]
 Tell two true stories. \textbf{1999:} the Mars Climate Orbiter spacecraft was lost because one part of its software used one kind of units
 (pounds) and another part expected a different kind (newtons). Nobody had a test that checked the two parts together.
-\textbf{1996:} the first Ariane 5 rocket blew up 40 seconds after launch because a number got too big for the place it was stored, an edge case that was never tested.
+\textbf{1996:} the first Ariane 5 rocket blew up about 40 seconds after launch because a number got too big for the place it was stored, an edge case that was never tested.
 Ask: \enquote{Which apps do people trust every day?} (maps, messages, banking, games that save progress). \enquote{People can only trust software that has been
 tested. When you share a game, testing it is a way of being fair to the people who play it.}
 \end{safety}

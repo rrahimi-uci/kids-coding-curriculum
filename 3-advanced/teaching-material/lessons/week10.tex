@@ -69,8 +69,8 @@ cd ~/Documents/coding-projects
 mkdir maze-muncher
 cd maze-muncher
 git init
-# make muncher_logic.py in Thonny with empty classes, save it here
-git add muncher_logic.py
+# make muncher_model.py in Thonny with empty classes, save it here
+git add muncher_model.py
 git commit -m "Add empty Maze, Player and Ghost classes"
 git log --oneline
 \end{shellcode}
@@ -85,7 +85,7 @@ Computers closed. Each student writes one index card per class: name at the top,
 \begin{enumerate}[itemsep=2pt]
   \item \textbf{Class diagram} (3 min): workbook Exercise 10.2.
   \item \textbf{Repository} (3 min): copy \texttt{3-advanced/project/starter} into \texttt{Documents/coding-projects}, rename it to your project name, then in Terminal: \texttt{cd} into it, \texttt{git init}, first commit.
-  \item \textbf{Class skeletons} (5 min): each class with \texttt{\_\_init\_\_} and empty methods (\py|pass|). Commit after each class.
+  \item \textbf{Class skeletons} (4 min): each class with \texttt{\_\_init\_\_} and empty methods (\py|pass|). Commit after each class.
 \end{enumerate}
 
 \begin{pairroles}[Architect and builder]
@@ -125,7 +125,7 @@ Hand out homework 10 (project work: finish the core classes, 3+ commits).
 \end{commonmistakes}
 
 \begin{differentiation}
-\supportpath Start from the Maze Muncher design and change the theme (e.g. a bee collecting pollen, avoiding wasps). Two classes are enough: Player and Ghost-like enemy, plus a Game.
+\supportpath Start from the Maze Muncher design and change the theme (e.g. a bee collecting pollen, avoiding wasps). Two or three classes are enough: a Player, a Ghost-like enemy and a Game.
 \extensionpath Add a module diagram: which file holds which classes (logic file vs drawing file)? Write the first pytest test now.
 \end{differentiation}
 

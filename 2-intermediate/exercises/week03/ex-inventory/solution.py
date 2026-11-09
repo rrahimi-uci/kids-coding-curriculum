@@ -20,7 +20,7 @@ def has_item(backpack, item):
     """Return True if the item is somewhere in the backpack."""
     for thing in backpack:
         if thing == item:
-            return True        # found it, so we can stop looking straight away
+            return True        # found it, so we can stop looking right away
     return False               # only reached if the loop checked everything and found nothing
 
 
@@ -44,7 +44,7 @@ def show_backpack(backpack):
 
 
 if __name__ == "__main__":
-    backpack = ["torch", "rope"]
+    backpack = ["lantern", "rope"]
     add_item(backpack, "map")
     add_item(backpack, "apple")
     show_backpack(backpack)

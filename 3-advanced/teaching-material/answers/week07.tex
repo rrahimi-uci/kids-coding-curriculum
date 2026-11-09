@@ -19,22 +19,38 @@ Depth 1, 2, 3, 4, 5 $\rightarrow$ 1, 3, \textbf{7, 15, 31} lines. Pattern: each 
 \end{answer}
 
 \section{Exercise 7.3: Paint bucket}
-\pyfile[firstline=39,lastline=77]{../exercises/week07/ex-paint-bucket/solution.py}
+\pyfile[firstline=53,lastline=92]{../exercises/week07/ex-paint-bucket/solution.py}
 \begin{answer}[What to look for]
-The paint stops at the \textbf{edge of the grid}, at \textbf{walls} (\texttt{\#}) and at any cell that is \textbf{not the old color} (including cells already painted). Those are the base cases. The four recursive calls can be in any order. A missing \enquote{not the old color} check gives \texttt{RecursionError} -- the planned bug hunt. The drawing and click code (lines 79 onwards in \texttt{solution.py}) is given to students unchanged.
+The paint stops at the \textbf{edge of the grid}, at \textbf{walls} (\texttt{\#}) and at any cell that is \textbf{not the old color} (including cells already painted). Those are the base cases. The four recursive calls can be in any order. A missing \enquote{not the old color} check gives \texttt{RecursionError} -- the planned bug hunt. The drawing and click code (from the \texttt{drawing} comment onwards in \texttt{solution.py}) is given to students unchanged.
+\end{answer}
+
+\section{Stretch: BFS with a queue}
+\pyfile[firstline=95,lastline=115]{../exercises/week07/ex-paint-bucket/solution.py}
+\begin{answer}[What to look for (optional stretch)]
+Workbook question: in an empty 4-by-4 grid started at the top-left, the \textbf{bottom-right} square is visited last (it is 6 steps away). The loop must (1) \texttt{popleft()} from a \texttt{deque}, (2) \texttt{append} neighbors, and (3) mark a square \emph{when it joins the queue} so that it is never added twice. Forgetting the mark does not give a \texttt{RecursionError} but a loop that never ends (the queue keeps refilling). The result must equal \texttt{flood\_fill}: same painted squares. Using \texttt{pop()} instead of \texttt{popleft()} still fills correctly, but it visits in depth-first order, not rings.
 \end{answer}
 
 \section{Homework 7}
 \subsection{Core: Treasure map}
-\pyfile[firstline=24,lastline=61]{../exercises/week07/hw-treasure-map/solution.py}
+\pyfile[firstline=43,lastline=63]{../exercises/week07/hw-treasure-map/solution.py}
 \begin{answer}[Core]
 A corner cell has \textbf{2} neighbors (an edge cell 3); a middle cell has \textbf{4}. The program prints \texttt{Next to the start: [(1, 3), (3, 3), (2, 2), (2, 4)]} and the title \enquote{Treasure on this map: 2}. A loop with \py|if cell == tile| instead of \py|.count()| is equally good.
 \end{answer}
 
 \subsection{Challenge: Koch snowflake}
-\pyfile[firstline=13,lastline=32]{../exercises/week07/hw-koch-snowflake/solution.py}
+\pyfile[firstline=19,lastline=43]{../exercises/week07/hw-koch-snowflake/solution.py}
 \begin{answer}[Challenge]
 Depth 2 = \textbf{16} lines per side, depth 3 = \textbf{64} (each level multiplies by 4). Base case: depth 0 draws one straight line. If a student turns \texttt{left(120)} in \texttt{snowflake()}, the bumps point inwards -- an \enquote{anti-snowflake}, also a nice result.
+\end{answer}
+
+\begin{answer}[Challenge: BFS rings (stretch)]
+Visiting order (up, down, left, right):
+\begin{center}
+\begin{tabular}{ccc}
+1 & 3 & 6\\ 2 & 5 & 8\\ 4 & 7 & 9\\
+\end{tabular}
+\end{center}
+The highest number is \textbf{9}, the bottom-right square, \textbf{4} steps from the start. Distances: row 0 is 0, 1, 2; row 1 is 1, 2, 3; row 2 is 2, 3, 4. Accept a different order inside a ring if the student states a different neighbor order, but every ring must be finished before the next one starts (distances 0, 1, 2, 3, 4 appear in that order).
 \end{answer}
 
 \begin{answer}[Creative: my own fractal]

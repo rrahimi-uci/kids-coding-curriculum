@@ -3,26 +3,26 @@
 \lessoninfo{Concepts: pseudocode and flowcharts (I), decomposition (R), core loop (R), all Level 2 (R/E)}{Tools: Thonny, paper, sticky notes, the Project Brief}{CSTA: 2-AP-10, 2-AP-13, 2-AP-18, 2-IC-22}
 
 \begin{objectives}
-  \item The student can turn a project idea into pseudocode or a flowchart and point to the loop, the decisions and the data in it. (L2.G8)
-  \item The student can break the project into named functions and split the tasks fairly with a partner on a task board. (L2.G3, L2.G8)
-  \item The student can build a core loop that runs without crashing: a game timer loop or an art-studio menu loop (Milestone M2). (L2.G2, L2.G7)
-  \item The student can give kind, specific code-review feedback and act on feedback from a partner. (L2.G8)
+  \item The student can turn a project idea into pseudocode or a flowchart and point to the loop, the decisions and the data in it. (L2.G8; L2.W10.1)
+  \item The student can break the project into named functions and split the tasks fairly with a partner on a task board. (L2.G3, L2.G8; L2.W10.2)
+  \item The student can build a core loop that runs without crashing: a game timer loop or an art-studio menu loop (Milestone M2). (L2.G2, L2.G7; L2.W10.3)
+  \item The student can give kind, specific code-review feedback and act on feedback from a partner. (L2.G8; L2.W10.4)
 \end{objectives}
 
 \begin{materials}
-  \item Print: workbook chapter 10 and homework 10 (one per student). Each team brings its Project Brief and its Milestone M1 sheet from week 9.
+  \item Print: workbook chapter 10 and homework 10 (one per student). Each team brings its Project Brief with the pitch page (Planning page 1) filled in.
   \item Paper, pencils and a few coins (paper prototype); per team a task board: a sheet folded into three columns labeled \textbf{TO DO}, \textbf{DOING}, \textbf{DONE}, plus 10 sticky notes.
   \item On each Mac: Thonny open and a folder \texttt{Documents/my-project} per team (Finder, \keys{Cmd}+\keys{Shift}+\keys{N}). Teams may copy the files from \texttt{2-intermediate/project/starter/} into it, or start from a blank file.
-  \item A timer for 8-minute swaps. Prep: read this plan (10 minutes). Milestones: M1 plan (week 9) → \textbf{M2 core loop (today)} → M3 data and tests, M4 polish (week 11) → Showcase (week 12); full rubric in the Project Teacher Guide.
+  \item A timer for 8-minute swaps. Prep: read this plan (10 minutes). Milestones: M1 pitch and plan (weeks 9--10) → \textbf{M2 core loop (today)} → M3 data and tests, M4 polish (week 11) → Showcase (week 12); full rubric in the Project Teacher Guide.
 \end{materials}
 
 \needspace{16\baselineskip}
 \section{At a glance}
 \begin{timeplan}
-  \timeslot{0--8}{Warm-up}{Paper prototype: each team acts out one minute of its game or studio. Check Milestone M1 (pseudocode or flowchart + task split).}
-  \timeslot{8--18}{Concept}{From plan to code: name the functions, build the \enquote{skateboard} first, split tasks fairly on a task board.}
+  \timeslot{0--8}{Warm-up}{Paper prototype: each team acts out one minute of its game or studio. Check the pitch page (M1, part 1).}
+  \timeslot{8--18}{Concept}{Pseudocode and flowcharts; each team writes its plan (M1, part 2); name the functions, build the \enquote{skateboard} first, split tasks fairly on a task board.}
   \timeslot{18--28}{Guided demo}{You type a core-loop skeleton from pseudocode: settings dictionary, state dictionary, one logic function, keys, timer loop.}
-  \timeslot{28--52}{Hands-on build}{Teams build their own core loop (M2). Swap every 8 minutes. Minute 44: partner code review. Last 4 minutes: free-build personal touch.}
+  \timeslot{28--52}{Hands-on build}{Teams build their own core loop (M2). Swap every 8 minutes. Minutes 44--49: partner code review. Last 3 minutes: free-build personal touch.}
   \timeslot{52--60}{Wrap-up}{Each team shows its core running (30 seconds). Check off M2. Exit ticket, reflection, homework 10.}
 \end{timeplan}
 
@@ -38,9 +38,8 @@ checks for touches. The other student is \textbf{the player} and calls \enquote{
 After one minute ask: \enquote{What did the computer have to remember?} Those answers are the
 variables, the list and the dictionary. With 1 student, you are the computer.
 
-\textbf{M1 check} (1 minute per team): the plan shows a loop, at least one decision
-(\enquote{if the star touches the basket}), the data (a list, a dictionary, a file) and at least
-three function names. Add anything missing in pencil now.
+\textbf{Pitch check} (1 minute per team, M1 part 1): Planning page 1 has a name, one sentence, and a
+line each for the list, dictionary, file and loop. Add anything missing in pencil now.
 \end{unplugged}
 
 \section{Concept (8--18 min)}
@@ -61,7 +60,11 @@ the car. Every version works. Our core loop is the skateboard.
 \end{analogy}
 
 Then open workbook chapter 10 at the flowchart: ovals are start and end, rectangles are steps,
-diamonds are yes/no questions. Trace one lap of the loop with your finger.
+diamonds are yes/no questions. Trace one lap of the loop with your finger. Then each team writes its
+own plan (Planning page 2 in the Project Brief, or the box in workbook exercise 10.1): 4--6 lines of
+pseudocode or a small flowchart. \textbf{M1 check} (part 2): the plan shows a loop, at least one
+decision (\enquote{if the star touches the basket}), the data (a list, a dictionary, a file) and at
+least three function names; those names become the sticky notes on the task board.
 
 \section{Guided demo (18--28 min)}
 \begin{workedexample}[From pseudocode to a walking skeleton]
@@ -72,7 +75,7 @@ step so the students see that every step works:
   \item The pseudocode as \texttt{\#} comments first: \enquote{set up}, \enquote{every tick: move, check, score}.
   \item \texttt{SETTINGS} (numbers we may change later) and \texttt{state} (things that change while playing): two dictionaries.
   \item \texttt{clamp} and \texttt{next\_x}: pure logic, no turtle. Say: \enquote{This is the brain. Next week we test the brain.}
-  \item The key handlers and \texttt{game\_loop}. Point at this line:\newline \texttt{screen.ontimer(game\_loop, 50)}\newline \enquote{Run me again in 50 milliseconds. No brackets after \texttt{game\_loop}: we hand the function over, we do not call it now.}
+  \item The key handlers and \texttt{game\_loop}. Point at this line:\newline \texttt{screen.ontimer(game\_loop, 50)}\newline \enquote{Run me again in 50 milliseconds. No parentheses after \texttt{game\_loop}: we hand the function over, we do not call it now.}
   \item The start-up code under \texttt{if \_\_name\_\_ == "\_\_main\_\_":} so tests can import this file without opening a window.
 \end{enumerate}
 Press \keys{F5}, click inside the turtle window, press \keys{←} and \keys{→}: the square slides and
@@ -134,11 +137,11 @@ after each change), rotating all three roles. \textbf{4:} two teams; you float b
 
 Goal by minute 44, \textbf{M2}: arcade teams have a player that moves with keys and one thing that
 moves by itself on the timer; Art Studio teams have a menu loop that draws something and quits
-cleanly. Teams may remix the week 9 \enquote{Dodge the Meteors} exercise
+cleanly (teams that started from \texttt{art\_studio\_template.py}: a key that draws a new design and a key that saves it). Teams may remix the week 9 \enquote{Dodge the Meteors} exercise
 (\texttt{exercises/week09/ex-dodge-meteors/}) or pieces of Star Catcher, with a credit comment at
 the top, for example \texttt{\# Movement code remixed from Dodge the Meteors}.
 
-\begin{bughunt}[Partner code review (minute 44, 6 minutes)]
+\begin{bughunt}[Partner code review (minutes 44--49)]
 Teams swap seats (with one team, you and the student swap). The reviewer runs the other team's code
 and reads it with this checklist:
 \begin{checklist}
@@ -146,14 +149,14 @@ and reads it with this checklist:
   \item Are names clear? (\texttt{next\_x} good, \texttt{thing2} not so good.)
   \item Does each function do one job? Are numbers you might change in a settings dictionary?
 \end{checklist}
-Look out for the three classic week 9 bugs: \texttt{screen.onkey(go\_left(), "Left")} (the brackets
+Look out for the three classic week 9 bugs: \texttt{screen.onkey(go\_left(), "Left")} (the parentheses
 run the function once now, not on the key press), a missing \texttt{screen.listen()}, and a
 \texttt{game\_loop} that never calls \texttt{ontimer} again (things move once, then freeze).
 The reviewer writes \textbf{two stars and a wish} on a sticky note. The authors decide what to do
 with the wish: it is their project.
 \end{bughunt}
 
-\begin{freebuild}[Personal touch (last 4 minutes)]
+\begin{freebuild}[Personal touch (last 3 minutes)]
 Add one thing that makes it yours: a window title (\texttt{screen.title("Comet Catch")}), a palette
 background color, or a player shape (\texttt{"turtle"}, \texttt{"circle"}, \texttt{"triangle"}).
 \end{freebuild}
@@ -168,7 +171,7 @@ back); at least two functions written by the team; sticky notes in DONE.
 \textbf{Ask:} “In \texttt{screen.ontimer(game\_loop, 50)}, what does 50 mean, and why is there no
 \texttt{()} after \texttt{game\_loop}?”
 \textbf{Answer:} 50 milliseconds until the loop runs again. We hand the function to turtle so it can
-call it later; with brackets it would run once, straight away.
+call it later; with parentheses it would run once, straight away.
 \end{formativecheck}
 
 \begin{reflection}

@@ -5,7 +5,7 @@
 
 def door_opens(has_key, level):
     """Return True if the dragon door opens, otherwise False."""
-    # TODO 1: change this line. Use "and", "or" and brackets ( ).
+    # TODO 1: change this line. Use "and", "or" and parentheses ( ).
     if has_key:
         return True
     else:

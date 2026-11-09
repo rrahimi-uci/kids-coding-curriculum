@@ -11,7 +11,7 @@
 # connected to its key, and screen.listen() makes the window hear the keys.
 #
 #   screen.onkey(go_up, "Up")   means "when Up is pressed, call go_up"
-#   (no brackets after go_up: we hand over the function, we do not call it)
+#   (no parentheses after go_up: we hand over the function, we do not call it)
 
 import turtle
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     pen.speed(0)
     pen.pencolor(COLORS[0])
 
-    # Connect each key to its function (no brackets after the names).
+    # Connect each key to its function (no parentheses after the names).
     screen.onkey(go_up, "Up")
     screen.onkey(go_down, "Down")
     screen.onkey(go_left, "Left")
@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-# - Writing screen.onkey(go_down(), "Down") with brackets. That runs
+# - Writing screen.onkey(go_down(), "Down") with parentheses. That runs
 #   go_down once, straight away, instead of waiting for the key.
 # - Forgetting screen.listen(), or forgetting to click the window first:
 #   the keys seem to do nothing.

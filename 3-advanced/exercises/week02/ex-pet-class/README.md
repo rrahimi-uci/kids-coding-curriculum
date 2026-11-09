@@ -12,6 +12,7 @@ two pets that each keep their own numbers.
 
 ```
 Pip the dragon feels okay.
+Bo the robot cat feels okay.
 f = feed Pip, p = play with Pip, q = quit: p
 Pip the dragon feels happy. (hunger 6, happiness 7)
 Bo the robot cat feels okay. <- Bo did not change: a different object!

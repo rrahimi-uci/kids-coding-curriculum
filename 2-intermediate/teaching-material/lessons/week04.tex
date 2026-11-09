@@ -3,7 +3,7 @@
 \lessoninfo{Concepts: while (I), break (I), input validation (I), nested loops for pixel art (E)}{Tools: Thonny, paper, pencils}{CSTA: 2-AP-12, 2-AP-16, 2-IC-23}
 
 \begin{objectives}
-  \item The student can write a \texttt{while} loop that stops because a variable changes, and explain why a loop that never changes runs for ever. (L2.G2; L2.W04.1)
+  \item The student can write a \texttt{while} loop that stops because a variable changes, and explain why a loop that never changes runs forever. (L2.G2; L2.W04.1)
   \item The student can use \texttt{while True} with \texttt{break} or \texttt{return} to keep asking until an answer is valid. (L2.G2; L2.W04.2)
   \item The student can use a loop inside a loop to visit every pixel of a grid made from a list of strings. (L2.G7; L2.W04.3)
   \item The student can say what makes a game fair and name one trick a game should not play on its players. (L2.G9; L2.W04.4)
@@ -40,13 +40,13 @@ Play twice, then let a student be the secret-keeper.
 
 \section{Concept (8--18 min)}
 \begin{teacherscript}[Say]
-\enquote{In Level 1 you used \texttt{for} loops. A \texttt{for} loop knows in advance how many times to go round: \texttt{for i in range(4)} is
+\enquote{In Level 1 you used \texttt{for} loops. A \texttt{for} loop knows in advance how many times to go around: \texttt{for i in range(4)} is
 always four times. But in our guessing game nobody knew how many guesses it would take. For that we need a
-\textbf{while loop}. It keeps going round \emph{while} something is true, and checks again at the top every time.
+\textbf{while loop}. It keeps going around \emph{while} something is true, and checks again at the top every time.
 Important: something inside the loop must change, or the check never becomes false and the loop never stops.
 That is called an \textbf{infinite loop}. If it happens, press the red Stop button. It is not a disaster: every programmer does it.}
 \end{teacherscript}
-Write this on paper or a whiteboard and trace it together, writing the value of \texttt{n} each time round:
+Write this on paper or a whiteboard and trace it together, writing the value of \texttt{n} each time through:
 \begin{pycode}[Countdown with while]
 n = 3
 while n > 0:
@@ -54,12 +54,12 @@ while n > 0:
     n = n - 1        # the change that lets the loop end
 print("Go!")
 \end{pycode}
-Prints \texttt{3}, \texttt{2}, \texttt{1}, \texttt{Go!}. Ask: \enquote{What happens if I rub out the line \texttt{n = n - 1}?} (It prints 3 for ever.)
-Then show the other pattern: \texttt{while True:} goes round for ever on purpose, and \texttt{break} jumps out of the loop when we say so.
+Prints \texttt{3}, \texttt{2}, \texttt{1}, \texttt{Go!}. Ask: \enquote{What happens if I erase the line \texttt{n = n - 1}?} (It prints 3 forever.)
+Then show the other pattern: \texttt{while True:} goes around forever on purpose, and \texttt{break} jumps out of the loop when we say so.
 
 \begin{analogy}[The car journey]
 \enquote{Are we there yet?} is a while loop. While we are not there: drive a bit, then ask again. It works because the car moves.
-If the car stays parked, you can ask \enquote{Are we there yet?} for ever and the answer never changes: an infinite loop.
+If the car stays parked, you can ask \enquote{Are we there yet?} forever and the answer never changes: an infinite loop.
 \texttt{break} is like the driver saying \enquote{We are here, everybody out!}
 \end{analogy}
 
@@ -88,7 +88,7 @@ change and tries to break it). \textbf{4 students:} two pairs; at minute 44 each
 \begin{enumerate}[leftmargin=1.4em]
   \item \textbf{Exercise 4.1 Guess My Number} (about 10 minutes): finish TODO 2, input validation. Hint for stuck pairs:
         \texttt{answer.isdigit()} is \texttt{True} only when every character is a digit, so \texttt{int(answer)} is then safe.
-  \item \textbf{Exercise 4.2 Pixel Art} (folder \texttt{ex-pixel-art}, about 10 minutes): only the top row is drawn.
+  \item \textbf{Exercise 4.2 Pixel Art} (folder \texttt{ex-pixel-art}, about 8 minutes): only the top row is drawn.
         Fix: wrap the drawing in the outer loop \texttt{for row in grid:}, and after each row move down
         with \texttt{y = y - size}. Last, students finish the function \texttt{count\_pixels()} (TODO 2).
   \item After each exercise: open \texttt{check\_my\_work.py} and press \menu{Run}.
@@ -124,7 +124,7 @@ while energy > 0:
     print("jump")
     energy = energy - 2
 \end{pycode}
-\textbf{Answer:} 3 times (energy 6, 4, 2; then 0 stops it). Without the last line, energy stays 6 and it prints \texttt{jump} for ever: an infinite loop.
+\textbf{Answer:} 3 times (energy 6, 4, 2; then 0 stops it). Without the last line, energy stays 6 and it prints \texttt{jump} forever: an infinite loop.
 \textbf{Look for:} students who answer 2 or 4 need a trace table next week (the week 6 warm-up practices exactly this).
 \end{formativecheck}
 
@@ -156,7 +156,7 @@ In Pixel Art, make \texttt{draw\_grid} take a starting \texttt{x} and \texttt{y}
 \end{differentiation}
 
 \begin{stretchchallenge}[Computer guesses YOUR number]
-Turn the game round: the player thinks of a number from 1 to 100 and the computer guesses, using the halving trick from the warm-up.
+Turn the game around: the player thinks of a number from 1 to 100 and the computer guesses, using the halving trick from the warm-up.
 Keep \texttt{low = 1} and \texttt{high = 100}; guess \texttt{(low + high) // 2}; if the player says \enquote{higher}, set \texttt{low = guess + 1},
 if \enquote{lower}, \texttt{high = guess - 1}. How many guesses does it ever need? (At most 7.)
 \end{stretchchallenge}

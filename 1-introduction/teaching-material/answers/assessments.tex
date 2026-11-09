@@ -41,16 +41,18 @@ Survey section & What to do with it\\
 Keep the surveys private (in your folder, not on the wall). They contain no personal data beyond a nickname.
 
 %% ---------------------------------------------------------------------
-\section{Week 6: Mid-Level Checkpoint (8 points)}
+\section{Week 6: Mid-Level Checkpoint (9 points)}
 
 \subsection{Answers}
-\begin{answer}[Part A: What will the sprite do? (4 points)]
+\begin{answer}[Part A: What will the sprite do? (5 points)]
 \begin{description}[leftmargin=0pt,itemsep=3pt,font=\bfseries]
   \item[A1 (G2).] \textbf{A square.} Four times: move 100, turn 90 degrees. $4 \times 90 = 360$, a full turn.
   \item[A2 (G4).] \textbf{6.} The score starts at 0 and goes up by 2 three times: 2, 4, 6.
         A common wrong answer is \enquote{2} (thinking the loop runs once) or \enquote{3} (counting the repeats): ask them to trace it with a finger.
-  \item[A3 (G3).] \textbf{When the space key is pressed.} Not when the green flag is clicked: that is a different event hat block.
-  \item[A4 (G3).] \textbf{\enquote{OK, dogs then!}} The answer \texttt{no} is not equal to \texttt{yes}, so the \textbf{else} part runs.
+  \item[A3 (G3).] \textbf{When you click the sprite.} Not when the green flag is clicked: that is a different event hat block.
+  \item[A4 (G3).] \textbf{\enquote{OK}.} The sprite is not touching the edge, so the question is false and the \textbf{else} part runs.
+  \item[A5 (G5, G2).] \textbf{A triangle} with three sides of 100 steps. The inputs go into the slots in order:
+        sides = 3, length = 100, and each turn is $360 \div 3 = 120$ degrees. Give the point for \enquote{a triangle}.
 \end{description}
 \end{answer}
 
@@ -75,8 +77,8 @@ to 360 degrees, and $360 \div 3 = 120$. (Changing \enquote{repeat 3} to \enquote
 \end{answer}
 
 \needspace{10\baselineskip}\subsection{Scoring}
-Add up the points (0--8) and record the band:
-\bandtable{0--2 points}{3--4 points}{5--6 points}{7--8 points}
+Add up the points (0--9) and record the band:
+\bandtable{0--2 points}{3--5 points}{6--7 points}{8--9 points}
 \textbf{After the checkpoint:} for every question most students missed, re-teach it in the week-7 warm-up
 (5 minutes) or use buffer B1 (Unplugged Games Day) before starting Python. A student in \enquote{Just starting}
 needs the support path in weeks 7--9 (see the Teacher Guide) and more navigator time with a patient partner.
@@ -92,9 +94,9 @@ Goal & \faSeedling\ Just starting & \faShoePrints\ Getting there & \faCheckCircl
 \bottomrule\endfoot
 G1 Algorithms & Steps often out of order; needs help to sequence. & Orders familiar steps; misses hidden steps. & Writes and orders steps a robot could follow (B1). & Spots ambiguous steps and makes them precise.\\\midrule
 G2 Loops & Copies repeat blocks without predicting them. & Predicts simple repeats (A1). & Uses repeat to shorten code; knows what is inside vs after (B2). & Chooses repeat counts and angles with $360 \div n$ on their own.\\\midrule
-G3 Events and conditionals & Uses only the green flag. & Uses key events; if-blocks with help. & Predicts if/else (A3, A4); uses touching/sensing. & Combines events and conditions in own games.\\\midrule
+G3 Events and conditionals & Uses only the green flag. & Uses key events; if-blocks with help. & Predicts events and if/else (A3, A4); uses touching/sensing. & Combines events and conditions in own games.\\\midrule
 G4 Variables and random & Variable blocks used only when copied. & Sets/changes a score with help. & Traces a variable (A2); uses pick random. & Uses variables for new purposes (lives, timer, size).\\\midrule
-G5 Decomposition & One long script. & Uses broadcast with help. & Uses broadcasts and a My Block; can name the parts of a program. & Makes My Blocks with inputs and reuses them.\\\midrule
+G5 Decomposition & One long script. & Uses broadcast with help. & Uses broadcasts and a My Block, and predicts what a My Block call draws (A5); can name the parts of a program. & Makes My Blocks with inputs and reuses them.\\\midrule
 G6 Debugging & Asks for help straight away. & Finds a bug when told where to look. & Finds and fixes bugs like C1, C2. & Explains a strategy (test small parts, check names, act it out).\\
 \end{longtable}}
 

@@ -11,7 +11,7 @@
 
 \begin{materials}
   \item Print (one per student): workbook chapter 3, homework 3.
-  \item \enquote{Human list} cards (3 minutes): five cards reading \enquote{torch}, \enquote{rope}, \enquote{map}, \enquote{apple}, \enquote{key},
+  \item \enquote{Human list} cards (3 minutes): five cards reading \enquote{lantern}, \enquote{rope}, \enquote{map}, \enquote{apple}, \enquote{key},
         and five sticky notes numbered 0, 1, 2, 3, 4 for the floor. Fewer than 4 students? Stand cards up on chairs or hold them with soft toys.
   \item On each Mac: open \texttt{2-intermediate/exercises/week03/ex-palette-stripes/starter.py} in Thonny (\keys{Cmd}+\keys{O}).
   \item A timer, paper and pencils, and optionally colored pencils for the Wrap-up.
@@ -30,10 +30,10 @@ Times are a guide: set a timer for each phase and move on when it rings.
 
 \section{Warm-up (0--8 min)}
 \begin{unplugged}[Human list]
-Stick the numbered notes on the floor in a row: 0, 1, 2, 3. Four students (or chairs) hold \enquote{torch}, \enquote{rope}, \enquote{map}, \enquote{apple}
+Stick the numbered notes on the floor in a row: 0, 1, 2, 3. Four students (or chairs) hold \enquote{lantern}, \enquote{rope}, \enquote{map}, \enquote{apple}
 and stand on them. Say: \enquote{This line is a list called \texttt{backpack}.} Then call out, and let them act:
 \begin{itemize}[leftmargin=1.2em]
-  \item \enquote{\texttt{backpack[0]}, step forward!} (torch) \quad \enquote{\texttt{backpack[2]}!} (map)
+  \item \enquote{\texttt{backpack[0]}, step forward!} (lantern) \quad \enquote{\texttt{backpack[2]}!} (map)
   \item \enquote{\texttt{len(backpack)}?} Everyone counts: 4.
   \item \enquote{\texttt{backpack.append("key")}}: a new card joins at the \emph{end}, on note 4.
   \item \enquote{\texttt{backpack[5]}!} Nobody is there. Everyone shouts \enquote{IndexError!}
@@ -49,16 +49,16 @@ Each item has a position number called its \textbf{index}, and Python starts cou
 \end{teacherscript}
 
 \begin{pycode}[Lists in four lines]
-backpack = ["torch", "rope", "map"]
-backpack.append("apple")            # ["torch", "rope", "map", "apple"]
-print(len(backpack), backpack[0], backpack[-1])   # 4 torch apple
+backpack = ["lantern", "rope", "map"]
+backpack.append("apple")            # ["lantern", "rope", "map", "apple"]
+print(len(backpack), backpack[0], backpack[-1])   # 4 lantern apple
 for item in backpack:               # visits every item, in order
     print(item)
 \end{pycode}
 
-\begin{analogy}[Lockers in a corridor]
+\begin{analogy}[Lockers in a hallway]
 A list is a row of lockers. The first locker has the number 0 painted on it. To get something you need the locker number (the index),
-not the thing's name. If the corridor has 4 lockers, they are numbered 0 to 3: ask for locker 4 and the caretaker says
+not the thing's name. If the hallway has 4 lockers, they are numbered 0 to 3: ask for locker 4 and the custodian says
 \enquote{that locker does not exist}. That is Python's \texttt{IndexError}. \texttt{-1} is a shortcut for \enquote{the last locker}.
 \end{analogy}
 
@@ -145,7 +145,7 @@ Hand out homework 3 (Loot Bag).
 \begin{commonmistakes}
   \item \textbf{Counting from 1.} \texttt{items[1]} is the \emph{second} item. The first is \texttt{items[0]}.
   \item \textbf{One past the end.} \texttt{items[len(items)]} always crashes. The last item is \texttt{items[len(items) - 1]} or \texttt{items[-1]}.
-  \item \textbf{Forgetting the brackets or quotes.} \texttt{["torch", rope]} gives \texttt{NameError}: text needs quotes.
+  \item \textbf{Forgetting the brackets or quotes.} \texttt{["lantern", rope]} gives \texttt{NameError}: text needs quotes.
   \item \textbf{\texttt{append} with an equals sign.} \texttt{backpack = backpack.append("map")} sets the list to \texttt{None}. Just write \texttt{backpack.append("map")}.
   \item \textbf{Mixing up the loops.} In \texttt{for item in backpack}, \texttt{item} is the thing itself; in \texttt{for i in range(len(backpack))}, \texttt{i} is the index number.
   \item \textbf{x not moving.} If every stripe lands in the same place, \texttt{x = x + width} is missing or not indented inside the loop.

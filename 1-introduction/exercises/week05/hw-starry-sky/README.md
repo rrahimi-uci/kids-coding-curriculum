@@ -9,7 +9,7 @@
    (for example **Stars**, or paint the backdrop dark blue).
 2. **My Blocks > Make a Block**: name it `star`, add an input `size`, click **OK**.
 3. Build both scripts. Drag `size` out of the define hat into the move block.
-4. For the pen color, click the color circle and set
+4. For the pen color, click the color circle and drag the sliders until they show
    **Color 16, Saturation 72, Brightness 94** (yellow from the color-safe paint box).
 5. Click the green flag. Save as `starry-sky`.
 

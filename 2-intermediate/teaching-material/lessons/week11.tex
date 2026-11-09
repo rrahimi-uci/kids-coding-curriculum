@@ -3,10 +3,10 @@
 \lessoninfo{Concepts: tests for own functions (R), files (R), lists and dictionaries (R), feedback (R), accessibility (R)}{Tools: Thonny, pytest, feedback cards}{CSTA: 2-AP-17, 2-AP-15, 2-IC-21}
 
 \begin{objectives}
-  \item The student can write at least 3 pytest tests (normal and edge cases) for the team's own functions and run them. (L2.G6)
-  \item The student can add a list, a dictionary and a file that saves and loads to the project (Milestone M3). (L2.G4, L2.G5)
-  \item The student can run a playtest, record feedback on cards and turn it into a bug list ordered by importance. (L2.G8)
-  \item The student can check the project for accessibility and make at least one improvement (Milestone M4). (L2.G9)
+  \item The student can write at least 3 pytest tests (normal and edge cases) for the team's own functions and run them. (L2.G6; L2.W11.1)
+  \item The student can add a list, a dictionary and a file that saves and loads to the project (Milestone M3). (L2.G4, L2.G5; L2.W11.2)
+  \item The student can run a playtest, record feedback on cards and turn it into a bug list ordered by importance. (L2.G8; L2.W11.3)
+  \item The student can check the project for accessibility and make at least one improvement (Milestone M4). (L2.G9; L2.W11.4)
 \end{objectives}
 
 \begin{materials}
@@ -20,7 +20,7 @@
 \begin{timeplan}
   \timeslot{0--8}{Warm-up}{M2 round: each team runs its core loop in 30 seconds. Introduce the playtest feedback cards.}
   \timeslot{8--18}{Concept}{Test the brain, not the paint: which functions can pytest check? The main guard, test-only file names, normal and edge cases.}
-  \timeslot{18--28}{Guided demo}{You add save/load high score to the skeleton, write \texttt{test\_mygame.py}, run it in the system shell, break the code on purpose, see FAILED, fix it.}
+  \timeslot{18--28}{Guided demo}{You add save/load high score to the skeleton, write \texttt{test\_mygame.py}, press Run to see PASSED, break the code on purpose, see FAILED, fix it.}
   \timeslot{28--52}{Hands-on build}{28--40: M3 data and 3 tests. 40--46: playtest swap with feedback cards. 46--52: M4 polish, accessibility check, free-build.}
   \timeslot{52--60}{Wrap-up}{Show passing tests, read one kind card aloud, exit ticket, reflection, homework 11.}
 \end{timeplan}
@@ -49,7 +49,7 @@ the edge of the screen, a score of 0, a file that does not exist yet.”
 
 \begin{analogy}[Car factory checks]
 A car factory tests the brakes on a machine: press the pedal, measure the stop. That is a unit test,
-like pytest. Then a real driver takes the car round the track and says \enquote{the seat is
+like pytest. Then a real driver takes the car around the track and says \enquote{the seat is
 uncomfortable}. That is a playtest. You need both: machines check the brain, people check the fun.
 \end{analogy}
 
@@ -57,10 +57,10 @@ uncomfortable}. That is a playtest. You need both: machines check the brain, peo
 \begin{workedexample}[Save, load and three tests]
 \begin{enumerate}
   \item Open last week's \texttt{mygame.py}. Under \texttt{next\_x}, type the two file functions from week 7 (code A below). Say: \enquote{No file yet means a high score of 0.}
-  \item \menu{File > New}, save as \texttt{test\_mygame.py} in the same folder (the name must start with \texttt{test\_}) and type code B: one normal case, one edge case, and two file tests that use a test-only file name.
-  \item Click in \texttt{mygame.py}, press \keys{F5} once (this tells Thonny which folder you are in), close the game window, then \menu{Tools > Open system shell…}. Type \texttt{ls} and press \keys{Return}: both files should be listed.
-  \item Type the command in box C. (If it says \enquote{command not found}, type \texttt{python3} instead of \texttt{python}.) Read the output together: four PASSED lines, \enquote{4 passed}.
-  \item Break it on purpose: in \texttt{next\_x} change the last line to \texttt{return new\_x} (no clamp), save, and press \keys{↑} then \keys{Return} in the shell to run the tests again. Say: \enquote{The test caught it. 300 is off the screen; we expected 280. FAILED is our friend.} Undo with \keys{Cmd}+\keys{Z}, save, run again: all PASSED.
+  \item \menu{File > New}, save as \texttt{test\_mygame.py} in the same folder and type code B: one normal case, one edge case, two file tests that use a test-only file name, and the three pytest lines from week 8 at the bottom. (Teams that started from the project template already have \texttt{my\_tests.py}: they add their tests there instead.)
+  \item Press \keys{F5} in \texttt{test\_mygame.py}. Read the output together (box C): four PASSED lines, \enquote{4 passed}.
+  \item Break it on purpose: in \texttt{mygame.py} change the last line of \texttt{next\_x} to \texttt{return new\_x} (no clamp), save, go back to the test file and press \keys{F5} again. Say: \enquote{The test caught it. 300 is off the screen; we expected 280. FAILED is our friend.} Undo with \keys{Cmd}+\keys{Z}, save, run again: all PASSED.
+  \item Optional, the programmer way: \menu{Tools > Open system shell…} and type \texttt{python -m pytest test\_mygame.py -v} (or \texttt{python3}). Same results.
 \end{enumerate}
 \end{workedexample}
 
@@ -73,7 +73,7 @@ def load_high_score(filename):
     except FileNotFoundError:
         return 0
 
-def save_high_score(score, filename):
+def save_high_score(filename, score):
     """Write the best score to a file (replaces the old one)."""
     with open(filename, "w") as f:
         f.write(str(score))
@@ -88,21 +88,24 @@ def test_stops_at_the_right_edge():
     assert next_x(280, 1) == 280
 
 def test_high_score_round_trip():
-    save_high_score(42, "test_scores.txt")
+    save_high_score("test_scores.txt", 42)
     assert load_high_score("test_scores.txt") == 42
 
 def test_no_file_means_zero():
     assert load_high_score("no_such_file.txt") == 0
+
+if __name__ == "__main__":       # F5 runs pytest on this file
+    import pytest
+    pytest.main(["-v", __file__])
 \end{pycode}
-C. In the system shell, type the first line; pytest prints the rest:
-\begin{shellcode}
-python -m pytest test_mygame.py -v
+C. What pytest prints after \keys{F5} (the end of the output):
+\begin{outputcode}
 test_mygame.py::test_moves_right_normally PASSED        [ 25%]
 test_mygame.py::test_stops_at_the_right_edge PASSED     [ 50%]
 test_mygame.py::test_high_score_round_trip PASSED       [ 75%]
 test_mygame.py::test_no_file_means_zero PASSED          [100%]
 =================== 4 passed in 0.08s ===================
-\end{shellcode}
+\end{outputcode}
 After breaking \texttt{next\_x} on purpose:
 \begin{outputcode}
 test_mygame.py::test_stops_at_the_right_edge FAILED     [ 50%]
@@ -142,7 +145,7 @@ Read each line aloud; the team checks it off or fixes it:
 \begin{checklist}
   \item Colors come from the Okabe--Ito palette (\texttt{\#E69F00}, \texttt{\#56B4E9}, \texttt{\#009E73}, \texttt{\#0072B2}, \texttt{\#D55E00}, \texttt{\#CC79A7}…).
   \item Nothing depends on color alone: good and bad things also differ in shape or size, or have a label.
-  \item Text is big enough: \texttt{font=("Arial", 18, "normal")} or larger.
+  \item Text is big enough: \texttt{font=("Arial", 16, "bold")} or larger.
   \item The keys are explained on the screen (\enquote{← → to move, space to start}).
   \item Nothing flashes quickly (more than 3 times a second can hurt some people's eyes or trigger seizures).
   \item The game is not too fast to start: there is an easy setting or a slow first level.
@@ -172,7 +175,7 @@ useful playtest card? What did you change so more people can enjoy your project?
 \section{Notes for the teacher}
 \begin{commonmistakes}
   \item \textbf{The game window opens when pytest runs}, or pytest hangs. The start-up code is not under \texttt{if \_\_name\_\_ == "\_\_main\_\_":}. Move it there.
-  \item \textbf{\enquote{collected 0 items}.} The file name or function name does not start with \texttt{test\_}, or pytest was run in the wrong folder (type \texttt{ls} to check).
+  \item \textbf{\enquote{collected 0 items}.} The file name or function name does not start with \texttt{test\_}, or (system shell only) pytest was run in the wrong folder (type \texttt{ls} to check).
   \item \textbf{\enquote{ModuleNotFoundError: No module named mygame}.} The test file is in a different folder from the game, or the game file has a different name.
   \item \textbf{Tests that cannot fail} (\texttt{assert True}, or no \texttt{assert} at all). Ask: \enquote{Break your code on purpose. Does this test turn red?}
 \end{commonmistakes}

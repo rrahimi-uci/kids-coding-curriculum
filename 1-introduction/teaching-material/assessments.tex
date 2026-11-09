@@ -135,17 +135,33 @@ a line \qquad a square \qquad a triangle \qquad a circle
 \bigskip\needspace{9\baselineskip}
 \begin{minipage}[t]{0.42\linewidth}
 \begin{scratch}[scale=0.75]
-\blockinit{when \selectmenu{space} key pressed}
-\blocksensing{ask \ovalnum{Do you like cats?} and wait}
-\blockifelse{if \booloperator{\ovalsensing{answer} = \ovalnum{yes}} then}
-  {\blocklook{say \ovalnum{Me too!} for \ovalnum{2} seconds}}
-  {\blocklook{say \ovalnum{OK, dogs then!} for \ovalnum{2} seconds}}
+\blockinit{when this sprite clicked}
+\blockifelse{if \boolsensing{touching \ovalsensing*{edge} ?} then}
+  {\blocklook{say \ovalnum{Ouch!} for \ovalnum{2} seconds}}
+  {\blocklook{say \ovalnum{OK} for \ovalnum{2} seconds}}
 \end{scratch}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.55\linewidth}
 \qnum{A3} When does this script start?\pts{1 point}\par
 \answerlines{1}
-\qnum{A4} You type \texttt{no}. What does the sprite say?\pts{1 point}\par
+\qnum{A4} The sprite is in the middle of the stage, not at the edge. You click it. What does it say?\pts{1 point}\par
+\answerlines{1}
+\end{minipage}
+
+\bigskip\needspace{11\baselineskip}
+\begin{minipage}[t]{0.48\linewidth}
+\begin{scratch}[scale=0.75]
+\initmoreblocks{define \namemoreblocks{polygon \ovalmoreblocks{sides} \ovalmoreblocks{length}}}
+\blockrepeat{repeat \ovalmoreblocks{sides}}{
+  \blockmove{move \ovalmoreblocks{length} steps}
+  \blockmove{turn \turnright{} \ovaloperator{\ovalnum{360} / \ovalmoreblocks{sides}} degrees}
+}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\qnum{A5} This is a My Block. The pen is down. What does
+\begin{scratch}[scale=0.75]\blockmoreblocks{polygon \ovalnum{3} \ovalnum{100}}\end{scratch}
+draw?\pts{1 point}\par
 \answerlines{1}
 \end{minipage}
 

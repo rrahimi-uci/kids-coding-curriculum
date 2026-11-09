@@ -1,5 +1,6 @@
 # Potion Shop Calculator
 # Finish the three functions. Each one must RETURN its answer.
+# "pass" means "do nothing yet". Replace it with your code.
 
 
 def total_cost(price, quantity):
@@ -15,7 +16,7 @@ def can_afford(coins, cost):
 
 
 def coins_left(coins, cost):
-    # TODO 3: write a docstring on the line above this one, like the others.
+    # TODO 3: write a docstring right under the def line, like the others.
     # TODO 4: if you can afford it, return coins - cost. Otherwise return coins.
     pass
 

@@ -2,7 +2,7 @@
 
 Run it first! Click the window, then use the arrow keys to move the square
 and touch the coin before the time runs out. Then make it YOUR game by
-working through the TODOs from top to bottom.
+working through the TODOs in number order (TODO 1, TODO 2, ...).
 
 Project checklist - your finished game needs all of these:
   [ ] functions with parameters that return values (clamp, is_touching ...)
@@ -68,6 +68,9 @@ def setup_window():
     screen.title("My Arcade Game")
     screen.tracer(0)
 
+    # TODO 2: make it look like YOUR game: a new title above, other shapes
+    # ("turtle", "circle", "triangle") and colors from PALETTE. Good and bad
+    # things should differ in shape or size, not only in color.
     player = turtle.Turtle()
     player.shape("square")
     player.color(PALETTE[4])

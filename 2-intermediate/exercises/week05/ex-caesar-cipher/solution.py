@@ -6,7 +6,7 @@
 # Key ideas practiced: a dictionary used as a lookup table (the paper cipher
 # wheel), looping over the letters of a string, and "in" to test for a key.
 # Approach: make_key() was given; it builds the wheel, and "% 26" makes the
-# alphabet wrap round so "z" shifts back to "a". encode() looks up every letter
+# alphabet wrap around so "z" shifts back to "a". encode() looks up every letter
 # in the wheel and leaves anything that is not a letter alone. decode() reuses
 # encode() with a negative shift, which walks the wheel the other way.
 
@@ -17,7 +17,7 @@ def make_key(shift):
     """Return a dictionary: each letter -> the letter shift places later."""
     key = {}
     for i in range(len(ALPHABET)):
-        # % 26 is the remainder after dividing by 26. It wraps the count round:
+        # % 26 is the remainder after dividing by 26. It wraps the count around:
         # position 26 becomes 0 again, so "z" followed by one more step is "a".
         key[ALPHABET[i]] = ALPHABET[(i + shift) % 26]
     return key
@@ -39,7 +39,7 @@ def encode(message, shift):
 def decode(secret, shift):
     """Return the original message: shifting back is the same as shifting by -shift."""
     # Decoding is encoding backwards. A negative shift works because % 26 also
-    # wraps round correctly for negative numbers in Python.
+    # wraps around correctly for negative numbers in Python.
     return encode(secret, -shift)
 
 

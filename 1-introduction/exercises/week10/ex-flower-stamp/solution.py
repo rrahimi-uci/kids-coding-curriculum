@@ -21,7 +21,7 @@ t.hideturtle()
 
 # A new command! flower(x, y, color) draws a flower with its middle at x, y.
 # The lines pushed in under def are the RECIPE. They only run when we CALL it.
-# The names in the brackets are blanks that get filled in at each call.
+# The names in the parentheses are blanks that get filled in at each call.
 def flower(x, y, color):
     t.penup()               # lift the pen so moving to the spot draws nothing
     t.goto(x, y)

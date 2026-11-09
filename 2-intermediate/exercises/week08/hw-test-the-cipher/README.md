@@ -6,7 +6,7 @@ it without you noticing.
 1. Read `cipher_tools.py`. It is correct: do not change it.
 2. Open `starter.py` (YOUR test file) and press **Run**. pytest shows one line
    per test with `PASSED` or `FAILED`.
-3. **TODO 1** test that letters wrap round after z. Use your paper cipher
+3. **TODO 1** test that letters wrap around after z. Use your paper cipher
    wheel to work out the expected answer.
 4. **TODO 2** test that spaces and symbols like `!` stay the same.
 5. **TODO 3** write one more test of your own.

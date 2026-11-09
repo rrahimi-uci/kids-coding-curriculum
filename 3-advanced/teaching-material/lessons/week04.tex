@@ -69,8 +69,8 @@ On paper, write the sorted list \texttt{[3, 8, 15, 21, 29, 37, 44, 52]} with the
 \end{tabular}
 \end{center}
 Now open \texttt{week04/ex-search-race/solution.py} on your Mac (or the answer key) and read it with the students. Point to each line that matches a column of the table:
-\pyfile[firstline=17,lastline=32]{../exercises/week04/ex-search-race/solution.py}
-Ask: \enquote{What happens when \texttt{low} becomes bigger than \texttt{high}?} (Nothing is left: the item is not in the list, so return $-1$.)
+\pyfile[firstline=28,lastline=47]{../exercises/week04/ex-search-race/solution.py}
+Ask: \enquote{What happens when \texttt{low} becomes bigger than \texttt{high}?} (Nothing is left: the item is not in the list, so return $-1$.) Point out \texttt{return mid, steps}: a function can hand back two values at once as a \textbf{tuple}, and \texttt{index, steps = binary\_search(items, 44)} catches both.
 \end{workedexample}
 
 \section{Hands-on build (28--52 min)}

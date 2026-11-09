@@ -96,7 +96,7 @@ t.left(90)
 Bug A draws only 3 sides (\enquote{off by one}: count the turns of the loop). Bug B draws one long line of 400, then turns once: \texttt{t.left(90)} is not pushed in, so it is outside the loop. Homework 8 has the same two bugs to fix on their own.
 \end{bughunt}
 \begin{freebuild}[Loop art (last 3 minutes)]
-New file \texttt{my-python/loop-art.py}. Try this magic spiral, then change the numbers:
+New file \texttt{my-python/loop\_art.py}. Try this magic spiral, then change the numbers:
 \begin{pycode}
 for i in range(60):
     t.forward(i * 3)

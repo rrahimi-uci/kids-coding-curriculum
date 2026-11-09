@@ -7,7 +7,7 @@ the wrong answer.
    what is the total? What is the cheapest item? Can you buy it all with 50 coins?
 2. Open `starter.py` and press **Run**. Compare with your paper answers.
 3. Rubber duck time: explain `total_price()` line by line to your partner
-   (or a toy). Say what each line does **each time round the loop**.
+   (or a toy). Say what each line does **each time through the loop**.
 4. Fix one bug at a time, and run after each fix.
 
 **Done looks like:**

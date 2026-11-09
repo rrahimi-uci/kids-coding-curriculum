@@ -66,7 +66,7 @@ were fixed first.
 
 \begin{answer}[Exercise 11.4: Accessibility review and polish (M4)]
 Good changes: different shapes for good and bad objects (\texttt{"circle"} vs \texttt{"square"}),
-a score written with \texttt{font=("Arial", 18, "normal")} or larger, an on-screen line explaining the
+a score written with \texttt{font=("Arial", 16, "bold")} or larger, an on-screen line explaining the
 keys, palette colors with enough contrast against the background, a slower first level. No
 flashing more than 3 times per second. \textbf{M4 met} when at least one change was made and the
 checklist is honestly checked.
@@ -75,8 +75,9 @@ checklist is honestly checked.
 \section{Homework}
 \begin{answer}[Core: three passing tests and one fix]
 The last line should read like \texttt{3 passed in 0.05s} (more tests are fine). If it says
-\texttt{collected 0 items}, the file or function names do not start with \texttt{test\_}, or the shell
-was in the wrong folder (\texttt{ls} shows the files in the current folder).
+\texttt{collected 0 items}, the test function names do not start with \texttt{test\_}. If nothing
+runs at all, the three pytest lines are missing at the bottom of the test file. (In the system shell,
+pytest only finds files whose names start with \texttt{test\_} unless you type the file name.)
 \end{answer}
 
 \begin{answer}[Challenge: test first]

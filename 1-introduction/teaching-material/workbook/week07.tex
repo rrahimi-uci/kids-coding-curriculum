@@ -113,11 +113,11 @@ When Python is confused, it stops and shows red text in the Shell. Don't panic -
 Traceback (most recent call last):
   File "starter.py", line 12, in <module>
     Print("Typo hunt: fixed!")
-NameError: name 'Print' is not defined
+NameError: name 'Print' is not defined. Did you mean: 'print'?
 \end{outputcode}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt]
   \item \textbf{line 12} tells you \textbf{where} to look.
-  \item The \textbf{last line} tells you \textbf{what} confused Python: it does not know the word \texttt{Print}.
+  \item The \textbf{last line} tells you \textbf{what} confused Python: it does not know the word \texttt{Print}. Sometimes Python even guesses what you meant: \texttt{Did you mean: 'print'?}
 \end{itemize}
 
 \begin{exercise}[Typo Hunt]
@@ -138,7 +138,7 @@ Line & The typo was & I changed it to\\
 \end{exercise}
 
 \begin{tip}[Save your work safely]
-Exercises: press \keys{Cmd}+\keys{S} to save \texttt{starter.py} in its folder. New programs go in \texttt{Documents/my-python}. Use names that say what the program does, like \texttt{flag-drawing.py}. Never call a file \texttt{turtle.py}: Python would get mixed up with the real turtle!
+Exercises: press \keys{Cmd}+\keys{S} to save \texttt{starter.py} in its folder. New programs go in \texttt{Documents/my-python}. Use names that say what the program does, with small letters and \texttt{\_} instead of spaces, like \texttt{flag\_drawing.py}. Never call a file \texttt{turtle.py}: Python would get mixed up with the real turtle!
 \end{tip}
 
 \begin{vocab}

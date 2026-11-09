@@ -109,7 +109,7 @@ Make the cat say hello, walk and say bye.
   \item \menu{Motion}: snap \enquote{move 10 steps}. Change 10 to 100.
   \item \menu{Sound}: snap \enquote{play sound Meow until done}.
   \item \menu{Looks}: snap one more \enquote{say \ldots{} for 2 seconds} and type \enquote{Bye!}.
-  \item Click the green flag. Save: \menu{File} $\rightarrow$ \menu{Save to your computer}, folder \texttt{Scratch Projects}.
+  \item Click the green flag. Save: \menu{File} $\rightarrow$ \menu{Save to your computer}, folder \texttt{Scratch Projects}, name \texttt{hello-cat}.
 \end{enumerate}
 \begin{center}
 \begin{scratch}[scale=0.85]
@@ -126,7 +126,7 @@ Make the cat say hello, walk and say bye.
 
 \begin{exercise}[Mixed-Up Jump (bug hunt)]
 The cat should say \enquote{Watch me jump!}, jump \textbf{up}, come back down to the ground and say \enquote{Ta-da!}.
-Build this script \textbf{exactly} as it is, bug and all. (\menu{change y by} is in \menu{Motion}: y is up and down.)
+Build this script \textbf{exactly} as it is, bug and all. (\menu{change y by} is in \menu{Motion}: y is up and down. \menu{wait} is in \menu{Control}.)
 \begin{center}
 \begin{scratch}[scale=0.85]
 \blockinit{when \greenflag clicked}
@@ -142,6 +142,10 @@ Click the flag. What did the cat do? \answerlines{1}
 Which two blocks are in the wrong order? \answerlines{1}
 Now drag them into the right order and test again. Did the cat jump up? \tickbox{} yes
 \end{exercise}
+
+\begin{tip}[Where is x and y?]
+The middle of the stage is \textbf{x: 0 y: 0}. \textbf{x} goes left and right; \textbf{y} goes up and down. Bigger y means higher up. A number with a minus sign, like $-100$, means \enquote{the other way}: y: $-100$ is 100 steps \textbf{below} the middle, and x: $-100$ is 100 steps \textbf{left} of it. To type it, press the minus key, then the number.
+\end{tip}
 
 \begin{tip}[Debugging steps]
 1. What did I \textbf{expect}? \quad 2. What \textbf{happened}? \quad 3. Read the blocks one at a time with your finger. \quad 4. Change \textbf{one} thing and test again.

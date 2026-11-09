@@ -176,7 +176,7 @@ steps and the scripts described in words.
 
 Python code rules:
 
-* Python **3.10** compatible (Thonny's bundled version), **standard library
+* Python **3.10** compatible (the oldest Thonny-bundled version a family may have; current Thonny bundles 3.14, so keep code compatible with both), **standard library
   only**, **ASCII only** (no emoji: the PDF code font cannot print them).
 * Kid-readable: clear names, short functions, comments that explain *why*.
   Level 1 code is top-level script code until functions are taught (week 10).

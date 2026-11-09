@@ -12,12 +12,12 @@ project rubric is in the Project Teacher Guide.
 A good plan names the loop, at least one decision, the data and 3 or more functions. Example for an
 arcade game:
 \begin{outputcode}
-set up screen, basket, keys (Left/Right), score = 0, best = load_high_score()
+set up screen, basket, keys (Left/Right), score = 0, lives = 3, best = load_high_score()
 every tick (50 ms):
     move every star in the stars list down
     for each star: if touching(basket, star): add 1 to score, move star to top
     if a star reaches the bottom: lose a life
-    if lives == 0: save_high_score(best) and show GAME OVER
+    if lives == 0: if score > best: save_high_score(score); show GAME OVER
 \end{outputcode}
 Example for an Art Studio:
 \begin{outputcode}
@@ -35,7 +35,7 @@ the team can say where the list, dictionary and file will go.
 \begin{answer}[Exercise 10.2: A fair task board]
 Typical functions for a catching game: \texttt{next\_x(x, direction)} → new x; \texttt{touching(x1, y1,
 x2, y2, how\_close)} → True/False; \texttt{add\_score(score, points)} → new score;
-\texttt{load\_high\_score(filename)} → number; \texttt{save\_high\_score(score, filename)} → nothing (writes a
+\texttt{load\_high\_score(filename)} → number; \texttt{save\_high\_score(filename, score)} → nothing (writes a
 file); \texttt{draw\_star(t, x, y)} → nothing (draws). \textbf{Fair split:} each student owns at
 least one logic function (these get tested next week) and at least one drawing or key function.
 Watch for one student holding all the interesting notes.
@@ -78,10 +78,11 @@ if __name__ == "__main__":
     studio()
     turtle.done()
 \end{pycode}
-\textbf{M2 met} when: it runs without an error, something repeats by itself (timer or menu), one key
+\textbf{M2 met} when: it runs without an error, something repeats by itself (timer or menu; for a team
+using \texttt{art\_studio\_template.py}, a key that draws a new design each time), one key
 or menu choice works, start-up code is under the main guard. \textbf{Partly}: it runs but nothing
 repeats (usually \texttt{ontimer} is missing at the end of \texttt{game\_loop}) or keys do nothing
-(missing \texttt{screen.listen()}, or \texttt{onkey(go\_left(), "Left")} with brackets).
+(missing \texttt{screen.listen()}, or \texttt{onkey(go\_left(), "Left")} with parentheses).
 \end{answer}
 
 \begin{answer}[Exercise 10.4: Partner code review]

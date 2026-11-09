@@ -10,7 +10,7 @@
 \end{checklist}
 
 \section{The big idea: inheritance}
-A \textbf{child class} gets everything from its \textbf{parent class} for free. Then it changes only what is different. Write the parent in brackets:
+A \textbf{child class} gets everything from its \textbf{parent class} for free. Then it changes only what is different. Write the parent in parentheses:
 
 \begin{center}
 %% alt: A family tree of classes. Enemy is the parent, with name, x, y and steps, and a move() that takes 1 step right. Three children point up to it with is-a arrows: Guard, whose move() stays still; Zigzagger, whose move() uses the parent's move and then goes up or down; and Sprinter, which adds speed and whose move() takes speed steps.
@@ -27,6 +27,7 @@ A \textbf{child class} gets everything from its \textbf{parent class} for free. 
 
 \begin{pycode}[A child class]
 class Sprinter(Enemy):                  # a Sprinter IS AN Enemy
+    # x=0 means: if no x is given, use 0
     def __init__(self, name, x=0, y=0, speed=3):
         super().__init__(name, x, y)    # parent sets name, x, y
         self.speed = speed              # then the extra attribute

@@ -24,7 +24,7 @@ Exit assessment (30) & 0--12 & 13--19 & 20--25 & 26--30\\
 \end{center}
 
 %% =====================================================================
-\section{Placement quiz (before week 1) --- 20 points}
+\section{Placement quiz (start of week 1) --- 20 points}
 
 \begin{answer}[Q1. Functions that give back --- 2 points]
 \py|14|. \py|double(3)| gives back 6 and \py|double(4)| gives back 8.
@@ -168,8 +168,8 @@ slowly; linear search checks items one by one (1 point). The list must be \textb
 \textbf{Mostly Q1--Q3 missed (classes):} in the week 6 review, rebuild the week 2 pet class
 together, then add a child class. \textbf{Mostly Q4--Q5 missed (algorithms):} schedule buffer B1
 (Algorithm Olympics) before week 7. \textbf{Q6 missed:} replay the plate-stack and lunch-queue
-unplugged activity for 5 minutes. \textbf{19--20:} offer the week 7 extension (BFS on a grid)
-early.
+unplugged activity for 5 minutes. \textbf{19--20:} ready for the second half; point them to each lesson's extension path and
+stretch challenge from week 7 on.
 \end{rubric}
 
 %% =====================================================================
@@ -210,7 +210,8 @@ the file with \py|encoding="utf-8-sig"| if it came from a spreadsheet app.
 \end{answer}
 
 \begin{answer}[Q6. Nearest neighbor --- 4 points]
-Distances to the mystery monster (size 4, spikes 1): A = 5 + 3 = \textbf{8}; B = 4 + 4 = \textbf{8};
+The paper uses this simpler distance (add the two gaps) instead of the ruler distance from
+week 9, so no square roots are needed. Distances to the mystery monster (size 4, spikes 1): A = 5 + 3 = \textbf{8}; B = 4 + 4 = \textbf{8};
 C = 2 + 1 = \textbf{3}; D = 1 + 0 = \textbf{1} (1 point per two correct distances, so 2 points).
 Prediction: \textbf{slime}, because the nearest example, D, is a slime (2 points: label + reason).
 \end{answer}
@@ -231,6 +232,9 @@ cannot check facts (2 points). Chatbots are far more advanced but can also sound
 \begin{answer}[Q9. Design a game --- 4 points]
 One point each. (a) A \textbf{2D grid} (list of lists, \texttt{grid[row][col]}). (b)
 \textbf{Breadth-first search} (BFS), which needs a \textbf{queue} (\texttt{collections.deque}).
+BFS is met in buffer B1 and in the project (Maze Muncher's Chaser), not in a core lesson, so also
+give the point for a clear description such as \enquote{spread out one square at a time, like the
+paint bucket, remembering where each square came from, using a queue}.
 (c) Two sensible classes with an attribute and a method each, for example \texttt{Player}
 (\texttt{pos}; \texttt{move()}) and \texttt{Monster} (\texttt{pos}; \texttt{chase()}). The fourth point is for a good
 reason: both could inherit from a \texttt{Character} base class because each \emph{is a}

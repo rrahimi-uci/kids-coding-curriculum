@@ -7,13 +7,13 @@ serve the goal. Blank = not a focus that week (it may still be practiced).
 \begin{longtable}{@{}lcccccccccccccc@{}}
 \toprule
 Goal & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & B1 & B2\\ \midrule\endhead
-L2.G1 & 2 &  &  &  &  &  &  &  &  &  &  & 1 &  & 1\\
+L2.G1 & 2 &  &  &  &  &  &  &  &  &  &  &  &  & 1\\
 L2.G2 & 1 &  & 1 & 2 &  &  &  &  & 1 & 1 &  &  & 1 & \\
-L2.G3 &  & 3 &  &  &  & 1 &  & 1 & 1 & 1 &  & 1 &  & 1\\
-L2.G4 &  &  & 2 &  & 2 &  & 1 &  & 1 &  & 1 & 1 &  & 1\\
-L2.G5 &  &  &  &  &  &  & 2 &  &  &  & 1 &  &  & \\
-L2.G6 & 1 &  &  &  & 1 & 3 & 1 & 4 &  &  & 1 & 1 &  & \\
-L2.G7 &  & 1 &  & 1 &  &  &  &  & 2 & 1 &  &  &  & 2\\
+L2.G3 &  & 3 &  &  &  &  &  & 1 & 1 & 1 &  & 1 &  & 1\\
+L2.G4 &  &  & 2 &  & 2 &  & 1 &  & 1 &  & 1 &  &  & 1\\
+L2.G5 &  &  &  &  &  &  & 2 &  &  &  & 1 & 1 &  & \\
+L2.G6 & 1 &  &  &  & 1 & 4 & 1 & 4 &  &  & 1 & 1 &  & \\
+L2.G7 &  & 1 &  & 1 &  &  &  &  & 2 & 1 &  & 1 &  & 2\\
 L2.G8 &  &  &  &  &  &  &  &  & 1 & 3 & 1 & 2 & 2 & \\
 L2.G9 &  &  & 1 & 1 & 1 &  & 1 & 1 & 1 &  & 1 & 1 & 1 & 1\\
 \bottomrule\end{longtable}}
@@ -40,7 +40,7 @@ L2.G9 &  &  & 1 & 1 & 1 &  & 1 & 1 & 1 &  & 1 & 1 & 1 & 1\\
 3.4 & The student can choose a color-blind-safe palette and label a picture so it never relies on color alone. & L2.G9\\
 \midrule
 \multicolumn{3}{@{}l}{\textbf{4: While Loops and Game Loops}}\\
-4.1 & The student can write a \texttt{while} loop that stops because a variable changes, and explain why a loop that never changes runs for ever. & L2.G2\\
+4.1 & The student can write a \texttt{while} loop that stops because a variable changes, and explain why a loop that never changes runs forever. & L2.G2\\
 4.2 & The student can use \texttt{while True} with \texttt{break} or \texttt{return} to keep asking until an answer is valid. & L2.G2\\
 4.3 & The student can use a loop inside a loop to visit every pixel of a grid made from a list of strings. & L2.G7\\
 4.4 & The student can say what makes a game fair and name one trick a game should not play on its players. & L2.G9\\
@@ -55,7 +55,7 @@ L2.G9 &  &  & 1 & 1 & 1 &  & 1 & 1 & 1 &  & 1 & 1 & 1 & 1\\
 6.1 & The student can read a traceback from the bottom up and name the error type and the line where it happened. & L2.G6\\
 6.2 & The student can use \texttt{print()} lines and a trace table to find where a program's values go wrong. & L2.G6\\
 6.3 & The student can explain code line by line to a partner or a rubber duck to find a bug that does not crash. & L2.G6\\
-6.4 & The student can fix bugs that involve types, list indexes, loops, return values and dictionary keys from weeks 1--5. & L2.G3\\
+6.4 & The student can fix bugs that involve types, list indexes, loops, return values and dictionary keys from weeks 1--5. & L2.G6\\
 \midrule
 \multicolumn{3}{@{}l}{\textbf{7: Files: Saving Your Stuff}}\\
 7.1 & The student can save data to a text file with \texttt{open} and \texttt{with}, choosing \texttt{"a"} to add and \texttt{"w"} to replace. & L2.G5\\
@@ -70,7 +70,7 @@ L2.G9 &  &  & 1 & 1 & 1 &  & 1 & 1 & 1 &  & 1 & 1 & 1 & 1\\
 8.4 & The student can use failing tests to find and fix bugs, and explain why people need to be able to trust software. & L2.G6, L2.G9\\
 \midrule
 \multicolumn{3}{@{}l}{\textbf{9: Event-Driven Games}}\\
-9.1 & The student can connect keys to handler functions with \texttt{onkey} and \texttt{listen}, passing the function without brackets. & L2.G7\\
+9.1 & The student can connect keys to handler functions with \texttt{onkey} and \texttt{listen}, passing the function without parentheses. & L2.G7\\
 9.2 & The student can build a game loop with \texttt{ontimer} that moves a list of objects one frame at a time and stops on game over. & L2.G2, L2.G7\\
 9.3 & The student can detect a collision with a distance check and keep the game state in a dictionary. & L2.G3, L2.G4\\
 9.4 & The student can choose a final-project option and describe its idea, and explain why borrowed images and sounds need a license and credit. & L2.G8, L2.G9\\
@@ -90,7 +90,7 @@ L2.G9 &  &  & 1 & 1 & 1 &  & 1 & 1 & 1 &  & 1 & 1 & 1 & 1\\
 \multicolumn{3}{@{}l}{\textbf{12: Showcase and Celebration}}\\
 12.1 & The student can present the team's project and explain one design decision and one piece of code (a function, the loop, the list, the dictionary or the file). & L2.G8\\
 12.2 & The student can give kind, specific feedback to other makers during a gallery walk. & L2.G8\\
-12.3 & The student can show what they learned in Level 2 on the exit assessment. & L2.G1, L2.G3, L2.G4, L2.G6\\
+12.3 & The student can show what they learned in Level 2 on the exit assessment: files, tests, events and functions. & L2.G3, L2.G5, L2.G6, L2.G7\\
 12.4 & The student can explain how to share a project safely: family only, nicknames, no personal information on screen. & L2.G9\\
 \midrule
 \multicolumn{3}{@{}l}{\textbf{B1: Cipher \& Puzzle Day}}\\

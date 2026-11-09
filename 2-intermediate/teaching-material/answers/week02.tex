@@ -21,7 +21,9 @@ Also correct: \texttt{return max(attack - shield, 0)}, or an \texttt{if}/\texttt
 \section{Homework}
 \begin{answer}[Core: What comes back?]
 \texttt{add\_three(4)} gives back \texttt{7};\quad \texttt{add\_three(add\_three(1))} gives back \texttt{7} (1 + 3 = 4, then 4 + 3 = 7);\quad
-\texttt{shout("hi")} shows \texttt{hi!} but gives back \texttt{None}.
+\texttt{shout("hi")} shows \texttt{hi!} but gives back \texttt{None}.\par
+\texttt{print(n)} crashes with \texttt{NameError: name 'n' is not defined}: \texttt{n} is a parameter, so it only exists inside
+\texttt{add\_three()} while it runs (scope). To use the answer outside, store what the function returns: \texttt{answer = add\_three(4)}.
 \end{answer}
 
 \begin{answer}[Core: Potion Shop Calculator]

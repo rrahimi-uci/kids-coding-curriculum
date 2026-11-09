@@ -84,7 +84,7 @@ if __name__ == "__main__":
 # - Writing class Builder: without (Hero), so Builder is not a Hero.
 # - Returning from inside the loop in take_turn (only the first hero acts), or using print
 #   instead of return.
-# - Forgetting the brackets in hero.action(), which stores the method, not the sentence.
+# - Forgetting the parentheses in hero.action(), which stores the method, not the sentence.
 #
 # Another correct way for take_turn (a list comprehension):
 #     return [hero.action() for hero in self.heroes]

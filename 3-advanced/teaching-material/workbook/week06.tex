@@ -26,7 +26,7 @@ A \textbf{debugger} is a slow-motion replay for your code. You can pause on ever
 \end{tikzpicture}
 \end{center}
 \begin{itemize}[itemsep=2pt]
-  \item Turn on \menu{View > Variables}. Click an object there to see its attributes.
+  \item Turn on \menu{View > Variables}. To see an object's attributes, also turn on \menu{View > Object inspector}, then click the object in the Variables view.
   \item The highlighted line is the one that will run \emph{next}.
   \item \textbf{Breakpoint:} click a line number to put a red dot on it. Press Debug, then Resume: the program runs and pauses at the dot.
 \end{itemize}
@@ -46,7 +46,7 @@ A \textbf{debugger} is a slow-motion replay for your code. You can pause on ever
 \end{center}
 
 \begin{tip}[Reading an error]
-Start at the \textbf{bottom}. The last line says \emph{what} went wrong (\texttt{TypeError}, \texttt{NameError}, \texttt{IndexError}\ldots). The line above it says \emph{where}: the file and line number.
+Start at the \textbf{bottom}. The last line says \emph{what} went wrong (\texttt{TypeError}, \texttt{NameError}, \texttt{IndexError}\ldots). The lines just above it say \emph{where}: the line number and the line of code.
 \end{tip}
 
 \section{Weeks 1--5 in one page}

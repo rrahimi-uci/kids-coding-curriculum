@@ -5,7 +5,7 @@
 **Big idea:** A My Block with inputs is a named recipe: one short line can draw many different shapes.
 
 ## The finished project
-Setup: new project, Add Extension > Pen, set the cat's Size to 40. My Blocks > Make a Block, name `polygon`, add inputs `sides` and `length` (leave "Run without screen refresh" unticked). Drag the `sides` and `length` ovals out of the define hat into the slots. The "/" block is in Operators.
+Setup: new project, Add Extension > Pen, set the cat's Size to 40. My Blocks > Make a Block, name `polygon`, add inputs `sides` and `length` (leave "Run without screen refresh" unchecked). Drag the `sides` and `length` ovals out of the define hat into the slots. The "/" block is in Operators.
 
 Sprite: Cat, define script
 - define polygon (sides) (length)

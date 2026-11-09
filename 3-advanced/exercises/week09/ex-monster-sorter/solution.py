@@ -135,13 +135,13 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-#   - Forgetting the square root, or the square: sqrt(dx + dy) and
-#     dx * dx + dy * dy (no sqrt) give wrong distances. The nearest card
-#     is often still found, but distance((0, 0), (3, 4)) is not 5.
+#   - Forgetting the squares: sqrt(dx + dy) gives wrong distances (and
+#     crashes when dx + dy is negative). Forgetting only the sqrt still
+#     finds the same nearest card, but distance((0, 0), (3, 4)) is 25, not 5.
 #   - Using abs(dx) + abs(dy) (taxi distance): it can pick a different
 #     "nearest" card for some mystery monsters.
 #   - Using ">" instead of "<" in nearest, which finds the FARTHEST card
-#     (the guesses come out exactly backwards).
+#     (the guesses usually come out backwards).
 #
 # Another correct way for nearest: min() with a key function.
 #   return min(training, key=lambda card: distance(card, mystery))

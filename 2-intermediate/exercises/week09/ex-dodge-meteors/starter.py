@@ -134,7 +134,7 @@ if __name__ == "__main__":
         meteors.append(make_meteor())
 
     # TODO 3: connect the Left and Right arrows to go_left and go_right
-    #         (no brackets!), then make the window listen for keys.
+    #         (no parentheses!), then make the window listen for keys.
 
     show_score()
     screen.ontimer(game_loop, FRAME_MS)   # start the game loop

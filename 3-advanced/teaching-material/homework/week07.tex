@@ -19,6 +19,22 @@ Open \texttt{week07/hw-koch-snowflake/starter.py}. A Koch line of depth 0 is a s
 Fill in: depth 1 = 4 lines per side, depth 2 = \rule{1cm}{0.4pt}, depth 3 = \rule{1cm}{0.4pt}. What is the base case? \answerlines{1}
 \end{challenge}
 
+\begin{challenge}[BFS rings (stretch)]
+Number the squares of this empty 3-by-3 grid in the order breadth-first search visits them, starting at the top-left square (number 1). Visit neighbors in the order up, down, left, right, and remember: nearest squares first, the queue is first in, first out.
+
+\begin{center}
+%% alt: An empty 3 by 3 grid of squares to fill in. Only the top left square is filled in, with the number 1, as the start.
+\begin{tikzpicture}[cell/.style={draw,minimum size=0.8cm,font=\ttfamily}]
+  \foreach \r in {0,1,2} \foreach \c in {0,1,2} \node[cell] at (\c*0.8,-\r*0.8) {};
+  \node[cell,fill=kcsky!30] at (0,0) {1};
+\end{tikzpicture}
+\end{center}
+
+Which square gets the highest number? \rule{1.5cm}{0.4pt} How many steps is it from the start? \rule{1cm}{0.4pt}
+
+Bonus: in \texttt{week07/ex-paint-bucket}, write \texttt{flood\_fill\_queue} as described in the README and make \texttt{paint} use it.
+\end{challenge}
+
 \begin{creative}[My own fractal]
 Change the fractal tree from class (\texttt{ANGLE}, \texttt{SHRINK}, colors, three branches, a leaf dot in the base case) or draw a recursive pattern of your own: squares inside squares, a spiral, circles on circles. Add a comment at the top: \texttt{\# Based on: ...} to credit the idea. Sketch it here:
 \answerspace{3.5cm}

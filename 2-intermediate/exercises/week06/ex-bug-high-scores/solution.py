@@ -28,7 +28,7 @@ def podium(scores):
     places = ["1st", "2nd", "3rd"]
     best = sorted(scores, reverse=True)[:3]   # biggest first, keep at most 3
     lines = []
-    # FIX 2: range(3) always went round 3 times, but with only 2 scores
+    # FIX 2: range(3) always went around 3 times, but with only 2 scores
     # best[2] does not exist (IndexError). len(best) is the real number of
     # scores we have, so the loop never goes past the end of the list.
     for i in range(len(best)):

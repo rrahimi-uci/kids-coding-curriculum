@@ -37,7 +37,7 @@ You are the machine. Hold up the first card (rule hidden). Students call out an 
 
 \section{Concept (6--14 min)}
 \begin{teacherscript}
-\enquote{In Scratch you made My Blocks: you defined the block once, with input slots, then used it as many times as you wanted. In Python we write \texttt{def}, a name, and the input slots in brackets. The input slots are called \textbf{parameters}. The pushed-in lines underneath are the recipe.}
+\enquote{In Scratch you made My Blocks: you defined the block once, with input slots, then used it as many times as you wanted. In Python we write \texttt{def}, a name, and the input slots in parentheses. The input slots are called \textbf{parameters}. The pushed-in lines underneath are the recipe.}
 \end{teacherscript}
 \begin{analogy}[A recipe card is not a cake]
 Writing a recipe card does not make a cake. Somebody has to \textbf{use} the recipe. \texttt{def flower(x, y, color):} writes the card. \texttt{flower(-200, 0, "\#E69F00")} bakes one flower. Forget to call it, and you have a nice card and no cake --- that is today's bug hunt!
@@ -57,7 +57,7 @@ Say: \enquote{\texttt{randint(1, 6)} is a dice. \texttt{choice} is picking a cra
   \item Open \texttt{week10/ex-flower-stamp/starter.py} and press Run. Nothing! Ask: \enquote{The recipe is there. Why no flower?} (Nobody calls it.)
   \item At the bottom, before \texttt{turtle.done()}, type \texttt{flower(-200, 0)} (no spaces at the start of the line). Run: one orange flower. Add two more calls at \texttt{0, 0} and \texttt{200, 0}.
   \item \enquote{All orange. Let's add an input slot.} Change the first line to \texttt{def flower(x, y, color):} and \texttt{t.color("\#E69F00")} to \texttt{t.color(color)}. Run: red error --- the calls are missing a color! Add \texttt{PALETTE[0]}, \texttt{PALETTE[6]}, \texttt{PALETTE[4]} to the three calls. Run.
-  \item Point at the code: \enquote{Defined once at the top. Called three times at the bottom. The values in the brackets go into x, y and color, in order.}
+  \item Point at the code: \enquote{Defined once at the top. Called three times at the bottom. The values in the parentheses go into x, y and color, in order.}
 \end{enumerate}
 \end{workedexample}
 \pyfile{../exercises/week10/ex-flower-stamp/solution.py}

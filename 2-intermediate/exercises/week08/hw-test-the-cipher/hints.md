@@ -1,5 +1,5 @@
 ## Hint 1: Where to look
-Read the top of `cipher_tools.py`. It shows what `encode()` does when letters wrap round and when there are spaces or symbols. Your cipher wheel can check each answer.
+Read the top of `cipher_tools.py`. It shows what `encode()` does when letters wrap around and when there are spaces or symbols. Your cipher wheel can check each answer.
 
 ## Hint 2: Try this
 Each test needs an `assert` line that calls `encode()` and compares the result to the answer you worked out by hand. Use `==` to compare. Strings go inside quotes, so the secret message does too.

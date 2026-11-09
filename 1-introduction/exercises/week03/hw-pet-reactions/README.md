@@ -15,8 +15,8 @@
 Pet sprite, three scripts:
 
 1. when this sprite clicked
-   - say "Purr!" for 1 seconds
    - start sound (any sound from the dropdown)
+   - change color effect by 25
 2. when space key pressed
    - next costume
 3. when green flag clicked
@@ -28,7 +28,7 @@ Pet sprite, three scripts:
 
 ## Expected behavior
 
-Clicking the pet makes it purr and play a sound. Pressing space changes its
+Clicking the pet plays a sound and changes its color (a new color on every click). Pressing space changes its
 costume. After the green flag, the pet says "Pet me more!" whenever the mouse
 is over it, and stops talking when the mouse moves away.
 

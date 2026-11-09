@@ -13,4 +13,6 @@ It has **2 loop bugs**. Find and fix them.
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 
-**Challenge:** draw a 7-pointed star: 7 sides, turn 360 x 3 / 7, about 154.
+**Challenge:** after the orange star, draw a 7-pointed star in a new color:
+7 lines of 150, turning `t.right(360 * 3 / 7)` each time (about 154 degrees).
+Python does the math for you.

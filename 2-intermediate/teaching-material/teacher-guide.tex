@@ -146,13 +146,13 @@ This needs the internet once. No account, login or personal data is involved.
         child's \menu{Documents} folder. Copy the \emph{whole} folder: the exercises use the
         \texttt{testing} folder inside it to check work.
   \item Level 2 lives in \texttt{kids-coding-curriculum/2-intermediate/}. The exercises are in
-        \texttt{exercises/week01/}, \texttt{exercises/week02/} and so on (the spelling of
-        \texttt{exercises} is intentional: it matches the original folder).
+        \texttt{exercises/week01/}, \texttt{exercises/week02/} and so on.
   \item Each exercise folder holds:
         \begin{itemize}[itemsep=0pt]
           \item \texttt{README.md}: the task, in kid-friendly words;
           \item \texttt{starter.py}: the file the child opens and edits;
           \item \texttt{check\_my\_work.py}: open it and press Run to check the work;
+          \item \texttt{hints.md}: three hints, from a gentle nudge to almost the answer;
           \item \texttt{solution.py} (the commented reference answer) and \texttt{test\_\ldots.py}: for you. If you prefer, delete
                 \texttt{solution.py} from the children's copies.
         \end{itemize}
@@ -361,7 +361,7 @@ Wk & \faArrowDown\ Support path & \faArrowUp\ Extension path \\ \midrule\endhead
 6 & Read the checkpoint aloud; focus on the predict questions. & Design a bug-hunt station for the others. \\
 7 & Copy the \texttt{with open(\ldots)} lines from the cheat sheet; write first, read later. & Append to a log file; load a list of scores and turn them into numbers. \\
 8 & Write tests for a given function, one \texttt{assert} at a time. & Edge-case tests; write a function to make given tests pass. \\
-9 & Start from the game template with keys already bound; add one key. & A list of falling sprites; speed up over time. \\
+9 & Do 9.1 (Etch-a-Sketch) together; play the finished meteors game and point out which parts are logic and which are drawing. & A list of falling sprites; speed up over time, lives, or a high-score file. \\
 10 & Starter template; aim for milestone M2 (core loop) only; you navigate. & Separate rules into a logic file; add levels or a menu. \\
 11 & Adapt the example tests to their functions; polish one thing. & More tests (including a file test); let players choose their keys. \\
 12 & Demo script card; show one feature; exit assessment read aloud. & Explain a design decision; help a younger sibling play. \\
@@ -418,7 +418,7 @@ The window closes at once or freezes with a spinning wheel & The program needs \
 The game is slow or flickers & Use \texttt{screen.tracer(0)} at the start and \texttt{screen.update()} after drawing each frame (week 9). \\ \midrule
 \multicolumn{2}{@{}l}{\textbf{Keys (\texttt{onkey}) do nothing}}\\ \midrule
 No reaction at all & 1) Click the turtle window once so it has the keyboard focus. 2) Check that \texttt{screen.listen()} is called. 3) Check the key name: \texttt{"Left"}, \texttt{"Right"}, \texttt{"Up"}, \texttt{"Down"}, \texttt{"space"}, \texttt{"a"} (capital L for Left, small s for space). \\
-The function runs once at the start, then never & \texttt{onkey(jump(), "space")} calls the function straight away. Remove the brackets: \texttt{onkey(jump, "space")}. \\ \midrule
+The function runs once at the start, then never & \texttt{onkey(jump(), "space")} calls the function straight away. Remove the parentheses: \texttt{onkey(jump, "space")}. \\ \midrule
 \multicolumn{2}{@{}l}{\textbf{Files}}\\ \midrule
 \texttt{FileNotFoundError} & The file does not exist in the folder where the program is saved. Check the spelling and extension (Finder may hide \texttt{.txt}). For high scores, catch it: \texttt{try} \ldots\ \texttt{except FileNotFoundError:} start with an empty list. \\
 The file is created somewhere strange & The program was never saved (an \enquote{untitled} program runs from the home folder). Save it first. Programs in this course use \texttt{Path(\_\_file\_\_).parent} to keep files next to the program. \\
@@ -511,7 +511,7 @@ L2.G1 & types, f-strings & \cvI & \cvR & \cvR & & \cvR & \cvR & \cvE & & \cvR & 
 L2.G2 & while, nested, and/or & \cvI & & \cvR & \cvI & \cvR & \cvR & \cvR & & \cvE & \cvR & \cvR & & \cvR & \cvR \\
 L2.G3 & functions, return & \cvR & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvE & \cvR & \cvR & & \cvR \\
 L2.G4 & lists, dictionaries & & & \cvI & \cvR & \cvE & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & & \cvR & \cvR \\
-L2.G5 & files & & & & & & & \cvI & \cvR & & \cvR & \cvE & & & \cvR \\
+L2.G5 & files & & & & & & & \cvI & & & \cvR & \cvE & \cvR & & \cvR \\
 L2.G6 & debugging, tests & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvR & \cvI & \cvR & \cvR & \cvE & \cvR & \cvR & \\
 L2.G7 & events, games, art & & & \cvR & \cvE & & & & & \cvI & \cvE & \cvE & \cvR & & \cvE \\
 L2.G8 & plan, team, feedback & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvE & \cvR & \cvR & \cvR \\

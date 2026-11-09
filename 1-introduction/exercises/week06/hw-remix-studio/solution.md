@@ -30,11 +30,11 @@ Save as `apple-catch-v2`.
 
 ## Talking points
 - The card sort is a dictionary: forward is like move, print is like say, for ... range is like repeat.
-- Python has brackets, quotes and a colon at the end of lines that hold other lines.
+- Python has parentheses, quotes and a colon at the end of lines that hold other lines.
 - Save as a new name so the old version stays safe; that is what a remix does.
 
 ## Common mistakes and quick fixes
-- Python line missing quotes or brackets: t.forward 50 or print(Hi!). Add the brackets and put text in quotes.
+- Python line missing quotes or parentheses: t.forward 50 or print(Hi!). Add the parentheses and put text in quotes.
 - "=" confusion: lives = 3 means "set lives to 3".
 - Improvement breaks the old game: undo the last change and test after each small change.
 - Saved over the old file: the name must end in `-v2`; if the old one is lost, rebuild or use the older copy.

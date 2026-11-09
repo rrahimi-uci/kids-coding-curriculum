@@ -21,7 +21,7 @@
 \raggedcolumns
 
 \begin{document}
-\kctitle{Cheat Sheet}{Classes, algorithms, data and git on two pages}
+\kctitle{Cheat Sheet}{Classes, algorithms, data and git at a glance}
 \small
 \begin{multicols}{2}
 
@@ -142,7 +142,7 @@ for row in grid:
 Neighbors of \texttt{(r, c)}: up \texttt{(r-1, c)}, down \texttt{(r+1, c)}, left
 \texttt{(r, c-1)}, right \texttt{(r, c+1)}.
 
-\textbf{BFS (shortest path):} put the start in a \texttt{deque}. Repeat: \texttt{popleft()} a square, add
+\textbf{BFS (shortest path; week 7 stretch):} put the start in a \texttt{deque}. Repeat: \texttt{popleft()} a square, add
 its unvisited neighbors to the back, remember where each came from.
 
 \subsection{CSV data}
@@ -190,7 +190,7 @@ def test_save(tmp_path):  # temp folder
     path = tmp_path / "scores.txt"
 \end{sheetcode}
 Run tests: Thonny \menu{Tools} $\rightarrow$ \menu{Open system shell\ldots}, go to your folder with
-\texttt{cd}, then type \texttt{python3 -m pytest -q}.
+\texttt{cd}, then type \texttt{python -m pytest -q}.
 
 \subsection{Before you commit: review checklist}
 \begin{checklist}

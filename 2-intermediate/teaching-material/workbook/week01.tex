@@ -9,6 +9,17 @@
   \item How to make smarter choices with \texttt{and}, \texttt{or} and \texttt{not}.
 \end{itemize}
 
+\section{Welcome back: what you already know}
+From Level 1 Python you know \texttt{print}, variables, \texttt{for i in range(\ldots)}, \texttt{input} with \texttt{int},
+\texttt{if}/\texttt{elif}/\texttt{else}, \texttt{random}, turtle drawing, and your own commands made with \texttt{def}.
+Level 2 builds on all of them. Two new things will appear in every starter file from today:
+\begin{itemize}[leftmargin=1.2em]
+  \item Functions that \textbf{hand back an answer} with \texttt{return}, like \texttt{return "Ready to play"}. You will learn all about \texttt{return} next week;
+        for now, read it as \enquote{this is the function's answer}.
+  \item A line \texttt{if \_\_name\_\_ == "\_\_main\_\_":} near the bottom. The code under it is the main program: it runs when you press \menu{Run}.
+        The functions above it are the tools it uses. Keep this line as it is.
+\end{itemize}
+
 \section{The big idea: every value has a type}
 Python sorts every value into a \textbf{type}. The type decides what Python can do with it.
 Here are the four types you will use most:
@@ -45,7 +56,7 @@ print(level + 1)                  # 5
 \end{pycode}
 
 \subsection{f-strings: fill in the blanks}
-Put an \texttt{f} in front of the quotes, and Python fills every pair of curly brackets with a value.
+Put an \texttt{f} in front of the quotes, and Python fills every pair of curly braces with a value.
 It works with any type, so you never have to worry about text plus a number.
 
 \begin{center}
@@ -81,7 +92,8 @@ Folder: \texttt{exercises/week01/ex-hero-card}. Open \texttt{starter.py} and pre
 \begin{enumerate}[leftmargin=1.4em]
   \item It crashes! Read the error from the bottom up. Write the last line here:
   \answerlines{1}
-  \item TODO 1: turn the level into a number with \texttt{int()}. Run again.
+  \item TODO 1 has two parts, and you need both. Part 1: turn the level into a number with \texttt{int()}.
+        Part 2: rewrite the \texttt{Next level} line as an f-string, because text \texttt{+} a number still crashes. Run again.
   \item TODO 2--5: add the missing lines with f-strings: power, power points, health (\texttt{level * 12.5}) and \enquote{Legend?}.
   \item Which type is each value? Write int, float, str or bool:\par
   \texttt{hero\_name} \rule{2cm}{0.4pt}\quad \texttt{power\_points} \rule{2cm}{0.4pt}\quad \texttt{health} \rule{2cm}{0.4pt}\quad \texttt{is\_legend} \rule{2cm}{0.4pt}
@@ -118,7 +130,7 @@ Last step: use \texttt{if not had\_snack:} to print a friendly tip. Then check y
   \vocabword{float}{A number with a decimal point, like 3.5 or 2.0.}
   \vocabword{str (string)}{Text inside quotes, like \texttt{"cat"} or \texttt{"7"}.}
   \vocabword{bool}{True or False. Comparisons like \texttt{level >= 3} give a bool.}
-  \vocabword{f-string}{Text with an f in front. Curly brackets inside are filled with values.}
+  \vocabword{f-string}{Text with an f in front. Curly braces inside are filled with values.}
   \vocabword{TypeError}{An error that means \enquote{these two types do not go together}.}
   \vocabword{personal information}{Facts that say who you really are or where to find you. Keep it private.}
 \end{vocab}

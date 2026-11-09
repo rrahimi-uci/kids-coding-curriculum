@@ -71,7 +71,7 @@ Now show the Thonny window on your Mac (students gather round, or point at the d
 \begin{workedexample}[Say hello, then draw a square]
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
   \item In Thonny click \menu{File} → \menu{New}. Type \py|print("Hello, Python!")| and press Run. Thonny asks you to save first: show the save box. Go to \menu{Documents} → \texttt{my-python}, name it \texttt{hello.py}, click \menu{Save}. Point at the Shell: \enquote{Python said it!}
-  \item Now break it on purpose: change \texttt{print} to \texttt{Print} and press Run. Read the red text out loud, slowly: \enquote{Line 1 \ldots{} \texttt{NameError: name 'Print' is not defined}. Python is telling us: line 1, I don't know the word \texttt{Print}.} Fix it, run again. \enquote{Bugs are normal. Reading the message is the superpower.}
+  \item Now break it on purpose: change \texttt{print} to \texttt{Print} and press Run. Read the red text out loud, slowly: \enquote{Line 1 \ldots{} \texttt{NameError: name 'Print' is not defined. Did you mean: 'print'?} Python is telling us: line 1, I don't know the word \texttt{Print} --- and it even guesses what we meant.} Fix it, run again. \enquote{Bugs are normal. Reading the message is the superpower.}
   \item Open \texttt{week07/ex-first-square/starter.py} (\menu{File} → \menu{Open…}). Run it: one side of a square. Ask: \enquote{What do we need for side 2?} Students answer, you type. Run after every side. The finished program is printed below.
   \item Show the checker: open \texttt{check\_my\_work.py} from the same folder, press Run. Read the result together: \enquote{[PASS] means that check is happy. [TRY AGAIN] gives a hint.}
 \end{enumerate}
@@ -91,10 +91,10 @@ With 1 student: the student drives, you navigate (ask questions, never take the 
 \begin{bughunt}[Typo hunt: Print, forwad, Right, Done]
 The program should draw a flag on a pole but has four typos. Python stops at the first one, so students fix them \textbf{one at a time}: run, read the red message, find the line, fix, run again.
 Coach with questions, not answers: \enquote{Which line number does it say?} \enquote{Compare that line with one that works. What is different?}
-The four bugs: \texttt{Print} (capital P, \texttt{NameError}), \texttt{forwad} (missing r, \texttt{AttributeError}), \texttt{Right} (capital R), \texttt{Done} (capital D). Bonus bug to show on your Mac only: delete a \texttt{)} --- Thonny shows a \enquote{SyntaxError} and often points at the \textbf{next} line. Say: \enquote{When the line looks fine, check the line above.}
+The four bugs: \texttt{Print} (capital P, \texttt{NameError}), \texttt{forwad} (missing r, \texttt{AttributeError}), \texttt{Right} (capital R), \texttt{Done} (capital D). Bonus bug to show on your Mac only: delete a \texttt{)} --- Thonny shows \enquote{SyntaxError: '(' was never closed} and points at the line with the open bracket. Say: \enquote{Python tells us the line \textbf{and} what is missing. If a line ever looks fine, check the line above it too.}
 \end{bughunt}
 \begin{freebuild}[Turtle doodle (last 4 minutes)]
-\menu{File} → \menu{New}, save as \texttt{my-python/doodle.py}. Start with these three lines from the square program: \texttt{import turtle}, \texttt{t = turtle.Turtle()}, and at the end \texttt{turtle.done()}. In between, anything goes: a staircase, a zigzag, the first letter of their nickname. Color ideas: \texttt{t.color("\#CC79A7")}, \texttt{t.pensize(5)}.
+\menu{File} → \menu{New}, save as \texttt{my-python/doodle.py}. Start with these three lines from the square program: \texttt{import turtle}, \texttt{t = turtle.Turtle()}, and at the end \texttt{turtle.done()}. In between, anything goes: a staircase, a zigzag, the first letter of their nickname. Color ideas: \texttt{t.color("\#CC79A7")}, \texttt{t.pensize(5)}. Anyone who wrote a \enquote{Python-ish} program on paper in week 6 can type it in now and see how close it was.
 \end{freebuild}
 
 \section{Wrap-up (52--60 min)}
@@ -102,7 +102,7 @@ The four bugs: \texttt{Print} (capital P, \texttt{NameError}), \texttt{forwad} (
 Ask: \enquote{If you saved a drawing and couldn't find it next week, how would you feel?} Then agree three rules together:
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt]
   \item Save in \textbf{one} place. Exercises: edit \texttt{starter.py} in its folder and press \keys{Cmd}+\keys{S}. New programs: \texttt{Documents/my-python}.
-  \item Use \textbf{sensible names}: small letters, no spaces, says what it is: \texttt{flag-drawing.py}, not \texttt{untitled7.py}.
+  \item Use \textbf{sensible names}: small letters, \texttt{\_} instead of spaces, says what it is: \texttt{flag\_drawing.py}, not \texttt{untitled7.py}.
   \item Never name a file \texttt{turtle.py} or \texttt{random.py}: Python would load your file instead of the real one and nothing works.
 \end{itemize}
 Our files stay on our own computer: nothing is uploaded, and no names or addresses go inside programs.
@@ -138,7 +138,7 @@ Hand out homework 7 (Triangle Time). No computer at home? Students can write the
 \extensionpath Draw a rectangle (two long sides, two short), then a house: a square with a triangle roof (turn 120 for the triangle). Try \texttt{t.right()} as well as \texttt{t.left()}.
 \end{differentiation}
 \begin{stretchchallenge}[Your initial]
-Draw the first letter of your nickname with straight lines only (E, F, H, L, M, N, T, Z work well). Plan it on squared paper first: write F, L or R and a number for each step.
+Draw the first letter of your nickname with straight lines only (E, F, H, L, T work well; avoid Z, M and N, which need slanted lines). Plan it on squared paper first: write F, L or R and a number for each step.
 \end{stretchchallenge}
 \begin{teachernote}[If you are short on time]
 Shorten the warm-up to 3 cards (4 minutes). Do Exercise 7.3 as a whole-group bug hunt on your Mac instead of in pairs. Do not skip the safety rules about saving --- they prevent lost work next week.

@@ -96,7 +96,7 @@ Q & Answer & Points & Notes \\ \midrule\endhead
 7 & \texttt{area} prints instead of returning, so it gives back \texttt{None}. Fix: \texttt{return width * height}. The program then prints \texttt{21}. & 2 & 1 point for spotting print vs return, 1 for the fix. Before crashing, the buggy program prints 20, which confuses many children. \\
 8 & \texttt{print(pets["cat"])} (keys are case-sensitive). Prints \texttt{2}. & 1 & \\
 9 & see below & 3 & 1 point for looping over the list with an \texttt{if}, 1 for counting, 1 for \texttt{return} (not \texttt{print}). \\
-10 & At the \textbf{last line}: it names the error and says what went wrong. The line just above shows the line number in our code. & 2 & 1 point for \enquote{the bottom}, 1 for a reason. \\
+10 & At the \textbf{last line}: it names the error and says what went wrong. The lines just above it show which line of our code it was (\texttt{line 4}, for example). & 2 & 1 point for \enquote{the bottom}, 1 for a reason. \\
 \bottomrule
 \end{longtable}}
 
@@ -144,7 +144,7 @@ Q & Answer & Points & Notes \\ \midrule\endhead
 2 & Only \texttt{fish}: opening with \texttt{"w"} empties the file before writing. & 1 & \\
 3 & The file does not exist yet the first time. See the fix below. & 2 & 1 point for the reason, 1 for \texttt{try}/\texttt{except FileNotFoundError} giving an empty list. Also accept checking that the file exists first. \\
 4 & a) pass. b) The \textbf{test} is wrong: clamp keeps the value at least \texttt{low}, so the right answer is 0. c) e.g. \texttt{assert clamp(-3, 0, 10) == 0} or \texttt{assert clamp(10, 0, 10) == 10} & 3 & 1 point each. An edge case is at or past a limit (the walls, 0, an empty list). \\
-5 & \texttt{screen.onkey(jump, "space")}: no brackets, so turtle can call \texttt{jump} later, each time space is pressed. \texttt{listen()} makes the window pay attention to the keyboard. & 2 & 1 point each. \\
+5 & \texttt{screen.onkey(jump, "space")}: no parentheses, so turtle can call \texttt{jump} later, each time space is pressed. \texttt{listen()} makes the window pay attention to the keyboard. & 2 & 1 point each. \\
 6 & a) 5 times \quad b) 5 & 2 & 1 point each. The first call is the one \enquote{somewhere else}; then 4 more by the timer. \\
 7 & It checks whether the basket and the star are closer than 30 steps (pixels), i.e. touching: the star is caught (a collision). & 1 & \\
 8 & see below & 4 & 1 point each: handles the empty list, finds the biggest, uses \texttt{return}, one sensible test. \\

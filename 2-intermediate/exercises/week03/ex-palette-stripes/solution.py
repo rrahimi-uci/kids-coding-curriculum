@@ -66,7 +66,7 @@ if __name__ == "__main__":
 # - Passing the number i to draw_stripe instead of the color colors[i] (or
 #   forgetting str(i) for the label, which must be text).
 # - Using range(1, len(colors)), which skips stripe number 0.
-# - Writing palette.append = "#0072B2" with an equals sign instead of brackets.
+# - Writing palette.append = "#0072B2" with an equals sign instead of parentheses.
 #
 # Another correct way: loop over the colors directly and count with enumerate.
 #   for i, color in enumerate(colors):

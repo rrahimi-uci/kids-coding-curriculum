@@ -54,7 +54,7 @@ class Pet:
 
     def describe(self):
         """Return a sentence about the pet."""
-        # Step 4: self.mood() has brackets because it is a method we CALL to get the word.
+        # Step 4: self.mood() has parentheses because it is a method we CALL to get the word.
         return f"{self.name} the {self.species} feels {self.mood()}."
 
 
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 # - Forgetting the limit: happiness climbs to 12 or 14 because only the "+ 2" was written.
 # - Putting the mood checks in the wrong order (for example "okay" first), so the pet is
 #   never "hungry" or "happy".
-# - Writing self.mood without brackets in describe, which prints a method object.
+# - Writing self.mood without parentheses in describe, which prints a method object.
 #
 # Another correct way to keep a number at most 10 (min picks the smaller one):
 #     self.happiness = min(10, self.happiness + 2)

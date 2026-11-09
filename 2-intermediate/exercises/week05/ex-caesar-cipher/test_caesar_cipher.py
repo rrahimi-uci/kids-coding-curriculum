@@ -10,7 +10,7 @@ def test_encode_shifts_letters(load_target):
 def test_encode_wraps_round(load_target):
     m = load_target()
     answer = m.encode("xyz", 3)
-    assert answer == "abc", f"'xyz' with shift 3 wraps round to 'abc', not {answer!r}."
+    assert answer == "abc", f"'xyz' with shift 3 wraps around to 'abc', not {answer!r}."
 
 
 def test_spaces_and_symbols_stay(load_target):

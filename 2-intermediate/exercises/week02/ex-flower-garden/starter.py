@@ -12,7 +12,7 @@ GREEN = "#009E73"
 
 
 def petal_turn(petals):
-    """Return how many degrees to turn between petals so they go all the way round."""
+    """Return how many degrees to turn between petals so they go all the way around."""
     # TODO 1: a full turn is 360 degrees. Share it out between the petals.
     return 90
 
@@ -42,7 +42,7 @@ def draw_flower(t, x, y, petals, color, size=60):
     t.pensize(1)
     t.color("black", color)
     # TODO 4: repeat for the number of petals, not always 4.
-    for _ in range(4):
+    for _ in range(4):           # _ is a name for a loop counter we do not use
         draw_petal(t, size)
         t.left(petal_turn(petals))
     t.dot(size // 3, YELLOW)     # the middle of the flower

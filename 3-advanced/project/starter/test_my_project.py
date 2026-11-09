@@ -5,7 +5,8 @@
 3. Add your OWN tests until you have at least 5 (the project needs 5+).
    A good test: set something up, do ONE thing, then assert what you expect.
 
-Run them in Terminal, from your project folder:   python3 -m pytest -q
+Run them from your project folder in Thonny's system shell
+(Tools > Open system shell...):   python -m pytest -q
 """
 
 import sys

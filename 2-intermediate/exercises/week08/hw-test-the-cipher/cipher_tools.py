@@ -1,10 +1,10 @@
 """encode() makes a Caesar-cipher secret message (like week 5).
 
 Each small letter moves `shift` places along the alphabet. After z it
-wraps round to a again. Spaces and other symbols stay exactly the same.
+wraps around to a again. Spaces and other symbols stay exactly the same.
 
     encode("abc", 1)       gives "bcd"
-    encode("xyz", 3)       gives "abc"        (wraps round after z)
+    encode("xyz", 3)       gives "abc"        (wraps around after z)
     encode("hi there!", 1) gives "ij uifsf!"  (space and ! stay the same)
 
 This file is correct. Do not change it: write tests for it in starter.py.

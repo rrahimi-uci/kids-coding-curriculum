@@ -6,7 +6,7 @@
 \textbf{Step 1 (error):} \texttt{TypeError: can only concatenate str (not "int") to str}.\par
 \textbf{Step 4 (types):} \texttt{hero\_name} str, \texttt{power\_points} int, \texttt{health} float, \texttt{is\_legend} bool.\par
 \textbf{What to look for:} the level is converted with \texttt{int()} once, where it is typed in (not in every line);
-every card line uses an f-string; the student explains why \texttt{health} has \texttt{.0} at the end (int times float gives a float).
+every card line uses an f-string, including the \texttt{Next level} line (TODO 1, part 2: with \texttt{int()} alone that line still crashes); the student explains why \texttt{health} has \texttt{.0} at the end (int times float gives a float).
 Accept any labels and border style.
 \end{answer}
 \pyfile{../exercises/week01/ex-hero-card/solution.py}

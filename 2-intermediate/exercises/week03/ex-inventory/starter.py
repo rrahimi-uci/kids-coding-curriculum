@@ -35,7 +35,7 @@ def show_backpack(backpack):
 
 
 if __name__ == "__main__":
-    backpack = ["torch", "rope"]
+    backpack = ["lantern", "rope"]
     add_item(backpack, "map")
     add_item(backpack, "apple")
     show_backpack(backpack)

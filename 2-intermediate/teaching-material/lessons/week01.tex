@@ -97,11 +97,15 @@ level >= 3 and name == "Nova"  # True
 \begin{enumerate}[leftmargin=1.4em]
   \item After the \texttt{TypeError}, point at the \textbf{last line} of the red text: \enquote{This line says WHAT went wrong.
         \texttt{can only concatenate str (not "int") to str} means: I can only glue text to text.}
-  \item For the f-string, say: \enquote{The \texttt{f} in front means \enquote{fill in}. Python fills each pair of curly brackets
+  \item For the f-string, say: \enquote{The \texttt{f} in front means \enquote{fill in}. Python fills each pair of curly braces
         with the value of the variable inside them.}
   \item Open \texttt{ex-hero-card/starter.py}, press \menu{Run} (the green button, or \keys{F5}), answer the three questions and
         watch it crash. Read the traceback together from the bottom up: the error, then the line number. Do not fix it yet:
         that is the students' first job.
+  \item Before the pairs start, point at two things in the file that are new since Level 1 (the workbook section
+        \enquote{Welcome back} explains them too). \texttt{if \_\_name\_\_ == "\_\_main\_\_":} marks the main program, the part
+        that runs when you press \menu{Run}. And the Mood Meter and Dragon Door functions end with \texttt{return}: say
+        \enquote{\texttt{return} is the function's answer; next week is all about it.} Do not teach more than that today.
 \end{enumerate}
 \end{workedexample}
 The finished Hero Card, for you (students build it themselves):
@@ -118,15 +122,16 @@ the answers to type when the program runs, including tricky ones like level 10).
 \end{pairroles}
 
 \begin{enumerate}[leftmargin=1.4em]
-  \item \textbf{Exercise 1.1 Hero Card} (\texttt{week01/ex-hero-card}, about 12 minutes). Fix the \texttt{TypeError} (TODO 1), then add the f-string lines.
-  \item \textbf{Exercise 1.2 Mood Meter} (\texttt{week01/ex-mood-meter}, about 10 minutes). Students fill in the prediction table in the workbook before running.
+  \item \textbf{Exercise 1.1 Hero Card} (\texttt{week01/ex-hero-card}, about 10 minutes). Fix the \texttt{TypeError} (TODO 1, two parts), then add the f-string lines.
+  \item \textbf{Exercise 1.2 Mood Meter} (\texttt{week01/ex-mood-meter}, about 7 minutes). Students fill in the prediction table in the workbook before running.
   \item After each exercise: open \texttt{check\_my\_work.py} in the same folder and press \menu{Run}. Green \texttt{[PASS]} lines mean done.
 \end{enumerate}
 
 \begin{bughunt}[\texttt{"5" + 5}]
 The Hero Card starter crashes on the line \texttt{print("  Next level:   " + level + 1)} because \texttt{input()} always gives back text.
 Ask: \enquote{What type is \texttt{level}? How do we know?} Let students add \texttt{print(type(level))} just above the crash line to find out.
-Two good fixes: wrap the input in \texttt{int(...)} (TODO 1), and use an f-string for the line: \texttt{f"  Next level:   \{level + 1\}"}.
+Both fixes are needed (TODO 1, parts 1 and 2): wrap the input in \texttt{int(...)}, \emph{and} use an f-string for the line: \texttt{f"  Next level:   \{level + 1\}"}.
+With only \texttt{int()}, the line still glues text to a number and shows the same \texttt{TypeError}: a good moment to read the error again rather than guess.
 \end{bughunt}
 
 \begin{freebuild}[Make the card yours]
@@ -159,7 +164,7 @@ Hand out homework 1 (Dragon Door). It takes 15--20 minutes.
 
 \section{Notes for the teacher}
 \begin{commonmistakes}
-  \item \textbf{Forgetting the \texttt{f}.} \texttt{"Hi \{name\}"} prints the curly brackets. Fix: \texttt{f"Hi \{name\}"}.
+  \item \textbf{Forgetting the \texttt{f}.} \texttt{"Hi \{name\}"} prints the curly braces. Fix: \texttt{f"Hi \{name\}"}.
   \item \textbf{Using a number from \texttt{input()} without \texttt{int()}.} Text times a whole number repeats it (\texttt{"4" * 10} is
         \texttt{"4444444444"}) and text plus a number crashes.
   \item \textbf{\texttt{yes} without quotes.} \texttt{if answer == yes:} gives \texttt{NameError}. Text needs quotes: \texttt{"yes"}.
@@ -172,6 +177,8 @@ Hand out homework 1 (Dragon Door). It takes 15--20 minutes.
 \begin{differentiation}
 \supportpath Use the placement quiz: if loops or variables were shaky, sit with that pair for TODO 1 and 2 of the Hero Card and type the first f-string
 together. Skip the Mood Meter in class; it can be a homework extra. Keep the value cards on the table as a reminder.
+A child who is new to the group (placed in Level 2 by the quiz, no Level 1 here) has not seen our starter files: sit with them for
+the first run, show where the TODO comments are, and how \texttt{check\_my\_work.py} reports \texttt{[PASS]}.
 \extensionpath Try \texttt{type()} on \texttt{3 / 2}, \texttt{4 / 2} and \texttt{7 // 2} and explain the answers. Show health with one decimal place:
 \texttt{f"\{health:.1f\}"}. In the Mood Meter, add a third question and a condition that uses \texttt{and}, \texttt{or} and \texttt{not} together.
 \end{differentiation}

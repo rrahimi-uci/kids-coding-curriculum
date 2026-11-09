@@ -49,7 +49,7 @@ Save as `apple-catch-lives`.
 - Game over on the second game: "set lives to 3" is missing, so lives is still 0.
 - Game never ends: the "if lives = 0" check is outside the forever loop, or the number is wrong (not 0).
 - Lives go below 0 or skip 0: the check is missing or uses a different test; keep it as "lives = 0".
-- Lives not visible: the checkbox next to `lives` is not ticked.
+- Lives not visible: the checkbox next to `lives` is not checked.
 
 ## Check-off list
 - [ ] `lives` shows 3 at the start of every game: set lives to 3 sits under the green flag.

@@ -69,7 +69,7 @@ if __name__ == "__main__":
 # - Forgetting reverse=True, so the LOWEST scores come first.
 # - Using scores.sort(...), which changes the original list (a test checks it does not);
 #   sorted(...) makes a new list.
-# - Writing key=name_of(entry) or key=points_of() with brackets: the key must be the
+# - Writing key=name_of(entry) or key=points_of() with parentheses: the key must be the
 #   function itself, so Python can call it on every entry.
 # - In rank_lines, setting place = place + 1 for every player, which gives 3, 4 instead of
 #   3, 3, or forgetting to update previous_points.

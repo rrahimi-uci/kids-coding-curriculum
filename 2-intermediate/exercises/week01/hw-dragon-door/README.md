@@ -8,8 +8,7 @@ The dragon door opens if:
 * you are level 10 or more (legends do not need keys).
 
 1. Open `starter.py` in Thonny.
-2. **TODO 1:** change the `if` line in `door_opens()`. Brackets help:
-   `(has_key and level >= 3) or level >= 10`.
+2. **TODO 1:** change the `if` line in `door_opens()`. Parentheses help you group a part: `(____ and ____) or ____`.
 3. **TODO 2:** make the welcome message use an f-string with the hero name.
 4. Run it with these answers and check the door does the right thing:
    key yes + level 5 (opens), key yes + level 2 (shut), key no + level 12 (opens).

@@ -28,8 +28,13 @@ mkdir git-quest
 cd git-quest
 ```
 
-Now copy `hero_badge.py` into the `git-quest` folder (drag it in Finder, or
-use **File > Save As...** in Thonny and pick `Documents/git-quest`).
+If a window asks whether Terminal may use files in your Documents folder,
+click **Allow**.
+
+Now copy `hero_badge.py` into the `git-quest` folder: open it in Thonny and
+use **File > Save as...**, pick `Documents/git-quest`, and click **Save**.
+(Or hold the **Option** key while you drag it in Finder, so Finder makes a
+copy instead of moving the original.)
 
 ```
 ls
@@ -54,8 +59,12 @@ git init
 git status
 ```
 
+`git init` may print some `hint:` lines about the name `master`. That is
+fine: you can ignore them.
+
 `git status` says `hero_badge.py` is **untracked**: git sees it but is not
-saving it yet.
+saving it yet. (If it also lists `.DS_Store`, that is a hidden file Finder
+makes. Ignore it and never `git add` it.)
 
 ## Level 4 - Your first save point
 
@@ -78,11 +87,12 @@ git diff
 ```
 
 Lines with `-` were removed, lines with `+` were added.
-Now save it:
+(If the screen fills up and shows `:` or `(END)` at the bottom, press `q`
+to get back.) Now save it:
 
 ```
 git add hero_badge.py
-git commit -m "Change badge color to green"
+git commit -m "Change badge color and hero name"
 git log --oneline
 ```
 
@@ -98,8 +108,10 @@ git status
 git restore hero_badge.py
 ```
 
-3. In Thonny, close the file and open it again (or click into it so Thonny
-   reloads it). The `draw_star` function is back. Run it - it works.
+3. Go back to Thonny. If it asks whether to reload the file, click **Yes**.
+   If it does not ask, close the tab and open `hero_badge.py` again. Do NOT
+   press Run or Save before that: Thonny would save the broken version
+   again. The `draw_star` function is back. Run it - it works.
 
 `git restore` jumps the file back to your last save point.
 
@@ -114,6 +126,7 @@ check it with `git diff`, then `add` and `commit` with a helpful message.
 - Every message says **what** changed, e.g. `Make star bigger`,
   not `stuff` or `update`.
 - `git status` says `nothing to commit, working tree clean` at the end.
+  (If the only thing it lists is an untracked `.DS_Store`, that is fine too.)
 - No real name, real email or password appears anywhere.
 
 ## Checklist

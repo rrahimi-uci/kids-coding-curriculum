@@ -21,7 +21,7 @@
   \timeslot{6--14}{Concept}{Rules vs learning; features, labels, training and test data; the five big ideas of AI.}
   \timeslot{14--22}{Guided demo}{Type-along: Exercise 9.1 monster sorter (nearest neighbor on a chart).}
   \timeslot{22--42}{Hands-on build}{Pairs: Exercise 9.2 fair or biased (about 10 min), 9.3 Markov story machine (about 8 min). Bug hunt: bad training data. Swap at 10 min.}
-  \timeslot{42--60}{Wrap-up}{AI ethics talk (5 min), exit ticket, then \textbf{final project kickoff} (about 13 min): brief, three options, milestones, pitch card.}
+  \timeslot{42--60}{Wrap-up}{AI ethics talk (4 min), exit ticket (1 min), then \textbf{final project kickoff} (about 13 min): brief, three options, milestones, pitch card.}
 \end{timeplan}
 \begin{teachernote}[If you are short on time]
 Run 9.3's solution together instead of building it. Never cut the ethics talk or the project kickoff.
@@ -50,12 +50,12 @@ A child who has seen 100 robins and 2 crows calls every black bird \enquote{a di
 \begin{workedexample}[Exercise 9.1: monster sorter (type-along)]
 \begin{enumerate}[itemsep=1pt]
   \item Read the \texttt{TRAINING} list aloud: each card is \texttt{(fluff, teeth, label)}, e.g. \py|(9, 1, "friendly")|.
-  \item TODO 1: distance is Pythagoras: \py|math.sqrt(dx * dx + dy * dy)|. Check: from (0, 0) to (3, 4) is 5.
+  \item TODO 1: distance is Pythagoras: \py|math.sqrt(dx * dx + dy * dy)|. Check: from (0, 0) to (3, 4) is 5. Pythagoras is usually taught in grade 8, so present it as a ready-made recipe: \enquote{\texttt{dx} is how far across, \texttt{dy} how far up; this formula gives the straight-line distance, the same as measuring with a ruler on the chart.}
   \item TODO 2: \texttt{nearest} keeps the closest card so far -- \enquote{the same pattern as finding the smallest number in a list}.
   \item Run. Circles with F are friendly, squares with G grumpy; each white ? has a line to its nearest neighbor. Ask: \enquote{Do you agree with the guess for (5, 5), right in the middle?}
 \end{enumerate}
 \end{workedexample}
-\pyfile[firstline=25,lastline=39]{../exercises/week09/ex-monster-sorter/solution.py}
+\pyfile[firstline=28,lastline=53]{../exercises/week09/ex-monster-sorter/solution.py}
 
 \section{Hands-on build (22--42 min)}
 \begin{pairroles}[Data scientist and critic]
@@ -65,7 +65,7 @@ A child who has seen 100 robins and 2 crows calls every black bird \enquote{a di
 \textbf{9.2} (10 min): \texttt{label\_counts}, \texttt{accuracy}; fair 100\% vs biased 50\%. \textbf{9.3} (8 min): \texttt{build\_chain}; read the stories.
 
 \begin{bughunt}[Bad training data, bad predictions]
-In 9.2 the code is correct but the biased predictions are wrong. Ask: \enquote{Is the bug in the code or in the data?} (The data: only one friendly example.) Then mislabel one friendly card as \texttt{"grumpy"} in \texttt{ALL\_CARDS} and run again. Strategy: \textbf{when a learning program is wrong, check the examples before the code.}
+In 9.2 the code is correct but the biased predictions are wrong. Ask: \enquote{Is the bug in the code or in the data?} (The data: only one friendly example.) Then change the friendly training card \py|(7, 3, "friendly")| in \texttt{ALL\_CARDS} to \py|"grumpy"| and run again: the fair accuracy drops from 100\% to 50\%, because one wrong label fools the guesses near it. (Change it back afterwards.) Strategy: \textbf{when a learning program is wrong, check the examples before the code.}
 \end{bughunt}
 
 \begin{freebuild}[Teach it something new (if time)]
