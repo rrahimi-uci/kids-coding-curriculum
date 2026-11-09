@@ -323,6 +323,8 @@ a.week-item:hover { border-color: var(--accent, var(--brand)); box-shadow: var(-
 pre { background: var(--code-bg); color: var(--code-ink); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: .9rem 1rem; overflow-x: auto; font-size: .9375rem; line-height: 1.6; margin: 0; tab-size: 4; }
 pre code { background: none; padding: 0; font-size: inherit; }
 .code-outputcode pre { border-left: 6px solid var(--muted); }
+.code-block pre { padding-right: 5.5rem; }
+.code-command pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .copy-btn { position: absolute; top: .5rem; right: .5rem; z-index: 2; }
 
 /* exercises and hints */

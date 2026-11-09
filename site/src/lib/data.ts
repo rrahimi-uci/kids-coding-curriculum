@@ -47,7 +47,12 @@ export const homeworkHtml = (slug: string, weekSlug: string) =>
 export const levelHtml = (slug: string, name: string) => fix(read(`html/${slug}/${name}.html`));
 export const glossary = (slug: string): GlossaryEntry[] => JSON.parse(read(`glossary/${slug}.json`));
 export const resources = (): { slug: string; title: string; toc: { id: string; text: string }[] }[] => JSON.parse(read('resources.json'));
-export const resourceHtml = (slug: string) => fix(read(`html/resources/${slug}.html`));
+/** Absolute address of the site (with the base path), for text that people copy and paste. */
+export const siteUrl = (): string => {
+  const origin = String(import.meta.env.SITE || 'http://localhost:4321').replace(/\/$/, '');
+  return origin + base();
+};
+export const resourceHtml = (slug: string) => fix(read(`html/resources/${slug}.html`)).replaceAll('%SITE%', siteUrl());
 export const exercises = (slug: string) => {
   const dir = path.join(GEN, 'exercises', slug);
   if (!fs.existsSync(dir)) return [];
