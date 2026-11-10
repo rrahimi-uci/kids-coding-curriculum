@@ -15,7 +15,7 @@ Any time after week 8: after a missed session, before a holiday, between weeks 1
 
 \begin{materials}
   \item One six-sided dice (or six folded slips in a cup, numbered 1--6). The remix menu is in the box \enquote{Remix dice} below --- show it on this page.
-  \item On each Mac: Thonny open; Finder at \texttt{kids-coding-curriculum/1-introduction/exercises/}; the folder \texttt{Documents/my-python}.
+  \item On each Mac: Thonny open; Finder at \texttt{kids-coding/1-introduction/exercises/}; the folder \texttt{Documents/my-python}.
   \item Sticky notes for the gallery share. Prep time: about 5 minutes.
 \end{materials}
 
@@ -59,13 +59,13 @@ The credit line goes at the very top: \texttt{\# Remixed from Exercise 8.3 (Squa
 \section{Guided demo (15--25 min)}
 \begin{workedexample}[Remix the Square Flower]
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
-  \item Open \texttt{week08/ex-square-flower/starter.py} (or a student's finished one). Before changing anything: \menu{File} → \menu{Save as…} → \texttt{Documents/my-python/square-flower-remix.py}. \enquote{Now the original is safe.}
+  \item Open \texttt{week08/ex-square-flower/starter.py} (or a student's finished one). Before changing anything: \menu{File} → \menu{Save as…} → \texttt{Documents/my-python/square\_flower\_remix.py}. \enquote{Now the original is safe.}
   \item Add the credit comment at the top.
   \item Twist 4 (question): \texttt{petals = int(input("How many squares? (4 to 36) "))}. Change the loop to \texttt{for i in range(petals):} and the turn to \texttt{t.left(360 / petals)}. Run with 12.
   \item Twist 5 (random): \texttt{import random} at the top and \texttt{t.color(random.choice(PALETTE))} inside the loop. Run twice --- different colors each time.
 \end{enumerate}
 \end{workedexample}
-\begin{pycode}[square-flower-remix.py (tested)]
+\begin{pycode}[square\_flower\_remix.py (tested)]
 # Square Flower REMIX
 # Remixed from Exercise 8.3 (Square Flower) by Kai and Zoe
 import random
@@ -95,7 +95,7 @@ turtle.done()
 Driver types; navigator holds the sticky-note plan and checks each twist off. Swap every 8 minutes. With 1 student: you are the navigator and roll the dice with them. With 3: rotate driver, navigator and \enquote{tester}. With 4: two pairs.
 \end{pairroles}
 \begin{bughunt}[Bug swap (minute 40)]
-Each pair saves one more copy (\texttt{...-bug.py}) and hides \textbf{one} sneaky bug in it: a typo, a wrong angle, a line pulled out of a loop, or a missing \texttt{int}. Pairs swap Macs and have 3 minutes to find and fix it, then explain the bug to its makers. With 1 student, you hide a bug in their program and they hide one in yours. The rule: a bug must be fixable by changing one line.
+Each pair saves one more copy (\texttt{...\_bug.py}) and hides \textbf{one} sneaky bug in it: a typo, a wrong angle, a line pulled out of a loop, or a missing \texttt{int}. Pairs swap Macs and have 3 minutes to find and fix it, then explain the bug to its makers. With 1 student, you hide a bug in their program and they hide one in yours. The rule: a bug must be fixable by changing one line.
 \end{bughunt}
 \begin{freebuild}[Your remix, your way]
 After the two twists, anything goes: more twists, a mash-up of two exercises (flowers in the bubble art, stars in the polygon party), or work on the final project if it needs finishing before week 12.

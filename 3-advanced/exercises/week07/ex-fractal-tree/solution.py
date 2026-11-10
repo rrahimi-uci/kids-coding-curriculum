@@ -17,7 +17,7 @@ PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",
            "#0072B2", "#D55E00", "#CC79A7", "#000000"]
 
 ANGLE = 25      # how far each branch bends (try 15 or 40)
-SHRINK = 0.7    # each new branch is 70% as long as the one below it
+SHRINK = 0.7    # 7 tenths: a 100-step branch grows 70-step branches
 
 
 def branch(t, length, depth):
@@ -49,6 +49,7 @@ def draw_forest():
     t = turtle.Turtle()
     t.hideturtle()
     t.speed(0)
+    # x = -220 is 220 steps LEFT of the center, x = 220 is 220 steps right.
     for x, depth in [(-220, 3), (0, 7), (220, 5)]:
         t.penup()
         t.goto(x, -200)

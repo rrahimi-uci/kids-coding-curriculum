@@ -1,16 +1,22 @@
 % Level 3 answer key, Week 9 -- How Do Machines Learn?
 \answersweek{9}{How Do Machines Learn?}{Answers for workbook chapter 9 and homework 9.}
 
+\section{Workbook: questions in the text}
+\begin{answer}[Your turn: steps distance]
+From (3, 6) to the grumpy monster (2, 6): $1 + 0 = $ \textbf{1 step}. To the friendly monster (7, 3): $4 + 3 = $ \textbf{7 steps}. So the guess for (3, 6) is grumpy.
+\end{answer}
+
 \section{Exercise 9.1: Monster sorter}
-\pyfile[firstline=12,lastline=53]{../exercises/week09/ex-monster-sorter/solution.py}
+\pyfile[firstline=14,lastline=60]{../exercises/week09/ex-monster-sorter/solution.py}
 \begin{answer}[Answers]
-\texttt{(5, 2) -> friendly}, \texttt{(3, 6) -> grumpy}, \texttt{(5, 5) -> friendly} (its nearest card is (7, 3), about 2.8 away; the nearest grumpy card (2, 6) is about 3.2 away). Either \enquote{agree} or \enquote{disagree} is fine for (5, 5) if the student explains: it is right between the groups, so a small change in the data could flip the guess.
+\texttt{(5, 2) -> friendly} (nearest card (6, 1), 1 + 1 = 2 steps), \texttt{(3, 6) -> grumpy} (nearest card (2, 6), 1 + 0 = 1 step), \texttt{(5, 5) -> friendly}. For (5, 5) there is a \textbf{tie}: (7, 3) friendly, (8, 4) friendly and (2, 6) grumpy are all exactly \textbf{4 steps} away. \texttt{nearest} keeps the first card it found, (7, 3), because only a \emph{strictly} smaller distance replaces \texttt{best}. Either \enquote{agree} or \enquote{disagree} is fine if the student explains: it is right between the groups, so a small change in the data (or the order of the cards) could flip the guess. (With the ruler distance from the README Extra, (7, 3) is still nearest, about 2.8 against 3.2, and every guess stays the same.)
+\textbf{Why steps distance?} The straight-line \enquote{ruler} distance needs square roots and Pythagoras (grade 8). The steps distance (gap across + gap up, like moving a game piece on a grid) uses only subtraction and addition, matches the week 7 grids, and is the distance used in the exit assessment.
 \end{answer}
 
 \section{Exercise 9.2: Fair or biased?}
 \pyfile[firstline=47,lastline=81]{../exercises/week09/ex-fair-or-biased/solution.py}
 \begin{answer}[Answers]
-Fair training accuracy \textbf{100\%} (4 of 4); biased training accuracy \textbf{50\%} (2 of 4). The biased pile is unbalanced (one friendly card, eight grumpy) and not representative: its only friendly monster is an unusual super-fluffy one, and some grumpy cards sit where friendly monsters usually are. So friendly test monsters such as (6, 2) and (6, 4) are closer to a grumpy card and get the wrong label. Key idea: the code is the same -- the \emph{data} caused the unfairness.
+Fair training accuracy \textbf{100\%} (4 of 4); biased training accuracy \textbf{50\%} (2 of 4). The biased pile is unbalanced (one friendly card, eight grumpy) and not representative: its only friendly monster is an unusual super-fluffy one, and some grumpy cards sit where friendly monsters usually are. So friendly test monsters such as (6, 2) and (6, 4) are closer to a grumpy card and get the wrong label: (6, 2) is 4 steps from the grumpy card (6, 6) but 6 steps from the only friendly card (10, 0); (6, 4) is 2 steps from (6, 6) and 8 steps from (10, 0). Workbook Math helper: 4 out of 4 correct is \textbf{100\%}, 2 out of 4 is \textbf{50\%}; accept \enquote{4 out of 4} and \enquote{2 out of 4}. Key idea: the code is the same -- the \emph{data} caused the unfairness.
 \end{answer}
 
 \section{Exercise 9.3: Markov story machine}
@@ -25,7 +31,7 @@ A clear one-sentence idea; two or more classes with one \enquote{is a} or \enquo
 \end{answer}
 
 \section{Homework 9}
-\pyfile[firstline=28,lastline=49]{../exercises/week09/hw-fruit-detective/solution.py}
+\pyfile[firstline=27,lastline=48]{../exercises/week09/hw-fruit-detective/solution.py}
 \begin{answer}[Core and Challenge]
 Core: k = 1 says \textbf{apple} (it copies the mislabeled card at (5, 3)); k = 3 says \textbf{lemon} (two lemons outvote it).
 Challenge: for (5, 4): k = 1 apple, 3 lemon, 5 lemon, 13 apple. For (2, 8): k = 1, 3, 5 grape, 13 apple. With k = 13 every card votes, so the most common label overall (apple, 5 cards) always wins -- the classifier stops looking at the mystery fruit at all. Too small a k trusts one card (mistakes and all); too big a k ignores the neighbors. A middle value works best.

@@ -133,7 +133,9 @@ after 10 minutes of reading. Say exactly what to click, type and say.
 ## 4. Workbook chapter (student-facing, one per week)
 
 Copy `shared/templates/workbook.tex`. Friendly second person (“you”), short
-sentences, Grade 5 reading level for Level 1, Grade 6–7 for Levels 2–3.
+sentences, Grade 4–5 reading level at every level (see ASSUMPTIONS.md #6 and the
+math prerequisites in #6a; add a `tip[Math helper: …]` box the first time a
+chapter needs math beyond Grade 5).
 Required: explanation with at least one diagram (TikZ) or Scratch-block
 picture, 2–4 `exercise` boxes (in-class, matching the exercise folders), a
 `vocab` box and a `reflection` box. 3–5 pages.
@@ -212,7 +214,7 @@ Test rules (pytest, see `conftest.py` and `testing/kidtest`):
   `.bg`, `.key_handlers`.
 * Test behavior the student can see, not exact code. Accept many correct
   solutions (e.g. any square of side ≥ 50, not exactly 100).
-* Assertion messages are for a 10–13-year-old: say what was expected and a
+* Assertion messages are for a 9–11-year-old: say what was expected and a
   hint, e.g. `assert n == 4, f"A square needs 4 sides, but your turtle drew {n}."`
 * 2–5 tests per exercise. Tests must pass against `solution.py` and should
   fail against the untouched `starter.py` (that is what makes them useful).
@@ -266,7 +268,7 @@ the web pages correct:
   fails if a TikZ figure has none. Scratch scripts get their description automatically.
 * **Objectives.** Every workbook chapter starts with a `\section{What you will learn}` list (or
   `What you will do today`); the website shows it as the lesson's objectives and fails without it.
-* **Hints.** Every exercise folder has a `hints.md` with exactly three hints, written for a Grade 5 reader:
+* **Hints.** Every exercise folder has a `hints.md` with exactly three hints, written for a Grade 4–5 reader:
 
   ```markdown
   ## Hint 1: Where to look

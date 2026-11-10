@@ -2,7 +2,7 @@
 
 **Goal:** finish an arcade game with arrow keys, a game loop and collisions.
 
-You are the blue turtle at the bottom. Orange-red round meteors fall from the
+You are the sky-blue turtle at the bottom. Orange-red round meteors fall from the
 sky. Dodge them with the Left and Right arrows. Each meteor that reaches the
 ground is 1 point. One hit and it is GAME OVER.
 
@@ -10,8 +10,13 @@ ground is 1 point. One hit and it is GAME OVER.
    the turtle cannot move. Let's fix that!
 2. **TODO 1** `move_player()`: return the new x, using `clamp()` so the
    player stops at the walls. (You wrote tests for `clamp()` last week!)
+   `direction` is `1` for right and `-1` for left, so `direction * step` is
+   `1 * 20 = 20` (20 steps right) or `-1 * 20 = -20` (20 steps left). The
+   walls are at `-270` (left) and `270` (right): the middle of the window is 0.
 3. **TODO 2** `is_touching()`: use `math.dist()` to see if two points are
-   closer than `how_close`.
+   closer than `how_close`. `math.dist((0, 0), (30, 40))` is `50.0`: it
+   measures how far apart two points are in a straight line, like a ruler.
+   Now run `check_my_work.py`: the first two checks should say `[PASS]`.
 4. **TODO 3** connect the arrow keys with `screen.onkey(...)` and call
    `screen.listen()`.
 5. **TODO 4** at the end of `game_loop()`, plan the next frame with

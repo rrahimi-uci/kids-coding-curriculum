@@ -9,7 +9,7 @@ Folder: \texttt{exercises/week07/hw-idea-notebook}. This program keeps a list of
   \item Open \texttt{starter.py} and press \menu{Run}. Type \texttt{a}, an idea, then \texttt{l}. Is the idea listed? (Not yet!)
   \item TODO 1: in \texttt{add\_idea()}, open the file with \texttt{"a"} and write the idea plus \texttt{"\textbackslash n"}.
   \item TODO 2: in \texttt{load\_ideas()}, read every line, \texttt{strip()} it and keep the ones that are not empty. Catch
-        \texttt{FileNotFoundError} and make an empty file, just like in class.
+        \texttt{FileNotFoundError} and make an empty file, like in class.
   \item Add three ideas, quit with \texttt{q}, run the program again and type \texttt{l}. They are still there!
   \item Open \texttt{check\_my\_work.py} and press \menu{Run}.
 \end{enumerate}
@@ -18,7 +18,9 @@ Write your favorite idea here. It could become your final project!
 \end{core}
 
 \begin{challenge}[Mode detective]
-Predict what is in \texttt{test.txt} after each program runs (start with no file each time). Then try it in Thonny.
+Predict what is in \texttt{test.txt} after each program runs. Each program starts with no \texttt{test.txt}.
+Then try it in Thonny: save each program in the same folder, run Program A, open \texttt{test.txt} and look.
+Delete \texttt{test.txt} in Finder, then run Program B.
 \begin{pycode}[Program A]
 for word in ["red", "blue"]:
     with open("test.txt", "w") as file:

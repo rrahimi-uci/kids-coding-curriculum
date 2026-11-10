@@ -1,5 +1,5 @@
 ## Hint 1: Where to look
-Read the three rules for the door at the top of the starter file. Right now `door_opens()` only checks the key. Does it ever look at the level?
+Read the rules for the door at the top of the starter file. There are two ways in. Right now `door_opens()` only checks the key. Does it ever look at the level?
 
 ## Hint 2: Try this
 Join two true-or-false checks with `and` when both must be true. Join them with `or` when either one is enough. Parentheses `( )` keep a pair of checks together. For the message, an f-string puts a variable inside curly braces.

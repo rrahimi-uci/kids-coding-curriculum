@@ -41,6 +41,11 @@ a **forever** loop and **if** blocks.
   - if (y position) < -170 then
     - go to x: (pick random -200 to 200) y: 170
 
+**Math helper:** the sign `<` means "is less than". A smaller y is lower down,
+and the bottom edge of the stage is y: -180. With minus numbers, the bigger the
+number after the minus sign, the lower the spot: y: -175 is lower than y: -170.
+So "(y position) < -170" means "the apple has fallen almost to the bottom".
+
 ## Expected behavior
 
 The score starts at 0. The bowl stays at the bottom and follows the mouse

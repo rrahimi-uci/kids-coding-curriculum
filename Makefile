@@ -5,7 +5,7 @@ LEVEL_ARG := $(if $(LEVEL),--level $(LEVEL),)
 
 SITE_PY ?= .venv-site/bin/python
 
-.PHONY: help setup test smoke pdf pdf-standard pdf-dyslexia check clean site-setup site-data site site-check site-serve
+.PHONY: help setup test smoke pdf pdf-standard pdf-dyslexia check clean student-bundle site-setup site-data site site-check site-serve
 
 help:
 	@echo "make setup         create .venv (Python 3.10, like Thonny) with pytest"
@@ -14,6 +14,7 @@ help:
 	@echo "make pdf           build all PDFs, standard + dyslexia-friendly (LEVEL=1|2|3)"
 	@echo "make pdf-standard  build only the standard edition"
 	@echo "make check         test + pdf (what CI runs)"
+	@echo "make student-bundle  solution-free copy for a child's Mac, with self-checks (LEVEL=1|2|3)"
 	@echo "make site-setup    one-time: create .venv-site and install the site/ npm packages"
 	@echo "make site          build the website (site/dist), then run the private-content and content checks"
 	@echo "make site-check    HTML, link, accessibility and Lighthouse checks on site/dist"
@@ -40,6 +41,9 @@ pdf-dyslexia:
 	python3 tools/build.py --variant dyslexia $(LEVEL_ARG)
 
 check: test pdf
+
+student-bundle:
+	python3 tools/student_bundle.py $(LEVEL_ARG)
 
 site-setup:
 	uv venv --python 3.12 .venv-site || python3 -m venv .venv-site

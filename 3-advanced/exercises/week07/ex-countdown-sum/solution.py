@@ -3,7 +3,7 @@
 # What the program does: counts down from 5 to "Liftoff!", adds up the
 # numbers 1 to 10 (55), and spells "recursion" backwards ("noisrucer").
 # Key idea: recursion, a function that calls ITSELF on a smaller version of
-# the same problem until the problem is so small the answer is obvious.
+# the same problem until the problem is so small it can be answered at once.
 # Approach: every function has a BASE CASE (the tiny problem answered at
 # once, which stops the chain) and a RECURSIVE CASE (do one small step, then
 # let the function handle the rest). The base case is what stops it from

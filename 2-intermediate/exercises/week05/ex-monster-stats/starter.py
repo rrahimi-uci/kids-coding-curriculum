@@ -31,7 +31,7 @@ def get_stat(monster, stat):
 
 if __name__ == "__main__":
     blobby = make_monster("Blobby")
-    blobby["color"] = "bluish green"      # adding a new key is easy
+    blobby["color"] = "bluish green"      # a new key is added the same way
     for line in stat_report(blobby):
         print(line)
     print("Blobby eats a glowing mushroom... LEVEL UP!")

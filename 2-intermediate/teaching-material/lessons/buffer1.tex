@@ -99,9 +99,9 @@ Hand out the four puzzle cards (end of this plan). Each card gives one digit of 
 \begin{bughunt}[Kai's broken decoding]
 Write this on paper: \enquote{Kai decoded \texttt{brx duh d vwdu} with shift 3 and got \texttt{?ou are a star}. Leo decoded \texttt{zhoo grqh} with
 shift 3 and got \texttt{ckrr jutk}. What went wrong for each?}
-\par\textbf{Answers.} Kai forgot to \textbf{wrap round}: going back 3 from \textbf{b} goes past \textbf{a} to \textbf{y}, so the word is \enquote{you}.
+\par\textbf{Answers.} Kai forgot to \textbf{wrap around}: going back 3 from \textbf{b} goes past \textbf{a} to \textbf{y}, so the word is \enquote{you}.
 Leo shifted the \textbf{wrong way}: he went 3 forward instead of 3 back (the answer is \enquote{well done}). These are exactly the bugs a
-Caesar program can have: missing wrap-round and wrong direction.
+Caesar program can have: missing wrap-around and wrong direction.
 \end{bughunt}
 
 \begin{freebuild}[Invent a puzzle]
@@ -120,7 +120,7 @@ prizes you did not enter for. Agree: real companies never ask for your password 
 \end{safety}
 
 \begin{formativecheck}[Exit ticket]
-Decode \texttt{mjqqt} (shift 5). \textbf{Answer:} \texttt{hello}. Bonus: why is a Caesar cipher easy to crack?
+Decode \texttt{mjqqt} (shift 5). \textbf{Answer:} \texttt{hello}. Bonus: why is a Caesar cipher quick to crack?
 (Only 25 shifts to try, and common letters like e give it away.)
 \textbf{Look for:} students who shift forward instead of back; revisit the wheel direction.
 \end{formativecheck}
@@ -136,7 +136,7 @@ Decode \texttt{mjqqt} (shift 5). \textbf{Answer:} \texttt{hello}. Bonus: why is 
 \section{Notes for the teacher}
 \begin{commonmistakes}
   \item \textbf{Turning the wheel the wrong way} or reading from the wrong ring. Encode: small → big. Decode: big → small.
-  \item \textbf{Forgetting to wrap round} after z (or before a) with a paper alphabet. The wheel avoids this: use it.
+  \item \textbf{Forgetting to wrap around} after z (or before a) with a paper alphabet. The wheel avoids this: use it.
   \item \textbf{Keyword alphabet with repeated letters.} Each letter appears only once; skip letters already used in the keyword.
   \item \textbf{Number code: losing word breaks.} Dashes separate letters, spaces separate words.
   \item \textbf{Logic puzzle: guessing.} Encourage a small table with ✓ and ✗ for each fact.

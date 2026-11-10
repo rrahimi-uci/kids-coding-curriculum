@@ -5,7 +5,7 @@
 
 ## Build steps
 
-1. Open Scratch. Make two variables: `roll` and `rolls` (**For all sprites**).
+1. Open Scratch (**File > New** if an old project is open). Make two variables: `roll` and `rolls` (**For all sprites**).
 2. Build the two scripts below. **join** and **pick random** are in **Operators**.
    Type a space after "You rolled" so the words don't squash together.
 3. Click the green flag, then press **space** to roll.

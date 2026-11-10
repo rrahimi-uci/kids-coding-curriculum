@@ -17,6 +17,10 @@ ground, and say "Ta-da!". But this script has a bug.
 
 ## The script in words (with the bug)
 
+The middle of the stage is x: 0 y: 0. A number with a minus sign, like -100,
+means "the other way": y: -100 is 100 steps **below** the middle, so the cat
+starts near the bottom, on the "ground". A bigger y is higher up.
+
 Cat sprite, one script:
 
 - when green flag clicked

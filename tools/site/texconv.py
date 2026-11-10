@@ -48,7 +48,7 @@ CALLOUT_LABELS = {
     "challenge": "Challenge", "creative": "Creative", "exercise": "Exercise",
     "bughunt": "Bug hunt", "selfcheck": "Self-check", "vocab": "New words",
 }
-SELFCHECK_TITLE = "Self-check: tick each box when it is true"
+SELFCHECK_TITLE = "Self-check: check off each box when it is true"
 
 SYMBOLS = {
     "faStar": "\u2605", "faCheck": "\u2713", "faTimes": "\u2717",
@@ -491,7 +491,7 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
             if title and title != label:
                 tt = soup.new_tag("span", attrs={"class": "callout-heading"})
                 # print edition: tick boxes; the web page is for reading, so the title asks the question instead
-                tt.string = title.replace("tick each box when it is true", "read each line and ask: is it true for me?")
+                tt.string = title.replace("check off each box when it is true", "read each line and ask: is it true for me?")
                 head.append(tt)
             div.insert(0, head)
             if env == "vocab":

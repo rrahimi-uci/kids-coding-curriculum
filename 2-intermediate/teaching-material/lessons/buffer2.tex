@@ -147,7 +147,7 @@ Swap every 8 minutes. \textbf{1 student:} you are the artist and the student eng
 Write each bug on the board. Pairs predict what will happen, then fix it.
 \begin{enumerate}
   \item \texttt{random.seed(seed)} moved \emph{inside} the \texttt{for} loop. All 25 flowers land in exactly the same spot (one flower!). Fix: seed once, before the loop.
-  \item \texttt{x = random.randint(300, -300)}: \texttt{ValueError: empty range for randrange()}. Fix: smaller number first.
+  \item \texttt{x = random.randint(300, -300)}: \texttt{ValueError: empty range\ldots} (the exact words depend on the Python version). Fix: smaller number first.
   \item \texttt{PALETTE = ["E69F00", …]} (no \texttt{\#}): \texttt{TurtleGraphicsError: bad color string: E69F00}. Fix: color codes start with \texttt{\#}.
 \end{enumerate}
 \end{bughunt}
@@ -177,7 +177,7 @@ today's pictures as a poster, which seed would you choose?
 \begin{safety}[Credit for generative art]
 Generative artists share ideas all the time, and they give credit. If you remix a friend's idea or
 code, add a comment such as \texttt{\# Mirror idea from Mei}, using a nickname. Seeds are a safe thing to
-share: they are just numbers and contain no personal information. Screenshots of your art stay on the
+share: they are only numbers and contain no personal information. Screenshots of your art stay on the
 family computer unless a parent decides otherwise.
 \end{safety}
 

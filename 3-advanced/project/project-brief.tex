@@ -57,6 +57,82 @@ Whatever you build, your finished project must have all of these. Check them off
         letters or words too), credit for anything you did not make.
 \end{selfcheck}
 
+\subsection{Pick your path: Core or Full}
+You have two sessions and some homework time. That is not much! So there are two paths. Both
+paths meet every must-have, and both are judged with the same rubric (section 8). A Core
+project can reach \enquote{Got it} in every row.
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Core path (recommended for a first big project).} Start from a template. Keep its
+        classes and add \textbf{one} class of your own. Reuse an algorithm you already built in
+        class. The table below says exactly what to add.
+  \item \textbf{Full path (for extra challenge).} Design your own classes, data and algorithm
+        from your own idea. Use the templates only as examples.
+\end{itemize}
+
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{@{}>{\bfseries\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-6.5cm-4\tabcolsep}@{}}
+\toprule
+\rowcolor{kcaccent!15} Option & The template already has & Core path: what you add\\ \midrule\endhead
+\bottomrule\endfoot
+(a) Grid game & a \texttt{Grid} class (a 2D grid) and a \texttt{Hero} that moves and collects
+treasure; 3 example tests &
+\textbf{Class:} \texttt{Game}, which \emph{has a} Grid and a Hero (composition), with a
+method \texttt{move\_hero()}.
+\textbf{Algorithm:} flood fill from week 7: count how many treasures the hero can reach.
+\textbf{Saved file:} the best score (use the recipe below).
+\textbf{Tests:} 2 more.\\ \midrule
+{(b)} Art app & \texttt{Shape} and \texttt{Square} (inheritance), a \texttt{Gallery}
+(composition) that saves and loads your art as a file; 1 example test &
+\textbf{Class:} \texttt{Tree}, which \emph{is a} Shape and draws a fractal tree.
+\textbf{Algorithm:} recursion, copied from your week 7 fractal tree.
+Add \texttt{"tree": Tree} to \texttt{SHAPE\_CLASSES}.
+\textbf{Saved file:} already done!
+\textbf{Tests:} 4 more.\\ \midrule
+{(c)} Data / AI app & data loading and cleaning, a \texttt{DataSet} class that counts, averages and
+sorts; 2 example tests &
+\textbf{Class:} \texttt{Guesser}, which \emph{has a} DataSet (composition), with a method
+\texttt{guess(mystery)}.
+\textbf{Algorithm:} nearest neighbor from week 9 (the template already has a steps
+\texttt{distance}).
+\textbf{Saved file:} save your guesses or results to a text file.
+\textbf{Tests:} 3 more.\\
+\end{longtable}
+
+The example tests in \texttt{test\_my\_project.py} count towards your 5 tests, as long as they
+still pass. Write the extra ones yourself.
+
+\begin{pycode}[Recipe: save a best score in a file]
+from pathlib import Path
+
+def load_best(filename):
+    """Read the best score. Make the file (with 0) if it is missing."""
+    path = Path(filename)
+    if not path.exists():
+        path.write_text("0")
+    return int(path.read_text())
+
+def save_best(filename, score):
+    """Keep the new score only if it beats the old best."""
+    if score > load_best(filename):
+        Path(filename).write_text(str(score))
+\end{pycode}
+\begin{pycode}[A test for the recipe (pytest makes tmp\_path, a safe folder)]
+# "game" is your program: see the import line in test_my_project.py
+def test_best_score_is_saved(tmp_path):
+    file = tmp_path / "best_score.txt"
+    assert game.load_best(file) == 0      # made, because it was missing
+    game.save_best(file, 7)
+    game.save_best(file, 3)               # 3 does not beat 7
+    assert game.load_best(file) == 7
+\end{pycode}
+
+\begin{tip}[Eight small save points]
+Eight commits sounds like a lot, but each one is small. For example: (1) start from the starter;
+(2) rename my file; (3) add my new class with empty methods; (4) make its first method work;
+(5) add my algorithm; (6) add my saved file; (7) add my own tests; (8) write my README.
+\end{tip}
+
 \section{3. Idea menu}
 Pick one, mix two, or invent your own. Small and finished beats huge and broken!
 
@@ -109,6 +185,7 @@ through walls"}, \texttt{"Test that treasure adds 1 point"}. Messages like \text
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{5.2cm}X@{}}
 Project name & \hrulefill\\
 Option (a, b or c) & \hrulefill\\
+My path (Core or Full) & \hrulefill\\
 In one sentence, it is\ldots & \hrulefill\\
 It is for (who will enjoy it?) & \hrulefill\\
 Must-have feature 1 & \hrulefill\\
@@ -197,7 +274,9 @@ Did anything confuse you or break? Could someone who is color-blind play it? \an
 \end{reflection}
 
 \section{8. How your project is judged}
-Your teacher uses the same rubric. Before the showcase, check one box in each row: where do \emph{you} think you are?
+Your teacher uses the same rubric. Each row gives 1 point (Just starting) up to 4 points
+(Expert), so the six rows give 24 points in all. Before the showcase, check one box in each row:
+where do \emph{you} think you are?
 
 \begingroup\small
 \renewcommand{\arraystretch}{1.3}
@@ -210,14 +289,14 @@ Working code & $\square$ It crashes often & $\square$ It runs, with some bugs & 
 Design / OOP & $\square$ One class, or classes that do not help & $\square$ 2 classes, but jobs are mixed up & $\square$ Clear classes; inheritance or composition used well & $\square$ I can show why my class design makes the code easier to change\\ \midrule
 Testing & $\square$ Fewer than 3 tests & $\square$ 3--4 tests, or tests that fail & $\square$ 5+ passing tests of my logic & $\square$ My tests include edge cases and caught a real bug\\ \midrule
 Git history & $\square$ Fewer than 4 commits & $\square$ 4--7 commits, or unclear messages & $\square$ 8+ commits with clear messages & $\square$ My log tells the story of my project step by step\\ \midrule
-Explaining design decisions & $\square$ I can show what it does & $\square$ I can explain how one part works & $\square$ I can explain why I chose my design & $\square$ I can compare my design with another way and explain the trade-off\\
+Explaining design decisions & $\square$ I can show what it does & $\square$ I can explain how one part works & $\square$ I can explain why I chose my design & $\square$ I can compare my design with another way and say what is better and worse about each\\
 \end{longtable}
 \endgroup
 
 \section{9. Need more time, or want more?}
 \begin{differentiation}
-\supportpath Start from a starter template and keep it small: 2 classes, 3 features, 5 simple tests
-(one per method). Ask your teacher for a \enquote{feature card} with one small step at a time. It
+\supportpath Take the Core path (section 2): start from a starter template and keep it small:
+2 classes, 3 features, 5 simple tests (one per method). Ask your teacher for a \enquote{feature card} with one small step at a time. It
 is fine to finish fewer features well.
 \extensionpath Add a second level or mode loaded from a file; write tests \emph{before} the code
 (test-first); use BFS or recursion in a second place; add a settings dictionary saved as JSON; try

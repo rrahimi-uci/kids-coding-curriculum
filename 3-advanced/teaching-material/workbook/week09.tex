@@ -15,12 +15,13 @@ A program with \textbf{rules} does exactly what you typed: \py|if teeth > 5: pri
 Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10). Put every example on a chart. To guess a \textbf{mystery} monster, find the closest example and copy its label. That is a \textbf{nearest-neighbor classifier}.
 
 \begin{center}
-%% alt: A scatter plot of monsters by fluff (across) and teeth (up). Five grumpy monsters, blue squares marked G, are at the top left with little fluff and many teeth. Five friendly monsters, orange circles marked F, are at the bottom right with much fluff and few teeth. Two mystery monsters, marked ?, each have a dashed line to their nearest neighbor: one joins a grumpy square and the other joins a friendly circle.
+%% alt: A scatter plot of monsters by fluff (across) and teeth (up). Five grumpy monsters, blue squares marked G, are at the top left with little fluff and many teeth. Five friendly monsters, orange circles marked F, are at the bottom right with much fluff and few teeth. Two mystery monsters, marked ?, each have a dashed path of grid steps to their nearest neighbor: the one at (5, 2) goes 1 step across and 1 step down to a friendly circle; the one at (3, 6) goes 1 step left to a grumpy square.
 \begin{tikzpicture}[x=0.5cm,y=0.5cm,>=Stealth]
   \draw[->] (0,0) -- (10.8,0) node[right,font=\small] {fluff};
   \draw[->] (0,0) -- (0,10.8) node[above,font=\small] {teeth};
   \foreach \t in {0,5,10} {\node[below,font=\scriptsize] at (\t,0) {\t}; \node[left,font=\scriptsize] at (0,\t) {\t};}
-  \draw[dashed,thick] (5,2) -- (6,1);
+  \draw[help lines,kcgray!40] (0,0) grid (10,10);
+  \draw[dashed,thick] (5,2) -- (6,2) -- (6,1);
   \draw[dashed,thick] (3,6) -- (2,6);
   \foreach \x/\y in {9/1,8/2,7/3,6/1,8/4} {
     \draw[fill=kcorange!70] (\x,\y) circle (0.42); \node[font=\scriptsize\bfseries] at (\x,\y) {F};}
@@ -35,12 +36,28 @@ Our monsters have two features: \textbf{fluff} (0--10) and \textbf{teeth} (0--10
 \end{tikzpicture}
 \end{center}
 
-The mystery at (5, 2) is closest to a friendly monster, so the guess is \emph{friendly}. \enquote{Closest} means the shortest straight line on the chart, as if you measured it with a ruler. Python works it out with a famous math rule (Pythagoras), which you can use as a recipe: \py|dx| is how far across, \py|dy| is how far up, and the distance is \py|math.sqrt(dx * dx + dy * dy)|.
+The mystery at (5, 2) is closest to a friendly monster, so the guess is \emph{friendly}.
+
+\begin{tip}[Math helper: the steps distance]
+How do we measure \enquote{closest}? Pretend each monster is a game piece on the grid from week 7. It can only step \emph{across} or \emph{up and down}, never on a slant. Count the steps:
+\begin{center}
+\textbf{steps distance} = (gap in fluff) + (gap in teeth)
+\end{center}
+From the mystery (5, 2) to the friendly monster (6, 1): the fluff gap is $6 - 5 = 1$ and the teeth gap is $2 - 1 = 1$, so it is $1 + 1 = $ \textbf{2 steps}. To the grumpy monster (2, 6): $5 - 2 = 3$ and $6 - 2 = 4$, so $3 + 4 = $ \textbf{7 steps}. The friendly one is closer. A \textbf{gap} is always the bigger number minus the smaller one. Python's \py|abs()| works out a gap for you: \py|abs(2 - 5)| is 3, and \py|abs(5 - 2)| is 3 too.
+\end{tip}
+
+\textbf{Your turn:} how many steps is it from the mystery (3, 6) to the grumpy monster (2, 6)? \rule{1cm}{0.4pt} \quad To the friendly monster (7, 3)? \rule{1cm}{0.4pt}
+
+(Grown-up AI often uses the straight \enquote{ruler} distance instead. It needs a math rule you will learn in middle school. For our monsters both ways give the same guesses.)
 
 \section{Is it any good? Train, then test}
 Split the examples into two piles. The program learns from the \textbf{training} pile. The \textbf{test} pile stays secret until the end; then we count how many test cards it labels correctly.
 \[ \text{accuracy} = \frac{\text{correct guesses}}{\text{number of test cards}} \]
 Testing on cards it learned from would be like seeing the exam answers first.
+
+\begin{tip}[Math helper: what does 50\% mean?]
+The program shows accuracy as a \textbf{percent}. \enquote{Percent} means \enquote{out of 100}. 100\% means \emph{all} the test cards were right. 50\% means \emph{half} were right: 2 out of 4 is the same share as 50 out of 100. 75\% means 3 out of 4, and 25\% means 1 out of 4.
+\end{tip}
 
 \begin{bughunt}[Bad examples, bad predictions]
 If the training pile has 8 grumpy monsters and only 1 friendly one, the program can end up calling most friendly monsters grumpy. The code is fine -- the \emph{data} is the bug. This is called \textbf{bias}. When real AI decides things about people (faces, voices, job applications), biased examples can treat whole groups unfairly. That is why people must check the data, not just the code.
@@ -64,6 +81,13 @@ A \textbf{Markov chain} learns just one thing from a text: \emph{after each word
   \draw[->] (on) to[bend left=35] node[below,font=\scriptsize] {next word: the} (the);
 \end{tikzpicture}
 \end{center}
+\begin{workedexample}[Build a chain by hand]
+Training text: \texttt{i like cats i like dogs}. Walk through it two words at a time and write down which word came next:
+\begin{center}\small
+\texttt{i} $\rightarrow$ [\texttt{like}, \texttt{like}] \qquad \texttt{like} $\rightarrow$ [\texttt{cats}, \texttt{dogs}] \qquad \texttt{cats} $\rightarrow$ [\texttt{i}] \qquad \texttt{dogs} $\rightarrow$ [ ] (nothing came after it)
+\end{center}
+Start at \texttt{i}. The only choice is \texttt{like}. After \texttt{like}, pick \texttt{cats} or \texttt{dogs} at random. If you pick \texttt{dogs}, you stop: nothing ever came after it.
+\end{workedexample}
 To write, it starts with a word and keeps picking a \emph{random} next word from the list. The sentences \emph{sound} like the training text, but the machine does not understand them at all. Today's chatbots are enormously bigger: they learned from huge amounts of text and look at many words at once, not just the last one. But at heart they also predict a likely next word -- which is why they can sound sure and still be wrong.
 
 \section{The five big ideas of AI}
@@ -81,24 +105,25 @@ To write, it starts with a word and keeps picking a \emph{random} next word from
 \end{center}
 
 \begin{exercise}[Monster sorter]
-Folder: \texttt{week09/ex-monster-sorter}. Finish \texttt{distance(a, b)} and \texttt{nearest(training, mystery)}. Run it and look at the chart. What does it guess for (5, 5)? Do you agree? \answerlines{1}
+Folder: \texttt{week09/ex-monster-sorter}. Finish \texttt{distance(a, b)} (the steps distance) and \texttt{nearest(training, mystery)}. Run it. \textbf{Done:} the Shell shows \texttt{(5, 2) -> friendly} and \texttt{(3, 6) -> grumpy}, and the chart shows each mystery \texttt{?} joined to its nearest card. What does it guess for (5, 5)? Count the steps from (5, 5) to (7, 3), to (8, 4) and to (2, 6). What do you notice? Do you agree with the guess? \answerlines{2}
 \end{exercise}
 
 \begin{exercise}[Fair or biased?]
-Folder: \texttt{week09/ex-fair-or-biased}. Finish \texttt{label\_counts()} and \texttt{accuracy()}.
+Folder: \texttt{week09/ex-fair-or-biased}. Finish \texttt{label\_counts()} and \texttt{accuracy()}. The program prints each accuracy as a percent (see the Math helper).
 Fair training accuracy: \rule{1.5cm}{0.4pt} \quad Biased training accuracy: \rule{1.5cm}{0.4pt}
 Why is the biased one worse? \answerlines{1}
 \end{exercise}
 
 \begin{exercise}[Markov story machine]
-Folder: \texttt{week09/ex-markov-story}. Finish \texttt{build\_chain(words)}: each word maps to the list of words that came right after it (keep repeats!). Copy your silliest generated sentence: \answerlines{1}
+Folder: \texttt{week09/ex-markov-story}. Finish \texttt{build\_chain(words)}: each word maps to the list of words that came right after it (keep repeats!). \textbf{Done:} the Shell shows \texttt{After 'the' came: ['dragon', 'hill', 'moon.', ...]} and then three made-up sentences. Copy your silliest generated sentence: \answerlines{1}
 \end{exercise}
 
 \begin{exercise}[My project pitch (Milestone 1)]
-For the next three weeks you will \emph{Build Something Big}. Read the Project brief, then fill in your pitch. Finish it at home.
+For the next three weeks you will \emph{Build Something Big}. Read the Project brief, then fill in your pitch. Finish it at home. Most people take the \textbf{Core path}: start from a template, add one class of your own and reuse an algorithm from class (the brief's table says exactly what to add).
 \begin{tabular}{@{}p{4.6cm}p{\dimexpr\linewidth-4.8cm-2\tabcolsep}@{}}
 Project title: & \rule{\linewidth}{0.4pt}\\[6pt]
 Option (circle one): & grid game \quad generative art app \quad data/AI app\\[6pt]
+Path (circle one): & Core \quad Full\\[6pt]
 In one sentence, it is...: & \rule{\linewidth}{0.4pt}\\[6pt]
 Two classes I will need: & \rule{\linewidth}{0.4pt}\\[6pt]
 Inheritance or composition: & \rule{\linewidth}{0.4pt}\\[6pt]
@@ -118,7 +143,8 @@ The smallest fun version: & \rule{\linewidth}{0.4pt}\\
   \vocabword{label}{The right answer for an example, like \enquote{friendly}.}
   \vocabword{training data}{The labeled examples a program learns from.}
   \vocabword{test data}{Examples kept secret during training, used to check the guesses.}
-  \vocabword{accuracy}{Correct guesses divided by the number of test examples.}
+  \vocabword{steps distance}{How far apart two points are if you may only step across or up and down: the gap across plus the gap up.}
+  \vocabword{accuracy}{Correct guesses divided by the number of test examples, often shown as a percent (4 out of 4 = 100\%).}
   \vocabword{classifier}{A program that sorts things into groups (labels).}
   \vocabword{bias}{When unbalanced or unfair data makes a program treat some cases unfairly.}
   \vocabword{deepfake}{A fake photo, voice or video made with AI.}

@@ -1,11 +1,23 @@
 """Checks for Exercise 9.1 - Monster sorter (nearest neighbor)."""
 
 
+# Steps distance (gap + gap) is what the README asks for. The ruler distance
+# from the README's Extra (math.sqrt) is accepted too.
+STEPS_OR_RULER = (7, 5)
+
+
 def test_distance(load_target):
     program = load_target()
-    assert program.distance((0, 0), (3, 4)) == 5, "The distance from (0, 0) to (3, 4) is 5 (a 3-4-5 triangle)."
+    got = program.distance((0, 0), (3, 4))
+    assert got in STEPS_OR_RULER, \
+        f"From (0, 0) to (3, 4) is 3 steps across + 4 steps up = 7 steps. Your distance gave {got}."
+    got = program.distance((5, 2), (6, 1))
+    assert round(got, 2) in (2, 1.41), \
+        f"From (5, 2) to (6, 1) the gaps are 1 and 1, so the steps distance is 2. Your distance gave {got}."
     assert program.distance((2, 2), (2, 2)) == 0, "A card is 0 away from itself."
-    assert program.distance((1, 5, "grumpy"), (4, 1)) == 5, "distance should use only the first two numbers of a card."
+    got = program.distance((1, 5, "grumpy"), (4, 1))
+    assert got in STEPS_OR_RULER, \
+        f"distance should use only the first two numbers of a card: (1, 5) to (4, 1) is 3 + 4 = 7. Yours gave {got}."
 
 
 def test_nearest_finds_the_closest_card(load_target):

@@ -23,3 +23,12 @@ the tests are already written for you: they are in `test_fix_the_bugs.py`.
 - Change one thing at a time, then run the checks again.
 
 **Hint words:** `>=` (more than or equal), `return`, `if len(scores) == 0:`.
+
+**Math helper - the average:** add up all the scores, then divide by how
+many scores there are. For 10, 20 and 40: 10 + 20 + 40 = 70, and 70 / 3 is
+23.33..., which `round()` turns into 23. With no scores at all you would
+divide by 0, which is impossible: Python crashes with `ZeroDivisionError`.
+
+**Before you start:** press **Run** on `starter.py`. It prints a few lines,
+and some are wrong (it even prints `None` and then crashes). Each wrong line
+is a clue. The comment on each line says what it SHOULD print.

@@ -36,6 +36,13 @@ print(f"Ouch! {hit} damage")
 The values in the parentheses when you \emph{call} the function (\texttt{12} and \texttt{5}) are \textbf{arguments}.
 They fill the \textbf{parameters} (\texttt{attack} and \texttt{shield}) in the same order.
 
+\textbf{What is new since Level 1?} In Level 1 your functions \emph{did} something, like drawing a flower.
+Now a function can also \emph{give back} an answer. The line with \texttt{return} is the answer, and the function stops there.
+
+\textbf{Predict, then check.} Write what each call gives back. Check later: when Exercise 2.1 works, press \menu{Run},
+then type each call into the Shell after \texttt{>>>}.\par
+\texttt{damage(20, 8)} = \rule{1.5cm}{0.4pt}\qquad \texttt{damage(10, 10)} = \rule{1.5cm}{0.4pt}\qquad \texttt{damage(12, 5) + 1} = \rule{1.5cm}{0.4pt}
+
 \subsection{Print or return?}
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
@@ -84,10 +91,12 @@ Folder: \texttt{exercises/week02/ex-game-math}. Open \texttt{starter.py} and pre
 \begin{exercise}[Flower Garden]
 Folder: \texttt{exercises/week02/ex-flower-garden}. Press \menu{Run}: all three flowers land in the same spot with 4 petals.
 \begin{enumerate}[leftmargin=1.4em]
-  \item TODO 1: \texttt{petal\_turn(petals)} should return \texttt{360 / petals}. How far does it turn for 6 petals? \rule{1.5cm}{0.4pt}
+  \item TODO 1: \texttt{petal\_turn(petals)} should return \texttt{360 / petals}. How far does it turn for 6 petals? \rule{1.5cm}{0.4pt}\par
+        (Python writes the answer as a float, like \texttt{60.0}, because \texttt{/} always gives a decimal number.)
   \item TODO 2 and 3: use \texttt{t.goto(x, y)} so each flower appears where it was asked to.
   \item TODO 4: repeat once for each petal: \texttt{range(petals)}.
-  \item Look at the \texttt{def} line: \texttt{size=60} is a \textbf{default value}. If a call leaves out the size, it is 60;
+  \item Look at the \texttt{def} line. The turtle \texttt{t} is a parameter too, so the function knows which turtle should draw.
+        \texttt{size=60} is a \textbf{default value}. If a call leaves out the size, it is 60;
         \texttt{draw\_flower(t, 0, 80, 8, SKY, 70)} hands in 70 instead.
   \item Fill in the arguments you used for your favorite flower:\par
         \texttt{draw\_flower(t,} x = \rule{1.2cm}{0.4pt}, y = \rule{1.2cm}{0.4pt}, petals = \rule{1.2cm}{0.4pt}, color = \rule{2.2cm}{0.4pt}\texttt{)}

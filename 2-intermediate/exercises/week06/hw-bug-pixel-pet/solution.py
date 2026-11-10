@@ -16,7 +16,7 @@ def make_pet(name):
 
 def feed(pet):
     """Feeding makes the pet less hungry (but never below 0)."""
-    # FIX 1: the starter wrote to pet["Hunger"] (capital H). That is a
+    # FIX 2 (bug 2): the starter wrote to pet["Hunger"] (capital H). That is a
     # different key, so Python quietly added a new one and "hunger" never
     # went down. Keys must match exactly.
     pet["hunger"] = pet["hunger"] - 3
@@ -28,16 +28,17 @@ def feed(pet):
 def play(pet):
     """Playing makes the pet happier and a little hungrier."""
     pet["happiness"] = pet["happiness"] + 2
-    # FIX 2: the starter read pet["hungry"], a key that does not exist, which
-    # crashed with a KeyError. The real key is "hunger".
+    # FIX 1 (bug 1, the crash): the starter read pet["hungry"], a key that
+    # does not exist, which crashed with a KeyError. The real key is "hunger".
     pet["hunger"] = pet["hunger"] + 1
     return pet
 
 
 def mood(pet):
     """Return "grumpy" if the pet is very hungry OR very unhappy, else "happy"."""
-    # FIX 3: the starter used "and", so the pet was only grumpy when BOTH
+    # FIX 3 (bug 3): the starter used "and", so the pet was only grumpy when BOTH
     # problems happened together. The rule says either one is enough: "or".
+    # Biscuit (hunger 9, happiness 6) shows it: with "and" Biscuit felt happy.
     if pet["hunger"] >= 8 or pet["happiness"] <= 2:
         return "grumpy"
     return "happy"
@@ -50,6 +51,9 @@ if __name__ == "__main__":
     feed(pet)
     print(pet)
     print(f"{pet['name']} feels {mood(pet)}.")
+    # A second pet checks the mood rules. Biscuit is very hungry (9).
+    biscuit = {"name": "Biscuit", "hunger": 9, "happiness": 6}
+    print(f"{biscuit['name']} feels {mood(biscuit)}.")
 
 
 # Common mistakes children make here:

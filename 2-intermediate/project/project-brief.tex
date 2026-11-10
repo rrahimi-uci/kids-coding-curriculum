@@ -52,6 +52,9 @@ The file saves\ldots & high scores & designs (one setting per line) \\
 \bottomrule
 \end{tabularx}
 
+\noindent The starter files are in the folder \texttt{2-intermediate/\allowbreak project/\allowbreak starter} on your computer.
+Its \texttt{README.md} tells you how to copy them into your own project folder, step by step.
+
 \section{Step 2: Know the must-haves}
 Whatever you choose, your finished program must have all six. Check them off as you go.
 \begin{checklist}
@@ -64,9 +67,9 @@ Whatever you choose, your finished program must have all six. Check them off as 
         template, or your own \texttt{test\_mygame.py}) that you run with \menu{Run}.
 \end{checklist}
 
-\begin{tip}[The secret of easy tests]
+\begin{tip}[The secret of good tests]
 Put the \emph{rules} of your program (scores, moving, touching, saving) in small functions that do
-\textbf{not} use turtle. They take values in and return an answer, so they are easy to test.
+\textbf{not} use turtle. They take values in and return an answer, so pytest can test them in a second.
 Keep the drawing in other functions.
 \end{tip}
 
@@ -197,7 +200,7 @@ missing file).
   \item I fixed or improved one thing from the playtest: \rule{4.5cm}{0.4pt}
   \item Colors come from the safe palette, and things that matter also differ in \textbf{shape} or \textbf{size}.
   \item Text is big enough to read from a chair.
-  \item The keys are easy to reach, and the screen says which keys to use.
+  \item The keys are comfortable to reach, and the screen says which keys to use.
   \item It never asks for a real name, age, address, school or password.
   \item If I used someone else's idea, art or code, I wrote who made it in a comment.
 \end{checklist}
@@ -213,7 +216,7 @@ end.
 \begin{longtable}{@{}>{\bfseries\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{3.0cm}@{}}
 \toprule
  & Just starting & Getting there & Got it & Expert \\ \midrule\endhead
-Creativity & I changed a few things in the template. & My project has my own theme and one new idea. & My project has its own idea, rules and look. & My idea has a surprising twist that makes people want another go. \\ \midrule
+Creativity & I changed a few things in the template. & My project has my own theme and one new idea. & My project has its own idea, rules and look. & My idea has a surprising twist that makes people want to play again. \\ \midrule
 Working code & It runs, but crashes or the main part does not work yet. & The main part works; some must-haves are missing. & It works as my pitch said, with all six must-haves. & It also handles tricky moments (walls, missing file, playing again). \\ \midrule
 Code quality and tests & My code is one long block; no tests yet. & I use some functions; 1--2 tests pass. & Small functions with clear names and comments; 3 or more tests pass. & Rules are separate from drawing; my tests include edge cases. \\ \midrule
 Explaining it & I can show what it does. & With help, I can explain what one function does. & I can explain how one part works and one decision I made. & I can explain my design, what I would change, and a bug my tests caught. \\

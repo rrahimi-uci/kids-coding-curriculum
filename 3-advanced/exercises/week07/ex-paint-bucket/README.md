@@ -14,12 +14,16 @@ spreads to every touching cell of the same color - but not through walls.
 2. TODO 1: finish `count_tiles(grid, symbol)` with two nested loops.
 3. TODO 2: add the second base case: stop if the cell is not the `old`
    color.
-4. TODO 3: add four recursive calls: up, down, left, right.
+4. TODO 3: add four recursive calls: up (`row - 1`), down (`row + 1`),
+   left (`col - 1`) and right (`col + 1`). Row 0 is the top, so "up" means
+   a smaller row number.
 5. Run again. Press keys **1-5** to pick a paint, then click to fill.
    Every paint has a letter (O, S, G, Y, P) as well as a color.
 
 **Done looks like:** clicking inside a box fills only that box. Clicking
-outside fills the whole background but never the walls.
+inside the big box at the top paints its 8 inside squares. Clicking the tiny
+box on the right paints only 1 square. Clicking outside the boxes fills the
+whole white background, but never the black walls.
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 

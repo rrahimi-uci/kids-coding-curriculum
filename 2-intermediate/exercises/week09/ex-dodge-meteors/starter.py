@@ -5,7 +5,7 @@
 # Do the TODOs in order. Press Run, then CLICK the window so it hears keys.
 #
 # Two parts:
-#   LOGIC   - small functions with no turtle in them (easy to test)
+#   LOGIC   - small functions with no turtle in them (pytest can test them)
 #   DRAWING - turtles, keys and the game loop
 # The game loop is ONE frame of the game. At the end it asks turtle to run
 # it again in FRAME_MS milliseconds with screen.ontimer(game_loop, FRAME_MS).
@@ -39,6 +39,7 @@ def clamp(value, low, high):
 def move_player(x, direction, step, limit):
     """New x after moving one step. direction is -1 (left) or 1 (right).
     The player never goes past -limit or +limit."""
+    # direction * step is 20 for right (1 * 20) and -20 for left (-1 * 20).
     # TODO 1: return the new x. Use clamp() so the player stops at the walls:
     #         clamp(x + direction * step, -limit, limit)
     return x

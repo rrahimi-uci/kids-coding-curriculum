@@ -2,6 +2,10 @@
 \answersweek{2}{Functions That Give Back}{Answers for workbook chapter 2 and homework 2.}
 
 \section{Workbook exercises}
+\begin{answer}[Predict, then check (before Exercise 2.1)]
+\texttt{damage(20, 8)} = 12,\quad \texttt{damage(10, 10)} = 0,\quad \texttt{damage(12, 5) + 1} = 8 (the returned 7, plus 1).
+\end{answer}
+
 \begin{answer}[Exercise 2.1 Game Math]
 \textbf{Step 1:} \texttt{xp\_needed} (it prints 500 and gives back \texttt{None}).\quad
 \textbf{Step 3:} \texttt{damage(12, 5)} = 7,\quad \texttt{damage(3, 5)} = 0.\quad
@@ -12,7 +16,7 @@ Also correct: \texttt{return max(attack - shield, 0)}, or an \texttt{if}/\texttt
 \pyfile{../exercises/week02/ex-game-math/solution.py}
 
 \begin{answer}[Exercise 2.2 Flower Garden]
-\textbf{Step 1:} 6 petals: 60 degrees.\quad \textbf{Step 4:} any values; check the flower appears where the student says it should.\par
+\textbf{Step 1:} 6 petals: 60 degrees (Python shows \texttt{60.0}; accept 60 or 60.0).\quad \textbf{Step 4:} any values; check the flower appears where the student says it should.\par
 \textbf{What to look for:} \texttt{goto(x, y)} is used both before the stem and before the petals; the loop uses
 \texttt{range(petals)}. The petal shape and stem length may differ from the reference answer.
 \end{answer}

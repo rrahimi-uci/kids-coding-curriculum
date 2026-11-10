@@ -93,7 +93,8 @@ list. Write \textbf{one} pytest test function for it.}
 
 \question{Write a function}{Write a function \py|count_long(words)| that \textbf{returns} how many
 words in the list have more than 4 letters. Example:
-\py|count_long(["cat", "turtle", "python", "dog"])| returns \py|2|.}
+\py|count_long(["cat", "turtle", "python", "dog"])| returns \py|2|.
+Hint: \py|len("turtle")| gives \py|6|, the number of letters in the word.}
 \answerspace{5cm}
 
 \subsection{How do you feel about Level 2 ideas?}
@@ -196,7 +197,7 @@ middle item, \py|middle = (low + high) // 2|, then keep only the half that can s
 \end{center}
 (a) Fill in the table. \quad (b) How many items would \textbf{linear} search (start at index 0) check
 to find 23? \quad (c) A sorted list has 1000 items. About how many checks does binary search need
-at most?
+at most? (Tip: how many times can you cut 1000 in half?)
 \answerlines{2}
 
 \question{Sorting}{\textbf{Selection sort} finds the smallest item in the unsorted part and swaps it to
@@ -326,8 +327,8 @@ print(total)
 \subsection{Part C: How machines learn}
 
 \question{Nearest neighbor}{An AI sorts monsters into \textbf{dragon} or \textbf{slime} using two
-features. To keep the math simple, distance = (gap in size) + (gap in spikes), where a gap is
-the bigger number minus the smaller one.}
+features. Use the steps distance from week 9: distance = (gap in size) + (gap in spikes), where a
+gap is the bigger number minus the smaller one.}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.4}

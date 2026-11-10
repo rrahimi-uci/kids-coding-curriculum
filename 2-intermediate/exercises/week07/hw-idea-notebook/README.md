@@ -3,14 +3,16 @@
 **Goal:** a notebook program that remembers your game and art ideas, even
 after you close it. (Great for collecting ideas for your final project!)
 
-1. Open `starter.py` and press **Run**. Type `a`, an idea, then `l`. The idea
-   is gone: nothing is saved yet.
+1. Open `starter.py` and press **Run**. In the Shell, type `a` and press
+   Return, type an idea and press Return, then type `l` and press Return.
+   It says `No ideas yet. Type a to add one!`: nothing is saved yet.
 2. **TODO 1** `add_idea()`: open the file with `"a"` and write the idea plus
    `"\n"` (a new line).
 3. **TODO 2** `load_ideas()`: read the file line by line. If the file is
    missing, catch `FileNotFoundError` and make an empty one.
 4. Run it, add three ideas, quit with `q`, run it again and type `l`. Your
-   ideas are still there!
+   ideas are still there! (They live in a new file, `game_ideas.txt`, in the
+   same folder as `starter.py`.)
 
 **Done looks like:**
 

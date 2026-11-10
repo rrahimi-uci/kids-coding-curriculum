@@ -42,6 +42,7 @@ def name_tag(nickname):
 
 def average_score(scores):
     """Return the average of the scores, rounded to a whole number.
+    Average = add up all the scores, then divide by how many there are.
     An empty list gives 0."""
     # FIX 4: with no scores, len(scores) is 0 and dividing by 0 crashes
     # (ZeroDivisionError). We check for the empty list first and answer 0.

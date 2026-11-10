@@ -1,10 +1,11 @@
 """Star Catcher - the game RULES (no turtle in this file!).
 
 Every function here takes some values and RETURNS an answer. Nothing is
-drawn and no keys are read. That makes the rules easy to test with pytest
+drawn and no keys are read. That means pytest can check the rules quickly
 (see test_starcatcher_logic.py). The drawing lives in star_catcher.py.
 """
 
+import math
 import random
 
 # All the numbers that control the game live in ONE dictionary,
@@ -77,10 +78,9 @@ def step_objects(objects, speed):
 
 def is_caught(obj, basket_x, settings):
     """True when the object is close enough to the basket to touch it."""
-    dx = obj["x"] - basket_x
-    dy = obj["y"] - settings["basket_y"]
-    # Pythagoras, the same math as turtle's distance()
-    distance = (dx * dx + dy * dy) ** 0.5
+    # math.dist measures how far apart two points are in a straight line,
+    # the same measure as turtle's distance() (week 9).
+    distance = math.dist((obj["x"], obj["y"]), (basket_x, settings["basket_y"]))
     return distance <= settings["catch_distance"]
 
 

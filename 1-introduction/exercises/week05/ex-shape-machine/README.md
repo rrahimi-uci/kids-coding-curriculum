@@ -6,7 +6,7 @@ and use it to draw many shapes with one block each.
 
 ## Build steps
 
-1. Start a new project. Click **Add Extension** (bottom left) and choose **Pen**.
+1. Start a new project (**File > New**). Click **Add Extension** (bottom left) and choose **Pen**.
    Set the cat's **Size** to `40`.
 2. Click **My Blocks > Make a Block**. Type `polygon`.
 3. Click **Add an input (number or text)** and type `sides`.

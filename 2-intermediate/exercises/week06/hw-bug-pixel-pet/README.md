@@ -13,13 +13,16 @@ The rules:
 1. Open `starter.py` and press **Run**. Read the traceback bottom-up: bug 1.
 2. After bug 1 is fixed, look at the printed dictionary. Does it have a key
    it should not have? That is bug 2.
-3. Bug 3 does not crash. Read `mood()` out loud and compare it with the rules.
+3. Bug 3 does not crash. Look at the last line: Biscuit has hunger 9.
+   What do the rules say Biscuit should feel? Read `mood()` out loud and
+   compare it with the rules.
 
 **Done looks like:**
 
 ```
 {'name': 'Pixel', 'hunger': 4, 'happiness': 9}
 Pixel feels happy.
+Biscuit feels grumpy.
 ```
 
 **Check your work:** open `check_my_work.py` and press **Run**.

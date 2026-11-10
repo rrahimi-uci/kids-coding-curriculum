@@ -34,6 +34,28 @@
 \end{tikzpicture}
 \end{center}
 
+\begin{workedexample}[Selection sort by hand]
+Sort the cards 5, 2, 4, 1 with selection sort. Each pass looks at the part that is not sorted yet.
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Pass} & \textbf{Smallest of the rest} & \textbf{What happens} & \textbf{Row after the pass} \\ \midrule
+1 & 1 & swap 1 with 5 (1 swap) & \textbf{1}, 2, 4, 5 \\
+2 & 2 & already in place, no swap & \textbf{1, 2}, 4, 5 \\
+3 & 4 & already in place, no swap & \textbf{1, 2, 4, 5} \\
+\bottomrule
+\end{tabular}
+\end{center}
+Selection sort needed only \textbf{1} swap. Bubble sort needed \textbf{5} swaps for the same cards (look at the picture above: 3 in pass 1, 1 in pass 2, 1 in pass 3). Same answer, different amount of work.
+\end{workedexample}
+
+\begin{tip}[Your turn: sort 4, 1, 3, 2 both ways]
+Use 4 paper cards. Write the row after each pass and count the swaps.\\[2pt]
+Selection sort: pass 1 \rule{2.2cm}{0.4pt}\ pass 2 \rule{2.2cm}{0.4pt}\ pass 3 \rule{2.2cm}{0.4pt}\quad swaps \rule{1cm}{0.4pt}\\[4pt]
+Bubble sort:\ \ \ pass 1 \rule{2.2cm}{0.4pt}\ pass 2 \rule{2.2cm}{0.4pt}\ pass 3 \rule{2.2cm}{0.4pt}\quad swaps \rule{1cm}{0.4pt}
+\end{tip}
+
 \section{Python's own sort}
 Python can sort for you. The \textbf{key} is a function that says \emph{what to sort by}:
 \begin{pycode}
@@ -45,6 +67,7 @@ def points_of(entry):
 best_first = sorted(scores, key=points_of, reverse=True)
 print(best_first)   # [('Mei', 150), ('Ada', 120), ('Leo', 95)]
 \end{pycode}
+\texttt{sorted} calls \texttt{points\_of} on every entry: \texttt{("Ada", 120)} gives 120, \texttt{("Leo", 95)} gives 95, \texttt{("Mei", 150)} gives 150. Then it puts the entries in order of those numbers. \texttt{reverse=True} means \enquote{biggest first}. Write \texttt{key=points\_of} with \textbf{no} parentheses: you hand Python the function, and Python calls it for you.
 \texttt{sorted} makes a \textbf{new} list and leaves the old one alone.
 
 \section{Stacks and queues}
@@ -70,6 +93,19 @@ print(best_first)   # [('Mei', 150), ('Ada', 120), ('Leo', 95)]
 \end{tikzpicture}
 \end{center}
 A \textbf{stack} is like a pile of plates: you can only take the top one. \enquote{Undo} uses a stack: the last thing you did is the first thing undone. A \textbf{queue} is like a lunch line: join at the back, leave from the front. In Python, \texttt{collections.deque} is a fast queue.
+\begin{pycode}[A stack and a queue in Python]
+from collections import deque
+
+plates = []                # a list works as a stack
+plates.append("red")       # push: put on top
+plates.append("blue")
+print(plates.pop())        # pop: take the top -> blue
+
+line = deque()             # a deque works as a queue
+line.append("Priya")       # join at the back
+line.append("Sam")
+print(line.popleft())      # leave from the front -> Priya
+\end{pycode}
 
 \begin{exercise}[Sort Race]
 Folder: \texttt{week05/ex-sort-race}. \texttt{selection\_sort} is done. Finish the swap inside \texttt{bubble\_sort}:
@@ -79,15 +115,18 @@ if result[i] > result[i + 1]:
     result[i], result[i + 1] = result[i + 1], result[i]
     swaps = swaps + 1
 \end{pycode}
-Swaps for the 8 cards: selection \rule{1.5cm}{0.4pt}\quad bubble \rule{1.5cm}{0.4pt}
+Run it. The program sorts the 8 cards \texttt{[7, 3, 9, 1, 5, 3, 8, 2]} both ways. Write the swaps it reports: selection \rule{1.5cm}{0.4pt}\quad bubble \rule{1.5cm}{0.4pt}\\
+\textbf{Done looks like:} both lines show \texttt{[1, 2, 3, 3, 5, 7, 8, 9]} (both 3s are still there), and \texttt{check\_my\_work.py} passes.
 \end{exercise}
 
 \begin{exercise}[Leaderboard]
-Folder: \texttt{week05/ex-leaderboard}. Finish \texttt{name\_of} (sort A to Z, ignoring capitals), \texttt{top\_scores} and the fair tie rule in \texttt{rank\_lines}: equal points share a place, so the board reads 1, 2, 3, 3, 5.
+Folder: \texttt{week05/ex-leaderboard}. Finish \texttt{name\_of} (sort A to Z, ignoring capitals), \texttt{top\_scores} and the fair tie rule in \texttt{rank\_lines}: equal points share a place, so the board reads 1, 2, 3, 3, 5. It works like a race: if two runners tie for 3rd place, nobody is 4th, and the next runner is 5th.\\
+\textbf{Done looks like:} the full board shows \texttt{3. Leo - 95} and \texttt{3. Omar - 95}, then \texttt{5. Zoe - 80}.
 \end{exercise}
 
 \begin{exercise}[Undo Paint]
-Folder: \texttt{week05/ex-undo-paint}. Finish the \texttt{Stack} class: \texttt{push}, \texttt{pop}, \texttt{peek} and \texttt{size}. Then run it, click the window, draw with the arrow keys and press \texttt{u} to undo. Each stroke is one item on the stack.
+Folder: \texttt{week05/ex-undo-paint}. Finish the \texttt{Stack} class: \texttt{push}, \texttt{pop}, \texttt{peek} and \texttt{size}. Then run it, click the window, draw with the arrow keys and press \texttt{u} to undo. Each stroke is one item on the stack.\\
+\textbf{Done looks like:} each \texttt{u} removes the newest line only, the stroke count at the top goes down by 1, and pressing \texttt{u} on an empty picture does nothing (no crash).
 \end{exercise}
 
 \begin{tip}[Kind leaderboards]

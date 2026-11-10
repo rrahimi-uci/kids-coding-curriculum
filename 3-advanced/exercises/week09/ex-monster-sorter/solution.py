@@ -5,11 +5,13 @@
 # new mystery monsters and draws a chart showing the guesses.
 # Key ideas: machine learning from examples (no hand-written rules),
 # features and labels, distance between points, and "find the smallest".
-# Approach: distance measures how far apart two cards are on the chart
-# (Pythagoras). nearest keeps the closest card seen so far while looping
-# over all cards. classify then copies the label of that nearest card.
+# Approach: distance measures how far apart two cards are on the chart as a
+# "steps distance" (gap across + gap up, like moving on a grid; it needs no
+# square roots, so it suits Grade 4-5 math). nearest keeps the closest card
+# seen so far while looping over all cards. classify then copies the label
+# of that nearest card.
 
-import math
+import math      # only needed for the Extra (ruler distance)
 import turtle
 
 # (fluff, teeth, label) - made-up training cards
@@ -26,15 +28,20 @@ ORIGIN = (-180, -180)  # where (0, 0) goes on the screen
 
 
 def distance(a, b):
-    """Straight-line distance between two cards, using their first two
-    numbers (fluff, teeth). Pythagoras: sqrt(dx*dx + dy*dy)."""
-    dx = a[0] - b[0]  # how far apart in fluff
-    dy = a[1] - b[1]  # how far apart in teeth
-    # Pythagoras: the straight line between two points is the long side of a
-    # right-angled triangle with sides dx and dy. We use only a[0], a[1] so
-    # the label (a[2]) is ignored, which lets us compare a card with a
-    # mystery monster that has no label.
-    return math.sqrt(dx * dx + dy * dy)
+    """Steps distance between two cards, using their first two numbers
+    (fluff, teeth): the gap in fluff plus the gap in teeth.
+    Example: from (5, 2) to (6, 1) is 1 + 1 = 2 steps."""
+    # abs() gives the gap between two numbers, whichever is bigger:
+    # abs(2 - 5) and abs(5 - 2) are both 3. Children do not need negative
+    # numbers to use it: "abs = the gap".
+    gap_fluff = abs(a[0] - b[0])  # how far apart in fluff
+    gap_teeth = abs(a[1] - b[1])  # how far apart in teeth
+    # We use only a[0] and a[1], so the label (a[2]) is ignored. That lets us
+    # compare a card with a mystery monster that has no label.
+    # README Extra (ruler distance, Pythagoras, usually met in grade 8):
+    #     return math.sqrt(gap_fluff ** 2 + gap_teeth ** 2)
+    # It gives the same guesses for all the monsters in this file.
+    return gap_fluff + gap_teeth
 
 
 def nearest(training, mystery):
@@ -135,11 +142,13 @@ if __name__ == "__main__":
 
 
 # Common mistakes children make here:
-#   - Forgetting the squares: sqrt(dx + dy) gives wrong distances (and
-#     crashes when dx + dy is negative). Forgetting only the sqrt still
-#     finds the same nearest card, but distance((0, 0), (3, 4)) is 25, not 5.
-#   - Using abs(dx) + abs(dy) (taxi distance): it can pick a different
-#     "nearest" card for some mystery monsters.
+#   - Leaving out abs(): a[0] - b[0] can then be below zero, so a far-away
+#     card can look "close" (for example -3 + 3 = 0).
+#   - Adding fluff to teeth of the SAME card (a[0] + a[1]) instead of taking
+#     the gaps between the two cards.
+#   - The tie at (5, 5): three cards are exactly 4 steps away. The program
+#     keeps the FIRST one it found, (7, 3, "friendly"), because only a
+#     strictly smaller distance replaces best. A great discussion point.
 #   - Using ">" instead of "<" in nearest, which finds the FARTHEST card
 #     (the guesses usually come out backwards).
 #

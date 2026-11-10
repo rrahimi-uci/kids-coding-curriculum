@@ -17,7 +17,7 @@ well. Every session is written out for you: what to print, what to open, what to
 things go wrong, and what to cut if time runs short. If you can read a lesson plan for ten minutes the
 day before, you are ready.
 
-Level 1 is for complete beginners aged about 10--11. In weeks 1--6 children learn the big ideas of
+Level 1 is for complete beginners aged about 9--11 (US Grades 4--5). In weeks 1--6 children learn the big ideas of
 programming by snapping blocks together in \textbf{Scratch}; in weeks 7--12 they type the same ideas as
 real \textbf{Python} code, drawing pictures with the \enquote{turtle}. The group's love of games and
 visual art runs through everything: animation, pen art, a catch game, random art and a final
@@ -32,6 +32,15 @@ visual art runs through everything: animation, pen art, a catch game, random art
   \item \textbf{Creativity, working code and explaining are equally valued.} A simple program a child
         can explain beats a complicated one they copied.
 \end{enumerate}
+\end{teachernote}
+
+\begin{teachernote}[The math this level uses]
+Everything fits Grade 4--5 math: turns use degrees and the rule \enquote{turn $= 360 \div$ number of sides}
+(Grade 4), and places use $x$ and $y$ like a map grid (Grade 5). One idea comes early: the middle of the
+Scratch stage and of the turtle window is $(0, 0)$, so places to the left or below use minus numbers such as
+$-100$, which school math reaches in Grade 6. Children only need \enquote{a minus sign means the other way}:
+the workbook says so in week 1 (Scratch) and week 8 (Python). In Python, \texttt{*} means $\times$ and
+\texttt{/} means $\div$ (workbook chapter 8), and lists count from 0 (chapter 9).
 \end{teachernote}
 
 \subsection{How the curriculum works}
@@ -135,14 +144,15 @@ downloads; after that everything works offline.
 
 \subsection{3. Copy the course folder to every Mac}
 \begin{checklist}
-  \item Copy the \textbf{whole} course folder (the one that contains \texttt{1-introduction},
-        \texttt{testing} and \texttt{pytest.ini}) into each Mac's \textbf{Documents} folder, using a USB
-        stick, AirDrop or a shared drive. Do not copy only an exercise folder: \texttt{check\_my\_work.py}
-        needs the \texttt{testing} folder further up.
-  \item Optional (recommended): on the students' Macs, delete the reference answers so they are not
-        tempting. In Finder, open the course folder, type \texttt{solution} in the search box, choose
-        \enquote{This folder} (not \enquote{This Mac}), select the \texttt{solution.py} and \texttt{solution.md} results and choose \menu{Move to Trash}.
-        Also delete \texttt{1-introduction/\allowbreak{}project/\allowbreak{}reference}. Keep everything on \textbf{your} Mac.
+  \item On your own computer, make the \textbf{student copy} of the course: in the course folder run
+        \texttt{python3 tools/student\_bundle.py -{}-level 1} (or \texttt{make student-bundle}). It creates
+        \texttt{build/\allowbreak student-bundle/\allowbreak kids-coding/}: every exercise folder \emph{without} the solutions, the
+        project starter files, the small \texttt{testing} helper that \texttt{check\_my\_work.py} needs, and a
+        \texttt{START-HERE.txt} for the child.
+  \item Copy that \texttt{kids-coding} folder (USB stick, AirDrop or a shared drive) into each child's
+        \textbf{Documents} folder. Do not copy only an exercise folder: \texttt{check\_my\_work.py}
+        needs the \texttt{testing} folder further up. Do not give children the whole course folder either:
+        it contains every answer key, reference solution and teacher guide. Keep that on \textbf{your} Mac.
   \item Do not put the printed answer key, lesson plans or this guide where students work.
 \end{checklist}
 
@@ -399,7 +409,7 @@ The turtle window does not appear. & It may be hidden behind Thonny: press \keys
 \texttt{Terminator} error after closing the window. & Harmless. Press Run again.\\
 \texttt{AttributeError: module 'turtle' has no attribute 'Turtle'} & The student saved their file as \texttt{turtle.py} (or \texttt{random.py}). Rename it (e.g. \texttt{my\_square.py}) and delete any \texttt{turtle.py} in that folder.\\
 \texttt{ModuleNotFoundError:\allowbreak{} No module named 'pytest'} & Install pytest: \menu{Tools > Manage packages\dots}, search \texttt{pytest}, Install.\\
-\texttt{ModuleNotFoundError:\allowbreak{} No module named 'kidtest'} & Only part of the course folder was copied. Copy the whole folder (with \texttt{testing}) and open the exercise from there.\\
+\texttt{ModuleNotFoundError:\allowbreak{} No module named 'kidtest'} & Only part of the student copy was copied. Copy the whole \texttt{kids-coding} folder (with \texttt{testing}) and open the exercise from there.\\
 \texttt{IndentationError} (\enquote{expected an indented block} or \enquote{unexpected indent}). & Lines inside \texttt{for}, \texttt{if} and \texttt{def} need 4 spaces; other lines none. Select lines and press \keys{Tab} (in) or \keys{Shift}+\keys{Tab} (out). Check the line above ends with a colon.\\
 \texttt{SyntaxError} & Look at the line Thonny highlights \emph{and the line above it}: a missing \texttt{)} or \texttt{"} or \texttt{:} is the usual cause. \menu{View > Assistant} explains errors in friendlier words.\\
 \texttt{NameError: name 'Print' is not defined} & Spelling or capitals: Python words are lower case (\texttt{print}, \texttt{forward}).\\

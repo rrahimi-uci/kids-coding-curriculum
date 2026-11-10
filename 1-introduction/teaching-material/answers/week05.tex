@@ -22,7 +22,7 @@ Nothing happens to the dog: \texttt{go} and \texttt{Go!} are two different messa
 \begin{answer}[Exercise 5.2: Stamp Garden]
 \textbf{Expected behavior:} each green-flag click erases the old garden, draws a thick bluish-green strip of grass along the bottom of the stage, then stamps 12 copies of the painted flower in random places, each a random size between 30\,\% and 100\,\% and each a different color (the color effect changes by 25 every stamp). The sprite itself then hides, so only the stamps are left. Every garden is different.
 
-\textbf{What to look for:} two My Blocks (\texttt{flower} with an input, \texttt{grass} without); the main script reads like a plan; \enquote{show} at the start (otherwise the second garden has no flowers because the sprite is still hidden and stamping a hidden sprite stamps nothing).
+\textbf{What to look for:} two My Blocks (\texttt{flower} with an input, \texttt{grass} without); the main script reads like a plan; \enquote{show} at the start, so the flower can be seen jumping from place to place while the garden grows. (Without it the garden still works, because a hidden sprite still stamps in Scratch 3; the sprite then stays hidden from the second run on.) If no stamps appear at all, look for \enquote{erase all} placed after the loop or a missing \enquote{stamp} block.
 \end{answer}
 
 \begin{answer}[Exercise 5.3: Show Time]

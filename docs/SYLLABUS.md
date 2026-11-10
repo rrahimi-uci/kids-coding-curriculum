@@ -57,7 +57,7 @@ Python's built-in `turtle` for weeks 7–12.
 | 4 | Keeping Score | Variables are labeled boxes that remember things. | variables (I), random (I), conditionals (R), events (R) | “Label the boxes”: paper boxes for score/lives that change during a game | Score never resets / changes too fast | Credit & remix: whose art/sounds are we using? Use built-in library, give credit |
 | 5 | Messages and My Blocks | Break big programs into named parts. | broadcast messages (I), My Blocks/custom blocks with inputs (I), decomposition (I), variables (R) | “Recipe cards”: split a party plan into named sub-recipes | Broadcast sent but nobody receives it | Accessibility: color-blind-safe colors + shapes, readable text size |
 | 6 | Review Studio and Checkpoint | Show what you know; get ready for text code. | all Scratch concepts (R), Scratch→Python card sort (I) | “Blocks to words” card sort: match Scratch blocks to Python lines | Bug-hunt relay (3 broken Scratch projects) | Reflection: what makes a project fun and fair for everyone? |
-| 7 | Hello, Python! | Text code is just blocks written as words — and Python is picky. | Thonny (I), print (I), comments (I), turtle forward/left (I), syntax errors (I), sequence (R) | “Python is picky”: spot spelling/capital/parenthesis differences on cards | Typo hunt: `Print`, missing `)`, `forwad` | Saving files safely: where your work lives, sensible file names |
+| 7 | Hello, Python! | Text code is blocks written as words — and Python is picky. | Thonny (I), print (I), comments (I), turtle forward/left (I), syntax errors (I), sequence (R) | “Python is picky”: spot spelling/capital/parenthesis differences on cards | Typo hunt: `Print`, missing `)`, `forwad` | Saving files safely: where your work lives, sensible file names |
 | 8 | Loops in Python | `for` loops + indentation = Scratch's repeat block. | for/range (I), indentation (I), loops (R), angles (R), nested loop (I, light), lists (I, light: looping over a color `PALETTE`) | “Indent the line-up”: kids stand in/out of a loop to show indentation | Indentation and off-by-one in range | Asking for help well: describe what you expected vs what happened |
 | 9 | Variables, Input and Choices | Programs can ask questions, remember answers and decide. | variables (R→text), `input` + `int` (I), `if/elif/else` (R→text), comparison operators (I), color palette (I) | “Choose your path” story: walk an if/elif/else maze drawn on the floor | `input` gives text, not a number | Questions a program should NOT ask (personal info) |
 | 10 | Random Art and My Own Commands | `random` makes surprises; `def` makes your own command (like My Blocks). | random (R→text), functions with `def` + parameters (I in Python, R from My Blocks), decomposition (R); final project kickoff (plan) | “Function machine”: input → rule → output cards | Function defined but never called | Being an original artist: remix with credit |
@@ -170,7 +170,7 @@ Line Tools; no GitHub account), Python standard library only (`turtle`,
 | 6 | Review and Checkpoint | Connect the pieces. | OOP/algorithms (R), debugging with the Thonny debugger (I) | Algorithm match-up cards | Bug-hunt workshop | Growth mindset reflection |
 | 7 | Grids, Recursion and Fractal Art | Functions that call themselves; worlds made of grids. | 2D lists (I), recursion (I), flood fill (I), breadth-first search with a queue (stretch, E), fractal trees (I), turtle (R) | Russian dolls / recursive drawing | Missing base case (RecursionError) | Credit for generative art & algorithms |
 | 8 | Data Detectives | Data tells stories when you clean and chart it. | CSV reading (I), counting with dicts (R), averages (I), bar charts with turtle (I) | Class survey on paper (favorite games) → tally → chart | Numbers read as strings; empty rows | Consent & anonymizing survey data |
-| 9 | How Do Machines Learn? | AI finds patterns in examples — and copies their mistakes. | training data (I), features (I), nearest-neighbor classifier (I), Markov text generator (I), bias (I) | “Train the teacher”: classify mystery cards by features | Bad training data → bad predictions | AI ethics: privacy with chatbots, deepfakes, bias; final project kickoff |
+| 9 | How Do Machines Learn? | AI finds patterns in examples — and copies their mistakes. | training data (I), features (I), nearest-neighbor classifier with a “steps distance” (gap + gap, no Pythagoras) (I), Markov text generator (I), bias (I) | “Train the teacher”: classify mystery cards by features | Bad training data → bad predictions | AI ethics: privacy with chatbots, deepfakes, bias; final project kickoff |
 | 10 | Project Studio 1 | Design first: classes, data, milestones. | class diagrams (I), decomposition (R), git workflow (R) | Paper class diagram (CRC cards) | Partner code review | Licenses of assets/libraries |
 | 11 | Project Studio 2 | Test, playtest, polish, document. | tests (R), README docs (I), feedback (R) | Playtest feedback | Playtest bug triage | Accessibility & usability review |
 | 12 | Showcase and Graduation | Share, explain, reflect, plan next steps. | presenting design decisions (R) | Gallery walk | — (exit assessment) | Showcase safety; next steps online safely |
@@ -183,7 +183,11 @@ a saved file, at least 5 pytest tests, and a git history with 8+ meaningful
 commits. Reference solution: *Maze Muncher* (grid maze loaded from text
 files; Player, Ghost and Chaser classes; Chaser uses breadth-first search with
 a queue; collectables and score; high scores saved; logic module fully tested
-and separate from the turtle view).
+and separate from the turtle view). **Core path** for younger or slower
+builders (added in the Grade 4–5 review): start from a starter template, add
+one class of your own, reuse an algorithm from the weeks, save one file and
+write fewer tests (the template's tests count toward the 5); the Full path
+above is unchanged and the rubric is the same (6 criteria × 4 = 24).
 
 **Assessments:** placement quiz (start of week 1; covers Level 2), mid-level
 checkpoint (week 6), exit assessment (week 12).

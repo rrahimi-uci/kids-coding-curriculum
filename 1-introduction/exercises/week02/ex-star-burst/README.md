@@ -24,15 +24,23 @@
   - change pen color by 5
 - pen up
 
+**turn right** means the **Motion** block **turn ↻ (15) degrees**. Its arrow goes
+round to the right, the same way as a clock's hands. Change 15 to the number you need.
+
 ## Expected behavior
 
 36 long lines criss-cross to make a round, spiky star in the middle of the
-stage. The color of the lines changes a little each time, like a rainbow.
-The cat ends where it started.
+stage, about 150 steps wide. The color of the lines changes a little each
+time, like a rainbow. The cat ends where it started, at x: -75 y: 0.
+
+**Math corner (optional):** why does the star close? Each turn is 170 degrees,
+and there are 36 turns. 36 × 170 = 6,120 degrees. A whole turn is 360 degrees,
+and 17 × 360 = 6,120 too. So the cat turns all the way round exactly 17 times
+and ends up facing the same way, back at the start.
 
 ## Checklist
 
-- [ ] My star has 36 points and is in the middle of the stage.
+- [ ] My star has lots of spiky points (36 lines) and is near the middle of the stage.
 - [ ] The color changes as it draws.
 - [ ] I tried at least one set of my own numbers.
 - [ ] I wrote down my favorite numbers in my workbook.

@@ -34,12 +34,13 @@ instead of \texttt{smallest}. (3) \texttt{can\_buy()} prints instead of returnin
 
 \begin{answer}[Station 5: Paper detectives]
 \begin{tabular}{@{}llll@{}}
-n: & $-5$ & $-2$ & $-8$ \\
-n > best? & no & no & no \\
+n: & 7 & 3 & 9 \\
+n < best? & no & no & no \\
 best: & 0 & 0 & 0 \\
 \end{tabular}\par
-It gives back 0, but the biggest number is $-2$. Bug: \texttt{best} starts at 0, which is bigger than every number in the list.
-Fix: \texttt{best = numbers[0]} (start with the first real number). Python's built-in \texttt{max()} also works.
+It gives back 0, but the smallest number in the list is 3. Bug: \texttt{best} starts at 0, which is smaller than every number in the list,
+so no number ever beats it (and 0 is not even in the list). Fix: \texttt{best = numbers[0]} (start with the first real number),
+exactly like \texttt{cheapest()} in Station 4. Python's built-in \texttt{min()} also works.
 \end{answer}
 
 \section{Homework}
@@ -50,7 +51,8 @@ Fix: \texttt{best = numbers[0]} (start with the first real number). Python's bui
 3 & no crash & In \texttt{mood()}: \texttt{and} should be \texttt{or}. \\
 \end{tabular}\par
 Line numbers in the starter: bug 1 line 22, bug 2 line 13, bug 3 line 28. Fixed output:
-\texttt{\{'name': 'Pixel', 'hunger': 4, 'happiness': 9\}} and \texttt{Pixel feels happy.}
+\texttt{\{'name': 'Pixel', 'hunger': 4, 'happiness': 9\}}, \texttt{Pixel feels happy.} and \texttt{Biscuit feels grumpy.}
+Bug 3 shows up as \texttt{Biscuit feels happy.}: Biscuit has hunger 9, and the rules say 8 or more is grumpy.
 \end{answer}
 \pyfile{../exercises/week06/hw-bug-pixel-pet/solution.py}
 

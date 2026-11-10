@@ -28,6 +28,9 @@
   - turn right 90 degrees
 - pen up
 
+**turn right** means the **Motion** block **turn ↻ (15) degrees**. Its arrow goes
+round to the right, the same way as a clock's hands. Change 15 to the number you need.
+
 Tip: put the green **( ) / ( )** block from **Operators** in the turn slot and type
 `360` and the number of sides. Scratch does the dividing for you.
 

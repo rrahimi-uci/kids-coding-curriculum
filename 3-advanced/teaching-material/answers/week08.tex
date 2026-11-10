@@ -11,14 +11,15 @@ The cleaner throws away \textbf{2 rows}: response 5 and the all-commas row, beca
 \section{Exercise 8.2: Survey stats}
 \pyfile[firstline=45,lastline=73]{../exercises/week08/ex-survey-stats/solution.py}
 \begin{answer}[Answers]
-Most popular game: \textbf{Block Craft} (5 votes). Average hours per week: \textbf{3.1} (50 hours $\div$ 16 answers; the missing answer is skipped). Average stars: 4.4.
+Most popular game: \textbf{Block Craft} (5 votes). Average hours per week: \textbf{3.1} (50 hours $\div$ 16 answers = 3.125, rounded to one decimal place; the missing answer is skipped). Average stars: 4.4 (74 stars $\div$ 17 answers = 4.35\ldots). Per genre: building 4.4, racing 4.0, puzzle 4.3, adventure 5.0, pets 4.5, strategy 4.0.
+README Extra (stars by age group): \textbf{10--11} gives more stars, 42 $\div$ 9 = 4.7, against 32 $\div$ 8 = 4.0 for 12--13.
 Adventure (5.0 stars from 2 answers): \textbf{do not trust it much} -- the sample is tiny; one more answer could change it a lot. Any answer mentioning \enquote{only 2 people} is correct.
 \end{answer}
 
 \section{Exercise 8.3: Bar chart}
 \pyfile[firstline=36,lastline=85]{../exercises/week08/ex-bar-chart/solution.py}
 \begin{answer}[What to look for]
-Six bars, tallest first: Block Craft 5, Kart Dash 4, Puzzle Drop 3, Sky Islands 2, Pixel Pets 2, Space Chess 1. Every bar has its number on top and its name underneath; heights are in proportion (the 5-vote bar is 5 times the 1-vote bar). Ask: \enquote{Could someone who cannot see colors read this chart?} -- the answer should be yes.
+Six bars, tallest first: Block Craft 5, Kart Dash 4, Puzzle Drop 3, Sky Islands 2, Pixel Pets 2, Space Chess 1 (Sky Islands comes before Pixel Pets because \texttt{sorted} keeps the file order for a tie). Workbook question: the Puzzle Drop bar is $\frac{3}{5}$ of 250 = \textbf{150 pixels} tall (the bars are 250, 200, 150, 100, 100 and 50 pixels). Every bar has its number on top and its name underneath; heights are in proportion (the 5-vote bar is 5 times the 1-vote bar). Ask: \enquote{Could someone who cannot see colors read this chart?} -- the answer should be yes.
 \end{answer}
 
 \section{Reflection prompts}

@@ -56,7 +56,7 @@ with open("notes.txt", "r") as file:    # open for reading
 
 \begin{analogy}[The notebook in the drawer]
 Variables are like writing on your hand: handy, but gone after a wash. A file is a notebook in a drawer.
-\texttt{with open(...)} opens the drawer and shuts it again when you are done. \texttt{"r"} means just read the notebook.
+\texttt{with open(...)} opens the drawer and shuts it again when you are done. \texttt{"r"} means only read the notebook.
 \texttt{"a"} means write on the next empty line. \texttt{"w"} means rip out every page and start a new notebook, so only use it when you
 \emph{want} to replace everything (like saving a new version of a drawing).
 \end{analogy}
@@ -71,7 +71,7 @@ cuts a line into a list at each comma. Everything read from a file is \textbf{te
   \item Together, do \textbf{TODO 1} in \texttt{save\_score()}: replace \texttt{pass} with the two lines from the hint. Run again.
         Open Finder, go to the exercise folder: a new file \texttt{high\_scores.txt} has appeared! Double-click it (it opens in TextEdit) and show the line.
   \item Ask the students to predict what \texttt{"w"} would do instead of \texttt{"a"}. Change it, run twice, look at the file (only one line!), and change it back.
-  \item Show \textbf{TODO 3} (the \texttt{try}/\texttt{except}): \enquote{\texttt{try} means: have a go. \texttt{except FileNotFoundError} means: if the file is not there yet,
+  \item Show \textbf{TODO 3} (the \texttt{try}/\texttt{except}): \enquote{\texttt{try} means: try to do this. \texttt{except FileNotFoundError} means: if the file is not there yet,
         do this instead. The very first game ever has no file, and that is not an error, it is normal.}
   \item Leave TODO 2 (reading) for the pairs.
 \end{enumerate}

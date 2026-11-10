@@ -78,6 +78,6 @@ if __name__ == "__main__":
 #   parse_line() fail with an IndexError.
 # - Wrong index, e.g. parts[3] for the size: the order is x, y, size, color.
 #
-# Another correct way: unpack the pieces into named variables, which is easier to read:
+# Another correct way: unpack the pieces into named variables, which reads more clearly:
 #     x, y, size, color = line.strip().split(",")
 #     return [int(x), int(y), int(size), color]

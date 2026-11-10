@@ -25,8 +25,8 @@ def test_right_answers_say_correct(run_target):
 
 
 def score_shown(result):
-    """The number after the word 'scored' on the last line, or None."""
-    match = re.search(r"scored\D*(\d+)", last_line(result), re.IGNORECASE)
+    """The first number after the word 'score' (or 'scored') on the last line, or None."""
+    match = re.search(r"score\D*(\d+)", last_line(result), re.IGNORECASE)
     return int(match.group(1)) if match else None
 
 

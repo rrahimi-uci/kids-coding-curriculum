@@ -1,17 +1,17 @@
 # TEACHER REFERENCE SOLUTION: Exercise 9.2 - Dodge the Meteors
 #
-# What it does: an arcade game. You steer a blue turtle left and right with
-# the arrow keys while orange meteors fall. Each meteor that reaches the
-# ground scores 1 point. One hit and the game is over.
+# What it does: an arcade game. You steer a sky-blue turtle left and right
+# with the arrow keys while orange-red meteors fall. Each meteor that reaches
+# the ground scores 1 point. One hit and the game is over.
 # Key ideas: event-driven programming (keys call our functions), a game loop
 # that runs one frame at a time with screen.ontimer(), and collision
 # detection by measuring the distance between two points.
 # Approach: the LOGIC part (move_player, is_touching) has no turtle in it, so
-# it is easy to test. The DRAWING part connects keys to handlers, and
+# pytest can test it. The DRAWING part connects keys to handlers, and
 # game_loop() moves the meteors, checks for hits, then schedules itself again.
 #
 # Layout of the file:
-#   LOGIC   - small functions with no turtle in them (easy to test)
+#   LOGIC   - small functions with no turtle in them (pytest can test them)
 #   DRAWING - turtles, keys and the game loop
 
 import math
@@ -51,7 +51,7 @@ def move_player(x, direction, step, limit):
 def is_touching(x1, y1, x2, y2, how_close):
     """True when the two points are closer than how_close."""
     # math.dist measures the straight-line distance between two points.
-    # "Less than" means touching; exactly how_close apart is only just missing.
+    # "Less than" means touching; exactly how_close apart is a near miss.
     return math.dist((x1, y1), (x2, y2)) < how_close
 
 
@@ -114,7 +114,7 @@ def game_loop():
         # window and make the keys stop working).
         screen.ontimer(game_loop, FRAME_MS)
     else:
-        # No new timer is scheduled, so the loop simply stops here.
+        # No new timer is scheduled, so the loop stops here.
         game_over()
 
 

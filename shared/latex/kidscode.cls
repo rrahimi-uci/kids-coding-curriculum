@@ -318,7 +318,7 @@
 \newenvironment{core}[1][]{\begin{kc@box}{kcblue}{\faStar\ Core (everyone)\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{challenge}[1][]{\begin{kc@box}{kcorange}{\faStar\faStar\ Challenge (want more?)\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{creative}[1][]{\begin{kc@box}{kcpurple}{\faPalette\ Creative (make it yours)\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
-\newenvironment{selfcheck}{\begin{kc@box}{kcgreen}{\faClipboardCheck\ Self-check: tick each box when it is true}\begin{itemize}[label=$\square$,leftmargin=1.5em,itemsep=2pt]}{\end{itemize}\end{kc@box}}
+\newenvironment{selfcheck}{\begin{kc@box}{kcgreen}{\faClipboardCheck\ Self-check: check off each box when it is true}\begin{itemize}[label=$\square$,leftmargin=1.5em,itemsep=2pt]}{\end{itemize}\end{kc@box}}
 \newenvironment{checklist}[1][Checklist]{\begin{itemize}[label=$\square$,leftmargin=1.5em,itemsep=2pt]}{\end{itemize}}
 
 %% Answer key boxes

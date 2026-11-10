@@ -13,7 +13,7 @@
   \item \textbf{One-time setup, a day or more before (about 15 minutes, mostly waiting):} on each Mac press \keys{Cmd}+\keys{Space}, type \texttt{Terminal}, press \keys{Return}. Type \texttt{git --version} and press \keys{Return}. If a window offers to install the \enquote{command line developer tools}, click \menu{Install}, then \menu{Agree}. It is free from Apple and needs no Apple ID and no GitHub account. When it finishes, \texttt{git --version} prints a version number.
   \item Print: the \textbf{Placement quiz} from the Assessments booklet, workbook chapter 1 and homework 1 (one per student).
   \item 6 index cards (\enquote{save points}), a long paper strip or string (the timeline), tape, a marker.
-  \item On each Mac: open Thonny and Terminal; in Finder open \texttt{kids-coding-curriculum/3-advanced/exercises/week01}. Type commands by hand: quotes copied from a PDF break them.
+  \item On each Mac: open Thonny and Terminal; in Finder open \texttt{kids-coding/3-advanced/exercises/week01}. Type commands by hand: quotes copied from a PDF break them.
   \item Check pytest (installed in Level 2): open \texttt{ex-commit-coach/check\_my\_work.py} in Thonny and press Run. \enquote{TRY AGAIN} lines are correct before the work is done.
 \end{materials}
 
@@ -63,6 +63,7 @@ mkdir git-quest    # make a new folder
 cd git-quest
 git config --global user.name "PixelFox"
 git config --global user.email "pixelfox@example.com"
+git config user.name     # check: it prints PixelFox
 \end{shellcode}
 If macOS asks whether Terminal may access the Documents folder, click \menu{Allow}. In Finder, hold \keys{Option} and drag \texttt{hero\_badge.py} from \texttt{week01/ex-git-quest} into \texttt{Documents/git-quest} (\keys{Option} makes a copy; a plain drag would move the original out of the exercise folder), then type \texttt{ls} (list): it shows \texttt{hero\_badge.py}. Say: \enquote{Git writes the name into every save point, forever. So we use a nickname and a pretend email: \texttt{example.com} is a made-up address that is safe to use.}
 
@@ -131,11 +132,11 @@ A commit history is like writing in pen: it remembers everything, even things yo
 \begin{commonmistakes}
   \item \textbf{Typing \texttt{git commit} without \texttt{-m}.} Git opens a strange full-screen editor (Vim). Calmly press \keys{Esc}, type \texttt{:q!} and press \keys{Return}. Then repeat the commit with \texttt{-m "message"}.
   \item \textbf{\texttt{git init} in the wrong folder} (for example the home folder): \texttt{git status} then lists hundreds of files. Do not commit. In Finder, open that folder, press \keys{Cmd}+\keys{Shift}+\keys{.} to show hidden files, and drag the \texttt{.git} folder to the Trash. Then \texttt{cd} into \texttt{git-quest} and start again.
-  \item \textbf{\enquote{Please tell me who you are}} error: the two \texttt{git config} lines were skipped. Type them, then commit again.
+  \item \textbf{The two \texttt{git config} lines were skipped.} On most Macs git does \emph{not} stop with \enquote{Please tell me who you are}: it quietly takes the Mac account's full name (often a real name) and prints \enquote{Your name and email address were configured automatically}. Type the two \texttt{git config} lines, check with \texttt{git config user.name}, then fix the commit with \texttt{git commit --amend --reset-author --no-edit}. (If git does print \enquote{Please tell me who you are}, type the two lines and commit again.)
   \item \textbf{\texttt{git diff} shows nothing} (file not saved: \keys{Cmd}+\keys{S}) or \textbf{\enquote{nothing added to commit}} (\texttt{git add} forgotten).
   \item \textbf{After \texttt{git restore}, Thonny still shows the broken code.} If Thonny asks to reload the file, click \menu{Yes}; otherwise close the tab and open the file again. Warn the pair not to press Run or Save first: Thonny saves before it runs and would write the broken code back (if it happens, type \texttt{git restore hero\_badge.py} again).
   \item \textbf{A screen with \texttt{:} or \texttt{(END)} at the bottom} after \texttt{git log} or \texttt{git diff}: that is a pager for long output. Press \keys{q}.
-  \item \textbf{\texttt{git status} lists \texttt{.DS\_Store}}: a hidden file Finder makes. Harmless; just never \texttt{git add} it.
+  \item \textbf{\texttt{git status} lists \texttt{.DS\_Store}}: a hidden file Finder makes. Harmless; never \texttt{git add} it.
 \end{commonmistakes}
 
 \begin{differentiation}
@@ -144,7 +145,7 @@ A commit history is like writing in pen: it remembers everything, even things yo
 \end{differentiation}
 
 \begin{stretchchallenge}[Teach git to ignore secrets]
-Make \texttt{secrets.txt} (a pretend password) in \texttt{git-quest}, then a file \texttt{.gitignore} containing the line \texttt{secrets.txt}. The easiest way to make it is in Terminal: \texttt{echo secrets.txt > .gitignore} (Finder hides files whose names start with a dot). Now \texttt{git status} no longer lists the secrets file. Commit \texttt{.gitignore} and explain why this protects you.
+Make \texttt{secrets.txt} (a pretend password) in \texttt{git-quest}, then a file \texttt{.gitignore} containing the line \texttt{secrets.txt}. The quickest way to make it is in Terminal: \texttt{echo secrets.txt > .gitignore} (Finder hides files whose names start with a dot). Now \texttt{git status} no longer lists the secrets file. Commit \texttt{.gitignore} and explain why this protects you.
 \end{stretchchallenge}
 
 \begin{teachernote}[If you are short on time]

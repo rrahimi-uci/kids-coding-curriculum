@@ -6,7 +6,8 @@ to stamp flowers all over the screen.
 1. Open `starter.py` and press **Run** (F5). Nothing is drawn! Read the code:
    the recipe `def flower(x, y):` is there, but nobody ever **calls** it.
    (That is this week's bug hunt.)
-2. At the bottom, call it three times, e.g. `flower(-200, 0)`. Run it.
+2. At the bottom (above `turtle.done()`, not pushed in), call it three times:
+   `flower(-200, 0)`, `flower(0, 0)` and `flower(200, 0)`. Run it.
 3. All the flowers are orange. Give the recipe a third **parameter**:
    change the first line to `def flower(x, y, color):` and change
    `t.color("#E69F00")` to `t.color(color)`.

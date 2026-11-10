@@ -68,12 +68,14 @@ At the showcase we show projects on the screen only. Nothing is uploaded.
 \end{safety}
 
 \section{Where things go on the screen}
-The turtle window is 800 steps wide and 600 steps tall. The middle is $(0, 0)$.
-Use \texttt{t.penup()} and \texttt{t.goto(x, y)} to jump to a spot without drawing.
+The starter file makes the turtle window 800 steps wide and 600 steps tall. The middle is $(0, 0)$,
+like the Scratch stage. A minus number means \enquote{the other way}: $x = -250$ is 250 steps
+\textbf{left} of the middle, and $y = -150$ is 150 steps \textbf{down}.
+Use \texttt{t.penup()}, then \texttt{t.goto(x, y)}, then \texttt{t.pendown()} to jump to a spot without drawing.
 
 \begin{center}
 %% alt: The turtle window drawn as a grid. The x axis runs left to right and the y axis runs bottom to top, crossing at (0, 0), the middle. The window goes from (-400, 0) at the left edge to (400, 0) at the right edge, and from (0, -300) at the bottom to (0, 300) at the top. An orange dot marks (200, 150), right and up. A pink square marks (-250, -150), left and down.
-\begin{tikzpicture}[x=0.012cm,y=0.012cm,font=\small]
+\begin{tikzpicture}[x=0.0095cm,y=0.0095cm,font=\small]
   \fill[kcsky!25] (-400,-300) rectangle (400,300);
   \draw[kcgray!50,step=100] (-400,-300) grid (400,300);
   \draw[thick] (-400,-300) rectangle (400,300);
@@ -90,6 +92,27 @@ Use \texttt{t.penup()} and \texttt{t.goto(x, y)} to jump to a spot without drawi
   \fill[kcpurple] (-250,-150) rectangle ++(16,16);
   \node[right] at (-230,-142) {$(-250, -150)$: left and down};
 \end{tikzpicture}
+\end{center}
+
+\section{Turtle toolbox}
+These commands help you draw your picture. Your cheat sheet has them all.
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}p{6.2cm}>{\RaggedRight\arraybackslash}X@{}}
+\toprule
+Command & What it does\\
+\midrule
+\texttt{t.forward(100)}, \texttt{t.left(90)} & Walk and turn, like in week 7.\\
+\texttt{t.circle(40)} & A circle. The turtle starts at its bottom (when it faces right).\\
+\texttt{t.dot(20, YELLOW)} & A filled dot where the turtle is.\\
+\texttt{t.color(BLACK, ORANGE)} & Line color, then fill color.\\
+\texttt{t.begin\_fill()} \ldots{} \texttt{t.end\_fill()} & Colors in the shape you draw in between.\\
+\texttt{t.setheading(0)} & Face right. 90 is up, 180 is left, 270 is down.\\
+\texttt{screen.bgcolor(BLUE)} & Colors the whole background.\\
+\texttt{t.write("My title")} & Writes words where the turtle is.\\
+\texttt{t.hideturtle()} & Hides the turtle at the end.\\
+\bottomrule
+\end{tabularx}
 \end{center}
 
 \clearpage
@@ -158,8 +181,13 @@ make my code work & It does not run yet. & It runs, but some parts are missing o
 use the six ingredients & I used 1 or 2. & I used 3 or 4. & I used all 6. & I used all 6, and my function has parameters I really use (like \texttt{x}, \texttt{y}, \texttt{color}).\\
 \midrule
 explain my code & I can say what my program does. & I can point to my loop and my function. & I can explain how one part of my code works, line by line. & I can explain why I chose it, and how I fixed a bug.\\
+\midrule
+plan and work as a team & I needed a lot of help to plan and to take turns. & I followed my plan with reminders. I took turns sometimes. & I finished the milestones, swapped driver and navigator, and gave kind feedback. & I helped others, used feedback to make my project better, and gave credit for borrowed ideas.\\
 \bottomrule
 \end{tabularx}}
+\par\smallskip
+{\small Each row is worth 1 to 4 points (\lvA{} = 1, \lvB{} = 2, \lvC{} = 3, \lvD{} = 4). Five rows make 5 to 20 points.
+The points help you and your teacher see what to practice next. They are not a grade.\par}
 
 \section{Need a different path?}
 \begin{tip}[Support path: make it in Scratch]

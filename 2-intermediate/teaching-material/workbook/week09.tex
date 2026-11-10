@@ -57,27 +57,77 @@ def game_loop():
         screen.ontimer(game_loop, 50)           # 4. again in 50 ms
 \end{pycode}
 
+\subsection{Try it: keys and a timer in one small program}
+Make a new file in Thonny (\menu{File > New}), type this program, save it as \texttt{try\_keys.py} and press \menu{Run}.
+\begin{pycode}[try\_keys.py]
+import turtle
+
+screen = turtle.Screen()
+player = turtle.Turtle("turtle")
+player.penup()
+ball = turtle.Turtle("circle")
+ball.penup()
+ball.goto(0, 200)
+
+def go_left():                    # a handler for the Left key
+    player.setx(player.xcor() - 20)
+
+def go_right():                   # a handler for the Right key
+    player.setx(player.xcor() + 20)
+
+def fall():                       # one frame: the ball drops a little
+    ball.sety(ball.ycor() - 5)
+    if ball.ycor() > -200:        # still on the screen?
+        screen.ontimer(fall, 50)  # then do it again in 50 ms
+
+screen.onkey(go_left, "Left")
+screen.onkey(go_right, "Right")
+screen.listen()
+fall()
+turtle.done()
+\end{pycode}
+\textbf{What you should see:} the ball falls slowly from the top and stops near the bottom after about 4 seconds.
+\textbf{Click the turtle window once}, then press the Left and Right arrows: the turtle moves 20 steps each time.
+Nothing happens when you press a key? Click the window, and check \texttt{screen.listen()}.
+
+\begin{tip}[Math helper: up, down, and 50 milliseconds]
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt]
+  \item The middle of the window is \texttt{(0, 0)}. Going \textbf{down} makes \texttt{y} smaller: 200, 195, 190 \ldots{} 0, then
+        below zero: $-5$, $-10$ \ldots{} $-200$ (see the week 1 Math helper). So \texttt{ycor() - 5} moves a thing down.
+  \item Going \textbf{left} makes \texttt{x} smaller in the same way: \texttt{xcor() - 20}.
+  \item A \textbf{millisecond} (ms) is a tiny part of a second: 1000 milliseconds make 1 second.
+        So 50 ms is $\frac{50}{1000}$ of a second, and $1000 \div 50 = 20$ frames every second.
+\end{itemize}
+\end{tip}
+
 \subsection{Touching = close enough}
-Two things touch when the distance between them is small. \texttt{math.dist} measures the distance between two points:
-\py|math.dist((0, 0), (30, 40))| gives \texttt{50.0}. If that is less than about 30, the meteor hit the player.
+Two things touch when the distance between them is small. The \textbf{distance} is how far apart they are in a straight line,
+as if you measured from one to the other with a ruler. You do not have to work it out: \texttt{math.dist} measures it for you.
+\py|math.dist((0, 0), (30, 40))| gives \texttt{50.0}: the point (30, 40) is 50 steps away from the middle.
+If the distance is less than about 30, the meteor hit the player.
 Turtles have the same measure built in: \py|player.distance(meteor)| is the distance between two turtles, so
 \py|player.distance(meteor) < 30| also means \enquote{touching}.
 
 \begin{exercise}[Etch-a-Sketch]
 Folder: \texttt{exercises/week09/ex-etch-a-sketch}. Run \texttt{starter.py}, \textbf{click the window}, press the Up arrow.
+Nothing happens yet: the window is not listening.
 \begin{enumerate}[leftmargin=1.4em]
   \item TODO 1: add \texttt{screen.listen()}. Now Up draws a line.
   \item TODO 2: write \texttt{go\_down()}, \texttt{go\_left()}, \texttt{go\_right()} (headings 270, 180, 0).
   \item TODO 3: connect the keys: \texttt{"Down"}, \texttt{"Left"}, \texttt{"Right"}, \texttt{"space"}, \texttt{"n"}, \texttt{"c"}.
-  \item TODO 4: \texttt{c} clears the drawing. Draw something and describe it here: \answerlines{1}
+  \item TODO 4: \texttt{c} clears the drawing. Run \texttt{check\_my\_work.py}: all 5 checks should pass.
+        Draw something and describe it here: \answerlines{1}
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}[Dodge the Meteors]
-Folder: \texttt{exercises/week09/ex-dodge-meteors}. You are the blue turtle; the round orange-red meteors fall.
+Folder: \texttt{exercises/week09/ex-dodge-meteors}. You are the sky-blue turtle; the round orange-red meteors fall.
 \begin{enumerate}[leftmargin=1.4em]
   \item TODO 1: \texttt{move\_player()} returns the new x, using \texttt{clamp()} so you stop at the walls.
-  \item TODO 2: \texttt{is\_touching()} uses \texttt{math.dist} and \texttt{<}.
+        The direction is \texttt{1} for right and \texttt{-1} for left: $1 \times 20 = 20$ (20 steps right) and
+        $-1 \times 20 = -20$ (20 steps left).
+  \item TODO 2: \texttt{is\_touching()} uses \texttt{math.dist} and \texttt{<}. Now run \texttt{check\_my\_work.py}: the first two checks
+        (move player, is touching) should say \texttt{[PASS]}.
   \item TODO 3: connect \texttt{"Left"} and \texttt{"Right"}, then \texttt{listen()}.
   \item TODO 4: at the end of \texttt{game\_loop()}, set the timer again. Now play! My best score: \rule{2cm}{0.4pt}
   \item Which functions are \textbf{logic} (no turtle) and which are \textbf{drawing}? Why is it useful to keep them apart? \answerlines{2}

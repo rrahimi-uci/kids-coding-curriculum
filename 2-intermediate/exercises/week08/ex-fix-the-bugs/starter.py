@@ -29,6 +29,7 @@ def name_tag(nickname):
 
 def average_score(scores):
     """Return the average of the scores, rounded to a whole number.
+    Average = add up all the scores, then divide by how many there are.
     An empty list gives 0."""
     return round(sum(scores) / len(scores))
 

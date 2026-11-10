@@ -3,6 +3,19 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.5.0 - 2026-11-09
+
+Written for Grades 4–5 at every level.
+
+- All three levels now speak to children in Grades 4–5 (ages 9–11): shorter sentences, every new word explained, and the same ideas as before.
+- "Math helper" boxes explain math that Grade 4–5 children have not met yet, the first time a lesson needs it: numbers below zero and where x and y are, `*` and `/`, remainders and the `%` sign, the average as a fair share, rounding, percent, cutting a number in half again and again, and a "steps distance" (gap + gap) instead of a ruler formula.
+- More practice before the big exercises: worked examples, "try it in the Shell" steps, small trace tables and hand-worked sorts, a click-by-click debugger walkthrough, and a "Turtle toolbox" table before the Level 1 project.
+- Almost every exercise and homework task now says what "done" looks like, often with the exact output to expect.
+- Fixed mistakes: a Level 2 bug hunt whose third bug could not be seen when the program ran, a Level 1 project rubric that did not match, a Scratch claim about hidden sprites and stamping, a "game over" explanation, and a few trace and warm-up questions that needed numbers below zero.
+- Level 3 project: a clearly marked Core path for younger builders, next to the unchanged Full path. Level 2 project: step-by-step recipes for the bigger starter steps.
+- Git setup: a check that git uses your nickname, because on a Mac it quietly uses the computer owner's real name if none is set.
+- The self-check boxes say "check off" instead of "tick".
+
 ## 1.4.0 - 2026-11-08
 
 The pages are for reading, not for clicking.

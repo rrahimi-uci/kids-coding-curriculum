@@ -124,9 +124,38 @@ Make the cat say hello, walk and say bye.
 \textbf{Done when:} the cat talks, walks, meows and says bye, in that order, every time you click the flag.
 \end{exercise}
 
+\begin{tip}[Math helper: where are x and y?]
+The stage is like a map. Every spot on it has two numbers, \textbf{x} and \textbf{y}.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item The middle of the stage is \textbf{x: 0 y: 0}.
+  \item \textbf{x} tells you left and right. \textbf{y} tells you up and down. A bigger y is higher up.
+  \item Some numbers have a minus sign, like $-100$. We call them \textbf{negative numbers}. On the stage, the minus sign means \enquote{the other way}. y: $-100$ is 100 steps \textbf{below} the middle. x: $-100$ is 100 steps \textbf{left} of the middle.
+  \item Think of a thermometer. Zero is in the middle. Numbers above zero go up. Minus numbers go down, below zero.
+  \item To type a minus number, press the minus key ($-$), then the number.
+\end{itemize}
+\begin{center}
+%% alt: A map of the Scratch stage. The middle is x 0, y 0. The left edge is x minus 240 and the right edge is x 240. The top edge is y 180 and the bottom edge is y minus 180. A dot below the middle is labeled x 0, y minus 100. A dot left of the middle is labeled x minus 100, y 0.
+\begin{tikzpicture}[x=0.014cm,y=0.014cm,>={Stealth}]
+  \draw[thick,fill=kcsky!10] (-240,-180) rectangle (240,180);
+  \draw[kcgray] (-240,0) -- (240,0);
+  \draw[kcgray] (0,-180) -- (0,180);
+  \fill[kcblack] (0,0) circle (6);
+  \node[font=\scriptsize,anchor=south west] at (4,2) {x: 0 y: 0};
+  \fill[kcvermillion] (0,-100) circle (8);
+  \node[font=\scriptsize,anchor=west] at (10,-100) {x: 0 y: $-100$};
+  \fill[kcblue] (-100,0) circle (8);
+  \node[font=\scriptsize,anchor=north] at (-100,-8) {x: $-100$ y: 0};
+  \node[font=\scriptsize,anchor=east] at (-245,0) {left edge, x: $-240$};
+  \node[font=\scriptsize,anchor=west] at (245,0) {x: 240, right edge};
+  \node[font=\scriptsize,anchor=south] at (0,183) {top edge, y: 180};
+  \node[font=\scriptsize,anchor=north] at (0,-185) {bottom edge, y: $-180$};
+\end{tikzpicture}
+\end{center}
+\end{tip}
+
 \begin{exercise}[Mixed-Up Jump (bug hunt)]
 The cat should say \enquote{Watch me jump!}, jump \textbf{up}, come back down to the ground and say \enquote{Ta-da!}.
-Build this script \textbf{exactly} as it is, bug and all. (\menu{change y by} is in \menu{Motion}: y is up and down. \menu{wait} is in \menu{Control}.)
+Build this script \textbf{exactly} as it is, bug and all. (\menu{change y by} is in \menu{Motion}: y is up and down. \menu{wait} is in \menu{Control}.) The cat starts at y: $-100$, near the bottom of the stage, standing on the \enquote{ground}.
 \begin{center}
 \begin{scratch}[scale=0.85]
 \blockinit{when \greenflag clicked}
@@ -142,10 +171,6 @@ Click the flag. What did the cat do? \answerlines{1}
 Which two blocks are in the wrong order? \answerlines{1}
 Now drag them into the right order and test again. Did the cat jump up? \tickbox{} yes
 \end{exercise}
-
-\begin{tip}[Where is x and y?]
-The middle of the stage is \textbf{x: 0 y: 0}. \textbf{x} goes left and right; \textbf{y} goes up and down. Bigger y means higher up. A number with a minus sign, like $-100$, means \enquote{the other way}: y: $-100$ is 100 steps \textbf{below} the middle, and x: $-100$ is 100 steps \textbf{left} of it. To type it, press the minus key, then the number.
-\end{tip}
 
 \begin{tip}[Debugging steps]
 1. What did I \textbf{expect}? \quad 2. What \textbf{happened}? \quad 3. Read the blocks one at a time with your finger. \quad 4. Change \textbf{one} thing and test again.
@@ -172,6 +197,8 @@ My show plan (one step per line):
   \vocabword{stage}{The area where your sprites act.}
   \vocabword{script}{A stack of blocks snapped together.}
   \vocabword{green flag}{The button that starts your program.}
+  \vocabword{coordinates}{Two numbers, x and y, that give a spot on the stage. The middle is x: 0 y: 0.}
+  \vocabword{negative number}{A number with a minus sign, like $-100$. On the stage it means left of or below the middle.}
   \vocabword{driver / navigator}{The driver clicks; the navigator reads, checks and helps.}
 \end{vocab}
 

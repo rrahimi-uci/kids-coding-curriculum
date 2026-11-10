@@ -7,6 +7,10 @@ shape and the color.
    turtle and `s` stamps a copy. But `p` and `n` do nothing yet.
 2. **TODO 1** `next_index()`: return the next position in a list, and go back
    to 0 after the last one. `(index + 1) % length` does exactly that.
+   Remember: `%` gives the **remainder** (week 5). The list of shapes has 4
+   items, at positions 0, 1, 2 and 3. From position 2: 2 + 1 = 3, and
+   3 / 4 is 0 remainder 3, so the answer is 3. From the last position, 3:
+   3 + 1 = 4, and 4 / 4 is 1 remainder **0**, so we go back to 0.
 3. **TODO 2** write `next_color()`, a twin of `next_shape()`.
 4. **TODO 3** connect `p` to `next_shape` and `n` to `next_color`.
    Remember: no `()` after the function name!

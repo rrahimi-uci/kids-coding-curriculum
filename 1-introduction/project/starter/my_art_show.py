@@ -43,12 +43,16 @@ t.pensize(2)
 # This example function draws a square with its bottom-left corner at (x, y).
 # TODO: change it into YOUR function (a flower, a fish, a robot, a star...)
 #       and give it a name that says what it draws.
+# Turtle toolbox (your cheat sheet has more):
+#   t.circle(30)          a circle (the turtle starts at its bottom)
+#   t.dot(20, YELLOW)     a filled dot where the turtle is
+#   t.begin_fill() ... t.end_fill()   colors in the shape drawn in between
 def my_shape(x, y, color):
-    t.penup()
-    t.goto(x, y)
-    t.setheading(0)
-    t.pendown()
-    t.color(BLACK, color)
+    t.penup()                   # lift the pen: no line while we move
+    t.goto(x, y)                # jump to the spot
+    t.setheading(0)             # face right (90 = up, 180 = left, 270 = down)
+    t.pendown()                 # pen down: start drawing
+    t.color(BLACK, color)       # black lines, filled with color
     t.begin_fill()
     for side in range(4):
         t.forward(50)
@@ -85,6 +89,10 @@ my_shape(-25, -25, ORANGE)
 # ===== PART 7: FINISHING TOUCHES =====
 # TODO (optional): write a title on the screen with t.write(...),
 #                  hide the turtle with t.hideturtle()
+# Example:  t.penup()
+#           t.goto(0, 250)
+#           t.write("My Art Show by Captain Pixel", align="center",
+#                   font=("Arial", 24, "bold"))
 
 print("Thank you for visiting my art show!")
 turtle.done()

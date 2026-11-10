@@ -59,7 +59,25 @@ small and make it bigger step by step. Your pitch should be something you can fi
 sessions, plus ideas for later in the parking lot.}
 \end{teacherscript}
 \textbf{Check before you say \enquote{go}:} the pitch names 3 must-have features (not 10); it says
-which algorithm and data structure; it saves a file; the student can say the idea in one sentence.
+which algorithm and data structure; it saves a file; the student can say the idea in one sentence;
+it names a path.
+
+\begin{teachernote}[Core path or Full path]
+Two 60-minute studio sessions plus homework is not much time for a 9--11-year-old. The brief
+(section 2, \enquote{Pick your path}) therefore offers a \textbf{Core path}: keep a template's
+classes and add exactly one class, reuse an algorithm from class (flood fill from week 7,
+recursion from the week 7 fractal tree, or nearest neighbor from week 9), add a best-score file
+with the recipe in the brief, and count the template's example tests towards the five. Every
+must-have is still met, and the rubric is the same: a Core project can reach \enquote{Got it}
+(3 points) in every row, about 18 of 24. \enquote{Expert} needs the student's own ideas on top.
+Recommend the Core path to most students, and to every student whose pitch is bigger than one
+session's work. Concretely: (a) \texttt{Game} has a \texttt{Grid} and a \texttt{Hero}, plus a
+recursive \texttt{count\_reachable()} flood fill; (b) \texttt{Tree(Shape)} with a recursive
+\texttt{branch()}, added to \texttt{SHAPE\_CLASSES} so the gallery saves and loads it;
+(c) \texttt{Guesser} has a \texttt{DataSet} and a \texttt{guess()} method that copies the genre of
+the row with the smallest \texttt{distance()}. All three were built against the templates and pass
+their tests.
+\end{teachernote}
 \textbf{Good question:} \enquote{If you only had one session, what would you build?} That answer
 is feature 1. In week 10 each student copies the starter folder into
 \texttt{Documents/coding-projects}, renames it and makes the first commit (the starter README
@@ -136,7 +154,9 @@ second level from a file, test-first, a settings JSON, k-nearest neighbors.\\
 \section{4. Rubric and scoring}
 
 First check the \textbf{must-haves} (brief, section 2). Then score each criterion from 1 to 4
-(Just starting = 1, Getting there = 2, Got it = 3, Expert = 4). Total out of 24.
+(Just starting = 1, Getting there = 2, Got it = 3, Expert = 4). Total out of 24 (six criteria
+$\times$ 4 points; the lowest possible total is 6). Core-path and Full-path projects use the same
+rubric.
 
 \begingroup\small
 \renewcommand{\arraystretch}{1.3}
@@ -161,7 +181,7 @@ why a design choice was made & Compares with an alternative and explains the tra
 \end{longtable}
 \endgroup
 
-\textbf{Scoring bands:} 21--24 Expert; 16--20 Got it; 11--15 Getting there; 10 or below Just
+\textbf{Scoring bands:} 21--24 Expert; 16--20 Got it; 11--15 Getting there; 6--10 Just
 starting. Explaining is weighted the same as working code on purpose: a smaller project explained
 with real understanding is a better Level 3 result than a big one the student cannot explain.
 

@@ -177,18 +177,19 @@ print(colors[1])
 \end{pycode}
 \answerlines{2}
 
-\question{2 points}{Fill in the trace table, then write what the program prints.}
+\question{2 points}{Fill in the trace table, then write what the program prints.
+Write the value of \texttt{count} each time it changes.}
 \begin{pycode}
-count = 10
-while count > 0:
-    count = count - 3
+count = 1
+while count < 50:
+    count = count * 3
 print(count)
 \end{pycode}
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{|p{3cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
 \hline
-\textbf{value of count} & 10 & & & & \\ \hline
+\textbf{value of count} & 1 & & & & \\ \hline
 \end{tabular}
 \end{center}
 \noindent It prints: \rule{3cm}{0.4pt}
@@ -299,7 +300,8 @@ screen.listen()
 \answerlines{1}
 \noindent What does \texttt{screen.listen()} do? \answerlines{1}
 
-\question{2 points}{A game loop uses \texttt{ontimer}. Somewhere else the program calls \texttt{tick()} once.}
+\question{2 points}{A game loop uses \texttt{ontimer}. The program starts it by calling \texttt{tick()} one time.
+After that, only \texttt{ontimer} calls it. (100 means 100 milliseconds.)}
 \begin{pycode}
 game = {"ticks": 0}
 

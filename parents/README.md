@@ -1,6 +1,6 @@
 # Parent information deck
 
-A 20–30 minute talk for families of Grade 5 children deciding whether to
+A 20–30 minute talk for families of Grade 4–5 children deciding whether to
 join the course: why coding matters, what the research does and does not
 show, how the course works, and how parents can help.
 

@@ -8,14 +8,25 @@ extra spaces, MiXeD capitals, empty rows and a missing number?
 
 **Steps**
 
-1. Open `starter.py` and press **Run**. It prints 19 answers - too many!
+1. Open `starter.py` and press **Run**. It prints `Clean answers: 19` -
+   too many! - and the list still shows `block craft` in small letters and
+   an empty line.
 2. TODO 1: finish `to_number()` - strip spaces, return `None` for empty text,
    otherwise `int(text)`.
 3. TODO 2: finish `is_empty()` so empty answers are skipped.
 4. TODO 3: use `.title()` so `BLOCK CRAFT` and `block craft` both become
    `Block Craft`.
 
-**Done looks like:** `Clean answers: 17`, and every game name looks tidy.
+**Done looks like:** the Shell shows
+
+```
+Clean answers: 17
+Block Craft | 5 hours | 5 stars
+Block Craft | 3 hours | 4 stars
+Kart Dash | 2 hours | 4 stars
+Puzzle Drop | 1 hours | 5 stars
+Sky Islands | 4 hours | 5 stars
+```
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 

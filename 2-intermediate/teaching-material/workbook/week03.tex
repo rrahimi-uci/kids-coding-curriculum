@@ -35,6 +35,8 @@ print(len(backpack))        # 4   how many items
 print(backpack[0])          # lantern   the first item
 print(backpack[-1])         # apple   -1 means the last item
 \end{pycode}
+A minus sign in the brackets means \enquote{count from the end}: \texttt{backpack[-1]} is the last item and
+\texttt{backpack[-2]} is the one before it.
 With 4 items, the index numbers are 0, 1, 2 and 3. Asking for \texttt{backpack[4]} crashes with
 \texttt{IndexError: list index out of range}. This is called an \textbf{off-by-one} bug.
 
@@ -72,9 +74,11 @@ Folder: \texttt{exercises/week03/ex-palette-stripes}. Press \menu{Run}: only one
 \begin{enumerate}[leftmargin=1.4em]
   \item TODO 1: add blue and vermillion with \texttt{palette.append(...)}. (TODO 2 is an extra: a sixth color.)
   \item TODO 3: draw a stripe for every color with \texttt{for i in range(len(colors)):}. Label each stripe \texttt{str(i)} and move \texttt{x} along.
+        (A label must be text. \texttt{str()} turns a number into text: \texttt{str(3)} gives \texttt{"3"}.)
   \item TODO 4: print the first color (\texttt{palette[0]}) and the last color (\texttt{palette[-1]}).
   \item My palette has \rule{1cm}{0.4pt} colors, so the labels go from 0 to \rule{1cm}{0.4pt}.
 \end{enumerate}
+Done looks like: a row of 5 (or more) colored stripes, labeled 0, 1, 2, 3, 4 from left to right.
 \end{exercise}
 
 \begin{exercise}[Adventure Inventory]
@@ -94,6 +98,7 @@ Folder: \texttt{exercises/week03/ex-high-scores}. Two new tricks:
 \begin{enumerate}[leftmargin=1.4em]
   \item Predict: the top 3 of \texttt{[120, 45, 300, 80]} are \rule{4cm}{0.4pt}
   \item TODO 1: sort, then take three. TODO 2: print \texttt{1st: 300}, \texttt{2nd: 120}, \texttt{3rd: 80} using the \texttt{places} list.
+  \item Check your work with \texttt{check\_my\_work.py}.
 \end{enumerate}
 \end{exercise}
 

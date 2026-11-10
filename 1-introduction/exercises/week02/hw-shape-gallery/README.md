@@ -5,7 +5,8 @@
 
 ## Build steps
 
-1. Open Scratch. Click **Add Extension** and choose **Pen**. Set the cat's **Size** to `40`.
+1. Open Scratch. If an old project is open, click **File > New**.
+   Click **Add Extension** (bottom left) and choose **Pen**. Set the cat's **Size** to `40`.
 2. Build the script below. Fill in the two missing hexagon numbers
    (rule: **turn = 360 ÷ sides**).
 3. Click the green flag. Save as `shape-gallery`.
@@ -28,6 +29,10 @@
 - pen down
 - repeat **?**: move 50 steps, turn right **?** degrees
 - pen up
+
+**turn right** means the **Motion** block **turn ↻ (15) degrees**. Its arrow goes
+round to the right, the same way as a clock's hands. Change 15 to the number you need.
+Some x numbers have a minus sign: x: -200 means 200 steps **left** of the middle.
 
 ## Expected behavior
 

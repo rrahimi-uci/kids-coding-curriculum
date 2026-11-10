@@ -12,7 +12,7 @@ The suggested path is kept unchanged:
 
 | Level | Language & tools | Why |
 |---|---|---|
-| 1 Introduction | Scratch 3 (weeks 1–6) → Python + `turtle` in Thonny (weeks 7–12) | Block coding removes syntax errors so 10-year-olds can focus on sequence, loops, events and variables, and it is excellent for games and art. Six weeks is enough for those ideas to stick; `turtle` then gives an immediate visual payoff for the first text code, and every Scratch concept is re-taught in Python (spiral). |
+| 1 Introduction | Scratch 3 (weeks 1–6) → Python + `turtle` in Thonny (weeks 7–12) | Block coding removes syntax errors so 9–11-year-olds can focus on sequence, loops, events and variables, and it is excellent for games and art. Six weeks is enough for those ideas to stick; `turtle` then gives an immediate visual payoff for the first text code, and every Scratch concept is re-taught in Python (spiral). |
 | 2 Intermediate | Python (Thonny, standard library) | Functions, lists, dicts, files, testing and event-driven turtle games cover the intermediate goals without installing anything else. |
 | 3 Advanced | Python projects + local git | OOP, algorithms, grids/recursion, data and simple AI are all teachable with the standard library; git is the industry “save game”. |
 

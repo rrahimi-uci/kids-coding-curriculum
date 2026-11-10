@@ -44,9 +44,11 @@ def neighbors(grid, row, col):
     leaving out any that would be off the edge of the map."""
     result = []
     # TODO 2: for each step in [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    #         (up, down, left, right; -1 means "one back")
     #         work out r = row + step[0] and c = col + step[1].
     #         Only append (r, c) if it is inside the map:
     #         0 <= r < len(grid) and 0 <= c < len(grid[0])
+    #         ("r is 0 or more AND less than the number of rows", same for c)
     return result
 
 

@@ -4,6 +4,7 @@
 
 \begin{core}[Growth Table (about 10 minutes)]
 \textbf{1. Predict first.} How many steps does each search need in the worst case? Fill in the empty boxes \emph{before} you run any code.
+Tips: linear search may have to look at every item. For binary search, use the halving ladder from workbook chapter 4: halve the number again and again (round down) and count the numbers until you reach 1. For 1\,000\,000, you can halve it, or use the pattern: every \enquote{times 10} adds about 3 steps. Guesses are fine: the code will tell you the real answer.
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{|r|p{3cm}|p{3cm}|}
@@ -15,8 +16,8 @@
 1\,000\,000 & & \\ \hline
 \end{tabular}
 \end{center}
-\textbf{2. Code.} Open \texttt{week04/hw-growth-table/starter.py}. Finish \texttt{linear\_worst(n)} and \texttt{halving\_steps(n)}: keep doing \texttt{n = n // 2} and count, until \texttt{n} is 0.\\
-\textbf{3. Check.} Run it and compare with your predictions. Then open \texttt{check\_my\_work.py} and press Run. Save a copy as \texttt{growth\_table.py} in \texttt{git-quest} (\menu{File > Save as...}), then \texttt{git add} and \texttt{git commit} it.
+\textbf{2. Code.} Open \texttt{week04/hw-growth-table/starter.py}. Finish \texttt{linear\_worst(n)} and \texttt{halving\_steps(n)}: keep doing \texttt{n = n // 2} and count, until \texttt{n} is 0. (On paper, 10 goes 10, 5, 2, 1, 0: that is 4 halvings.)\\
+\textbf{3. Check.} Run it and compare with your predictions. The \texttt{README.md} in the folder shows the table you should see. Then open \texttt{check\_my\_work.py} and press Run. Save a copy as \texttt{growth\_table.py} in \texttt{git-quest} (\menu{File > Save as...}), then \texttt{git add} and \texttt{git commit} it.
 \end{core}
 
 \begin{challenge}[Trace it by hand]

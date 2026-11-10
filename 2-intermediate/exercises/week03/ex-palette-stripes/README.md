@@ -19,7 +19,9 @@ The color-blind-safe (Okabe-Ito) colors:
 2. **TODO 1:** use `palette.append(...)` to add blue and vermillion.
 3. **TODO 3:** loop over the list with `for i in range(len(colors)):` and
    draw stripe `i` with label `str(i)`. Move `x` along by `width` each time.
-4. **TODO 4:** print `palette[0]` and `palette[-1]`.
+   (A label must be text. `str()` turns a number into text: `str(3)` gives `"3"`.)
+4. **TODO 4:** print `palette[0]` and `palette[-1]`. A minus sign means
+   "count from the end", so `-1` is the last color.
 
 **Done looks like:** a row of 5 or more stripes, labeled 0, 1, 2, 3, 4 ...
 Notice: the first stripe is number **0**!

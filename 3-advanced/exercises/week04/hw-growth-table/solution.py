@@ -56,7 +56,8 @@ if __name__ == "__main__":
 # - Writing while n > 1 or while n >= 1 instead of while n > 0: the count is off by one
 #   (10 should give 4, 1 should give 1).
 # - Forgetting steps = steps + 1 inside the loop, or putting return steps inside it.
-# - Using / instead of //, which never reaches 0 (the numbers just get smaller forever).
+# - Using / instead of //: the number becomes a decimal that takes over 1000 halvings to hit 0,
+#   so halving_steps(10) gives 1078 instead of 4.
 # - Thinking the answer for linear search is 1 because "it might be the first item".
 #
 # Another correct way for halving_steps (bit_length counts the binary digits of n):

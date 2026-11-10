@@ -6,11 +6,19 @@
 2. **TODO 1:** finish `hits_needed()`. Before you code, fill in this trace
    table on paper for `hits_needed(30, 7)`:
 
-| health | hits |
-|---|---|
-| 30 | 0 |
-| 23 | 1 |
-| | |
+| round | health | hits |
+|---|---|---|
+| start | 30 | 0 |
+| 1 | 23 | 1 |
+| 2 | | |
+| 3 | | |
+| 4 | | |
+| 5 | | |
+
+   Careful in the last round: 2 take away 7 goes below zero. Python
+   writes that as `-5` ("minus five"). It is less than 0, so the loop stops.
+   Your table should end with the same number of hits as the "Done looks
+   like" line for a sword that does 7 damage.
 
 3. **TODO 2:** make `ask_yes_no()` keep asking until the answer is yes or no.
 4. Run it. Type `maybe` first: it should ask again.

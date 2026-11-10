@@ -117,8 +117,8 @@ Swap at every new station. When the timer rings (every 5 minutes), move on, even
         add \texttt{n = n - 1} inside the loop. Tool: trace table.
   \item[Station 4 -- Loot Shop (wrong answers, 3 bugs).] No crash! \texttt{return} indented inside the loop (stops after the first price);
         \texttt{return prices[0]} instead of \texttt{smallest}; \texttt{print} instead of \texttt{return}. Tool: rubber duck and paper answers first.
-  \item[Station 5 -- Paper detectives (no computer).] The trace-table puzzle in the workbook: \texttt{biggest([-5, -2, -8])} gives 0
-        because \texttt{best} starts at 0. Fix: \texttt{best = numbers[0]}.
+  \item[Station 5 -- Paper detectives (no computer).] The trace-table puzzle in the workbook: \texttt{smallest([7, 3, 9])} gives 0
+        because \texttt{best} starts at 0, which no number in the list beats. Fix: \texttt{best = numbers[0]}.
 \end{description}
 At each computer station, \texttt{check\_my\_work.py} shows when the bug is really fixed.
 \end{bughunt}

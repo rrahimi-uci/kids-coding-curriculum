@@ -23,8 +23,22 @@ where useful, how to change it.
 5. **Session length.** 60 minutes including setup; Macs are switched on and
    apps opened before the session starts (listed in each lesson's
    materials box).
-6. **Reading level.** Level 1 student materials target a Grade 5 reading
-   level; Levels 2–3 target Grade 6–7.
+6. **Reading level.** All student materials (workbooks, homework, exercise
+   instructions, hints, assessments, project briefs) target a **Grade 4–5
+   reading level** at every level, because the learners are in Grades 4–5
+   when they take the course (changed from Grade 5 / Grade 6–7 in the
+   Grade 4–5 review, November 2026). Concepts are not removed for younger
+   readers; they get analogies, worked examples and extra practice steps.
+   Teacher-facing material (lesson plans, answer keys, guides) stays at an
+   adult reading level.
+6a. **Math prerequisites.** Code and questions only assume math a Grade 4–5
+   student has met (US Common Core): whole-number arithmetic, division with
+   remainders, fractions, decimals to hundredths, angles in degrees with a
+   full turn of 360°, first-quadrant coordinates. Ideas from Grade 6 and up
+   (negative numbers and the four-quadrant plane, mean/average as a formula,
+   percent, the `%` operator, halving/doubling growth, distance between
+   points) get a short kid-friendly “Math helper” the first time they appear,
+   or the task is changed so it does not need them.
 7. **Homework.** Optional but encouraged, 15–20 minutes, done at home on a
    Mac with Scratch/Thonny. Core tier for everyone; Challenge and Creative
    are optional. No homework needs internet.
@@ -46,14 +60,22 @@ where useful, how to change it.
     once through Thonny's *Tools → Manage packages* (needs internet once, no
     account). Students who cannot install it can still do every exercise;
     only `check_my_work.py` needs pytest.
-12. **Repository on the Macs.** The whole repository folder (or at least
-    the level's `exercises/` folder together with the top-level `testing/`
-    folder, `conftest.py` and `pytest.ini`) is copied to each Mac, e.g. via
-    USB stick or AirDrop. `check_my_work.py` finds the helpers by walking up
-    the folders.
+12. **Course files on the Macs.** Each child's Mac gets the **student
+    copy** made by `make student-bundle` (`tools/student_bundle.py`): every
+    exercise folder without `solution.py`/`solution.md`, the project starters,
+    `testing/kidtest`, `conftest.py` and `pytest.ini`, plus a `START-HERE.txt`.
+    It is copied via USB stick or AirDrop. `check_my_work.py` finds the helpers
+    by walking up the folders, so children can self-check alone without having
+    the solutions. (Before the Grade 4–5 review the whole repository was
+    copied, which put every answer on the child's Mac.)
 13. **Git.** Level 3 uses git locally via Apple's free Command Line Tools
     (`xcode-select --install`). No GitHub or other hosting account is used
     by students; `user.name` is a nickname and `user.email` a placeholder.
+    This step is a privacy safeguard, not a formality: on macOS, git with no
+    `user.name` does not refuse to commit, it silently records the Mac
+    account's real name and host name. The Mac setup guide and the git quest
+    therefore ask the child to check `git config user.name` before the first
+    commit.
 14. **Games library.** Games use `turtle` (`onkey`, `ontimer`) rather than
     pygame, so nothing extra is installed (see DESIGN.md §1).
 15. **PDF tooling.** The parent (or CI) builds PDFs with TeX Live/MacTeX and
@@ -109,9 +131,9 @@ where useful, how to change it.
 
 ## Decisions made while writing the levels
 
-27. **Scoring scales.** Level 1: checkpoint /8, exit /14, project rubric
-    5–20. Level 2: placement /14 (0–6 support path, 7–11 standard, 12–14
-    extension), checkpoint /18, exit /20, project /16. Level 3: project /24
+27. **Scoring scales.** Level 1: checkpoint /9, exit /14, project rubric
+    5–20. Level 2: placement /14 plus a 1-point bonus (0–6 support path,
+    7–11 standard, 12–15 extension; the bonus counts toward the bands), checkpoint /18, exit /20, project /16. Level 3: project /24
     (6 criteria × 4). Scores guide support, they are never grades.
 28. **Sample calendars** use Saturday sessions and the 12-week plan (12 core
     sessions, no buffers): Level 1 9 Jan–10 Apr 2027 (skipping Presidents' Day
@@ -149,6 +171,11 @@ where useful, how to change it.
     pages first planned: the extra space is teacher script, printable cards
     and setup steps a non-teacher parent needs. Each plan opens with an
     “At a glance” table that fits on one page for quick reading.
+37a. **Workbook length after the Grade 4–5 review.** A few workbook
+    chapters (Level 3 weeks 7 and 9) now run 6–7 pages instead of 3–5,
+    because the scaffolding for Grade 4–5 readers (math helpers, worked
+    examples, “try it” practice, “Done looks like” lines) was kept rather
+    than cut. Optional stretch sections are marked as such.
 38. **US English.** All text and code use US spelling and school vocabulary
     (color, favorite, math, check off, score), matching the US setting
     (#3) and Python's own `color`, so kids never meet two spellings of one word.
@@ -159,12 +186,12 @@ where useful, how to change it.
 39. **Hosting.** GitHub Pages, deployed by GitHub Actions from `main`. The owner chose a public repository.
     Because answer keys, teacher guides, reference solutions and tests live in the same repository, anyone
     can read them in the source (and in the git history) even though the website does not publish them.
-    Parents who do not want the answers to be tempting should not give children the repository folder;
-    the website and the printed student editions contain no solutions.
+    Children should get the student copy (`make student-bundle`, see 12), never the repository folder;
+    the student copy, the website and the printed student editions contain no solutions.
 40. **What is published.** Student workbooks, homework, exercise instructions, starter code, hints, the parent
     deck and handout. Assessments (placement, checkpoint and exit quizzes) are not published.
 41. **Hints and alt text** are new, reviewed content: three hints per exercise (`hints.md`) and a `%% alt:`
-    description above each diagram. They are written for a Grade 5 reader and checked by the build.
+    description above each diagram. They are written for a Grade 4–5 reader and checked by the build.
 42. **No analytics, cookies or accounts.** Only the display settings (dark mode, easy-read font) are
     stored, in the visitor's own browser (local storage). The pages have no progress tracking.
 43. **Invented character names** (such as the children in bug-hunt exercises) appear in a few exercises; they

@@ -30,11 +30,11 @@ for i in range(3):
     for j in range(2):
         print("tap")
 \end{pycode}
-Then, after the orange star, make a 7-pointed star in a new color: 7 lines of 150, turning \py|t.right(360 * 3 / 7)| each time (about 154 degrees).
+Then, after the orange star, make a 7-pointed star in a new color: 7 lines of 150, turning \py|t.right(360 * 3 / 7)| each time. Remember: \texttt{*} means times and \texttt{/} means divide. The turtle turns all the way round 3 times (360 × 3), shared out over 7 points. Python works out the answer for you: about 154 degrees.
 \end{challenge}
 
 \begin{creative}[Spiral lab]
-Make a new file \texttt{my-python/spiral\_lab.py} with this loop (plus \texttt{import turtle}, \texttt{t = turtle.Turtle()} and \texttt{turtle.done()}). Change the turn number and record what you see.
+Make a new file \texttt{my-python/spiral\_lab.py} with this loop (plus \texttt{import turtle}, \texttt{t = turtle.Turtle()} and \texttt{turtle.done()}). The loop counter \texttt{i} is 0 the first time, then 1, 2, 3 and so on. So \texttt{i * 3} (i times 3) makes every line 3 steps longer than the one before. Change the turn number and record what you see.
 \begin{pycode}
 for i in range(60):
     t.forward(i * 3)

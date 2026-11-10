@@ -7,9 +7,15 @@ Ideas in AI”**.
 
 | Level | Students | Main CSTA band | Also uses |
 |---|---|---|---|
-| 1 Introduction | Grade 5 (age 10–11) | **1B** (grades 3–5) | — |
-| 2 Intermediate | Grade 5–6 | **2** (grades 6–8) | 1B (review), 3A-AP-14 |
-| 3 Advanced | Grade 6–7 | **2** (grades 6–8) | selected **3A** (grades 9–10), AI4K12 |
+| 1 Introduction | Grades 4–5 (age 9–11) | **1B** (grades 3–5) | — |
+| 2 Intermediate | Grades 4–5 (age 9–11) | **2** (grades 6–8) | 1B (review), 3A-AP-14 |
+| 3 Advanced | Grades 4–5 (age 9–11) | **2** (grades 6–8) | selected **3A** (grades 9–10), AI4K12 |
+
+All three levels are written for Grade 4–5 learners. Levels 2 and 3 reach
+into the grades 6–8 band (and a few 3A standards) on purpose: the concepts are
+taught at a kid-sized depth, in Grade 4–5 language, with analogies, worked
+examples, small practice steps and “Math helper” boxes for any math beyond
+Grade 5 (see ASSUMPTIONS.md #6 and #6a).
 
 Using a few 3A standards in Level 3 is deliberate: object-oriented design,
 version control and algorithm comparison are 3A topics, taught here at a

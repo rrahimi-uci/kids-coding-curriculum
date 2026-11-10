@@ -12,12 +12,17 @@ outvoted.
    cards by distance (remember `sorted(..., key=...)` from week 5) and keep
    the first `k`.
 2. **Core** - TODO 2: finish `vote(labels)` with a counting dictionary.
-3. Press **Run**.
+3. Press **Run**. (Distance is the steps distance from Exercise 9.1:
+   gap in size + gap in sweetness. It is already written for you.)
 
-**Done looks like:**
+**Done looks like:** the Shell shows
 ```
+Closest 3 cards: [(5, 3, 'apple'), (5, 2, 'lemon'), (4, 2, 'lemon')]
 k = 1 says: apple
 k = 3 says: lemon
+(7, 7) -> apple
+(2, 8) -> grape
+(6, 2) -> lemon
 ```
 
 **Check your work:** open `check_my_work.py` and press **Run**.

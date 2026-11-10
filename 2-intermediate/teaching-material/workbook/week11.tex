@@ -28,7 +28,7 @@ an answer back with \texttt{return}: pytest can check those automatically. \text
 \end{tikzpicture}
 \end{center}
 
-Two tricks make your functions easy to test:
+Two tricks help pytest test your functions:
 \begin{enumerate}
   \item Put the start-up code (make the screen, start the loop) under \texttt{if \_\_name\_\_ == "\_\_main\_\_":}. Then pytest can borrow your functions without starting the game.
   \item Give file functions the file name as a parameter. Then the game and the tests can use different files, for example \texttt{highscore.txt} for playing and \texttt{test\_scores.txt} for testing, and your tests never wipe your real high score.
@@ -36,6 +36,28 @@ Two tricks make your functions easy to test:
 
 Test a \textbf{normal case} (an everyday value) and \textbf{edge cases} (values at the very limit:
 the edge of the screen, a score of 0, a file that does not exist yet). Bugs love to hide at the edges.
+
+\subsection{Recipe: a file for your high score}
+Every project needs a file. Here is a recipe for one high score, built from your week 7 tools. Copy the two functions into
+your program, then call them: \texttt{best = load\_high\_score("highscore.txt")} when the game starts, and
+\texttt{save\_high\_score("highscore.txt", score)} at game over if the new score is bigger than \texttt{best}.
+\begin{pycode}[Recipe: save and load a high score]
+def load_high_score(filename):
+    """Read the best score from a file. No file yet? Then it is 0."""
+    try:
+        with open(filename) as f:
+            return int(f.read().strip())
+    except FileNotFoundError:
+        return 0
+
+def save_high_score(filename, score):
+    """Write the best score to a file (replaces the old one)."""
+    with open(filename, "w") as f:
+        f.write(str(score))
+\end{pycode}
+\texttt{"w"} is right here: the file only ever holds the one best score. The first time, there is no file,
+so \texttt{load\_high\_score} gives 0 instead of crashing. (Art Studio from \texttt{art\_studio\_template.py}? Saving already
+works there, and its TODO 2 makes loading work.)
 
 \begin{exercise}[Add your data (M3)]
 Your project needs all three. Write where each one lives in your code.
@@ -132,7 +154,7 @@ Make your project work for as many people as possible. Check off each line or fi
   \item Text is big enough to read from a chair (font size 16 or more).
   \item The keys are explained on the screen, for example \enquote{← → to move}.
   \item Nothing flashes fast (more than 3 times a second can hurt some people's eyes).
-  \item There is an easy start: a slow first level or an easy setting.
+  \item There is a gentle start: a slow first level or a beginner setting.
 \end{checklist}
 One change I made: \answerlines{1}
 \end{exercise}
