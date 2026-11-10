@@ -3,6 +3,21 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.7.0 - 2026-11-10
+
+Level 1 teaching videos: checked against the lessons, and ready to render.
+
+- Every video script was checked line by line against its week's lesson plan, workbook, homework and exercises. Handoffs now name the right exercise and describe what it actually asks. Weeks 1, 7, 9 and 10 had pointed at the wrong exercise or task.
+- Five scenes no longer give away answers children must find themselves: the week 2 pentagon (an exit-ticket answer), the week 6 relay hexagon and card-sort matches, the week 4 Apple Catch bug, and the week 8 homework loop. Each now teaches the same idea with a different example.
+- Fixed facts: Python scenes use the course's `t = turtle.Turtle()` pattern; week 7's error message is described correctly; week 10 adds `import random` and `random.choice(PALETTE)`; week 6 lists the real six big ideas, including My Blocks. Week 11 uses the project's real milestones (M1–M4); weeks 10–12 list all six project ingredients and the exit quiz.
+- Citizenship points now use each lesson's own wording: "two stars and a wish", credits comments for library art, saving files safely, "three before me", questions a program should not ask, and showcase safety (shown on screen only).
+- Scripts use the course's four detective steps and its block names. They are written for Grades 4–5 (ages 9–11), and Nova always writes the code while Pixel runs it.
+- Free offline draft videos: `render --voice-provider macos-say` makes a full captioned MP4 with storyboard cards in the course font. No API key is needed.
+- Production narration moves to the Realtime API before the Speech API models shut down on January 6, 2027. A read that does not follow the script word for word is rejected.
+- Captions are timed to the measured voice, split at sentence boundaries, and also written as `.srt` and `.vtt` files. Symbols the course font lacks (→, ✓) fall back to another font. Paid pictures and narration are cached, so nothing is paid for twice.
+- New `accept --week N` records that a script still fits a changed lesson without paid calls. `check` names every changed file. Rendering refuses scripts whose lessons changed. Answer files and tests are no longer sent to the agents or fingerprinted.
+- Fixed pipeline bugs: regenerating one week no longer hid other stale weeks; on-screen text beyond the third item was silently dropped; the image request used a parameter that GPT Image models reject.
+
 ## 1.6.0 - 2026-11-10
 
 More answers for parents and production-ready Level 1 teaching-video plans.

@@ -1,14 +1,14 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "level": 1,
-  "audience": "Children ages 10–11 who are complete beginners",
+  "audience": "Children in Grades 4–5 (ages 9–11) who are complete beginners",
   "series_title": "Nova & Pixel's Code Quest",
   "creative_direction": {
     "frame": "16:9, 1920×1080, 24 or 30 fps",
     "narration": "Warm, curious, inclusive, and clear at about 140–145 words per minute; friendly without sounding babyish",
     "visual_language": "Bright modern 2D motion graphics, real Scratch or Thonny captures, deterministic code overlays, and a recurring mission map",
-    "accessibility": "Open captions, Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
-    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Each week, the pair opens a new door in the Code Quest workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
+    "accessibility": "Closed captions (an MP4 caption track plus .srt and .vtt files), Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
+    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Code Quest workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
   },
   "videos": [
     {
@@ -18,13 +18,23 @@
       "lesson_question": "How can we turn an idea into steps a computer can follow?",
       "objectives": [
         "Explain that an algorithm is an ordered set of exact instructions.",
-        "Identify the Scratch stage, sprite, blocks palette, scripts area, and green flag.",
+        "Identify the Scratch stage, sprite, block categories, code area, and green flag.",
         "Predict how changing the order of blocks changes what a sprite does."
       ],
-      "vocabulary": ["algorithm", "sequence", "sprite", "stage", "block", "green flag"],
+      "vocabulary": [
+        "algorithm",
+        "sequence",
+        "program",
+        "bug",
+        "sprite",
+        "stage",
+        "script",
+        "green flag"
+      ],
       "misconception": "Computers can guess the missing parts of a vague instruction or quietly fix steps placed in the wrong order.",
-      "safety_and_citizenship": "Use a nickname in projects and never type a real full name, school, address, password, or contact information.",
-      "lesson_handoff": "Open the Week 1 Hello Cat activity. Build a greeting, then swap two blocks and explain exactly what changed.",
+      "safety_and_citizenship": "Use your coding nickname in projects—never your real full name, address, school, birthday or photos. Scratch stays offline with no account; if anything asks for your name or a password, stop and get a grown-up.",
+      "lesson_handoff": "Open Exercise 1.1 Hello, Cat!: under when green flag clicked, snap go to x: 0 y: 0, a nickname greeting, move 100 steps, play sound Meow until done and say Bye!, then click the flag and say which step came first and which came last.",
+      "practice_activity": "1-introduction/exercises/week01/ex-hello-cat",
       "source_files": [
         "1-introduction/teaching-material/lessons/week01.tex",
         "1-introduction/teaching-material/workbook/week01.tex",
@@ -37,9 +47,12 @@
           "scene_id": "w01-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "Nova needs Pixel to deliver a glowing key to the workshop door. ‘Take it over there,’ says Nova. Pixel spins, puts the key on a chair, and proudly beeps. Oh! Pixel did exactly what it heard—but Nova's instruction was not exact. Can you give Pixel steps it cannot misunderstand?",
+          "narration": "Nova needs Pixel to deliver a glowing key to the workshop door. ‘Take it over there,’ says Nova. Pixel puts the key on a chair and beeps proudly. Pixel did exactly what it heard—but the instruction was not exact. Can you give steps Pixel cannot misunderstand?",
           "visual": "Workshop map with Nova, Pixel, a chair, and a locked door. Pixel follows a dotted path to the wrong place; freeze before the reveal.",
-          "on_screen_text": ["MISSION: Deliver the key", "Pause: What exact steps would you give?"],
+          "on_screen_text": [
+            "MISSION: Deliver the key",
+            "Pause: What exact steps would you give?"
+          ],
           "production_notes": "Use a three-second prediction pause and a soft comic boing, not a failure buzzer."
         },
         {
@@ -48,34 +61,52 @@
           "purpose": "Explain algorithm and sequence",
           "narration": "A computer is like Pixel: fast and helpful, but not a mind reader. An algorithm is a list of exact steps for a job. Sequence means the order of those steps. Try this algorithm: move forward three floor squares, turn right, move forward two, place the key beside the blue door. If we place the key before we move, the same steps make a different result. Order matters.",
           "visual": "Numbered floor tiles animate one at a time. Then cards 1–4 are shuffled so ‘place key’ comes first, producing a visible different result.",
-          "on_screen_text": ["Algorithm = exact steps", "Sequence = the order", "Same steps + new order = new result"],
+          "on_screen_text": [
+            "Algorithm = exact steps",
+            "Sequence = the order",
+            "Same steps + new order = new result"
+          ],
           "production_notes": "Give every numbered card both a symbol and a label; do not rely on blue alone to identify the door."
         },
         {
           "scene_id": "w01-s03",
           "duration_seconds": 65,
           "purpose": "Connect to Scratch",
-          "narration": "Scratch lets us build algorithms with blocks. The stage is where the action happens. A sprite is a character or object. We find commands in the blocks palette and snap them together in the scripts area. The green flag starts our algorithm. Watch: when green flag clicked, say ‘Hello, coder!’ for two seconds, move ten steps. Read the stack from top to bottom. What will the cat do first? Yes—speak, then move.",
-          "visual": "Clean labeled Scratch capture. Camera moves from stage to sprite list, blocks palette, and scripts area. Overlay a three-block stack and animate a bright outline down it.",
-          "on_screen_text": ["Stage = action area", "Sprite = character or object", "Read blocks top → bottom"],
+          "narration": "Scratch lets us build algorithms with blocks. The stage is where the action happens. A sprite is a character or object, like the cat. We click a block category, find a block, and snap blocks together in the code area to make a script. The green flag starts our script. Watch: when green flag clicked, say ‘Hello, coder!’ for two seconds, move ten steps. Read the stack from top to bottom. What will the cat do first? Yes—speak, then move.",
+          "visual": "Clean labeled Scratch capture. Camera moves from the stage to the sprite list, the block categories, and the code area. Overlay a three-block stack and animate a bright outline down it.",
+          "on_screen_text": [
+            "Stage = action area",
+            "Sprite = character or object",
+            "Code area: snap blocks into a script",
+            "Read blocks top → bottom"
+          ],
           "production_notes": "Use an authentic current Scratch interface capture. Render labels as overlays outside the capture."
         },
         {
           "scene_id": "w01-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Pixel built a jump greeting, but it looks odd. The blocks say: move up, wait, say ‘Watch me jump!’, then move down. Pixel wanted the message before the jump. Our detective steps are: say what we expected, notice what actually happened, read one step at a time, then change one thing and test. Which blocks should trade places? Pause and point. Right: move the say block above the motion. A bug is a clue, not a reason to quit.",
-          "visual": "Split screen: expected mini-storyboard versus actual animation. A magnifying glass follows each block. Two blocks visibly swap and the corrected stack runs.",
-          "on_screen_text": ["Expected?", "Actual?", "Read one step at a time", "Change one thing. Test."],
-          "production_notes": "Leave four seconds for prediction. Use check marks only after the rerun proves the fix."
+          "narration": "Nova builds a greeting for Pixel's show, and Pixel runs it exactly. The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’ Hmm—that sounds backwards. Our detective steps are: say what we expected, say what actually happened, read the blocks one at a time with your finger, then change one thing and test again. Which blocks should trade places? Pause and point. Right: move ‘Welcome to my show!’ to the top. A bug is a clue, not a reason to quit.",
+          "visual": "Split screen: expected mini-storyboard versus actual. A pointing finger follows each block. The two say blocks visibly swap and the corrected stack runs.",
+          "on_screen_text": [
+            "Expected?",
+            "What happened?",
+            "Read one block at a time",
+            "Change one thing. Test."
+          ],
+          "production_notes": "Leave four seconds for prediction. Use check marks only after the rerun proves the fix. Do not use Exercise 1.2's jump script or the socks-and-shoes exit-ticket example."
         },
         {
           "scene_id": "w01-s05",
           "duration_seconds": 55,
           "purpose": "Safety, recap, and handoff",
-          "narration": "You unlocked the first door! Remember: exact steps make an algorithm, their order is the sequence, and Scratch runs a stack from top to bottom. When you name your project or sprite, use a fun nickname—not your real full name, school, address, password, or contact details. Now open Hello Cat. Make a greeting, press the green flag, then swap two blocks. Be ready to explain why the result changed. Code, test, notice, improve!",
+          "narration": "You unlocked the first door! Remember: exact steps make an algorithm, their order is the sequence, and Scratch runs a script from top to bottom. When you name your project or sprite, use your coding nickname—never your real full name, school, address, birthday, or photos. Our Scratch app works offline, with no account. If any app asks for your real name or a password, stop and get a grown-up. Now open Hello, Cat! Make the cat say hello with your nickname, walk, meow, and say bye. Click the green flag: which step came first, and which came last?",
           "visual": "Mission map door opens. Three recap icons appear, followed by a safe profile card labeled ‘StarCoder’ and crossed-out examples of private data categories.",
-          "on_screen_text": ["Exact steps • Right order • Test", "Use a nickname", "NEXT: Hello Cat"],
+          "on_screen_text": [
+            "Exact steps • Right order • Test",
+            "Use a nickname",
+            "NEXT: Hello, Cat!"
+          ],
           "production_notes": "End card includes ‘Narration uses an AI-generated voice’ and a five-second clean hold for teachers to pause."
         }
       ]
@@ -86,14 +117,22 @@
       "title": "Loop-de-Loop",
       "lesson_question": "How can one short instruction make a repeated pattern?",
       "objectives": [
-        "Use repeat for a known number of repetitions and forever for ongoing behavior.",
+        "Use repeat for a known number of repetitions, and forever (with next costume) to keep an animation going.",
         "Explain how repeating move-and-turn steps draws a regular polygon.",
         "Debug a shape by checking the repeat count and turn angle."
       ],
-      "vocabulary": ["loop", "repeat", "forever", "iteration", "turn angle", "Pen"],
-      "misconception": "Repeat and forever are interchangeable, or every polygon can use the same turn angle.",
-      "safety_and_citizenship": "Follow the 20-20-20 eye-break routine and make animation motion comfortable to watch.",
-      "lesson_handoff": "Build Polygon Party: repeat equal moves and turns, then change the side count and calculate 360 ÷ sides.",
+      "vocabulary": [
+        "loop",
+        "repeat",
+        "forever",
+        "costume",
+        "Pen extension",
+        "degrees"
+      ],
+      "misconception": "The turn equals the inside corner angle (so a triangle needs 60°), or repeat and forever are interchangeable.",
+      "safety_and_citizenship": "Follow the 20-20-20 eye rule—every 20 minutes, look 20 feet away for 20 seconds—and take a stretch break.",
+      "lesson_handoff": "Open Polygon Party: add the Pen extension, draw the square with repeat 4, then use turn = 360 ÷ sides for a triangle, hexagon and pentagon, and fix Leo's triangle.",
+      "practice_activity": "1-introduction/exercises/week02/ex-polygon-party",
       "source_files": [
         "1-introduction/teaching-material/lessons/week02.tex",
         "1-introduction/teaching-material/workbook/week02.tex",
@@ -108,44 +147,63 @@
           "purpose": "Mission hook",
           "narration": "The next workshop door needs a four-sided light pattern. Nova starts writing: move, turn, move, turn, move, turn… Pixel's paper rolls across the floor. There must be a shorter way! What instruction could tell Pixel to reuse the same two steps four times?",
           "visual": "A comically long paper strip grows while a square outline waits unlit. Fold repeated move-turn cards into one loop card.",
-          "on_screen_text": ["MISSION: Light four sides", "How can we avoid repeated blocks?"],
+          "on_screen_text": [
+            "MISSION: Light four sides",
+            "How can we avoid repeated blocks?"
+          ],
           "production_notes": "Pause for three seconds as the repeated pairs highlight together."
         },
         {
           "scene_id": "w02-s02",
           "duration_seconds": 55,
           "purpose": "Explain loops",
-          "narration": "A loop repeats instructions. Use repeat when you know how many times: repeat four, clap once. One trip through a loop is an iteration. Use forever when an action should continue until the program stops, like a character gently blinking. Repeat four finishes after four iterations. Forever does not finish by itself. Which would you choose for the four sides? Repeat four—because we know the number.",
-          "visual": "Two labeled tracks: repeat 4 reaches a finish flag; forever circles a calm blinking sprite until a stop button is pressed.",
-          "on_screen_text": ["Loop = repeat instructions", "repeat 4 → stops", "forever → continues"],
+          "narration": "A loop repeats instructions. Use repeat when you know how many times: repeat four, clap once. Repeat four runs the blocks inside four times, then the program carries on. Use forever when an action should keep going until you click the red stop sign—like a cat switching costumes again and again, so it looks like it is walking. Which would you choose for the four sides? Repeat four—because we know the number.",
+          "visual": "Two labeled tracks: repeat 4 reaches a finish flag; forever circles a cat switching costumes until a stop button is pressed.",
+          "on_screen_text": [
+            "Loop = repeat instructions",
+            "repeat 4 → then carries on",
+            "forever → until stop"
+          ],
           "production_notes": "Use shape and labels as well as color to distinguish the two tracks."
         },
         {
           "scene_id": "w02-s03",
           "duration_seconds": 65,
           "purpose": "Build a polygon",
-          "narration": "With Scratch's Pen, Pixel can draw while moving. A square has four equal sides, so repeat four: move sixty steps, turn ninety degrees. Four quarter-turns bring Pixel all the way around. For another regular shape, use the course rule: turn equals three hundred sixty divided by the number of sides. A triangle uses three turns of one hundred twenty degrees. Say it with me: sides tell us repeats; three hundred sixty divided by sides tells us the turn.",
-          "visual": "Scratch Pen-down stack draws a square. A full-turn ring marked 360 splits first into four 90-degree pieces, then three 120-degree pieces.",
-          "on_screen_text": ["repeats = number of sides", "turn = 360 ÷ sides", "Square: repeat 4, turn 90°"],
+          "narration": "First, add the Pen extension: click the Add Extension button in the bottom-left corner and choose Pen. Now pen down lets our sprite draw while it moves. A square has four equal sides, so repeat four: move one hundred steps, turn ninety degrees. Four quarter-turns bring the sprite all the way around. For another regular shape, use the course rule: turn equals three hundred sixty divided by the number of sides. A triangle uses three turns of one hundred twenty degrees. Say it with me: sides tell us repeats; three hundred sixty divided by sides tells us the turn.",
+          "visual": "The Add Extension button opens the Pen extension. A pen-down stack draws a square. A full-turn ring marked 360 splits first into four 90-degree pieces, then three 120-degree pieces.",
+          "on_screen_text": [
+            "repeats = number of sides",
+            "turn = 360 ÷ sides",
+            "Square: repeat 4, turn 90°"
+          ],
           "production_notes": "Explain the rule visually; do not introduce algebraic notation beyond the course wording."
         },
         {
           "scene_id": "w02-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Pixel wants a pentagon, but the drawing leaves a gap. Expected: five sides that close. Actual: five sides that almost close. The stack repeats five times, so the side count is right. Now check the turn: Pixel used sixty degrees. A pentagon needs three hundred sixty divided by five, which is seventy-two degrees. Pause: which one thing should we change? Change sixty to seventy-two, test again, and the path closes. The gap was useful evidence.",
-          "visual": "Open pentagon beside a closed outline. A detective checklist confirms repeat 5, circles turn 60, and replaces it with 72 before rerunning.",
-          "on_screen_text": ["Expected: closed shape", "Check repeats, then turn", "360 ÷ 5 = 72°"],
-          "production_notes": "Hold the faulty result long enough to inspect; celebrate the test, not speed."
+          "narration": "Nova asks Pixel to draw a nine-sided shape, but the drawing leaves a gap. Expected: nine sides that close. Actual: the path stops short. The stack repeats nine times, so the side count is right. Now check the turn: the script says thirty degrees. A nine-sided shape needs three hundred sixty divided by nine, which is forty degrees. Pause: which one thing should we change? Change thirty to forty, test again, and the path closes. The gap was useful evidence.",
+          "visual": "Open nine-sided path beside a closed outline. A detective checklist confirms repeat 9, circles turn 30, and replaces it with 40 before rerunning.",
+          "on_screen_text": [
+            "Expected: closed shape",
+            "Check repeats, then turn",
+            "360 ÷ 9 = 40°"
+          ],
+          "production_notes": "Hold the faulty result long enough to inspect; celebrate the test, not speed. Never show the pentagon answer: it is the exit ticket and a Polygon Party table row."
         },
         {
           "scene_id": "w02-s05",
           "duration_seconds": 55,
           "purpose": "Well-being, recap, and handoff",
-          "narration": "Door two glows! Loops make code shorter. Repeat is for a known number; forever continues until stop. For regular polygons, repeat once per side and share a full three-hundred-sixty-degree turn. Before Polygon Party, give your eyes a reset: every twenty minutes, look about twenty feet away for twenty seconds. Then draw a square, try another side count, and debug any gap by checking repeats and the turn. Your pattern laboratory is open!",
+          "narration": "Door two glows! Loops make code shorter. Repeat is for a known number; forever keeps going until you click the red stop sign. For a regular shape, repeat once per side and turn three hundred sixty divided by the number of sides. While you build, look after your body: every twenty minutes, look about twenty feet away for twenty seconds, then stretch. Now open Polygon Party: add the Pen extension, draw a square, then a triangle, a hexagon and a pentagon. If a shape has a gap, check the repeats, then the turn.",
           "visual": "Door lights with a looping border. A gentle 20-20-20 card shows a window view, then transitions to the Polygon Party task card.",
-          "on_screen_text": ["repeat • forever • iteration", "20 minutes • 20 feet • 20 seconds", "NEXT: Polygon Party"],
-          "production_notes": "Keep all looped animation slow and stop motion during the eye-break card. Include AI-voice disclosure."
+          "on_screen_text": [
+            "repeat • forever • Pen",
+            "20 minutes • 20 feet • 20 seconds",
+            "NEXT: Polygon Party"
+          ],
+          "production_notes": "Keep all looped animation slow and stop motion during the eye-break card. Include the voice disclosure."
         }
       ]
     },
@@ -159,10 +217,18 @@
         "Use if and if-else to choose actions from a condition.",
         "Place sensing choices inside a forever loop when they must keep checking."
       ],
-      "vocabulary": ["event", "condition", "if", "if-else", "sensing", "forever"],
+      "vocabulary": [
+        "event",
+        "condition",
+        "if",
+        "if-else",
+        "sensing",
+        "feedback"
+      ],
       "misconception": "An if block keeps checking forever by itself, even when it runs only once.",
-      "safety_and_citizenship": "Give kind, specific feedback about the project rather than judging the person who made it.",
-      "lesson_handoff": "Create Tickle Ghost so touching the pointer triggers a reaction, then test both touching and not-touching cases.",
+      "safety_and_citizenship": "Give kind, specific feedback with ‘two stars and a wish’: two things you like and one kind idea, about the project, not the person; say thank you when you receive feedback.",
+      "lesson_handoff": "Build Tickle the Ghost: an if-else with touching mouse-pointer? inside forever; test with the pointer touching and with it away.",
+      "practice_activity": "1-introduction/exercises/week03/ex-tickle-ghost",
       "source_files": [
         "1-introduction/teaching-material/lessons/week03.tex",
         "1-introduction/teaching-material/workbook/week03.tex",
@@ -175,46 +241,66 @@
           "scene_id": "w03-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "Nova presses the workshop doorbell. Nothing happens. Pixel says, ‘I checked before you pressed it!’ A useful doorbell must notice the press when it happens. How can our program wait for an event, check a condition, and react at the right time?",
-          "visual": "Doorbell timeline shows Pixel checking too early, then Nova pressing later. Freeze on the missing connection.",
-          "on_screen_text": ["MISSION: Make the door react", "What should the program notice?"],
+          "narration": "Nova walks up to the workshop door. Nothing happens. Pixel says, ‘I checked once—before you arrived!’ A useful door must keep noticing. How can our program start with an event, check a condition, and react at the right time?",
+          "visual": "Door-sensor timeline shows Pixel checking once, then Nova arriving later. Freeze on the missing connection.",
+          "on_screen_text": [
+            "MISSION: Make the door react",
+            "What should the program notice?"
+          ],
           "production_notes": "Use a clear timeline arrow and a three-second prediction pause."
         },
         {
           "scene_id": "w03-s02",
           "duration_seconds": 55,
           "purpose": "Explain events and conditions",
-          "narration": "An event is something that starts action: the green flag is clicked, a key is pressed, or a sprite is clicked. A condition is a yes-or-no question, such as ‘touching the pointer?’ An if block says: if the answer is yes, do this. An if-else block gives two paths: if yes, open the door; else, keep it closed. Only one path runs each time the choice is checked.",
+          "narration": "An event is something that starts action: the green flag is clicked, a key is pressed, or a sprite is clicked. A condition is a yes-or-no question, such as ‘touching mouse-pointer?’ An if block says: if the answer is yes, do this. An if-else block gives two paths: if yes, open the door; else, keep it closed. Only one path runs each time the choice is checked.",
           "visual": "Doorbell icons connect to event hats. A large yes/no road fork demonstrates an if-else choice with words and symbols.",
-          "on_screen_text": ["Event = starts action", "Condition = yes/no question", "if yes… else…"],
+          "on_screen_text": [
+            "Event = starts action",
+            "Condition = yes/no question",
+            "if yes… else…"
+          ],
           "production_notes": "Show the complete condition inside the Scratch block; narrate its punctuation-free meaning."
         },
         {
           "scene_id": "w03-s03",
           "duration_seconds": 65,
           "purpose": "Build a responsive script",
-          "narration": "Let's make a ghost giggle when the pointer touches it. Start with the green flag. Inside forever, place: if touching mouse-pointer, say ‘That tickles!’; else, clear the speech. Why forever? The pointer may move later, so the program must ask the touching question again and again. Watch the highlight circle the loop: check, choose, react; check, choose, react. Move away, and the other path runs.",
+          "narration": "Let's make a ghost giggle when the pointer touches it. Start with when green flag clicked. Inside forever, place an if-else: if touching mouse-pointer, say ‘That tickles!’; else, say with an empty box, which clears the bubble. Why forever? The pointer may move later, so the program must ask the touching question again and again. Watch the highlight circle the loop: check, choose, react; check, choose, react. Move away, and the other path runs.",
           "visual": "Authentic Scratch block overlay beside a ghost. A pulse travels through forever, condition, yes path, then else path as the pointer moves.",
-          "on_screen_text": ["forever: keep checking", "check → choose → react", "Test YES and NO"],
+          "on_screen_text": [
+            "forever: keep checking",
+            "check → choose → react",
+            "Test YES and NO"
+          ],
           "production_notes": "Keep the pointer motion slow. Use labels YES and NO in addition to path colors."
         },
         {
           "scene_id": "w03-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Pixel's ghost never reacts if Nova moves the pointer after the green flag. Expected: it giggles whenever touched. Actual: it checks once at the start, then stops. Read the stack: green flag, if touching, say. The condition is accurate, but it needs repeated checking. Where should the forever block go? Pause and point. Wrap forever around the if block. Test first with the pointer away, then touching. Now both cases work.",
-          "visual": "A single scan line passes the script and disappears. Then a forever bracket wraps around the choice and the scan line loops continuously.",
-          "on_screen_text": ["Bug: checked only once", "Fix: keep the choice inside forever", "Test both paths"],
-          "production_notes": "Pause four seconds before wrapping the block; avoid implying forever belongs around every if statement."
+          "narration": "Nova builds a door sensor: when green flag clicked, if touching Nova, say ‘Welcome!’ Pixel runs it exactly. Expected: it greets Nova whenever Nova touches it. Actual: it checked once, right at the start, when Nova was far away—then the script finished. The condition is right, but the question must be asked again and again. Where should the forever block go? Pause and point. Wrap forever around the if block. Test first with Nova away, then touching. Now both cases work.",
+          "visual": "Door-sensor sprite and a Nova sprite. A single scan line passes the script and disappears; then a forever bracket wraps the if and the scan line loops continuously.",
+          "on_screen_text": [
+            "Bug: checked only once",
+            "Fix: keep the choice inside forever",
+            "Test both paths"
+          ],
+          "production_notes": "Pause four seconds before wrapping the block; avoid implying forever belongs around every if. Do not use the homework's pet or the Tickle the Ghost script for this bug."
         },
         {
           "scene_id": "w03-s05",
           "duration_seconds": 55,
           "purpose": "Feedback, recap, and handoff",
-          "narration": "The door hears us now! Events start scripts. Conditions ask yes-or-no questions. If and if-else choose a path, and forever can keep a sensing choice awake. When you test a classmate's project, be a kind code detective: say what you noticed and offer one useful idea—‘The ghost reacts when I touch it; maybe make the message stay a little longer.’ Now build Tickle Ghost and prove both the touching and not-touching paths work.",
-          "visual": "Door opens to two test lanes. A feedback speech bubble transforms from ‘Bad game’ into a specific observation and suggestion.",
-          "on_screen_text": ["Events start", "Conditions choose", "Feedback: notice + helpful idea", "NEXT: Tickle Ghost"],
-          "production_notes": "Finish on a test card with two boxes: pointer away and pointer touching. Include AI-voice disclosure."
+          "narration": "The door hears us now! Events start scripts. Conditions ask yes-or-no questions. If and if-else choose a path, and forever keeps checking. When you look at a classmate's project, give two stars and a wish. Two stars: two things you like, said exactly—‘I like how the ghost grows when I touch it.’ A wish: one kind idea—‘What if it also played a sound?’ Talk about the project, not the person, and say thank you when you get feedback. Now build Tickle the Ghost and test both paths: pointer touching, and pointer away.",
+          "visual": "Door opens to two test lanes. Two star cards and one wish card appear beside the ghost project, each with a specific comment.",
+          "on_screen_text": [
+            "Events start",
+            "Conditions choose",
+            "Feedback: two stars and a wish",
+            "NEXT: Tickle the Ghost"
+          ],
+          "production_notes": "Finish on a test card with two boxes: pointer away and pointer touching. Include the voice disclosure."
         }
       ]
     },
@@ -226,12 +312,21 @@
       "objectives": [
         "Describe a variable as a named place that stores a value.",
         "Distinguish setting a variable from changing it.",
-        "Use random positions and controlled scoring in a simple catch game."
+        "Use pick random to place a sprite somewhere new, and fix a score that never resets or goes up too fast."
       ],
-      "vocabulary": ["variable", "value", "set", "change", "random", "score"],
-      "misconception": "Set score to 1 and change score by 1 do the same job, or touching can add points many times before an object resets.",
-      "safety_and_citizenship": "Credit creators when remixing and describe what was changed instead of pretending all work is original.",
-      "lesson_handoff": "Build Apple Catch, reset score at the start, add one per catch, and move the apple before another point can be counted.",
+      "vocabulary": [
+        "variable",
+        "value",
+        "set",
+        "change",
+        "random",
+        "credit",
+        "remix"
+      ],
+      "misconception": "‘set score to 1’ and ‘change score by 1’ do the same job, or a catch is counted only once by itself, even while the apple stays touching the bowl.",
+      "safety_and_citizenship": "Give credit for the art, sounds and ideas you use: add a credits comment for Scratch library sprites, and when you remix a friend's project, say whose project you started from.",
+      "lesson_handoff": "Build Apple Catch: the Bowl follows the mouse, set score to 0 at the start, change it by 1 per catch, send the apple back to the top right after scoring, and add a credits comment.",
+      "practice_activity": "1-introduction/exercises/week04/ex-apple-catch",
       "source_files": [
         "1-introduction/teaching-material/lessons/week04.tex",
         "1-introduction/teaching-material/workbook/week04.tex",
@@ -246,7 +341,10 @@
           "purpose": "Mission hook",
           "narration": "Nova catches three falling stars. Pixel cheers—but the scoreboard still says zero. ‘I watched every catch,’ Pixel says, ‘but I forgot the number!’ Our next door opens at five points. What can a program use to remember a value while it changes?",
           "visual": "Three stars land in a basket while a frozen scoreboard stays at zero. A labeled empty memory box appears beside Pixel.",
-          "on_screen_text": ["MISSION: Remember the score", "What can store a changing value?"],
+          "on_screen_text": [
+            "MISSION: Remember the score",
+            "What can store a changing value?"
+          ],
           "production_notes": "Count catches aloud with matching visual pips; pause after the question."
         },
         {
@@ -255,35 +353,52 @@
           "purpose": "Explain variables",
           "narration": "A variable is a named place where a program stores a value. Imagine a labeled box called score. At the start, set score to zero: replace whatever was there with zero. After one catch, change score by one: take the current value and add one. Set replaces. Change adjusts. If score is three, setting it to one gives one; changing it by one gives four. Which command belongs after a catch? Change by one.",
           "visual": "A physical box labeled score swaps cards for set and adds a +1 chip for change. Side-by-side results animate from 3.",
-          "on_screen_text": ["Variable = named storage", "set → replace", "change → adjust"],
+          "on_screen_text": [
+            "Variable = named storage",
+            "set → replace",
+            "change → add"
+          ],
           "production_notes": "Use arrows and operators as well as color; hold the 3→1 and 3→4 comparison."
         },
         {
           "scene_id": "w04-s03",
           "duration_seconds": 65,
           "purpose": "Build catch-game logic",
-          "narration": "Here is the catch-game plan. When the green flag is clicked, set score to zero. Put the action inside forever. Make the apple fall. If it touches the basket, change score by one, then move the apple to a random position at the top. Random means the program chooses from an allowed range, so the next catch is less predictable. The order matters: count one catch, then reset the apple before checking again.",
+          "narration": "Here is the catch-game plan. When the green flag is clicked, set score to zero. Put the action inside forever. Make the apple fall. If it touches the bowl, change score by one, then move the apple to a random place at the top. The pick random block, in Operators, works like rolling a die: you get a number from a range, but you can't know which. The order matters: count one catch, then reset the apple before checking again.",
           "visual": "Flow diagram and matching Scratch stack: reset, loop, fall, sense, score, random reset. A numbered outline follows execution.",
-          "on_screen_text": ["1 Reset", "2 Check catch", "3 Add 1", "4 Move apple"],
+          "on_screen_text": [
+            "1 Reset",
+            "2 Check catch",
+            "3 Add 1",
+            "4 Move apple"
+          ],
           "production_notes": "Show random x-position as several allowed landing lanes, not as unexplained magic."
         },
         {
           "scene_id": "w04-s04",
           "duration_seconds": 70,
           "purpose": "Two-bug investigation",
-          "narration": "Pixel finds two clues. First, a new game begins with yesterday's score. Expected zero; actual seven. The green-flag script forgot set score to zero. Second, one apple gives twenty points. The apple stays touching the basket while forever checks very fast. Pause: what should happen immediately after adding one? Move the apple away—to a new top position—before the next check. Change one thing, test, then investigate the next clue.",
+          "narration": "Pixel finds two clues in Nova's star game. First, a new game begins with the last game's score. Expected zero; actual seven. The green-flag script forgot set score to zero. Second, one star gives lots of points. Remember the paper-ball game, when we scored for every second someone held the ball? Here, forever keeps asking ‘touching basket?’ while the star sits in the basket. Pause: what should happen right after adding one? Send the star back to the top before the next check. Change one thing, test, then investigate the next clue.",
           "visual": "Detective board shows bug A: stale score and bug B: rapidly spinning counter. Repairs are applied and tested separately.",
-          "on_screen_text": ["Bug A: no reset", "Bug B: counts one catch many times", "Fix one clue, then test"],
-          "production_notes": "Do not glamorize the runaway score with frantic flashing; keep counter motion readable and brief."
+          "on_screen_text": [
+            "Bug A: no reset",
+            "Bug B: counts one catch many times",
+            "Fix one clue, then test"
+          ],
+          "production_notes": "Do not glamorize the runaway score with frantic flashing; keep counter motion readable and brief. Use the hook's stars and basket, not Mei's apple script from the exercise."
         },
         {
           "scene_id": "w04-s05",
           "duration_seconds": 55,
           "purpose": "Credit, recap, and handoff",
-          "narration": "Five points—the door opens! Variables store values. Set replaces a value; change adjusts it. Random choices make games less predictable, and careful order prevents extra points. If you remix someone's Scratch idea, give credit: ‘Based on MayaCoder's catch game; I added random stars and a timer.’ That is honest and helpful. Now build Apple Catch. Start at zero, count exactly one point per catch, and test a brand-new game twice.",
-          "visual": "Score reaches five. A simple credit card shows creator nickname, original idea, and learner's change, then the Apple Catch challenge appears.",
-          "on_screen_text": ["Store • Set • Change", "Credit the creator + name your change", "NEXT: Apple Catch"],
-          "production_notes": "Use invented nicknames only. Include AI-voice disclosure on the held end card."
+          "narration": "Five points—the door opens! Variables store values. Set replaces a value; change adds to it. Pick random makes games less predictable, and careful order stops extra points. Our apple and bowl were drawn by real people and shared in the Scratch library, so we give credit. Right-click the code area, choose Add Comment, and type: ‘Credits: sprites and sounds from the Scratch library.’ If you remix a friend's project, say whose project you started from. Now build Apple Catch. Start at zero, count exactly one point per catch, and test a brand-new game twice.",
+          "visual": "Score reaches five. A Scratch comment note appears in the code area reading ‘Credits: sprites and sounds from the Scratch library.’ Then the Apple Catch challenge appears.",
+          "on_screen_text": [
+            "Store • Set • Change",
+            "Credit: Add Comment → credits note",
+            "NEXT: Apple Catch"
+          ],
+          "production_notes": "Use invented nicknames only. Include the voice disclosure on the held end card."
         }
       ]
     },
@@ -297,10 +412,18 @@
         "Use broadcast and when-I-receive messages to coordinate sprites.",
         "Debug communication by checking exact message names and event order."
       ],
-      "vocabulary": ["decomposition", "My Block", "input", "broadcast", "receive", "message"],
+      "vocabulary": [
+        "decomposition",
+        "My Block",
+        "define",
+        "input",
+        "broadcast",
+        "when I receive"
+      ],
       "misconception": "A broadcast reaches only the selected sprite, or message names that look similar will automatically match.",
-      "safety_and_citizenship": "Make projects readable with text or symbols as well as color, so more people can understand them.",
-      "lesson_handoff": "Create Shape Machine with a reusable shape block, then coordinate a short show with one exact broadcast message.",
+      "safety_and_citizenship": "Design for everyone: use color-blind-safe colors, add a word, shape, or pattern so color is never the only clue, and keep text big enough to read.",
+      "lesson_handoff": "Build Shape Machine (a polygon My Block with sides and length inputs, then add a pentagon), then build Show Time, where a presenter and a dancer pass the messages start show and finale, and solve its nobody-receives bug hunt.",
+      "practice_activity": "1-introduction/exercises/week05/ex-shape-machine",
       "source_files": [
         "1-introduction/teaching-material/lessons/week05.tex",
         "1-introduction/teaching-material/workbook/week05.tex",
@@ -313,46 +436,65 @@
           "scene_id": "w05-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "The workshop stage has three performers. Nova tries to control every move in one giant stack. The blocks wobble higher than Pixel! One performer starts late, another never moves. Could we give each small job a name and send one clear message when showtime begins?",
+          "narration": "The workshop stage has three performers. Nova tries to control every move in one giant stack. The blocks wobble higher than Pixel! One performer starts late, another never moves. Could we give each small job a name and send one clear message when the curtain goes up?",
           "visual": "A towering Scratch stack bends while three performers wait. It separates into neat labeled cards connected by one message envelope.",
-          "on_screen_text": ["MISSION: Organize the show", "Small jobs + clear messages"],
+          "on_screen_text": [
+            "MISSION: Organize the show",
+            "Small jobs + clear messages"
+          ],
           "production_notes": "Use gentle squash-and-stretch on the block tower; pause for learner ideas."
         },
         {
           "scene_id": "w05-s02",
           "duration_seconds": 55,
           "purpose": "Explain decomposition and My Blocks",
-          "narration": "Decomposition means splitting a big problem into smaller jobs. In Scratch, My Blocks lets us name a job we want to reuse. Define draw shape with an input called sides. Inside the definition: repeat sides, move, and turn. Then the main script can call draw shape four or draw shape six. The input is a value the block receives, so one useful recipe can make different shapes.",
-          "visual": "Big ‘art show’ puzzle splits into shape, movement, and speech pieces. A My Block definition receives 4, then 6, and draws two labeled results.",
-          "on_screen_text": ["Decomposition = smaller jobs", "My Block = named reusable job", "Input = value the job receives"],
+          "narration": "Decomposition means splitting a big job into smaller named parts. In Scratch, My Blocks, then Make a Block, lets us name a job we want to reuse. Nova makes a block called polygon with two inputs: sides and length. Under the pink define hat: pen down, repeat sides, move length steps, turn three hundred sixty divided by sides, pen up. Now the main script can say polygon three, one hundred twenty, or polygon six, sixty. An input is a blank we fill in each time, so one block makes many shapes.",
+          "visual": "Big ‘art show’ puzzle splits into shape, movement, and speech pieces. A pink define polygon (sides) (length) hat receives 3, 120 then 6, 60 and draws two labeled results.",
+          "on_screen_text": [
+            "Decomposition = smaller jobs",
+            "My Block = named reusable job",
+            "Input = a blank you fill in each time"
+          ],
           "production_notes": "Show the course's block structure accurately; keep the polygon turn formula visible as an overlay when used."
         },
         {
           "scene_id": "w05-s03",
           "duration_seconds": 65,
           "purpose": "Coordinate with messages",
-          "narration": "A broadcast is like a stage manager's announcement. Nova's main script broadcasts showtime. Every sprite with a ‘when I receive showtime’ hat can respond: the star spins, the cat speaks, the backdrop changes. Broadcasting does not force every sprite to do the same action. It gives interested scripts the same starting signal. Message names must match exactly, including spaces. One clear announcement can coordinate many small jobs.",
-          "visual": "Stage manager sends a SHOWTIME envelope outward. Three separate receiver scripts light up and perform different actions in parallel.",
-          "on_screen_text": ["broadcast [showtime]", "when I receive [showtime]", "One signal, different jobs"],
+          "narration": "A broadcast is like a stage manager's announcement. Nova's main script broadcasts curtain up. Every sprite with a ‘when I receive curtain up’ hat can respond: the star spins, the cat speaks, the backdrop changes. Broadcasting does not force every sprite to do the same action. It gives interested scripts the same starting signal. Message names must match exactly, including spaces. One clear announcement can coordinate many small jobs.",
+          "visual": "Stage manager sends a CURTAIN UP envelope outward. Three separate receiver scripts light up and perform different actions in parallel.",
+          "on_screen_text": [
+            "broadcast [curtain up]",
+            "when I receive [curtain up]",
+            "One signal, different jobs"
+          ],
           "production_notes": "Use radio-wave symbols plus labels; avoid implying the message contains private chat content."
         },
         {
           "scene_id": "w05-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Pixel's star never spins. Expected: all three performers start. Actual: only two respond. Read the sender: broadcast ‘show time’—two words. Read the star's receiver: when I receive ‘showtime’—one word. Scratch treats those as different messages. Pause: which name should change? Either spelling works, but sender and receiver must use the exact same message. Choose one from the dropdown, test again, and the star joins the show.",
-          "visual": "Two message tags align under a magnifier; a visible space separates SHOW TIME. The receiver selects the same dropdown item and a test pulse reaches all three sprites.",
-          "on_screen_text": ["Expected: 3 performers", "Actual: 2 performers", "Message names must match exactly"],
-          "production_notes": "Do not fix by retyping if the dropdown can prevent a mismatch; model the safer action."
+          "narration": "In Nova's show, the star never spins. Expected: all three performers start. Actual: only two respond. Read the sender: broadcast ‘curtain up’—two words. Read the star's receiver: when I receive ‘curtainup’—one word. Scratch treats those as different messages. Pause: which name should change? Either spelling works, but sender and receiver must use the exact same message. Choose one from the dropdown, test again, and the star joins the show.",
+          "visual": "Two message tags align under a magnifier; a visible space separates CURTAIN UP. The receiver selects the same dropdown item and a test pulse reaches all three sprites.",
+          "on_screen_text": [
+            "Expected: 3 performers",
+            "Actual: 2 performers",
+            "Message names must match exactly"
+          ],
+          "production_notes": "Do not fix by retyping if the dropdown can prevent a mismatch; model the safer action. Do not show Show Time's start show / show start bug."
         },
         {
           "scene_id": "w05-s05",
           "duration_seconds": 55,
           "purpose": "Accessibility, recap, and handoff",
-          "narration": "Showtime! Decompose a big project into smaller jobs. Put repeated jobs in named My Blocks, use inputs to vary them, and broadcast exact messages to coordinate sprites. Make your show understandable for more people: if red means stop and green means go, add the words or clear symbols too. Color should never be the only clue. Now build Shape Machine, then send one showtime message and test every receiver.",
+          "narration": "Showtime! Decompose a big project into smaller jobs. Put repeated jobs in named My Blocks, use inputs to vary them, and broadcast exact messages to coordinate sprites. Make your show understandable for more people: if red means stop and green means go, add the words or clear symbols too. Color should never be the only clue, and text should be big enough to read. Now build Shape Machine, then Show Time: a presenter and a dancer pass messages, and you solve its bug hunt.",
           "visual": "Door becomes a stage curtain. A color-only stop/go display gains STOP/GO labels and shapes, followed by a two-part activity card.",
-          "on_screen_text": ["Small jobs • Reusable blocks • Exact messages", "Use words or symbols with color", "NEXT: Shape Machine + Show Time"],
-          "production_notes": "Verify contrast in both light and grayscale previews. Include AI-voice disclosure."
+          "on_screen_text": [
+            "Small jobs • My Blocks • Exact messages",
+            "Use words or symbols with color",
+            "NEXT: Shape Machine + Show Time"
+          ],
+          "production_notes": "Verify contrast in both light and grayscale previews. Include the voice disclosure."
         }
       ]
     },
@@ -362,66 +504,97 @@
       "title": "Scratch Detective Checkpoint",
       "lesson_question": "Can we combine our Scratch ideas and explain how we debug?",
       "objectives": [
-        "Connect sequence, loops, events, choices, variables, and messages in one project.",
-        "Apply the four-step debugging routine and explain evidence for a fix.",
+        "Name and explain the six big ideas: sequence, loops, events, conditionals, variables, and My Blocks.",
+        "Apply the four detective steps and explain the evidence for a fix.",
         "Relate familiar Scratch blocks to upcoming Python ideas."
       ],
-      "vocabulary": ["sequence", "loop", "event", "condition", "variable", "debug"],
+      "vocabulary": [
+        "sequence",
+        "loop",
+        "event",
+        "conditional",
+        "variable",
+        "My Block",
+        "debugging"
+      ],
       "misconception": "Debugging means guessing many changes at once or that a working project needs no explanation.",
-      "safety_and_citizenship": "Design fair, kind projects and test whether instructions, controls, and feedback make sense to another learner.",
-      "lesson_handoff": "Choose a Week 6 relay challenge, use the detective routine, and explain one fix before beginning the checkpoint project.",
+      "safety_and_citizenship": "Fun and fair for everyone: the same rules for all, no tricks, everyone can see and read it, credit is given, and no pressure to keep playing forever.",
+      "lesson_handoff": "Start the bug-hunt relay: build each broken project card exactly as printed, use the four detective steps to find its two bugs, and write expected, happened, bug, and fix on the relay baton. Then do the short checkpoint.",
+      "practice_activity": "1-introduction/exercises/week06/ex-relay-wonky-hexagon",
       "source_files": [
         "1-introduction/teaching-material/lessons/week06.tex",
         "1-introduction/teaching-material/workbook/week06.tex",
         "1-introduction/teaching-material/homework/week06.tex",
         "1-introduction/exercises/week06/ex-relay-broken-catch/README.md",
-        "1-introduction/exercises/week06/ex-relay-silent-party/README.md"
+        "1-introduction/exercises/week06/ex-relay-silent-party/README.md",
+        "1-introduction/exercises/week06/ex-relay-wonky-hexagon/README.md"
       ],
       "scenes": [
         {
           "scene_id": "w06-s01",
           "duration_seconds": 25,
           "purpose": "Checkpoint hook",
-          "narration": "Six workshop doors glow behind Nova and Pixel. The checkpoint console mixes every symbol we have found. A flag, a loop, a question, a score box, and a message—can you name what each one does? Today, you are the lead code detective.",
+          "narration": "Six workshop doors glow behind Nova and Pixel. The checkpoint console mixes every symbol we have found. A flag, a loop, a question, a score box, and a pink My Block. Can you name what each one does? Today, you are the lead code detective.",
           "visual": "Mission map zooms across six doors. Five familiar icons land on a detective board as unlabeled evidence cards.",
-          "on_screen_text": ["CHECKPOINT MISSION", "Name it • Use it • Explain it"],
+          "on_screen_text": [
+            "CHECKPOINT MISSION",
+            "Name it • Use it • Explain it"
+          ],
           "production_notes": "Pause briefly on each icon so a teacher can solicit answers."
         },
         {
           "scene_id": "w06-s02",
           "duration_seconds": 55,
           "purpose": "Retrieve six big ideas",
-          "narration": "Sequence is the order of steps. A loop repeats steps. An event starts action. A condition chooses from a yes-or-no question. A variable remembers a value. A broadcast coordinates scripts with a message. In a catch game, the green flag starts a sequence, forever repeats movement, touching is a condition, score is a variable, and a game-over broadcast can start an ending. The ideas work as a team.",
+          "narration": "Sequence is steps in order. A loop repeats steps. An event, like the green flag, starts a script. A conditional asks a yes-or-no question, then chooses. A variable is a labeled box that remembers. A My Block gives a part a name so we can use it again. In a catch game, the green flag starts it, forever repeats the falling, touching the bowl is a condition, score is a variable, and a My Block could name a job like drop apple. The ideas work as a team.",
           "visual": "Each icon receives its label and then docks onto a single catch-game flow diagram at the exact place it contributes.",
-          "on_screen_text": ["Sequence • Loop • Event", "Condition • Variable • Message", "Ideas work together"],
+          "on_screen_text": [
+            "Sequence • Loop • Event",
+            "Conditional • Variable • My Block",
+            "Ideas work together"
+          ],
           "production_notes": "Use consistent symbols from earlier episodes to support retrieval, not new decorative icons."
         },
         {
           "scene_id": "w06-s03",
           "duration_seconds": 65,
           "purpose": "Model debugging evidence",
-          "narration": "A code detective does not mash blocks until something works. Use four moves. One: say the expected result. Two: describe the actual result. Three: read one step at a time and find the first difference. Four: change one thing and test. Pixel's hexagon has six repeats but turns ninety degrees. The first difference appears at the turn. A six-sided regular shape needs three hundred sixty divided by six: sixty degrees. Change ninety to sixty, then rerun.",
-          "visual": "Four numbered detective lenses reveal a wonky hexagon, its stack, the first wrong turn, and a controlled one-value repair.",
-          "on_screen_text": ["1 Expected", "2 Actual", "3 First difference", "4 Change one thing + test"],
-          "production_notes": "Keep the math helper visible: 360 ÷ 6 = 60. Avoid presenting the fix before evidence."
+          "narration": "A code detective does not mash blocks until something works. Use the four detective steps. One: what did I expect? Two: what happened? Three: read the blocks one at a time with your finger. Four: change one thing, then test again. Nova's cat should go to the middle and say, Hello, detectives! It moves, but it says nothing. Pixel points at each block. When flag clicked: yes. Go to: yes. Say... wait, there is a gap! That block is not snapped on, so it is not part of the script. One change: snap it on. Test. Hello!",
+          "visual": "Four numbered detective lenses: the cat in the middle with no speech bubble; the stack with a visible gap above the say block; a finger tracing each block; the block snaps on and the bubble appears.",
+          "on_screen_text": [
+            "1 What did I expect?",
+            "2 What happened?",
+            "3 Read one block at a time",
+            "4 Change one thing, then test"
+          ],
+          "production_notes": "Recreate the lesson demo: when flag clicked, go to x: 0 y: 0, gap, say Hello, detectives! for 2 seconds. Never show any relay project (Wonky Hexagon, Apple Catch, Silent Party) or its fixes."
         },
         {
           "scene_id": "w06-s04",
           "duration_seconds": 70,
           "purpose": "Bridge from Scratch to Python",
-          "narration": "Soon, our blocks will become typed Python. The ideas stay with us. A Scratch say block is like Python's print. A repeat block becomes a for loop. A variable still has a name and value. An if block is still a choice. A My Block is like a function. The spelling will matter more, but you already know how to plan, predict, test, and debug. Pause: which Python idea do you predict will replace broadcast? There can be several designs; the important skill is coordinating smaller parts.",
-          "visual": "A bridge pairs Scratch blocks with simple, large Python snippets: print, for, variable assignment, if, and def. Broadcast remains a question card, not a false one-to-one mapping.",
-          "on_screen_text": ["Blocks change. Ideas continue.", "say → print", "repeat → for", "My Block → function"],
-          "production_notes": "Do not imply every Scratch block has one exact Python equivalent. Keep code as deterministic overlays."
+          "narration": "Soon, our blocks will become typed Python. The ideas stay with us. For example, the green flag becomes Thonny's Run button. In today's card sort, you will match Scratch blocks to Python lines. Look for clue words: a Python word often sounds like the words on the block. Watch for new marks too: parentheses, quote marks, and colons, where every letter matters. Pause: which Python line do you think matches the say block? Make a guess, then check it with your partner. Later, a My Block will become a Python function, a command we name ourselves. You already know how to plan, predict, test, and debug.",
+          "visual": "Scratch block cards face face-down Python cards; only the green flag ↔ Run button pair is revealed.",
+          "on_screen_text": [
+            "Blocks change. Ideas continue.",
+            "green flag → Run button",
+            "Clue words • ( ) • \" \" • :",
+            "Guess, then check together"
+          ],
+          "production_notes": "Do not reveal any card-sort or Homework 6 match (move, turn, say, repeat, pen up/down, set/change variable, if, ask, random, go to). Keep code as deterministic overlays."
         },
         {
           "scene_id": "w06-s05",
           "duration_seconds": 55,
           "purpose": "Fair design, recap, and handoff",
-          "narration": "Checkpoint cleared! Strong coders can build and explain. Strong detectives use evidence and change one thing at a time. Strong designers make projects fair and kind: controls are clear, success is possible, and feedback helps instead of teasing. Choose a relay bug today. Before touching the blocks, tell a partner the expected and actual result. After one fix, show the test that proved it. Then create your checkpoint project using at least three big ideas.",
-          "visual": "Checkpoint badges read Builder, Detective, Explainer. A fairness gauge checks clear controls, possible challenge, and kind feedback.",
-          "on_screen_text": ["Build • Debug • Explain", "Fair controls + kind feedback", "NEXT: Relay challenge"],
-          "production_notes": "End with a five-second teacher pause card and AI-voice disclosure."
+          "narration": "Detective training complete! Strong coders build and explain. Strong detectives use evidence and change one thing at a time. Strong designers make projects fun and fair: the same rules for everyone, no tricks, and no pressure to keep playing forever. Now start the bug-hunt relay. Build each project card exactly as printed, bugs and all. Tell your partner what you expected and what happened before you touch a block. Each project hides two bugs, so write both on your relay baton. Then show what you know in the short checkpoint.",
+          "visual": "Badges read Builder, Detective, Explainer. A fairness checklist shows same rules, no tricks, and no pressure, then the relay baton card appears.",
+          "on_screen_text": [
+            "Build • Debug • Explain",
+            "Fun + fair for everyone",
+            "NEXT: Bug-hunt relay"
+          ],
+          "production_notes": "End with a five-second teacher pause card and the voice disclosure."
         }
       ]
     },
@@ -435,10 +608,18 @@
         "Use print, comments, and basic turtle movement in a saved Python file.",
         "Read the final error message and line number to repair a simple typo."
       ],
-      "vocabulary": ["Python", "Editor", "Shell", "Run", "comment", "turtle"],
+      "vocabulary": [
+        "Python",
+        "Editor",
+        "Shell",
+        "Run",
+        "comment",
+        "turtle"
+      ],
       "misconception": "Python guesses misspellings or ignores punctuation and capitalization the way a person might.",
-      "safety_and_citizenship": "Use a nickname in filenames and program output; do not put private information in code or screenshots.",
-      "lesson_handoff": "Open Thonny, run Hello Python, save with a safe filename, then draw and debug the First Square activity.",
+      "safety_and_citizenship": "Save files safely: keep work in one place (exercises in their own folder with Cmd+S, new programs in Documents/my-python), use sensible names with small letters and underscores like flag_drawing.py, never name a file turtle.py, and keep real names and addresses out of programs.",
+      "lesson_handoff": "Open Exercise 7.1 Hello, Python! in Thonny and add three print lines (nickname only), then finish Exercise 7.2 My First Square and run its self-check.",
+      "practice_activity": "1-introduction/exercises/week07/ex-hello-python",
       "source_files": [
         "1-introduction/teaching-material/lessons/week07.tex",
         "1-introduction/teaching-material/workbook/week07.tex",
@@ -454,44 +635,66 @@
           "purpose": "New-language hook",
           "narration": "A new door has no Scratch blocks—only a blinking text cursor. Nova types ‘Hello, Pixel!’ and presses Run. The words appear, and Pixel's screen lights up. We have crossed into Python, where we write instructions with text. The ideas are familiar; the way we spell them is new.",
           "visual": "Blocks transform into carefully typeset text. A cursor blinks in a simplified Thonny Editor and output appears in the Shell.",
-          "on_screen_text": ["NEW MISSION: Python", "Familiar ideas, typed instructions"],
+          "on_screen_text": [
+            "NEW MISSION: Python",
+            "Familiar ideas, typed instructions"
+          ],
           "production_notes": "Use a real Thonny capture after the stylized transition; keep code crisp and selectable in source assets."
         },
         {
           "scene_id": "w07-s02",
           "duration_seconds": 55,
           "purpose": "Tour Thonny",
-          "narration": "Thonny is our Python workshop. We write and save a program in the Editor. The green Run button asks Python to follow the file. The Shell shows text output and useful error messages. Turtle programs also open a drawing window. Before running, save with a clear nickname-based filename, such as star_coder_square.py—not your full name. Editor writes, Run starts, Shell reports, turtle draws.",
-          "visual": "Real Thonny interface with four large callouts, followed by a safe filename comparison using category labels rather than real identities.",
-          "on_screen_text": ["Editor: write", "Run: start", "Shell: output + errors", "Turtle window: drawings"],
+          "narration": "Thonny is our Python workshop. We write the program in the Editor, the big top part. The green Run button is like the green flag: it asks Python to follow the file. The Shell, at the bottom, is where Python talks back with words and red error messages. Turtle programs also open a drawing window, which can hide behind Thonny. Thonny asks you to save before running. Save new programs in your my-python folder with a name that says what the program does, like flag_drawing.py.",
+          "visual": "Real Thonny interface with four large callouts, followed by a file-name card comparing flag_drawing.py with a vague name.",
+          "on_screen_text": [
+            "Editor: write",
+            "Run: like the green flag",
+            "Shell: Python talks back",
+            "Turtle window: drawings"
+          ],
           "production_notes": "Verify UI labels against the supported Thonny version. Never display a real home-folder username."
         },
         {
           "scene_id": "w07-s03",
           "duration_seconds": 65,
           "purpose": "Write first Python and turtle commands",
-          "narration": "Type print, open parenthesis, quotation mark, Hello coder, matching quotation mark, close parenthesis. Print shows text in the Shell. A line beginning with a hash mark is a comment: a note for people that Python skips. For drawing, import turtle, then tell the turtle forward sixty and left ninety. Forward moves in steps; left turns in degrees. Run the file and watch each exact instruction happen in order.",
-          "visual": "Large syntax-highlighted overlays appear token by token, then a turtle moves 60 and turns left 90 with labeled distance and angle arcs.",
-          "on_screen_text": ["print(\"Hello, coder!\")", "# A comment for people", "turtle.forward(60)", "turtle.left(90)"],
-          "production_notes": "Code overlays must be exact. Read punctuation naturally but point to matching marks."
+          "narration": "Type print, open parenthesis, quotation mark, Hello, coder!, closing quotation mark, close parenthesis. Print shows words in the Shell. A line that starts with a hash mark is a comment: a note for people that Python skips. Every turtle program has the same shape. Import turtle gets the toolbox. t equals turtle dot Turtle, with a capital T, makes a turtle called t. Then t dot forward one hundred moves, and t dot left ninety turns. Turtle dot done keeps the window open. Run it and watch each exact instruction happen in order.",
+          "visual": "Large syntax-highlighted overlays appear line by line: print, a comment, import turtle, t = turtle.Turtle(), t.forward(100), t.left(90), turtle.done(). A turtle moves 100 and turns left 90 with labeled distance and angle arcs.",
+          "on_screen_text": [
+            "print(\"Hello, coder!\")",
+            "import turtle",
+            "t = turtle.Turtle()",
+            "t.forward(100) then t.left(90)"
+          ],
+          "production_notes": "Code overlays must be exact and match the course starters (import turtle, t = turtle.Turtle(), turtle.done()). Read punctuation naturally but point to matching marks."
         },
         {
           "scene_id": "w07-s04",
           "duration_seconds": 70,
           "purpose": "Error-message bug hunt",
-          "narration": "Pixel typed turtle.forword with one letter missing. Expected: a line. Actual: the turtle window stops and red text appears. Do not panic or read every line first. Look near the bottom for the line number and the final message. It points to line four and says turtle has no attribute forword. Compare the command with forward. Pause: what single spelling change should we test? Add the missing a, run again, and the line appears. Errors are directions, not danger.",
-          "visual": "Sanitized Thonny error capture zooms to the final line and source line number. A letter tile slides into forword to form forward; rerun succeeds.",
-          "on_screen_text": ["1 Find the line number", "2 Read the last message", "3 Change one thing", "4 Run again"],
-          "production_notes": "Use a recreated error with no local paths or usernames. Keep red as conventional text but add icons and labels."
+          "narration": "Nova typed t dot lef, with one letter missing. Expected: a corner. Actual: one line, then the turtle stops and red text appears in the Shell. Do not panic, and do not read every line first. Find the line number, then read the last line. It says line four, and that the Turtle has no attribute lef. That means Python does not know a turtle command called lef. It even asks: did you mean left? Pause: what single change should we test? Add the missing letter t to make left, run again, and the turtle turns the corner. Errors are clues, not danger.",
+          "visual": "Sanitized Thonny capture: line 4, t.lef(90), last line AttributeError: 'Turtle' object has no attribute 'lef'. Did you mean: 'left'? Zoom to the line number and last line; a letter t slides onto lef; the rerun draws the corner.",
+          "on_screen_text": [
+            "1 Find the line number",
+            "2 Read the last line",
+            "3 Change one thing",
+            "4 Run again"
+          ],
+          "production_notes": "File lines: 1 import turtle, 2 t = turtle.Turtle(), 3 t.forward(100), 4 t.lef(90), 5 t.forward(100), 6 turtle.done(). Show the file name only, never a local path or username. Verify the ‘Did you mean’ line in the supported Thonny (bundled Python 3.10+). Keep red text but add icons and labels. Do not use Typo Hunt's bugs."
         },
         {
           "scene_id": "w07-s05",
           "duration_seconds": 55,
           "purpose": "Safety, recap, and handoff",
-          "narration": "Python door unlocked! In Thonny, write in the Editor, save, press Run, and read the Shell. Print shows words; comments help people; turtle moves and turns. Spelling, capitalization, quotes, and parentheses matter. Keep filenames and screenshots private-safe—use nicknames and invented words, never a real full name, school, address, password, or contact details. Now run Hello Python, then draw First Square. If it stops, let the last error message be your detective clue.",
-          "visual": "Four-tool recap orbit around the open door, then a safe file card and two-step activity handoff.",
-          "on_screen_text": ["Write • Save • Run • Read", "Safe filename: star_coder_square.py", "NEXT: Hello Python + First Square"],
-          "production_notes": "Hold the final code challenge for five seconds and include AI-voice disclosure."
+          "narration": "Python door unlocked! In Thonny, write in the Editor, press Run, and read the Shell. Print shows words; comments help people; the turtle moves and turns. Spelling, capital letters, quotes, and parentheses matter. Save safely: exercises stay in their own folder, new programs go in my-python, and names say what the program does. Never call a file turtle.py, and keep real names and addresses out of your code. Now run Hello, Python!, then finish My First Square. If it stops, the last line of the error is your clue.",
+          "visual": "Four-tool recap orbit around the open door, then a good-file-name card and a two-step activity handoff.",
+          "on_screen_text": [
+            "Write • Run • Read",
+            "Good name: flag_drawing.py",
+            "NEXT: Hello, Python! + My First Square"
+          ],
+          "production_notes": "Hold the activity card for five seconds and include the voice disclosure."
         }
       ]
     },
@@ -505,10 +708,18 @@
         "Use a loop to draw regular polygons with turtle.",
         "Recognize off-by-one and indentation bugs from visible results and errors."
       ],
-      "vocabulary": ["for loop", "range", "colon", "indentation", "iteration", "nested loop"],
-      "misconception": "Indented spacing is decoration, or range(4) repeats five times because counting includes 0 through 4.",
-      "safety_and_citizenship": "Ask for help with a useful sentence that includes the goal, actual result, and what has already been tried.",
-      "lesson_handoff": "Build Loop Square, then adapt the repeat count and turn angle for Polygon Party in Python.",
+      "vocabulary": [
+        "for loop",
+        "range",
+        "indentation",
+        "off-by-one bug",
+        "nested loop",
+        "list"
+      ],
+      "misconception": "Indentation is just decoration, or range(4) counts 1 to 4 (or 0 to 4) and so repeats a different number of times.",
+      "safety_and_citizenship": "Ask for help well: first try three before me (red message, workbook, partner), then use the help sentence: I expected …, but … happened. I tried ….",
+      "lesson_handoff": "Build Loop Square (add t.left(90) inside the loop, lined up under t.forward(100)), then in Polygon Party write a loop for a square and a loop for a hexagon, using turn = 360 ÷ sides.",
+      "practice_activity": "1-introduction/exercises/week08/ex-loop-square",
       "source_files": [
         "1-introduction/teaching-material/lessons/week08.tex",
         "1-introduction/teaching-material/workbook/week08.tex",
@@ -524,44 +735,65 @@
           "purpose": "Mission hook",
           "narration": "Pixel types forward and left four times to draw a square. ‘This feels familiar,’ Nova says. We used a Scratch repeat block for this! Python can loop too—but instead of a block's colored border, spaces show which instructions repeat. Can we shrink eight lines into three?",
           "visual": "Eight repeated Python lines fold into a for-loop card. Four visible space markers form a guide rail under the loop header.",
-          "on_screen_text": ["MISSION: Make repetition shorter", "In Python, spaces can show a group"],
+          "on_screen_text": [
+            "MISSION: Make repetition shorter",
+            "In Python, spaces can show a group"
+          ],
           "production_notes": "Use visible dot glyphs only as a teaching overlay; clarify learners type spaces, not dots."
         },
         {
           "scene_id": "w08-s02",
           "duration_seconds": 55,
           "purpose": "Explain for, range, colon, and indentation",
-          "narration": "Read this header: for i in range four, colon. It means repeat the indented group four times. The colon announces that a group follows. Each line inside begins with the same four spaces. Python calls one trip an iteration. Range four gives four iterations: zero, one, two, three—not four as an extra turn. The loop variable i keeps track, even when our drawing does not need to display it.",
-          "visual": "Code header enlarges in parts. A four-seat iteration train is labeled 0, 1, 2, 3; four-space guides align two body lines.",
-          "on_screen_text": ["for i in range(4):", "colon → a group follows", "4 spaces → inside the loop", "range(4) → 4 iterations"],
+          "narration": "Read this line: for i in range four, colon. It means: repeat the pushed-in lines four times. The colon says a group is coming. Every line inside starts with the same four spaces. That is called indentation. Thonny helps: after a colon, press Return and it pushes the next line in for you. Range four gives four numbers: zero, one, two, three. Python starts counting at zero, but there are still four numbers, so the loop runs four times. The i keeps count, even when our drawing does not use it.",
+          "visual": "The code line enlarges in parts. Four seats labeled 0, 1, 2, 3 fill one by one; four-space guides align two body lines.",
+          "on_screen_text": [
+            "for i in range(4):",
+            "colon → a group follows",
+            "4 spaces → inside the loop",
+            "range(4) → 0, 1, 2, 3 = 4 times"
+          ],
           "production_notes": "Render exact monospaced code and show indentation guides without tabs."
         },
         {
           "scene_id": "w08-s03",
           "duration_seconds": 65,
           "purpose": "Draw polygons and preview nesting",
-          "narration": "For a square, place turtle forward sixty and turtle left ninety inside range four. The same polygon rule returns: repeats equal sides; turn equals three hundred sixty divided by sides. A triangle repeats three and turns one hundred twenty. We can even place one loop inside another—a nested loop—to repeat a whole square while turning between copies. Think of a small music pattern repeated inside a larger dance pattern.",
-          "visual": "Square code executes with four highlighted iterations, then values transform to a triangle. A light preview shows a square-flower with inner and outer loop brackets.",
-          "on_screen_text": ["repeats = sides", "turn = 360 ÷ sides", "Nested loop = a loop inside a loop"],
+          "narration": "For a square, put t dot forward one hundred and t dot left ninety inside range four. The secret shape rule returns: repeats equal sides, and the turn equals three hundred sixty divided by sides. A triangle repeats three times and turns one hundred twenty. A loop can even hold another loop: a nested loop. In Square Flower, the outer loop takes one color at a time from a list called PALETTE, and the inner loop draws a whole square. The inner lines get eight spaces: four, then four more.",
+          "visual": "Square code runs with four highlighted trips, then values change to a triangle. A light preview shows a square flower with inner and outer loop brackets and a row of PALETTE color chips, each labeled.",
+          "on_screen_text": [
+            "repeats = sides",
+            "turn = 360 ÷ sides",
+            "Nested loop = a loop inside a loop",
+            "for color in PALETTE:"
+          ],
           "production_notes": "Treat nesting as a preview, not a mastery demand. Use brackets and labels for each loop level."
         },
         {
           "scene_id": "w08-s04",
           "duration_seconds": 70,
           "purpose": "Two-clue bug hunt",
-          "narration": "Pixel's first square has only three sides. The code says range three. That is an off-by-one bug: the repeat count is one away from what we need. Change it to four and test. Next, Python points to an indented line. One turtle command has two spaces while the other has four. Python uses indentation as structure, so line them up with four spaces. Pause before each repair: what evidence tells us which one thing to change?",
-          "visual": "An open three-sided shape links to range(3), then a Thonny indentation error links to uneven space guides. Repairs are tested separately.",
-          "on_screen_text": ["Clue 1: wrong repeat count", "Clue 2: uneven indentation", "Use evidence. Fix one thing. Test."],
-          "production_notes": "Show authentic error wording without private file paths; provide four seconds for each prediction."
+          "narration": "Nova wants a triangle, but the turtle draws only two sides. Count the trips: the code says range two. That is an off-by-one bug: the loop runs one time too few. A triangle has three sides, so change two to three and test. Next, Nova's triangle is one long straight line! Look at the spaces. t dot left one hundred twenty is not pushed in, so it is outside the loop and turns only once, at the end. Push it in four spaces, under t dot forward, and test. If the spaces do not match, Python shows a red IndentationError. Pause before each repair: what evidence tells us which one thing to change?",
+          "visual": "Open two-sided triangle links to range(2); then one long line links to an un-indented t.left(120) with space guides; repairs are tested separately; a small inset shows a mismatched-space IndentationError.",
+          "on_screen_text": [
+            "Clue 1: loop runs one time too few",
+            "Clue 2: a line outside the loop",
+            "Use evidence. Fix one thing. Test."
+          ],
+          "production_notes": "Do not show a range(3) square or a star with its turn outside the loop (Homework 8). Real wording: ‘IndentationError: unindent does not match any outer indentation level’ or ‘IndentationError: unexpected indent’. Allow four seconds for each prediction."
         },
         {
           "scene_id": "w08-s05",
           "duration_seconds": 55,
           "purpose": "Help-seeking, recap, and handoff",
-          "narration": "Python loops are ready! A for loop repeats the indented group. Range controls how many iterations, the colon starts the group, and matching spaces show what belongs inside. If you need help, give a useful report: ‘I expected a square, I got three sides, and I checked the turn.’ That helps a partner reason with you. Now build Loop Square, then change the side count and angle for Polygon Party. Predict the shape before you press Run.",
+          "narration": "Python loops are ready! A for loop repeats the pushed-in lines. Range sets how many times, the colon starts the group, and four matching spaces show what belongs inside. Stuck? Try three before me: read the red message, check the workbook, and ask your partner. Then use the help sentence: I expected a triangle, but a straight line happened. I tried counting the spaces. Now build Loop Square, then write a square loop and a hexagon loop for Polygon Party. Predict the shape before you press Run.",
           "visual": "Loop parts snap into a complete card. A weak ‘It doesn't work’ bubble expands into expected, actual, and tried fields, then the activity card appears.",
-          "on_screen_text": ["Expected + Actual + Tried", "Predict before Run", "NEXT: Loop Square + Polygon Party"],
-          "production_notes": "End on code with visible indentation guides and AI-voice disclosure."
+          "on_screen_text": [
+            "I expected… but… happened. I tried…",
+            "Predict before Run",
+            "NEXT: Loop Square + Polygon Party"
+          ],
+          "production_notes": "End on code with visible indentation guides and the voice disclosure."
         }
       ]
     },
@@ -575,16 +807,28 @@
         "Use if, elif, and else as an ordered set of choices.",
         "Test normal and boundary inputs while protecting private information."
       ],
-      "vocabulary": ["variable", "input", "string", "int", "if", "elif", "else"],
+      "vocabulary": [
+        "variable",
+        "input",
+        "string",
+        "int",
+        "comparison",
+        "if",
+        "elif",
+        "else"
+      ],
       "misconception": "Input automatically becomes a number, or Python checks every branch after an earlier condition is already true.",
-      "safety_and_citizenship": "Programs for this course should ask only playful, invented questions—not names, birthdays, addresses, schools, passwords, or contact details.",
-      "lesson_handoff": "Build Color Choice, then Size It; test more than one answer and include a helpful else path.",
+      "safety_and_citizenship": "Questions a program should NOT ask: ask about choices (colors, sizes, numbers), never about who you are. No full name, home address, school, birthday, password or photo. If an app or game asks for personal details, stop and ask a grown-up.",
+      "lesson_handoff": "Start with Exercise 9.1 Square of Any Size (fix the ‘text, not a number’ bug with int), then 9.2 Pick a Color (add an elif for green and a friendly else). Test orange, blue, green and pizza. Try 9.3 How Many Stars? if there is time.",
+      "practice_activity": "1-introduction/exercises/week09/ex-size-it",
       "source_files": [
         "1-introduction/teaching-material/lessons/week09.tex",
         "1-introduction/teaching-material/workbook/week09.tex",
         "1-introduction/teaching-material/homework/week09.tex",
         "1-introduction/exercises/week09/ex-color-choice/README.md",
-        "1-introduction/exercises/week09/ex-size-it/README.md"
+        "1-introduction/exercises/week09/ex-size-it/README.md",
+        "1-introduction/exercises/week09/ex-star-row/README.md",
+        "1-introduction/exercises/week09/hw-math-quiz/README.md"
       ],
       "scenes": [
         {
@@ -593,44 +837,64 @@
           "purpose": "Mission hook",
           "narration": "The next door asks, ‘Choose a portal size: 40, 80, or 120.’ Nova types 80. Pixel stores the answer—but then tries to add ten and gets stuck. The input looked like a number. Why does Python see it as text, and how can our program choose the right portal?",
           "visual": "A portal console accepts 80, which lands on a card marked text. A plus-ten gear cannot connect until a converter appears.",
-          "on_screen_text": ["MISSION: Ask, remember, choose", "Input begins as text"],
+          "on_screen_text": [
+            "MISSION: Ask, remember, choose",
+            "Input begins as text"
+          ],
           "production_notes": "Pause before revealing the text label; represent data type with words and shape, not color alone."
         },
         {
           "scene_id": "w09-s02",
           "duration_seconds": 55,
           "purpose": "Explain variables, input, and conversion",
-          "narration": "A Python variable is a name connected to a value. This line asks a question and stores the answer: color equals input, open parenthesis, a safe playful question, close parenthesis. Input returns a string, which means text—even if the learner typed digits. When we need number math or comparisons, int can convert suitable digit text into a whole number. Size equals int of input. First ask, then convert, then use.",
+          "narration": "A Python variable is a name connected to a value. This line asks a question and stores the answer: color underscore name equals input, open parenthesis, a playful question, close parenthesis. Input returns a string, which means text—even if the learner typed digits. When we need number math or comparisons, int can convert suitable digit text into a whole number. Size equals int of input. First ask, then convert, then use.",
           "visual": "Variable name tags connect to text cards. Exact code overlays animate through ask → store text → int converter → store whole number.",
-          "on_screen_text": ["color = input(\"Pick a color: \")", "input → text", "size = int(input(\"Pick 40, 80, or 120: \"))"],
+          "on_screen_text": [
+            "color_name = input(...)",
+            "input → text",
+            "size = int(input(\"Pick a size: \"))"
+          ],
           "production_notes": "Use exact nested parentheses and a simple whole-number explanation; do not introduce floats."
         },
         {
           "scene_id": "w09-s03",
           "duration_seconds": 65,
           "purpose": "Build ordered choices",
-          "narration": "An if-elif-else chain is an ordered set of doors. Python checks the if condition first. If it is true, that branch runs and the rest are skipped. Otherwise, Python tries elif. If no listed condition is true, else provides a fallback. For size: if size equals 40, draw small; elif size equals 80, draw medium; else, draw the large or fallback choice. The first true branch wins.",
+          "narration": "An if-elif-else chain is an ordered set of doors. Python checks from the top. The first rule that is true wins, and the rest are skipped. Else catches everything left over, and else never has a condition. Try this rule: if size is greater than 100, open the big portal; elif size is greater than 50, open the medium portal; else, open the small one. 120 goes big, and only big. 80 goes medium. 40 goes small. Tricky one: 100! 100 is not greater than 100, so it goes medium. Remember: one equals sign puts a value in a box. Two equals signs ask, ‘Are these the same?’",
           "visual": "Three physical doors align top to bottom. A token tests each condition and stops at the first true branch; exact code sits beside the animation.",
-          "on_screen_text": ["if → first check", "elif → another check", "else → fallback", "First true branch wins"],
+          "on_screen_text": [
+            "if size > 100:",
+            "elif size > 50:",
+            "else:",
+            "First true rule wins"
+          ],
           "production_notes": "Distinguish assignment = from comparison == with a close-up callout."
         },
         {
           "scene_id": "w09-s04",
           "duration_seconds": 70,
           "purpose": "Input bug hunt and testing",
-          "narration": "Pixel asks for a star count, then compares the answer with the number five. Expected: typing 5 draws five stars. Actual: the comparison does not match, because input produced the text ‘5’, not the number 5. Pause: where should conversion happen? Wrap the input with int when storing count. Now test 1, 5, and a value between branches. Also test an unexpected but safe value. A helpful else message makes the program easier to use.",
-          "visual": "Text card ‘5’ and number tile 5 fail to match, then pass through int. A compact test table fills Expected and Actual rows for several safe values.",
-          "on_screen_text": ["Text \"5\" ≠ number 5", "Convert when number behavior is needed", "Test more than one input"],
+          "narration": "Pixel asks, ‘How many steps should I walk?’ Nova types 100. Expected: Pixel walks 100 steps. Actual: a red TypeError! Pause: what is inside the box called steps? Type steps in the Shell. Thonny shows ‘100’ with quote marks. That's text, and a turtle can't walk text. The fix: steps equals int of answer. Run again with 100, then 50, then 250. One more test: on a color question, type Blue with a capital B. No crash, but it goes to else, because Python is picky: ‘Blue’ and ‘blue’ are different. That's why a friendly else message helps.",
+          "visual": "Text card ‘100’ (with quote marks) fails to drive the turtle and a red TypeError line appears; int turns it into the number tile 100. A short test table fills Expected and Actual rows.",
+          "on_screen_text": [
+            "Text '100' ≠ number 100",
+            "int(answer) → a number",
+            "\"Blue\" ≠ \"blue\""
+          ],
           "production_notes": "Do not claim int handles every input safely; frame non-digit handling as later learning."
         },
         {
           "scene_id": "w09-s05",
           "duration_seconds": 55,
           "purpose": "Privacy, recap, and handoff",
-          "narration": "Portal opened! Input asks, variables remember, int converts digit text when number behavior is needed, and if-elif-else chooses the first true path. Ask only playful, invented questions in this course: favorite imaginary creature, safe color choice, or number of stars. Never ask for a real name, birthday, address, school, password, email, or phone number. Now build Color Choice and Size It. Try at least three answers and make the fallback helpful.",
+          "narration": "Portal opened! Input asks, variables remember, int turns digit text into a number, and if-elif-else picks the first true path. Our rule: ask about choices, like colors, sizes, and numbers, never about who you are. So no full name, home address, school, birthday, password, or photo. If an app or game asks for personal details, stop and ask a grown-up. Now open Exercise 9.1, Square of Any Size, then 9.2, Pick a Color. Test every answer: orange, blue, green, and something silly like pizza.",
           "visual": "Safe-question cards pass through a shield; private-data category cards stop outside. The two activity cards slide into the workshop.",
-          "on_screen_text": ["Ask • Store • Convert • Choose", "Only playful, invented input", "NEXT: Color Choice + Size It"],
-          "production_notes": "Use category names only, no examples that resemble real personal data. Include AI-voice disclosure."
+          "on_screen_text": [
+            "Ask • Store • Convert • Choose",
+            "Ask about choices, not about you",
+            "NEXT: Square of Any Size + Pick a Color"
+          ],
+          "production_notes": "Use category names only, no examples that resemble real personal data. Include the voice disclosure."
         }
       ]
     },
@@ -644,10 +908,19 @@
         "Use random choice and randint within clear limits.",
         "Plan a Level 1 art-show project by combining reusable parts."
       ],
-      "vocabulary": ["function", "define", "call", "parameter", "random", "randint"],
+      "vocabulary": [
+        "function",
+        "define",
+        "call",
+        "parameter",
+        "random",
+        "randint",
+        "remix"
+      ],
       "misconception": "Defining a function makes it run immediately, or random means the program can choose anything without limits.",
-      "safety_and_citizenship": "Use only self-created or credited assets and keep random choices within comfortable, readable visual limits.",
-      "lesson_handoff": "Build Flower Stamp and Random Art, then choose a theme and sketch the reusable function for My Interactive Art Show.",
+      "safety_and_citizenship": "Being an original artist: borrowing an idea is fine when you make it your own and give credit in a comment (# Flower idea remixed from Exercise 10.1). Copying a whole program and calling it yours is not fair. Our art is drawn by code, so no internet pictures are needed.",
+      "lesson_handoff": "Build Exercise 10.1 Flower Stamp (call the recipe, then add a color parameter) and 10.2 Random Bubble Art. Then fill in the project plan sheet (Milestone M1) and save my_art_show.py with a project name, never a real name.",
+      "practice_activity": "1-introduction/exercises/week10/ex-flower-stamp",
       "source_files": [
         "1-introduction/teaching-material/lessons/week10.tex",
         "1-introduction/teaching-material/workbook/week10.tex",
@@ -663,44 +936,64 @@
           "purpose": "Creative mission hook",
           "narration": "The workshop gallery needs a hundred flowers, but no two should look exactly alike. Nova could copy the same drawing code again and again. Pixel suggests a better invention: teach Python one flower-making command, then call it with different sizes and random colors. Can one recipe create a whole garden?",
           "visual": "One flower multiplies into a varied garden. Repeated code sheets fold into a single recipe card with adjustable dials.",
-          "on_screen_text": ["MISSION: One recipe, many artworks", "Reusable + adjustable + surprising"],
+          "on_screen_text": [
+            "MISSION: One recipe, many artworks",
+            "Reusable + adjustable + surprising"
+          ],
           "production_notes": "Use calm variation, avoiding rapidly cycling colors. Pause on the recipe metaphor."
         },
         {
           "scene_id": "w10-s02",
           "duration_seconds": 55,
           "purpose": "Explain functions and parameters",
-          "narration": "A function is a named set of instructions. We define flower with a parameter called size. The indented body draws using that size. Defining teaches Python the recipe; it does not serve the dish yet. To run it, call flower open parenthesis sixty close parenthesis. The value sixty travels into the size parameter. Define once, call many times. Different arguments can make small, medium, and large flowers from one tested recipe.",
+          "narration": "A function is your own command, just like a My Block in Scratch. We write def, the name flower, and an input slot in parentheses: a parameter called size. Then a colon. The pushed-in lines are the recipe. But a recipe card is not a cake. Defining writes the card; nothing is drawn yet. To use it, call flower, open parenthesis, sixty, close parenthesis. Sixty goes into the size slot. Define once, call many times: thirty, sixty, and ninety make three flower sizes from one recipe.",
           "visual": "Exact def code builds a recipe machine. Calls with 30, 60, and 90 feed labeled values into the size slot and produce three flowers.",
-          "on_screen_text": ["def → define the recipe", "parameter → input slot", "flower(60) → call the function"],
-          "production_notes": "Keep function body code aligned with four spaces and distinguish parameter from the supplied argument in plain language."
+          "on_screen_text": [
+            "def → define the recipe",
+            "parameter → input slot",
+            "flower(60) → call the function"
+          ],
+          "production_notes": "Keep the function body aligned with four spaces. Flower Stamp's starter uses flower(x, y); keep this video's flower(size) visibly different and never show the exercise's calls."
         },
         {
           "scene_id": "w10-s03",
           "duration_seconds": 65,
           "purpose": "Add bounded randomness",
-          "narration": "Randomness lets Python choose from limits we provide. Random choice can select one item from a safe list of readable colors. Random randint ten comma eighty can choose a whole number from ten through eighty for a size or position. Random does not mean ‘anything in the universe.’ We design the allowed choices. A loop can call our flower function several times with new choices, making a garden that changes each run while following our rules.",
+          "narration": "First, write import random at the top, next to import turtle. Random dot choice picks one item from a list, like picking a crayon from a bag with your eyes closed. Here it picks from our color-blind-safe PALETTE. Random dot randint, ten comma eighty, picks a whole number from ten up to eighty, and both ten and eighty can be picked. Smaller number first! Random doesn't mean ‘anything in the universe.’ We choose the limits. A loop can call our flower function several times with new choices, so the garden changes every run but still follows our rules.",
           "visual": "A choice wheel contains four named accessible colors. A number gate visibly spans 10 through 80. Both feed the flower function inside a loop.",
-          "on_screen_text": ["random.choice(list)", "random.randint(10, 80)", "Random choices stay inside our limits"],
+          "on_screen_text": [
+            "import random",
+            "random.choice(PALETTE)",
+            "random.randint(10, 80)",
+            "Random choices stay inside our limits"
+          ],
           "production_notes": "Use the actual inclusive randint behavior. Avoid color-only identification by labeling swatches."
         },
         {
           "scene_id": "w10-s04",
           "duration_seconds": 70,
           "purpose": "Function-call bug hunt",
-          "narration": "Pixel's program runs without red errors, but the screen stays blank. Expected: one flower. Actual: nothing drawn. The flower function is defined perfectly, so where is the first difference? Scan below the definition—there is no call. Defining a function prepares it; calling makes it run. Pause: what one line could we add? Flower open parenthesis sixty close parenthesis. Run again. A quiet result can be a debugging clue even when no error message appears.",
+          "narration": "Nova's program runs with no red error, but the screen stays blank. What did we expect? One flower. What actually happened? Nothing. Read the code one line at a time, with your finger. The flower recipe looks perfect. But scan below it: nothing ever calls it. Defining writes the recipe; calling makes it run. Pause: what one line could we add? Flower, open parenthesis, sixty, close parenthesis, at the left edge, below the def, not pushed in. Run again. A blank screen with no error can still be a clue.",
           "visual": "A complete function sits unused beside a blank turtle window. Detective scan reaches end-of-file, then one call line connects to the function and drawing begins.",
-          "on_screen_text": ["Defined ≠ called", "No red error can still mean a logic bug", "Add: flower(60)"],
+          "on_screen_text": [
+            "Defined ≠ called",
+            "No red error can still mean a bug",
+            "Add at the left edge: flower(60)"
+          ],
           "production_notes": "Give a four-second prediction pause before showing the call. Keep all code deterministic."
         },
         {
           "scene_id": "w10-s05",
           "duration_seconds": 55,
           "purpose": "Project launch and handoff",
-          "narration": "The gallery garden blooms! Functions name reusable jobs; parameters make them adjustable; calls run them; and bounded randomness adds variety. Use art you made yourself, or credit the source and follow its permission. For My Interactive Art Show, choose a safe theme, decide what the viewer can input, and sketch one function you will reuse. First build Flower Stamp and Random Art. Then write your project mission in one sentence: ‘My program will…’",
-          "visual": "Gallery opens. A project-planning card fills Theme, Safe input, Reusable function, and Random choice; exercise cards lead into the project card.",
-          "on_screen_text": ["Define • Parameter • Call • Vary", "PROJECT: My Interactive Art Show", "My program will…"],
-          "production_notes": "End with a printable planning-card layout and AI-voice disclosure."
+          "narration": "The garden blooms! Functions are your own commands, parameters are their input slots, calls make them run, and random adds surprises inside our limits. Now meet your final project: My Interactive Art Show. It greets the viewer, asks one or two questions, and draws a picture using six ingredients: a question with input, a variable, an if, a loop, something random, and a function you made with def. First build Flower Stamp and Random Bubble Art. Then fill in your plan sheet. Borrowed an idea? Make it yours and add a credit comment.",
+          "visual": "Gallery opens. A project card lists the six ingredients with an icon each; the two exercise cards lead into the plan sheet.",
+          "on_screen_text": [
+            "PROJECT: My Interactive Art Show",
+            "input • variable • if • loop • random • def",
+            "Credit borrowed ideas"
+          ],
+          "production_notes": "End with a printable planning-card layout and the voice disclosure."
         }
       ]
     },
@@ -714,10 +1007,17 @@
         "Save useful versions and use a build-run-check cycle.",
         "Conduct peer testing with normal and unusual safe inputs."
       ],
-      "vocabulary": ["milestone", "prototype", "test", "version", "feedback", "revision"],
+      "vocabulary": [
+        "milestone",
+        "iterate",
+        "playtest",
+        "version",
+        "feedback"
+      ],
       "misconception": "The fastest way to finish is to type the whole project before running it, or every suggestion must be added.",
-      "safety_and_citizenship": "Share only the project window or safe code; remove names and private paths from screenshots, filenames, and demos.",
-      "lesson_handoff": "Complete the project's next milestone, save a new version, and exchange a structured two-stars-and-a-wish peer test.",
+      "safety_and_citizenship": "Giving and receiving helpful feedback: be kind, specific and helpful, and make wishes about the program, never the person. When receiving, say thank you, then you decide what to change. Online, if a comment is unkind, don't reply; tell a grown-up.",
+      "lesson_handoff": "Sprint 1: reach M2 (turn my_shape into your own function and call it twice). Then do the partner swap bug hunt with two stars and a wish. Then Sprint 2: reach M3 (questions, if, loop, random, title).",
+      "practice_activity": "1-introduction/project/project-brief.tex",
       "source_files": [
         "1-introduction/teaching-material/lessons/week11.tex",
         "1-introduction/teaching-material/workbook/week11.tex",
@@ -733,44 +1033,64 @@
           "purpose": "Studio hook",
           "narration": "Nova has a brilliant art-show plan—and forty new lines typed without running once. Pixel presses Run. One tiny error hides somewhere in the stack. The studio clock is ticking. Would you rather search forty lines, or test each small piece as you build it? Today we work like project engineers.",
           "visual": "Forty code lines form a maze around one tiny bug. The maze transforms into four short, testable stepping stones.",
-          "on_screen_text": ["STUDIO MISSION", "Build small • Test often"],
+          "on_screen_text": [
+            "STUDIO MISSION",
+            "Build small • Test often"
+          ],
           "production_notes": "Do not imply speed is the goal; frame the clock as choosing a calmer process."
         },
         {
           "scene_id": "w11-s02",
           "duration_seconds": 55,
           "purpose": "Plan milestones",
-          "narration": "A milestone is a small result we can see and test. For an interactive art show: milestone one opens the turtle window and shows a title. Milestone two asks one safe question and stores the answer. Milestone three draws one complete artwork. Milestone four adds variety and a friendly ending. Start with the minimum that works. Extra sparkle comes after the core path is reliable. Each milestone gives us evidence and a place to recover.",
-          "visual": "Project road map with four concrete screenshots as checkpoints. A Core path stays solid while optional sparkle branches appear later.",
-          "on_screen_text": ["M1: opens", "M2: asks safely", "M3: draws", "M4: adds variety", "Core first, extras later"],
+          "narration": "A milestone is a checkpoint you can see and test. Your art show has four. M1, Plan, you finished last week. M2, Core drawing works: turn the example my_shape function into your own, draw it once, then call it a second time somewhere else, with no red errors. M3, Surprise and polish: add your questions, your if, your loop, something random, and a title. Then a partner tests it. M4 is next week's Showcase. Core first. Extras go on your wish list until the main drawing works.",
+          "visual": "Project road map with four checkpoints: Plan (checked), Core drawing, Surprise and polish, Showcase. Optional sparkle ideas wait on a wish-list card beside the road.",
+          "on_screen_text": [
+            "M1 Plan ✓",
+            "M2 Core drawing works",
+            "M3 Surprise and polish",
+            "M4 Showcase"
+          ],
           "production_notes": "Match milestone language to the project guide; keep optional ideas visually secondary."
         },
         {
           "scene_id": "w11-s03",
           "duration_seconds": 65,
           "purpose": "Use build-run-check and versions",
-          "narration": "Use a three-beat studio rhythm. Build one small change. Run it. Check expected against actual. If they match, save a new version such as art_show_v2.py. If they do not, use the first difference as a clue before adding more. A version is a saved checkpoint, not twelve mystery copies named final-final-really-final. Add a short comment describing the milestone. Then your future self can find a working place.",
+          "narration": "Use a three-beat studio rhythm, like building a LEGO set bag by bag. Build one small change. Run it. Check: did it do what I expected? If something breaks, you know it was the last little change, so look there first. Before a big change, click File, then Save as, and add underscore v2 to the name, like fish_party_v2.py. If the change goes wrong, version one is still safe. A version is a saved checkpoint, not twelve mystery copies named final-final-really-final.",
           "visual": "Build, Run, Check triangle rotates slowly. A tidy version ladder replaces chaotic filenames; each rung has a short milestone note.",
-          "on_screen_text": ["BUILD → RUN → CHECK", "Expected vs actual", "Save a clear working version"],
+          "on_screen_text": [
+            "BUILD → RUN → CHECK",
+            "Expected vs what happened",
+            "Save a _v2 before a big change"
+          ],
           "production_notes": "Use safe generic paths and filenames. Do not show Git as a student requirement."
         },
         {
           "scene_id": "w11-s04",
           "duration_seconds": 70,
           "purpose": "Model peer testing",
-          "narration": "A tester tries the program without reading your mind. Give the one-sentence mission and let them use it. Ask them to try one normal safe input and one strange-but-safe input, like a very small allowed number or an unexpected color word. Record expected and actual. Then use two stars and a wish: two specific things that work, and one helpful next idea. The creator chooses which feedback fits the mission. Feedback is evidence, not an order or a judgment.",
-          "visual": "Two learners exchange a project safely. A test table fills Normal and Strange-but-safe rows; two star cards and one wish card cite concrete behaviors.",
-          "on_screen_text": ["Test: normal + strange-but-safe", "2 specific stars + 1 helpful wish", "Creator decides the revision"],
+          "narration": "Now the partner swap bug hunt. Swap seats. Run your partner's program twice: once with a normal answer, and once with a strange one, like zero, a giant number, a word instead of a number, or a capital letter. Write down what happened. Don't fix it; just report it! Then swap back and give two stars and a wish: two specific things you liked, and one wish. Make the wish about the program, never the person: ‘I wish the title was bigger.’ The creator says thank you, then decides what to change. It's their art.",
+          "visual": "Two learners swap seats. A test table fills Normal and Strange rows; two star cards and one wish card cite concrete behaviors.",
+          "on_screen_text": [
+            "Swap seats • Run twice • Report, don't fix",
+            "Normal answer + strange answer",
+            "2 stars + 1 wish (about the program)"
+          ],
           "production_notes": "Model consent before touching another learner's keyboard and kind neutral facial expressions."
         },
         {
           "scene_id": "w11-s05",
           "duration_seconds": 55,
           "purpose": "Safe sharing, recap, and handoff",
-          "narration": "Studio checkpoint complete! Milestones keep big projects manageable. Build, run, and check one change. Save clear working versions. Test with more than one input, then choose useful feedback. When sharing, show only the project window or safe code. Hide real names, computer usernames, folders, school details, and notifications. Now finish your next milestone, save it as a new version, and trade a two-stars-and-a-wish test. Your goal is not perfect—it is tested, explainable progress.",
-          "visual": "A privacy curtain crops a screen to the turtle window. The studio checklist marks milestone, version, test, and chosen revision.",
-          "on_screen_text": ["Small milestone • Working version • Evidence", "Share the project, not private details", "NEXT: Build + peer test"],
-          "production_notes": "Use a clearly fake desktop without real notifications. Include AI-voice disclosure."
+          "narration": "Studio checkpoint complete! Milestones keep a big project manageable. Build, run, and check one small change at a time. Save a version before a big change. Test with a normal and a strange answer. Good feedback is kind, specific, and helpful, about the program, never the person. When you get feedback, say thank you, then you decide. Online, if a comment is unkind, don't reply; tell a grown-up. Now: Sprint 1 for M2, the partner swap bug hunt, then Sprint 2 for M3. The goal isn't perfect. It's progress you tested and can explain.",
+          "visual": "Feedback cards sort into kind, specific, helpful. The studio checklist marks M2, partner swap and M3.",
+          "on_screen_text": [
+            "Small step • Saved version • Evidence",
+            "Kind • Specific • Helpful",
+            "NEXT: M2 → Partner swap → M3"
+          ],
+          "production_notes": "Use a clearly fake desktop without real notifications. Include the voice disclosure."
         }
       ]
     },
@@ -784,10 +1104,18 @@
         "Explain one meaningful code choice and one debugging story.",
         "Reflect on growth and give specific, kind audience feedback."
       ],
-      "vocabulary": ["showcase", "demo", "audience", "explain", "reflection", "feedback"],
+      "vocabulary": [
+        "showcase",
+        "demo",
+        "audience",
+        "explain",
+        "reflection",
+        "feedback"
+      ],
       "misconception": "A showcase is only entertainment, or a bug encountered during development should be hidden.",
-      "safety_and_citizenship": "Share only approved project content, use nicknames, and ask before recording or posting anyone's work or image.",
-      "lesson_handoff": "Rehearse the two-minute demo, run the privacy checklist, present, and complete the Level 1 reflection.",
+      "safety_and_citizenship": "Showcase safety: projects are shown on the screen only, and nothing is uploaded, posted or emailed. Screens and name cards show nicknames only. Photos of the artwork only if the artist agrees, with no faces or names, and they stay in the family. Say so if you borrowed an idea.",
+      "lesson_handoff": "Practice the 2-minute demo script with a partner (artist + assistant), do the showcase safety check, present at the gallery walk and fill in feedback cards, take the short exit quiz (not pass or fail), then write the Level 1 reflection (homework 12).",
+      "practice_activity": "1-introduction/project/project-brief.tex",
       "source_files": [
         "1-introduction/teaching-material/lessons/week12.tex",
         "1-introduction/teaching-material/workbook/week12.tex",
@@ -803,44 +1131,64 @@
           "purpose": "Showcase hook",
           "narration": "All twelve workshop doors open into a gallery. Nova has two minutes to guide visitors through an interactive artwork. Should the demo show every line of code? No—the best museum guides choose a clear story. What did you make, what should we notice, and what did you learn while building it?",
           "visual": "Doors fold into a gallery wall. A two-minute timer appears beside three empty story frames labeled Make, Notice, Learn.",
-          "on_screen_text": ["FINAL MISSION: Tell your coding story", "Make • Notice • Learn"],
+          "on_screen_text": [
+            "FINAL MISSION: Tell your coding story",
+            "Make • Notice • Learn"
+          ],
           "production_notes": "Keep the timer calm and noncompetitive; pause after the guiding question."
         },
         {
           "scene_id": "w12-s02",
           "duration_seconds": 55,
           "purpose": "Shape a two-minute demo",
-          "narration": "Plan four short parts. First, say the project's title and mission. Second, enter one safe example and show the main result. Third, point to one code idea—perhaps a loop, choice, variable, or function—and explain what job it does. Fourth, share one next improvement. Rehearse once with a timer. If it runs long, choose the clearest example instead of speaking faster. Your audience needs time to see and think.",
-          "visual": "Four storyboard cards fill a 0:00–2:00 strip with flexible markers: mission, demo, code idea, next step. A speedometer stays in a calm zone.",
-          "on_screen_text": ["1 Mission", "2 Safe demo", "3 One code idea", "4 Next improvement"],
+          "narration": "Plan your demo with the script in your workbook. One: ‘Hi! My project is called… It draws…’ Two: invite the visitor to answer your question, then press Run. Three: ‘Because you said rainy, it drew rain. That's my if.’ Four: point to your function or your loop and say what it does. Five: share one bug you fixed. Six: ask, ‘Do you have a question for me?’ Rehearse once with your partner as the assistant. If it runs long, use fewer words instead of speaking faster.",
+          "visual": "Six storyboard cards fill a 0:00–2:00 strip with flexible markers. A speedometer stays in a calm zone.",
+          "on_screen_text": [
+            "1 Name + what it draws • 2 Visitor answers",
+            "3 That's my if • 4 My function or loop",
+            "5 One bug I fixed • 6 Any questions?"
+          ],
           "production_notes": "Do not prescribe exact seconds to children; emphasize clarity and flexibility within the two-minute target."
         },
         {
           "scene_id": "w12-s03",
           "duration_seconds": 65,
           "purpose": "Explain code and a debugging story",
-          "narration": "Showing code is not reading every symbol. Point to one meaningful part and translate it: ‘This for loop repeats my star function eight times. The function lets one tested recipe draw different sizes.’ Then tell a detective story: expected, actual, clue, one change, test. ‘I expected eight stars, got seven, saw range seven, changed it to eight, and reran.’ A solved bug is evidence of reasoning. It belongs in the story.",
+          "narration": "Showing code is not reading every symbol. Point to one meaningful part and tell its story: ‘This for loop repeats my star function eight times. The function lets one recipe draw different sizes.’ Then tell a bug story with the four detective steps: what I expected, what actually happened, reading line by line, and changing one thing to test again. ‘I expected eight stars but got seven. I read my loop line by line and saw range seven. I changed it to eight and ran it again.’ A fixed bug shows how you think. It belongs in your story.",
           "visual": "A code spotlight highlights only a for-loop and function call. Four detective panels animate the seven-to-eight-star debugging story.",
-          "on_screen_text": ["Point → Translate → Show result", "Expected • Actual • Clue • Test", "A solved bug shows learning"],
+          "on_screen_text": [
+            "Point → Explain → Show result",
+            "Expected • Happened • Read • Change one",
+            "A fixed bug shows how you think"
+          ],
           "production_notes": "Use code that matches the project concepts; avoid presenting range(8) as always required."
         },
         {
           "scene_id": "w12-s04",
           "duration_seconds": 70,
           "purpose": "Prepare audience feedback and privacy",
-          "narration": "Audience members are code explorers, not judges. Notice one specific choice and ask one curious question: ‘The random sizes made each run different. How did you choose the limits?’ Presenters may say, ‘I don't know yet,’ and add it to future ideas. Before the demo, use the privacy check: nickname only; no real name, school, address, contact details, password, computer username, or private notification. Ask permission before recording, photographing, or posting anyone's project or image.",
-          "visual": "Audience cards transform vague praise into a specific notice and curious question. A privacy shield checks each category and a camera waits behind an ASK FIRST sign.",
-          "on_screen_text": ["Audience: specific notice + curious question", "Nickname only", "Ask before recording or posting"],
+          "narration": "Visitors are code explorers, not judges. At each stand, answer the program's question, ask the artist one question, and fill in a feedback card: two stars and a wish. Be specific: ‘The random sizes made each run different. How did you choose the limits?’ Artists may say, ‘I don't know yet,’ and add it to their wish list. Now the showcase safety check. Projects are shown on the screen only: nothing is uploaded, posted, or emailed. Screens and name cards show nicknames only. Photos of the artwork only if the artist agrees, with no faces or names, and they stay in the family.",
+          "visual": "Audience cards turn vague praise into a feedback card with two stars and a wish. A privacy shield checks each category, and a camera icon carries the tag ‘Artist agrees • Family only’.",
+          "on_screen_text": [
+            "Visitor: answer • ask • 2 stars + 1 wish",
+            "Nicknames only",
+            "On screen only: nothing posted"
+          ],
           "production_notes": "Do not depict a child being recorded without consent. Use category words, not realistic private data."
         },
         {
           "scene_id": "w12-s05",
           "duration_seconds": 55,
           "purpose": "Reflection and celebration",
-          "narration": "Level 1 complete! You learned to sequence exact steps, repeat with loops, react to events, choose with conditions, remember with variables, organize functions, test inputs, and debug with evidence. Your final reflection is not ‘Am I a perfect coder?’ Ask: What can I explain now? Which bug taught me something? What do I want to build next? Rehearse your two-minute demo, run the privacy check, and celebrate every creator's tested, explainable progress. The next code quest starts with your curiosity.",
+          "narration": "Level 1 complete! You learned to sequence exact steps, repeat with loops, react to events, choose with conditions, remember with variables, make your own functions, test inputs, and debug like a detective. The short exit quiz is not pass or fail; it shows what you've learned. Then reflect: What part am I proudest of? Which bug taught me something? What do I want to make next? Rehearse your two-minute demo, run the safety check, and celebrate every creator's progress. The next code quest starts with your curiosity.",
           "visual": "All concept badges form a constellation around the learner's project. Three reflection prompts appear with writing space; the gallery doors open toward a blank future map.",
-          "on_screen_text": ["I can explain…", "A bug taught me…", "Next I want to build…", "SHOWCASE: Rehearse • Check • Share safely"],
-          "production_notes": "Use warm music with room for applause, five-second reflection hold, and AI-voice disclosure."
+          "on_screen_text": [
+            "I'm proudest of…",
+            "A bug taught me…",
+            "Next I want to make…",
+            "SHOWCASE: Rehearse • Check • Share safely"
+          ],
+          "production_notes": "Use warm music with room for applause, five-second reflection hold, and the voice disclosure."
         }
       ]
     }
