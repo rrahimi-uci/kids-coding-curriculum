@@ -2,24 +2,41 @@
 import Base from '../../layouts/Base.astro';
 import { u, parentsData, fix } from '../../lib/data';
 const P = parentsData();
-const topics: Record<string, string> = { 'Tonight': 'About the evening', 'Why now': 'Why now', 'What the research shows': 'The research', 'What good teaching looks like': 'How we teach', 'Our course': 'The course', 'Your role': 'Helping at home', 'Safety and inclusion': 'Safety and privacy', 'Questions': 'Common concerns' };
+// Questions come from two sources: the presenter notes of the parent deck (grouped by the slide's
+// kicker) and parents/content/faq.tex (questions families ask outside the information evening).
+const topics: Record<string, string> = { '': 'About the information evening', 'Tonight': 'About the information evening', 'Why now': 'Why learn to code now', 'What the research shows': 'The research', 'What good teaching looks like': 'How we teach', 'Our course': 'The course', 'Your role': 'Helping at home', 'Safety and inclusion': 'Safety and privacy', 'Questions': 'Common concerns' };
+// Page order. A topic not listed here (for example a new \faqtopic in faq.tex) is shown at the end.
+const TOPIC_ORDER = ['Before you join', 'The course', 'What your child learns', 'How we teach', 'Computers and apps', 'Helping at home', 'Screen time and wellbeing', 'Safety and privacy', 'Every learner', 'Common concerns', 'Why learn to code now', 'The research', 'After the course', 'About the information evening'];
 const groups: { topic: string; qa: any[] }[] = [];
-for (const s of P.slides) {
-  if (s.appendix || !s.qa?.length) continue;
-  const topic = topics[s.kicker] ?? 'More questions';
+const add = (topic: string, qa: any[]) => {
   let g = groups.find((x) => x.topic === topic);
   if (!g) { g = { topic, qa: [] }; groups.push(g); }
-  g.qa.push(...s.qa);
+  g.qa.push(...qa);
+};
+for (const s of P.slides) {
+  if (s.appendix || !s.qa?.length) continue;
+  add(topics[s.kicker] ?? 'More questions', s.qa);
 }
+for (const t of P.faq ?? []) add(t.topic, t.qa);
+const rank = (t: string) => { const i = TOPIC_ORDER.indexOf(t); return i < 0 ? TOPIC_ORDER.length : i; };
+groups.sort((a, b) => rank(a.topic) - rank(b.topic));
+const slug = (t: string) => 't-' + t.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+const total = groups.reduce((n, g) => n + g.qa.length, 0);
 ---
-<Base title="Questions and answers for parents" description="Short answers to the questions parents ask most about learning to code.">
+<Base title="Questions and answers for parents" description="Short answers to the questions parents ask most about learning to code and about this course.">
   <div class="measure stack">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('parents/')}>For parents</a></li><li aria-current="page">Questions and answers</li></ol></nav>
     <h1>Questions and answers</h1>
-    <p class="lead">The questions families ask most. If yours is not here, ask the person who runs your course.</p>
+    <p class="lead">The {total} questions families ask most, grouped by topic. Select a question to see its answer. If yours is not here, ask the person who runs your course.</p>
+    <nav class="toc" aria-labelledby="faq-topics">
+      <h2 id="faq-topics" class="visually-hidden">Topics</h2>
+      <ol>
+        {groups.map((g) => <li><a href={`#${slug(g.topic)}`}>{g.topic} ({g.qa.length})</a></li>)}
+      </ol>
+    </nav>
     {groups.map((g) => (
-      <section aria-labelledby={`t-${g.topic.replace(/[^a-z]+/gi, '-')}`}>
-        <h2 id={`t-${g.topic.replace(/[^a-z]+/gi, '-')}`}>{g.topic}</h2>
+      <section aria-labelledby={slug(g.topic)}>
+        <h2 id={slug(g.topic)}>{g.topic}</h2>
         {g.qa.map((q) => <details class="qa"><summary set:html={fix(q.q)} /><div class="a" set:html={fix(q.a)} /></details>)}
       </section>
     ))}

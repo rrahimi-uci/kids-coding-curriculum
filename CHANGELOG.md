@@ -3,6 +3,15 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.6.0 - 2026-11-10
+
+More answers for parents.
+
+- The questions and answers page now answers about 80 questions instead of about 30: who the course is for, cost, missed sessions, grades and showcases, why Scratch and then Python, Windows, Chromebooks and iPads, setup help, helping with homework, frustration, screen time and video games, accounts and the Scratch online community, dyslexia, ADHD, color blindness, advanced learners, families who speak another language at home, AI, and what to do after Level 3.
+- The four questions on the "Common questions" slide (too young, AI, screen time, "I can't code") now have full answers on the page too.
+- The page starts with a list of topics, and topics are ordered from "Before you join" to "After the course".
+- The new questions live in `parents/content/faq.tex`, so the slide deck and presenter notes stay the same.
+
 ## 1.5.1 - 2026-11-10
 
 Correct and executable Mac setup instructions.

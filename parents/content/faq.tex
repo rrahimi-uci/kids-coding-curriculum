@@ -1,0 +1,308 @@
+%% content/faq.tex -- extra questions and answers for the website's FAQ page (parents/faq/).
+%%
+%% The FAQ page shows the questions from the presenter notes in main.tex (the third argument of
+%% \kcnotes) first, then the ones below. This file is NOT part of the deck, the presenter notes or
+%% the handout; it holds the questions families ask outside the information evening, so the slides
+%% stay short. tools/site/parents.py reads it.
+%%
+%% Format:
+%%   \faqtopic{Name}      starts (or adds to) a topic; use a name from TOPIC_ORDER in
+%%                        site/src/pages/parents/faq.astro, or a new one (it is listed last)
+%%   \qa{Question}{Answer}
+%% Macros from content/shared.tex work (\LevelWeeks, \Homework, ...). \textcite{key} and
+%% \parencite{key} link to the reference list (keys from references.bib). \sitelink{path/}{text}
+%% links to a page on this website (path without a leading slash).
+%%
+%% Course facts must agree with docs/SYLLABUS.md, docs/DESIGN.md and docs/ASSUMPTIONS.md.
+%% Research claims must use only what NOTES.md lists for that source. Written November 2026.
+
+%% =====================================================================
+\faqtopic{Before you join}
+
+\qa{Who is the course for?}{Children in Grades 4 and 5 (about 9 to 11 years old) who are curious
+  about how computers work. No experience is needed. Everything children read is written at a
+  Grade 4--5 reading level, with pictures, worked examples and a glossary.}
+
+\qa{Isn't 9 or 10 too young to learn to code?}{No. Scratch, the tool we start with, was designed at
+  MIT for children of this age \parencite{resnick2009scratch}. Snap-together blocks mean there are no
+  spelling mistakes to fight, so children can focus on the ideas. We move to typed Python only in
+  week 7 of Level 1, once those ideas feel familiar.}
+
+\qa{My child has never coded. Is that OK?}{Yes. Level 1 assumes nothing at all and there is no
+  entry test: instead, children fill in a short, ungraded survey about what they enjoy and what
+  feels new. The first lessons are about giving clear step-by-step instructions, which every child
+  already does every day.}
+
+\qa{My child already knows some Scratch. Should they skip Level 1?}{Usually not. Level 1 moves on
+  to Python halfway through, and every lesson has challenge tasks for children who finish early.
+  If your child has already written Python programs, talk to the course leader: Levels 2 and 3
+  start with a short placement quiz that shows where to begin.}
+
+\qa{What math does my child need?}{Only what Grade 4--5 children already meet at school: whole
+  numbers, division with remainders, simple fractions and decimals, angles in degrees and
+  coordinates on a grid. When an older idea comes up (for example negative numbers), the workbook
+  explains it in a short \enquote{Math helper} box first.}
+
+\qa{How do I know if my child is ready?}{Interest matters more than skill. A child who enjoys
+  building, puzzles, drawing or making up games, and can stay with a task for about 15 minutes, is
+  ready. Reading help from an adult is fine; pairs also read instructions to each other.}
+
+\qa{Can we look at the course before we sign up?}{Yes. Every workbook chapter, homework set and
+  starter file is free on this website. Try the week 1 chapter of
+  \sitelink{levels/level-1/}{Level 1} together and see how your child responds.}
+
+\qa{How much does it cost?}{The curriculum, the website and all the apps (Scratch, Thonny and
+  Python) are free and need no subscription. If there is a fee for the sessions themselves, the
+  person who runs your group will tell you.}
+
+%% =====================================================================
+\faqtopic{The course}
+
+\qa{How long is the course?}{Three levels of \LevelWeeks{} each, with \SessionLength{}, so about
+  \TotalWeeks{} in all. Holiday weeks without a session do not count. Each level ends with a
+  finished project, so your child can stop after any level.}
+
+\qa{What happens in a session?}{Every session has the same five parts, so children always know
+  what comes next: a warm-up game, a short new idea, a guided demonstration, a hands-on build in
+  pairs, and a wrap-up where children share and reflect. The group is \GroupSize{}, with a screen
+  break in every session.}
+
+\qa{What if my child misses a session?}{Tell the course leader. Each week's workbook chapter,
+  homework and starter files are on this website, so your child can catch up at home in about
+  half an hour. Week 6 of every level is a review week, and each level has spare sessions that
+  can be used for catching up.}
+
+\qa{Are there tests or grades?}{No grades. Each level has a short mid-level checkpoint and an
+  end-of-level check (Levels 2 and 3 also start with a placement quiz), but they only help the
+  adult see what to revisit. Projects are scored on a friendly four-step scale, from \enquote{Just
+  starting} to \enquote{Expert}, which values creativity, working code and being able to explain
+  it equally.}
+
+\qa{What happens at the end of each level?}{Children spend two sessions on their own final project
+  and then show it at a showcase for families in the last week. Everyone gets a certificate,
+  filled in by hand. The showcase happens on screen in the room; nothing is uploaded.}
+
+\qa{Does the course follow any standards?}{Yes. Lessons are mapped to the CSTA K--12 Computer
+  Science Standards \parencite{csta2017standards} and to the five big ideas of the AI4K12
+  guidelines \parencite{touretzky2019ai4k12}. Level 3 borrows a few high-school standards on
+  purpose, for children ready to stretch.}
+
+%% =====================================================================
+\faqtopic{What your child learns}
+
+\qa{What will my child be able to make?}{Level 1 ends with \emph{\LevelOneProject}:
+  \LevelOneProjectLine. Level 2 ends with an \emph{\LevelTwoProject}: \LevelTwoProjectLine.
+  Level 3 ends with \emph{\LevelThreeProject}: \LevelThreeProjectLine.}
+
+\qa{Why start with Scratch and then switch to Python?}{Blocks let children learn the big ideas
+  (steps, loops, choices, variables) without spelling mistakes getting in the way. Studies find
+  that children who start with blocks are ahead at first and do just as well once they move to
+  typed code \parencite{weintrop2019transition}. Python comes next because it reads almost like
+  English and is used in schools, universities and real jobs.}
+
+\qa{Why Python and not JavaScript, Java or the language of a favorite game?}{Python has very little
+  punctuation to get wrong, and Thonny, the editor we use, was made for beginners and shows
+  clearly what the program is doing. It works fully offline, with no accounts. The ideas children
+  learn (loops, functions, lists, objects) carry over to every other language.}
+
+\qa{What is \enquote{debugging}, and why does the course talk about it so much?}{Debugging means
+  finding and fixing mistakes in a program. Every session includes a deliberate bug to hunt,
+  because all programmers make mistakes and the skill is finding them calmly. Teaching a clear
+  debugging routine has been shown to improve both debugging skill and children's confidence
+  \parencite{michaeli2019debugging}.}
+
+\qa{Does the course teach artificial intelligence?}{Yes, in Level 3, and from the inside: children
+  build tiny AI programs by hand in Python (for example one that guesses by finding the most
+  similar example, and one that makes up silly sentences from patterns), so they see that AI
+  learns from data and can be wrong. No online AI services are used.}
+
+\qa{Will my child also learn about online safety?}{Yes. Every level has at least five short
+  conversations about being a good digital citizen: keeping personal information private, giving
+  credit for other people's work, making things everyone can use, asking for consent and using AI
+  fairly.}
+
+\qa{My child prefers to work alone. Do they have to work in a pair?}{For the main build, yes,
+  because children explain their thinking out loud in pairs, and studies find pairs often learn
+  more, especially less-experienced children \parencite{denner2014pair}. Roles switch often, and
+  there is also free-build time to work on their own ideas. Give it a few weeks; many children
+  who are unsure at first come to enjoy it.}
+
+%% =====================================================================
+\faqtopic{Computers and apps}
+
+\qa{What software does my child use, and does it cost anything?}{Three free tools: the offline
+  Scratch app from MIT, Thonny (a beginner's Python editor with Python built in) and, in Level 3,
+  git, which Apple provides for free. None of them needs an account or a subscription.}
+
+\qa{How do I set up our Mac?}{Follow the \sitelink{resources/setup-mac/}{Mac setup guide}. Allow
+  about an hour, once, before the first session. You can copy one command that installs
+  everything, or install each app by hand step by step. The internet is needed only for this
+  one-time installation, and a grown-up should do it.}
+
+\qa{We have a Windows PC or a Chromebook. Can my child still practice at home?}{The course is
+  written and tested for Macs, so menu names and keyboard shortcuts in the materials are the Mac
+  ones. The Scratch app is also free on Windows and Chromebooks, and Thonny is free on Windows, so
+  most homework works there with small differences. The paper parts of the homework work
+  anywhere.}
+
+\qa{Can my child use an iPad or tablet?}{Not for this course. There is no Scratch app for iPad,
+  and Thonny needs a computer with a keyboard. A tablet is fine for reading the workbook on this
+  website.}
+
+\qa{Does my child need the internet at home?}{No. Lessons and homework work completely offline.
+  The internet is needed only once, to install the apps.}
+
+\qa{Does my child need their own computer?}{No. In sessions, pairs share one Mac. At home, the
+  homework (\Homework) can be done on a family computer.}
+
+\qa{Something on our Mac is not working. Where can we get help?}{Start with the
+  \sitelink{resources/troubleshooting/}{troubleshooting guide}, which covers the most common
+  problems with Scratch and Thonny. In Thonny, the menu \emph{View \textgreater{} Assistant}
+  explains error messages in friendlier words. If you are still stuck, ask the course leader.}
+
+\qa{Where are the answers? Can I check my child's work?}{Each Python exercise on this website has
+  three hints that get more and more specific, and many exercises come with a self-check program
+  that says PASS or TRY AGAIN with a tip. Full answers stay with the course leader, so children
+  can enjoy solving the problems themselves.}
+
+\qa{Can my child keep the projects they make?}{Yes. Projects are saved as files on the Mac. You can copy them to a USB stick to keep. In Level 3 children also learn git,
+  which keeps a full history of every version of their project.}
+
+%% =====================================================================
+\faqtopic{Helping at home}
+
+\qa{I can't code. Can I still help?}{Yes, and you do not need to learn. The most useful things are
+  asking your child to show you what they made, asking about the bugs they found, and praising the
+  way they worked rather than \enquote{being a natural}. Being curious and nearby, without taking
+  over the keyboard, helps more than knowing the answer.}
+
+\qa{How much homework is there, and what if we skip a week?}{About \Homework. There is a short Core
+  part for everyone, plus optional Challenge and Creative parts for children who want more.
+  Skipping a week now and then is fine; a regular, protected time each week helps most.}
+
+\qa{How much should I help with homework?}{Ask questions instead of giving answers: \enquote{What
+  did you expect to happen? What happened instead? What could you try?} A little struggle is part
+  of learning. If your child is stuck for more than about ten minutes, suggest a hint from the
+  website, or write down the question for the next session.}
+
+\qa{My child gets upset when the code doesn't work. What should I do?}{It is completely normal;
+  every programmer meets bugs every day. Suggest a strategy: read the error message, read the code
+  out loud, change one thing at a time, or take a short break. Praise the strategy, not just the
+  fix, and try the word \enquote{yet}: \enquote{It doesn't work \emph{yet}.}}
+
+\qa{What should I ask my child after a session?}{Good questions are \enquote{Show me what you
+  made}, \enquote{What was the trickiest bug?}, \enquote{How did you find it?} and \enquote{What
+  would you add next?} Each level also has a short note for parents with ideas for that level.}
+
+\qa{My child uses words I don't understand. Where can I look them up?}{Each level has a glossary
+  and a one-page cheat sheet on this website, written for children, so they are quick for adults
+  to read too. Asking your child to explain a word is even better: explaining is one of the best
+  ways to learn.}
+
+\qa{My child wants to code more than once a week. What can they do?}{Wonderful. The Challenge and
+  Creative parts of each homework, and the extra exercises on this website, give plenty to do. The
+  Scratch app is also great for free play: suggest making a small game or story of their own.
+  Keep it within your family's screen-time plan.}
+
+\qa{Should I learn to code alongside my child?}{Only if you want to, but many families enjoy it. The
+  workbook is short and friendly for adults too. Letting your child be the teacher, while you ask
+  questions, is a great way to share it.}
+
+%% =====================================================================
+\faqtopic{Screen time and wellbeing}
+
+\qa{Isn't this just more screen time?}{It is a small amount: \SessionLength{} plus about 15 minutes
+  of homework. Every session has a screen break and an activity away from the computer, and the
+  screen time is creative, not passive. Pediatricians recommend that families make their own media
+  plan rather than follow one fixed number of hours \parencite{aap2016media}; this course can fit
+  into that plan.}
+
+\qa{My child already plays a lot of video games. Will this make it worse?}{Making a game is very
+  different from playing one: it means planning, testing and fixing. Many children start to see
+  the games they play as something people built, which they can understand and question. It is
+  still screen time, so count it in your family plan.}
+
+\qa{How does the course look after children's eyes and bodies?}{Sessions are one hour with a break,
+  children stretch and look away from the screen regularly (the 20-20-20 rule: every 20 minutes,
+  look at something 20 feet away for 20 seconds), and some activities happen with cards, paper or
+  moving around.}
+
+%% =====================================================================
+\faqtopic{Safety and privacy}
+
+\qa{Will my child need an email address or online account?}{No. No child creates an account,
+  logs in or gives an email address, at any level. US law requires parental consent before online
+  services collect personal information from children under 13 \parencite{ftc2025coppa}; this
+  course simply never collects any.}
+
+\qa{I've heard about the Scratch online community. Is it safe?}{We use the offline Scratch app, so
+  children never join or see the online community, and nothing they make is shared. If your child
+  later wants to share projects online, read Scratch's guide for parents together first and decide
+  as a family.}
+
+\qa{What information about my child does the course collect?}{None. Programs ask only for
+  nicknames or favorite colors, git in Level 3 uses a nickname, the example data is made up, and
+  projects stay on the computers in the room. This website has no accounts, no analytics and no
+  cookies.}
+
+\qa{Does the course use ChatGPT or other AI chat tools?}{No. The course does not use any online AI
+  services, because they need accounts and send what children type to other companies. In Level 3
+  children build tiny AI programs themselves, which teaches more about how AI works than using a
+  chatbot.}
+
+%% =====================================================================
+\faqtopic{Every learner}
+
+\qa{My child has dyslexia or finds reading hard. Can they take part?}{Yes. The student
+  workbooks and homework come in a dyslexia-friendly edition with a clearer font, bigger text, more spacing and a cream
+  page, and this website has an \emph{Easy-read font} switch (see
+  \sitelink{about/\#accessibility}{accessibility}). Instructions are short, Scratch needs very
+  little typing, and pairs read aloud to each other.}
+
+\qa{My child has ADHD or finds it hard to sit still. Will this work?}{Many children with ADHD love
+  coding because they see results quickly. The course helps with a predictable routine (the same
+  five parts each session), short chunks, a screen break, and activities that involve moving
+  around. Tell the course leader what works for your child at school or at home.}
+
+\qa{My child is color-blind. Will that be a problem?}{No. All materials use a color palette that is
+  safe for color-blind readers \parencite{okabe2008cud}, and every colored box also has an icon and
+  a word, so no meaning depends on color alone.}
+
+\qa{My child is very advanced. Will they be bored?}{Every lesson has an extension route, and
+  homework has optional Challenge and Creative parts. Final projects are open-ended, so a fast
+  learner can go much further. Level 3 covers ideas often met in high school, such as recursion,
+  sorting and how simple AI learns.}
+
+\qa{English is not our first language at home. Can my child still take part?}{Yes. Materials use
+  short sentences at a Grade 4--5 reading level, with a glossary for each level. The few English
+  words in Python (such as \texttt{print} or \texttt{if}) are learned like vocabulary. You can help
+  in any language by asking your child to explain what their program does.}
+
+%% =====================================================================
+\faqtopic{Why learn to code now}
+
+\qa{If AI can write code, why should my child learn to code?}{Someone still has to understand, check
+  and fix what AI writes, and decide what to build in the first place. Research is still early:
+  in one study of 69 learners aged 10 to 17, an AI helper let them finish more tasks without making
+  them worse at editing code by hand \parencite{kazemitabaar2023codex}, while a 2026 OECD report
+  warns that general chatbots can raise scores without lasting learning \parencite{oecd2026deo}.
+  Knowing how to code helps children use AI as a tool rather than depend on it.}
+
+\qa{What is computational thinking?}{It is a way of solving problems: breaking a big problem into
+  smaller parts, spotting patterns, ignoring details that do not matter, and writing clear steps
+  \parencite{wing2006ct}. Coding is one of the best ways to practice it, and the same habits
+  help with planning projects in everyday life.}
+
+%% =====================================================================
+\faqtopic{After the course}
+
+\qa{What can my child do after Level 3?}{Keep building! Children leave Level 3 able to plan, write,
+  test and save larger programs on their own. Good next steps are computer science classes or
+  clubs at school, longer projects of their own in Python, or free project guides from
+  organizations such as the Raspberry Pi Foundation or Code.org. If a site needs an account,
+  read its privacy rules and set it up together.}
+
+\qa{Will this help with computer science at school later?}{It gives a strong start: the ideas in
+  this course (loops, functions, lists, objects, testing) are the same ones met in middle- and
+  high-school computer science, and Python is widely used there. It is not a shortcut past those
+  classes, but children usually arrive confident and curious.}

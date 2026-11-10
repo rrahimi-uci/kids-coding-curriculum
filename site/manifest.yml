@@ -36,6 +36,7 @@ public:
     handout: parents/build/parent-handout.pdf
     source: parents/main.tex
     shared: parents/content/shared.tex
+    faq: parents/content/faq.tex          # extra FAQ entries for parents/faq/ (not in the deck)
     bib: parents/references.bib
 
 private:

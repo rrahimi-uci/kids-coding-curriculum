@@ -1,7 +1,8 @@
 """Parent pages: research evidence, slide gallery, FAQ and family information.
 
 Everything is generated from parents/main.tex (frames, sources, speaker-note paragraphs and the
-questions-and-answers), parents/content/shared.tex (course facts) and parents/references.bib.
+questions-and-answers), parents/content/faq.tex (extra FAQ entries that are not in the deck),
+parents/content/shared.tex (course facts) and parents/references.bib.
 Slide images are rendered from the built deck PDF.
 """
 from __future__ import annotations
@@ -147,6 +148,53 @@ def tex_fragment_to_html(tex: str, macros: dict[str, str], bib: dict[str, dict])
     return resolve_cites(pandoc_html(tex), bib)
 
 
+# --------------------------------------------------------------------------- extra FAQ entries
+SITE_LINK = "https://site.invalid/"  # stand-in for %BASE% while pandoc converts (% starts a TeX comment)
+
+
+def qa_html(tex: str, macros: dict[str, str], bib: dict[str, dict]) -> str:
+    """One question or answer as inline HTML (no surrounding paragraph)."""
+    return tex_fragment_to_html(tex, macros, bib).replace("<p>", "").replace("</p>", "")
+
+
+def parse_faq(text: str, macros: dict[str, str], bib: dict[str, dict]) -> list[dict]:
+    """Topics and questions from parents/content/faq.tex, in file order.
+
+    \\faqtopic{Name} starts (or continues) a topic; \\qa{question}{answer} adds an entry;
+    \\sitelink{path/}{text} links to a page on this website.
+    """
+    text = re.sub(r"(?<!\\)%.*", "", text)
+
+    def site_links(s: str) -> str:
+        out, pos = [], 0
+        for m in re.finditer(r"\\sitelink(?![A-Za-z])", s):
+            args, end = read_args(s, m.end(), 2)
+            if len(args) != 2:
+                raise ValueError("\\sitelink needs two arguments: " + s[m.start():m.start() + 60])
+            path = args[0].replace("\\#", "#").lstrip("/")
+            out += [s[pos:m.start()], "\\href{%s%s}{%s}" % (SITE_LINK, path, args[1])]
+            pos = end
+        return "".join(out) + s[pos:]
+
+    topics: list[dict] = []
+    current = None
+    for m in re.finditer(r"\\(faqtopic|qa)(?![A-Za-z])", text):
+        if m.group(1) == "faqtopic":
+            args, _ = read_args(text, m.end(), 1)
+            name = args[0].strip() if args else ""
+            current = next((t for t in topics if t["topic"] == name), None)
+            if current is None:
+                current = {"topic": name, "qa": []}
+                topics.append(current)
+            continue
+        args, _ = read_args(text, m.end(), 2)
+        if len(args) != 2 or current is None:
+            raise ValueError("faq.tex: \\qa needs two arguments after a \\faqtopic: " + text[m.start():m.start() + 60])
+        q, a = (qa_html(site_links(x), macros, bib).replace(SITE_LINK, BASE) for x in args)
+        current["qa"].append({"q": q, "a": a})
+    return [t for t in topics if t["qa"]]
+
+
 # --------------------------------------------------------------------------- frames
 FRAME_RE = re.compile(r"\\begin\{frame\}(?:\[[^\]]*\])?(?:\{((?:[^{}]|\{[^{}]*\})*)\})?(.*?)\\end\{frame\}", re.S)
 
@@ -239,8 +287,7 @@ def build(manifest: dict, gen: Path, pub: Path, warnings: list[str], skip_pdfs: 
             for m in re.finditer(r"\\qa(?![A-Za-z])", notes[2]):
                 qa, _ = read_args(notes[2], m.end(), 2)
                 if len(qa) == 2:
-                    s["qa"].append({"q": tex_fragment_to_html(qa[0], macros, bib).replace("<p>", "").replace("</p>", ""),
-                                    "a": tex_fragment_to_html(qa[1], macros, bib).replace("<p>", "").replace("</p>", "")})
+                    s["qa"].append({"q": qa_html(qa[0], macros, bib), "a": qa_html(qa[1], macros, bib)})
         slides.append(s)
         if is_refs:
             break
@@ -290,6 +337,7 @@ def build(manifest: dict, gen: Path, pub: Path, warnings: list[str], skip_pdfs: 
                 "handout": {"url": f"{BASE}downloads/parents/why-coding-parent-handout.pdf",
                             "kb": (dl / "why-coding-parent-handout.pdf").stat().st_size // 1024}},
         "pages": pages,
+        "faq": parse_faq((ROOT / pp["faq"]).read_text(encoding="utf-8"), macros, bib) if pp.get("faq") else [],
     }
     (gen).mkdir(parents=True, exist_ok=True)
     (gen / "parents.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")

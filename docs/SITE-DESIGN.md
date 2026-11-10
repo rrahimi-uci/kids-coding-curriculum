@@ -21,7 +21,7 @@ course sources (.tex, .py, .md)            site/manifest.yml (public / private, 
 tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──► Astro (site/) ──► site/dist ──► Pagefind index
         │               figures.py ──► SVG figures
         │               exercises.py ► exercise pages (README + starter + hints)
-        │               parents.py ──► research, slides, FAQ (from the parent deck + .bib)
+        │               parents.py ──► research, slides, FAQ (from the parent deck, faq.tex + .bib)
         └── pdfs.py ───► whole-level and per-week PDFs
                                                            checks: private content, content, HTML, links, a11y, Lighthouse
 ```
@@ -37,7 +37,7 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
 | TikZ diagrams and Scratch scripts | Each figure is compiled with **LuaLaTeX using the course class**, converted to **SVG** with `pdftocairo`, cached by hash | Pixel-faithful to the PDF, scales on phones, sharp in print. Alt text: Scratch scripts get a generated description (block by block, with nesting); every TikZ diagram needs a `%% alt: …` comment in the source (checked). |
 | Code listings | `pycode` / `outputcode` blocks → `<pre>`; Python highlighted at build time with **Pygments** (static CSS classes) | No JavaScript needed for highlighting; the copy button is a tiny progressive enhancement. |
 | Exercises | **Rendered directly from the source folders**: `README.md`, `starter.py`, `hints.md` | The folders already are the master. Hints are a new public file per exercise (three progressive hints). |
-| Parent deck (Beamer) | Embedded PDF viewer + PDF download; **slide images** (WebP, with alt text from the slide text); a research page and FAQ **generated from `main.tex` and `references.bib`** | Beamer slides are TikZ-heavy and not worth converting frame by frame. The speaker-note paragraphs ("In plain language", questions and answers) and sources are structured in the source, so they become real HTML with linked citations. |
+| Parent deck (Beamer) | Embedded PDF viewer + PDF download; **slide images** (WebP, with alt text from the slide text); a research page and FAQ **generated from `main.tex`, `content/faq.tex` and `references.bib`** | Beamer slides are TikZ-heavy and not worth converting frame by frame. The speaker-note paragraphs ("In plain language", questions and answers) and sources are structured in the source, so they become real HTML with linked citations. Questions asked outside the information evening live in `parents/content/faq.tex`, so the slides stay short. |
 | Project briefs, cheat sheets, parent notes | The same LaTeX converter, standalone documents: the file's own zero-argument macros are expanded, cheat-sheet code boxes and command tables are mapped (`tools/site/texconv.py`) | They are ordinary student-facing documents; faithful HTML plus the PDF alongside. |
 | Glossaries | Parsed structurally (`\gl`, `\term`) into one searchable A to Z page | The three sources use two macro styles; one page is easier to use than three PDFs. |
 | Progress trackers | PDF only | They are print-and-tick sheets; HTML adds nothing. |
