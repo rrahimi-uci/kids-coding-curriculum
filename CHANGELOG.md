@@ -3,6 +3,16 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.6.0 - 2026-11-10
+
+Production-ready Level 1 teaching-video plans and regeneration tooling.
+
+- Twelve age-appropriate, 4:30 video scripts now cover every Level 1 lesson with objectives, narration, scene timing, visual direction, misconceptions, debugging moments, digital citizenship and direct practice handoffs.
+- A typed OpenAI Agents SDK workflow grounds revisions in the current curriculum, runs a teacher-review agent, and uses bounded revision loops plus deterministic quality gates.
+- Per-week SHA-256 manifests detect curriculum drift and regenerate only affected episodes; the tracked JSON specification reproducibly generates the readable Markdown plan.
+- The media pipeline creates accessible 16:9 scene cards or optional text-free illustrations, synthetic narration, short caption cues and FFmpeg-composed MP4 files behind an explicit human-approval gate.
+- Image and voice providers are isolated so production can migrate away from retiring Speech API models without changing the curriculum workflow.
+
 ## 1.5.1 - 2026-11-10
 
 Correct and executable Mac setup instructions.

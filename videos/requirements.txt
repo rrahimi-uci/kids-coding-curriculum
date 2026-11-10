@@ -1,0 +1,4 @@
+# Agent orchestration and typed structured outputs.
+openai-agents==0.24.0
+# Deterministic, accessible scene-card rendering.
+Pillow>=11,<13
