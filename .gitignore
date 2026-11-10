@@ -27,3 +27,5 @@ build/site-cache/
 # Generated video media and paid-API caches. Plans, manifests, and specs are tracked.
 videos/output/
 videos/.cache/
+videos/specs/*.candidate.json
+.venv-videos/
