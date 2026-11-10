@@ -5,7 +5,12 @@ Dates are in ISO format.
 
 ## 1.6.0 - 2026-11-10
 
-Production-ready Level 1 teaching-video plans and regeneration tooling.
+More answers for parents and production-ready Level 1 teaching-video plans.
+
+- The questions and answers page now answers about 80 questions instead of about 30: who the course is for, cost, missed sessions, grades and showcases, why Scratch and then Python, Windows, Chromebooks and iPads, setup help, helping with homework, frustration, screen time and video games, accounts and the Scratch online community, dyslexia, ADHD, color blindness, advanced learners, families who speak another language at home, AI, and what to do after Level 3.
+- The four questions on the "Common questions" slide (too young, AI, screen time, "I can't code") now have full answers on the page too.
+- The page starts with a list of topics, and topics are ordered from "Before you join" to "After the course".
+- The new questions live in `parents/content/faq.tex`, so the slide deck and presenter notes stay the same.
 
 - Twelve age-appropriate, 4:30 video scripts now cover every Level 1 lesson with objectives, narration, scene timing, visual direction, misconceptions, debugging moments, digital citizenship and direct practice handoffs.
 - A typed OpenAI Agents SDK workflow grounds revisions in the current curriculum, runs a teacher-review agent, and uses bounded revision loops plus deterministic quality gates.

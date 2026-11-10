@@ -97,6 +97,26 @@ and on the deck's References slides.
 6. **Handout edition.** Only the standard edition is built. The handout uses
    `kidscode.cls`, so a dyslexia-friendly build could be added later.
 
+## Website FAQ (`content/faq.tex`)
+
+Added November 2026. The extra questions were chosen from the questions that
+recur in parent FAQs of children's coding programs and in parent guides
+(the official Scratch parent pages, the Raspberry Pi Foundation's
+"learn at home" guide for parents, and course-provider FAQs), and then
+answered from this course's own documents (`docs/SYLLABUS.md`,
+`docs/DESIGN.md`, `docs/ASSUMPTIONS.md`, `resources/`). Provider FAQs were
+used only to choose questions, never as evidence.
+
+Research claims in the FAQ reuse only sources in the table above and stay
+within what the table says each source supports. Facts not from this course
+or the bibliography:
+
+* Scratch app platforms (Mac, Windows, Chromebook and Android tablets; no
+  iPad app) and Thonny on Windows: from scratch.mit.edu/download and
+  thonny.org, checked November 2026.
+* The 20-20-20 eye rule is the course's own screen-break routine
+  (`docs/SYLLABUS.md`, Level 1 week 2), not a research claim.
+
 ## Double-check before presenting
 
 * The three placeholders in `content/shared.tex`.

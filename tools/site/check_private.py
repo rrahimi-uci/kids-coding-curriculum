@@ -157,8 +157,10 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
             for f in glob.glob(str(root / pat.format(dir=d)), recursive=True):
                 if Path(f).is_file() and "__pycache__" not in f:
                     public_parts.append(Path(f).read_text(encoding="utf-8", errors="replace"))
-    for rel in (pub["parents"]["source"], pub["parents"]["shared"]):
-        public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
+    for key in ("source", "shared", "faq"):
+        rel = pub["parents"].get(key)
+        if rel and (root / rel).exists():
+            public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
     syl = root / "docs" / "SYLLABUS.md"
     if syl.exists():
         public_parts.append(syl.read_text(encoding="utf-8"))

@@ -42,6 +42,8 @@ notes.tex                presenter edition: defines \kcwithnotes, inputs main.te
 handout.tex              one-page handout (uses shared/latex/kidscode.cls)
 content/shared.tex       text used by both deck and handout: course facts,
                          level summaries, "how to help", safety promises
+content/faq.tex          extra questions and answers for the website's FAQ page
+                         (not in the deck or handout; see "Website FAQ" below)
 references.bib           the one bibliography (APA style via biblatex)
 beamerthemekidscode.sty  original Beamer theme (layout, badges, boxes, notes page)
 Makefile
@@ -71,3 +73,20 @@ are smaller.
 Rules used when writing slides: one idea per slide, at most six bullets of
 about ten words, a `\source` on every slide that states a fact, and a
 `\figalt` under every chart or diagram.
+
+## Website FAQ
+
+The website's [questions and answers page](https://rrahimi-uci.github.io/kids-coding-curriculum/parents/faq/)
+combines two sources:
+
+1. the `\qa{question}{answer}` entries in the third argument of each `\kcnotes` in
+   `main.tex` (questions a presenter may get on the evening), grouped by the slide's kicker;
+2. `content/faq.tex`, for questions families ask outside the evening (setup, missed sessions,
+   homework help, screen time, privacy, different learners, what comes next). It is never
+   typeset; only `tools/site/parents.py` reads it.
+
+In `content/faq.tex`, `\faqtopic{Name}` starts a topic and `\qa{...}{...}` adds an entry.
+Macros from `content/shared.tex`, `\textcite`/`\parencite` (linked to the research page) and
+`\sitelink{path/}{text}` (a link within the website) work in both. The topic order is set by
+`TOPIC_ORDER` in `site/src/pages/parents/faq.astro`. Keep course facts in line with
+`docs/SYLLABUS.md` and `docs/ASSUMPTIONS.md`, and research claims in line with [NOTES.md](NOTES.md).
