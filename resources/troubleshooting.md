@@ -46,7 +46,7 @@ Look at the line Thonny highlights and the line above it. A missing `)`, `"` or 
 Check spelling and capital letters. Python words are lower case: `print`, `forward`.
 
 **`ModuleNotFoundError: No module named 'pytest'`.**
-Install pytest: **Tools > Manage packages...**, search `pytest`, **Install**, then restart Thonny. See [Set up your Mac](../setup-mac/#pytest-level-2-needed-from-week-8).
+Install pytest: **Tools > Manage packages...**, search `pytest`, **Install**, then restart Thonny. See [Set up your Mac](../setup-mac/#pytest-level-1-from-week-7-level-2-from-week-8).
 
 **A test says `ModuleNotFoundError` for my own program.**
 The test file and your program must be in the same folder, and the `import` line must match your file name without `.py`.

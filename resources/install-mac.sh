@@ -3,12 +3,12 @@
 #
 #   * Scratch 3 (the free offline app)          - Level 1, weeks 1 to 6
 #   * Thonny (comes with its own Python)        - Level 1 from week 7, Levels 2 and 3
-#   * pytest, inside Thonny's Python            - Level 2 from week 8
+#   * pytest, inside Thonny's Python            - Level 1 from week 7; Level 2 from week 8
 #   * git (Apple's command line tools)          - Level 3
 #
 # It is safe to run again: anything already installed is skipped.
-# It asks for your Mac password once (to put Thonny in Applications) and never sends any
-# information anywhere: the only network traffic is the downloads from scratch.mit.edu and github.com.
+# It asks for an administrator password when needed to install apps. It does not upload course files
+# or personal information. Downloads come from Scratch, GitHub, PyPI and, when needed, Apple.
 # Set KIDS_DRY_RUN=1 to see what it would do without installing anything.
 
 main() {
@@ -92,7 +92,7 @@ main() {
   fi
 
   # ---- 4. pytest, inside Thonny's own Python ----------------------------------------------------
-  say "4 of 4: pytest (automatic tests, Level 2)"
+  say "4 of 4: pytest (automatic checks, needed from Level 1 week 7)"
   PY="$(find "$APPS/Thonny.app/Contents/Frameworks/Python.framework/Versions" -path '*/bin/python3' 2>/dev/null | head -n 1)"
   if [ -z "$PY" ]; then
     if [ "${KIDS_DRY_RUN:-0}" = "1" ]; then
