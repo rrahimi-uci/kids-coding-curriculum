@@ -3,6 +3,15 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.5.1 - 2026-11-10
+
+Correct and executable Mac setup instructions.
+
+- The Mac setup page now matches the current Thonny 5 installers, including macOS and Intel/Apple-silicon requirements.
+- The one-command installer description now names all download sources, explains the Command Line Tools rerun, and distinguishes the expected administrator prompt from unexpected permission requests.
+- pytest is correctly documented as required for Level 1 week 7 self-checks as well as Level 2 week 8 testing; current Thonny interpreter and system-shell paths are documented.
+- Git identity guidance now matches Git's actual behavior, and the troubleshooting link follows the updated pytest section anchor.
+
 ## 1.5.0 - 2026-11-09
 
 Written for Grades 4–5 at every level.

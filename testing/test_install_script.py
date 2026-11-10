@@ -43,3 +43,12 @@ def test_setup_guide_offers_the_script():
     guide = GUIDE.read_text()
     assert "{{INSTALL_SCRIPT}}" in guide and "%SITE%downloads/install-mac.sh" in guide
     assert "install-mac.sh" in guide
+
+
+def test_setup_guide_matches_current_course_and_thonny_steps():
+    guide = GUIDE.read_text()
+    assert "Level 1 from week 7" in guide
+    assert "Local Python 3" in guide
+    assert "Mac administrator password" in guide
+    assert "The plain Terminal's `python3` is Apple's own copy" not in guide
+    assert "quietly uses the real name of the Mac account" not in guide
