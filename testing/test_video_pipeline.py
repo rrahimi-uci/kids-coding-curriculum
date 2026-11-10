@@ -251,3 +251,43 @@ def test_agent_drafts_keep_week_and_slug_stable(series) -> None:
     draft = VideoDraft.model_validate({**current, "week": 99, "slug": "renamed-by-the-model"})
     pinned = _pin_identity(draft, 7, current)
     assert (pinned.week, pinned.slug) == (7, current["slug"])
+
+
+# --------------------------------------------------------------------------- animated episodes
+def test_animated_beats_say_exactly_the_spec_narration() -> None:
+    from videos.pipeline.animated.render import available_weeks
+    from videos.pipeline.animated.timeline import check_against_spec
+
+    spec = json.loads(SPEC.read_text(encoding="utf-8"))
+    assert 1 in available_weeks()
+    for week in available_weeks():
+        script = __import__(f"videos.pipeline.animated.episodes.week{week:02d}_script", fromlist=["SCRIPTS"])
+        video = next(v for v in spec["videos"] if v["week"] == week)
+        assert check_against_spec(script.SCRIPTS, video) == []
+        for scene in script.SCRIPTS:
+            names = [beat.cue for beat in scene.beats]
+            assert len(names) == len(set(names)), scene.scene_id
+
+
+def test_animated_timeline_places_beats_in_order() -> None:
+    from videos.pipeline.animated.timeline import Beat, SceneScript, build_timeline
+
+    scripts = [SceneScript("w01-s01", (Beat("One.", cue="a", pause=0.5), Beat("Two.", cue="b")), lead_in=1.0, tail=2.0)]
+    scenes, total = build_timeline(scripts, [[2.0, 3.0]], intro=4.0, outro=5.0)
+    scene = scenes[0]
+    assert (scene.start, scene.at("a"), scene.at("b"), scene.end_of("b")) == (4.0, 1.0, 3.5, 6.5)
+    assert scene.end == 4.0 + 1.0 + 2.0 + 0.5 + 3.0 + 0.25 + 2.0
+    assert total == scene.end + 5.0
+
+
+def test_synthesized_music_and_effects_are_clean() -> None:
+    np = pytest.importorskip("numpy")
+    from videos.pipeline.animated import audio
+
+    bed = audio.music_bed(12.0, intro=4.0, outro_start=8.0)
+    assert len(bed) == 12 * audio.SR and np.isfinite(bed).all() and np.abs(bed).max() < 1.5
+    for name in audio.SFX_GAIN:
+        sound = audio.sfx(name)
+        assert len(sound) > 0 and np.isfinite(sound).all(), name
+    stereo = audio.mix(6.0, [(1.0, np.sin(np.linspace(0, 2000, audio.SR)) * 0.5)], [(0.5, "pop")], 1.0, 5.0)
+    assert stereo.shape[1] == 2 and np.abs(stereo).max() <= 1.0

@@ -46,6 +46,38 @@ Each draft goes through the same deterministic checks as `check` *before* the re
 
 The default agent model is `gpt-6-astra`. You can override it without changing code with `VIDEO_AGENT_MODEL`. See the official [Agents SDK guide](https://developers.openai.com/api/docs/guides/agents/sdk), [quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart) and [agent definitions](https://developers.openai.com/api/docs/guides/agents/define-agents).
 
+## Fully animated episodes (free, local)
+
+`animate` makes a finished, child-ready episode: animated characters and examples, natural neural voices, music, sound effects and captions. It makes no paid calls and needs no API key; Week 1 is done so far.
+
+```bash
+python -m pip install -r videos/requirements-animate.txt   # once (needs the cairo library: brew install cairo)
+python -m videos.pipeline.cli fetch-voice                  # once: downloads the voice model (about 350 MB) and checks its SHA-256
+python -m videos.pipeline.cli animate --week 1             # about 25 seconds on a recent Mac
+python -m videos.pipeline.cli animate --week 1 --preview 30   # just the first 30 seconds
+```
+
+What goes into an episode:
+
+- **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Nova (`af_bella`) and Pixel (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Spelling fixes for tricky words live in `LEXICON` in `animated/audio.py`.
+- **Animation:** Nova and Pixel blink, change expression, wave and point. Nova's mouth follows the voice. Every idea is shown as it is said: the floor-grid algorithm, step cards, snap-together blocks, the bug hunt, and a recap. Scenes change with a circular wipe.
+- **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. The final mix is normalized to -16 LUFS with peaks at or below -1.5 dBTP.
+- **Text:** the course font, large and short, timed to the narration. Captions are a selectable track plus `.srt` and `.vtt` files.
+
+How it is organized (`videos/pipeline/animated/`):
+
+| File | What it holds |
+|---|---|
+| `timeline.py` | Beats (line, speaker, pause, cue) and the audio-driven clock. |
+| `episodes/weekNN_script.py` | Who says each line. **Its text must equal the spec narration**; `make test` checks this. |
+| `episodes/weekNN.py` | The scene drawings, timed by cue names, plus the sound-effect cues. |
+| `engine.py`, `characters.py`, `props.py` | Drawing helpers, Nova, Pixel and the cat, and reusable props (cards, blocks, bubbles, doors, the logo). |
+| `audio.py`, `render.py` | Voices, music, effects and mix; parallel frame rendering and the final MP4. |
+
+To change what is said, edit `videos/specs/level1.json` and then update the beats in `episodes/weekNN_script.py` to match. To animate another week, add `weekNN_script.py` and `weekNN.py`; reuse the characters and props, and use the cue names from the script to time each picture.
+
+The voice is AI-generated. The end card and the file metadata say so, and a published description must say so too.
+
 ## Render
 
 Rendering refuses scripts whose lessons have changed since they were checked. Pass `--allow-stale` only for a throwaway draft.

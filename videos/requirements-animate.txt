@@ -1,0 +1,8 @@
+# Fully animated episodes (`python -m videos.pipeline.cli animate`), on top of requirements.txt.
+-r requirements.txt
+# Antialiased vector drawing (needs the cairo library: `brew install cairo` on a Mac).
+pycairo>=1.26,<2
+numpy>=2,<3
+# Free, local neural voices: Kokoro-82M (Apache-2.0) through ONNX Runtime.
+kokoro-onnx==0.4.7
+soundfile>=0.12,<1

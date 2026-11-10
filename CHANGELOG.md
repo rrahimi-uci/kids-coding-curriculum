@@ -3,6 +3,17 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.8.0 - 2026-11-10
+
+A fully animated, child-ready Week 1 video.
+
+- New `animate` command: makes finished animated episodes on your own computer, free, with no API key. Week 1, "Robots Need Exact Instructions", is the first (3:26).
+- Natural neural voices (Kokoro, open source) replace the robotic draft voice: a warm narrator, plus separate voices for Nova and Pixel. Each line is timed so the picture changes exactly when the words do.
+- Animated characters blink, change expression, wave, point and talk. Every idea is shown on screen: Pixel following an algorithm on a floor grid, step cards reordering, blocks snapping together, a stage-show bug hunt with the four detective steps, and a recap.
+- Gentle background music and soft sound effects, made in code. The music dips under speech, and the loudness is normalized for online video.
+- The Week 1 narration was rewritten to sound natural when spoken, with a friendly opening, short sentences and a recap. Every fact checked in 1.7.0 is kept.
+- Captions come as a track in the video plus `.srt` and `.vtt` files.
+
 ## 1.7.0 - 2026-11-10
 
 Level 1 teaching videos: checked against the lessons, and ready to render.
