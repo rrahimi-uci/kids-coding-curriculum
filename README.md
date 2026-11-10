@@ -1,146 +1,225 @@
+<div align="center">
+
 # Kids Coding Curriculum
 
-A complete, print-ready programming curriculum for **up to four children
-in Grades 4–5 (ages 9–11)**, taught at home by a parent in **one 60-minute session a
-week** on Macs. It leans into what the kids enjoy: **making games and visual
-art**.
+### A playful, print-ready path from Scratch to Python, Git, data, and simple AI.
 
-| Level | Length | Language | Final project (reference solution) |
+One calm, creative 60-minute session a week for children in Grades 4–5
+(ages 9–11), taught at home by a parent on a Mac.
+
+<p>
+  <a href="https://rrahimi-uci.github.io/kids-coding-curriculum/">Open the website</a>
+  &nbsp;·&nbsp;
+  <a href="https://rrahimi-uci.github.io/kids-coding-curriculum/resources/setup-mac/">Set up a Mac</a>
+  &nbsp;·&nbsp;
+  <a href="#quick-start">Quick start</a>
+  &nbsp;·&nbsp;
+  <a href="parents/">For parents</a>
+</p>
+
+<p>
+  <a href="https://github.com/rrahimi-uci/kids-coding-curriculum/actions/workflows/ci.yml"><img src="https://github.com/rrahimi-uci/kids-coding-curriculum/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status"></a>
+  <a href="https://github.com/rrahimi-uci/kids-coding-curriculum/actions/workflows/site.yml"><img src="https://github.com/rrahimi-uci/kids-coding-curriculum/actions/workflows/site.yml/badge.svg?branch=main" alt="Website build status"></a>
+</p>
+
+</div>
+
+> **The short version:** children make things they can see and play with; parents get a complete lesson, workbook, homework, answer key, and setup path for every week.
+
+## At a glance
+
+| | Course promise |
+|---|---|
+| **Audience** | Grades 4–5 · ages 9–11 · up to four children |
+| **Rhythm** | One 60-minute session per week, with optional buffer sessions |
+| **Shape** | Three levels, each about 10–12 weeks, plus a final project |
+| **Teaching style** | Make games and visual art, then explain, test, and improve the code |
+| **Home setup** | Mac, Scratch, Thonny, Python, and pytest; no student accounts required |
+| **Print design** | Standard and dyslexia-friendly editions using the Okabe–Ito color-blind-safe palette |
+
+## Choose your path
+
+| Level | You will build | Main ideas | Capstone |
 |---|---|---|---|
-| [1 Introduction](1-introduction/) | 10–12 weeks | Scratch, then Python turtle in Thonny | *My Interactive Art Show* (*Night Sky Postcard*) |
-| [2 Intermediate](2-intermediate/) | 10–12 weeks | Python: functions, lists, dicts, files, testing, games | *Arcade Game or Art Studio* (*Star Catcher*) |
-| [3 Advanced](3-advanced/) | 10–12 weeks | Python projects: OOP, algorithms, git, data, simple AI | *Build Something Big* (*Maze Muncher*) |
+| [**1 · Introduction**](1-introduction/) | Scratch creations, turtle drawings, and interactive art | Events, loops, decisions, variables, and Python basics | **My Interactive Art Show** · reference: *Night Sky Postcard* |
+| [**2 · Intermediate**](2-intermediate/) | Games and small data-powered programs | Functions, lists, dictionaries, files, testing, and game design | **Arcade Game or Art Studio** · reference: *Star Catcher* |
+| [**3 · Advanced**](3-advanced/) | Larger programs that are easier to change | Classes, algorithms, Git, data, and simple AI | **Build Something Big** · reference: *Maze Muncher* |
 
-No accounts, no internet needed during lessons, and no personal data.
+<div align="center">
 
-## Repository layout
+**Create → explain → test → improve → share**
 
+</div>
+
+## Quick start
+
+### If you are teaching a family
+
+1. **[Open the course website](https://rrahimi-uci.github.io/kids-coding-curriculum/)** to browse the curriculum and printable student resources.
+2. **[Set up each Mac](https://rrahimi-uci.github.io/kids-coding-curriculum/resources/setup-mac/)** with the current Scratch, Thonny, Python, pytest, and Git instructions.
+3. Read the level’s **Teacher Guide** and print the Student Workbook and Homework for each child.
+4. Start with Level 1, Week 1. Each week has a lesson plan, student practice, homework, and a clear definition of “done.”
+
+For an offline student copy, build a solution-free bundle:
+
+```bash
+make student-bundle          # all three levels
+make student-bundle LEVEL=1  # Level 1 only
 ```
+
+The output is `build/student-bundle/kids-coding/` and a matching ZIP file. Copy
+the folder or unzip it into the child’s Documents folder. It contains the
+exercise instructions, hints, starter files, tests, and self-check helpers —
+but not solutions, answer keys, or teacher material.
+
+### If you are exploring the repository
+
+```bash
+make setup  # create the development environment
+make test   # run the headless exercise and repository checks
+```
+
+That is enough to confirm the repository is healthy. Maintainers can find the
+full build and publishing workflow below.
+
+## What each week includes
+
+Every level is designed as a complete teaching kit rather than a collection of
+loose worksheets:
+
+| For the parent | For the child |
+|---|---|
+| Teacher Guide with setup, pacing, assessment, and troubleshooting | Student Workbook chapter with explanations, diagrams, vocabulary, and reflection |
+| Minute-by-minute Lesson Plan with analogies, worked examples, mistakes, and stretch ideas | In-class exercises with hints and a clear “done” checklist |
+| Answer Key for workbook, homework, and assessments | Homework in Core, Challenge, and Creative paths, designed for about 15–20 minutes |
+| Progress tracker, glossary, cheat sheet, and certificate | Starter files and self-checks that encourage debugging without revealing the solution |
+
+Students check Python work by opening `check_my_work.py` in the exercise folder
+and pressing **Run** in Thonny. Scratch and Terminal exercises use their own
+expected-behavior and checklist sections.
+
+## Repository map
+
+```text
 1-introduction/        Level 1: Scratch, then Python turtle
-2-intermediate/        Level 2: Python functions, data, files, testing, games
-3-advanced/            Level 3: OOP, algorithms, git, data, simple AI
-docs/                  syllabus, design decisions, standards, authoring guide, assumptions
-site/                  Astro project (theme, pages) + manifest.yml (public/private rules) + qa/ checks
-parents/               parent information evening: research-based slide deck,
-                       speaker notes and one-page handout (see parents/README.md)
-shared/latex/          kidscode.cls (the one document class: fonts, boxes),
-                       kidscode-colors.sty (the shared Okabe-Ito palette)
-                       and kidscode-breaks.lua (lets long code names wrap)
-shared/templates/      blank lesson / workbook / homework / answer files to copy
-testing/               fake turtle + test runners, repository quality checks
-tools/                 build.py (PDFs), coverage.py (objective coverage tables),
-                       student_bundle.py (solution-free copy for the children's Macs)
-.github/               CI workflow and pull request template
+2-intermediate/        Level 2: functions, data, files, testing, and games
+3-advanced/            Level 3: OOP, algorithms, Git, data, and simple AI
+docs/                  syllabus, design decisions, standards, and authoring guide
+parents/               parent information evening deck, notes, and handout
+shared/                LaTeX class, color palette, and document helpers
+testing/               fake turtle, test runners, and repository quality checks
+tools/                 PDF, coverage, student-bundle, and website build tools
+site/                  Astro website, public/private manifest, and browser QA
+.github/               CI workflows and the pull-request template
 ```
 
-## What is in each level
+An exercise folder normally looks like this:
 
-```
-<level>/teaching-material/
-  teacher-guide          goals, roadmap, setup, session template, assessment plan,
-                         troubleshooting, pacing + holiday plan, coverage tables
-  lesson-plans           one plan per week + 2 optional buffer sessions (minute-by-minute,
-                         teacher script, analogies, worked example, mistakes,
-                         differentiation, stretch challenge)        [teacher]
-  student-workbook       one chapter per week: explanations, diagrams,
-                         in-class exercises, vocabulary box, reflection
-  homework               one 15–20 min set per week: Core / Challenge / Creative
-                         + self-check list
-  answer-key             workbook, homework and assessment answers [teacher]
-  assessments            placement quiz (Levels 2–3), mid-level checkpoint,
-                         exit assessment, each with a rubric
-  extras/                cheat sheet, glossary, progress tracker, parent notes,
-                         certificate
+```text
 <level>/exercises/weekNN/<exercise>/
-  README.md  starter.py  solution.py  test_*.py  check_my_work.py
-  (Scratch and Terminal exercises: README.md  hints.md  solution.md instead)
-<level>/project/
-  project-brief          student brief, milestones, rubric
-  project-teacher-guide  teacher walkthrough, reference solution, showcase plan
-  reference/             complete tested reference solution
-  starter/               starter templates
+├── README.md           the kid-friendly task and success checklist
+├── starter.py          the file the child changes
+├── hints.md            three progressive hints
+├── test_*.py           automated checks
+└── check_my_work.py    the child-facing self-check
 ```
 
-Every document is built in two editions: **standard** (Atkinson Hyperlegible)
-and **dyslexia-friendly** (Lexend, larger and wider spacing, cream page).
-All colors come from the color-blind-safe Okabe–Ito palette.
+Scratch and Terminal exercises use a smaller set of README, hint, and solution
+files. Teacher-only material and reference solutions stay in the repository
+but are excluded from the public website.
 
-## Quick start for the parent
+## The website
 
-1. **Get the PDFs.** Download the `curriculum-pdfs` artifact from the latest
-   CI run, or build them yourself (below). For Level 1, print: the Student
-   Workbook and Homework (one per child), and keep the Teacher Guide, Lesson
-   Plans and Answer Key for yourself.
-2. **Read the Teacher Guide** (setup checklist, how a session runs).
-3. **Set up each Mac** (Teacher Guide → Setup): Scratch app, Thonny, and a
-   **student copy** of the course: run `make student-bundle` (or
-   `python3 tools/student_bundle.py --level 1`) and copy
-   `build/student-bundle/kids-coding/` into the child's Documents folder.
-   It has every exercise, hint, starter file and self-check, but **no
-   solutions, answer keys or teacher material**, so children can work and
-   check themselves alone.
-4. Each week: read that week's lesson plan (≈10 minutes), print the workbook
-   chapter and homework, and teach.
+The [public course website](https://rrahimi-uci.github.io/kids-coding-curriculum/)
+is generated from the same source files as the printable curriculum. The build
+converts workbooks, exercise folders, figures, and selected parent materials;
+it does not copy pages by hand. A private-content check prevents answer keys,
+solutions, lesson plans, teacher guides, and tests from being published.
 
-Students check their own Python work by opening `check_my_work.py` in an
-exercise folder and pressing **Run** in Thonny.
-
-**Recruiting families?** [parents/](parents/) has a 25-minute information
-evening deck on why coding matters and what the research shows, with speaker
-notes and a one-page handout (`make -C parents`).
-
-## Website
-
-The course also runs as a website (GitHub Pages) that is **generated from these same files**: the LaTeX
-workbooks and homework, the exercise folders and the parent deck. Nothing is copied by hand, so the web
-pages and the PDFs always match. Answer keys, lesson plans, teacher guides, solutions and tests are never
-read or published; the build checks the finished site and fails if any of them would be.
-Design and decisions: [docs/SITE-DESIGN.md](docs/SITE-DESIGN.md).
+### Build and preview locally
 
 ```bash
-make site-setup     # once: .venv-site (Python 3.12) + site/ npm packages
-make site           # convert sources -> site/dist, run the private-content and content checks
-make site-serve     # preview at http://localhost:4321/
-make site-check     # HTML validation, broken links, accessibility (axe), Lighthouse >= 90
+make site-setup  # one time: Python site environment + npm dependencies
+make site        # generate site data, build Astro, and run content checks
+make site-serve  # preview site/dist at http://localhost:4321/
+make site-check  # HTML, links, accessibility, and Lighthouse checks
 ```
 
-Needs the TeX Live setup above plus [Pandoc](https://pandoc.org) 3.8 or newer (`brew install pandoc`),
-poppler (`brew install poppler`), Node 20+ and Google Chrome for the browser checks.
-
-**How to update a lesson and republish**
-
-1. Edit the source, for example `1-introduction/teaching-material/workbook/week07.tex`, or an exercise folder
-   such as `1-introduction/exercises/week07/ex-first-square/` (`README.md`, `starter.py`, `hints.md`).
-2. New diagram? Put a line `%% alt: a short description of the picture` right above its
-   `\begin{tikzpicture}`. Scratch scripts are described automatically.
-3. `make site` and look at the result with `make site-serve`.
-4. Commit and open a pull request. CI runs every gate; after you merge into `main`, the workflow
-   *Website* deploys to GitHub Pages (one-time setup: Settings, Pages, Source: *GitHub Actions*).
-5. For a release, bump `VERSION` and add an entry to `CHANGELOG.md`. The footer shows both.
-
-## For maintainers
-
-Requirements: macOS, [MacTeX/TeX Live](https://tug.org/mactex/) with
-LuaLaTeX, Python 3.10+ (or [uv](https://docs.astral.sh/uv/)).
+The site toolchain needs Python 3.12, Node 20+, Pandoc 3.8+, Poppler, and
+Google Chrome for browser checks. The full `make site` build also needs the
+LuaLaTeX setup listed under [Maintainer commands](#maintainer-commands). On
+macOS, the usual additional setup is:
 
 ```bash
-make setup          # .venv with Python 3.10 (like Thonny) + pytest
-make test           # every exercise test + repository quality gate (headless)
-make smoke          # open every turtle program in a real window (Mac)
-make pdf            # all PDFs, both editions -> build/pdf/
-make pdf LEVEL=2    # one level
-python3 tools/coverage.py   # regenerate objective coverage tables
+brew install pandoc poppler
 ```
 
-Documentation:
+### Publish a change
 
-* [docs/SYLLABUS.md](docs/SYLLABUS.md) — scope and sequence, goals, spiral map
-* [docs/DESIGN.md](docs/DESIGN.md) — design decisions and language path
-* [docs/STANDARDS.md](docs/STANDARDS.md) — CSTA / AI4K12 alignment
-* [docs/AUTHORING.md](docs/AUTHORING.md) — how to write lessons, exercises, tests
-* [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md) — every assumption made
-* [docs/SITE-DESIGN.md](docs/SITE-DESIGN.md) — the website: pipeline, public/private rules, design, checks
-* [docs/ASSETS.md](docs/ASSETS.md) — licenses of fonts, icons and figures
+1. Edit the canonical source: a lesson, exercise folder, parent asset, or site content.
+2. If you add a diagram, put `%% alt: a short description of the picture` immediately above its `\begin{tikzpicture}`.
+3. Run the relevant local checks and inspect the result with `make site-serve`.
+4. Commit the source changes on a branch and open a pull request. Do not edit `main` directly.
+5. After merge, the **Website** workflow rebuilds and deploys GitHub Pages. Generated site output is intentionally ignored by Git.
+6. For a public release, bump `VERSION` and add a dated entry to `CHANGELOG.md`.
 
-All changes go through pull requests; see
-[.github/pull_request_template.md](.github/pull_request_template.md).
+## Maintainer commands
+
+Requirements: macOS, [MacTeX/TeX Live](https://tug.org/mactex/) with LuaLaTeX,
+and Python 3.10+ (or [uv](https://docs.astral.sh/uv/)).
+
+```bash
+make setup          # .venv with Python 3.10 and pytest
+make test           # all exercise tests + repository quality gate
+make smoke          # open every turtle program in a real Mac window
+make pdf            # all PDFs, standard + dyslexia-friendly
+make pdf LEVEL=2    # build one level
+make check          # test + PDF build
+make student-bundle # solution-free copy for a child's Mac
+```
+
+Useful focused commands:
+
+```bash
+python3 tools/coverage.py --check  # verify coverage tables are current
+make pdf-standard                  # standard edition only
+make pdf-dyslexia                  # dyslexia-friendly edition only
+make -C parents                    # parent deck, notes, and handout
+```
+
+`make help` prints the complete command list. `LEVEL=1|2|3` narrows PDF and
+student-bundle commands; omit it to include all levels.
+
+## Documentation guide
+
+* [Syllabus](docs/SYLLABUS.md) — scope, sequence, goals, and spiral map
+* [Design decisions](docs/DESIGN.md) — the language path and teaching choices
+* [Standards alignment](docs/STANDARDS.md) — CSTA and AI4K12 connections
+* [Authoring guide](docs/AUTHORING.md) — how to write lessons, exercises, and tests
+* [Assumptions](docs/ASSUMPTIONS.md) — the assumptions behind the curriculum
+* [Website design](docs/SITE-DESIGN.md) — generation pipeline, privacy rules, and QA
+* [Asset licenses](docs/ASSETS.md) — fonts, icons, and figure licenses
+* [Parent information deck](parents/README.md) — build and presentation instructions
+
+## Privacy and safety
+
+The curriculum is designed for local, parent-supervised use. Students do not
+need accounts, and lessons can run from the local apps and student bundle after
+setup. The Mac installer downloads the tools it needs; it does not upload
+projects or personal information. The website publishes student-facing content
+only, and its private-content check runs before deployment.
+
+## Contributing
+
+All changes go through a pull request. Keep source files and generated outputs
+separate, run the checks appropriate to the change, and use the repository’s
+[pull-request template](.github/pull_request_template.md) to document the goal,
+approach, validation, risks, and deployment implications.
+
+---
+
+<div align="center">
+
+Made for curious kids, patient grown-ups, and the joy of making something work.
+
+</div>
