@@ -5,7 +5,7 @@
 
 ## Build steps
 
-1. Open Scratch. Keep the cat as your pet, or click **Choose a Sprite** and pick any animal.
+1. Open Scratch (**File > New** if an old project is open). Keep the cat as your pet, or click **Choose a Sprite** and pick any animal.
 2. Build the three scripts below. Each one starts with a different event.
 3. Click the green flag. Then click the pet, press **space**, and move the mouse over the pet.
 4. Save as `pet-reactions`.

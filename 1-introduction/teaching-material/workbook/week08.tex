@@ -72,13 +72,27 @@ To draw a shape and get back to the start, the turtle turns all the way round: 3
 \end{center}
 Fill in the missing turns: pentagon \rule{1.2cm}{0.4pt}, hexagon \rule{1.2cm}{0.4pt}, octagon \rule{1.2cm}{0.4pt}.
 
+\begin{tip}[Math helper: Python can do the math]
+In Python, \texttt{/} means divide (÷) and \texttt{*} means times (×). So \texttt{t.left(360 / 5)} turns 72 degrees, the same as \texttt{t.left(72)}. Sometimes the answer is not a whole number: \texttt{360 / 7} is about 51.4. That is fine. The turtle can turn part of a degree.
+\end{tip}
+
 \begin{exercise}[Loop Square]
-Folder: \texttt{week08/ex-loop-square}. Run the starter: the turtle walks in a straight line! Add \texttt{t.left(90)} \textbf{inside} the loop, lined up under \texttt{t.forward(100)}. Run it, then open \texttt{check\_my\_work.py} and press Run.
+Folder: \texttt{week08/ex-loop-square}. Run the starter: the turtle walks in a straight line! Add \texttt{t.left(90)} \textbf{inside} the loop, lined up under \texttt{t.forward(100)}. Run it.
+Done looks like: a closed square, drawn by a loop. Then open \texttt{check\_my\_work.py} and press Run.
 \end{exercise}
 
+\begin{tip}[Math helper: jumping to a spot]
+The turtle window uses x and y, the same way as the Scratch stage. The middle is \texttt{(0, 0)}. A minus number means \enquote{the other way}: \texttt{x} = $-250$ is 250 steps \textbf{left} of the middle, and \texttt{y} = $-50$ is 50 steps \textbf{below} it. To jump to a spot without drawing a line, use three commands:
+\begin{pycode}
+t.penup()           # lift the pen: move without drawing
+t.goto(-250, 0)     # jump to x = -250, y = 0 (left of the middle)
+t.pendown()         # put the pen down: draw again
+\end{pycode}
+\end{tip}
+
 \begin{exercise}[Polygon Party]
-Folder: \texttt{week08/ex-polygon-party}. The triangle is done. Write a loop for a \textbf{square} (sides of 100) and a loop for a \textbf{hexagon} (sides of 60). Use the shape rule for the turns.
-Done looks like: an orange triangle, a sky-blue square and a green hexagon, all closed.
+Folder: \texttt{week08/ex-polygon-party}. The triangle is done. Each shape starts with a jump (\texttt{penup}, \texttt{goto}, \texttt{pendown}) so the shapes sit side by side. Write a loop for a \textbf{square} (sides of 100) and a loop for a \textbf{hexagon} (sides of 60). Use the shape rule for the turns.
+Done looks like: an orange triangle, a sky-blue square and a green hexagon, all closed. Then run \texttt{check\_my\_work.py}.
 \end{exercise}
 
 \section{A loop inside a loop}
@@ -97,6 +111,7 @@ The inner lines have \textbf{8} spaces: 4 for the outer loop and 4 more for the 
 
 \begin{exercise}[Square Flower]
 Folder: \texttt{week08/ex-square-flower}. The starter draws one square. Put the square loop inside a color loop (like the code above) to make 8 squares in 8 colors. Tip: \texttt{t.speed(0)} draws super fast.
+Done looks like: 8 squares in 8 colors, turning round the middle like a flower. Then run \texttt{check\_my\_work.py}.
 \end{exercise}
 
 \begin{tip}[Asking for help well]

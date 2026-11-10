@@ -9,6 +9,8 @@ def make_key(shift):
     """Return a dictionary: each letter -> the letter shift places later."""
     key = {}
     for i in range(len(ALPHABET)):
+        # % gives the REMAINDER after dividing: 28 % 26 is 2.
+        # It makes the alphabet wrap around like a clock, so z + 3 is c.
         key[ALPHABET[i]] = ALPHABET[(i + shift) % 26]
     return key
 

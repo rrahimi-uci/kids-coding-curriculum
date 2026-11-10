@@ -54,8 +54,11 @@ def text_to_design(text):
     """The opposite of design_to_text: turn the text back into a dict."""
     design = {}
     # TODO 2: for each line in text.split("\n"):
-    #   skip empty lines; split the line at "=" into key and value;
-    #   if value.isdigit(), turn it into an int; put it in design[key].
+    #   skip empty lines ("");
+    #   parts = line.split("=")   ->  "petals=6" becomes ["petals", "6"]
+    #   key = parts[0] and value = parts[1];
+    #   if value.isdigit() (only digits, like "6"), turn it into int(value);
+    #   then put it in the dictionary: design[key] = value
     return design
 
 

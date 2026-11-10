@@ -35,7 +35,7 @@ from muncher_demo import Player
 def make_grid():   # a tiny maze: wall, empty, star, empty, wall
     return [list("#####"), list("#.*.#"), list("#####")]
 
-def test_player_moves_into_an_empty_cell():
+def test_player_moves_one_step_right():
     p = Player(1, 1)
     assert p.move(make_grid(), 0, 1) is True
     assert (p.row, p.col) == (1, 2)
@@ -60,7 +60,7 @@ Break your code on purpose. Does the test go red? If not, the test is not checki
 \end{tip}
 
 \begin{exercise}[My five tests (Milestone 3)]
-Plan your tests, then write them in \texttt{test\_<your project>.py}. At least one must be an edge case.
+Plan your tests, then write them in \texttt{test\_<your project>.py}. At least one must be an edge case. On the Core path, the template's example tests that still pass count too: write them in the table and add your own below them.
 \begin{center}\small
 \begin{tabular}{|p{0.5cm}|p{6.3cm}|p{5cm}|p{1.4cm}|}
 \hline

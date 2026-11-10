@@ -10,8 +10,9 @@ Ada,120
 Kai,95
 ```
 
-1. Open `starter.py` in Thonny and press **Run**. Play twice. Does it
-   remember your first game? (Not yet!)
+1. Open `starter.py` in Thonny and press **Run**. Type a nickname and
+   press Return. Play twice. Does it remember your first game? (Not yet! It
+   says `Games saved so far: 0`.)
 2. **TODO 1** `save_score()`: open the file with `"a"` (append = add to the
    end) and write one line `nickname,score`.
 3. **TODO 2** `load_scores()`: for every line, `strip()` it, skip empty lines,
@@ -20,10 +21,24 @@ Kai,95
 4. **TODO 3** the file might not exist yet (first game ever). Make an empty
    one with `"w"`.
 5. Run the game three times. Then open `high_scores.txt` in Thonny
-   (**File > Open**, same folder) and look at your saved scores.
+   (**File > Open**, same folder) and look at your saved scores. If you
+   cannot see the file, choose "all files" in the file-type menu of the
+   Open window.
 
 **Done looks like:** "Games saved so far" goes up by one every time you play,
-and the high score is the best one from all the games.
+and the high score is the best one from all the games. Your third game
+might look like this (your rolls will be different):
+
+```text
+=== Lucky Dice: roll three dice and beat the high score! ===
+Your nickname (not your real name): Ada
+Roll 1: 4
+Roll 2: 6
+Roll 3: 2
+Ada, you scored 120!
+Games saved so far: 3
+High score: Ada with 120
+```
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 

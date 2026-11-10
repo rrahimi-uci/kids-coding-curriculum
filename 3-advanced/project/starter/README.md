@@ -11,6 +11,10 @@ Pick ONE option and start from its template:
 `test_my_project.py` has example tests for all three. Keep the ones for your
 option, delete the rest, and add your own until you have at least 5.
 
+**Core path or Full path?** The Project brief (section 2, "Pick your path")
+has a table that says exactly which ONE class to add to each template, which
+algorithm from class to reuse, and how to save a best score in a file.
+
 ## Getting started (once, with your teacher)
 
 1. Copy this whole `starter` folder into your `Documents/coding-projects`
@@ -18,7 +22,11 @@ option, delete the rest, and add your own until you have at least 5.
    Terminal).
 2. Delete the templates you are not using. Rename yours, for example
    `grid_game_template.py` -> `dragon_maze.py`, and change the `import`
-   line in `test_my_project.py` to match.
+   line in `test_my_project.py` to match. Also delete the two test
+   sections in `test_my_project.py` for the templates you deleted (each
+   section starts with a line like `# ----- option (b)`). Otherwise the
+   tests stop with `ModuleNotFoundError`, because they look for a file
+   that is gone.
 3. Open a Terminal **from Thonny**: menu **Tools > Open system shell...**
    (this Terminal knows Thonny's Python, which has pytest installed).
    Type these lines, pressing Return after each one:

@@ -19,8 +19,8 @@ Your project works the same way. The \textbf{core loop} is your skateboard:
   \item \textbf{Art Studio:} a \texttt{while} loop that asks what to do (draw, save, load, quit) and does it,
         or, if you started from \texttt{art\_studio\_template.py}, keys that draw a new design and save it.
 \end{itemize}
-No score, no title screen, no fancy colors yet. Those come later, and they are easy once the
-skeleton walks.
+No score, no title screen, no fancy colors yet. Those come later. Adding them is much simpler once
+the small version works.
 
 \begin{center}
 %% alt: A row of project milestones with a marker "you are here" at M2. M1, pitch and plan in weeks 9 and 10, is done. M2, the core loop works in week 10, is the current step. M3, data and tests in week 11, M4, polish in week 11, and the showcase in week 12 come next.
@@ -42,7 +42,8 @@ skeleton walks.
 \textbf{Pseudocode} is your program written in plain English, one step per line, before you write
 Python. A \textbf{flowchart} draws the same steps as shapes joined by arrows. Three shapes are all you need:
 \textbf{ovals} for start and end, \textbf{rectangles} for steps, and \textbf{diamonds} for yes/no questions.
-Here is the flowchart for a catching game:
+Here is the flowchart for a catching game. A \textbf{tick} is one frame of the game loop (week 9):
+everything moves a little, then the loop runs again.
 
 \begin{center}
 %% alt: A flowchart of a game. Start. Set up the screen, player and keys. Move every falling thing. Is it touching the player? If yes, add 1 to the score. Then ask: is the game over? If no, go back for the next tick. If yes, save the high score to a file and end. Key: an oval means start or end, a rectangle means a step and a diamond means a yes or no question.
@@ -85,11 +86,11 @@ repeat every tick:\\
 \end{tcolorbox}
 Every line that does one job can become a \textbf{function}. \enquote{Move the player but not off the
 screen} becomes \texttt{next\_x(x, direction)}: the position and direction go in, the new position
-comes out. That is \textbf{decomposition}: breaking a big problem into small named parts.
+comes out. (Like \texttt{move\_player()} in Dodge the Meteors: direction \texttt{1} is right, \texttt{-1} is left.) That is \textbf{decomposition}: breaking a big problem into small named parts.
 
 \begin{exercise}[Paper prototype and plan check (M1)]
 \begin{enumerate}
-  \item Draw your screen on paper. Use coins for things that move.
+  \item Make a \textbf{paper prototype} (a pretend version on paper): draw your screen and use coins for things that move.
   \item One partner is \enquote{the computer}, the other is the player. Play for one minute: every clap is one tick.
   \item Finish your plan: write the pseudocode (or draw the flowchart) for your core loop below.
 \end{enumerate}

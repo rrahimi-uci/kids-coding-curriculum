@@ -15,10 +15,11 @@ cd git-quest                                     # go inside it
 ls                                               # shows hero_badge.py
 git config --global user.name "PixelFox"         # a nickname, never a real name
 git config --global user.email "pixelfox@example.com"   # pretend address
+git config user.name                             # check: prints PixelFox
 git init                                         # start the save system here
 git status                                       # hero_badge.py is untracked
 git add hero_badge.py                            # choose what goes in the save
-git commit -m "Add hero badge drawing"           # first save point
+git commit -m "Add hero badge drawing"           # first save point: [master (root-commit) 7c41e0a] ...
 git log --oneline                                # one line: id and message
 # Thonny: change BADGE_COLOR to "#009E73" and HERO_NAME to a made-up name, save, run
 git diff                                         # - lines removed, + lines added
@@ -53,7 +54,7 @@ git status                                       # nothing to commit, working tr
 ## Common mistakes and quick fixes
 - `git commit` without `-m` opens a strange full-screen editor (Vim): press Esc, type `:q!`, press Return, then commit again with `-m "message"`.
 - `git init` in the wrong folder (for example the home folder): `git status` lists hundreds of files. Do not commit. Delete that `.git` folder (Finder, Cmd+Shift+. to show hidden files), then `cd` into `git-quest` and start again.
-- "Please tell me who you are" error: the two `git config` lines were skipped. Type them, then commit again.
+- The two `git config` lines were skipped. On most Macs git does NOT stop with "Please tell me who you are": it quietly uses the Mac account's full name (often a real name) and prints "Your name and email address were configured automatically". Type the two `git config` lines, check with `git config user.name`, then run `git commit --amend --reset-author --no-edit` to fix that commit. (If git does print "Please tell me who you are", type the two lines and commit again.)
 - `git diff` shows nothing (file not saved, so press Cmd+S) or "nothing added to commit" (`git add` forgotten).
 - After `git restore`, Thonny still shows the broken code: click Yes if it offers to reload, otherwise close the tab and open the file again. Pressing Run or Save first writes the broken code back (Thonny saves before it runs); if that happens, run `git restore hero_badge.py` again.
 - Dragging `hero_badge.py` in Finder MOVES it out of the exercise folder (same disk). Hold Option while dragging to copy, or use Save as in Thonny.

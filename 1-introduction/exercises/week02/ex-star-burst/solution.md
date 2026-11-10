@@ -37,7 +37,7 @@ Setup: use the Polygon Party project or a new project with the Pen extension add
 - The picture is a plain shape, not a spiky star: the turn is far from 170 (a turn that divides evenly into 360 gives a simple shape). Set it back to 170.
 
 ## Check-off list
-- [ ] Star has 36 points and is in the middle of the stage: count the repeat number (36) and look at the picture.
+- [ ] Star has lots of spiky points (36 lines) and is near the middle of the stage: check the repeat number (36) and look at the picture.
 - [ ] Color changes as it draws: the lines go through different colors.
 - [ ] Tried at least one set of own numbers: ask which ones.
 - [ ] Wrote favorite numbers in the workbook: look at the page.

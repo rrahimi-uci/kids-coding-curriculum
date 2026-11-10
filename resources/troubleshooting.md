@@ -22,7 +22,7 @@ The script needs a "when green flag clicked" block on top, and the blocks must b
 ## Thonny and Python
 
 **The Run button is gray, or nothing happens.**
-A program is still running. Press the red **Stop** button (or **Cmd+F2**), then Run again.
+A program is still running. Press the red **Stop** button (or **Ctrl+F2**), then Run again.
 
 **The turtle window will not close, or the beachball spins.**
 Click the turtle window and close it, or press **Stop** in Thonny. `turtle.done()` keeps the window open on purpose until you close it.

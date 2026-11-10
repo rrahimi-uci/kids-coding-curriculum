@@ -5,12 +5,17 @@
 
 ## Build steps
 
-1. Open the Scratch app. Click **Choose a Backdrop** and pick any place.
+1. Open the Scratch app. If an old project is open, click **File > New**.
+   Click **Choose a Backdrop** (bottom right) and pick any place.
 2. Build the script below for the cat (or any sprite). **glide** is in **Motion**.
 3. Click the green flag and watch.
 4. Save: **File > Save to your computer**, name `walk-and-talk`.
 
 ## The script in words
+
+A number with a minus sign is a **negative number**. On the stage it means
+"the other way": x: -180 is 180 steps **left** of the middle, and y: -100 is
+100 steps **below** the middle. To type it, press the minus key, then the number.
 
 - when green flag clicked
 - go to x: -180 y: -100
@@ -33,6 +38,6 @@ on the left again every time you click the flag.
 
 - [ ] My script starts with **when green flag clicked**.
 - [ ] My sprite always starts on the left.
-- [ ] The steps happen in the order I planned.
+- [ ] The steps happen in the same order as the script: talk, glide, talk, glide, bye.
 - [ ] I used my nickname, not my real name.
 - [ ] I saved my project.

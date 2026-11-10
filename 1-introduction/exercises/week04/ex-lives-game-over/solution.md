@@ -46,7 +46,7 @@ Save as `apple-catch-lives`.
 
 ## Common mistakes and quick fixes
 - You lose a life when you catch an apple: "change lives by -1" is in the touching-Bowl if. Move it into the y position < -170 if.
-- Game over on the second game: "set lives to 3" is missing, so lives is still 0.
+- "Game over!" right after the flag, in every game: "set lives to 3" is missing. A new variable starts at 0 (and after one game it stays at 0), so the lives = 0 check is true at once.
 - Game never ends: the "if lives = 0" check is outside the forever loop, or the number is wrong (not 0).
 - Lives go below 0 or skip 0: the check is missing or uses a different test; keep it as "lives = 0".
 - Lives not visible: the checkbox next to `lives` is not checked.

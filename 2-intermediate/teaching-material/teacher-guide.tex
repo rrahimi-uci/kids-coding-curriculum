@@ -124,7 +124,7 @@ Allow about one hour, once, before week 1. Check off each line.
         in Applications and choose \menu{Open}, then \menu{Open} again.
   \item \menu{Tools > Options > Interpreter}: it should say \enquote{The same interpreter which runs
         Thonny (default)}. Leave it like that.
-  \item Make the code easy to read: \menu{View > Increase font size} (or \keys{Cmd}\,+\,\keys{+}) until
+  \item Make the code large enough to read: \menu{View > Increase font size} (or \keys{Cmd}\,+\,\keys{+}) until
         everyone at the screen can read it comfortably from where they sit.
 \end{checklist}
 
@@ -140,12 +140,17 @@ exercise folders also use it, so install it before week 1 to save time later.
 \end{enumerate}
 This needs the internet once. No account, login or personal data is involved.
 
-\subsection{4.3 Copy the course folder to each Mac}
+\subsection{4.3 Copy the student folder to each Mac}
 \begin{checklist}
-  \item Copy the whole \texttt{kids-coding-curriculum} folder (USB stick, AirDrop or a shared drive) into each
-        child's \menu{Documents} folder. Copy the \emph{whole} folder: the exercises use the
-        \texttt{testing} folder inside it to check work.
-  \item Level 2 lives in \texttt{kids-coding-curriculum/2-intermediate/}. The exercises are in
+  \item On your own computer, make the \textbf{student copy} of the course: in the course folder run
+        \texttt{python3 tools/student\_bundle.py -{}-level 2} (or \texttt{make student-bundle}). It creates
+        \texttt{build/\allowbreak student-bundle/\allowbreak kids-coding/}: every exercise folder \emph{without} the solutions, the
+        project starter files, the small \texttt{testing} helper that \texttt{check\_my\_work.py} needs, and a
+        \texttt{START-HERE.txt} for the child.
+  \item Copy that \texttt{kids-coding} folder (USB stick, AirDrop or a shared drive) into each child's
+        \menu{Documents} folder. Do not give children the whole course folder: it contains every answer key,
+        reference solution and teacher guide.
+  \item Level 2 lives in \texttt{kids-coding/2-intermediate/}. The exercises are in
         \texttt{exercises/week01/}, \texttt{exercises/week02/} and so on.
   \item Each exercise folder holds:
         \begin{itemize}[itemsep=0pt]
@@ -153,8 +158,8 @@ This needs the internet once. No account, login or personal data is involved.
           \item \texttt{starter.py}: the file the child opens and edits;
           \item \texttt{check\_my\_work.py}: open it and press Run to check the work;
           \item \texttt{hints.md}: three hints, from a gentle nudge to almost the answer;
-          \item \texttt{solution.py} (the commented reference answer) and \texttt{test\_\ldots.py}: for you. If you prefer, delete
-                \texttt{solution.py} from the children's copies.
+          \item \texttt{test\_\ldots.py}: the checks that \texttt{check\_my\_work.py} runs. The commented reference answer
+                \texttt{solution.py} is only in \emph{your} course folder (and printed in the Answer Key), not in the student copy.
         \end{itemize}
   \item Keep a clean copy of the folder on your own computer or a USB stick, so a broken file can
         always be replaced.
@@ -165,14 +170,32 @@ This needs the internet once. No account, login or personal data is involved.
   \item In \textbf{Finder}, show file extensions so \texttt{.py} and \texttt{.txt} are visible:
         \menu{Finder > Settings > Advanced}, check \enquote{Show all filename extensions}.
   \item In Thonny, open files with \menu{File > Open} and walk to
-        \menu{Documents > kids-coding-curriculum > 2-intermediate > exercises > week\ldots}.
-        Thonny remembers the last folder.
+        \menu{Documents > kids-coding > 2-intermediate > exercises > week\ldots}.
+        Thonny remembers the last folder. To open a \texttt{.txt} file (week 7), choose \enquote{all files} in the
+        file-type menu of the Open window.
   \item Save new programs in the child's own folder with a clear name: lowercase, no spaces,
         ending in \texttt{.py} (for example \texttt{space\_snack.py}). Never name a file
         \texttt{turtle.py}, \texttt{random.py} or \texttt{test.py}: Python would load it instead of
         the real module and nothing works.
   \item A program reads and writes files \textbf{in the folder where the program is saved}. Always
         save a new program before pressing Run (see Troubleshooting).
+\end{itemize}
+
+\subsection{4.7 Math the children may not have met yet}
+The student materials are written for children in Grades 4--5 (ages 9--11). A few ideas in Level 2 come
+from Grade 6 math or later. The workbook explains each one in a short \enquote{Math helper} box the first
+time it is needed; be ready to slow down and draw on paper when you reach them:
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Numbers below zero} (weeks 1, 7, 8, 9 and the project): turtle's \texttt{(0, 0)} is the middle of the
+        window, so left and down are negative. A number line or a thermometer drawing helps. In week 9,
+        \texttt{direction * step} uses $-1 \times 20 = -20$ for \enquote{20 steps left}.
+  \item \textbf{Remainders with \texttt{\%}} (week 5 cipher, week 9 Stamp Studio): children know division with
+        remainders; \texttt{\%} is only the remainder part. It does not mean percent.
+  \item \textbf{The average} (week 8, Exercise 8.3): add up, then divide by how many. Dividing by 0 is impossible,
+        which is the bug.
+  \item \textbf{Distance between two points} (week 9 and the project): no formula is needed. \texttt{math.dist} and
+        turtle's \texttt{distance} measure it, like a ruler. Pythagoras is not taught.
+  \item \textbf{Milliseconds} (week 9): 1000 ms make one second, so a 50 ms timer runs 20 times a second.
 \end{itemize}
 
 \subsection{4.5 What to print}
@@ -308,7 +331,7 @@ grades and no rankings. Results are shared kindly and privately.
         (see section~9). Write the path on the progress tracker. A child can change path at any
         time; look again after the week-6 checkpoint.
   \item \textbf{Pairs:} pair a support-path child with a standard-path child rather than with an
-        extension-path child; the gap is easier to bridge.
+        extension-path child; the gap is smaller.
 \end{itemize}
 
 \subsection{8.2 Formative checks (every week)}
@@ -383,7 +406,7 @@ Wk & Theme & The key message \\ \midrule\endhead
 2 & Comments for future-you & Code is read by people. Clear comments are a kindness to friends and to yourself next month. \\
 3 & Color-blind-safe palettes & About 1 in 12 boys and 1 in 200 girls see some colors differently. Design for everyone: safe colors plus shapes and labels. \\
 4 & Fair play & Good games do not trick or pressure players (no fake timers, no \enquote{pay to win}). \\
-5 & Encryption and passwords & Secrets need protecting. Never share passwords; a Caesar cipher is fun but easy to break. \\
+5 & Encryption and passwords & Secrets need protecting. Never share passwords; a Caesar cipher is fun but quick to break. \\
 6 & Growth mindset & Mistakes are how programmers learn. Compare yourself with last month's you. \\
 7 & What should (not) be saved & Only save what you need. Never save other people's private information in a file. \\
 8 & Why apps need testing & Real bugs have cost money and caused problems; testing is how we earn people's trust. \\
@@ -421,7 +444,7 @@ No reaction at all & 1) Click the turtle window once so it has the keyboard focu
 The function runs once at the start, then never & \texttt{onkey(jump(), "space")} calls the function straight away. Remove the parentheses: \texttt{onkey(jump, "space")}. \\ \midrule
 \multicolumn{2}{@{}l}{\textbf{Files}}\\ \midrule
 \texttt{FileNotFoundError} & The file does not exist in the folder where the program is saved. Check the spelling and extension (Finder may hide \texttt{.txt}). For high scores, catch it: \texttt{try} \ldots\ \texttt{except FileNotFoundError:} start with an empty list. \\
-The file is created somewhere strange & The program was never saved (an \enquote{untitled} program runs from the home folder). Save it first. Programs in this course use \texttt{Path(\_\_file\_\_).parent} to keep files next to the program. \\
+The file is created somewhere strange & The program was never saved (an \enquote{untitled} program runs from the home folder). Save it first: Thonny runs a saved program in its own folder, so plain names like \texttt{"high\_scores.txt"} land next to it. The project templates and Star Catcher use \texttt{Path(\_\_file\_\_).parent} to make sure of this, wherever they are started from. \\
 All my saved data disappeared & \texttt{open(name, "w")} empties the file first. Use \texttt{"a"} to add to the end. \\ \midrule
 \multicolumn{2}{@{}l}{\textbf{pytest}}\\ \midrule
 \enquote{No module named pytest} or \enquote{I need a helper called pytest} & Install it: \menu{Tools > Manage packages\ldots}, search \texttt{pytest}, \menu{Install} (section 4.2). Then restart Thonny. \\

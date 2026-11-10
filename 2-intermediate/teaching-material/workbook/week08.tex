@@ -29,6 +29,16 @@ checks another function for you, in less than a second. It uses the word \texttt
 \end{tikzpicture}
 \end{center}
 
+\subsection{Try assert in the Shell first}
+Type these two lines in the Thonny \textbf{Shell} (the bottom window), one at a time. Guess what will happen first!
+\begin{pycode}[Try it in the Shell]
+assert 2 + 2 == 4
+assert 2 + 2 == 5, "math is broken"
+\end{pycode}
+The first line is true, so \textbf{nothing happens}. That is good news. The second line is false, so Python stops and shows
+\texttt{AssertionError: math is broken}. The message after the comma is the one you wrote.
+
+\subsection{A test is a function}
 \begin{pycode}[A test for clamp(), which keeps a number between two limits]
 from clamp_tools import clamp
 
@@ -38,23 +48,42 @@ def test_too_big_comes_down_to_high():
 A test has three parts: \textbf{call} the function with values you choose, say what you \textbf{expect} with \texttt{==}, and add a
 \textbf{message} for when it goes wrong. The function's name must start with \texttt{test\_}, so that pytest can find it.
 
+\begin{tip}[Math helper: clamp and numbers below zero]
+\texttt{clamp(value, 0, 10)} keeps a number between 0 and 10, like a fence on both sides. Too big? It comes down to 10.
+Too small? It goes up to 0. \texttt{-3} (\enquote{minus three}) is 3 \textbf{below} zero (see the week 1 Math helper),
+so it is too small: \texttt{clamp(-3, 0, 10)} gives \texttt{0}.
+\end{tip}
+
 \subsection{Running your tests}
 \begin{itemize}[leftmargin=1.2em]
-  \item \textbf{Easy way:} open your test file and press \menu{Run}. The bottom of the file starts pytest for you.
-  \item \textbf{Programmer way:} \menu{Tools > Open system shell\ldots}, type \texttt{python -m pytest starter.py -v} and press \keys{Return}
+  \item \textbf{Way 1, the Run button:} open your test file and press \menu{Run}. The last three lines of the file start pytest for you.
+  \item \textbf{Way 2, the programmer way:} press \menu{Run} once first (so Thonny is in the right folder). Then choose
+        \menu{Tools > Open system shell\ldots}, type \texttt{python -m pytest starter.py -v} and press \keys{Return}
         (if it says \enquote{command not found}, use \texttt{python3}).
+  \item \textbf{See \texttt{No module named 'pytest'}?} pytest is not installed yet. Ask an adult to do
+        \menu{Tools > Manage packages\ldots}, search for \texttt{pytest} and click \menu{Install} (once, no account needed).
 \end{itemize}
+Here is what you see when one test fails. (We made a mistake on purpose: the test expects 5.)
 \begin{outputcode}
 starter.py::test_middle_value_stays_the_same PASSED     [ 33%]
 starter.py::test_too_small_goes_up_to_low FAILED        [ 66%]
 starter.py::test_too_big_comes_down_to_high PASSED      [100%]
+================ FAILURES ================
+>       assert clamp(-3, 0, 10) == 5, "-3 is too small, so it should become 0"
 E       AssertionError: -3 is too small, so it should become 0
 E       assert 0 == 5
 E        +  where 0 = clamp(-3, 0, 10)
+starter.py:21: AssertionError
 ============ 1 failed, 2 passed in 0.03s ============
 \end{outputcode}
-Read it from the bottom up. The last line is the score. The \texttt{E} lines say what went wrong: \texttt{clamp} gave back \texttt{0}
-but the test expected \texttt{5}. When a test fails, ask: \textbf{is the code wrong, or is my expected answer wrong?}
+(Your screen shows a few more lines, and the numbers at the end may be different. That is fine.)
+Read it from the \textbf{bottom up}, in three steps:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt]
+  \item The \textbf{last line} is the score: 1 failed, 2 passed.
+  \item The line with \texttt{>} shows the test that failed.
+  \item The \texttt{E} lines say what happened: \texttt{clamp} gave back \texttt{0}, but the test expected \texttt{5}.
+\end{enumerate}
+Then ask: \textbf{is the code wrong, or is my expected answer wrong?}
 (Here the test is wrong: $-3$ should become 0, not 5.)
 
 \subsection{Normal and edge cases}
@@ -101,13 +130,22 @@ Write the tests in \texttt{starter.py}, press \menu{Run}, then check with \textt
 
 \begin{exercise}[Fix the Bugs the Tests Found]
 Folder: \texttt{exercises/week08/ex-fix-the-bugs}. Four game helpers, one bug each. The tests are already written.
+One helper finds the \textbf{average} score (see the Math helper below).
 \begin{enumerate}[leftmargin=1.4em]
   \item Run \texttt{check\_my\_work.py}. Pick one \texttt{TRY AGAIN} and read its hint.
   \item Find that test in \texttt{test\_fix\_the\_bugs.py}. Read it like a sentence.
   \item Fix \textbf{one} function in \texttt{starter.py}. Never change the test! Run the checks again. Repeat.
 \end{enumerate}
 Fixed: \tickbox\ \texttt{lives\_after\_hit} \quad \tickbox\ \texttt{medal} \quad \tickbox\ \texttt{name\_tag} \quad \tickbox\ \texttt{average\_score}
+\par When all four are fixed, \texttt{check\_my\_work.py} says \texttt{Amazing! All 5 checks passed.}
 \end{exercise}
+
+\begin{tip}[Math helper: the average]
+The \textbf{average} is a fair share. Add up all the scores, then divide by how many scores there are.
+Scores 10, 20 and 40: $10 + 20 + 40 = 70$, and there are 3 scores, so the average is $70 \div 3 = 23.33\ldots$
+\texttt{round()} turns it into the nearest whole number: 23.
+With \textbf{no} scores there is nothing to share, and dividing by 0 is impossible: Python crashes with \texttt{ZeroDivisionError}.
+\end{tip}
 
 \begin{tip}[Why testing matters]
 In 1999 a spacecraft was lost on its way to Mars because two parts of its software used different units, and no test checked them together.

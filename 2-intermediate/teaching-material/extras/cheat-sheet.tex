@@ -124,11 +124,14 @@ with open("scores.txt", "a") as file:
 
 try:
     with open("scores.txt") as file:
-        scores = file.read().split()
+        for line in file:
+            line = line.strip()   # no "\n"
+            if line != "":
+                print(line)
 except FileNotFoundError:
-    scores = []      # no file yet
+    print("No file yet")
 \end{cs}
-Careful: \texttt{"w"} empties the file first!
+Careful: \texttt{"w"} empties the file first! \texttt{"a"} adds to the end.
 
 \cshead{Testing with pytest}
 \begin{cs}
@@ -167,6 +170,7 @@ turtle.done()
 \end{cs}
 Key names: \texttt{"Left"}, \texttt{"Right"}, \texttt{"Up"}, \texttt{"Down"},
 \texttt{"space"}, \texttt{"a"}. Click the window first!
+\texttt{(0, 0)} is the middle: left and down are below zero. 50 ms = $\frac{1}{20}$ of a second.
 
 \cshead{Error message decoder}
 Read the \textbf{last line} first. The line above it shows where.\\[2pt]
@@ -179,6 +183,7 @@ IndexError & no item at that index (too big) \\
 KeyError & that key is not in the dictionary \\
 FileNotFoundError & no file with that name in this folder \\
 ValueError & \texttt{int("hello")} cannot work \\
+AssertionError & a test failed: read its \texttt{E} lines \\
 \end{tabular}
 
 \cshead{Debugging strategies}

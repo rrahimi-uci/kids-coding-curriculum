@@ -3,8 +3,9 @@
 **Goal:** a guess-the-word game that reads its secret words from a file.
 
 The words are in `words.txt`, one per line. Open it in Thonny
-(**File > Open**) and have a look. Anyone can add words to the game just by
-editing this file - no coding needed!
+(**File > Open**) and have a look. Anyone can add words to the game by
+editing this file - no coding needed! (If you cannot see `words.txt` in the
+Open window, choose "all files" in the file-type menu.)
 
 1. Open `starter.py` and press **Run**. It says "I have no words yet!"
 2. **TODO 1** `load_words()`: open `words.txt`, and for every line
@@ -12,8 +13,9 @@ editing this file - no coding needed!
    it is not empty. Run again: the game starts!
 3. **TODO 2** `show_progress()`: show the letters you have guessed and `_`
    for the others, like `p _ _ e _`.
-4. Play a round with your partner. Then add three new words to `words.txt`,
-   save it, and play again.
+4. Play a round with your partner. Then add three new words to `words.txt`
+   (one word on each line, letters only, no spaces), save it, and play
+   again. The game should now say it knows 18 words.
 
 **Done looks like:**
 

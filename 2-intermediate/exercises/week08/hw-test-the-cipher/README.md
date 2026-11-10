@@ -5,7 +5,10 @@ it without you noticing.
 
 1. Read `cipher_tools.py`. It is correct: do not change it.
 2. Open `starter.py` (YOUR test file) and press **Run**. pytest shows one line
-   per test with `PASSED` or `FAILED`.
+   per test with `PASSED` or `FAILED`. Right now you should see three
+   `PASSED` lines (the two empty tests check nothing yet, so they pass). If
+   you see `No module named 'pytest'`, ask an adult to install it:
+   **Tools > Manage packages...**, search for `pytest`, click **Install**.
 3. **TODO 1** test that letters wrap around after z. Use your paper cipher
    wheel to work out the expected answer.
 4. **TODO 2** test that spaces and symbols like `!` stay the same.

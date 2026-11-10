@@ -6,7 +6,7 @@
 # To guess the label of a new (mystery) monster, find the training card that
 # is CLOSEST to it and copy that card's label. No rules written by hand!
 
-import math
+import math      # only needed for the Extra (ruler distance)
 import turtle
 
 # (fluff, teeth, label) - made-up training cards
@@ -23,10 +23,13 @@ ORIGIN = (-180, -180)  # where (0, 0) goes on the screen
 
 
 def distance(a, b):
-    """Straight-line distance between two cards, using their first two
-    numbers (fluff, teeth). Pythagoras: sqrt(dx*dx + dy*dy)."""
-    # TODO 1: work out dx (the difference in fluff) and dy (the
-    #         difference in teeth), then return math.sqrt(dx * dx + dy * dy)
+    """Steps distance between two cards, using their first two numbers
+    (fluff, teeth): the gap in fluff plus the gap in teeth.
+    Example: from (5, 2) to (6, 1) is 1 + 1 = 2 steps."""
+    # TODO 1: work out the two gaps and add them up:
+    #         gap_fluff = abs(a[0] - b[0])   (abs gives the gap, never below 0)
+    #         gap_teeth = abs(a[1] - b[1])
+    #         return gap_fluff + gap_teeth
     return 0
 
 

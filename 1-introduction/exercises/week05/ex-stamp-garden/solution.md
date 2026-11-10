@@ -46,8 +46,8 @@ Save as `stamp-garden`.
 - Stamp leaves a picture behind; the sprite itself can then hide.
 
 ## Common mistakes and quick fixes
-- Second garden has no flowers: "show" is missing at the start, so the hidden sprite stamps nothing. Add show before grass.
-- No stamps appear: the sprite hides before the loop, or "erase all" comes after the stamps. Hide only at the end.
+- The flower sprite cannot be seen moving on the second run: "show" is missing at the start. The stamps still appear (a hidden sprite still stamps in Scratch 3), but add show before grass so the child can watch the garden grow.
+- No stamps appear: "erase all" comes after the stamps (it wipes them), or the stamp block is missing from define flower.
 - All flowers the same color: "change color effect" is not inside the flower block or loop, or "clear graphic effects" is missing at the start.
 - Grass is thin or in the wrong place: check pen size 60 and the two go-to y values (-150).
 - Flower is huge or tiny: the size input was typed into the wrong slot; drag `size` from the define hat.

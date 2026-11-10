@@ -75,7 +75,28 @@ Put \texttt{import random} at the top of your program, next to \texttt{import tu
 
 \begin{exercise}[Random Bubble Art]
 Folder: \texttt{week10/ex-random-art}. The starter draws 30 bubbles\ldots{} all in the same place! Inside the loop, change the fixed numbers to random ones: \texttt{x}, \texttt{y}, \texttt{size} with \texttt{random.randint}, and \texttt{color} with \texttt{random.choice(PALETTE)}. Press Run three times. Is it different each time?
+Done looks like: colorful bubbles all over the screen, in different sizes, and a new picture every time you press Run. Then run \texttt{check\_my\_work.py}.
 \end{exercise}
+
+\needspace{16\baselineskip}
+\subsection{Turtle toolbox for your project}
+You have already seen these commands inside the starter files. Now you can use them yourself. Your cheat sheet has them too.
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}p{6.4cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Command & What it does\\
+\midrule
+\texttt{t.circle(50)} & Draws a circle. The number is the size: from the middle to the edge. If the turtle faces right, it starts at the bottom of the circle, so the circle sits above it.\\
+\texttt{t.dot(20, "\#F0E442")} & Draws a filled dot (here: size 20, yellow) right where the turtle is.\\
+\texttt{t.begin\_fill()} \ldots{} \texttt{t.end\_fill()} & Colors in the shape you draw between these two lines.\\
+\texttt{t.color("\#000000", "\#F0E442")} & Two colors: the line color first, then the fill color.\\
+\texttt{t.setheading(0)} & Makes the turtle face right. 90 is up, 180 is left, 270 is down.\\
+\texttt{t.write("Hello!")} & Writes words on the picture, where the turtle is.\\
+\texttt{t.hideturtle()} & Hides the turtle, so only your drawing shows.\\
+\bottomrule
+\end{tabularx}
+\end{center}
 
 \section{Your final project: My Interactive Art Show}
 For weeks 10 to 12 you will make your own program for an art show. It says hello, asks the viewer one or two questions, and draws a picture that changes because of the answers. It must use these \textbf{six ingredients}:

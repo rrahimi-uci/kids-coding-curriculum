@@ -10,6 +10,16 @@ no website, no account.
 Type each command in **Terminal** exactly, then press **Return**.
 Lines starting with `#` are notes for you - do not type them.
 
+**Typing tips:**
+
+- Spaces matter. `git add` has a space in the middle; `gitadd` does not work.
+- The squiggle `~` means "my home folder". To type it, hold **Shift** and
+  press the key at the top left of the keyboard, next to **1**.
+- Type the commands yourself. Quotes copied from a PDF or a web page can
+  break them.
+- Made a typo? Press the up arrow to bring the command back, fix it, and
+  press **Return** again.
+
 ## Before you start (once per Mac, done by your teacher)
 
 ```
@@ -52,6 +62,19 @@ git config --global user.email "pixelfox@example.com"
 Use YOUR nickname. `example.com` is a pretend address that is safe to use.
 Your real name and real email never go into the history.
 
+**Check it.** Type this:
+
+```
+git config user.name
+```
+
+Terminal should answer with your nickname, for example `PixelFox`.
+If it shows nothing, type the two `git config` lines again.
+
+**Do not skip Level 2.** On a Mac, git does not stop you if you forget it.
+It quietly uses the name of the Mac's user account, which is often a real
+name, and writes it into every save point.
+
 ## Level 3 - Start the save system
 
 ```
@@ -71,10 +94,37 @@ makes. Ignore it and never `git add` it.)
 ```
 git add hero_badge.py
 git commit -m "Add hero badge drawing"
+```
+
+Git answers with a few lines like these (your code of letters and numbers
+will be different):
+
+```
+[master (root-commit) 7c41e0a] Add hero badge drawing
+ 1 file changed, 55 insertions(+)
+ create mode 100644 hero_badge.py
+```
+
+If you see the words `Your name and email address were configured
+automatically`, stop and ask your grown-up: Level 2 was skipped. (Grown-up:
+type the two `git config` lines from Level 2, then
+`git commit --amend --reset-author --no-edit`.)
+
+Now look at your history:
+
+```
 git log --oneline
 ```
 
-The log shows one line: a short code (the commit id) and your message.
+The log shows one line: a short code (the commit id) and your message,
+like this:
+
+```
+7c41e0a (HEAD -> master) Add hero badge drawing
+```
+
+`(HEAD -> master)` is a label that means "you are here". It may say `main`
+instead of `master`. Both are fine.
 
 ## Level 5 - Change something and spot the difference
 

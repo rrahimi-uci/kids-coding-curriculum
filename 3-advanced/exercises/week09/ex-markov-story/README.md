@@ -21,7 +21,8 @@ again.
 3. Run again. Read the three stories. Which sound sensible? Which are silly?
 
 **Done looks like:** `After 'the' came: ['dragon', 'hill', 'moon.', 'robot', ...]`
-and three made-up sentences.
+and three made-up sentences. Because of `random.seed(7)`, the first one is
+always `- the dragon sat on the hill and the robot and the hill and sang`.
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 

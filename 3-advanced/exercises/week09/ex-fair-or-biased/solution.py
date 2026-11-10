@@ -10,8 +10,6 @@
 # accuracy asks the classifier to guess every test card and counts how many
 # guesses match the true label. The classifier code is from Exercise 9.1.
 
-import math
-
 # (fluff, teeth, label) - made-up monster cards
 ALL_CARDS = [
     (9, 1, "friendly"), (2, 9, "grumpy"), (8, 2, "friendly"), (3, 8, "grumpy"),
@@ -31,7 +29,9 @@ BIASED_TRAINING = [
 
 # ---------------------- the classifier (from 9.1)
 def distance(a, b):
-    return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+    # (Given code.) Steps distance, as in 9.1: the gap in fluff plus the gap
+    # in teeth. abs() gives the gap between two numbers (never below 0).
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 
 def classify(training, mystery):

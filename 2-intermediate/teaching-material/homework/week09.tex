@@ -7,11 +7,12 @@ Folder: \texttt{exercises/week09/hw-stamp-studio}. An art program you play with 
 dictionary called \texttt{studio}.
 \begin{enumerate}[leftmargin=1.4em]
   \item Open \texttt{starter.py}, press \menu{Run} and \textbf{click the window}. Arrows move, \texttt{s} stamps. \texttt{p} and \texttt{n} do nothing yet.
-  \item TODO 1: \texttt{next\_index(index, length)} returns the next position and goes back to 0 after the last one. Fill in:
+  \item TODO 1: \texttt{next\_index(index, length)} returns the next position and goes back to 0 after the last one.
+        It uses \texttt{\%}, the remainder sign from week 5: \texttt{4 \% 4} is 0, because $4 \div 4 = 1$ remainder 0. Fill in:
         \texttt{next\_index(2, 4)} = \rule{1cm}{0.4pt} \quad \texttt{next\_index(3, 4)} = \rule{1cm}{0.4pt}
   \item TODO 2: write \texttt{next\_color()}, a twin of \texttt{next\_shape()}.
   \item TODO 3: connect \texttt{"p"} and \texttt{"n"} with \texttt{screen.onkey(...)}. No parentheses after the function name!
-  \item Make a picture, then run \texttt{check\_my\_work.py}.
+  \item Make a picture, then run \texttt{check\_my\_work.py}. It should say \texttt{Amazing! All 3 checks passed.}
 \end{enumerate}
 \end{core}
 

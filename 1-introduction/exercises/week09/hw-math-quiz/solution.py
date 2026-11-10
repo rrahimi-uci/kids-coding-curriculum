@@ -27,7 +27,8 @@ if answer == 24:
 else:
     print("Good try! 9 + 15 = 24")
 
-# Last line: the checker reads the number after the word "scored".
+# Last line: the checker reads the first number after the word "score"
+# (so "You scored 2 out of 2" and "Your score: 2" both work).
 # print() adds the spaces between the pieces for us.
 print("You scored", score, "out of 2")
 

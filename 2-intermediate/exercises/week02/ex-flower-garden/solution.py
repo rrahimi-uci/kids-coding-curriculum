@@ -52,6 +52,7 @@ def draw_flower(t, x, y, petals, color, size=60):
     for _ in range(petals):      # one petal for each petal asked for, not always 4
         draw_petal(t, size)
         t.left(petal_turn(petals))
+    # // divides and drops the remainder: 60 // 3 is 20 (a whole number).
     t.dot(size // 3, YELLOW)     # the middle of the flower
 
 

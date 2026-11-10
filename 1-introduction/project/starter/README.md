@@ -6,7 +6,8 @@ This folder is where your final project begins.
 
 1. Open Thonny.
 2. Click **File > Open...** and open `my_art_show.py` from this folder.
-3. Click **File > Save as...** and give your project its own name, for
+3. Click **File > Save as...**, choose your `my-python` folder in
+   **Documents**, and give your project its own name, for
    example `rainbow_city.py` or `fish_party.py`. Use small letters and
    underscores, no spaces. Never put your real name in the file name.
 4. Press the green **Run** button. A window opens with an orange square.

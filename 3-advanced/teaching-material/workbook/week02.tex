@@ -46,18 +46,55 @@ print(pip.hunger)                   #    prints 2
 \texttt{self} means \enquote{this object} or \enquote{my}. When you write \texttt{pip.feed()}, Python runs \texttt{feed} with \texttt{self} set to \texttt{pip}. So \texttt{self.hunger} is Pip's hunger. Every method needs \texttt{self} as its first parameter, and every attribute is written \texttt{self.something}.
 \end{tip}
 
+\begin{workedexample}[Two pets, step by step]
+Each object keeps its \emph{own} numbers. Follow the table: one row for each line of code.
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Line of code} & \textbf{\texttt{pip.hunger}} & \textbf{\texttt{bo.hunger}} \\ \midrule
+\texttt{pip = Pet("Pip")} & 5 & (no Bo yet) \\
+\texttt{bo = Pet("Bo")} & 5 & 5 \\
+\texttt{pip.feed()} & 2 & 5 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\texttt{pip.feed()} runs \texttt{feed} with \texttt{self} set to \texttt{pip}, so only Pip's hunger goes down. Bo is a different cookie from the same cutter.
+\end{workedexample}
+
+\begin{tip}[Try it in the Shell first (3 minutes)]
+Open \texttt{week02/ex-pet-class/starter.py} in Thonny, press Run, then type \texttt{q} to stop the menu. Now type each line below in the Shell (the bottom part of Thonny) and press \keys{Return}. Write what Python answers.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}ll@{}}
+\texttt{pip = Pet("Pip", "dragon")} & (no answer) \\
+\texttt{pip.hunger} & \rule{2cm}{0.4pt} \\
+\texttt{pip.feed()} & (no answer) \\
+\texttt{pip.hunger} & \rule{2cm}{0.4pt} \\
+\end{tabular}
+\end{center}
+\end{tip}
+
+\begin{tip}[Bug hunt: forgot self]
+If you write \texttt{def play():} with no \texttt{self}, Python stops with
+\texttt{TypeError: Pet.play() takes 0 positional arguments but 1 was given}.
+That means: \enquote{I tried to hand you the pet, but there was no \texttt{self} to catch it.}
+Fix: \texttt{def play(self):}. Inside the method, write \texttt{self.happiness}, not \texttt{happiness}.
+\end{tip}
+
 \section{From dictionary to class}
 In Level 2 you might have written \texttt{pip = \{"name": "Pip", "hunger": 5\}}. A dictionary holds the facts. A class holds the facts \emph{and} the actions, all in one place, so you can make 100 pets that all know how to \texttt{feed()}.
 
 \begin{exercise}[Pet Class]
 Folder: \texttt{week02/ex-pet-class}. \texttt{\_\_init\_\_} and \texttt{feed} are done. Finish:
 \begin{itemize}[itemsep=1pt]
-  \item \texttt{play()}: happiness $+2$ (max 10) and hunger $+1$ (max 10).
-  \item \texttt{mood()}: \texttt{"hungry"} if hunger $\geq 7$, else \texttt{"happy"} if happiness $\geq 7$, else \texttt{"bored"} if happiness $\leq 3$, else \texttt{"okay"}.
+  \item \texttt{play()}: happiness goes up by 2 (but never above 10) and hunger goes up by 1 (but never above 10).
+  \item \texttt{mood()}: \texttt{"hungry"} if hunger is 7 or more; otherwise \texttt{"happy"} if happiness is 7 or more; otherwise \texttt{"bored"} if happiness is 3 or less; otherwise \texttt{"okay"}. Check them in this order.
   \item \texttt{describe()}: returns \texttt{"Pip the dragon feels okay."}
 \end{itemize}
-\textbf{Predict first:} after \texttt{pip.play()} twice, what are Pip's hunger and happiness? \rule{4cm}{0.4pt}\\
-What is Bo's hunger? \rule{3cm}{0.4pt}
+\textbf{Predict first:} both pets start with hunger 5 and happiness 5. After \texttt{pip.play()} twice, what are Pip's hunger and happiness? \rule{4cm}{0.4pt}\\
+What is Bo's hunger? \rule{3cm}{0.4pt}\\
+\textbf{Done looks like:} \texttt{check\_my\_work.py} passes, and Run prints \texttt{Pip the dragon feels okay.} first.
 \end{exercise}
 
 \begin{exercise}[Bubble Art]

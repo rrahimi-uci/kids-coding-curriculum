@@ -61,6 +61,19 @@ To \textbf{decode}, shift the other way. That table is a lookup, so in Python it
 A \texttt{for} loop can visit every letter of a string, just like the pixels of a row last week. To build the secret message,
 start with empty text, \texttt{secret = ""}, and glue on one letter each time through: \texttt{secret = secret + key[letter]}.
 
+\begin{tip}[Math helper: remainders and the \% sign]
+Share 17 cookies fairly between 5 friends. Each friend gets 3 cookies, and \textbf{2 are left over}.
+The left-over part is called the \textbf{remainder}: 17 ÷ 5 = 3 remainder 2.
+In Python the sign \texttt{\%} gives the remainder: \texttt{17 \% 5} is \texttt{2}. (In Python, \texttt{\%} does not mean percent.)
+\par\smallskip
+The cipher program uses \texttt{\% 26} to wrap around the 26 letters, like a clock goes back to 1 after 12.
+Python numbers the letters from 0, so z is number 25. With shift 3: 25 + 3 = 28, and 28 ÷ 26 = 1 remainder 2.
+So \texttt{28 \% 26} is 2, and letter number 2 is c. That is why z becomes c.
+\par\smallskip
+Going backwards: a shift of \texttt{-3} (minus three) means \enquote{go back 3 letters}. On the wheel, going back 3
+lands on the same letter as going forward 23, because 3 + 23 = 26 is one whole turn.
+\end{tip}
+
 \begin{tip}[Real secrets need real protection]
 A Caesar cipher is easy to crack: there are only 25 shifts to try! Real apps use much stronger \textbf{encryption}.
 Your real passwords stay between you and your parent or caregiver. Never type a real password into a program you or a friend wrote.
@@ -81,9 +94,10 @@ Folder: \texttt{exercises/week05/ex-monster-stats}. Open \texttt{starter.py} and
 Folder: \texttt{exercises/week05/ex-caesar-cipher}. Run \texttt{starter.py} first and look at the dictionary it prints.
 \begin{enumerate}[leftmargin=1.4em]
   \item TODO 1: finish \texttt{encode()}. For each letter: if it is in the key, add \texttt{key[letter]}; otherwise add the letter itself.
-  \item TODO 2: finish \texttt{decode()}. Hint: shifting by \texttt{-shift} goes backwards.
+  \item TODO 2: finish \texttt{decode()}. Hint: shifting by \texttt{-shift} goes backwards (see the Math helper above).
   \item Encode a kind message for your partner. Secret version: \rule{6cm}{0.4pt}\quad shift: \rule{1cm}{0.4pt}
   \item Decode this one (shift 3) on paper or with your program: \texttt{zhoo grqh!}\quad \rule{4cm}{0.4pt}
+  \item Done looks like: \texttt{hi there!} with shift 3 becomes \texttt{kl wkhuh!}, and decoding \texttt{kl wkhuh!} with shift 3 gives \texttt{hi there!} again.
   \item Check your work with \texttt{check\_my\_work.py}.
 \end{enumerate}
 \end{exercise}
@@ -95,6 +109,7 @@ Folder: \texttt{exercises/week05/ex-caesar-cipher}. Run \texttt{starter.py} firs
   \vocabword{.items()}{Gives every key together with its value, so a loop can use both.}
   \vocabword{KeyError}{An error that means \enquote{there is no such key}. Check the spelling!}
   \vocabword{cipher}{A way of turning a message into a secret code.}
+  \vocabword{remainder}{What is left over after you share a number out equally. 17 ÷ 5 = 3 remainder 2. In Python: \texttt{17 \% 5}.}
   \vocabword{encode / decode}{Turn a message into secret code / turn it back again.}
   \vocabword{encryption}{Strong secret codes that computers use to keep data safe.}
 \end{vocab}

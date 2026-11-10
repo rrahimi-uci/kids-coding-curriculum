@@ -17,7 +17,13 @@ but each moves in its own way.
 ```
 Turn 1: Blob at (1, 0) | Rocky at (0, 0) | Zig at (1, 1) | Zoom at (2, 0)
 Turn 2: Blob at (2, 0) | Rocky at (0, 0) | Zig at (2, 0) | Zoom at (4, 0)
+Turn 3: Blob at (3, 0) | Rocky at (0, 0) | Zig at (3, 1) | Zoom at (6, 0)
+Turn 4: Blob at (4, 0) | Rocky at (0, 0) | Zig at (4, 0) | Zoom at (8, 0)
 ```
+
+**Math helper:** in the Zigzagger, `%` means "the remainder after dividing".
+`3 % 2` is 1 (3 divided by 2 is 1 remainder 1), and `4 % 2` is 0. So
+`self.steps % 2 == 1` asks "is steps an odd number?".
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 

@@ -43,6 +43,7 @@ Saving takes \textbf{two moves}, like taking a class photo:
 
 \section{Terminal survival kit}
 Terminal is a chat window with the computer: type a command, press \keys{Return}, read the answer. To open it, press \keys{Cmd}+\keys{Space}, type \texttt{Terminal} and press \keys{Return}.
+A \textbf{folder} is called a \textbf{directory} in Terminal. The squiggle \texttt{\textasciitilde} means \enquote{my home folder}, so \texttt{\textasciitilde/Documents} is your Documents folder. To type \texttt{\textasciitilde}, hold \keys{Shift} and press the key at the top left of the keyboard.
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{@{}>{\ttfamily}l p{9.5cm}@{}}
@@ -78,6 +79,36 @@ git restore hero\_badge.py & throw away unsaved changes & reload last save \\
 \begin{tip}[Stuck in a strange screen?]
 If you typed \texttt{git commit} without \texttt{-m}, git opens an editor called Vim. Press \keys{Esc}, type \texttt{:q!} and press \keys{Return}. Then try again with \texttt{-m "your message"}.
 If \texttt{git log} or \texttt{git diff} fills the screen and shows \texttt{:} or \texttt{(END)} at the bottom, press \keys{q} to get back.
+\end{tip}
+
+\begin{workedexample}[Your first save point, step by step]
+Here is what Sam typed, and what Terminal answered. Sam was already in the \texttt{git-quest} folder.
+\begin{shellcode}
+git add hero_badge.py
+git commit -m "Add hero badge drawing"
+\end{shellcode}
+\begin{outputcode}
+[master (root-commit) 7c41e0a] Add hero badge drawing
+ 1 file changed, 55 insertions(+)
+ create mode 100644 hero_badge.py
+\end{outputcode}
+\begin{enumerate}[itemsep=1pt]
+  \item \texttt{git add} answers nothing. That is normal: no news is good news.
+  \item \texttt{git commit} answers with the commit id (\texttt{7c41e0a}) and the message. Your id will be different.
+  \item Then Sam typed \texttt{git log --oneline} to see the album:
+\end{enumerate}
+\begin{outputcode}
+7c41e0a (HEAD -> master) Add hero badge drawing
+\end{outputcode}
+\texttt{(HEAD -> master)} means \enquote{you are here}. It may say \texttt{main} instead of \texttt{master}. Both are fine.
+\end{workedexample}
+
+\begin{tip}[Quick check: put the moves in order]
+Number these from 1 to 4, in the order you do them to make a save point and look at it:\\[2pt]
+\begin{tabular}{@{}ll@{\hspace{1.2cm}}ll@{}}
+\rule{1cm}{0.4pt} & \texttt{git commit -m "Add jump"} & \rule{1cm}{0.4pt} & change the file and save it \\[4pt]
+\rule{1cm}{0.4pt} & \texttt{git log --oneline} & \rule{1cm}{0.4pt} & \texttt{git add hero\_badge.py} \\
+\end{tabular}
 \end{tip}
 
 \section{Good commit messages}
@@ -117,7 +148,7 @@ line = "5b7a913 Fix hero walking through walls"
 parts = line.split(" ", 1)   # split only at the FIRST space
 print(parts)   # ['5b7a913', 'Fix hero walking through walls']
 \end{pycode}
-A pair of values in round parentheses, like \texttt{("5b7a913", "Fix hero")}, is a \textbf{tuple}: a small list that cannot be changed. \texttt{parse\_line} gives back one tuple per line.
+A pair of values in round parentheses, like \texttt{("5b7a913", "Fix hero")}, is a \textbf{tuple}: a small list that cannot be changed. \texttt{parse\_line} gives back one tuple per line. You can read a tuple like a list: \texttt{pair[0]} is \texttt{"5b7a913"} and \texttt{pair[1]} is \texttt{"Fix hero"}.
 Finish \texttt{parse\_log}, \texttt{count\_commits}, \texttt{find\_commits} and \texttt{oldest\_first}. Extra: paste the lines from your own \texttt{git log --oneline --no-decorate} into \texttt{SAMPLE\_LOG}.
 \end{exercise}
 
@@ -133,6 +164,7 @@ Git writes your \texttt{user.name} and \texttt{user.email} into every commit, fo
   \vocabword{commit id}{The short code name of a commit, like \texttt{a1b2c3d}.}
   \vocabword{diff}{The differences between two versions: \texttt{-} lines were removed, \texttt{+} lines were added.}
   \vocabword{Terminal}{An app where you type commands for the computer.}
+  \vocabword{tuple}{A small group of values in round parentheses, like \texttt{("a1b2c3d", "Add hero")}. It cannot be changed.}
 \end{vocab}
 
 \begin{reflection}

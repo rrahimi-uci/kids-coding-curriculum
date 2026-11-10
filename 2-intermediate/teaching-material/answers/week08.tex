@@ -12,6 +12,7 @@ tests against the correct function (they must all pass) and against three delibe
 \textbf{Step 1:} 3 tests pass; the empty ones pass because a test with no \texttt{assert} checks nothing, so it cannot fail.
 \textbf{Step 3:} with four tests, the last line looks like \texttt{1 failed, 3 passed in 0.03s}. \textbf{Broken clamps:} \enquote{forgets the low limit} is caught by any
 too-small test, \enquote{forgets the high limit} by any too-big test, \enquote{swaps the limits} by either.
+\textbf{Edge case (TODO 3):} \texttt{check\_my\_work.py} also checks that at least one test calls \texttt{clamp} with a value exactly on a limit (for example \texttt{clamp(10, 0, 10) == 10} or \texttt{clamp(0, 0, 10) == 0}).
 \end{answer}
 \pyfile{../exercises/week08/ex-test-the-clamp/solution.py}
 

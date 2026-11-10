@@ -15,4 +15,6 @@ with a green stem and a yellow middle.
 **Check your work:** open `check_my_work.py` and press **Run**.
 
 **Extra:** add more flowers with different sizes. Can you make a whole
-row with a `for` loop? Try `for x in range(-200, 201, 100):`
+row with a `for` loop? Try `for x in range(-200, 201, 100):`. It counts
+-200, -100, 0, 100, 200: it starts at -200, jumps 100 each time, and stops
+before 201. (-200 is 200 steps left of the middle.)

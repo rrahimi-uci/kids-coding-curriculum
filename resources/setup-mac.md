@@ -99,6 +99,8 @@ git config --global core.editor nano
 
 `git config --global --list` shows what you set. The last line makes git use the friendly `nano` editor if you forget `-m "message"`.
 
+**Do not skip this step.** On a Mac, git does not stop you if no name is set: it quietly uses the real name of the Mac account instead. Check it: type `git config user.name`. It must print the nickname. If it prints nothing, type the two lines above again.
+
 ### Run tests from Thonny's own Terminal
 
 In Thonny choose **Tools > Open system shell...**. This opens a Terminal that uses Thonny's Python, which has pytest. Run tests from there. Test it with `python3 -m pytest --version`. (The plain Terminal's `python3` is Apple's own copy, which does not have pytest.)

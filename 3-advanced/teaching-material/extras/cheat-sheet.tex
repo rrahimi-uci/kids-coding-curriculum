@@ -125,7 +125,7 @@ def tree(t, length):
         return
     t.forward(length)
     t.left(30)
-    tree(t, length * 0.7) # smaller
+    tree(t, length * 0.7) # 7 tenths
     t.right(60)
     tree(t, length * 0.7)
     t.left(30)
@@ -142,8 +142,8 @@ for row in grid:
 Neighbors of \texttt{(r, c)}: up \texttt{(r-1, c)}, down \texttt{(r+1, c)}, left
 \texttt{(r, c-1)}, right \texttt{(r, c+1)}.
 
-\textbf{BFS (shortest path; week 7 stretch):} put the start in a \texttt{deque}. Repeat: \texttt{popleft()} a square, add
-its unvisited neighbors to the back, remember where each came from.
+\textbf{BFS (week 7 stretch):} start in a \texttt{deque}; repeat: \texttt{popleft()} a square,
+add its unvisited neighbors to the back.
 
 \subsection{CSV data}
 \begin{sheetcode}
@@ -159,6 +159,8 @@ with open("games.csv", newline="",
 # count with a dict:
 counts[x] = counts.get(x, 0) + 1
 \end{sheetcode}
+\textbf{Math:} average = total $\div$ how many; steps distance = gap across + gap up;
+percent = out of 100 (2 of 4 = 50\%).
 
 \subsection{git: save points (in Terminal)}
 \renewcommand{\arraystretch}{1.1}

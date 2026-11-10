@@ -12,6 +12,10 @@
 \section{The big idea: inheritance}
 A \textbf{child class} gets everything from its \textbf{parent class} for free. Then it changes only what is different. Write the parent in parentheses:
 
+\begin{analogy}[The family pancake recipe]
+Grandma has a pancake recipe (the parent class). Your recipe says: \enquote{Make Grandma's pancakes, then add blueberries.} You do not copy her whole recipe. You \emph{use} it and add one thing. That is inheritance: the child class reuses the parent and adds or changes a little.
+\end{analogy}
+
 \begin{center}
 %% alt: A family tree of classes. Enemy is the parent, with name, x, y and steps, and a move() that takes 1 step right. Three children point up to it with is-a arrows: Guard, whose move() stays still; Zigzagger, whose move() uses the parent's move and then goes up or down; and Sprinter, which adds speed and whose move() takes speed steps.
 \begin{tikzpicture}[
@@ -36,6 +40,26 @@ class Sprinter(Enemy):                  # a Sprinter IS AN Enemy
         self.x = self.x + self.speed
         self.steps = self.steps + 1
 \end{pycode}
+
+\begin{workedexample}[A Sprinter, step by step]
+\texttt{zoom = Sprinter("Zoom", speed=2)} makes a Sprinter. Here is what happens:
+\begin{enumerate}[itemsep=1pt]
+  \item \texttt{super().\_\_init\_\_(name, x, y)} runs the parent's setup: name is \texttt{"Zoom"}, x is 0, y is 0, steps is 0.
+  \item Then the child adds its extra: speed is 2.
+\end{enumerate}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{After\ldots} & \textbf{x} & \textbf{y} & \textbf{steps} \\ \midrule
+making Zoom & 0 & 0 & 0 \\
+\texttt{zoom.move()} & 2 & 0 & 1 \\
+\texttt{zoom.move()} & 4 & 0 & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Each \texttt{move()} adds \texttt{speed} (2) to x and 1 to steps. A plain Enemy would only add 1 to x.
+\end{workedexample}
 
 \begin{tip}[super() = \enquote{do the parent's part}]
 \texttt{super().\_\_init\_\_(name, x, y)} runs the parent's setup. \texttt{super().move()} runs the parent's \texttt{move}, so the child can add something on top. If a child has its own \texttt{\_\_init\_\_} and forgets \texttt{super().\_\_init\_\_}, its parent's attributes are missing and you get an \texttt{AttributeError}.
@@ -62,13 +86,27 @@ A Star is a Shape. & A Party has Heroes. \\
 \end{tabular}
 \end{center}
 
+\begin{tip}[Quick check: is a or has a?]
+Say each sentence aloud. Write \textbf{is a} (inheritance) or \textbf{has} (composition) in the gap.\\[2pt]
+A Guard \rule{1.6cm}{0.4pt} Enemy.\qquad A Team \rule{1.6cm}{0.4pt} Players.\\[2pt]
+A Triangle \rule{1.6cm}{0.4pt} Shape.\qquad A Backpack \rule{1.6cm}{0.4pt} Items.
+\end{tip}
+
+\begin{tip}[Math helper: the \texttt{\%} sign means \enquote{remainder}]
+In the Zigzagger code, \texttt{\%} does \emph{not} mean percent. It means \enquote{divide and give me the remainder}, like the remainders you know from long division.
+\texttt{7 \% 2} is 1, because 7 divided by 2 is 3 remainder 1. \texttt{8 \% 2} is 0, because 8 divided by 2 is 4 remainder 0.
+So \texttt{steps \% 2 == 1} is a test for \enquote{is steps an odd number?} (1, 3, 5\ldots) and \texttt{steps \% 2 == 0} tests for even numbers (2, 4, 6\ldots).
+\end{tip}
+
 \begin{exercise}[Enemy Family]
 Folder: \texttt{week03/ex-enemy-family}. Finish \texttt{Zigzagger.move} (use \texttt{super().move()}), \texttt{Sprinter.\_\_init\_\_} (use \texttt{super().\_\_init\_\_}), \texttt{Sprinter.move} and \texttt{move\_all}.\\
-\textbf{Predict:} a Zigzagger starts at (0, 0). Where is it after 3 moves? \rule{3cm}{0.4pt}
+\textbf{Predict:} a Zigzagger starts at (0, 0). Each move it goes 1 step right, then up 1 if \texttt{steps} is odd or down 1 if \texttt{steps} is even. Where is it after 3 moves? \rule{3cm}{0.4pt}\\
+\textbf{Done looks like:} Run prints 4 turns, and Turn 1 is \texttt{Blob at (1, 0) | Rocky at (0, 0) | Zig at (1, 1) | Zoom at (2, 0)}.
 \end{exercise}
 
 \begin{exercise}[Shape Family]
-Folder: \texttt{week03/ex-shape-family}. \texttt{Shape} and \texttt{Square} are done. Make \texttt{Triangle} (3 sides, \texttt{left(120)}) and \texttt{Star} (5 sides, \texttt{right(144)}) override \texttt{draw}. Fix \texttt{Polygon.\_\_init\_\_} with \texttt{super()}. Run it: one call to \texttt{draw\_all} paints a whole grid of different shapes.
+Folder: \texttt{week03/ex-shape-family}. \texttt{Shape} and \texttt{Square} are done. Make \texttt{Triangle} (3 sides, \texttt{left(120)}) and \texttt{Star} (5 sides, \texttt{right(144)}) override \texttt{draw}. Fix \texttt{Polygon.\_\_init\_\_} with \texttt{super()}. Run it: one call to \texttt{draw\_all} paints a whole grid of different shapes.\\
+\textbf{Done looks like:} 3 rows of 4 shapes (squares, triangles, stars and hexagons), and \texttt{check\_my\_work.py} passes.
 \end{exercise}
 
 \begin{exercise}[Game Roster (if you finish early)]

@@ -1,5 +1,5 @@
 % Level 1, Workbook chapter 7 -- Hello, Python!   (input by student-workbook.tex)
-\chapterweek{7}{Hello, Python!}{Text code is just blocks written as words --- and Python is picky.}
+\chapterweek{7}{Hello, Python!}{Text code is blocks written as words --- and Python is picky.}
 
 \section{What you will learn}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt]
@@ -93,6 +93,8 @@ turtle.done()            # 4. keep the window open at the end
 \end{pycode}
 Lines that start with \texttt{\#} are \textbf{comments}. Python skips them. They are notes for people.
 
+Some starter files also change the pen. \texttt{t.pensize(3)} makes the line thicker. \texttt{t.color("\#0072B2")} makes it blue. The \texttt{\#} inside the quote marks is \textbf{not} a comment: it is the start of a color code. You will learn color codes in week 9.
+
 \begin{exercise}[Hello, Python!]
 Folder: \texttt{week07/ex-hello-python}. Open \texttt{starter.py} and press Run.
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
@@ -121,7 +123,7 @@ NameError: name 'Print' is not defined. Did you mean: 'print'?
 \end{itemize}
 
 \begin{exercise}[Typo Hunt]
-Folder: \texttt{week07/ex-typo-hunt}. This program should draw a flag on a pole, but it has \textbf{4 typos}. Run it, read the red message, fix \textbf{one} typo, run again. Write down what you fixed:
+Folder: \texttt{week07/ex-typo-hunt}. This program should draw a flag on a pole, but it has \textbf{4 typos}. Run it, read the red message, fix \textbf{one} typo, run again. Done looks like: no red text, the Shell says \texttt{Typo hunt: fixed!}, and the turtle draws a pole with a flag. Then run \texttt{check\_my\_work.py}. Write down what you fixed:
 \begin{center}
 \renewcommand{\arraystretch}{1.6}
 \begin{tabular}{@{}p{2cm}p{5cm}p{5cm}@{}}
@@ -148,7 +150,7 @@ Exercises: press \keys{Cmd}+\keys{S} to save \texttt{starter.py} in its folder. 
   \vocabword{Shell}{The bottom part of Thonny where Python shows messages and errors.}
   \vocabword{print}{A command that shows words in the Shell: \texttt{print("Hi")}.}
   \vocabword{Comment}{A note for people that starts with \texttt{\#}. Python skips it.}
-  \vocabword{Syntax error}{A typo or missing bracket that stops Python from understanding your code.}
+  \vocabword{Syntax error}{A typo, or a missing \texttt{)}, \texttt{"} or \texttt{:}, that stops Python from understanding your code.}
   \vocabword{Bug}{A mistake in a program. Every programmer makes them!}
 \end{vocab}
 

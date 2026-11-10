@@ -53,6 +53,26 @@ for a good intuition, not perfect definitions.\\
 \bottomrule
 \end{tabularx}
 
+\begin{teachernote}[Younger students (Grades 4--5, ages 9--11)]
+Level 3 keeps all its ideas for younger students, but some of the math is usually taught later.
+Wherever it appears, the workbook has a short \textbf{Math helper} box, and the exercise README
+repeats it. Read each one aloud the first time:
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Week 7:} \texttt{SHRINK = 0.7} means \enquote{7 tenths} ($100 \times 0.7 = 70$);
+        steps of \texttt{-1} mean \enquote{one back} (negative numbers are Grade 6); \texttt{grid[row][col]}
+        is down-then-across, the opposite order of turtle's \texttt{(x, y)}.
+  \item \textbf{Week 8:} the average (mean, Grade 6) as a \enquote{fair share}; rounding to one
+        decimal place; bar heights as a fraction of the tallest bar; \texttt{BOTTOM = -150} is below
+        the center.
+  \item \textbf{Week 9:} the \enquote{steps distance} instead of Pythagoras; accuracy as a
+        percent (\enquote{out of 100}, Grade 6).
+  \item \textbf{Project:} the brief offers a smaller \textbf{Core path} (a template plus one new
+        class and an algorithm reused from class) next to the Full path; both use the same rubric.
+\end{itemize}
+Act the math out with coins or counters when you can: a pile shared fairly, steps counted on
+squared paper.
+\end{teachernote}
+
 \begin{teachernote}[You do not need to be an expert]
 Every lesson plan tells you exactly what to say, type and look for, and every program in the
 answer key is tested. When a student asks something you do not know, the best answer is:
@@ -101,7 +121,7 @@ problem, like Russian dolls. It must have a \textbf{base case} where it stops; w
 gives up with a \texttt{RecursionError}. Fractal trees and flood fill (the paint bucket tool) are
 recursive.
 
-\item[Breadth-first search, BFS (buffer B1 and the final project).] How a computer finds the
+\item[Breadth-first search, BFS (week 7 stretch, buffer B1 and the final project).] How a computer finds the
 shortest way through a maze. Imagine dropping ink at the start: it spreads one square in every
 direction, then one more, ring after ring. The first time the ink reaches the goal, that is a
 shortest path. A \textbf{queue} keeps the squares in the order the ink reached them. The Maze
@@ -114,7 +134,9 @@ spreadsheet saved as plain text with commas between the columns.
 \item[Nearest-neighbor classifier (week 9).] The simplest machine learning. You have labeled
 examples (\textbf{training data}), each described by numbers (\textbf{features}, such as size and
 number of spikes). To label a mystery item, find the example most similar to it (smallest
-distance) and copy its label. If the examples are unfair or incomplete, the predictions are too:
+distance) and copy its label. We measure distance as \textbf{steps}: the gap in one feature plus the
+gap in the other, like moving a game piece across and up a grid. That needs only subtraction and
+addition (the straight-line distance needs Pythagoras, which is grade 8 math). If the examples are unfair or incomplete, the predictions are too:
 that is \textbf{bias}. A \textbf{Markov text generator} (also week 9) writes new sentences by
 remembering which word followed which in its training text --- it imitates without understanding,
 a good first picture of how chatbots can sound confident and still be wrong.
@@ -231,9 +253,14 @@ git config --global core.editor nano
 
 \subsection{5.4 Copy the course files}
 \begin{checklist}
-  \item Copy the \textbf{whole} \texttt{kids-coding-curriculum} folder onto each Mac (for example
-        into Documents). \texttt{check\_my\_work.py} looks for the \texttt{testing} folder above
-        the exercise, so a single exercise folder copied on its own cannot check itself.
+  \item On your own computer, make the \textbf{student copy}: in the course folder run
+        \texttt{python3 tools/student\_bundle.py -{}-level 3} (or \texttt{make student-bundle}). It creates
+        \texttt{build/\allowbreak student-bundle/\allowbreak kids-coding/}: every exercise folder \emph{without} the solutions,
+        the project starter files and the small \texttt{testing} helper.
+  \item Copy the \textbf{whole} \texttt{kids-coding} folder onto each Mac (for example into Documents).
+        \texttt{check\_my\_work.py} looks for the \texttt{testing} folder above the exercise, so a single
+        exercise folder copied on its own cannot check itself. Do not give students the whole course
+        folder: it contains every answer key, reference solution and teacher guide.
   \item Students keep their own work in two git repositories \emph{outside} that folder:
         \texttt{Documents/git-quest} (made in week 1) and
         \texttt{Documents/coding-projects/<project>} (a copy of \texttt{project/starter}, made in
@@ -384,11 +411,13 @@ queues. Use the results to choose the focus of the week 6 review and whether to 
 before week 7.\\ \midrule
 Exit assessment & Week 12, 20 min & Recursion, grids, data, AI concepts: read, predict, fix,
 design and explain. Combined with the project, it tells you whether a student is ready to work
-independently on Python projects. It has nine questions, two of them written answers, so watch the
-clock: if children are still writing at 20 minutes, give up to 5 more minutes from the gallery walk.\\ \midrule
+independently on Python projects. It has ten questions (30 points), two of them longer written
+answers, so watch the clock: if children are still writing at 20 minutes, give up to 5 more minutes
+from the gallery walk, or take Q10 orally.\\ \midrule
 Project rubric & Weeks 9--12 & Six criteria: creativity, working code, design/OOP, testing, git
-history, explaining design decisions. Explaining counts as much as code. Full rubric in the
-project teacher guide.\\ \midrule
+history, explaining design decisions, 1--4 points each (24 in all). Explaining counts as much as
+code. Core-path and Full-path projects use the same rubric. Full rubric in the project teacher
+guide.\\ \midrule
 Progress tracker & Every week & One page per student (\texttt{progress-tracker.pdf}): check the
 week's \enquote{I can} statements together during wrap-up.\\
 \end{longtable}
@@ -418,7 +447,7 @@ Every lesson plan has a support path and an extension path. In short:
 7 & Exercises 7.1 and 7.2 only; trace \texttt{sum\_to(3)} with sticky notes or the debugger & Count separate regions with flood fill; Sierpinski triangle\\ \midrule
 8 & Do 8.1 and 8.2 as a group; run the bar chart solution and change only colors & Average stars per genre; save a report to a text file; grouped bar chart\\ \midrule
 9 & Do 9.1 together and act out \texttt{nearest} with the cards; just run 9.3 & Markov chain keyed on two words; a confusion table for 9.2\\ \midrule
-10 & Start from a starter template; two classes only & Design an extra class with composition; write tests first\\ \midrule
+10 & Core path: start from a starter template and add one class & Full path: design an extra class with composition; write tests first\\ \midrule
 11 & Five simple tests (one per method); README from the template & Edge-case tests; tests for the saved file with \texttt{tmp\_path}\\ \midrule
 12 & Present with a prompt card; demo one feature & Explain one alternative design and why they rejected it\\
 \end{longtable}

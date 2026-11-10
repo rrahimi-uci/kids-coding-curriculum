@@ -45,7 +45,7 @@ Setup: Add Extension > Pen. The two missing hexagon numbers are repeat 6 and tur
 - A line joins two shapes: pen up is missing before a go to block. Add pen up after each shape.
 - The hexagon is open or has a gap: the turn is not 60, or the repeat is not 6.
 - All shapes start from the same place: a go to block is missing.
-- A shape is just a line: move and turn are not both inside the repeat.
+- A shape is only a line: move and turn are not both inside the repeat.
 - Old drawings stay on screen: erase all is missing at the top.
 
 ## Check-off list

@@ -76,7 +76,8 @@ def count_long(words):
             count = count + 1
     return count
 \end{pycode}
-Also correct: \py|return len([w for w in words if len(w) > 4])|.
+Also correct: \py|return len([w for w in words if len(w) > 4])|. (The question gives the hint that
+\py|len("turtle")| is 6, because Level 2 used \py|len| mostly on lists.)
 \end{answer}
 
 \needspace{12\baselineskip}
@@ -144,8 +145,8 @@ be an attribute of the object: \py|self.count = 0|.
 \end{tabular}
 \end{center}
 (a) 1 point per correct row. (b) Linear search checks \textbf{6} items (indexes 0--5) (1 point).
-(c) About \textbf{10} (1 point): each check halves the list, and halving 1000 about ten times gets
-down to 1. Accept 9--11.
+(c) About \textbf{10} (1 point): each check halves the list, and the halving ladder 1000, 500, 250,
+125, 62, 31, 15, 7, 3, 1 has 10 numbers. Accept 9--11.
 \end{answer}
 
 \begin{answer}[Q5. Sorting --- 3 points]
@@ -174,6 +175,12 @@ stretch challenge from week 7 on.
 
 %% =====================================================================
 \section{Exit assessment (week 12) --- 30 points}
+
+\begin{teachernote}[Timing for younger students]
+The paper is planned for 20 minutes. Many 9--10-year-olds need 25--30: let them finish, or take
+Q10 (your own design decision) orally, since it repeats the showcase talk. Reading any question
+aloud is always allowed; hints are not.
+\end{teachernote}
 
 \begin{answer}[Q1. Recursion --- 2 points]
 \texttt{3}, \texttt{2}, \texttt{1}, \texttt{Blast off!} on four lines.
@@ -210,8 +217,8 @@ the file with \py|encoding="utf-8-sig"| if it came from a spreadsheet app.
 \end{answer}
 
 \begin{answer}[Q6. Nearest neighbor --- 4 points]
-The paper uses this simpler distance (add the two gaps) instead of the ruler distance from
-week 9, so no square roots are needed. Distances to the mystery monster (size 4, spikes 1): A = 5 + 3 = \textbf{8}; B = 4 + 4 = \textbf{8};
+The paper uses the same steps distance as week 9 (add the two gaps), so no square roots are
+needed. Distances to the mystery monster (size 4, spikes 1): A = 5 + 3 = \textbf{8}; B = 4 + 4 = \textbf{8};
 C = 2 + 1 = \textbf{3}; D = 1 + 0 = \textbf{1} (1 point per two correct distances, so 2 points).
 Prediction: \textbf{slime}, because the nearest example, D, is a slime (2 points: label + reason).
 \end{answer}
@@ -232,8 +239,8 @@ cannot check facts (2 points). Chatbots are far more advanced but can also sound
 \begin{answer}[Q9. Design a game --- 4 points]
 One point each. (a) A \textbf{2D grid} (list of lists, \texttt{grid[row][col]}). (b)
 \textbf{Breadth-first search} (BFS), which needs a \textbf{queue} (\texttt{collections.deque}).
-BFS is met in buffer B1 and in the project (Maze Muncher's Chaser), not in a core lesson, so also
-give the point for a clear description such as \enquote{spread out one square at a time, like the
+BFS is only an optional stretch in week 7 (and appears in buffer B1 and Maze Muncher's Chaser),
+so also give the point for a clear description such as \enquote{spread out one square at a time, like the
 paint bucket, remembering where each square came from, using a queue}.
 (c) Two sensible classes with an attribute and a method each, for example \texttt{Player}
 (\texttt{pos}; \texttt{move()}) and \texttt{Monster} (\texttt{pos}; \texttt{chase()}). The fourth point is for a good

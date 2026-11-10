@@ -39,7 +39,7 @@ def flower(x, y, color):
 # screen stayed empty. Each line below is a call. The numbers after the name
 # fill in x, y and color, in that order.
 flower(-200, 0, PALETTE[0])     # orange, on the left
-flower(0, 0, PALETTE[6])        # pink, in the middle
+flower(0, 0, PALETTE[6])        # purple, in the middle
 flower(200, 0, PALETTE[4])      # dark blue, on the right
 
 turtle.done()

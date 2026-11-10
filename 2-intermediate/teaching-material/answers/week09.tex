@@ -11,7 +11,7 @@ the key names are spelled exactly (\texttt{"Up"}, \texttt{"space"}). Any drawing
 \begin{answer}[Exercise 9.2 Dodge the Meteors]
 \textbf{Step 5:} logic functions are \texttt{clamp()}, \texttt{move\_player()} and \texttt{is\_touching()}: they only take numbers and return a value, so they
 can be tested with pytest (like in week 8) without opening a window. Drawing functions use turtles (\texttt{make\_meteor()}, \texttt{show\_score()},
-\texttt{game\_loop()}\ldots). Keeping them apart makes the rules easy to test and easy to change. Any best score is fine.
+\texttt{game\_loop()}\ldots). Keeping them apart means the rules can be tested quickly and changed safely. Any best score is fine.
 \end{answer}
 \pyfile{../exercises/week09/ex-dodge-meteors/solution.py}
 

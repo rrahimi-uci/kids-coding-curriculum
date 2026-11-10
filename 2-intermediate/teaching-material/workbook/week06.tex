@@ -57,6 +57,28 @@ Very often you hear yourself say the bug before you reach the end. This is the b
 \subsection{Tool 4: the trace table}
 Follow the code with a pencil, like a very slow computer. Write a column for each variable and a row each time through the loop.
 When the table shows a value you did not expect, you have found the bug.
+Here is the countdown from week 4, traced:
+\begin{center}
+\begin{minipage}{0.4\linewidth}
+\begin{pycode}
+n = 3
+while n > 0:
+    print(n)
+    n = n - 1
+print("Go!")
+\end{pycode}
+\end{minipage}\hfill
+\begin{minipage}{0.52\linewidth}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|}
+\hline \textbf{round} & \textbf{n at the top} & \textbf{n > 0?} & \textbf{prints} \\ \hline
+1 & 3 & yes & 3 \\ \hline
+2 & 2 & yes & 2 \\ \hline
+3 & 1 & yes & 1 \\ \hline
+-- & 0 & no: stop & Go! \\ \hline
+\end{tabular}
+\end{minipage}
+\end{center}
 
 \begin{tip}[Bugs are normal]
 If you are stuck, you are not bad at coding: you are in the middle of learning. Say \enquote{I can't fix this \emph{yet}}, pick a tool and try one thing.
@@ -75,8 +97,10 @@ What I changed: \answerlines{1}
 
 \begin{exercise}[Station 2: High Scores (IndexError, 2 bugs)]
 Folder: \texttt{ex-bug-high-scores}. Draw the list with its index numbers. Try \texttt{print("best is", best)} inside \texttt{podium()}.\par
-Bug 1 -- error name: \rule{3.5cm}{0.4pt}\quad line: \rule{1.5cm}{0.4pt}\quad what I changed: \rule{5cm}{0.4pt}\par
-Bug 2 -- error name: \rule{3.5cm}{0.4pt}\quad line: \rule{1.5cm}{0.4pt}\quad what I changed: \rule{5cm}{0.4pt}
+Bug 1 -- error name: \rule{3.5cm}{0.4pt}\quad line: \rule{1.5cm}{0.4pt}\par
+What I changed: \rule{8cm}{0.4pt}\par\medskip
+Bug 2 -- error name: \rule{3.5cm}{0.4pt}\quad line: \rule{1.5cm}{0.4pt}\par
+What I changed: \rule{8cm}{0.4pt}
 \end{exercise}
 
 \begin{exercise}[Station 3: Rocket Countdown (infinite loop)]
@@ -102,14 +126,15 @@ Now run it and explain each function to your duck. The three bugs I fixed:
 \end{exercise}
 
 \begin{exercise}[Station 5: Paper detectives (no computer)]
-This function should give back the biggest number in a list. Fill in the trace table for \texttt{biggest([-5, -2, -8])}.
+This function should give back the smallest number in a list. Fill in the trace table for \texttt{smallest([7, 3, 9])}.
+Write \enquote{yes} or \enquote{no} in the middle column, then the value of \texttt{best} after that round.
 \begin{center}
 \begin{minipage}{0.45\linewidth}
 \begin{pycode}
-def biggest(numbers):
+def smallest(numbers):
     best = 0
     for n in numbers:
-        if n > best:
+        if n < best:
             best = n
     return best
 \end{pycode}
@@ -117,15 +142,16 @@ def biggest(numbers):
 \begin{minipage}{0.45\linewidth}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{|c|c|c|}
-\hline \textbf{n} & \textbf{n > best?} & \textbf{best} \\ \hline
+\hline \textbf{n} & \textbf{n < best?} & \textbf{best} \\ \hline
 start & -- & 0 \\ \hline
--5 & & \\ \hline
--2 & & \\ \hline
--8 & & \\ \hline
+7 & & \\ \hline
+3 & & \\ \hline
+9 & & \\ \hline
 \end{tabular}
 \end{minipage}
 \end{center}
-It gives back \rule{1.5cm}{0.4pt}, but the biggest number is \rule{1.5cm}{0.4pt}. What is the bug, and how would you fix it?
+It gives back \rule{1.5cm}{0.4pt}, but the smallest number in the list is \rule{1.5cm}{0.4pt}. What is the bug, and how would you fix it?
+(Hint: look at the line before the loop. Compare it with \texttt{cheapest()} in Station 4.)
 \answerlines{2}
 \end{exercise}
 

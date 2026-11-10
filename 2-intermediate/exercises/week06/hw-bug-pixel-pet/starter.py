@@ -37,3 +37,6 @@ if __name__ == "__main__":
     feed(pet)
     print(pet)
     print(f"{pet['name']} feels {mood(pet)}.")
+    # A second pet checks the mood rules. Biscuit is very hungry (9).
+    biscuit = {"name": "Biscuit", "hunger": 9, "happiness": 6}
+    print(f"{biscuit['name']} feels {mood(biscuit)}.")

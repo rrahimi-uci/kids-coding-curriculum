@@ -1,7 +1,7 @@
 # Kids Coding Curriculum
 
 A complete, print-ready programming curriculum for **up to four children
-starting in Grade 5**, taught at home by a parent in **one 60-minute session a
+in Grades 4–5 (ages 9–11)**, taught at home by a parent in **one 60-minute session a
 week** on Macs. It leans into what the kids enjoy: **making games and visual
 art**.
 
@@ -28,7 +28,8 @@ shared/latex/          kidscode.cls (the one document class: fonts, boxes),
                        and kidscode-breaks.lua (lets long code names wrap)
 shared/templates/      blank lesson / workbook / homework / answer files to copy
 testing/               fake turtle + test runners, repository quality checks
-tools/                 build.py (PDFs) and coverage.py (objective coverage tables)
+tools/                 build.py (PDFs), coverage.py (objective coverage tables),
+                       student_bundle.py (solution-free copy for the children's Macs)
 .github/               CI workflow and pull request template
 ```
 
@@ -72,7 +73,12 @@ All colors come from the color-blind-safe Okabe–Ito palette.
    Plans and Answer Key for yourself.
 2. **Read the Teacher Guide** (setup checklist, how a session runs).
 3. **Set up each Mac** (Teacher Guide → Setup): Scratch app, Thonny, and a
-   copy of this folder.
+   **student copy** of the course: run `make student-bundle` (or
+   `python3 tools/student_bundle.py --level 1`) and copy
+   `build/student-bundle/kids-coding/` into the child's Documents folder.
+   It has every exercise, hint, starter file and self-check, but **no
+   solutions, answer keys or teacher material**, so children can work and
+   check themselves alone.
 4. Each week: read that week's lesson plan (≈10 minutes), print the workbook
    chapter and homework, and teach.
 

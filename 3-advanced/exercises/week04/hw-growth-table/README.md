@@ -6,6 +6,8 @@ list gets bigger, for linear and binary search.
 1. Open `starter.py` in Thonny.
 2. Finish `linear_worst` and `halving_steps`.
 3. Before you press **Run**, write your predictions on the homework sheet.
+   For binary search, halve the number again and again (round down) and
+   count: 10, 5, 2, 1 is 4 numbers, so 10 items need 4 steps.
 4. Press **Run**. You should see:
 
 ```

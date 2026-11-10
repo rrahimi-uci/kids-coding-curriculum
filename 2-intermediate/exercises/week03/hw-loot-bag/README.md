@@ -14,5 +14,6 @@ old boots you found.
 
 **Check your work:** open `check_my_work.py` and press **Run**.
 
-**Extra:** add your own items to `CHEST`. Putting "gold coin" in the list
-3 times makes it 3 times as likely. Make a super-rare item that appears only once.
+**Extra:** add your own items to `CHEST`. "gold coin" is in the list 3
+times, so you find it more often than the ruby, which is there only once.
+Make a super-rare item that appears only once.

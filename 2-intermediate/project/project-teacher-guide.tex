@@ -92,7 +92,7 @@ three tests of their \textbf{own} functions, and they pass when the child presse
 
 \begin{teacherscript}[Questions to ask]
 \enquote{What happens the very first time, when the file does not exist yet?} \enquote{Which of your
-functions does not use turtle? That one is easy to test.} \enquote{What is an edge case for this
+functions does not use turtle? That one is the simplest to test.} \enquote{What is an edge case for this
 function?}
 \end{teacherscript}
 
@@ -206,7 +206,7 @@ Tests & 13 tests of the rules in \texttt{test\_starcatcher\_logic.py}, 5 tests o
 \begin{tikzpicture}[font=\small, box/.style={draw, thick, rounded corners=3pt, align=left, text width=5.6cm, inner sep=6pt},
   arrow/.style={-{Stealth[length=2.5mm]}, thick}]
   \node[box, fill=kcsky!15] (view) {\textbf{star\_catcher.py} (the view)\\ opens the window, draws shapes, listens for keys, runs the \texttt{ontimer} loop};
-  \node[box, fill=kcgreen!15, right=1.4cm of view] (logic) {\textbf{starcatcher\_logic.py} (the rules)\\ pure functions: no turtle, easy to test};
+  \node[box, fill=kcgreen!15, right=1.4cm of view] (logic) {\textbf{starcatcher\_logic.py} (the rules)\\ pure functions: no turtle, quick to test};
   \node[box, fill=kcyellow!25, below=0.9cm of logic] (tests) {\textbf{test\_starcatcher\_logic.py}\\ checks every rule with small numbers};
   \node[box, fill=kcorange!20, below=0.9cm of view] (file) {\textbf{star\_catcher\_scores.txt}\\ high scores, one per line};
   \draw[arrow] (view) -- node[above]{asks} (logic);

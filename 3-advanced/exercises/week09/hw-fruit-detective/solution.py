@@ -9,8 +9,6 @@
 # keeps the first k. vote counts the labels and returns the most common
 # one, with ties going to the label that came first.
 
-import math
-
 # (size 1-10, sweetness 1-10, label) - made-up fruit cards
 TRAINING = [
     (7, 8, "apple"), (6, 7, "apple"), (8, 7, "apple"), (7, 6, "apple"),
@@ -21,8 +19,9 @@ TRAINING = [
 
 
 def distance(a, b):
-    # (Given code.) Straight-line distance using the first two numbers.
-    return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+    # (Given code.) Steps distance, as in 9.1: the gap in size plus the gap
+    # in sweetness. abs() gives the gap between two numbers (never below 0).
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 
 def k_nearest(training, point, k):

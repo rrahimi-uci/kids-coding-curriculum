@@ -18,7 +18,8 @@ broke it one day.
 
 **Check your work:** open `check_my_work.py` and press **Run**. It tries your
 tests on three BROKEN versions of `best_score()`. Your tests should catch
-(fail on) every one of them.
+(fail on) every one of them. When they do, it says
+`Amazing! All 5 checks passed.`
 
 **Edge cases to think about:** an empty list, one item, the first item, the
 last item, all the same.

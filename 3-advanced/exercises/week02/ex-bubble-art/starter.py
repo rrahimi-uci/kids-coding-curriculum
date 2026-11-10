@@ -44,6 +44,9 @@ def make_bubbles(count):
     # TODO 5: repeat count times: pick a random x (-300 to 300), y (-200 to 200),
     #         size (20 to 80) and color (random.choice(PALETTE)),
     #         then append Bubble(x, y, size, color) to bubbles.
+    #         (0, 0) is the middle of the window. A minus sign means "left of
+    #         the middle" for x and "below the middle" for y, so x = -300 is
+    #         300 steps to the left. random.randint(-300, 300) works fine.
     return bubbles
 
 

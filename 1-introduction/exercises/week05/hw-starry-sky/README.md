@@ -5,7 +5,7 @@
 
 ## Build steps
 
-1. Open Scratch and add the **Pen** extension. Choose a dark backdrop
+1. Open Scratch (**File > New** if an old project is open) and add the **Pen** extension. Choose a dark backdrop
    (for example **Stars**, or paint the backdrop dark blue).
 2. **My Blocks > Make a Block**: name it `star`, add an input `size`, click **OK**.
 3. Build both scripts. Drag `size` out of the define hat into the move block.
@@ -23,6 +23,8 @@
   - turn right 144 degrees
 - pen up
 
+(**turn right** is the **Motion** block **turn ↻ (15) degrees**.)
+
 **when green flag clicked**
 
 - erase all
@@ -39,6 +41,10 @@
 Each click on the green flag clears the sky and draws 10 yellow five-pointed
 stars in surprise places, each a different size. There are no lines joining
 the stars. The cat is hidden.
+
+**Think about it:** why does the star block turn 144 degrees and not 72?
+Hint: count how many times the pen goes all the way round while it draws one star.
+Write your answer on your homework sheet.
 
 ## Checklist
 

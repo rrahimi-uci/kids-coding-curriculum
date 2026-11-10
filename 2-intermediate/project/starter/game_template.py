@@ -13,6 +13,7 @@ Project checklist - your finished game needs all of these:
   [ ] 3+ tests      (my_tests.py)
 """
 
+import math
 import random
 import turtle
 
@@ -46,7 +47,7 @@ def clamp(value, low, high):
 
 def is_touching(x1, y1, x2, y2, reach):
     """True when point (x1, y1) is within reach of point (x2, y2)."""
-    distance = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+    distance = math.dist((x1, y1), (x2, y2))   # straight-line distance (week 9)
     return distance <= reach
 
 
@@ -56,8 +57,10 @@ def add_points(score, points):
 
 
 # TODO 4: write load_high_score(filename) and save_high_score(filename, score).
-# Hint: look back at your week 7 work. Open with "w" to write. Reading a file
-# that does not exist yet gives FileNotFoundError - use try/except.
+# Hint: workbook chapter 11 has a recipe ("a file for your high score"), and
+# your week 7 work shows the same ideas. Open with "w" to write. Reading a
+# file that does not exist yet gives FileNotFoundError - use try/except and
+# give back 0.
 
 
 # ---------- DRAWING AND KEYS
@@ -142,6 +145,18 @@ def game_loop():
         place_coin()
     # TODO 3: make a LIST of enemies (or extra coins). Move each one here
     # with a for loop, and check if the player touches it.
+    # Recipe (like the meteors in Dodge the Meteors, week 9):
+    #  a) At the end of setup_window(), make the list and keep it in view:
+    #         enemies = []
+    #         for number in range(3):
+    #             enemy = turtle.Turtle("triangle")
+    #             enemy.penup()
+    #             enemy.goto(random.randint(-250, 250), 300)
+    #             enemies.append(enemy)
+    #         view["enemies"] = enemies
+    #  b) Here, for every enemy in view["enemies"]: move it down a little
+    #     (enemy.sety(enemy.ycor() - 5)), check is_touching() with the
+    #     player, and send it back to the top when its y is below -300.
     draw_hud()
     view["screen"].update()
     view["screen"].ontimer(game_loop, SETTINGS["tick_ms"])
@@ -155,8 +170,14 @@ def countdown():
         draw_hud()
         view["hud"].goto(0, 0)
         view["hud"].write("TIME UP!", align="center", font=("Arial", 24, "bold"))
-        # TODO 4: save the score here if it is a new high score.
-        # TODO 5: press space to play again.
+        # TODO 4: save the score here if it is a new high score:
+        #   best = load_high_score("highscore.txt")
+        #   if game["score"] > best: save_high_score("highscore.txt", ...)
+        # TODO 5: press space to play again. Write play_again(): if the game
+        #   is not running, set the score to 0, time_left back to the time
+        #   limit and running to True, then start game_loop and countdown
+        #   again with ontimer (like start_game does). Connect it in
+        #   setup_window() with screen.onkey(play_again, "space").
         view["screen"].update()
     else:
         view["screen"].ontimer(countdown, 1000)

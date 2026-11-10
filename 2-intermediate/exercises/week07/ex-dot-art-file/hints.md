@@ -1,5 +1,5 @@
 ## Hint 1: Where to look
-Start with `parse_line()`. A line from a file is just text, even the numbers. Look at what it returns right now and compare it to the list in its description.
+Start with `parse_line()`. A line from a file is always text, even the numbers. Look at what it returns right now and compare it to the list in its description.
 
 ## Hint 2: Try this
 `int()` turns text like `"-150"` into a number you can do math with. After `parse_line()` works, `load_dots()` needs a `with open(...)` block and a `for` loop over the file. `save_dots()` is the same idea, but it writes.

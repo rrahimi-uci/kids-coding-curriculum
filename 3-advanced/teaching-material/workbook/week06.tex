@@ -31,6 +31,19 @@ A \textbf{debugger} is a slow-motion replay for your code. You can pause on ever
   \item \textbf{Breakpoint:} click a line number to put a red dot on it. Press Debug, then Resume: the program runs and pauses at the dot.
 \end{itemize}
 
+\begin{workedexample}[The debugger, click by click]
+Try this with \texttt{week06/ex-bug-missing-self/starter.py}.
+\begin{enumerate}[itemsep=1pt]
+  \item Turn on \menu{View > Variables}. A Variables panel appears.
+  \item Click the \textbf{Debug} button (the bug, next to the green Run button). The first line of the program lights up.
+  \item Click \textbf{Step over}. The light moves to the next line that will run.
+  \item Keep clicking Step over. Watch new names appear in the Variables panel, like \texttt{keeper}.
+  \item If the program stops with a red error, read its last line: you found a bug! Fix it, then start again at step 2.
+  \item When a line calls one of your methods, like \texttt{keeper.undo\_last()}, click \textbf{Step into} instead. Now you are inside \texttt{undo\_last}, line by line.
+  \item When you have seen enough, click \textbf{Stop} (the red sign).
+\end{enumerate}
+\end{workedexample}
+
 \section{A bug-hunting strategy}
 \begin{center}
 %% alt: A bug-fixing loop of five steps. 1 Read the last line of the error. 2 Predict: I think line … 3 Watch: debug and step. 4 Fix ONE thing. 5 Check: run the tests. Still failing? Go round again.
@@ -46,7 +59,7 @@ A \textbf{debugger} is a slow-motion replay for your code. You can pause on ever
 \end{center}
 
 \begin{tip}[Reading an error]
-Start at the \textbf{bottom}. The last line says \emph{what} went wrong (\texttt{TypeError}, \texttt{NameError}, \texttt{IndexError}\ldots). The lines just above it say \emph{where}: the line number and the line of code.
+Start at the \textbf{bottom}. The last line says \emph{what} went wrong (\texttt{TypeError}, \texttt{NameError}, \texttt{IndexError}\ldots). The lines right above it say \emph{where}: the line number and the line of code.
 \end{tip}
 
 \section{Weeks 1--5 in one page}
@@ -67,10 +80,12 @@ Start at the \textbf{bottom}. The last line says \emph{what} went wrong (\texttt
 \begin{exercise}[Bug Hunt 1: Score Keeper]
 Folder: \texttt{week06/ex-bug-missing-self}. Three bugs, all the same kind. We debug this one together. Write each error and fix:
 \answerlines{3}
+\textbf{Done looks like:} Run prints \texttt{Comet has 10 points}, and \texttt{check\_my\_work.py} passes.
 \end{exercise}
 
 \begin{exercise}[Bug Hunt 2: Lost Scores]
-Folder: \texttt{week06/ex-bug-lost-items}. A sort that loses scores, and even empties the original list! Watch \texttt{scores}, \texttt{remaining} and \texttt{result} in the Variables view. Three bugs.
+Folder: \texttt{week06/ex-bug-lost-items}. A sort that loses scores, and even empties the original list! Watch \texttt{scores}, \texttt{remaining} and \texttt{result} in the Variables view. Three bugs.\\
+\textbf{Done looks like:} Run prints \texttt{Sorted:\ \ \ [10, 10, 30, 40, 50]} and \texttt{Original: [40, 10, 30, 10, 50]}.
 \end{exercise}
 
 \begin{exercise}[Bug Hunt 3: Word Finder]
@@ -84,11 +99,13 @@ Folder: \texttt{week06/ex-bug-binary-search}. Binary search with two off-by-one 
  & & & & \\ \hline
 \end{tabular}
 \end{center}
-Why is \enquote{ant} never found? \rule{7cm}{0.4pt}
+Why is \enquote{ant} never found? \rule{7cm}{0.4pt}\\
+\textbf{Done looks like:} Run prints \texttt{apple -> 0}, \texttt{dragon -> 3}, \texttt{lemon -> 11} and \texttt{zebra -> -1} (\texttt{-1} means \enquote{not found}).
 \end{exercise}
 
 \begin{exercise}[Bug Hunt 4: Shape Party]
-Folder: \texttt{week06/ex-bug-shape-party}. Three inheritance bugs that appear one after another: nothing drawn, then a crash, then diamonds that are only dots.
+Folder: \texttt{week06/ex-bug-shape-party}. Three inheritance bugs that appear one after another: nothing drawn, then a crash, then diamonds that are only dots.\\
+\textbf{Done looks like:} 4 hexagons on top and 3 diamonds (squares standing on a corner) below, 7 shapes in 7 colors.
 \end{exercise}
 
 \begin{vocab}

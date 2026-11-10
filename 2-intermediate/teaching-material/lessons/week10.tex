@@ -92,8 +92,12 @@ SETTINGS = {"step": 20, "left_edge": -280, "right_edge": 280}
 state = {"score": 0, "running": True}
 
 def clamp(value, low, high):
-    """Keep value between low and high."""
-    return max(low, min(high, value))
+    """Keep value between low and high (the clamp from week 8)."""
+    if value < low:
+        return low
+    if value > high:
+        return high
+    return value
 
 def next_x(x, direction):
     """Where the player moves to: direction is -1 (left) or 1 (right)."""
@@ -138,7 +142,8 @@ after each change), rotating all three roles. \textbf{4:} two teams; you float b
 Goal by minute 44, \textbf{M2}: arcade teams have a player that moves with keys and one thing that
 moves by itself on the timer; Art Studio teams have a menu loop that draws something and quits
 cleanly (teams that started from \texttt{art\_studio\_template.py}: a key that draws a new design and a key that saves it). Teams may remix the week 9 \enquote{Dodge the Meteors} exercise
-(\texttt{exercises/week09/ex-dodge-meteors/}) or pieces of Star Catcher, with a credit comment at
+(\texttt{exercises/week09/ex-dodge-meteors/}) or pieces of Star Catcher (copy it from your own course folder,
+\texttt{project/reference/}; it is not in the student copy), with a credit comment at
 the top, for example \texttt{\# Movement code remixed from Dodge the Meteors}.
 
 \begin{bughunt}[Partner code review (minutes 44--49)]

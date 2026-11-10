@@ -93,6 +93,24 @@ def test_your_tests_catch_a_clamp_that_forgets_the_high_limit(load_target):
     assert failed, "A broken clamp() that forgets the HIGH limit passed all your tests. Test a value that is too big."
 
 
+def test_you_tested_a_value_exactly_on_a_limit(load_target, target_path):
+    """TODO 3: an edge case. Spy on clamp() while your tests run and look for a
+    call where the value is exactly the low or the high limit."""
+    correct = correct_version(target_path)
+    calls = []
+
+    def spying_clamp(value, low, high):
+        calls.append((value, low, high))
+        return correct(value, low, high)
+
+    failing_tests(load_target(), spying_clamp)
+    on_a_limit = [c for c in calls if c[0] in (c[1], c[2])]
+    assert on_a_limit, (
+        "Write a test for a value exactly ON a limit (TODO 3), like clamp(10, 0, 10) or clamp(0, 0, 10). "
+        "Edge cases are where bugs like to hide."
+    )
+
+
 def test_your_tests_catch_a_clamp_that_swaps_the_limits(load_target):
     failed = failing_tests(load_target(), clamp_swaps_limits)
     assert failed, "A broken clamp() that mixes up low and high passed all your tests. Test both sides."

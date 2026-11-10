@@ -4,7 +4,10 @@ pytest runs every function whose name starts with test_ and tells you
 which ones PASSED and which FAILED. A test is a small check:
     assert <something that should be True>, "message if it is not"
 
-1. Change the import below to YOUR program's file name (without .py).
+1. There are two import lines below, one for each project option.
+   Delete the one for the option you did NOT choose (and its example
+   tests). In the other one, write YOUR program's file name without .py,
+   for example:   import space_snack as game
 2. Keep the example tests that still fit, delete the others.
 3. Write at least 3 tests of YOUR OWN functions (TODO at the bottom).
    Test a normal case AND an edge case (a wall, zero, an empty list...).

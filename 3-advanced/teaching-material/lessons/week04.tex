@@ -54,6 +54,10 @@ Draw this table and fill it in together (ask the students to guess the binary co
 Nobody reads a dictionary from page 1 to find \enquote{mango}. You open it in the middle, see \enquote{K}, and know \enquote{mango} is in the right half. Every look throws away half of what is left. Doubling the size of the dictionary only adds \emph{one} more look. (Grown-up words, not needed: linear search is \enquote{O(n)}, binary search \enquote{O(log n)}.)
 \end{analogy}
 
+\begin{teachernote}[Keep the math at Grade 4--5 level]
+Logarithms and powers of 2 are beyond Grade 5. Never say \enquote{log}; ask \enquote{how many times can you cut it in half?} On the board, build the \textbf{halving ladder} from the workbook's math helper: 100, 50, 25, 12, 6, 3, 1 (round down each time) is 7 numbers, so 7 steps. Let the students halve 1000 themselves (10 numbers). The second table in the math helper (each extra step handles a list about twice as big: 1, 3, 7, 15, 31, 63, 127\ldots) is optional; use it with students who like patterns.
+\end{teachernote}
+
 
 \section{Guided demo (18--28 min)}
 \begin{workedexample}[Binary search with a trace table]
