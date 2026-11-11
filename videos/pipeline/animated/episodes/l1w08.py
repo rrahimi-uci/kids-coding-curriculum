@@ -90,7 +90,7 @@ EPISODE = Episode(level=1, week=8, scenes=(
         A("chip", "8 lines → 3 lines", at="question$+1.6", x=1320, y=680, color="green", size=40),
     )),
     Scene("w08-s02", setting="sky", beats=(
-        B("Read this line: for i in range four, colon.", cue="line", pause=0.4),
+        B("This line starts a loop: for i in range four, with a colon at the end.", cue="line", pause=0.4),
         B("It means: repeat the pushed-in lines four times.", cue="means", pause=0.3),
         B("The colon says a group is coming.", cue="colon", pause=0.3),
         B("Every line inside starts with the same four spaces.", cue="spaces", pause=0.2),
@@ -121,7 +121,8 @@ EPISODE = Episode(level=1, week=8, scenes=(
                                                           ("count+1.8", 3)]),
     )),
     Scene("w08-s03", setting="lavender", beats=(
-        B("For a square, put t dot forward one hundred and t dot left ninety inside range four.", cue="square",
+        B("For a square, put the move forward one hundred and the turn left ninety inside a loop that runs four "
+          "times.", cue="square",
           pause=0.3),
         B("The secret shape rule is back: repeats equal sides, and the turn equals three hundred sixty divided by "
           "sides.", cue="rule", pause=0.4),
@@ -166,9 +167,8 @@ EPISODE = Episode(level=1, week=8, scenes=(
         B("A triangle has three sides, so change two to three, and test.", cue="fix1", pause=2.0),
         B("Next, Nova's triangle is one long straight line!", cue="line", pause=0.4),
         B("Look at the spaces.", cue="look", pause=2.4),
-        B("t dot left one hundred twenty isn't pushed in, so it's outside the loop, and it turns only once, at "
-          "the end.", cue="outside", pause=0.4),
-        B("Push it in four spaces, under t dot forward, and test.", cue="fix2", pause=2.0),
+        B("The turn line isn't pushed in, so it's outside the loop, and the turtle turns only once, at the end.", cue="outside", pause=0.4),
+        B("Push it in four spaces, under the forward line, and test.", cue="fix2", pause=2.0),
         B("If the spaces don't match, Python shows a red IndentationError.", cue="error", pause=0.6),
         B("Pause before each repair: what evidence tells us which one thing to change?", cue="pause", pause=3.0),
     ), actions=(

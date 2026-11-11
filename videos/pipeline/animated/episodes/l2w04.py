@@ -54,7 +54,7 @@ EPISODE = Episode(level=2, week=4, scenes=(
     )),
     Scene("l2-w04-s02", setting="sky", beats=(
         B("A for loop knows in advance how many times to go around.", cue="for"),
-        B("for i in range 4 is always four times.", cue="range4", pause=0.4),
+        B("A for loop over range 4 always goes around four times.", cue="range4", pause=0.4),
         B("A while loop is different.", cue="diff"),
         B("It keeps going around while something is true, and it checks again at the top every time.", cue="while",
           pause=0.3),
@@ -95,9 +95,9 @@ EPISODE = Episode(level=2, week=4, scenes=(
     )),
     Scene("l2-w04-s03", setting="lavender", beats=(
         B("Pixel is jumping up to a cloud that's 10 steps high.", cue="jumping", pause=0.3),
-        B("Nova writes height equals 0.", cue="h0"),
-        B("Then: while height is less than 10, colon.", cue="while"),
-        B("Inside: height equals height plus 3, then print height.", cue="inside", pause=0.3),
+        B("Nova sets height to 0.", cue="h0"),
+        B("Then a while loop: while height is less than 10.", cue="while"),
+        B("Inside, height goes up by 3, and then we print it.", cue="inside", pause=0.3),
         B("That middle line is the change that lets the loop end.", cue="change", pause=0.4),
         B("Let's trace it.", cue="trace"),
         B("0 is less than 10, so jump: 3.", cue="j3"),
@@ -144,9 +144,9 @@ EPISODE = Episode(level=2, week=4, scenes=(
     Scene("l2-w04-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
         B("Nova writes a cookie muncher for Pixel.", cue="writes"),
-        B("cookies equals 3.", cue="c3"),
+        B("cookies starts at 3.", cue="c3"),
         B("While cookies is more than 0, print Munch!", cue="whilec"),
-        B("Then: cookies equals cookies minus 1.", cue="then", pause=0.3),
+        B("Then cookies goes down by 1.", cue="then", pause=0.3),
         B("Pixel runs it…", cue="runs", pause=0.2),
         B("Munch! Munch! Munch! Munch!", cue="munch", pause=0.2),
         B("It never stops!", cue="never", pause=0.2),

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import dataclasses
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -328,3 +329,27 @@ def test_python_shown_in_videos_runs_with_the_course_turtle() -> None:
     assert [item[0] for item in result["draw"]] == ["line"] * 3 and result["error"] == ""
     shell = pyrun.shell_lines(pyrun.run('n = input("How many? ")\nprint(n + 1)', inputs=("4",)))
     assert shell == ["How many? 4", 'TypeError: can only concatenate str (not "int") to str']
+
+
+def test_voice_reads_code_like_a_teacher_while_captions_keep_it_written() -> None:
+    from videos.pipeline.animated.speech import spoken_form
+
+    assert spoken_form("Nova saves self.height in stickers.txt and rocket.py.") == (
+        "Nova saves self dot height in stickers dot T X T and rocket dot pie.")
+    assert spoken_form("__init__ and git config --global user.name") == (
+        "dunder init and git config dash dash global user dot name")
+    assert spoken_form("my_shape and flag_drawing.py") == "my underscore shape and flag underscore drawing dot pie"
+    assert spoken_form("screen.onkey and screen.ontimer, not a monkey") == (
+        "screen dot on key and screen dot on timer, not a monkey")
+    assert spoken_form("It is 2.5, then 3. Done… Next.") == "It is 2.5, then 3. Done… Next."  # numbers, sentences
+
+
+@pytest.mark.parametrize("level", [1, 2, 3])
+def test_narration_has_no_code_syntax_the_voice_would_read_badly(level) -> None:
+    """Code is described in words; only names the voice can read (self.height, stickers.txt) are written as code."""
+    series = load_series(ROOT / "videos" / "specs" / f"level{level}.json")
+    awkward = re.compile(r"[\[\]{}=<>#`\\]|\w\((?!\))|\b\w+ of \d|\b(dot|underscore|dunder) [a-z]+\b")
+    found = [f"week {video.week} {scene.scene_id}: {match.group(0)!r}"
+             for video in series.videos for scene in video.scenes
+             for match in awkward.finditer(scene.narration)]
+    assert not found, "\n".join(found)

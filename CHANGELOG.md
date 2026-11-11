@@ -3,6 +3,13 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.10.1 - 2026-11-11
+
+More natural video narration.
+
+- The narration sounds like a teacher, not like code being spelled out: "the planet at index 0" instead of "planets of 0", "call stickers with 2 sheets and 3 loose stickers" instead of "stickers of 2 and 3". Captions and transcripts show code names as they are written (`self.height`, `stickers.txt`, `__init__`), while the voice reads them aloud ("self dot height", "stickers dot T X T", "dunder init"). A test stops narration that would make the voice read raw code symbols.
+- Fixed a rare frame crash in the video renderer when something on screen grows from nothing.
+
 ## 1.10.0 - 2026-11-11
 
 The teaching videos are on the website.

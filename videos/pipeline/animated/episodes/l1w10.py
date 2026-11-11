@@ -130,7 +130,7 @@ EPISODE = Episode(level=1, week=10, scenes=(
         B("The pushed-in lines are the recipe.", cue="recipe", pause=0.4),
         B("But a recipe card isn't a cake.", cue="cake", pause=0.3),
         B("Defining writes the card; nothing is drawn yet.", cue="nothing", pause=0.4),
-        B("To use it, call flower, open parenthesis, sixty, close parenthesis.", cue="call", pause=0.3),
+        B("To use it, call flower with the number sixty.", cue="call", pause=0.3),
         B("Sixty goes into the size slot.", cue="slot", pause=0.4),
         B("Define once, call many times: thirty, sixty, and ninety make three flower sizes from one recipe.",
           cue="many", pause=1.0),
@@ -157,10 +157,10 @@ EPISODE = Episode(level=1, week=10, scenes=(
     )),
     Scene("w10-s03", setting="lavender", beats=(
         B("First, write import random at the top, next to import turtle.", cue="imp", pause=0.3),
-        B("Random dot choice picks one item from a list, like picking a crayon from a bag with your eyes closed.",
+        B("Then random.choice picks one item from a list, like picking a crayon from a bag with your eyes closed.",
           cue="choice", pause=0.3),
         B("Here, it picks from our color-blind-safe PALETTE.", cue="palette", pause=0.4),
-        B("Random dot randint, ten comma eighty, picks a whole number from ten up to eighty, and both ten and "
+        B("And random.randint, with ten and eighty, picks a whole number from ten up to eighty, and both ten and "
           "eighty can be picked.", cue="randint", pause=0.3),
         B("Smaller number first!", cue="smaller", pause=0.4),
         B("Random doesn't mean ‘anything in the universe.’", cue="universe", pause=0.2),
@@ -205,7 +205,7 @@ EPISODE = Episode(level=1, week=10, scenes=(
         B("But scan below it: nothing ever calls it.", cue="scan", pause=0.4),
         B("Defining writes the recipe; calling makes it run.", cue="defining", pause=0.4),
         B("Pause: what one line could we add?", cue="pause", pause=3.2),
-        B("Flower, open parenthesis, sixty, close parenthesis, at the left edge, below the def, not pushed in.",
+        B("Call flower with sixty, on a new line below the recipe, at the left edge, not pushed in.",
           cue="fixline", pause=0.3),
         B("Run again.", cue="runagain", pause=2.2),
         B("A blank screen with no error can still be a clue.", cue="clue", pause=0.8),
