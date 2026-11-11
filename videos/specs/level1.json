@@ -45,10 +45,10 @@
       "scenes": [
         {
           "scene_id": "w01-s01",
-          "duration_seconds": 25,
+          "duration_seconds": 32,
           "purpose": "Mission hook",
-          "narration": "Nova needs Pixel to deliver a glowing key to the workshop door. ‘Take it over there,’ says Nova. Pixel puts the key on a chair and beeps proudly. Pixel did exactly what it heard—but the instruction was not exact. Can you give steps Pixel cannot misunderstand?",
-          "visual": "Workshop map with Nova, Pixel, a chair, and a locked door. Pixel follows a dotted path to the wrong place; freeze before the reveal.",
+          "narration": "Welcome to Code Quest! Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told. Today, Nova needs Pixel to carry a glowing key to the workshop door. ‘Take it over there!’ says Nova. Pixel zooms off… and puts the key on a chair. Beep boop! Pixel did exactly what it heard. But the instruction wasn't exact. Can you give Pixel steps it can't misunderstand?",
+          "visual": "Workshop with Nova, Pixel, a chair and a locked door. Nova points vaguely; Pixel zooms to the chair, sets the key down and beeps proudly. Freeze on a thinking bubble before the question.",
           "on_screen_text": [
             "MISSION: Deliver the key",
             "Pause: What exact steps would you give?"
@@ -59,8 +59,8 @@
           "scene_id": "w01-s02",
           "duration_seconds": 55,
           "purpose": "Explain algorithm and sequence",
-          "narration": "A computer is like Pixel: fast and helpful, but not a mind reader. An algorithm is a list of exact steps for a job. Sequence means the order of those steps. Try this algorithm: move forward three floor squares, turn right, move forward two, place the key beside the blue door. If we place the key before we move, the same steps make a different result. Order matters.",
-          "visual": "Numbered floor tiles animate one at a time. Then cards 1–4 are shuffled so ‘place key’ comes first, producing a visible different result.",
+          "narration": "Here's a secret about computers: they're a lot like Pixel. Super fast, super helpful, but they can't read your mind. So we give them an algorithm. An algorithm is a list of exact steps for a job. And sequence means the order of those steps. Let's try one. Step one: move forward three squares. Step two: turn right. Step three: move forward two squares. Step four: put the key beside the door. It worked! Now watch what happens if we put the key down before we move. Same steps, different order, different result. Order matters!",
+          "visual": "A floor grid seen from above. Numbered step cards appear one at a time and Pixel follows each one to the door. Then card 4 jumps to the top, Pixel drops the key at the start, and the door stays locked.",
           "on_screen_text": [
             "Algorithm = exact steps",
             "Sequence = the order",
@@ -72,7 +72,7 @@
           "scene_id": "w01-s03",
           "duration_seconds": 65,
           "purpose": "Connect to Scratch",
-          "narration": "Scratch lets us build algorithms with blocks. The stage is where the action happens. A sprite is a character or object, like the cat. We click a block category, find a block, and snap blocks together in the code area to make a script. The green flag starts our script. Watch: when green flag clicked, say ‘Hello, coder!’ for two seconds, move ten steps. Read the stack from top to bottom. What will the cat do first? Yes—speak, then move.",
+          "narration": "Scratch lets us build algorithms with blocks. The stage is where the action happens. A sprite is a character or object, like this cat. We click a block category, find a block, and snap blocks together in the code area to make a script. The green flag starts our script. Let's build one: when green flag clicked, say ‘Hello, coder!’ for two seconds, then move ten steps. Scratch reads the stack from top to bottom. So what will the cat do first? Yes! Speak, then move.",
           "visual": "Clean labeled Scratch capture. Camera moves from the stage to the sprite list, the block categories, and the code area. Overlay a three-block stack and animate a bright outline down it.",
           "on_screen_text": [
             "Stage = action area",
@@ -86,13 +86,13 @@
           "scene_id": "w01-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Nova builds a greeting for Pixel's show, and Pixel runs it exactly. The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’ Hmm—that sounds backwards. Our detective steps are: say what we expected, say what actually happened, read the blocks one at a time with your finger, then change one thing and test again. Which blocks should trade places? Pause and point. Right: move ‘Welcome to my show!’ to the top. A bug is a clue, not a reason to quit.",
+          "narration": "Uh-oh, time for a bug hunt! Nova builds a greeting for Pixel's show, and Pixel runs it exactly. The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’ Hmm… that sounds backwards. Let's use our detective steps. One: what did we expect? Two: what actually happened? Three: read the blocks one at a time, with your finger. Four: change one thing, and test again. Which blocks should trade places? Pause and point. Right! Move ‘Welcome to my show!’ to the top. Now it works! A bug is a clue, not a reason to quit.",
           "visual": "Split screen: expected mini-storyboard versus actual. A pointing finger follows each block. The two say blocks visibly swap and the corrected stack runs.",
           "on_screen_text": [
-            "Expected?",
-            "What happened?",
-            "Read one block at a time",
-            "Change one thing. Test."
+            "1 What did we expect?",
+            "2 What happened?",
+            "3 Read one block at a time",
+            "4 Change one thing. Test."
           ],
           "production_notes": "Leave four seconds for prediction. Use check marks only after the rerun proves the fix. Do not use Exercise 1.2's jump script or the socks-and-shoes exit-ticket example."
         },
@@ -100,7 +100,7 @@
           "scene_id": "w01-s05",
           "duration_seconds": 55,
           "purpose": "Safety, recap, and handoff",
-          "narration": "You unlocked the first door! Remember: exact steps make an algorithm, their order is the sequence, and Scratch runs a script from top to bottom. When you name your project or sprite, use your coding nickname—never your real full name, school, address, birthday, or photos. Our Scratch app works offline, with no account. If any app asks for your real name or a password, stop and get a grown-up. Now open Hello, Cat! Make the cat say hello with your nickname, walk, meow, and say bye. Click the green flag: which step came first, and which came last?",
+          "narration": "You unlocked the first door! Let's remember. Exact steps make an algorithm. Their order is the sequence. And Scratch runs a script from top to bottom. One more thing: when you name your project or sprite, use your coding nickname, never your real full name, school, address, birthday, or photos. Our Scratch app works offline, with no account. If any app asks for your real name or a password, stop and get a grown-up. Now open Hello, Cat! Make the cat say hello with your nickname, walk, meow, and say bye. Then click the green flag. Which step came first, and which came last? Happy coding!",
           "visual": "Mission map door opens. Three recap icons appear, followed by a safe profile card labeled ‘StarCoder’ and crossed-out examples of private data categories.",
           "on_screen_text": [
             "Exact steps • Right order • Test",

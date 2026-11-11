@@ -1,0 +1,87 @@
+"""Week 1 beats: who says each line, the pauses, and the cue names the animation keys off.
+
+The text of the beats must equal the spec narration for each scene (tests check this).
+"""
+
+from ..timeline import NARRATOR, NOVA, PIXEL, Beat, SceneScript
+
+N = NARRATOR
+
+SCRIPTS = [
+    SceneScript("w01-s01", (
+        Beat("Welcome to Code Quest!", cue="welcome", pause=0.35),
+        Beat("Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told.", cue="meet"),
+        Beat("Today, Nova needs Pixel to carry a glowing key to the workshop door.", cue="task"),
+        Beat("‘Take it over there!’", speaker=NOVA, cue="take", pause=0.1),
+        Beat("says Nova.", cue="says"),
+        Beat("Pixel zooms off… and puts the key on a chair.", cue="zoom", pause=0.2),
+        Beat("Beep boop!", speaker=PIXEL, cue="beep", pause=0.4),
+        Beat("Pixel did exactly what it heard.", cue="exactly"),
+        Beat("But the instruction wasn't exact.", cue="notexact", pause=0.35),
+        Beat("Can you give Pixel steps it can't misunderstand?", cue="question", pause=2.6),
+    ), lead_in=0.2),
+    SceneScript("w01-s02", (
+        Beat("Here's a secret about computers: they're a lot like Pixel.", cue="secret"),
+        Beat("Super fast, super helpful, but they can't read your mind.", cue="mind", pause=0.4),
+        Beat("So we give them an algorithm.", cue="algo"),
+        Beat("An algorithm is a list of exact steps for a job.", cue="algo_def"),
+        Beat("And sequence means the order of those steps.", cue="seq_def", pause=0.5),
+        Beat("Let's try one.", cue="try", pause=0.3),
+        Beat("Step one: move forward three squares.", cue="s1", pause=1.0),
+        Beat("Step two: turn right.", cue="s2", pause=0.7),
+        Beat("Step three: move forward two squares.", cue="s3", pause=0.9),
+        Beat("Step four: put the key beside the door.", cue="s4", pause=0.6),
+        Beat("It worked!", speaker=NOVA, cue="worked", pause=0.6),
+        Beat("Now watch what happens if we put the key down before we move.", cue="swap", pause=2.4),
+        Beat("Same steps, different order, different result.", cue="different", pause=0.3),
+        Beat("Order matters!", cue="matters", pause=0.4),
+    )),
+    SceneScript("w01-s03", (
+        Beat("Scratch lets us build algorithms with blocks.", cue="scratch"),
+        Beat("The stage is where the action happens.", cue="stage"),
+        Beat("A sprite is a character or object, like this cat.", cue="sprite"),
+        Beat("We click a block category, find a block, and snap blocks together in the code area to make a script.",
+             cue="code", pause=0.4),
+        Beat("The green flag starts our script.", cue="flag", pause=0.4),
+        Beat("Let's build one: when green flag clicked,", cue="b1", pause=0.15),
+        Beat("say ‘Hello, coder!’ for two seconds,", cue="b2", pause=0.15),
+        Beat("then move ten steps.", cue="b3", pause=0.5),
+        Beat("Scratch reads the stack from top to bottom.", cue="topdown", pause=0.3),
+        Beat("So what will the cat do first?", cue="first", pause=2.4),
+        Beat("Yes!", cue="yes", pause=0.2),
+        Beat("Speak, then move.", cue="run", pause=2.4),
+    )),
+    SceneScript("w01-s04", (
+        Beat("Uh-oh, time for a bug hunt!", cue="bughunt", pause=0.3),
+        Beat("Nova builds a greeting for Pixel's show, and Pixel runs it exactly.", cue="builds", pause=0.3),
+        Beat("The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’", cue="blocks", pause=2.4),
+        Beat("Hmm… that sounds backwards.", speaker=NOVA, cue="backwards", pause=0.5),
+        Beat("Let's use our detective steps.", cue="detective"),
+        Beat("One: what did we expect?", cue="d1", pause=0.5),
+        Beat("Two: what actually happened?", cue="d2", pause=0.5),
+        Beat("Three: read the blocks one at a time, with your finger.", cue="d3", pause=0.8),
+        Beat("Four: change one thing, and test again.", cue="d4", pause=0.6),
+        Beat("Which blocks should trade places?", cue="which", pause=0.2),
+        Beat("Pause and point.", cue="pause", pause=3.2),
+        Beat("Right!", cue="right", pause=0.2),
+        Beat("Move ‘Welcome to my show!’ to the top.", cue="move", pause=1.0),
+        Beat("Now it works!", speaker=NOVA, cue="works", pause=2.6),
+        Beat("A bug is a clue, not a reason to quit.", cue="clue", pause=0.6),
+    )),
+    SceneScript("w01-s05", (
+        Beat("You unlocked the first door!", cue="unlock", pause=0.6),
+        Beat("Let's remember.", cue="remember", pause=0.2),
+        Beat("Exact steps make an algorithm.", cue="r1"),
+        Beat("Their order is the sequence.", cue="r2"),
+        Beat("And Scratch runs a script from top to bottom.", cue="r3", pause=0.6),
+        Beat("One more thing: when you name your project or sprite, use your coding nickname,", cue="nick"),
+        Beat("never your real full name, school, address, birthday, or photos.", cue="never", pause=0.4),
+        Beat("Our Scratch app works offline, with no account.", cue="offline"),
+        Beat("If any app asks for your real name or a password, stop and get a grown-up.", cue="grownup", pause=0.6),
+        Beat("Now open Hello, Cat!", cue="next"),
+        Beat("Make the cat say hello with your nickname, walk, meow, and say bye.", cue="steps"),
+        Beat("Then click the green flag.", cue="click"),
+        Beat("Which step came first, and which came last?", cue="firstlast", pause=1.6),
+        Beat("Happy coding!", cue="happy", pause=0.4),
+    ), tail=0.6),
+]

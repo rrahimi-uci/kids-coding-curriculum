@@ -174,6 +174,38 @@ def command_render(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_fetch_voice(_: argparse.Namespace) -> int:
+    """Download the free local neural voice model (Kokoro, Apache-2.0) and verify its checksums."""
+    from .animated.audio import fetch_models
+
+    fetch_models()
+    print("Voice model ready in videos/.cache/models/")
+    return 0
+
+
+def command_animate(args: argparse.Namespace) -> int:
+    """Render fully animated episodes with natural local voices, music and sound effects (free)."""
+    try:
+        from .animated.render import available_weeks, render_episode
+    except ImportError as exc:
+        print(f"Animated episodes need the extra packages in videos/requirements-animate.txt ({exc})", file=sys.stderr)
+        return 2
+    weeks = sorted(set(args.week or available_weeks()))
+    missing = [week for week in weeks if week not in available_weeks()]
+    if missing:
+        print(f"No animation written yet for week(s) {missing}; available: {available_weeks()}", file=sys.stderr)
+        return 2
+    drift = _drift_report()
+    if drift and not args.allow_stale:
+        for line in drift + ["refusing to animate scripts that may not match the lessons (or pass --allow-stale)"]:
+            print(f"- {line}", file=sys.stderr)
+        return 1
+    for week in weeks:
+        destination = render_episode(week, OUTPUT_DIR, workers=args.workers, preview=args.preview)
+        print(destination.relative_to(REPO_ROOT))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     from .media import VISUAL_PROVIDERS, VOICE_PROVIDERS
 
@@ -204,6 +236,17 @@ def build_parser() -> argparse.ArgumentParser:
     render.add_argument("--visual-provider", choices=sorted(VISUAL_PROVIDERS), default="cards")
     render.add_argument("--voice-provider", choices=sorted(VOICE_PROVIDERS), default="openai-realtime")
     render.set_defaults(handler=command_render)
+
+    animate = subcommands.add_parser(
+        "animate", help="render fully animated episodes with natural local voices, music and effects (free)")
+    animate.add_argument("--week", type=int, choices=WEEKS, action="append")
+    animate.add_argument("--workers", type=int, help="parallel frame renderers (default: CPU count - 1)")
+    animate.add_argument("--preview", type=float, help="render only the first N seconds")
+    animate.add_argument("--allow-stale", action="store_true")
+    animate.set_defaults(handler=command_animate)
+
+    fetch = subcommands.add_parser("fetch-voice", help="download the local neural voice model once")
+    fetch.set_defaults(handler=command_fetch_voice)
     return parser
 
 
