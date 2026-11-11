@@ -133,7 +133,7 @@ EPISODE = Episode(level=3, week=4, scenes=(
     Scene("l3-w04-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
         B("Nova writes a binary search, but one line is off by one.", cue="writes", pause=0.3),
-        B("When the middle card is too small, it says: low equals mid.", cue="says", pause=0.3),
+        B("When the middle card is too small, it sets low to mid.", cue="says", pause=0.3),
         B("Pixel searches for 18 in four cards: 4, 9, 12, 18.", cue="cards", pause=0.3),
         B("Mid is one: 9.", cue="mid1", pause=0.2),
         B("Too small, so low becomes one.", cue="low1", pause=0.3),
@@ -147,7 +147,7 @@ EPISODE = Episode(level=3, week=4, scenes=(
         B("Now let's guess.", cue="guess", pause=3.2),
         B("We already checked the middle card, and it was too small, so we should throw it away too.", cue="throw",
           pause=0.3),
-        B("Test one change: low equals mid plus one.", cue="test", pause=0.3),
+        B("Test one change: set low to mid plus one.", cue="test", pause=0.3),
         B("Run it.", cue="run", pause=0.3),
         B("Found 18!", cue="found", pause=0.4),
         B("An off-by-one bug is a number that's one too big or one too small.", cue="offbyone", pause=0.6),

@@ -51,6 +51,12 @@ C = {
 }
 
 
+def safe_scale(ctx: cairo.Context, sx: float, sy: float | None = None) -> None:
+    """ctx.scale that never makes a singular matrix (things grow from or shrink to nothing)."""
+    sy = sx if sy is None else sy
+    ctx.scale(math.copysign(max(abs(sx), 1e-3), sx), math.copysign(max(abs(sy), 1e-3), sy))
+
+
 def rgb(color: str, alpha: float = 1.0) -> tuple[float, float, float, float]:
     color = color.lstrip("#")
     r, g, b = (int(color[i : i + 2], 16) / 255 for i in (0, 2, 4))
@@ -148,7 +154,7 @@ def circle(ctx, x, y, r, color, alpha=1.0, stroke: str | None = None, width: flo
 def ellipse(ctx, x, y, rx, ry, color, alpha=1.0) -> None:
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(max(rx, 0.01), max(ry, 0.01))
+    safe_scale(ctx, max(rx, 0.01), max(ry, 0.01))
     ctx.arc(0, 0, 1, 0, 2 * math.pi)
     ctx.restore()
     set_color(ctx, color, alpha)
@@ -298,7 +304,7 @@ def text(ctx, value: str, x: float, y: float, size: int, color: str = C["ink"], 
         return width, height
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(scale, scale)
+    safe_scale(ctx, scale, scale)
     offset = {"center": (-width / 2, -height / 2), "left": (0, -height / 2), "topleft": (0, 0)}[anchor]
     ctx.set_source_surface(surface, *offset)
     ctx.paint_with_alpha(clamp(alpha))
@@ -320,7 +326,7 @@ def scaled(ctx, x: float, y: float, s: float):
         def __enter__(self_inner):
             ctx.save()
             ctx.translate(x, y)
-            ctx.scale(s, s)
+            safe_scale(ctx, s, s)
             return ctx
 
         def __exit__(self_inner, *exc):
