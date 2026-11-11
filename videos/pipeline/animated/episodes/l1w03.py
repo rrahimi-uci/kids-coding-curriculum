@@ -67,7 +67,7 @@ EPISODE = Episode(level=1, week=3, scenes=(
         B("Start with when green flag clicked.", cue="flag", pause=0.2),
         B("Inside forever, place an if-else.", cue="forever", pause=0.2),
         B("If touching mouse-pointer, say ‘That tickles!’", cue="iftouch", pause=0.2),
-        B("Else, say with an empty box, which clears the bubble.", cue="else", pause=0.4),
+        B("Else, use a say block with an empty box, which clears the bubble.", cue="else", pause=0.4),
         B("Why forever?", cue="why", pause=0.9),
         B("The pointer might move later, so the program has to ask the touching question again and again.",
           cue="later", pause=0.3),

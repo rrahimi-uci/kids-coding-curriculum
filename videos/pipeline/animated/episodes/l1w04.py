@@ -113,7 +113,7 @@ EPISODE = Episode(level=1, week=4, scenes=(
         B("Expected: zero.", cue="expected", pause=0.3),
         B("What happened?", cue="happened", pause=0.2),
         B("Seven!", cue="seven", pause=0.4),
-        B("The green-flag script forgot set score to zero.", cue="forgot", pause=0.6),
+        B("The green-flag script forgot to set score to zero.", cue="forgot", pause=0.6),
         B("Second, one star gives lots of points.", cue="second", pause=0.3),
         B("Remember the paper-ball game, when we scored for every second someone held the ball?", cue="paper",
           pause=0.4),

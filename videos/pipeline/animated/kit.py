@@ -17,6 +17,7 @@ from . import props as P
 from . import pyrun
 from .characters import draw_cat, draw_grown_up, draw_nova, draw_pixel
 from .engine import (
+    safe_scale,
     C, FPS, H, W, appear, check_mark, circle, clamp, cross_mark, ease_in_out, ease_out, ellipse, fade,
     fill_rounded, glow, lerp, line, mono_width, progress, rounded_rect, set_color, star, text, text_size,
     vertical_gradient,
@@ -116,7 +117,7 @@ def _pop(d: D, x: float, y: float, start: float, draw, duration: float = 0.4) ->
     ctx = d.ctx
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
+    safe_scale(ctx, max(amount, 1e-3), max(amount, 1e-3))
     draw()
     ctx.restore()
 
@@ -184,7 +185,7 @@ def c_laptop(d: D, a: A, t0: float) -> None:
         fill_rounded(ctx, -220, 70, 440, 34, 14, C["gray"])
     d.ctx.save()
     d.ctx.translate(a.get("x", 960), a.get("y", 540))
-    d.ctx.scale(a.get("s", 1.0), a.get("s", 1.0))
+    safe_scale(d.ctx, a.get("s", 1.0), a.get("s", 1.0))
     _pop(d, 0, 0, t0, draw)
     d.ctx.restore()
 
@@ -259,7 +260,7 @@ def c_panel(d: D, a: A, t0: float) -> None:
     d.ctx.translate(x, y)
     k = appear(d.t, t0, 0.4)
     d.ctx.translate(w / 2, h / 2)
-    d.ctx.scale(max(k, 1e-3), max(k, 1e-3))
+    safe_scale(d.ctx, max(k, 1e-3), max(k, 1e-3))
     d.ctx.translate(-w / 2, -h / 2)
     if k > 0:
         draw()
@@ -461,7 +462,7 @@ def c_icons(d: D, a: A, t0: float) -> None:
         ctx = d.ctx
         ctx.save()
         ctx.translate(cx, y)
-        ctx.scale(max(k, 1e-3), max(k, 1e-3))
+        safe_scale(ctx, max(k, 1e-3), max(k, 1e-3))
         circle(ctx, 0, 0, 78, C["white"], stroke=C["navy"], width=4)
         ICONS.get(name, _i_star)(ctx)
         ctx.restore()
@@ -557,7 +558,7 @@ def _draw_stack(d: D, entries, x, y, scale, reveal_times, highlight, index_offse
                 total_w = max(520, label_w + 60)
                 ctx.save()
                 ctx.translate(bx, alpha_y)
-                ctx.scale(scale, scale)
+                safe_scale(ctx, scale, scale)
                 if hl:
                     fill_rounded(ctx, -12, -14, total_w + 24, _block_height(entry) + 28, 22, C["yellow"], 0.45)
                 fill_rounded(ctx, 0, 0, total_w, 76, 12, fill, stroke=edge, width=3)
@@ -680,7 +681,7 @@ def _s_pixel(ctx, x, y, s, gt, talking):
 def _s_ghost(ctx, x, y, s, gt, talking):
     ctx.save()
     ctx.translate(x, y - 20 + 6 * math.sin(gt * 3))
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     ctx.move_to(-60, 0)
     ctx.line_to(-60, -110)
     ctx.arc(0, -110, 60, math.pi, 0)
@@ -1157,7 +1158,7 @@ def c_file(d: D, a: A, t0: float) -> None:
     content = d.keyed(a.get("states"), a.get("lines", [])) or []
     ctx.save()
     ctx.translate(x + w / 2, y + h / 2)
-    ctx.scale(max(k, 1e-3), max(k, 1e-3))
+    safe_scale(ctx, max(k, 1e-3), max(k, 1e-3))
     ctx.translate(-w / 2, -h / 2)
     fill_rounded(ctx, 8, 10, w, h, 18, "#000000", 0.10)
     ctx.move_to(0, 0)
@@ -1191,7 +1192,7 @@ def c_box(d: D, a: A, t0: float) -> None:
             pop = 1 + 0.25 * max(0.0, 1 - (d.t - since) / 0.3) if since >= 0 else 1
             d.ctx.save()
             d.ctx.translate(0, 18)
-            d.ctx.scale(pop, pop)
+            safe_scale(d.ctx, pop, pop)
             text(d.ctx, str(value), 0, 0, a.get("size", 52), C["ink"], bold=True, mono=True)
             d.ctx.restore()
     _pop(d, a.get("x", 960), a.get("y", 540), t0, draw)
@@ -1498,7 +1499,7 @@ def c_tree(d: D, a: A, t0: float) -> None:
         bh = 70 + 44 * len(body)
         ctx.save()
         ctx.translate(nx, ny + bh / 2)
-        ctx.scale(max(k, 1e-3), max(k, 1e-3))
+        safe_scale(ctx, max(k, 1e-3), max(k, 1e-3))
         fill_rounded(ctx, -bw / 2, -bh / 2, bw, bh, 18, C["white"], stroke=C["navy"], width=4)
         fill_rounded(ctx, -bw / 2, -bh / 2, bw, 60, 18, C["purple"])
         text(ctx, name, 0, -bh / 2 + 30, 32, C["white"], bold=True, mono=True)

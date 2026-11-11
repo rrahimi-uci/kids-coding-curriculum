@@ -11,7 +11,7 @@ import math
 
 import cairo
 
-from .engine import C, blink, circle, clamp, ellipse, fill_rounded, glow, line, rounded_rect, set_color, shadow
+from .engine import C, blink, safe_scale, circle, clamp, ellipse, fill_rounded, glow, line, rounded_rect, set_color, shadow
 
 # Moods: "happy", "talk", "surprised", "confused", "proud", "thinking", "worried"
 
@@ -27,7 +27,7 @@ def draw_nova(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: 
     bob = math.sin(t * 2.2) * 3
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     shadow(ctx, 0, 0, 95, 16)
     # legs and shoes
     for side in (-1, 1):
@@ -135,7 +135,7 @@ def draw_pixel(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood:
     shadow(ctx, x, floor, 70 * s * (1 - hover / 80), 13 * s, 0.16)
     ctx.save()
     ctx.translate(x, y + hover)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     ctx.rotate(math.radians(facing * 6))
     # thruster glow
     glow(ctx, 0, 8, 46, C["led"], 0.35 + 0.2 * math.sin(t * 9))
@@ -202,7 +202,7 @@ def draw_cat(ctx: cairo.Context, x: float, y: float, s: float, t: float, talking
     bob = math.sin(t * 2.6) * 2
     ctx.save()
     ctx.translate(x, y + bob)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     shadow(ctx, 0, 6, 60, 10)
     body, stripe = "#7D93B2", "#5E7595"
     # tail
@@ -243,7 +243,7 @@ def draw_grown_up(ctx: cairo.Context, x: float, y: float, s: float, t: float) ->
     """A friendly adult silhouette icon (used for 'get a grown-up')."""
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     fill_rounded(ctx, -60, -170, 120, 170, 50, C["green"])
     circle(ctx, 0, -215, 52, "#9C6B4A")
     circle(ctx, -18, -222, 6, C["ink"])

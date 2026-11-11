@@ -92,7 +92,7 @@ EPISODE = Episode(level=1, week=11, scenes=(
         B("Check: did it do what I expected?", cue="check", pause=0.5),
         B("If something breaks, you know it was the last little change, so look there first.", cue="breaks",
           pause=0.4),
-        B("Before a big change, click File, then Save as, and add underscore v2 to the name, like "
+        B("Before a big change, click File, then Save as, and add v2 to the end of the name, like "
           "fish_party_v2.py.", cue="save", pause=0.4),
         B("If the change goes wrong, version one is still safe.", cue="safe", pause=0.4),
         B("A version is a saved checkpoint, not twelve mystery copies named final-final-really-final.",
