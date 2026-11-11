@@ -24,6 +24,9 @@ export interface Week {
   has_homework: boolean; homework_title: string; homework_note: string;
   exercises: { slug: string; title: string; number: string; kind: string; homework: boolean; url: string }[];
   downloads: Record<string, { url: string; kb: number }>;
+  /** The teaching video, when tools/site/videos.py found one for this week. */
+  video?: { src: string; poster: string; captions: string; seconds: number; minutes: number; mb: number;
+    transcript: string[] };
 }
 export interface Level {
   number: number; slug: string; dir: string; name: string; languages: string; tools: string;

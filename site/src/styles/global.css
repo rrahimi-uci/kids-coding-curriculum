@@ -247,6 +247,13 @@ a.week-item:hover { border-color: var(--accent, var(--brand)); box-shadow: var(-
 .idea { font-size: 1.1875rem; line-height: 1.55; color: var(--muted); max-width: 60ch; }
 .lesson { max-width: var(--measure); }
 .lesson h2 { margin-top: 2.2rem; }
+/* week video: always the first thing in the lesson, the same on every week page */
+.lesson-video { margin-bottom: 2rem; }
+.lesson-video h2 { margin-top: 0; } .lesson-video h2 .muted { font-weight: 400; font-size: .8em; }
+.video-frame { aspect-ratio: 16 / 9; background: #10202e; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: #10202e; }
+.video-note { margin: .6rem 0 0; }
+.video-script p { max-width: var(--measure); }
 .lesson img.fig { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px; max-width: 100%; height: auto; }
 .lesson img.fig-inline { display: inline-block; vertical-align: middle; padding: 3px; border-radius: 8px; }
 .lesson figure { margin: 1.4rem 0; text-align: center; overflow-x: auto; }
@@ -364,6 +371,7 @@ a.cite { white-space: nowrap; }
   .lesson img.fig { border: 0; } .write-lines { background: repeating-linear-gradient(transparent 0 calc(2.2rem - 1px), #999 calc(2.2rem - 1px) 2.2rem); }
   pre { white-space: pre-wrap; background: #fff; border: 1px solid #999; }
   details > * { display: block !important; }
+  .lesson-video { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 

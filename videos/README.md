@@ -102,6 +102,20 @@ Code shown in a video runs on the course's Python 3.10 (the repository's `.venv`
 
 The voice is AI-generated. The end card and the file metadata say so, and a published description must say so too.
 
+## On the website
+
+Every week page shows its video in the same place: right below the page header, as the first part of the lesson ("Watch the video"), with captions on, a "Read the script" transcript and a note that the voices are computer-generated. The videos are not stored in git. They live on the repository's [`videos` release](https://github.com/rrahimi-uci/kids-coding-curriculum/releases/tag/videos), and the website copies them in each time it is built.
+
+```bash
+python -m videos.pipeline.cli publish-videos --level 1 --week 7          # make the web copy (720p) only
+SITE_VIDEOS=videos/output/web make site                                  # preview the pages with it
+python -m videos.pipeline.cli publish-videos --level 1 --week 7 --upload --rebuild-site
+```
+
+`publish-videos` makes `videos/output/web/levelN-weekWW.mp4` (1280×720, H.264 with fast start, about 5 MB for three minutes), a poster picture from the title card, the `.vtt` captions and `videos.json` (each file's length and SHA-256). `--upload` creates the release if needed and replaces those files on it with the GitHub CLI (`gh auth login` once). `--rebuild-site` then starts the Website workflow on `main`, so the new video is live a few minutes later. File names never change, so links and pages stay the same.
+
+So when a lesson changes: `check` names the week, you `accept` or rewrite its script and episode, `animate` that week, review it, and `publish-videos --upload --rebuild-site`. The website build (`tools/site/videos.py`) checks every file against its SHA-256 and keeps a cache in `build/site-cache/videos/`. If the release cannot be reached, the site is still built, just without the player. `SITE_VIDEOS=off` builds without videos; `SITE_VIDEOS=<folder>` uses local files.
+
 ## Render
 
 Rendering refuses scripts whose lessons have changed since they were checked. Pass `--allow-stale` only for a throwaway draft.
@@ -135,6 +149,7 @@ Output goes to `videos/output/`:
 - `levelN-weekWW-<slug>.mp4`: 1920×1080, 30 fps, AAC audio, with an English caption track;
 - matching `.srt` and `.vtt` caption files, for web players;
 - draft renders end in `-draft`.
+- `web/`: the website copies made by `publish-videos` (see "On the website").
 
 A scene whose narration runs longer than its time slot stops the render with a clear message. Paid pictures and narration are cached in `videos/.cache/` by their exact inputs, so re-rendering an unchanged scene costs nothing. Scenes that call for Scratch or Thonny must use an authentic, privacy-scrubbed screen capture during editing, never an invented interface.
 
