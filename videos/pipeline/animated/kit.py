@@ -15,7 +15,7 @@ from types import SimpleNamespace
 
 from . import props as P
 from . import pyrun
-from .characters import draw_cat, draw_grown_up, draw_rose, draw_pixi
+from .characters import ROSE_HEAD_TOP, draw_cat, draw_grown_up, draw_rose, draw_pixi
 from .engine import (
     safe_scale,
     C, FPS, H, W, appear, check_mark, circle, clamp, cross_mark, ease_in_out, ease_out, ellipse, fade,
@@ -223,7 +223,7 @@ def c_bigtext(d: D, a: A, t0: float) -> None:
 
 def c_bubble(d: D, a: A, t0: float) -> None:
     t1 = d.T(a.until)
-    anchors = {"rose": (a.get("x", 300) + 70, a.get("y", 960) - 470), "pixi": (a.get("x", 700), a.get("y", 820) - 250),
+    anchors = {"rose": (a.get("x", 300) + 70, a.get("y", 960) - ROSE_HEAD_TOP), "pixi": (a.get("x", 700), a.get("y", 820) - 250),
                "cat": (a.get("x", 1500) + 20, a.get("y", 960) - 230)}
     x, y = anchors.get(a.get("who"), (a.get("x", 960), a.get("y", 500)))
     P.speech_bubble(d.ctx, x, y, a.text, d.t, t0, t1 - 0.25, size=a.get("size", 38), tail=a.get("tail", "down-left"),

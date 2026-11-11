@@ -1,7 +1,8 @@
 """The Kids Coding characters, drawn as simple vector shapes so they animate smoothly.
 
-Rose: a ten-year-old inventor with workshop goggles, long straight brown hair and a blue hoodie
-with stripes across the chest only (the lower part, pocket and sleeves stay plain).
+Rose: a ten-year-old inventor (an original cartoon). Long, straight dark-brown hair with a center
+part, falling just past the shoulders; a light-blue headband; a purple long-sleeve top with lavender
+stripes across the top of the shirt and the upper sleeves (the lower part stays plain).
 Pixi: a palm-sized hovering helper robot with an LED face.
 Both blink, bob gently while idle, and change expression; Rose's mouth follows the voice.
 """
@@ -16,152 +17,273 @@ from .engine import C, blink, safe_scale, circle, clamp, ellipse, fill_rounded, 
 
 # Moods: "happy", "talk", "surprised", "confused", "proud", "thinking", "worried"
 
+# Rose's colors (the purple top keeps strong contrast with the warm workshop backgrounds).
+ROSE = {
+    "skin": "#E7AE85",
+    "skin_shade": "#D2946C",
+    "hair": "#3A2418",
+    "hair_mid": "#4E3122",
+    "hair_shine": "#7A5038",
+    "band": "#6FAEE8",
+    "band_dark": "#4C8FD0",
+    "top": "#8B5CD6",
+    "top_dark": "#7044BE",
+    "stripe": "#D3BFF5",
+    "pants": "#2C3E66",
+    "eye": "#5B3520",
+    "brow": "#2E1C12",
+    "lip": "#D46A80",
+    "mouth": "#7A2436",
+}
+# Rose's proportions: LIFT lengthens the legs and raises everything above them; TORSO lengthens the top.
+# Together they make her about 470 px tall at s=1. Speech bubbles sit ROSE_HEAD_TOP above her feet.
+LIFT, TORSO = 40, 15
+ROSE_HEAD_TOP = 510
+
+
+def _path(ctx, pts):
+    """pts: start point then cubic segments ((c1x, c1y, c2x, c2y, x, y), ...)."""
+    ctx.new_path()
+    ctx.move_to(*pts[0])
+    for seg in pts[1:]:
+        if len(seg) == 2:
+            ctx.line_to(*seg)
+        else:
+            ctx.curve_to(*seg)
+    ctx.close_path()
+
+
+def _fill(ctx, color, alpha=1.0):
+    set_color(ctx, color, alpha)
+    ctx.fill()
+
 
 def draw_rose(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: str = "happy",
               talk: float = 0.0, wave: float = 0.0, point: float = 0.0, look: float = 0.0,
               hand_on_chin: float = 0.0) -> None:
-    """Rose standing with feet at (x, y). s=1 is about 430 px tall.
+    """Rose standing with feet at (x, y). s=1 is about 470 px tall.
 
     wave: 0-1 waving right arm; point: 0-1 right arm stretched out; look: -1 (left) .. 1 (right);
     hand_on_chin: 0-1 thinking pose with the left hand.
     """
     bob = math.sin(t * 2.2) * 3
+    sway = math.sin(t * 1.7) * 2.5  # hair tips sway gently
     ctx.save()
     ctx.translate(x, y)
     safe_scale(ctx, s, s)
     shadow(ctx, 0, 0, 95, 16)
     # legs and shoes
     for side in (-1, 1):
-        fill_rounded(ctx, side * 26 - 18, -120, 36, 112, 16, "#2C3E66")
+        fill_rounded(ctx, side * 26 - 18, -120 - LIFT, 36, 112 + LIFT, 16, ROSE["pants"])
         fill_rounded(ctx, side * 30 - 30, -20, 60, 24, 12, C["white"], stroke=C["navy"], width=4)
-    ctx.translate(0, bob)
-    # left arm (thinking pose bends to the chin)
-    _arm(ctx, -70, -250, angle=lerp_angle(100, -35, hand_on_chin), bend=hand_on_chin)
-    # body: hoodie, striped across the upper chest only
-    fill_rounded(ctx, -78, -270, 156, 170, 48, C["blue"])
-    _chest_stripes(ctx)
-    fill_rounded(ctx, -40, -190, 80, 46, 18, "#2670D4")  # pocket
-    line(ctx, -14, -268, -18, -222, C["white"], 6)  # hoodie strings
-    line(ctx, 14, -268, 18, -222, C["white"], 6)
-    # right arm: idle, waving or pointing
-    # 0 degrees points right, 90 points down (screen coordinates)
-    if point > 0:
-        angle = lerp_angle(80, -12 + 3 * math.sin(t * 3), point)
-    else:
-        angle = lerp_angle(80, -55 + 22 * math.sin(t * 10), wave)
-    _arm(ctx, 70, -250, angle=angle, bend=0.0, right=True)
-    # head, framed by long straight hair (the back of the hair is drawn first, the head over it)
+        line(ctx, side * 30 - 22, -12, side * 30 + 22, -12, ROSE["top"], 4)  # shoe stripe matches the top
+    ctx.translate(0, bob - LIFT)
     hx, hy = look * 6, -350
-    _long_hair_back(ctx, hx, hy)
-    circle(ctx, hx, hy, 84, C["skin"])
-    _straight_bangs(ctx, hx, hy)
-    # goggles on the forehead (the inventor's signature)
-    line(ctx, hx - 84, hy - 30, hx + 84, hy - 30, C["orange"], 12)
-    for gx in (-30, 30):
-        circle(ctx, hx + gx, hy - 32, 22, C["orange"])
-        circle(ctx, hx + gx, hy - 32, 15, C["sky_light"])
-        circle(ctx, hx + gx - 5, hy - 37, 4, C["white"])
-    _face(ctx, hx, hy, t, mood, talk, look)
-    ctx.restore()
-
-
-def _chest_stripes(ctx) -> None:
-    """Horizontal stripes on the top part of the hoodie only, stopping above the pocket."""
+    # hair behind the body (the long back layer)
+    _hair_back(ctx, hx, hy, sway)
+    # body: purple long-sleeve top
+    fill_rounded(ctx, -78, -270, 156, 170 + TORSO, 48, ROSE["top"])
+    # stripes across the top of the shirt only (the lower part stays plain)
     ctx.save()
-    rounded_rect(ctx, -78, -270, 156, 170, 48)
+    rounded_rect(ctx, -78, -270, 156, 170 + TORSO, 48)
     ctx.clip()
     for i in range(3):
-        top = -258 + i * 22
-        ctx.rectangle(-80, top, 160, 11)
-        set_color(ctx, C["white"], 0.92)
-        ctx.fill()
+        ctx.rectangle(-80, -252 + i * 22, 160, 11)
+        _fill(ctx, ROSE["stripe"])
     ctx.restore()
-
-
-def _long_hair_back(ctx, hx, hy) -> None:
-    """Long, straight hair behind the head: falls past the shoulders with a straight-cut end."""
-    hair = C["hair"]
-    # the crown behind the head
-    circle(ctx, hx, hy - 6, 96, hair)
-    # two straight curtains that hang down over the shoulders to the chest
-    for side in (-1, 1):
-        x0 = hx + (60 if side > 0 else -106)
-        fill_rounded(ctx, x0, hy - 30, 46, 230, 14, hair)
-        # a few vertical strand lines, so the hair reads as straight (not curly)
-        for k in (12, 26):
-            sx = x0 + (k if side < 0 else 46 - k)
-            line(ctx, sx, hy + 40, sx, hy + 185, C["hair_shade"], 3, 0.8)
-
-
-def _straight_bangs(ctx, hx, hy) -> None:
-    """The top of the hair over the forehead, with a smooth, straight-cut fringe and a soft shine."""
+    line(ctx, -60, -108 + TORSO, 60, -108 + TORSO, ROSE["top_dark"], 5)  # hem
+    # neck and a round neckline
+    fill_rounded(ctx, hx - 20, hy + 62, 40, 50, 14, ROSE["skin_shade"])
     ctx.save()
-    ctx.rectangle(hx - 120, hy - 140, 240, 110)  # keep only the part above the fringe line
+    ctx.rectangle(-60, -272, 120, 30)
     ctx.clip()
-    circle(ctx, hx, hy - 4, 90, C["hair"])
+    ellipse(ctx, hx * 0.5, -270, 30, 18, ROSE["skin_shade"])
     ctx.restore()
-    # a soft highlight arc across the crown
     ctx.new_sub_path()
-    ctx.arc(hx, hy - 4, 70, math.radians(205), math.radians(250))
-    set_color(ctx, C["hair_shine"], 0.9)
-    ctx.set_line_width(7)
-    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    ctx.arc(hx * 0.5, -270, 31, math.radians(10), math.radians(170))
+    set_color(ctx, ROSE["top_dark"])
+    ctx.set_line_width(5)
     ctx.stroke()
+    # head
+    _face_shape(ctx, hx, hy)
+    _hair_front(ctx, hx, hy, sway)
+    _headband(ctx, hx, hy)
+    _face(ctx, hx, hy, t, mood, talk, look)
+    # arms last, in front of the hair: left (thinking pose bends to the chin), right (idle, wave or point)
+    _arm(ctx, -70, -250, angle=_lerp(100, -14, hand_on_chin), bend=hand_on_chin)
+    if point > 0:
+        angle = _lerp(80, -12 + 3 * math.sin(t * 3), point)
+    else:
+        angle = _lerp(80, -55 + 22 * math.sin(t * 10), wave)
+    _arm(ctx, 70, -250, angle=angle, bend=0.0)
+    ctx.restore()
 
 
-def lerp_angle(a: float, b: float, x: float) -> float:
+def _lerp(a, b, x):
     return a + (b - a) * clamp(x)
 
 
-def _arm(ctx, sx, sy, angle: float, bend: float, right: bool = False) -> None:
-    """An arm from the shoulder at (sx, sy); angle in degrees (0 = right, 90 = down)."""
+def _arm(ctx, sx, sy, angle, bend):
+    """A sleeve from the shoulder at (sx, sy), angle in degrees (0 = right, 90 = down), striped near the top."""
     rad = math.radians(angle)
-    length = 120 - 45 * bend
-    ex, ey = sx + length * math.cos(rad), sy + length * math.sin(rad)
-    line(ctx, sx, sy, ex, ey, C["blue"], 34)
-    circle(ctx, ex, ey, 19, C["skin"])
+    length = 128 - 74 * bend  # the thinking pose rests the hand under the chin
+    dx, dy = math.cos(rad), math.sin(rad)
+    ex, ey = sx + length * dx, sy + length * dy
+    line(ctx, sx, sy, ex, ey, ROSE["top"], 34)
+    for a, b in ((0.16, 0.25), (0.34, 0.43), (0.52, 0.61)):
+        line(ctx, sx + a * length * dx, sy + a * length * dy, sx + b * length * dx, sy + b * length * dy,
+             ROSE["stripe"], 34, cap=cairo.LINE_CAP_BUTT)
+    line(ctx, sx + 0.86 * length * dx, sy + 0.86 * length * dy, ex, ey, ROSE["top_dark"], 34, cap=cairo.LINE_CAP_BUTT)  # cuff
+    circle(ctx, ex + 8 * dx, ey + 8 * dy, 19, ROSE["skin"])
 
 
-def _face(ctx, hx, hy, t, mood, talk, look) -> None:
+def _hair_back(ctx, hx, hy, sway):
+    """The long back layer: a dome behind the head and straight lengths down past the shoulders."""
+    tip = hy + 150
+    _path(ctx, [(hx, hy - 104),
+                (hx + 70, hy - 104, hx + 106, hy - 60, hx + 106, hy + 20),
+                (hx + 106, hy + 100, hx + 108 + sway, hy + 120, hx + 104 + sway, tip),
+                (hx + 60, tip + 6),
+                (hx - 60, tip + 6),
+                (hx - 104 + sway, tip),
+                (hx - 108 + sway, hy + 120, hx - 106, hy + 100, hx - 106, hy + 20),
+                (hx - 106, hy - 60, hx - 70, hy - 104, hx, hy - 104)])
+    _fill(ctx, ROSE["hair"])
+
+
+def _face_shape(ctx, hx, hy):
+    _path(ctx, [(hx, hy - 86),
+                (hx + 54, hy - 86, hx + 80, hy - 48, hx + 80, hy + 2),
+                (hx + 80, hy + 54, hx + 44, hy + 90, hx, hy + 92),
+                (hx - 44, hy + 90, hx - 80, hy + 54, hx - 80, hy + 2),
+                (hx - 80, hy - 48, hx - 54, hy - 86, hx, hy - 86)])
+    _fill(ctx, ROSE["skin"])
+
+
+def _hair_front(ctx, hx, hy, sway):
+    """Center part, hair swept to both sides over the temples, and long locks in front of the shoulders."""
+    for side in (-1, 1):
+        # top: from the part line, over the crown, down the side of the face
+        _path(ctx, [(hx + side * 2, hy - 98),
+                    (hx + side * 64, hy - 104, hx + side * 100, hy - 60, hx + side * 98, hy + 10),
+                    (hx + side * 96, hy + 60, hx + side * 90, hy + 110, hx + side * 84, hy + 130),
+                    (hx + side * 74, hy + 80, hx + side * 72, hy + 20, hx + side * 66, hy - 18),
+                    (hx + side * 52, hy - 54, hx + side * 26, hy - 70, hx + side * 2, hy - 74)])
+        _fill(ctx, ROSE["hair"])
+        # the lock that falls in front of the shoulder to the chest (straight, tapered ends)
+        tip_y = hy + 152
+        _path(ctx, [(hx + side * 70, hy + 40),
+                    (hx + side * 98, hy + 60, hx + side * 102, hy + 110, hx + side * (100 + sway), tip_y),
+                    (hx + side * (92 + sway), tip_y - 18),
+                    (hx + side * (80 + sway), tip_y + 4),
+                    (hx + side * (68 + sway), tip_y - 22),
+                    (hx + side * 64, hy + 120, hx + side * 60, hy + 80, hx + side * 70, hy + 40)])
+        _fill(ctx, ROSE["hair"])
+        # straight strand lines and a soft shine
+        for k, top in ((84, hy + 56), (94, hy + 76)):
+            line(ctx, hx + side * k, top, hx + side * (k + 4 + sway * 0.5), tip_y - 24, ROSE["hair_mid"], 3)
+        ctx.new_path()
+        ctx.move_to(hx + side * 14, hy - 92)
+        ctx.curve_to(hx + side * 50, hy - 94, hx + side * 74, hy - 70, hx + side * 82, hy - 36)
+        set_color(ctx, ROSE["hair_shine"], 0.8)
+        ctx.set_line_width(5)
+        ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+        ctx.stroke()
+
+
+def _headband(ctx, hx, hy):
+    ctx.new_path()
+    ctx.arc(hx, hy + 14, 96, math.radians(198), math.radians(342))
+    set_color(ctx, ROSE["band"])
+    ctx.set_line_width(17)
+    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    ctx.stroke()
+    ctx.new_path()
+    ctx.arc(hx, hy + 14, 102, math.radians(215), math.radians(325))
+    set_color(ctx, ROSE["band_dark"], 0.6)
+    ctx.set_line_width(3)
+    ctx.stroke()
+
+
+def _face(ctx, hx, hy, t, mood, talk, look):
     open_amount = blink(t, seed=0.3)
     if mood == "surprised":
         open_amount = 1.0
-    eye_y = hy + 8
+    eye_y = hy + 6
     for side in (-1, 1):
-        ex = hx + side * 30
-        eh = 17 * open_amount + (4 if mood == "surprised" else 0)
-        ellipse(ctx, ex, eye_y, 14, max(eh, 1.5), C["white"])
+        ex = hx + side * 32
+        eh = 18 * open_amount + (3 if mood == "surprised" else 0)
         if open_amount > 0.25:
-            circle(ctx, ex + look * 5, eye_y + 2, 9, C["ink"])
-            circle(ctx, ex + look * 5 + 3, eye_y - 2, 3, C["white"])
+            ellipse(ctx, ex, eye_y, 16, max(eh, 1.5), C["white"])
+            ix = ex + look * 5
+            circle(ctx, ix, eye_y + 1, 12, ROSE["eye"])
+            circle(ctx, ix, eye_y + 1, 6, "#1A0E08")
+            circle(ctx, ix + 4, eye_y - 4, 3.6, C["white"])
+            circle(ctx, ix - 4, eye_y + 5, 1.6, C["white"], 0.8)
+            # upper lash line with a little flick at the outer corner
+            ctx.new_path()
+            ctx.move_to(ex - 17, eye_y - 2)
+            ctx.curve_to(ex - 10, eye_y - eh - 2, ex + 10, eye_y - eh - 2, ex + 17, eye_y - 2)
+            set_color(ctx, ROSE["brow"])
+            ctx.set_line_width(4)
+            ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+            ctx.stroke()
+            line(ctx, ex + side * 16, eye_y - 4, ex + side * 22, eye_y - 9, ROSE["brow"], 4)
+        else:  # closed: a soft curved line
+            ctx.new_path()
+            ctx.move_to(ex - 15, eye_y)
+            ctx.curve_to(ex - 6, eye_y + 6, ex + 6, eye_y + 6, ex + 15, eye_y)
+            set_color(ctx, ROSE["brow"])
+            ctx.set_line_width(4)
+            ctx.stroke()
         # eyebrows
-        lift = {"surprised": -12, "worried": -4, "confused": -8 if side > 0 else 0, "thinking": -6}.get(mood, 0)
-        tilt = {"worried": 6 * side, "confused": -6 * side if side > 0 else 0}.get(mood, 0)
-        line(ctx, ex - 14, eye_y - 26 + lift + tilt, ex + 14, eye_y - 26 + lift - tilt, C["hair"], 6)
-    # cheeks
-    circle(ctx, hx - 52, hy + 34, 12, C["pink"], 0.45)
-    circle(ctx, hx + 52, hy + 34, 12, C["pink"], 0.45)
-    # mouth
-    my = hy + 46
-    if talk > 0.05:
-        ellipse(ctx, hx, my, 16 + 4 * talk, 4 + 16 * talk, "#5A1E1E")
-        ellipse(ctx, hx, my + 4 + 8 * talk, 9, 3 + 4 * talk, "#E86A6A")
-    elif mood == "surprised":
-        ellipse(ctx, hx, my + 2, 11, 13, "#5A1E1E")
-    elif mood in ("confused", "worried", "thinking"):
-        ctx.move_to(hx - 16, my + 4)
-        ctx.curve_to(hx - 6, my - 4, hx + 6, my + 8, hx + 16, my)
-        set_color(ctx, "#5A1E1E")
+        lift = {"surprised": -10, "worried": -4, "confused": -8 if side > 0 else 0, "thinking": -6}.get(mood, 0)
+        tilt = {"worried": 5 * side, "confused": -5 * side if side > 0 else 0}.get(mood, 0)
+        by = eye_y - 30 + lift
+        ctx.new_path()
+        ctx.move_to(ex - 17, by + 4 + tilt)
+        ctx.curve_to(ex - 6, by - 4, ex + 6, by - 4, ex + 18, by + 3 - tilt)
+        set_color(ctx, ROSE["brow"])
         ctx.set_line_width(6)
         ctx.set_line_cap(cairo.LINE_CAP_ROUND)
         ctx.stroke()
-    else:  # happy / proud
-        width = 26 if mood == "proud" else 22
-        ctx.move_to(hx - width, my - 6)
-        ctx.curve_to(hx - width / 2, my + 14, hx + width / 2, my + 14, hx + width, my - 6)
-        set_color(ctx, "#5A1E1E")
-        ctx.set_line_width(6)
+    # nose
+    ctx.new_path()
+    ctx.move_to(hx + look * 4 - 6, hy + 34)
+    ctx.curve_to(hx + look * 4 - 2, hy + 40, hx + look * 4 + 4, hy + 40, hx + look * 4 + 7, hy + 34)
+    set_color(ctx, ROSE["skin_shade"])
+    ctx.set_line_width(4)
+    ctx.stroke()
+    # cheeks
+    circle(ctx, hx - 50, hy + 36, 13, "#F28CA0", 0.35)
+    circle(ctx, hx + 50, hy + 36, 13, "#F28CA0", 0.35)
+    # mouth
+    my = hy + 56
+    if talk > 0.05:
+        ellipse(ctx, hx, my, 15 + 4 * talk, 4 + 14 * talk, ROSE["mouth"])
+        ellipse(ctx, hx, my + 3 + 7 * talk, 8, 3 + 3 * talk, "#EE8A9A")
+    elif mood == "surprised":
+        ellipse(ctx, hx, my + 2, 10, 12, ROSE["mouth"])
+    elif mood in ("confused", "worried", "thinking"):
+        ctx.new_path()
+        ctx.move_to(hx - 14, my + 3)
+        ctx.curve_to(hx - 5, my - 3, hx + 5, my + 6, hx + 14, my)
+        set_color(ctx, ROSE["mouth"])
+        ctx.set_line_width(5)
         ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+        ctx.stroke()
+    else:  # happy / proud: soft pink lips in a closed smile
+        width = 22 if mood == "proud" else 19
+        ctx.new_path()
+        ctx.move_to(hx - width, my - 5)
+        ctx.curve_to(hx - width / 2, my + 10, hx + width / 2, my + 10, hx + width, my - 5)
+        ctx.curve_to(hx + width / 2, my + 3, hx - width / 2, my + 3, hx - width, my - 5)
+        _fill(ctx, ROSE["lip"])
+        ctx.new_path()
+        ctx.move_to(hx - width, my - 5)
+        ctx.curve_to(hx - width / 2, my + 4, hx + width / 2, my + 4, hx + width, my - 5)
+        set_color(ctx, ROSE["mouth"])
+        ctx.set_line_width(3.5)
         ctx.stroke()
 
 
