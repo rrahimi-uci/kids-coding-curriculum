@@ -1,6 +1,6 @@
 """Level 3 Week 2: Blueprints and Objects (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 COPIES = "\n".join(f"plant{i}_height = 1\nplant{i}_grow = 1" for i in range(1, 5))
 LATER = "\n".join(f"plant{i}_height = 1\nplant{i}_grow = 1" for i in range(47, 51))
@@ -35,19 +35,19 @@ FIXED = BUG.format(param="self", left="self.height", right="self.height") + "pri
 
 EPISODE = Episode(level=3, week=2, scenes=(
     Scene("l3-w02-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Nova wants a garden game with lots and lots of plants.", cue="garden", pause=0.3),
-        B("‘I'll write the code for one plant,’", speaker=NOVA, cue="one", pause=0.1),
-        B("says Nova,", cue="says", pause=0.1),
-        B("‘then copy it… and copy it… and copy it.’", speaker=NOVA, cue="copy", pause=0.3),
-        B("Nova starts copying.", cue="starts", pause=0.3),
-        B("Fifty copies later, Nova wants plants to grow faster.", cue="fifty", pause=0.3),
+        B("Rose wants a garden game with lots and lots of plants.", cue="garden", pause=0.3),
+        B("‘I'll write the code for one plant,’", speaker=ROSE, cue="one", pause=0.1),
+        B("says Rose,", cue="says", pause=0.1),
+        B("‘then copy it… and copy it… and copy it.’", speaker=ROSE, cue="copy", pause=0.3),
+        B("Rose starts copying.", cue="starts", pause=0.3),
+        B("Fifty copies later, Rose wants plants to grow faster.", cue="fifty", pause=0.3),
         B("Uh-oh.", cue="uhoh", pause=0.2),
         B("That's fifty changes!", cue="changes", pause=0.3),
         B("Can we write the plan once and build as many plants as we like?", cue="question", pause=3.0),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", moods={"garden": "happy", "uhoh": "surprised", "question": "thinking"},
+        A("rose", x=300, y=960, enter="left", moods={"garden": "happy", "uhoh": "surprised", "question": "thinking"},
           chin=("question", "end")),
-        A("pixel", x=620, y=760, drop=True, moods={"uhoh": "confused"}),
+        A("pixi", x=620, y=760, drop=True, moods={"uhoh": "confused"}),
         A("banner", "MISSION: One plan, many plants", at="garden"),
         A("code", code=COPIES, title="garden.py", x=860, y=190, w=960, h=520, shell=False, at="one",
           until="fifty", reveal=["one@0.3", "one@0.6", "copy", "copy@0.15", "copy@0.45", "copy@0.6",
@@ -106,9 +106,9 @@ EPISODE = Episode(level=3, week=2, scenes=(
         B("Self means ‘my.’", cue="my", pause=0.2),
         B("So self.height means ‘my height.’", cue="myheight", pause=0.2),
         B("And Python fills in self for you.", cue="fills", pause=0.4),
-        B("Now Nova makes two plants: one called Sunny, and one called Fern.", cue="two",
+        B("Now Rose makes two plants: one called Sunny, and one called Fern.", cue="two",
           pause=0.3),
-        B("Pixel runs the last line, which waters Sunny.", cue="runs", pause=0.2),
+        B("Pixi runs the last line, which waters Sunny.", cue="runs", pause=0.2),
         B("Predict!", cue="predict", pause=3.0),
         B("How tall is Sunny now?", cue="tall", pause=0.8),
         B("Four.", cue="four", pause=0.4),
@@ -132,14 +132,14 @@ EPISODE = Episode(level=3, week=2, scenes=(
         A("thought", "", at="predict+0.3", until="four", x=1420, y=960),
         A("chip", "sunny.height → 4", at="four", x=1210, y=920, color="green", size=38),
         A("chip", "fern.height → 1", at="one", x=1630, y=920, color="sky", size=38),
-        A("pixel", x=1790, y=330, s=0.42, ground=410, beep=("runs", "runs$"), moods={"one": "happy"}),
+        A("pixi", x=1790, y=330, s=0.42, ground=410, beep=("runs", "runs$"), moods={"one": "happy"}),
     )),
     Scene("l3-w02-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova writes a new version of water, but forgets something.", cue="forgets", pause=0.3),
+        B("Rose writes a new version of water, but forgets something.", cue="forgets", pause=0.3),
         B("The new water method has empty parentheses.", cue="empty", pause=0.2),
         B("Inside, it adds three to height.", cue="inside", pause=0.3),
-        B("Pixel waters Sunny and gets a red error.", cue="runs", pause=0.4),
+        B("Pixi waters Sunny and gets a red error.", cue="runs", pause=0.4),
         B("Let's read it from the bottom up.", cue="read", pause=0.2),
         B("TypeError: Plant.water() takes 0 positional arguments but 1 was given.", cue="typeerror",
           pause=0.3),
@@ -178,7 +178,7 @@ EPISODE = Episode(level=3, week=2, scenes=(
         A("badge", ok=False, at="unbound", until="change", x=1700, y=850),
         A("badge", ok=True, at="grows", x=1700, y=680),
         A("bigtext", "Every method needs self first", at="every", x=1470, y=840, size=40, color="purple"),
-        A("nova", x=1830, y=1060, s=0.45, moods={"forgets": "happy", "runs": "confused", "whose": "thinking",
+        A("rose", x=1830, y=1060, s=0.45, moods={"forgets": "happy", "runs": "confused", "whose": "thinking",
                                                  "grows": "proud"}),
     )),
     Scene("l3-w02-s05", setting="workshop", tail=0.8, beats=(
@@ -200,9 +200,9 @@ EPISODE = Episode(level=3, week=2, scenes=(
         B("Find out!", cue="find", pause=0.6),
     ), actions=(
         A("door", "DOOR 2", x=1660, y=920, open="built"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "class"), ("find", "end")],
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "class"), ("find", "end")],
           moods={"start": "proud", "sad": "worried", "never": "happy"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud", "sad": "confused", "never": "happy"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud", "sad": "confused", "never": "happy"}),
         A("chip", "class → many objects", at="class", until="design", x=1000, y=240, color="orange", size=46),
         A("tree", at="objects", until="design", x=1000, y=340, gap=330, w=300, level_gap=220,
           nodes=[("Plant", None, ["blueprint"], "objects"), ("sunny", "Plant", ["height 4"], "objects@0.3"),

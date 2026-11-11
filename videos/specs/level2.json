@@ -2,13 +2,13 @@
   "schema_version": 2,
   "level": 2,
   "audience": "Children in Grades 4–5 (ages 9–11) who are complete beginners",
-  "series_title": "Kids Coding with Nova and Pixel",
+  "series_title": "Kids Coding with Rose and Pixi",
   "creative_direction": {
     "frame": "16:9, 1920×1080, 24 or 30 fps",
     "narration": "Warm, curious, inclusive, and clear at about 140–145 words per minute; friendly without sounding babyish",
     "visual_language": "Bright modern 2D motion graphics, real Scratch or Thonny captures, deterministic code overlays, and a recurring mission map",
     "accessibility": "Closed captions (an MP4 caption track plus .srt and .vtt files), Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
-    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
+    "story_world": "Rose is an inventive ten-year-old coder. Pixi is a palm-sized helper robot who takes instructions very literally. Rose writes the code and Pixi runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
   },
   "plan_notes": [
     "The scripts were written from the Level 2 (Intermediate: Python in Thonny) syllabus, teacher guide, all 12 lesson plans, workbook and homework chapters, every exercise brief, starter and hint, and the final project materials, then checked line by line by a separate reviewer against the same sources and the answer keys.",
@@ -58,8 +58,8 @@
           "scene_id": "l2-w01-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! It's Level 2, and Nova has built a Gem Counter for Pixel. ‘Type how many gems you found,’ says Nova. Pixel types 6. The program should add 5 bonus gems. Instead… beep! Red text! Pixel did exactly what the code said. So why the crash? The secret: every value has a type!",
-          "visual": "Workshop with a glowing Level 2 door. Nova at a Thonny-style laptop; Pixel types 6 into a Shell panel. A gem counter shows 6 and a +5 bonus gem flies in, then bounces off. Red text slides up in the Shell; Pixel freezes with a question-mark face.",
+          "narration": "Welcome back to Kids Coding! It's Level 2, and Rose has built a Gem Counter for Pixi. ‘Type how many gems you found,’ says Rose. Pixi types 6. The program should add 5 bonus gems. Instead… beep! Red text! Pixi did exactly what the code said. So why the crash? The secret: every value has a type!",
+          "visual": "Workshop with a glowing Level 2 door. Rose at a Thonny-style laptop; Pixi types 6 into a Shell panel. A gem counter shows 6 and a +5 bonus gem flies in, then bounces off. Red text slides up in the Shell; Pixi freezes with a question-mark face.",
           "on_screen_text": [
             "MISSION: Fix the Gem Counter",
             "6 gems + 5 bonus = ?"
@@ -83,22 +83,22 @@
           "scene_id": "l2-w01-s03",
           "duration_seconds": 65,
           "purpose": "Worked example in the Shell",
-          "narration": "Let's try it in the Thonny Shell, after the three arrows. Predict first! What type is 2.5? Python says float. And what about 2.5 in quotes? str! The quotes make it text. Now let's build a message. Nova stores the text Pixel in robot, and the number 3 in wheels. Then an f-string. The f in front means fill in. Python fills each pair of curly braces with the value inside. Out comes: Pixel rolls on 3 wheels. No worries about text plus a number! Last, smarter choices. And is True when both sides are true. Or needs at least one. Not gives the opposite. So: is wheels at least 2, and is robot equal to Pixel? Pause and predict… True!",
-          "visual": "Shell panel with >>> prompts. Lines type in one at a time with a prediction pause before each answer: type(2.5) → <class 'float'>; type(\"2.5\") → <class 'str'>. Two value boxes appear: robot = \"Pixel\" and wheels = 3. The f-string's curly braces open like little doors and the values slide in, giving 'Pixel rolls on 3 wheels'. Then a two-sided and-switch lights both sides and shows True.",
+          "narration": "Let's try it in the Thonny Shell, after the three arrows. Predict first! What type is 2.5? Python says float. And what about 2.5 in quotes? str! The quotes make it text. Now let's build a message. Rose stores the text Pixi in robot, and the number 3 in wheels. Then an f-string. The f in front means fill in. Python fills each pair of curly braces with the value inside. Out comes: Pixi rolls on 3 wheels. No worries about text plus a number! Last, smarter choices. And is True when both sides are true. Or needs at least one. Not gives the opposite. So: is wheels at least 2, and is robot equal to Pixi? Pause and predict… True!",
+          "visual": "Shell panel with >>> prompts. Lines type in one at a time with a prediction pause before each answer: type(2.5) → <class 'float'>; type(\"2.5\") → <class 'str'>. Two value boxes appear: robot = \"Pixi\" and wheels = 3. The f-string's curly braces open like little doors and the values slide in, giving 'Pixi rolls on 3 wheels'. Then a two-sided and-switch lights both sides and shows True.",
           "on_screen_text": [
             "type(\"2.5\")  →  <class 'str'>",
             "f\"{robot} rolls on {wheels} wheels\"",
-            "wheels >= 2 and robot == \"Pixel\"",
+            "wheels >= 2 and robot == \"Pixi\"",
             "and: both • or: one • not: opposite"
           ],
-          "production_notes": "Real Shell echoes: type(2.5) gives <class 'float'>, type(\"2.5\") gives <class 'str'>, the f-string gives 'Pixel rolls on 3 wheels', and wheels >= 2 and robot == \"Pixel\" gives True. Do not use the lesson's name/level f-string, the Mood Meter moods, the Dragon Door key-and-level rule, or the checkpoint's \"{hero} has {stars * 2} stars\" f-string."
+          "production_notes": "Real Shell echoes: type(2.5) gives <class 'float'>, type(\"2.5\") gives <class 'str'>, the f-string gives 'Pixi rolls on 3 wheels', and wheels >= 2 and robot == \"Pixi\" gives True. Do not use the lesson's name/level f-string, the Mood Meter moods, the Dragon Door key-and-level rule, or the checkpoint's \"{hero} has {stars * 2} stars\" f-string."
         },
         {
           "scene_id": "l2-w01-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: text plus a number",
-          "narration": "Back to the Gem Counter. Here's Nova's code. First, input asks how many gems, and stores the answer in gems. Then print gems plus 5. Pixel typed 6. Let's be detectives. First, read the red error from the bottom line up. The last line says WHAT went wrong: TypeError: can only concatenate str, not int, to str. Concatenate means glue together. Python can glue text to text, but not text to a number. But gems is 6… isn't it? Let's check. Nova adds a line that prints the type of gems, just above the crash line. Pixel runs it: class str! Input always gives back text, even when you type digits. So which tool turns text into a whole number? Pause and point. Yes, int! The fix: turn gems into an int first, then add 5. Run again: 11. ‘Bonus collected!’ beeps Pixel.",
-          "visual": "Code panel shows the two lines; Pixel types 6 in the Shell. The traceback appears and a pointer starts at the last line, which zooms in. A glue bottle tries to stick a text tile \"6\" to a number brick 5 and fails. A print(type(gems)) line slides in above the crash line; the Shell shows <class 'str'>. int( ) wraps gems, the tile turns into a brick, and the Shell shows 11.",
+          "narration": "Back to the Gem Counter. Here's Rose's code. First, input asks how many gems, and stores the answer in gems. Then print gems plus 5. Pixi typed 6. Let's be detectives. First, read the red error from the bottom line up. The last line says WHAT went wrong: TypeError: can only concatenate str, not int, to str. Concatenate means glue together. Python can glue text to text, but not text to a number. But gems is 6… isn't it? Let's check. Rose adds a line that prints the type of gems, just above the crash line. Pixi runs it: class str! Input always gives back text, even when you type digits. So which tool turns text into a whole number? Pause and point. Yes, int! The fix: turn gems into an int first, then add 5. Run again: 11. ‘Bonus collected!’ beeps Pixi.",
+          "visual": "Code panel shows the two lines; Pixi types 6 in the Shell. The traceback appears and a pointer starts at the last line, which zooms in. A glue bottle tries to stick a text tile \"6\" to a number brick 5 and fails. A print(type(gems)) line slides in above the crash line; the Shell shows <class 'str'>. int( ) wraps gems, the tile turns into a brick, and the Shell shows 11.",
           "on_screen_text": [
             "gems = input(\"How many gems? \")",
             "print(gems + 5)",
@@ -162,8 +162,8 @@
           "scene_id": "l2-w02-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Pixel has opened a snack shop! Nova built a function to count the cookies. ‘How many cookies are in 3 boxes?’ asks Nova. The function shouts, ‘18!’ Great. Now Nova adds 2 more cookies… and the program crashes with a strange word: None. The function knew the answer. So why couldn't the program use it? Let's find out!",
-          "visual": "Pixel behind a snack-shop counter with three cookie boxes. A function-machine box labeled cookies_in shouts a speech bubble '18'. Nova adds two cookies to a tray; a 'None' cloud puffs up and the cookies fall through it.",
+          "narration": "Pixi has opened a snack shop! Rose built a function to count the cookies. ‘How many cookies are in 3 boxes?’ asks Rose. The function shouts, ‘18!’ Great. Now Rose adds 2 more cookies… and the program crashes with a strange word: None. The function knew the answer. So why couldn't the program use it? Let's find out!",
+          "visual": "Pixi behind a snack-shop counter with three cookie boxes. A function-machine box labeled cookies_in shouts a speech bubble '18'. Rose adds two cookies to a tray; a 'None' cloud puffs up and the cookies fall through it.",
           "on_screen_text": [
             "MISSION: Count the cookies",
             "Why does it say None?"
@@ -175,7 +175,7 @@
           "duration_seconds": 60,
           "purpose": "Explain parameters, arguments and return",
           "narration": "A function is like a machine. Values go in, the machine works on them, and an answer comes back out. The values you hand in are called arguments. Inside the function, they land in parameters, which are like labeled slots. And the word return hands the answer back to whoever called the function. Here's the big idea. Printing is like shouting the answer out of a window. Everyone hears it, but nobody can keep it. Returning is like putting the answer in your friend's hand. Now they can put it in their pocket, a variable, or add it to something else. A function that only prints quietly hands back None. That's Python's word for nothing.",
-          "visual": "Function machine diagram: IN (arguments) → FUNCTION (labeled parameter slots) → OUT (return). Number cards drop into slots and an answer card slides out of the return chute. Split screen: Nova shouts '8!' out of a window and the number floats away; then Nova places an '8' card in Pixel's hand and Pixel tucks it into a pocket labeled variable. A function that only prints hands Pixel an empty card labeled None.",
+          "visual": "Function machine diagram: IN (arguments) → FUNCTION (labeled parameter slots) → OUT (return). Number cards drop into slots and an answer card slides out of the return chute. Split screen: Rose shouts '8!' out of a window and the number floats away; then Rose places an '8' card in Pixi's hand and Pixi tucks it into a pocket labeled variable. A function that only prints hands Pixi an empty card labeled None.",
           "on_screen_text": [
             "IN → function → OUT",
             "print = shout it",
@@ -188,7 +188,7 @@
           "scene_id": "l2-w02-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: a function that returns",
-          "narration": "Pixel collects stickers: 10 on every sheet, plus some loose ones. Nova defines a function called stickers, with two parameters: sheets and loose. Right under the def line goes a docstring, a sentence in triple quotes. It says: Return how many stickers in all. It's a note for future-you and your friends. Then: return sheets times 10, plus loose. Let's call it. Call stickers with 2 sheets and 3 loose stickers, and store the answer in album. The 2 goes into sheets and the 3 goes into loose, in the same order. What comes back? 23! Because the answer was returned, we can do math with it. What about stickers with 2 and 3, plus stickers with 1 and 5? Pause and predict… 38! And remember: a variable made inside a function stays inside it, like bowls in a restaurant kitchen. Diners only see the plate that comes out.",
+          "narration": "Pixi collects stickers: 10 on every sheet, plus some loose ones. Rose defines a function called stickers, with two parameters: sheets and loose. Right under the def line goes a docstring, a sentence in triple quotes. It says: Return how many stickers in all. It's a note for future-you and your friends. Then: return sheets times 10, plus loose. Let's call it. Call stickers with 2 sheets and 3 loose stickers, and store the answer in album. The 2 goes into sheets and the 3 goes into loose, in the same order. What comes back? 23! Because the answer was returned, we can do math with it. What about stickers with 2 and 3, plus stickers with 1 and 5? Pause and predict… 38! And remember: a variable made inside a function stays inside it, like bowls in a restaurant kitchen. Diners only see the plate that comes out.",
           "visual": "Code panel types the function line by line; the docstring glows as a sticky note. Arguments 2 and 3 slide into parameter slots labeled sheets and loose. Two full sticker sheets of 10 and 3 loose stickers appear, and a value box album shows 23. Next, 1 sheet and 5 loose stickers appear, and the answers 23 and 15 combine into 38. A kitchen cutaway shows bowls staying behind a wall while a plate slides out.",
           "on_screen_text": [
             "def stickers(sheets, loose):",
@@ -202,8 +202,8 @@
           "scene_id": "l2-w02-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: printing instead of returning",
-          "narration": "Back to the snack shop. Here's Nova's cookie function, with one parameter: boxes. Inside: print boxes times 6. Then the program calls it with 3 boxes, adds 2, and stores that in total. Pixel runs it, exactly as written. First, 18 appears on its own line. Then red text! Read it from the bottom line up: TypeError, unsupported operand types for plus: NoneType and int. NoneType? That's our clue word: None. So ask: which function gave back None? Does it have a return line? Pause and point. Right! The cookie function only prints. It shouts 18 out of the window, then hands back nothing. And None plus 2 can't work. The fix: change print to return. Run again. No extra line, and total is 20. ‘20 cookies, in my hand!’ beeps Pixel.",
-          "visual": "Code panel with the function and the call. The Shell shows 18 alone on a line, then the red traceback; the last line zooms and the word NoneType gets a magnifying glass. A detective card asks: Which function gave back None? Does it have a return line? The print word flips into return, the rerun shows a value box total = 20, and Pixel holds a tray of 20 cookies.",
+          "narration": "Back to the snack shop. Here's Rose's cookie function, with one parameter: boxes. Inside: print boxes times 6. Then the program calls it with 3 boxes, adds 2, and stores that in total. Pixi runs it, exactly as written. First, 18 appears on its own line. Then red text! Read it from the bottom line up: TypeError, unsupported operand types for plus: NoneType and int. NoneType? That's our clue word: None. So ask: which function gave back None? Does it have a return line? Pause and point. Right! The cookie function only prints. It shouts 18 out of the window, then hands back nothing. And None plus 2 can't work. The fix: change print to return. Run again. No extra line, and total is 20. ‘20 cookies, in my hand!’ beeps Pixi.",
+          "visual": "Code panel with the function and the call. The Shell shows 18 alone on a line, then the red traceback; the last line zooms and the word NoneType gets a magnifying glass. A detective card asks: Which function gave back None? Does it have a return line? The print word flips into return, the rerun shows a value box total = 20, and Pixi holds a tray of 20 cookies.",
           "on_screen_text": [
             "print(boxes * 6)",
             "'NoneType' and 'int'",
@@ -272,8 +272,8 @@
           "scene_id": "l2-w03-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Nova and Pixel are planning a tour of the planets. ‘Mercury, Venus, Earth…’ says Nova. Should each planet get its own variable? planet1, planet2, planet3… and more keep coming! Pixel is juggling boxes. Is there one box that can hold many things, in order? Yes! It's called a list. Let's pack!",
-          "visual": "Nova points at a star map. Pixel juggles separate variable boxes labeled planet1, planet2, planet3, planet4, which wobble and drop. Then one long row of connected boxes slides in and catches them in order.",
+          "narration": "Rose and Pixi are planning a tour of the planets. ‘Mercury, Venus, Earth…’ says Rose. Should each planet get its own variable? planet1, planet2, planet3… and more keep coming! Pixi is juggling boxes. Is there one box that can hold many things, in order? Yes! It's called a list. Let's pack!",
+          "visual": "Rose points at a star map. Pixi juggles separate variable boxes labeled planet1, planet2, planet3, planet4, which wobble and drop. Then one long row of connected boxes slides in and catches them in order.",
           "on_screen_text": [
             "MISSION: Plan a planet tour",
             "One box for many things?"
@@ -298,7 +298,7 @@
           "scene_id": "l2-w03-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: build and loop over a list",
-          "narration": "Let's plan Pixel's tour in the Thonny Shell. Predict each answer before Pixel runs it! Nova makes a list called planets, with Mercury, Venus and Earth. Now Nova appends Mars. Mars joins at the end. How many items will len count? Pause and count… four! Now let's visit every item. Nova writes a for loop: for each planet in planets, print it. The loop visits each item in order: Mercury, Venus, Earth, Mars. But what if we also want the locker number? Use range with len, so i counts through every locker number. len is 4, so i goes 0, 1, 2, 3. Print each index and the planet stored there. The Shell shows 0 Mercury, 1 Venus, 2 Earth, 3 Mars. See? The first one is number 0.",
+          "narration": "Let's plan Pixi's tour in the Thonny Shell. Predict each answer before Pixi runs it! Rose makes a list called planets, with Mercury, Venus and Earth. Now Rose appends Mars. Mars joins at the end. How many items will len count? Pause and count… four! Now let's visit every item. Rose writes a for loop: for each planet in planets, print it. The loop visits each item in order: Mercury, Venus, Earth, Mars. But what if we also want the locker number? Use range with len, so i counts through every locker number. len is 4, so i goes 0, 1, 2, 3. Print each index and the planet stored there. The Shell shows 0 Mercury, 1 Venus, 2 Earth, 3 Mars. See? The first one is number 0.",
           "visual": "Code panel types each line. A list row of 3 boxes with index numbers 0–2 underneath grows to 4 boxes (index 3: Mars) on append. A len counter shows 4. A spotlight walks along the boxes for the first loop while the Shell prints each name. For the second loop, a value box i changes 0, 1, 2, 3 as the spotlight moves and the Shell prints '0 Mercury' through '3 Mars'.",
           "on_screen_text": [
             "planets.append(\"Mars\")",
@@ -312,7 +312,7 @@
           "scene_id": "l2-w03-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: off-by-one IndexError",
-          "narration": "Bug hunt! Nova starts a new list with just three planets: Mercury, Venus and Earth. ‘Earth is the third planet, so it's number 3,’ says Nova, and asks Python to print the planet at index 3. Pixel runs it, exactly as written. Red text! Read it from the bottom up: IndexError: list index out of range. Let's be detectives. Draw the lockers on paper, with the index numbers underneath. Mercury is 0. Venus is 1. Earth is 2. There's no locker 3! This is called an off-by-one bug: a number that's one too big or one too small. It's one of the most common bugs in all of programming. So which index is Earth? Pause and point. Yes, 2! Nova changes the 3 to a 2. Run again: Earth!",
+          "narration": "Bug hunt! Rose starts a new list with just three planets: Mercury, Venus and Earth. ‘Earth is the third planet, so it's number 3,’ says Rose, and asks Python to print the planet at index 3. Pixi runs it, exactly as written. Red text! Read it from the bottom up: IndexError: list index out of range. Let's be detectives. Draw the lockers on paper, with the index numbers underneath. Mercury is 0. Venus is 1. Earth is 2. There's no locker 3! This is called an off-by-one bug: a number that's one too big or one too small. It's one of the most common bugs in all of programming. So which index is Earth? Pause and point. Yes, 2! Rose changes the 3 to a 2. Run again: Earth!",
           "visual": "Code panel shows a three-item list and print(planets[3]). The traceback appears; its last line zooms. A pencil sketch draws three boxes with 0, 1, 2 underneath and a dashed empty box at 3 with a question mark. The 3 in the code flips to 2 and the Shell prints Earth.",
           "on_screen_text": [
             "print(planets[3])",
@@ -377,8 +377,8 @@
           "scene_id": "l2-w04-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Pixel is playing Guess My Number! Nova thinks of a secret number from 1 to 20. ‘Is it 10?’ asks Pixel. ‘Higher!’ ‘15?’ ‘Lower!’ How many guesses will it take? Three? Seven? Nobody knows! A for loop needs to know how many times to go around. So what kind of loop keeps going until the game is won?",
-          "visual": "Nova holds a face-down card with a secret number. Pixel's guesses pop up as bubbles with Higher and Lower arrows beside them. A tally counter clicks with each guess and a big question mark spins over the words 'How many times?'.",
+          "narration": "Pixi is playing Guess My Number! Rose thinks of a secret number from 1 to 20. ‘Is it 10?’ asks Pixi. ‘Higher!’ ‘15?’ ‘Lower!’ How many guesses will it take? Three? Seven? Nobody knows! A for loop needs to know how many times to go around. So what kind of loop keeps going until the game is won?",
+          "visual": "Rose holds a face-down card with a secret number. Pixi's guesses pop up as bubbles with Higher and Lower arrows beside them. A tally counter clicks with each guess and a big question mark spins over the words 'How many times?'.",
           "on_screen_text": [
             "MISSION: Loop until we win",
             "How many guesses? Nobody knows!"
@@ -403,8 +403,8 @@
           "scene_id": "l2-w04-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: while, then while True with break",
-          "narration": "Pixel is jumping up to a cloud that's 10 steps high. Nova sets height to 0. Then a while loop: while height is less than 10. Inside, height goes up by 3, and then we print it. That middle line is the change that lets the loop end. Let's trace it. 0 is less than 10, so jump: 3. Check again. Jump: 6. Then 9. Is 9 less than 10? Yes! Jump: 12. Now the check is False, and the loop stops. Here's another pattern. while True goes around forever, on purpose. Then break jumps out of the loop, right away, when we say so. We put break inside an if. Games use this to keep asking until the player types a good answer. That's called input validation.",
-          "visual": "Code panel types the loop. Pixel hops up a ladder of steps 0 to 12 toward a cloud at 10; a value box labeled height changes 0 → 3 → 6 → 9 → 12, and the Shell prints 3, 6, 9, 12. At each hop the condition 'height < 10' lights True; at 12 it lights False and Pixel lands on the cloud. Then a second panel shows a loop arrow labeled while True with an emergency-exit door labeled break, opened only by an if-key.",
+          "narration": "Pixi is jumping up to a cloud that's 10 steps high. Rose sets height to 0. Then a while loop: while height is less than 10. Inside, height goes up by 3, and then we print it. That middle line is the change that lets the loop end. Let's trace it. 0 is less than 10, so jump: 3. Check again. Jump: 6. Then 9. Is 9 less than 10? Yes! Jump: 12. Now the check is False, and the loop stops. Here's another pattern. while True goes around forever, on purpose. Then break jumps out of the loop, right away, when we say so. We put break inside an if. Games use this to keep asking until the player types a good answer. That's called input validation.",
+          "visual": "Code panel types the loop. Pixi hops up a ladder of steps 0 to 12 toward a cloud at 10; a value box labeled height changes 0 → 3 → 6 → 9 → 12, and the Shell prints 3, 6, 9, 12. At each hop the condition 'height < 10' lights True; at 12 it lights False and Pixi lands on the cloud. Then a second panel shows a loop arrow labeled while True with an emergency-exit door labeled break, opened only by an if-key.",
           "on_screen_text": [
             "while height < 10:",
             "    height = height + 3",
@@ -417,8 +417,8 @@
           "scene_id": "l2-w04-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: the loop that never ends",
-          "narration": "Bug hunt! Nova writes a cookie muncher for Pixel. cookies starts at 3. While cookies is more than 0, print Munch! Then cookies goes down by 1. Pixel runs it… Munch! Munch! Munch! Munch! It never stops! Press Stop. Now, two detective questions find almost every infinite loop. One: what is checked? cookies is more than 0. Two: what changes inside the loop, so that check can change? Look closely at the spaces. The minus-one line has no indent! So it's outside the loop. It would only run after the loop ends, and the loop never ends. Indentation decides what's inside. So what's the fix? Pause and point. Push that line in, under print. Run: three munches, then done!",
-          "visual": "Code panel: the last line sits at the left edge with no indent. The Shell fills with Munch! lines scrolling fast while a cookie counter stays stuck at 3; Pixel's jaw keeps chomping. A red Stop button is pressed. Two detective cards appear: 'What is checked?' and 'What changes inside the loop?'. Indentation guides show the last line outside the loop box. The line slides right four spaces, the counter goes 3 → 2 → 1 → 0, and the Shell shows exactly three Munch! lines.",
+          "narration": "Bug hunt! Rose writes a cookie muncher for Pixi. cookies starts at 3. While cookies is more than 0, print Munch! Then cookies goes down by 1. Pixi runs it… Munch! Munch! Munch! Munch! It never stops! Press Stop. Now, two detective questions find almost every infinite loop. One: what is checked? cookies is more than 0. Two: what changes inside the loop, so that check can change? Look closely at the spaces. The minus-one line has no indent! So it's outside the loop. It would only run after the loop ends, and the loop never ends. Indentation decides what's inside. So what's the fix? Pause and point. Push that line in, under print. Run: three munches, then done!",
+          "visual": "Code panel: the last line sits at the left edge with no indent. The Shell fills with Munch! lines scrolling fast while a cookie counter stays stuck at 3; Pixi's jaw keeps chomping. A red Stop button is pressed. Two detective cards appear: 'What is checked?' and 'What changes inside the loop?'. Indentation guides show the last line outside the loop box. The line slides right four spaces, the counter goes 3 → 2 → 1 → 0, and the Shell shows exactly three Munch! lines.",
           "on_screen_text": [
             "while cookies > 0:",
             "cookies = cookies - 1  ← no indent!",
@@ -484,8 +484,8 @@
           "scene_id": "l2-w05-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Nova slides a sticky note to Pixel. It says: grj. ‘Is that a word?’ beeps Pixel. ‘It's a secret code!’ says Nova. Every letter moved three places along the alphabet. To crack it, Pixel needs a lookup: give it a secret letter, get back the real one. Python has a tool made for lookups. It's called a dictionary. Let's open it!",
-          "visual": "A sticky note reading 'grj' lands on the workbench. Pixel scans it with a magnifying glass; a paper cipher wheel spins in the background. A big book labeled DICTIONARY opens with a sparkle.",
+          "narration": "Rose slides a sticky note to Pixi. It says: grj. ‘Is that a word?’ beeps Pixi. ‘It's a secret code!’ says Rose. Every letter moved three places along the alphabet. To crack it, Pixi needs a lookup: give it a secret letter, get back the real one. Python has a tool made for lookups. It's called a dictionary. Let's open it!",
+          "visual": "A sticky note reading 'grj' lands on the workbench. Pixi scans it with a magnifying glass; a paper cipher wheel spins in the background. A big book labeled DICTIONARY opens with a sparkle.",
           "on_screen_text": [
             "MISSION: Crack the code",
             "Secret note: grj"
@@ -510,7 +510,7 @@
           "scene_id": "l2-w05-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: a spaceship dictionary",
-          "narration": "Let's build one in the Shell. Nova builds a dictionary called ship: the name is Comet, fuel is 20, and crew is 3. Look up the key fuel, and ship gives back 20. To change a value, use the same key: set fuel to 25. To add a new key, just give it a value: set color to orange. Now let's see everything. Then a for loop goes through ship.items, and prints each key and value with an f-string. items gives us each key and its value, one pair at a time. The Shell shows: name: Comet, fuel: 25, crew: 3, color: orange. And what if we ask for a key that isn't there, like speed? Pause and predict… KeyError!",
+          "narration": "Let's build one in the Shell. Rose builds a dictionary called ship: the name is Comet, fuel is 20, and crew is 3. Look up the key fuel, and ship gives back 20. To change a value, use the same key: set fuel to 25. To add a new key, just give it a value: set color to orange. Now let's see everything. Then a for loop goes through ship.items, and prints each key and value with an f-string. items gives us each key and its value, one pair at a time. The Shell shows: name: Comet, fuel: 25, crew: 3, color: orange. And what if we ask for a key that isn't there, like speed? Pause and predict… KeyError!",
           "visual": "Code panel and Shell. Key → value cards appear for name → \"Comet\", fuel → 20, crew → 3. The fuel card's value flips 20 → 25; a new card color → \"orange\" snaps onto the end. A loop spotlight visits each pair while the Shell prints four lines. A blank card labeled speed flashes a gentle question mark.",
           "on_screen_text": [
             "ship = {\"name\": \"Comet\",",
@@ -524,7 +524,7 @@
           "scene_id": "l2-w05-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: KeyError and wrong spelling",
-          "narration": "Bug hunt: two kinds today! The loud one first. Nova asks ship for the key speed. Red text! The last line says KeyError, then the key Python couldn't find, in quotes: speed. There's no such key! To be safe, check first: is speed in ship? Python says False. Now the quiet one. Nova adds a crew member, setting Crew, with a capital C, to 4. No red text! But crew still says 3. Why? Here's a detective trick: print the whole dictionary. Pause and point. Look! There are two crews now. Crew with a capital C is a brand new key. Like a real dictionary, the spelling must be exact. Nova fixes the line to a small c and runs it again. Now crew is 4.",
+          "narration": "Bug hunt: two kinds today! The loud one first. Rose asks ship for the key speed. Red text! The last line says KeyError, then the key Python couldn't find, in quotes: speed. There's no such key! To be safe, check first: is speed in ship? Python says False. Now the quiet one. Rose adds a crew member, setting Crew, with a capital C, to 4. No red text! But crew still says 3. Why? Here's a detective trick: print the whole dictionary. Pause and point. Look! There are two crews now. Crew with a capital C is a brand new key. Like a real dictionary, the spelling must be exact. Rose fixes the line to a small c and runs it again. Now crew is 4.",
           "visual": "Shell shows ship[\"speed\"] and the KeyError line, with 'speed' circled. A check line \"speed\" in ship → False appears with a stop-hand icon. Then ship[\"Crew\"] = 4 runs with no error; the printed dictionary shows both 'crew': 3 and 'Crew': 4, and a magnifier highlights the capital C. The line is corrected, the program reruns, and the dictionary shows 'crew': 4 only.",
           "on_screen_text": [
             "KeyError: 'speed'",
@@ -596,8 +596,8 @@
           "scene_id": "l2-w06-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Five doors are open, and the Kids Coding workshop is buzzing. But today, Pixel finds a pile of broken programs on the bench. One crashes. One gives a wrong answer. ‘Should I change everything until it works?’ asks Pixel. ‘No way,’ says Nova. ‘Detectives use tools!’ Ready to grab yours?",
-          "visual": "Mission map with five open doors and a sixth glowing door marked CHECKPOINT. A workbench holds program cards: one with red text, one with a wrong-answer sign. Pixel holds a giant spanner, ready to bash; Nova hands over a detective kit with a magnifying glass, a print stamp, a rubber duck and a pencil.",
+          "narration": "Five doors are open, and the Kids Coding workshop is buzzing. But today, Pixi finds a pile of broken programs on the bench. One crashes. One gives a wrong answer. ‘Should I change everything until it works?’ asks Pixi. ‘No way,’ says Rose. ‘Detectives use tools!’ Ready to grab yours?",
+          "visual": "Mission map with five open doors and a sixth glowing door marked CHECKPOINT. A workbench holds program cards: one with red text, one with a wrong-answer sign. Pixi holds a giant spanner, ready to bash; Rose hands over a detective kit with a magnifying glass, a print stamp, a rubber duck and a pencil.",
           "on_screen_text": [
             "MISSION: Debug like a detective",
             "Tools, not luck"
@@ -622,7 +622,7 @@
           "scene_id": "l2-w06-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: reading a traceback",
-          "narration": "Let's read a real traceback. Nova's program should count spider legs, using a function with one parameter: spiders. Then it prints the legs for 3 spiders. Pixel runs it, and red text appears. Don't panic. Read it from the bottom up. WHAT went wrong? The last line: NameError: name spdiers is not defined. Python even asks: did you mean spiders? A NameError means Python doesn't know that name. It's often a typo, or missing quotes. WHERE? The last File line, just above the code line: line 2, inside the spider legs function. In Thonny, click the blue link to jump right there. HOW did it get there? The lines further up show that the main program, on line 4, called the function. Now look at line 2. Pause and point. Two letters are swapped! Fix the typo, and run: 24.",
+          "narration": "Let's read a real traceback. Rose's program should count spider legs, using a function with one parameter: spiders. Then it prints the legs for 3 spiders. Pixi runs it, and red text appears. Don't panic. Read it from the bottom up. WHAT went wrong? The last line: NameError: name spdiers is not defined. Python even asks: did you mean spiders? A NameError means Python doesn't know that name. It's often a typo, or missing quotes. WHERE? The last File line, just above the code line: line 2, inside the spider legs function. In Thonny, click the blue link to jump right there. HOW did it get there? The lines further up show that the main program, on line 4, called the function. Now look at line 2. Pause and point. Two letters are swapped! Fix the typo, and run: 24.",
           "visual": "Code panel: def spider_legs(spiders): / return spdiers * 8 / blank / print(spider_legs(3)). The red traceback appears in the Shell. A pointer climbs from the bottom: the last line gets a WHAT tag, the 'line 2, in spider_legs' line gets a WHERE tag, and the 'line 4, in <module>' line gets a HOW tag. The typo 'spdiers' wiggles; the letters swap into 'spiders' and the Shell shows 24 next to three cartoon spiders.",
           "on_screen_text": [
             "WHAT: the last line",
@@ -636,8 +636,8 @@
           "scene_id": "l2-w06-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: a bug with no red text",
-          "narration": "Now the sneakiest kind of bug: one with no red text at all. Nova's total apples function should add up the apples Pixel picked on three days: 3, 1 and 2. That's 6. Pixel runs it and says… 2. No crash, just a wrong answer. Time for the rubber duck! Nova explains each line out loud. ‘total starts at 0. For each day's apples, total equals apples. Then return total.’ Hmm. Let's check with a trace table. Round one: apples is 3, so total is 3. Round two: apples is 1, so total is 1. Round three: total is 2. The table shows a value we didn't expect! total forgets what it had. What should that line say? Pause and point. total equals total plus apples! Run again: 6.",
-          "visual": "Code panel: def total_apples(days): / total = 0 / for apples in days: / total = apples / return total, and print(total_apples([3, 1, 2])) with Shell output 2. Pixel holds a rubber duck while Nova talks to it; each line glows as it is explained. A trace table with columns apples and total fills row by row: 3 | 3, 1 | 1, 2 | 2, and the total column flashes softly where it drops. The line becomes total = total + apples; a second table fills 3, 4, 6 and the Shell shows 6.",
+          "narration": "Now the sneakiest kind of bug: one with no red text at all. Rose's total apples function should add up the apples Pixi picked on three days: 3, 1 and 2. That's 6. Pixi runs it and says… 2. No crash, just a wrong answer. Time for the rubber duck! Rose explains each line out loud. ‘total starts at 0. For each day's apples, total equals apples. Then return total.’ Hmm. Let's check with a trace table. Round one: apples is 3, so total is 3. Round two: apples is 1, so total is 1. Round three: total is 2. The table shows a value we didn't expect! total forgets what it had. What should that line say? Pause and point. total equals total plus apples! Run again: 6.",
+          "visual": "Code panel: def total_apples(days): / total = 0 / for apples in days: / total = apples / return total, and print(total_apples([3, 1, 2])) with Shell output 2. Pixi holds a rubber duck while Rose talks to it; each line glows as it is explained. A trace table with columns apples and total fills row by row: 3 | 3, 1 | 1, 2 | 2, and the total column flashes softly where it drops. The line becomes total = total + apples; a second table fills 3, 4, 6 and the Shell shows 6.",
           "on_screen_text": [
             "No red text ≠ no bug",
             "total = apples",
@@ -651,7 +651,7 @@
           "duration_seconds": 60,
           "purpose": "Recap, growth mindset, and handoff",
           "narration": "Detective training complete! Let's remember the four tools. Read the traceback from the bottom up: what, then where. Print-debugging shows what's inside a variable. The rubber duck catches bugs that don't crash. A trace table follows every value. Change one thing, then run again. Now think back. Six weeks ago, I could not… and now I can… How would you finish that? If a bug makes you feel stuck, say: I can't fix this yet. And be kind when code breaks. We never laugh at someone's bug. Workshop time! After Station 1 with your teacher, open Station 2, High Scores. Read the traceback, draw the list with index numbers, and write a bug report for each bug. Happy hunting, detectives!",
-          "visual": "The CHECKPOINT door opens. The four tool cards line up as badges. A sentence card fills in: 'Six weeks ago I could not … and now I can …' and a sticky note adds the word YET. Nova and Pixel high-five beside a 'We never laugh at someone's bug' sign. A bug-report card (error name, line, what I changed) and the Station 2 card slide in.",
+          "visual": "The CHECKPOINT door opens. The four tool cards line up as badges. A sentence card fills in: 'Six weeks ago I could not … and now I can …' and a sticky note adds the word YET. Rose and Pixi high-five beside a 'We never laugh at someone's bug' sign. A bug-report card (error name, line, what I changed) and the Station 2 card slide in.",
           "on_screen_text": [
             "Traceback • print • duck • trace table",
             "I can't fix this… yet!",
@@ -703,8 +703,8 @@
           "scene_id": "l2-w07-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Hi, coders! Nova just set a record in a dice game: one hundred and twenty points! ‘Pixel, remember my score!’ says Nova. Pixel closes the game for the night. Next morning, it opens again. ‘Hello! Who are you? The high score is zero.’ Beep boop. Every score is gone! Why did the program forget? And how can we help it remember?",
-          "visual": "Nova cheers beside a dice game screen showing 120. Pixel presses a big Close button; the screen goes dark and a moon crosses the window. The game reopens with a blank score box reading 0 and Pixel's face shows a question mark. Freeze on a thinking bubble with an empty notebook.",
+          "narration": "Hi, coders! Rose just set a record in a dice game: one hundred and twenty points! ‘Pixi, remember my score!’ says Rose. Pixi closes the game for the night. Next morning, it opens again. ‘Hello! Who are you? The high score is zero.’ Beep boop. Every score is gone! Why did the program forget? And how can we help it remember?",
+          "visual": "Rose cheers beside a dice game screen showing 120. Pixi presses a big Close button; the screen goes dark and a moon crosses the window. The game reopens with a blank score box reading 0 and Pixi's face shows a question mark. Freeze on a thinking bubble with an empty notebook.",
           "on_screen_text": [
             "MISSION: Make the game remember",
             "Pause: Where could a score be kept?"
@@ -729,7 +729,7 @@
           "scene_id": "l2-w07-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: write, then read a file",
-          "narration": "Let's build one together. Nova keeps a sticker file called stickers.txt. It already holds one line: unicorn and two, with a comma between them. Now Nova adds a line. Nova opens stickers.txt with mode a, using the word with. Then, on the pushed-in line, Nova writes dragon, a comma, three, and backslash n. Backslash n means start a new line. Now let's read it back with mode r, one line at a time. Each line hides a newline at the end. strip removes it. split, with a comma, cuts the line into a list: dragon and three. But that three is still text! Everything from a file is text, just like input. So int turns it into a number. Pause and predict: what will Pixel print? Unicorn two, then dragon three!",
+          "narration": "Let's build one together. Rose keeps a sticker file called stickers.txt. It already holds one line: unicorn and two, with a comma between them. Now Rose adds a line. Rose opens stickers.txt with mode a, using the word with. Then, on the pushed-in line, Rose writes dragon, a comma, three, and backslash n. Backslash n means start a new line. Now let's read it back with mode r, one line at a time. Each line hides a newline at the end. strip removes it. split, with a comma, cuts the line into a list: dragon and three. But that three is still text! Everything from a file is text, just like input. So int turns it into a number. Pause and predict: what will Pixi print? Unicorn two, then dragon three!",
           "visual": "A code panel types the two blocks line by line: with open(\"stickers.txt\", \"a\") as file: / file.write(\"dragon,3\\n\"), then with open(\"stickers.txt\", \"r\") as file: / for line in file: / line = line.strip() / parts = line.split(\",\") / print(parts[0], int(parts[1])). A file icon beside it gains the new line 'dragon,3' under 'unicorn,2'. A string card 'dragon,3\\n' loses its \\n (strip), then splits at the comma into a two-box list ['dragon', '3']; the '3' box hops through an int() machine. The Shell panel shows 'unicorn 2' and 'dragon 3'.",
           "on_screen_text": [
             "with open(\"stickers.txt\", \"a\") as file:",
@@ -743,7 +743,7 @@
           "scene_id": "l2-w07-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt: FileNotFoundError",
-          "narration": "Bug hunt time! Nova writes a few lines to read the stickers back. Pixel presses Run, and red text fills the Shell. That's a traceback. We read it from the bottom up. The last line says what went wrong: FileNotFoundError. No such file or directory: stikers.txt. The file name is printed in quotes. Detective steps! What did we expect? Our stickers. What happened? Python couldn't find the file. Now compare the name in quotes, letter by letter, with the name in Finder. Pause and point. Yes! The c is missing. Nova fixes the spelling, and it works! Other clues for this error: the program is saved in another folder, or the file isn't made yet. Then try and except FileNotFoundError can do something else instead of crashing. And if saved lines keep vanishing? Look for a sneaky w.",
+          "narration": "Bug hunt time! Rose writes a few lines to read the stickers back. Pixi presses Run, and red text fills the Shell. That's a traceback. We read it from the bottom up. The last line says what went wrong: FileNotFoundError. No such file or directory: stikers.txt. The file name is printed in quotes. Detective steps! What did we expect? Our stickers. What happened? Python couldn't find the file. Now compare the name in quotes, letter by letter, with the name in Finder. Pause and point. Yes! The c is missing. Rose fixes the spelling, and it works! Other clues for this error: the program is saved in another folder, or the file isn't made yet. Then try and except FileNotFoundError can do something else instead of crashing. And if saved lines keep vanishing? Look for a sneaky w.",
           "visual": "Thonny Shell panel with a red traceback; a magnifying glass slides up from the last line: FileNotFoundError: [Errno 2] No such file or directory: 'stikers.txt'. Split screen: the quoted name above a Finder file icon labeled stickers.txt; letters light up one pair at a time until the missing c flashes. The corrected line runs and the sticker list prints. A small try/except card and a w card with a warning sign appear at the end.",
           "on_screen_text": [
             "Read the traceback bottom-up",
@@ -810,8 +810,8 @@
           "scene_id": "l2-w08-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Hi, coders! Nova's coin game is ready to share. But this morning, Nova changed one line. Is everything still right? Pixel plays the game. Then again. And again. Fifty times! ‘Checking by hand is slow,’ says Pixel. ‘My battery is at two percent.’ What if a tiny program could check the game for us, in less than a second?",
-          "visual": "Nova holds a game cartridge labeled 'Coin Game'. Pixel plays on a screen while a tally counter climbs to 50 and Pixel's battery icon drains to 2%. A tiny robot-shaped checklist zooms in with a stopwatch showing 0.1 s.",
+          "narration": "Hi, coders! Rose's coin game is ready to share. But this morning, Rose changed one line. Is everything still right? Pixi plays the game. Then again. And again. Fifty times! ‘Checking by hand is slow,’ says Pixi. ‘My battery is at two percent.’ What if a tiny program could check the game for us, in less than a second?",
+          "visual": "Rose holds a game cartridge labeled 'Coin Game'. Pixi plays on a screen while a tally counter climbs to 50 and Pixi's battery icon drains to 2%. A tiny robot-shaped checklist zooms in with a stopwatch showing 0.1 s.",
           "on_screen_text": [
             "MISSION: Check the game fast",
             "By hand = slow  •  A test = 1 second"
@@ -836,7 +836,7 @@
           "scene_id": "l2-w08-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: two tests that pass",
-          "narration": "Let's test one. Nova's file, coin tools, has a function called total coins. It adds up the coins in a list of bags. Now Nova makes a test file. First, it imports total coins from coin tools. Then a test function called test three bags. Inside, an assert checks that total coins for bags of two, five and three is ten, with the message: two plus five plus three is ten. We work out ten on paper first, not by running the code. That's our normal case. Now an edge case: a bag with zero coins in the middle. Its assert checks that four, zero and six add up to ten. At the bottom, three lines let the Run button start pytest. Pixel presses Run. Two lines say PASSED, and the last line says two passed!",
+          "narration": "Let's test one. Rose's file, coin tools, has a function called total coins. It adds up the coins in a list of bags. Now Rose makes a test file. First, it imports total coins from coin tools. Then a test function called test three bags. Inside, an assert checks that total coins for bags of two, five and three is ten, with the message: two plus five plus three is ten. We work out ten on paper first, not by running the code. That's our normal case. Now an edge case: a bag with zero coins in the middle. Its assert checks that four, zero and six add up to ten. At the bottom, three lines let the Run button start pytest. Pixi presses Run. Two lines say PASSED, and the last line says two passed!",
           "visual": "Code panel types test_coins.py: from coin_tools import total_coins / def test_three_bags(): / assert total_coins([2, 5, 3]) == 10, \"2 + 5 + 3 is 10\" / def test_empty_bag_in_the_middle(): / assert total_coins([4, 0, 6]) == 10, \"an empty bag adds 0 coins\" / if __name__ == \"__main__\": / import pytest / pytest.main([\"-v\", __file__]). Three coin bags (2, 5, 3) pour into a counter showing 10; then bags 4, 0 and 6, where the empty middle bag adds nothing, also show 10. The output panel shows test_coins.py::test_three_bags PASSED, test_coins.py::test_empty_bag_in_the_middle PASSED and '2 passed'.",
           "on_screen_text": [
             "assert total_coins([2, 5, 3]) == 10",
@@ -850,7 +850,7 @@
           "scene_id": "l2-w08-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt: a failing test is a map",
-          "narration": "Bug hunt! Nova tidies up total coins and changes one line. Pixel presses Run. Both tests FAILED! Let's read it from the bottom up. The last line is the score: two failed. Now the first failure. The E lines say what happened: assert three equals ten, where the three came from total coins with bags of two, five and three. The function gave back three, but we expected ten. When a test fails, ask: is the code wrong, or is my expected answer wrong? Two plus five plus three really is ten. So the code is wrong, and the test stays. Pause and point. Inside the loop, Nova wrote total equals coins. That throws away the old total each time. Nova changes it to total equals total plus coins. Run again: two passed! Sneaky fact: a test with just one bag would pass, even with this bug.",
+          "narration": "Bug hunt! Rose tidies up total coins and changes one line. Pixi presses Run. Both tests FAILED! Let's read it from the bottom up. The last line is the score: two failed. Now the first failure. The E lines say what happened: assert three equals ten, where the three came from total coins with bags of two, five and three. The function gave back three, but we expected ten. When a test fails, ask: is the code wrong, or is my expected answer wrong? Two plus five plus three really is ten. So the code is wrong, and the test stays. Pause and point. Inside the loop, Rose wrote total equals coins. That throws away the old total each time. Rose changes it to total equals total plus coins. Run again: two passed! Sneaky fact: a test with just one bag would pass, even with this bug.",
           "visual": "Output panel: test_three_bags FAILED, test_empty_bag_in_the_middle FAILED; below the first one E AssertionError: 2 + 5 + 3 is 10, E assert 3 == 10 and E + where 3 = total_coins([2, 5, 3]), then '2 failed'. A magnifier climbs from the last line upward. Expected (10) and actual (3) cards face each other. A paper sum 2 + 5 + 3 = 10 gets a check. The code panel highlights 'total = coins' inside the loop; it changes to 'total = total + coins'; rerun shows '2 passed'. A one-bag test card [7] passes with both versions, with a thought bubble.",
           "on_screen_text": [
             "Read FAILED from the bottom up",
@@ -916,8 +916,8 @@
           "scene_id": "l2-w09-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Hi, coders! Pixel presses Run and taps the arrow keys. Left, left, right! Nothing moves. Until now, our programs ran from top to bottom, then stopped. But games are different. Games wait: for a key press, or for a timer to ring. Today, Pixel learns to wait and react. And your own final project begins!",
-          "visual": "A turtle window with a turtle at the bottom. Pixel taps arrow keys shown as big key caps; the turtle stays still. A straight top-to-bottom arrow beside a code panel bends into a circle with a doorbell and a kitchen timer on it. A sealed envelope labeled 'Final Project' glows in the corner.",
+          "narration": "Hi, coders! Pixi presses Run and taps the arrow keys. Left, left, right! Nothing moves. Until now, our programs ran from top to bottom, then stopped. But games are different. Games wait: for a key press, or for a timer to ring. Today, Pixi learns to wait and react. And your own final project begins!",
+          "visual": "A turtle window with a turtle at the bottom. Pixi taps arrow keys shown as big key caps; the turtle stays still. A straight top-to-bottom arrow beside a code panel bends into a circle with a doorbell and a kitchen timer on it. A sealed envelope labeled 'Final Project' glows in the corner.",
           "on_screen_text": [
             "MISSION: Make the game react",
             "Games wait for keys and timers"
@@ -942,7 +942,7 @@
           "scene_id": "l2-w09-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: keys and a timer",
-          "narration": "Let's watch a tiny game work. A ball starts at the top, and Nova's turtle waits in the middle. Handler one: go left, which moves x twenty steps left. Handler two: go right, twenty steps right. Then the frame function, called fall. The ball moves down five steps. If it's still above minus two hundred, Nova calls screen.ontimer with fall and fifty. That means: run fall again in fifty milliseconds. A thousand milliseconds make one second, and a thousand divided by fifty is twenty. So that's twenty frames every second! Notice: no parentheses after fall or go left. We hand turtle the function, and turtle calls it later. Bigger games also keep their state, like the score, in a dictionary.",
+          "narration": "Let's watch a tiny game work. A ball starts at the top, and Rose's turtle waits in the middle. Handler one: go left, which moves x twenty steps left. Handler two: go right, twenty steps right. Then the frame function, called fall. The ball moves down five steps. If it's still above minus two hundred, Rose calls screen.ontimer with fall and fifty. That means: run fall again in fifty milliseconds. A thousand milliseconds make one second, and a thousand divided by fifty is twenty. So that's twenty frames every second! Notice: no parentheses after fall or go left. We hand turtle the function, and turtle calls it later. Bigger games also keep their state, like the score, in a dictionary.",
           "visual": "Split screen. Left, a code panel types: def go_left(): / player.setx(player.xcor() - 20) / def fall(): / ball.sety(ball.ycor() - 5) / if ball.ycor() > -200: / screen.ontimer(fall, 50) / screen.onkey(go_left, \"Left\") / screen.listen(). Right, a turtle game frame: the ball drops in small steps while a frame counter ticks 1, 2, 3; the turtle slides 20 steps when a Left key cap is pressed. A math card: 1000 ÷ 50 = 20 frames each second. A dictionary card state = {\"score\": 0, \"running\": True} appears at the end.",
           "on_screen_text": [
             "player.setx(player.xcor() - 20)",
@@ -956,7 +956,7 @@
           "scene_id": "l2-w09-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt: the handler that never runs",
-          "narration": "Bug hunt! Nova wants the turtle to spin when you press r. The spin function turns the turtle left ninety degrees. Then screen.onkey connects spin, with parentheses after it, to the r key. Pixel presses Run. The turtle spins once, right at the start. Then r does nothing, and there's no red error. Detective steps! What did we expect? A spin on every press. What happened? One spin, then nothing. Read one line at a time. Pause and point. Those parentheses call spin right now, only once, and hand onkey its answer, which is nothing. Nova removes them. Run again. Still nothing! Second clue: is the doorbell switched on? There's no screen.listen. Nova adds it. Third clue: on a Mac, click the turtle window once so it hears the keys. Spin, spin, spin!",
+          "narration": "Bug hunt! Rose wants the turtle to spin when you press r. The spin function turns the turtle left ninety degrees. Then screen.onkey connects spin, with parentheses after it, to the r key. Pixi presses Run. The turtle spins once, right at the start. Then r does nothing, and there's no red error. Detective steps! What did we expect? A spin on every press. What happened? One spin, then nothing. Read one line at a time. Pause and point. Those parentheses call spin right now, only once, and hand onkey its answer, which is nothing. Rose removes them. Run again. Still nothing! Second clue: is the doorbell switched on? There's no screen.listen. Rose adds it. Third clue: on a Mac, click the turtle window once so it hears the keys. Spin, spin, spin!",
           "visual": "Code panel: def spin(): / player.left(90) / screen.onkey(spin(), \"r\") / turtle.done(). The turtle turns once at launch, then an r key cap is pressed three times with no movement and no red text. A spotlight lands on spin(); the () fly off. Rerun: still nothing; a switched-off doorbell icon appears and screen.listen() slides in above turtle.done(). A cursor clicks inside the turtle window, then each r press spins the turtle 90 degrees.",
           "on_screen_text": [
             "onkey(spin(), \"r\") runs it once",
@@ -970,7 +970,7 @@
           "scene_id": "l2-w09-s05",
           "duration_seconds": 60,
           "purpose": "Recap, project kickoff, attribution, and handoff",
-          "narration": "You made Pixel react! Let's remember. An event calls a handler. onkey connects them, listen switches on the doorbell, and ontimer runs the next frame. Now your final project begins! Option A is an Arcade Game with keys, a timer and a score. Option B is an Art Studio that saves and loads designs. Want a picture or sound? They belong to the people who made them. CC zero means anyone may use it. CC BY means you may use it if you give credit, in a comment and on your title screen. No license? Don't use it. Your turn: open Etch-a-Sketch. Press Run, click the window, and press Up. Nothing yet! Make the window listen, then add the other arrows. No parentheses!",
+          "narration": "You made Pixi react! Let's remember. An event calls a handler. onkey connects them, listen switches on the doorbell, and ontimer runs the next frame. Now your final project begins! Option A is an Arcade Game with keys, a timer and a score. Option B is an Art Studio that saves and loads designs. Want a picture or sound? They belong to the people who made them. CC zero means anyone may use it. CC BY means you may use it if you give credit, in a comment and on your title screen. No license? Don't use it. Your turn: open Etch-a-Sketch. Press Run, click the window, and press Up. Nothing yet! Make the window listen, then add the other arrows. No parentheses!",
           "visual": "Recap icons: doorbell, light switch, kitchen timer. Two project cards flip over: Option A, a game frame with a moving player, falling shapes and a score; Option B, a flower design with a 'saved design' note. A credit tag # Star sound by Mei (CC BY) attaches to a sound icon; a picture with no license gets a gentle stop sign. End on the Etch-a-Sketch exercise card.",
           "on_screen_text": [
             "Option A: Arcade Game",
@@ -1002,7 +1002,7 @@
         "code review"
       ],
       "misconception": "The best way to start is with the fancy parts (a title screen, colors, many levels), or by typing the whole game before running it, instead of building the smallest version that runs.",
-      "safety_and_citizenship": "Collaboration: splitting tasks fairly. Fair teams share the interesting and the boring jobs, swap the keyboard on time and give credit. Each team puts both nicknames in a comment on line 1 (# Made by Comet and Pixel) and a credit comment for any code it remixed. Using someone's idea is fine. Hiding that you used it is not. Real names are not needed anywhere in the code.",
+      "safety_and_citizenship": "Collaboration: splitting tasks fairly. Fair teams share the interesting and the boring jobs, swap the keyboard on time and give credit. Each team puts both nicknames in a comment on line 1 (# Made by Comet and Pixi) and a credit comment for any code it remixed. Using someone's idea is fine. Hiding that you used it is not. Real names are not needed anywhere in the code.",
       "lesson_handoff": "Make a paper prototype of your screen and play it for one minute (every clap is one tick). Then finish your plan for Milestone M1: pseudocode or a flowchart with a loop, a yes/no decision, the data (a list, a dictionary and a file) and at least three function names. Put each function on a sticky note on a fair TO DO / DOING / DONE task board, build your core loop for Milestone M2, and swap seats for a partner code review: two stars and a wish.",
       "practice_activity": "2-intermediate/project/project-brief.tex",
       "source_files": [
@@ -1022,8 +1022,8 @@
           "scene_id": "l2-w10-s01",
           "duration_seconds": 30,
           "purpose": "Studio hook",
-          "narration": "Hi, coders! Nova has a giant plan: Comet Catch, with ten levels, boss battles and a rainbow title screen. Nova starts typing everything at once. Pixel waits, and waits. ‘Which part can I run today?’ asks Pixel. Hmm. Nothing yet! Nobody can ride one perfect wheel. So what should Nova build first?",
-          "visual": "Nova's idea cloud overflows with levels, bosses and a rainbow title. A code panel fills with half-typed lines and a big 'not running yet' sign. Pixel taps a watch. A single shiny car wheel rolls in alone and wobbles over.",
+          "narration": "Hi, coders! Rose has a giant plan: Comet Catch, with ten levels, boss battles and a rainbow title screen. Rose starts typing everything at once. Pixi waits, and waits. ‘Which part can I run today?’ asks Pixi. Hmm. Nothing yet! Nobody can ride one perfect wheel. So what should Rose build first?",
+          "visual": "Rose's idea cloud overflows with levels, bosses and a rainbow title. A code panel fills with half-typed lines and a big 'not running yet' sign. Pixi taps a watch. A single shiny car wheel rolls in alone and wobbles over.",
           "on_screen_text": [
             "STUDIO MISSION: Plan, then build",
             "What is the smallest version?"
@@ -1048,7 +1048,7 @@
           "scene_id": "l2-w10-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: a walking skeleton",
-          "narration": "Let's turn a plan into a walking skeleton. Nova saves a new file: mygame.py. Never call it turtle.py! First, two dictionaries. SETTINGS holds numbers we might change, like a step of twenty. state holds things that change while playing, like the score. Next, the brain: clamp and next x. No turtle at all, just values in and an answer out. Then the key handlers and the game loop. At its end, it calls screen.ontimer with game loop and fifty. Run me again in fifty milliseconds. The start-up code goes at the bottom, under if __name__ equals __main__. Press Run, click the window, press the arrows. The square slides and stops at the edges. That's M2! Art Studio teams build a menu loop, or a key that draws a new design.",
+          "narration": "Let's turn a plan into a walking skeleton. Rose saves a new file: mygame.py. Never call it turtle.py! First, two dictionaries. SETTINGS holds numbers we might change, like a step of twenty. state holds things that change while playing, like the score. Next, the brain: clamp and next x. No turtle at all, just values in and an answer out. Then the key handlers and the game loop. At its end, it calls screen.ontimer with game loop and fifty. Run me again in fifty milliseconds. The start-up code goes at the bottom, under if __name__ equals __main__. Press Run, click the window, press the arrows. The square slides and stops at the edges. That's M2! Art Studio teams build a menu loop, or a key that draws a new design.",
           "visual": "Code panel types the lesson skeleton in steps, with a Run press after each step: SETTINGS = {\"step\": 20, \"left_edge\": -280, \"right_edge\": 280} / state = {\"score\": 0, \"running\": True} / def next_x(x, direction): / def game_loop(): ... screen.ontimer(game_loop, 50) / if __name__ == \"__main__\":. A brain icon sits beside clamp and next_x. The turtle window shows a square sliding left and right and stopping at both edges. A small Art Studio card shows a menu loop: Draw, Save, Load, Quit.",
           "on_screen_text": [
             "Never name it turtle.py",
@@ -1062,8 +1062,8 @@
           "scene_id": "l2-w10-s04",
           "duration_seconds": 70,
           "purpose": "Bug hunt: partner code review",
-          "narration": "Time for a partner code review. Swap seats. Pixel runs Nova's code and reads it with three questions. One: does it run? If there's red text, which line does the traceback point to? Two: are the names clear? The name next x tells you its job. A function called thing two doesn't! Three: does each function do one job, and are numbers you might change kept in the settings dictionary? Pixel also hunts last week's classic bugs: parentheses after a handler in onkey, a missing listen, and a game loop that never sets its timer again. Then Pixel writes two stars and a wish. ‘Star: next x says exactly what it does. Star: the square stops at the wall. Wish: could thing two get a name that tells its job?’ Nova says thanks, and decides what to change.",
-          "visual": "Nova and Pixel swap chairs. A three-item checklist card: Does it run? Clear names? One job each? A traceback arrow points to a line number. Two function cards: next_x gets a check, thing2 gets a question mark. Three bug badges: onkey(go_left()), no listen(), no ontimer. A sticky note fills with two stars and a wish; Nova reads it, smiles and taps a pencil.",
+          "narration": "Time for a partner code review. Swap seats. Pixi runs Rose's code and reads it with three questions. One: does it run? If there's red text, which line does the traceback point to? Two: are the names clear? The name next x tells you its job. A function called thing two doesn't! Three: does each function do one job, and are numbers you might change kept in the settings dictionary? Pixi also hunts last week's classic bugs: parentheses after a handler in onkey, a missing listen, and a game loop that never sets its timer again. Then Pixi writes two stars and a wish. ‘Star: next x says exactly what it does. Star: the square stops at the wall. Wish: could thing two get a name that tells its job?’ Rose says thanks, and decides what to change.",
+          "visual": "Rose and Pixi swap chairs. A three-item checklist card: Does it run? Clear names? One job each? A traceback arrow points to a line number. Two function cards: next_x gets a check, thing2 gets a question mark. Three bug badges: onkey(go_left()), no listen(), no ontimer. A sticky note fills with two stars and a wish; Rose reads it, smiles and taps a pencil.",
           "on_screen_text": [
             "Does it run? • Clear names? • One job?",
             "Hunt: (), listen(), ontimer",
@@ -1077,10 +1077,10 @@
           "duration_seconds": 55,
           "purpose": "Recap, fair teamwork, and handoff",
           "narration": "Studio day complete! Let's remember. Plan with pseudocode or a flowchart. Break the plan into functions. Build the skateboard, your core loop, before anything fancy. Now, teamwork. Write each function on a sticky note, and take turns choosing, like picking teams fairly. Share the fun jobs and the boring ones, and swap the keyboard on time. Put both nicknames in a comment on line one, and credit any code you remixed. Using someone's idea is fine. Hiding it is not. Your turn: make a paper prototype, finish your plan for M1, fill your task board, and build your core loop for M2. Small and working beats big and broken!",
-          "visual": "A task board with TO DO, DOING and DONE columns; sticky notes with function names move across as two hands take turns. Line 1 of a code panel reads # Made by Comet and Pixel, and a second comment reads # Movement code remixed from Dodge the Meteors. End on the milestone road with M1 and M2 lit.",
+          "visual": "A task board with TO DO, DOING and DONE columns; sticky notes with function names move across as two hands take turns. Line 1 of a code panel reads # Made by Comet and Pixi, and a second comment reads # Movement code remixed from Dodge the Meteors. End on the milestone road with M1 and M2 lit.",
           "on_screen_text": [
             "TO DO → DOING → DONE",
-            "# Made by Comet and Pixel",
+            "# Made by Comet and Pixi",
             "Credit remixed code",
             "NEXT: Plan (M1) → Core loop (M2)"
           ],
@@ -1127,13 +1127,13 @@
           "scene_id": "l2-w11-s01",
           "duration_seconds": 30,
           "purpose": "Studio hook",
-          "narration": "Hi, coders! Next week is the Family Arcade, and Comet Catch works! Well, it works when Nova plays it. Pixel tries it for the very first time, presses space twice, and red text appears. ‘Also, I didn't know which keys to press,’ says Pixel. Uh-oh. How can we prove our game works, and make it fun for everyone?",
-          "visual": "A banner 'Family Arcade: next week'. Nova plays happily; then Pixel sits down, presses a space key cap twice, and a red traceback slides up in the Shell. Pixel looks around for instructions on the game screen; none are there.",
+          "narration": "Hi, coders! Next week is the Family Arcade, and Comet Catch works! Well, it works when Rose plays it. Pixi tries it for the very first time, presses space twice, and red text appears. ‘Also, I didn't know which keys to press,’ says Pixi. Uh-oh. How can we prove our game works, and make it fun for everyone?",
+          "visual": "A banner 'Family Arcade: next week'. Rose plays happily; then Pixi sits down, presses a space key cap twice, and a red traceback slides up in the Shell. Pixi looks around for instructions on the game screen; none are there.",
           "on_screen_text": [
             "STUDIO MISSION: Test, playtest, polish",
-            "Works for Nova… works for everyone?"
+            "Works for Rose… works for everyone?"
           ],
-          "production_notes": "Keep the crash comic and low-stakes; Nova reacts with curiosity, not embarrassment."
+          "production_notes": "Keep the crash comic and low-stakes; Rose reacts with curiosity, not embarrassment."
         },
         {
           "scene_id": "l2-w11-s02",
@@ -1153,7 +1153,7 @@
           "scene_id": "l2-w11-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: save, load, and four tests",
-          "narration": "Watch Nova add a file and tests. First, two recipe functions from the workbook: load high score and save high score. No file yet? Then the high score is zero, not a crash. Next, a new file in the same folder: test_mygame.py. A normal case: next x with zero and one should give twenty. An edge case: next x with two hundred eighty and one should stay at two hundred eighty. The player stays on screen. A round trip: save forty-two in the test file, then load it and expect forty-two. And a missing file gives zero. Press F5. Four PASSED lines! Now Nova breaks next x on purpose, removing the clamp. FAILED: it got three hundred, not two hundred eighty. The test caught it! Undo, run again: all PASSED.",
+          "narration": "Watch Rose add a file and tests. First, two recipe functions from the workbook: load high score and save high score. No file yet? Then the high score is zero, not a crash. Next, a new file in the same folder: test_mygame.py. A normal case: next x with zero and one should give twenty. An edge case: next x with two hundred eighty and one should stay at two hundred eighty. The player stays on screen. A round trip: save forty-two in the test file, then load it and expect forty-two. And a missing file gives zero. Press F5. Four PASSED lines! Now Rose breaks next x on purpose, removing the clamp. FAILED: it got three hundred, not two hundred eighty. The test caught it! Undo, run again: all PASSED.",
           "visual": "Code panel types test_mygame.py: from mygame import load_high_score, next_x, save_high_score / def test_moves_right_normally(): assert next_x(0, 1) == 20 / def test_stops_at_the_right_edge(): assert next_x(280, 1) == 280 / def test_high_score_round_trip(): save then load 42 / def test_no_file_means_zero(). Output panel: four PASSED lines and '4 passed'. Then mygame.py's last line of next_x changes to 'return new_x'; output shows test_stops_at_the_right_edge FAILED and E assert 300 == 280. Cmd+Z undoes it; all PASSED again.",
           "on_screen_text": [
             "assert next_x(280, 1) == 280",
@@ -1167,7 +1167,7 @@
           "scene_id": "l2-w11-s04",
           "duration_seconds": 70,
           "purpose": "Bug hunt: the playtest bug list",
-          "narration": "Now the playtest swap. Teams play each other's project for four minutes and fill in feedback cards: I liked. I was confused when. A bug I saw: what I did, what happened, what I expected. One idea. Pixel's cards for Comet Catch say: ‘I pressed space twice and it crashed.’ ‘I didn't know which keys to use.’ ‘Add a rainbow comet!’ Nova turns the cards into a bug list. MUST means it crashes or you can't play. SHOULD means it's confusing. COULD is a nice idea. Pause and point: which gets fixed first? Yes, the crash! Nova reads the traceback and finds the line. If a bug lives in a logic function, write a test that shows it first. It fails. Fix the code. It passes. Now that test guards the bug forever.",
+          "narration": "Now the playtest swap. Teams play each other's project for four minutes and fill in feedback cards: I liked. I was confused when. A bug I saw: what I did, what happened, what I expected. One idea. Pixi's cards for Comet Catch say: ‘I pressed space twice and it crashed.’ ‘I didn't know which keys to use.’ ‘Add a rainbow comet!’ Rose turns the cards into a bug list. MUST means it crashes or you can't play. SHOULD means it's confusing. COULD is a nice idea. Pause and point: which gets fixed first? Yes, the crash! Rose reads the traceback and finds the line. If a bug lives in a logic function, write a test that shows it first. It fails. Fix the code. It passes. Now that test guards the bug forever.",
           "visual": "A feedback card with four lines fills in. Three cards slide onto a bug-list table with columns What I did / What happened / What I expected / MUST-SHOULD-COULD; the crash row gets a MUST tag, the keys row SHOULD, the rainbow comet COULD. The traceback's last line and line number glow. A mini sequence: a new test card shows FAILED, a code edit, then PASSED with a shield icon.",
           "on_screen_text": [
             "I liked • Confused when • Bug • Idea",
@@ -1230,8 +1230,8 @@
           "scene_id": "l2-w12-s01",
           "duration_seconds": 30,
           "purpose": "Showcase hook",
-          "narration": "Hi, coders! Today the classroom becomes the Family Arcade. Every computer is a game or an art studio, and families walk from station to station to play. Nova's heart is thumping. ‘What if I forget what to say?’ Pixel beeps. ‘Do you explain every single line?’ No way! So what makes a great showcase?",
-          "visual": "Desks turn into glowing arcade stations, each with a folded project card showing a nickname. Cartoon family figures (no realistic faces) walk between stations. Nova paces with a pitch card; Pixel scrolls an endless code printout that piles up on the floor.",
+          "narration": "Hi, coders! Today the classroom becomes the Family Arcade. Every computer is a game or an art studio, and families walk from station to station to play. Rose's heart is thumping. ‘What if I forget what to say?’ Pixi beeps. ‘Do you explain every single line?’ No way! So what makes a great showcase?",
+          "visual": "Desks turn into glowing arcade stations, each with a folded project card showing a nickname. Cartoon family figures (no realistic faces) walk between stations. Rose paces with a pitch card; Pixi scrolls an endless code printout that piles up on the floor.",
           "on_screen_text": [
             "FINAL MISSION: The Family Arcade",
             "Short, clear, and proud"
@@ -1255,9 +1255,9 @@
         {
           "scene_id": "l2-w12-s03",
           "duration_seconds": 65,
-          "purpose": "Worked example: Nova's pitch",
-          "narration": "Let's watch Nova's pitch. Pixel is the demo driver, playing the game. Nova is the explainer. ‘This is Comet Catch. You catch comets with a rocket.’ That's question one. ‘Our next x function gets the position and the direction, and returns the new position, but never off the screen. We have a test for that.’ That's how one part works: what goes in, and what comes out. ‘The comets are circles and the rocks are squares, so you can tell them apart even without color.’ That's a design decision. ‘Next, we would add a slow mode for beginners.’ Four questions, about a minute. Then the team takes one question. Partners, swap halfway so both of you speak!",
-          "visual": "Pixel plays a turtle game frame: a rocket at the bottom, circle comets and square rocks falling. As Nova speaks, each pitch card lights up in turn. For card two, a code spotlight shows only the next_x function name with 'in: x, direction' and 'out: new x' arrows, plus a small PASSED badge. For card three, circle and square shapes are shown in grayscale to prove they differ without color.",
+          "purpose": "Worked example: Rose's pitch",
+          "narration": "Let's watch Rose's pitch. Pixi is the demo driver, playing the game. Rose is the explainer. ‘This is Comet Catch. You catch comets with a rocket.’ That's question one. ‘Our next x function gets the position and the direction, and returns the new position, but never off the screen. We have a test for that.’ That's how one part works: what goes in, and what comes out. ‘The comets are circles and the rocks are squares, so you can tell them apart even without color.’ That's a design decision. ‘Next, we would add a slow mode for beginners.’ Four questions, about a minute. Then the team takes one question. Partners, swap halfway so both of you speak!",
+          "visual": "Pixi plays a turtle game frame: a rocket at the bottom, circle comets and square rocks falling. As Rose speaks, each pitch card lights up in turn. For card two, a code spotlight shows only the next_x function name with 'in: x, direction' and 'out: new x' arrows, plus a small PASSED badge. For card three, circle and square shapes are shown in grayscale to prove they differ without color.",
           "on_screen_text": [
             "next_x: position in, new position out",
             "Circles vs squares: not color alone",

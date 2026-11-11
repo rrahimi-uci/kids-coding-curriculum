@@ -1,6 +1,6 @@
 """Level 1 Week 8: Loops in Python (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 MOVE = ("motion", "move [100] steps")
 TURN = ("motion", "turn ↺ [90] degrees")
@@ -61,26 +61,26 @@ PALETTE_CODES = ["#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00
 EPISODE = Episode(level=1, week=8, scenes=(
     Scene("w08-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
-        B("Pixel types forward and left, four times, to draw a square.", cue="types", pause=0.3),
-        B("‘This feels familiar,’", speaker=NOVA, cue="familiar", pause=0.1),
-        B("Nova says.", cue="says"),
-        B("‘We used a Scratch repeat block for this!’", speaker=NOVA, cue="scratch", pause=0.3),
+        B("Pixi types forward and left, four times, to draw a square.", cue="types", pause=0.3),
+        B("‘This feels familiar,’", speaker=ROSE, cue="familiar", pause=0.1),
+        B("Rose says.", cue="says"),
+        B("‘We used a Scratch repeat block for this!’", speaker=ROSE, cue="scratch", pause=0.3),
         B("Python can loop too.", cue="loop"),
         B("But instead of a block's colored border, spaces show which instructions repeat.", cue="spaces",
           pause=0.3),
         B("Can we shrink eight lines into three?", cue="question", pause=2.8),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="welcome", moods={"familiar": "happy", "question": "thinking"},
+        A("rose", x=300, y=960, enter="left", wave="welcome", moods={"familiar": "happy", "question": "thinking"},
           chin=("question", "end"), look={"types": 0.6}),
-        A("pixel", x=620, y=760, drop=True, beep=("types", "types$"), moods={"question": "thinking"}),
+        A("pixi", x=620, y=760, drop=True, beep=("types", "types$"), moods={"question": "thinking"}),
         A("banner", "MISSION: Make repetition shorter", at="types"),
         A("code", title="square.py", code=EIGHT_LINES, x=930, y=180, w=850, h=520, shell=False, at="types",
           type=("types", "types$+0.4"), until="question$",
           highlight=[(1, "familiar", "says>"), (2, "familiar", "says>"), (3, "says>", "scratch@0.5"),
                      (4, "says>", "scratch@0.5"), (5, "scratch@0.5", "scratch$"), (6, "scratch@0.5", "scratch$"),
                      (7, "scratch$", "loop"), (8, "scratch$", "loop")]),
-        A("bubble", "This feels familiar!", who="nova", x=300, y=960, at="familiar", until="scratch"),
-        A("bubble", "We used a repeat block!", who="nova", x=300, y=960, at="scratch", until="loop$"),
+        A("bubble", "This feels familiar!", who="rose", x=300, y=960, at="familiar", until="scratch"),
+        A("bubble", "We used a repeat block!", who="rose", x=300, y=960, at="scratch", until="loop$"),
         A("scratch", blocks=[("control", "repeat [4]", [MOVE, TURN])], x=1060, y=705, scale=0.8, panel=False,
           at="scratch", until="question"),
         A("chip", "In Python, spaces can show a group", at="spaces", until="end", x=1320, y=990, color="yellow",
@@ -161,11 +161,11 @@ EPISODE = Episode(level=1, week=8, scenes=(
     )),
     Scene("w08-s04", setting="mint", beats=(
         B("Time for a bug hunt!", cue="bug", pause=0.3),
-        B("Nova wants a triangle, but the turtle draws only two sides.", cue="two", pause=0.4),
+        B("Rose wants a triangle, but the turtle draws only two sides.", cue="two", pause=0.4),
         B("Count the trips: the code says range two.", cue="trips", pause=0.4),
         B("That's an off-by-one bug: the loop runs one time too few.", cue="offby", pause=2.4),
         B("A triangle has three sides, so change two to three, and test.", cue="fix1", pause=2.0),
-        B("Next, Nova's triangle is one long straight line!", cue="line", pause=0.4),
+        B("Next, Rose's triangle is one long straight line!", cue="line", pause=0.4),
         B("Look at the spaces.", cue="look", pause=2.4),
         B("The turn line isn't pushed in, so it's outside the loop, and the turtle turns only once, at the end.", cue="outside", pause=0.4),
         B("Push it in four spaces, under the forward line, and test.", cue="fix2", pause=2.0),
@@ -207,7 +207,7 @@ EPISODE = Episode(level=1, week=8, scenes=(
           allow_error=True, error_line=3, expect=["IndentationError: unexpected indent"]),
         A("chip", "Use evidence. Fix one thing. Test.", at="pause", x=580, y=860, color="green", size=40),
         A("thought", "", at="pause$+0.2", until="end", x=1480, y=870),
-        A("nova", x=1040, y=1065, s=0.5, moods={"two": "confused", "fix1$+1.8": "happy", "line": "surprised",
+        A("rose", x=1040, y=1065, s=0.5, moods={"two": "confused", "fix1$+1.8": "happy", "line": "surprised",
                                                 "look": "thinking", "fix2$+1.8": "proud"}),
     )),
     Scene("w08-s05", setting="workshop", tail=0.8, beats=(
@@ -218,8 +218,8 @@ EPISODE = Episode(level=1, week=8, scenes=(
         B("Stuck?", cue="stuck", pause=0.3),
         B("Try three before me: read the red message, check the workbook, and ask your partner.", cue="three",
           pause=0.3),
-        B("Then use the help sentence, like Nova:", cue="sentence", pause=0.1),
-        B("‘I expected a triangle, but a straight line happened. I tried counting the spaces.’", speaker=NOVA,
+        B("Then use the help sentence, like Rose:", cue="sentence", pause=0.1),
+        B("‘I expected a triangle, but a straight line happened. I tried counting the spaces.’", speaker=ROSE,
           cue="help", pause=0.4),
         B("Now build Loop Square, then write a square loop and a hexagon loop for Polygon Party.", cue="next",
           pause=0.3),
@@ -227,8 +227,8 @@ EPISODE = Episode(level=1, week=8, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 8", x=1560, y=920, open="ready"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("ready", "forloop"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("ready", "forloop"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("code", title="loop.py", code=LOOP3, x=640, y=200, w=760, h=300, shell=False, at="forloop",
           until="stuck", highlight=[(1, "parts", "parts@0.25"), (1, "parts@0.25", "parts@0.5"),
                                     (2, "parts@0.55", "parts$"), (3, "parts@0.55", "parts$")]),

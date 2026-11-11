@@ -3,25 +3,25 @@
 The text of the beats must equal the spec narration for each scene (tests check this).
 """
 
-from ..timeline import NARRATOR, NOVA, PIXEL, Beat, SceneScript
+from ..timeline import NARRATOR, ROSE, PIXI, Beat, SceneScript
 
 N = NARRATOR
 
 SCRIPTS = [
     SceneScript("w01-s01", (
         Beat("Welcome to Kids Coding!", cue="welcome", pause=0.35),
-        Beat("Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told.", cue="meet"),
-        Beat("Today, Nova needs Pixel to carry a glowing key to the workshop door.", cue="task"),
-        Beat("‘Take it over there!’", speaker=NOVA, cue="take", pause=0.1),
-        Beat("says Nova.", cue="says"),
-        Beat("Pixel zooms off… and puts the key on a chair.", cue="zoom", pause=0.2),
-        Beat("Beep boop!", speaker=PIXEL, cue="beep", pause=0.4),
-        Beat("Pixel did exactly what it heard.", cue="exactly"),
+        Beat("Meet Rose, a young inventor, and Pixi, a helpful robot who does exactly what it's told.", cue="meet"),
+        Beat("Today, Rose needs Pixi to carry a glowing key to the workshop door.", cue="task"),
+        Beat("‘Take it over there!’", speaker=ROSE, cue="take", pause=0.1),
+        Beat("says Rose.", cue="says"),
+        Beat("Pixi zooms off… and puts the key on a chair.", cue="zoom", pause=0.2),
+        Beat("Beep boop!", speaker=PIXI, cue="beep", pause=0.4),
+        Beat("Pixi did exactly what it heard.", cue="exactly"),
         Beat("But the instruction wasn't exact.", cue="notexact", pause=0.35),
-        Beat("Can you give Pixel steps it can't misunderstand?", cue="question", pause=2.6),
+        Beat("Can you give Pixi steps it can't misunderstand?", cue="question", pause=2.6),
     ), lead_in=0.2),
     SceneScript("w01-s02", (
-        Beat("Here's a secret about computers: they're a lot like Pixel.", cue="secret"),
+        Beat("Here's a secret about computers: they're a lot like Pixi.", cue="secret"),
         Beat("Super fast, super helpful, but they can't read your mind.", cue="mind", pause=0.4),
         Beat("So we give them an algorithm.", cue="algo"),
         Beat("An algorithm is a list of exact steps for a job.", cue="algo_def"),
@@ -31,7 +31,7 @@ SCRIPTS = [
         Beat("Step two: turn right.", cue="s2", pause=0.7),
         Beat("Step three: move forward two squares.", cue="s3", pause=0.9),
         Beat("Step four: put the key beside the door.", cue="s4", pause=0.6),
-        Beat("It worked!", speaker=NOVA, cue="worked", pause=0.6),
+        Beat("It worked!", speaker=ROSE, cue="worked", pause=0.6),
         Beat("Now watch what happens if we put the key down before we move.", cue="swap", pause=2.4),
         Beat("Same steps, different order, different result.", cue="different", pause=0.3),
         Beat("Order matters!", cue="matters", pause=0.4),
@@ -53,9 +53,9 @@ SCRIPTS = [
     )),
     SceneScript("w01-s04", (
         Beat("Uh-oh, time for a bug hunt!", cue="bughunt", pause=0.3),
-        Beat("Nova builds a greeting for Pixel's show, and Pixel runs it exactly.", cue="builds", pause=0.3),
+        Beat("Rose builds a greeting for Pixi's show, and Pixi runs it exactly.", cue="builds", pause=0.3),
         Beat("The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’", cue="blocks", pause=2.4),
-        Beat("Hmm… that sounds backwards.", speaker=NOVA, cue="backwards", pause=0.5),
+        Beat("Hmm… that sounds backwards.", speaker=ROSE, cue="backwards", pause=0.5),
         Beat("Let's use our detective steps.", cue="detective"),
         Beat("One: what did we expect?", cue="d1", pause=0.5),
         Beat("Two: what actually happened?", cue="d2", pause=0.5),
@@ -65,7 +65,7 @@ SCRIPTS = [
         Beat("Pause and point.", cue="pause", pause=3.2),
         Beat("Right!", cue="right", pause=0.2),
         Beat("Move ‘Welcome to my show!’ to the top.", cue="move", pause=1.0),
-        Beat("Now it works!", speaker=NOVA, cue="works", pause=2.6),
+        Beat("Now it works!", speaker=ROSE, cue="works", pause=2.6),
         Beat("A bug is a clue, not a reason to quit.", cue="clue", pause=0.6),
     )),
     SceneScript("w01-s05", (

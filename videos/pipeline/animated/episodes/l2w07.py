@@ -1,6 +1,6 @@
 """Level 2 Week 7: Files: Saving Your Stuff (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 WRITE_READ = '''with open("stickers.txt", "a") as file:
     file.write("dragon,3\\n")
@@ -28,12 +28,12 @@ print("The drawer is shut")'''
 EPISODE = Episode(level=2, week=7, scenes=(
     Scene("l2-w07-s01", setting="workshop", lead_in=0.2, beats=(
         B("Hi, coders!", cue="hi", pause=0.3),
-        B("Nova just set a record in a dice game: one hundred and twenty points!", cue="record", pause=0.3),
-        B("‘Pixel, remember my score!’", speaker=NOVA, cue="remember", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
-        B("Pixel closes the game for the night.", cue="close", pause=0.5),
+        B("Rose just set a record in a dice game: one hundred and twenty points!", cue="record", pause=0.3),
+        B("‘Pixi, remember my score!’", speaker=ROSE, cue="remember", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
+        B("Pixi closes the game for the night.", cue="close", pause=0.5),
         B("Next morning, it opens again.", cue="morning", pause=0.3),
-        B("‘Hello! Who are you? The high score is zero.’", speaker=PIXEL, cue="hello", pause=0.3),
+        B("‘Hello! Who are you? The high score is zero.’", speaker=PIXI, cue="hello", pause=0.3),
         B("Beep boop.", cue="beep", pause=0.3),
         B("Every score is gone!", cue="gone", pause=0.4),
         B("Why did the program forget?", cue="why", pause=0.6),
@@ -42,10 +42,10 @@ EPISODE = Episode(level=2, week=7, scenes=(
         A("laptop", x=1420, y=850, s=1.1),
         A("box", "high_score", x=1420, y=520, w=320, size=64, color="yellow",
           values=[("record", 120), ("close+0.4", ""), ("morning+0.8", 0)], at="record"),
-        A("nova", x=300, y=960, enter="left", wave="hi",
+        A("rose", x=300, y=960, enter="left", wave="hi",
           moods={"record": "proud", "gone": "surprised", "why": "thinking"}, chin=("why", "end"),
           point=("remember", "says$")),
-        A("pixel", x=650, y=760, drop=True, moods={"morning": "confused", "gone": "surprised", "how": "thinking"},
+        A("pixi", x=650, y=760, drop=True, moods={"morning": "confused", "gone": "surprised", "how": "thinking"},
           beep=("beep", "beep$")),
         A("chip", "Game closed for the night", at="close", until="morning", x=1000, y=300, color="navy"),
         A("chip", "Next morning…", at="morning", until="gone", x=1000, y=300, color="yellow"),
@@ -100,11 +100,11 @@ EPISODE = Episode(level=2, week=7, scenes=(
     )),
     Scene("l2-w07-s03", setting="lavender", beats=(
         B("Let's build one together.", cue="build", pause=0.3),
-        B("Nova keeps a sticker file called stickers.txt.", cue="file"),
+        B("Rose keeps a sticker file called stickers.txt.", cue="file"),
         B("It already holds one line: unicorn and two, with a comma between them.", cue="holds", pause=0.4),
-        B("Now Nova adds a line.", cue="adds", pause=0.2),
-        B("Nova opens stickers.txt with mode a, using the word with.", cue="open", pause=0.3),
-        B("Then, on the pushed-in line, Nova writes dragon, a comma, three, and backslash n.", cue="write", pause=0.3),
+        B("Now Rose adds a line.", cue="adds", pause=0.2),
+        B("Rose opens stickers.txt with mode a, using the word with.", cue="open", pause=0.3),
+        B("Then, on the pushed-in line, Rose writes dragon, a comma, three, and backslash n.", cue="write", pause=0.3),
         B("Backslash n means start a new line.", cue="newline", pause=0.4),
         B("Now let's read it back with mode r, one line at a time.", cue="readback", pause=0.4),
         B("Each line hides a newline at the end.", cue="hides", pause=0.3),
@@ -113,10 +113,10 @@ EPISODE = Episode(level=2, week=7, scenes=(
         B("But that three is still text!", cue="text", pause=0.3),
         B("Everything from a file is text, just like input.", cue="input", pause=0.3),
         B("So int turns it into a number.", cue="int", pause=0.4),
-        B("Pause and predict: what will Pixel print?", cue="predict", pause=2.8),
+        B("Pause and predict: what will Pixi print?", cue="predict", pause=2.8),
         B("Unicorn two, then dragon three!", cue="answer", pause=0.8),
     ), actions=(
-        A("nova", x=520, y=1000, s=0.8, until="adds", wave="build", point=("holds", "adds")),
+        A("rose", x=520, y=1000, s=0.8, until="adds", wave="build", point=("holds", "adds")),
         A("code", code=WRITE_READ, exec=MAKE_FILE + WRITE_READ, title="stickers.py", x=70, y=150, w=1010, h=770,
           at="adds", reveal=["open", "write", "readback", "readback", "readback@0.6", "strip", "split", "int"],
           highlight=[(2, "newline", "newline$+0.3"), (6, "strip", "strip$+0.3"), (7, "split", "split$+0.3"),
@@ -132,14 +132,14 @@ EPISODE = Episode(level=2, week=7, scenes=(
         A("chip", 'strip(), then split(",")', at="split@0.4", until="text", x=1490, y=540, color="sky", size=40),
         A("chip", "Text from a file needs int()", at="input", until="predict", x=1490, y=560, color="yellow", size=40),
         A("chip", 'int("3") → 3', at="int", until="predict", x=1490, y=680, color="green", size=44),
-        A("pixel", x=1500, y=820, s=0.55, ground=930, at="predict", moods={"answer": "proud"}, beep=("answer", "end")),
+        A("pixi", x=1500, y=820, s=0.55, ground=930, at="predict", moods={"answer": "proud"}, beep=("answer", "end")),
         A("thought", "", at="predict$+0.2", until="answer", x=1700, y=640),
         A("badge", ok=True, at="answer+0.8", x=1760, y=820),
     )),
     Scene("l2-w07-s04", setting="mint", beats=(
         B("Bug hunt time!", cue="bug", pause=0.3),
-        B("Nova writes a few lines to read the stickers back.", cue="writes", pause=0.3),
-        B("Pixel presses Run, and red text fills the Shell.", cue="run", pause=0.5),
+        B("Rose writes a few lines to read the stickers back.", cue="writes", pause=0.3),
+        B("Pixi presses Run, and red text fills the Shell.", cue="run", pause=0.5),
         B("That's a traceback.", cue="traceback", pause=0.2),
         B("We read it from the bottom up.", cue="bottom", pause=0.3),
         B("The last line says what went wrong: FileNotFoundError.", cue="last", pause=0.3),
@@ -151,7 +151,7 @@ EPISODE = Episode(level=2, week=7, scenes=(
         B("Now compare the name in quotes, letter by letter, with the name in Finder.", cue="compare", pause=0.3),
         B("Pause and point.", cue="pause", pause=4.0),
         B("Yes! The c is missing.", cue="missing", pause=0.4),
-        B("Nova fixes the spelling, and it works!", cue="fix", pause=1.6),
+        B("Rose fixes the spelling, and it works!", cue="fix", pause=1.6),
         B("Other clues for this error: the program is saved in another folder, or the file isn't made yet.",
           cue="clues", pause=0.4),
         B("Then try and except FileNotFoundError can do something else instead of crashing.", cue="try", pause=0.5),
@@ -191,7 +191,7 @@ EPISODE = Episode(level=2, week=7, scenes=(
           run="fix+0.5", until="clues", highlight=[(1, "fix", "fix+0.5")], expect=["unicorn,2", "dragon,3"]),
         A("badge", ok=True, at="fix+1.5", until="clues", x=1500, y=470),
         A("confetti", at="fix+1.5", x=1500, y=420),
-        A("nova", x=1560, y=1050, s=0.55, at="fix", until="clues", moods={"fix": "proud"}),
+        A("rose", x=1560, y=1050, s=0.55, at="fix", until="clues", moods={"fix": "proud"}),
         # other clues
         A("icons", at="clues", until="vanish", x=960, y=330, gap=420,
           items=[("house", "another folder", "clues@0.3"), ("file", "not made yet", "clues@0.75")]),
@@ -220,9 +220,9 @@ EPISODE = Episode(level=2, week=7, scenes=(
           pause=0.4),
         B("Happy coding!", cue="happy", pause=0.6),
     ), actions=(
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("happy", "end")], moods={"start": "proud"},
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("happy", "end")], moods={"start": "proud"},
           point=("thumbs", "thumbs$")),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Files remember • a adds • w replaces", at="files", until="privacy", x=1150, y=460, color="orange",
           size=46),
         A("chip", 'strip() • split(",") • int()', at="strip", until="privacy", x=1150, y=600, color="green", size=46),

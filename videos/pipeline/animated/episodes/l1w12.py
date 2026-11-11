@@ -1,6 +1,6 @@
 """Level 1 Week 12: Showcase and Celebration (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 STAR_LOOP = """def star(size):
     for point in range(5):
@@ -24,9 +24,9 @@ EPISODE = Episode(level=1, week=12, scenes=(
     Scene("w12-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("All twelve workshop doors open into a gallery.", cue="doors", pause=0.4),
-        B("Nova has two minutes to guide visitors through an interactive artwork.", cue="minutes", pause=0.3),
-        B("‘Should I show every line of code?’", speaker=NOVA, cue="should", pause=0.1),
-        B("Nova wonders.", cue="wonders", pause=0.4),
+        B("Rose has two minutes to guide visitors through an interactive artwork.", cue="minutes", pause=0.3),
+        B("‘Should I show every line of code?’", speaker=ROSE, cue="should", pause=0.1),
+        B("Rose wonders.", cue="wonders", pause=0.4),
         B("No!", cue="no", pause=0.2),
         B("The best museum guides choose a clear story.", cue="guides", pause=0.3),
         B("What did you make, what should we notice, and what did you learn while building it?", cue="what",
@@ -34,13 +34,13 @@ EPISODE = Episode(level=1, week=12, scenes=(
     ), actions=(
         A("door", "DOOR 12", x=1640, y=900, open="doors"),
         A("sfx", "door", at="doors"),
-        A("nova", x=300, y=960, enter="left", wave="welcome",
+        A("rose", x=300, y=960, enter="left", wave="welcome",
           moods={"doors": "surprised", "minutes": "happy", "should": "thinking", "guides": "happy",
                  "what": "thinking"}, chin=("what", "end")),
-        A("pixel", x=620, y=760, drop=True, moods={"doors": "proud"}),
+        A("pixi", x=620, y=760, drop=True, moods={"doors": "proud"}),
         A("banner", "FINAL MISSION: Tell your coding story", at="doors"),
         A("icons", at="minutes@0.3", until="guides", x=1060, y=330, items=[("clock", "2 minutes", "minutes@0.3")]),
-        A("bubble", "Should I show every line of code?", who="nova", x=300, y=960, at="should", until="no$"),
+        A("bubble", "Should I show every line of code?", who="rose", x=300, y=960, at="should", until="no$"),
         A("badge", ok=False, at="no", until="guides", x=1060, y=560),
         A("chip", "A clear story, not every line", at="guides", until="what", x=1060, y=600, color="sky", size=40),
         A("cards", at="what", x=860, y=240, w=480, gap=110, items=["Make", "Notice", "Learn"],
@@ -51,14 +51,14 @@ EPISODE = Episode(level=1, week=12, scenes=(
     Scene("w12-s02", setting="sky", beats=(
         B("Plan your demo with the script in your workbook.", cue="plan", pause=0.3),
         B("One:", cue="one", pause=0.1),
-        B("‘Hi! My project is called… It draws…’", speaker=NOVA, cue="hi", pause=0.3),
+        B("‘Hi! My project is called… It draws…’", speaker=ROSE, cue="hi", pause=0.3),
         B("Two: invite the visitor to answer your question, then press Run.", cue="two", pause=0.3),
         B("Three:", cue="three", pause=0.1),
-        B("‘Because you said rainy, it drew rain. That's my if.’", speaker=NOVA, cue="rainy", pause=0.3),
+        B("‘Because you said rainy, it drew rain. That's my if.’", speaker=ROSE, cue="rainy", pause=0.3),
         B("Four: point to your function or your loop, and say what it does.", cue="four", pause=0.3),
         B("Five: share one bug you fixed.", cue="five", pause=0.3),
         B("Six: ask,", cue="six", pause=0.1),
-        B("‘Do you have a question for me?’", speaker=NOVA, cue="question", pause=0.4),
+        B("‘Do you have a question for me?’", speaker=ROSE, cue="question", pause=0.4),
         B("Rehearse once with your partner as the assistant.", cue="rehearse", pause=0.3),
         B("If it runs long, use fewer words instead of speaking faster.", cue="long", pause=0.8),
     ), actions=(
@@ -74,8 +74,8 @@ EPISODE = Episode(level=1, week=12, scenes=(
           size=34),
         A("chip", "3 That's my if • 4 My function or loop", at="four@0.3", x=1400, y=360, color="green", size=34),
         A("chip", "5 One bug I fixed • 6 Any questions?", at="question", x=1400, y=470, color="sky", size=34),
-        A("nova", x=1720, y=1060, s=0.55, moods={"long": "happy"}),
-        A("pixel", x=1450, y=990, s=0.45, ground=1050, at="rehearse"),
+        A("rose", x=1720, y=1060, s=0.55, moods={"long": "happy"}),
+        A("pixi", x=1450, y=990, s=0.45, ground=1050, at="rehearse"),
         A("bubble", "Hi! My project is called… It draws…", x=1700, y=780, tail="down-right", at="hi", until="two",
           size=36),
         A("bubble", "Because you said rainy, it drew rain. That's my if.", x=1700, y=780, tail="down-right",
@@ -88,13 +88,13 @@ EPISODE = Episode(level=1, week=12, scenes=(
     )),
     Scene("w12-s03", setting="lavender", beats=(
         B("Showing code isn't reading every symbol.", cue="showing", pause=0.3),
-        B("Point to one meaningful part and tell its story, like Nova:", cue="point", pause=0.1),
+        B("Point to one meaningful part and tell its story, like Rose:", cue="point", pause=0.1),
         B("‘This for loop repeats my star function eight times. The function lets one recipe draw different "
-          "sizes.’", speaker=NOVA, cue="loop", pause=0.4),
+          "sizes.’", speaker=ROSE, cue="loop", pause=0.4),
         B("Then tell a bug story with the four detective steps: what I expected, what actually happened, reading "
           "line by line, and changing one thing to test again.", cue="bugstory", pause=0.4),
         B("‘I expected eight stars, but got seven. I read my loop line by line and saw range seven. I changed it "
-          "to eight and ran it again.’", speaker=NOVA, cue="seven", pause=0.4),
+          "to eight and ran it again.’", speaker=ROSE, cue="seven", pause=0.4),
         B("A fixed bug shows how you think.", cue="fixed", pause=0.3),
         B("It belongs in your story.", cue="belongs", pause=0.8),
     ), actions=(
@@ -129,10 +129,10 @@ EPISODE = Episode(level=1, week=12, scenes=(
         B("At each stand, answer the program's question, ask the artist one question, and fill in a feedback "
           "card: two stars and a wish.", cue="stand", pause=0.3),
         B("Be specific:", cue="specific", pause=0.1),
-        B("‘The random sizes made each run different. How did you choose the limits?’", speaker=PIXEL,
+        B("‘The random sizes made each run different. How did you choose the limits?’", speaker=PIXI,
           cue="randomq", pause=0.3),
         B("Artists may say,", cue="artists", pause=0.1),
-        B("‘I don't know yet,’", speaker=NOVA, cue="dunno", pause=0.1),
+        B("‘I don't know yet,’", speaker=ROSE, cue="dunno", pause=0.1),
         B("and add it to their wish list.", cue="wishlist", pause=0.4),
         B("Now, the showcase safety check.", cue="safety", pause=0.3),
         B("Projects are shown on the screen only: nothing is uploaded, posted, or emailed.", cue="screen",
@@ -148,8 +148,8 @@ EPISODE = Episode(level=1, week=12, scenes=(
           items=["Answer the program's question", "Ask the artist one question", "Feedback card: 2 stars + 1 wish"],
           reveal=["stand@0.1", "stand@0.4", "stand@0.75"]),
         A("laptop", x=960, y=800, s=0.9, until="safety"),
-        A("nova", x=320, y=1060, s=0.55, label="Artist", moods={"dunno": "thinking", "wishlist": "happy"}),
-        A("pixel", x=1600, y=990, s=0.5, ground=1050, label="Visitor"),
+        A("rose", x=320, y=1060, s=0.55, label="Artist", moods={"dunno": "thinking", "wishlist": "happy"}),
+        A("pixi", x=1600, y=990, s=0.5, ground=1050, label="Visitor"),
         A("bubble", "The random sizes made each run different. How did you choose the limits?", x=1580, y=780,
           tail="down-right", at="randomq", until="artists", size=34, max_width=560),
         A("bubble", "I don't know yet!", x=360, y=780, at="dunno", until="safety", size=36),
@@ -179,9 +179,9 @@ EPISODE = Episode(level=1, week=12, scenes=(
     ), actions=(
         A("door", "DOOR 12", x=1720, y=920, open="complete"),
         A("confetti", at="complete", x=1000, y=380),
-        A("nova", x=260, y=1010, s=0.72, wave=[("complete", "learned"), ("happy", "end")],
+        A("rose", x=260, y=1010, s=0.72, wave=[("complete", "learned"), ("happy", "end")],
           moods={"start": "proud", "proud": "thinking", "rehearse": "happy"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}, beep=("complete", "complete$")),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}, beep=("complete", "complete$")),
         A("icons", at="learned", until="quiz", x=1000, y=300, gap=250, size=30,
           items=[("check", "Sequence", "learned@0.05"), ("clock", "Loops", "learned@0.15"),
                  ("game", "Events", "learned@0.27"), ("key", "Conditions", "learned@0.38")]),

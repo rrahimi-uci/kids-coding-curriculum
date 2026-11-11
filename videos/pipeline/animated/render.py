@@ -258,7 +258,7 @@ def render_episode(week: int, output_dir: Path, workers: int | None = None, prev
             "-map", "0:v", "-map", "1:a", "-map", "2:0", "-c:v", "copy",
             "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,alimiter=limit=0.79:level=disabled", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
             "-c:s", "mov_text", "-metadata:s:s:0", "language=eng",
-            "-metadata", f"title=Kids Coding with Nova and Pixel – Level {level} Week {week}: {video['title']}",
+            "-metadata", f"title=Kids Coding with Rose and Pixi – Level {level} Week {week}: {video['title']}",
             "-metadata", "comment=Narration uses AI-generated voices (Kokoro).",
             "-movflags", "+faststart", str(destination),
         ], check=True)

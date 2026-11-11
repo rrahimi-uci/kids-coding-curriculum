@@ -2,13 +2,13 @@
   "schema_version": 2,
   "level": 1,
   "audience": "Children in Grades 4–5 (ages 9–11) who are complete beginners",
-  "series_title": "Kids Coding with Nova and Pixel",
+  "series_title": "Kids Coding with Rose and Pixi",
   "creative_direction": {
     "frame": "16:9, 1920×1080, 24 or 30 fps",
     "narration": "Warm, curious, inclusive, and clear at about 140–145 words per minute; friendly without sounding babyish",
     "visual_language": "Bright modern 2D motion graphics, real Scratch or Thonny captures, deterministic code overlays, and a recurring mission map",
     "accessibility": "Closed captions (an MP4 caption track plus .srt and .vtt files), Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
-    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
+    "story_world": "Rose is an inventive ten-year-old coder. Pixi is a palm-sized helper robot who takes instructions very literally. Rose writes the code and Pixi runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
   },
   "plan_notes": [
     "The source review covered the Level 1 syllabus, teacher guide, all 12 lesson plans, workbook and homework chapters, every exercise brief and starter, and the final project materials. The sequence moves from Scratch (weeks 1–6) to Python and Thonny (weeks 7–12), while repeatedly connecting algorithms, events, loops, choices, variables, decomposition, testing, and reflection.",
@@ -52,8 +52,8 @@
           "scene_id": "w01-s01",
           "duration_seconds": 32,
           "purpose": "Mission hook",
-          "narration": "Welcome to Kids Coding! Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told. Today, Nova needs Pixel to carry a glowing key to the workshop door. ‘Take it over there!’ says Nova. Pixel zooms off… and puts the key on a chair. Beep boop! Pixel did exactly what it heard. But the instruction wasn't exact. Can you give Pixel steps it can't misunderstand?",
-          "visual": "Workshop with Nova, Pixel, a chair and a locked door. Nova points vaguely; Pixel zooms to the chair, sets the key down and beeps proudly. Freeze on a thinking bubble before the question.",
+          "narration": "Welcome to Kids Coding! Meet Rose, a young inventor, and Pixi, a helpful robot who does exactly what it's told. Today, Rose needs Pixi to carry a glowing key to the workshop door. ‘Take it over there!’ says Rose. Pixi zooms off… and puts the key on a chair. Beep boop! Pixi did exactly what it heard. But the instruction wasn't exact. Can you give Pixi steps it can't misunderstand?",
+          "visual": "Workshop with Rose, Pixi, a chair and a locked door. Rose points vaguely; Pixi zooms to the chair, sets the key down and beeps proudly. Freeze on a thinking bubble before the question.",
           "on_screen_text": [
             "MISSION: Deliver the key",
             "Pause: What exact steps would you give?"
@@ -64,8 +64,8 @@
           "scene_id": "w01-s02",
           "duration_seconds": 55,
           "purpose": "Explain algorithm and sequence",
-          "narration": "Here's a secret about computers: they're a lot like Pixel. Super fast, super helpful, but they can't read your mind. So we give them an algorithm. An algorithm is a list of exact steps for a job. And sequence means the order of those steps. Let's try one. Step one: move forward three squares. Step two: turn right. Step three: move forward two squares. Step four: put the key beside the door. It worked! Now watch what happens if we put the key down before we move. Same steps, different order, different result. Order matters!",
-          "visual": "A floor grid seen from above. Numbered step cards appear one at a time and Pixel follows each one to the door. Then card 4 jumps to the top, Pixel drops the key at the start, and the door stays locked.",
+          "narration": "Here's a secret about computers: they're a lot like Pixi. Super fast, super helpful, but they can't read your mind. So we give them an algorithm. An algorithm is a list of exact steps for a job. And sequence means the order of those steps. Let's try one. Step one: move forward three squares. Step two: turn right. Step three: move forward two squares. Step four: put the key beside the door. It worked! Now watch what happens if we put the key down before we move. Same steps, different order, different result. Order matters!",
+          "visual": "A floor grid seen from above. Numbered step cards appear one at a time and Pixi follows each one to the door. Then card 4 jumps to the top, Pixi drops the key at the start, and the door stays locked.",
           "on_screen_text": [
             "Algorithm = exact steps",
             "Sequence = the order",
@@ -91,7 +91,7 @@
           "scene_id": "w01-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Uh-oh, time for a bug hunt! Nova builds a greeting for Pixel's show, and Pixel runs it exactly. The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’ Hmm… that sounds backwards. Let's use our detective steps. One: what did we expect? Two: what actually happened? Three: read the blocks one at a time, with your finger. Four: change one thing, and test again. Which blocks should trade places? Pause and point. Right! Move ‘Welcome to my show!’ to the top. Now it works! A bug is a clue, not a reason to quit.",
+          "narration": "Uh-oh, time for a bug hunt! Rose builds a greeting for Pixi's show, and Pixi runs it exactly. The blocks say: say ‘Thanks for watching!’, then say ‘Welcome to my show!’ Hmm… that sounds backwards. Let's use our detective steps. One: what did we expect? Two: what actually happened? Three: read the blocks one at a time, with your finger. Four: change one thing, and test again. Which blocks should trade places? Pause and point. Right! Move ‘Welcome to my show!’ to the top. Now it works! A bug is a clue, not a reason to quit.",
           "visual": "Split screen: expected mini-storyboard versus actual. A pointing finger follows each block. The two say blocks visibly swap and the corrected stack runs.",
           "on_screen_text": [
             "1 What did we expect?",
@@ -150,7 +150,7 @@
           "scene_id": "w02-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! Today's door needs a square of light. Nova starts writing: move, turn, move, turn, move, turn… The list gets so long, Pixel's paper rolls right across the floor! There must be a shorter way. What could tell Pixel to repeat the same two steps four times?",
+          "narration": "Welcome back to Kids Coding! Today's door needs a square of light. Rose starts writing: move, turn, move, turn, move, turn… The list gets so long, Pixi's paper rolls right across the floor! There must be a shorter way. What could tell Pixi to repeat the same two steps four times?",
           "visual": "A comically long paper strip grows while a square outline waits unlit. Fold repeated move-turn cards into one loop card.",
           "on_screen_text": [
             "MISSION: Light four sides",
@@ -188,7 +188,7 @@
           "scene_id": "w02-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Time for a bug hunt! Nova asks Pixel to draw a nine-sided shape, but the drawing leaves a gap. Expected: nine sides that close. What happened? The path stops short. The stack repeats nine times, so the side count is right. Now check the turn. The script says thirty degrees. But a nine-sided shape needs three hundred sixty divided by nine, which is forty. Which one thing should we change? Pause and point. Change thirty to forty, test again, and the shape closes! That gap was a useful clue.",
+          "narration": "Time for a bug hunt! Rose asks Pixi to draw a nine-sided shape, but the drawing leaves a gap. Expected: nine sides that close. What happened? The path stops short. The stack repeats nine times, so the side count is right. Now check the turn. The script says thirty degrees. But a nine-sided shape needs three hundred sixty divided by nine, which is forty. Which one thing should we change? Pause and point. Change thirty to forty, test again, and the shape closes! That gap was a useful clue.",
           "visual": "Open nine-sided path beside a closed outline. A detective checklist confirms repeat 9, circles turn 30, and replaces it with 40 before rerunning.",
           "on_screen_text": [
             "Expected: closed shape",
@@ -246,8 +246,8 @@
           "scene_id": "w03-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! Nova walks up to the workshop door. Nothing happens. ‘I checked once, before you arrived!’ says Pixel. A useful door has to keep noticing. So how can our program start with an event, check a condition, and react at the right time?",
-          "visual": "Door-sensor timeline shows Pixel checking once, then Nova arriving later. Freeze on the missing connection.",
+          "narration": "Welcome back to Kids Coding! Rose walks up to the workshop door. Nothing happens. ‘I checked once, before you arrived!’ says Pixi. A useful door has to keep noticing. So how can our program start with an event, check a condition, and react at the right time?",
+          "visual": "Door-sensor timeline shows Pixi checking once, then Rose arriving later. Freeze on the missing connection.",
           "on_screen_text": [
             "MISSION: Make the door react",
             "What should the program notice?"
@@ -284,8 +284,8 @@
           "scene_id": "w03-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Time for a bug hunt! Nova builds a door sensor: when green flag clicked, if touching Nova, say ‘Welcome!’ Pixel runs it exactly. Expected: it greets Nova whenever Nova touches it. What happened? It checked once, right at the start, when Nova was far away. Then the script finished. The condition is right, but the question has to be asked again and again. Where should the forever block go? Pause and point. Wrap forever around the if block. Test first with Nova away, then touching. Now both cases work!",
-          "visual": "Door-sensor sprite and a Nova sprite. A single scan line passes the script and disappears; then a forever bracket wraps the if and the scan line loops continuously.",
+          "narration": "Time for a bug hunt! Rose builds a door sensor: when green flag clicked, if touching Rose, say ‘Welcome!’ Pixi runs it exactly. Expected: it greets Rose whenever Rose touches it. What happened? It checked once, right at the start, when Rose was far away. Then the script finished. The condition is right, but the question has to be asked again and again. Where should the forever block go? Pause and point. Wrap forever around the if block. Test first with Rose away, then touching. Now both cases work!",
+          "visual": "Door-sensor sprite and a Rose sprite. A single scan line passes the script and disappears; then a forever bracket wraps the if and the scan line loops continuously.",
           "on_screen_text": [
             "Bug: checked only once",
             "Fix: keep the choice inside forever",
@@ -297,7 +297,7 @@
           "scene_id": "w03-s05",
           "duration_seconds": 55,
           "purpose": "Feedback, recap, and handoff",
-          "narration": "The door hears us now! Events start scripts. Conditions ask yes-or-no questions. If and if-else choose a path, and forever keeps checking. When you look at a classmate's project, give two stars and a wish. Two stars are two things you like, said exactly. Nova says, ‘I like how the ghost grows when I touch it!’ A wish is one kind idea. Pixel asks, ‘What if it also played a sound?’ Talk about the project, not the person, and say thank you when you get feedback. Now build Tickle the Ghost, and test both paths: pointer touching, and pointer away. Happy coding!",
+          "narration": "The door hears us now! Events start scripts. Conditions ask yes-or-no questions. If and if-else choose a path, and forever keeps checking. When you look at a classmate's project, give two stars and a wish. Two stars are two things you like, said exactly. Rose says, ‘I like how the ghost grows when I touch it!’ A wish is one kind idea. Pixi asks, ‘What if it also played a sound?’ Talk about the project, not the person, and say thank you when you get feedback. Now build Tickle the Ghost, and test both paths: pointer touching, and pointer away. Happy coding!",
           "visual": "Door opens to two test lanes. Two star cards and one wish card appear beside the ghost project, each with a specific comment.",
           "on_screen_text": [
             "Events start",
@@ -344,8 +344,8 @@
           "scene_id": "w04-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! Nova catches three falling stars. One, two, three! Pixel cheers, but the scoreboard still says zero. ‘I watched every catch,’ says Pixel, ‘but I forgot the number!’ Our next door opens at five points. So what can a program use to remember a value while it changes?",
-          "visual": "Three stars land in a basket while a frozen scoreboard stays at zero. A labeled empty memory box appears beside Pixel.",
+          "narration": "Welcome back to Kids Coding! Rose catches three falling stars. One, two, three! Pixi cheers, but the scoreboard still says zero. ‘I watched every catch,’ says Pixi, ‘but I forgot the number!’ Our next door opens at five points. So what can a program use to remember a value while it changes?",
+          "visual": "Three stars land in a basket while a frozen scoreboard stays at zero. A labeled empty memory box appears beside Pixi.",
           "on_screen_text": [
             "MISSION: Remember the score",
             "What can store a changing value?"
@@ -383,7 +383,7 @@
           "scene_id": "w04-s04",
           "duration_seconds": 70,
           "purpose": "Two-bug investigation",
-          "narration": "Time for a bug hunt! Pixel finds two clues in Nova's star game. First, a new game begins with the last game's score. Expected: zero. What happened? Seven! The green-flag script forgot to set score to zero. Second, one star gives lots of points. Remember the paper-ball game, when we scored for every second someone held the ball? Here, forever keeps asking ‘touching basket?’ while the star sits in the basket. What should happen right after adding one? Pause and point. Send the star back to the top before the next check. Change one thing, test, then investigate the next clue.",
+          "narration": "Time for a bug hunt! Pixi finds two clues in Rose's star game. First, a new game begins with the last game's score. Expected: zero. What happened? Seven! The green-flag script forgot to set score to zero. Second, one star gives lots of points. Remember the paper-ball game, when we scored for every second someone held the ball? Here, forever keeps asking ‘touching basket?’ while the star sits in the basket. What should happen right after adding one? Pause and point. Send the star back to the top before the next check. Change one thing, test, then investigate the next clue.",
           "visual": "Detective board shows bug A: stale score and bug B: rapidly spinning counter. Repairs are applied and tested separately.",
           "on_screen_text": [
             "Bug A: no reset",
@@ -441,7 +441,7 @@
           "scene_id": "w05-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! The workshop stage has three performers. Nova tries to control every move in one giant stack. The blocks wobble higher than Pixel! One performer starts late, and another never moves. ‘This stack is too big!’ says Nova. Could we give each small job a name, and send one clear message when the curtain goes up?",
+          "narration": "Welcome back to Kids Coding! The workshop stage has three performers. Rose tries to control every move in one giant stack. The blocks wobble higher than Pixi! One performer starts late, and another never moves. ‘This stack is too big!’ says Rose. Could we give each small job a name, and send one clear message when the curtain goes up?",
           "visual": "A towering Scratch stack bends while three performers wait. It separates into neat labeled cards connected by one message envelope.",
           "on_screen_text": [
             "MISSION: Organize the show",
@@ -453,7 +453,7 @@
           "scene_id": "w05-s02",
           "duration_seconds": 55,
           "purpose": "Explain decomposition and My Blocks",
-          "narration": "Decomposition means splitting a big job into smaller named parts. In Scratch, My Blocks, then Make a Block, lets us name a job we want to reuse. Nova makes a block called polygon, with two inputs: sides and length. Under the pink define hat go: pen down, repeat sides, move length steps, turn three hundred sixty divided by sides, and pen up. Now the main script can use polygon with three sides of length one hundred twenty, or six sides of length sixty. An input is a blank we fill in each time, so one block makes lots of shapes!",
+          "narration": "Decomposition means splitting a big job into smaller named parts. In Scratch, My Blocks, then Make a Block, lets us name a job we want to reuse. Rose makes a block called polygon, with two inputs: sides and length. Under the pink define hat go: pen down, repeat sides, move length steps, turn three hundred sixty divided by sides, and pen up. Now the main script can use polygon with three sides of length one hundred twenty, or six sides of length sixty. An input is a blank we fill in each time, so one block makes lots of shapes!",
           "visual": "Big ‘art show’ puzzle splits into shape, movement, and speech pieces. A pink define polygon (sides) (length) hat receives 3, 120 then 6, 60 and draws two labeled results.",
           "on_screen_text": [
             "Decomposition = smaller jobs",
@@ -466,7 +466,7 @@
           "scene_id": "w05-s03",
           "duration_seconds": 65,
           "purpose": "Coordinate with messages",
-          "narration": "A broadcast is like a stage manager's announcement. Nova's main script broadcasts curtain up. Every sprite with a ‘when I receive curtain up’ hat can respond. The star spins, the cat speaks, and the backdrop changes. Broadcasting doesn't make every sprite do the same action. It gives the scripts that are listening the same starting signal. Message names must match exactly, including spaces. One clear announcement can coordinate lots of small jobs.",
+          "narration": "A broadcast is like a stage manager's announcement. Rose's main script broadcasts curtain up. Every sprite with a ‘when I receive curtain up’ hat can respond. The star spins, the cat speaks, and the backdrop changes. Broadcasting doesn't make every sprite do the same action. It gives the scripts that are listening the same starting signal. Message names must match exactly, including spaces. One clear announcement can coordinate lots of small jobs.",
           "visual": "Stage manager sends a CURTAIN UP envelope outward. Three separate receiver scripts light up and perform different actions in parallel.",
           "on_screen_text": [
             "broadcast [curtain up]",
@@ -479,7 +479,7 @@
           "scene_id": "w05-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt",
-          "narration": "Time for a bug hunt! In Nova's show, the star never spins. Expected: all three performers start. What happened? Only two respond. Read the sender: broadcast ‘curtain up’. That's two words. Now read the star's receiver: when I receive ‘curtainup’. That's one word! Scratch treats those as different messages. Which name should change? Pause and point. Either spelling works, but the sender and receiver must use the exact same message. Choose one from the dropdown, test again, and the star joins the show!",
+          "narration": "Time for a bug hunt! In Rose's show, the star never spins. Expected: all three performers start. What happened? Only two respond. Read the sender: broadcast ‘curtain up’. That's two words. Now read the star's receiver: when I receive ‘curtainup’. That's one word! Scratch treats those as different messages. Which name should change? Pause and point. Either spelling works, but the sender and receiver must use the exact same message. Choose one from the dropdown, test again, and the star joins the show!",
           "visual": "Two message tags align under a magnifier; a visible space separates CURTAIN UP. The receiver selects the same dropdown item and a test pulse reaches all three sprites.",
           "on_screen_text": [
             "Expected: 3 performers",
@@ -539,7 +539,7 @@
           "scene_id": "w06-s01",
           "duration_seconds": 30,
           "purpose": "Checkpoint hook",
-          "narration": "Welcome back to Kids Coding! Six workshop doors glow behind Nova and Pixel. The checkpoint console mixes up every symbol we've found: a flag, a loop, a question, a score box, and a pink My Block. Can you name what each one does? Today, you're the lead code detective!",
+          "narration": "Welcome back to Kids Coding! Six workshop doors glow behind Rose and Pixi. The checkpoint console mixes up every symbol we've found: a flag, a loop, a question, a score box, and a pink My Block. Can you name what each one does? Today, you're the lead code detective!",
           "visual": "Mission map zooms across six doors. Five familiar icons land on a detective board as unlabeled evidence cards.",
           "on_screen_text": [
             "CHECKPOINT MISSION",
@@ -564,7 +564,7 @@
           "scene_id": "w06-s03",
           "duration_seconds": 65,
           "purpose": "Model debugging evidence",
-          "narration": "A code detective doesn't mash blocks until something works. We use the four detective steps. One: what did I expect? Two: what happened? Three: read the blocks one at a time, with your finger. Four: change one thing, then test again. Nova's cat should go to the middle and say ‘Hello, detectives!’ It moves, but it says nothing. Pixel points at each block. ‘When flag clicked: yes. Go to: yes. Say… wait, there's a gap!’ That block isn't snapped on, so it's not part of the script. One change: snap it on. Test. Hello!",
+          "narration": "A code detective doesn't mash blocks until something works. We use the four detective steps. One: what did I expect? Two: what happened? Three: read the blocks one at a time, with your finger. Four: change one thing, then test again. Rose's cat should go to the middle and say ‘Hello, detectives!’ It moves, but it says nothing. Pixi points at each block. ‘When flag clicked: yes. Go to: yes. Say… wait, there's a gap!’ That block isn't snapped on, so it's not part of the script. One change: snap it on. Test. Hello!",
           "visual": "Four numbered detective lenses: the cat in the middle with no speech bubble; the stack with a visible gap above the say block; a finger tracing each block; the block snaps on and the bubble appears.",
           "on_screen_text": [
             "1 What did I expect?",
@@ -638,7 +638,7 @@
           "scene_id": "w07-s01",
           "duration_seconds": 30,
           "purpose": "New-language hook",
-          "narration": "Welcome back to Kids Coding! Today's door has no Scratch blocks, only a blinking text cursor. Nova types ‘Hello, Pixel!’ and presses Run. The words appear, and Pixel's screen lights up! We've crossed into Python, where we write instructions with text. The ideas are familiar. The way we spell them is new.",
+          "narration": "Welcome back to Kids Coding! Today's door has no Scratch blocks, only a blinking text cursor. Rose types ‘Hello, Pixi!’ and presses Run. The words appear, and Pixi's screen lights up! We've crossed into Python, where we write instructions with text. The ideas are familiar. The way we spell them is new.",
           "visual": "Blocks transform into carefully typeset text. A cursor blinks in a simplified Thonny Editor and output appears in the Shell.",
           "on_screen_text": [
             "NEW MISSION: Python",
@@ -678,7 +678,7 @@
           "scene_id": "w07-s04",
           "duration_seconds": 70,
           "purpose": "Error-message bug hunt",
-          "narration": "Time for a bug hunt! Nova typed a turn command with one letter missing. Expected: a corner. What happened? One line, then the turtle stops, and red text appears in the Shell. Don't panic, and don't read every line first. Find the line number, then read the last line. It points to line four, and says the Turtle has no attribute lef. That means Python doesn't know a turtle command called lef. It even asks: did you mean left? What single change should we test? Pause and point. Add the missing letter t to make left, run again, and the turtle turns the corner! Errors are clues, not danger.",
+          "narration": "Time for a bug hunt! Rose typed a turn command with one letter missing. Expected: a corner. What happened? One line, then the turtle stops, and red text appears in the Shell. Don't panic, and don't read every line first. Find the line number, then read the last line. It points to line four, and says the Turtle has no attribute lef. That means Python doesn't know a turtle command called lef. It even asks: did you mean left? What single change should we test? Pause and point. Add the missing letter t to make left, run again, and the turtle turns the corner! Errors are clues, not danger.",
           "visual": "Sanitized Thonny capture: line 4, t.lef(90), last line AttributeError: 'Turtle' object has no attribute 'lef'. Did you mean: 'left'? Zoom to the line number and last line; a letter t slides onto lef; the rerun draws the corner.",
           "on_screen_text": [
             "1 Find the line number",
@@ -738,7 +738,7 @@
           "scene_id": "w08-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! Pixel types forward and left, four times, to draw a square. ‘This feels familiar,’ Nova says. ‘We used a Scratch repeat block for this!’ Python can loop too. But instead of a block's colored border, spaces show which instructions repeat. Can we shrink eight lines into three?",
+          "narration": "Welcome back to Kids Coding! Pixi types forward and left, four times, to draw a square. ‘This feels familiar,’ Rose says. ‘We used a Scratch repeat block for this!’ Python can loop too. But instead of a block's colored border, spaces show which instructions repeat. Can we shrink eight lines into three?",
           "visual": "Eight repeated Python lines fold into a for-loop card. Four visible space markers form a guide rail under the loop header.",
           "on_screen_text": [
             "MISSION: Make repetition shorter",
@@ -778,7 +778,7 @@
           "scene_id": "w08-s04",
           "duration_seconds": 70,
           "purpose": "Two-clue bug hunt",
-          "narration": "Time for a bug hunt! Nova wants a triangle, but the turtle draws only two sides. Count the trips: the code says range two. That's an off-by-one bug: the loop runs one time too few. A triangle has three sides, so change two to three, and test. Next, Nova's triangle is one long straight line! Look at the spaces. The turn line isn't pushed in, so it's outside the loop, and the turtle turns only once, at the end. Push it in four spaces, under the forward line, and test. If the spaces don't match, Python shows a red IndentationError. Pause before each repair: what evidence tells us which one thing to change?",
+          "narration": "Time for a bug hunt! Rose wants a triangle, but the turtle draws only two sides. Count the trips: the code says range two. That's an off-by-one bug: the loop runs one time too few. A triangle has three sides, so change two to three, and test. Next, Rose's triangle is one long straight line! Look at the spaces. The turn line isn't pushed in, so it's outside the loop, and the turtle turns only once, at the end. Push it in four spaces, under the forward line, and test. If the spaces don't match, Python shows a red IndentationError. Pause before each repair: what evidence tells us which one thing to change?",
           "visual": "Open two-sided triangle links to range(2); then one long line links to an un-indented t.left(120) with space guides; repairs are tested separately; a small inset shows a mismatched-space IndentationError.",
           "on_screen_text": [
             "Clue 1: loop runs one time too few",
@@ -791,7 +791,7 @@
           "scene_id": "w08-s05",
           "duration_seconds": 55,
           "purpose": "Help-seeking, recap, and handoff",
-          "narration": "Python loops are ready! A for loop repeats the pushed-in lines. Range sets how many times, the colon starts the group, and four matching spaces show what belongs inside. Stuck? Try three before me: read the red message, check the workbook, and ask your partner. Then use the help sentence, like Nova: ‘I expected a triangle, but a straight line happened. I tried counting the spaces.’ Now build Loop Square, then write a square loop and a hexagon loop for Polygon Party. Predict the shape before you press Run. Happy coding!",
+          "narration": "Python loops are ready! A for loop repeats the pushed-in lines. Range sets how many times, the colon starts the group, and four matching spaces show what belongs inside. Stuck? Try three before me: read the red message, check the workbook, and ask your partner. Then use the help sentence, like Rose: ‘I expected a triangle, but a straight line happened. I tried counting the spaces.’ Now build Loop Square, then write a square loop and a hexagon loop for Polygon Party. Predict the shape before you press Run. Happy coding!",
           "visual": "Loop parts snap into a complete card. A weak ‘It doesn't work’ bubble expands into expected, actual, and tried fields, then the activity card appears.",
           "on_screen_text": [
             "I expected… but… happened. I tried…",
@@ -840,7 +840,7 @@
           "scene_id": "w09-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! The next door asks, ‘Choose a portal size: 40, 80, or 120.’ Nova types 80. Pixel stores the answer, but then tries to add ten and gets stuck. The input looked like a number. So why does Python see it as text? And how can our program choose the right portal?",
+          "narration": "Welcome back to Kids Coding! The next door asks, ‘Choose a portal size: 40, 80, or 120.’ Rose types 80. Pixi stores the answer, but then tries to add ten and gets stuck. The input looked like a number. So why does Python see it as text? And how can our program choose the right portal?",
           "visual": "A portal console accepts 80, which lands on a card marked text. A plus-ten gear cannot connect until a converter appears.",
           "on_screen_text": [
             "MISSION: Ask, remember, choose",
@@ -879,7 +879,7 @@
           "scene_id": "w09-s04",
           "duration_seconds": 70,
           "purpose": "Input bug hunt and testing",
-          "narration": "Time for a bug hunt! Pixel asks, ‘How many steps should I walk?’ Nova types 100. Expected: Pixel walks 100 steps. Actual: a red TypeError! Pause: what's inside the box called steps? Type steps in the Shell. Thonny shows ‘100’ with quote marks. That's text, and a turtle can't walk text. The fix: convert the answer with int, so steps holds a number. Run again with 100, then 50, then 250. One more test: on a color question, type Blue with a capital B. No crash, but it goes to else, because Python is picky: ‘Blue’ and ‘blue’ are different. That's why a friendly else message helps.",
+          "narration": "Time for a bug hunt! Pixi asks, ‘How many steps should I walk?’ Rose types 100. Expected: Pixi walks 100 steps. Actual: a red TypeError! Pause: what's inside the box called steps? Type steps in the Shell. Thonny shows ‘100’ with quote marks. That's text, and a turtle can't walk text. The fix: convert the answer with int, so steps holds a number. Run again with 100, then 50, then 250. One more test: on a color question, type Blue with a capital B. No crash, but it goes to else, because Python is picky: ‘Blue’ and ‘blue’ are different. That's why a friendly else message helps.",
           "visual": "Text card ‘100’ (with quote marks) fails to drive the turtle and a red TypeError line appears; int turns it into the number tile 100. A short test table fills Expected and Actual rows.",
           "on_screen_text": [
             "Text '100' ≠ number 100",
@@ -939,7 +939,7 @@
           "scene_id": "w10-s01",
           "duration_seconds": 25,
           "purpose": "Creative mission hook",
-          "narration": "Welcome back to Kids Coding! The workshop gallery needs a hundred flowers, and no two should look exactly alike. Nova could copy the same drawing code again and again. But Pixel has a better idea: ‘Teach Python one flower-making command, then call it with different sizes and random colors!’ Can one recipe create a whole garden?",
+          "narration": "Welcome back to Kids Coding! The workshop gallery needs a hundred flowers, and no two should look exactly alike. Rose could copy the same drawing code again and again. But Pixi has a better idea: ‘Teach Python one flower-making command, then call it with different sizes and random colors!’ Can one recipe create a whole garden?",
           "visual": "One flower multiplies into a varied garden. Repeated code sheets fold into a single recipe card with adjustable dials.",
           "on_screen_text": [
             "MISSION: One recipe, many artworks",
@@ -978,7 +978,7 @@
           "scene_id": "w10-s04",
           "duration_seconds": 70,
           "purpose": "Function-call bug hunt",
-          "narration": "Time for a bug hunt! Nova's program runs with no red error, but the screen stays blank. ‘Where's my flower?’ asks Nova. What did we expect? One flower. What actually happened? Nothing. Read the code one line at a time, with your finger. The flower recipe looks perfect. But scan below it: nothing ever calls it. Defining writes the recipe; calling makes it run. Pause: what one line could we add? Call flower with sixty, on a new line below the recipe, at the left edge, not pushed in. Run again. A blank screen with no error can still be a clue.",
+          "narration": "Time for a bug hunt! Rose's program runs with no red error, but the screen stays blank. ‘Where's my flower?’ asks Rose. What did we expect? One flower. What actually happened? Nothing. Read the code one line at a time, with your finger. The flower recipe looks perfect. But scan below it: nothing ever calls it. Defining writes the recipe; calling makes it run. Pause: what one line could we add? Call flower with sixty, on a new line below the recipe, at the left edge, not pushed in. Run again. A blank screen with no error can still be a clue.",
           "visual": "A complete function sits unused beside a blank turtle window. Detective scan reaches end-of-file, then one call line connects to the function and drawing begins.",
           "on_screen_text": [
             "Defined ≠ called",
@@ -1036,7 +1036,7 @@
           "scene_id": "w11-s01",
           "duration_seconds": 25,
           "purpose": "Studio hook",
-          "narration": "Welcome back to Kids Coding! Nova has a brilliant art-show plan, and forty new lines typed without running once. Pixel presses Run. ‘Uh-oh,’ says Nova. One tiny error hides somewhere in the stack. The studio clock is ticking. Would you rather search forty lines, or test each small piece as you build it? Today, we work like project engineers.",
+          "narration": "Welcome back to Kids Coding! Rose has a brilliant art-show plan, and forty new lines typed without running once. Pixi presses Run. ‘Uh-oh,’ says Rose. One tiny error hides somewhere in the stack. The studio clock is ticking. Would you rather search forty lines, or test each small piece as you build it? Today, we work like project engineers.",
           "visual": "Forty code lines form a maze around one tiny bug. The maze transforms into four short, testable stepping stones.",
           "on_screen_text": [
             "STUDIO MISSION",
@@ -1075,7 +1075,7 @@
           "scene_id": "w11-s04",
           "duration_seconds": 70,
           "purpose": "Model peer testing",
-          "narration": "Now for the partner swap bug hunt. Swap seats. Run your partner's program twice: once with a normal answer, and once with a strange one, like zero, a giant number, a word instead of a number, or a capital letter. Write down what happened. Don't fix it; just report it! Then swap back and give two stars and a wish: two specific things you liked, and one wish. Make the wish about the program, never the person, like Nova's: ‘I wish the title was bigger.’ The creator says thank you, then decides what to change. It's their art.",
+          "narration": "Now for the partner swap bug hunt. Swap seats. Run your partner's program twice: once with a normal answer, and once with a strange one, like zero, a giant number, a word instead of a number, or a capital letter. Write down what happened. Don't fix it; just report it! Then swap back and give two stars and a wish: two specific things you liked, and one wish. Make the wish about the program, never the person, like Rose's: ‘I wish the title was bigger.’ The creator says thank you, then decides what to change. It's their art.",
           "visual": "Two learners swap seats. A test table fills Normal and Strange rows; two star cards and one wish card cite concrete behaviors.",
           "on_screen_text": [
             "Swap seats • Run twice • Report, don't fix",
@@ -1134,7 +1134,7 @@
           "scene_id": "w12-s01",
           "duration_seconds": 28,
           "purpose": "Showcase hook",
-          "narration": "Welcome back to Kids Coding! All twelve workshop doors open into a gallery. Nova has two minutes to guide visitors through an interactive artwork. ‘Should I show every line of code?’ Nova wonders. No! The best museum guides choose a clear story. What did you make, what should we notice, and what did you learn while building it?",
+          "narration": "Welcome back to Kids Coding! All twelve workshop doors open into a gallery. Rose has two minutes to guide visitors through an interactive artwork. ‘Should I show every line of code?’ Rose wonders. No! The best museum guides choose a clear story. What did you make, what should we notice, and what did you learn while building it?",
           "visual": "Doors fold into a gallery wall. A two-minute timer appears beside three empty story frames labeled Make, Notice, Learn.",
           "on_screen_text": [
             "FINAL MISSION: Tell your coding story",
@@ -1159,7 +1159,7 @@
           "scene_id": "w12-s03",
           "duration_seconds": 65,
           "purpose": "Explain code and a debugging story",
-          "narration": "Showing code isn't reading every symbol. Point to one meaningful part and tell its story, like Nova: ‘This for loop repeats my star function eight times. The function lets one recipe draw different sizes.’ Then tell a bug story with the four detective steps: what I expected, what actually happened, reading line by line, and changing one thing to test again. ‘I expected eight stars, but got seven. I read my loop line by line and saw range seven. I changed it to eight and ran it again.’ A fixed bug shows how you think. It belongs in your story.",
+          "narration": "Showing code isn't reading every symbol. Point to one meaningful part and tell its story, like Rose: ‘This for loop repeats my star function eight times. The function lets one recipe draw different sizes.’ Then tell a bug story with the four detective steps: what I expected, what actually happened, reading line by line, and changing one thing to test again. ‘I expected eight stars, but got seven. I read my loop line by line and saw range seven. I changed it to eight and ran it again.’ A fixed bug shows how you think. It belongs in your story.",
           "visual": "A code spotlight highlights only a for-loop and function call. Four detective panels animate the seven-to-eight-star debugging story.",
           "on_screen_text": [
             "Point → Explain → Show result",

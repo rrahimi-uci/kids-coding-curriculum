@@ -277,7 +277,9 @@ def generate_openai_illustration(scene: Scene, destination: Path) -> None:
         "Create a clean 16:9 educational illustration for children in grades 4 and 5. "
         "Friendly modern flat vector style, generous empty space in the lower third, high contrast, "
         "no tiny details, no words, no letters, no numbers, no logos, no rendered user interface, "
-        "no real people. Characters: Nova, a curious ten-year-old coder, and Pixel, a small round "
+        "no real people. Characters: Rose, a curious ten-year-old coder with long, straight (not curly) "
+        "brown hair, orange workshop goggles on the forehead and a blue hoodie striped across the chest only, "
+        "and Pixi, a small round "
         f"friendly helper robot. Scene brief: {scene.visual}"
     )
 
@@ -610,7 +612,7 @@ def render_video(
         "-f", "concat", "-safe", "0", "-i", str(concat_file), "-i", str(captions),
         "-map", "0:v", "-map", "0:a", "-map", "1:0",
         "-c:v", "copy", "-c:a", "copy", "-c:s", "mov_text",
-        "-metadata", f"title=Kids Coding with Nova and Pixel – Level {level} Week {video.week}: {video.title}",
+        "-metadata", f"title=Kids Coding with Rose and Pixi – Level {level} Week {video.week}: {video.title}",
         "-metadata", f"comment={voice.disclosure}",
         "-metadata:s:s:0", "language=eng", "-movflags", "+faststart",
         str(destination),

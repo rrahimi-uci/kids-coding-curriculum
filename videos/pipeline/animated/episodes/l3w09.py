@@ -1,6 +1,6 @@
 """Level 3 Week 9: How Do Machines Learn? (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 # Dragon-egg cards: (spots, size, label letter, color). F = fire, I = ice (a letter, never color alone).
 EGGS = [(8, 2, "F fire", "orange"), (9, 4, "F fire", "orange"), (2, 8, "I ice", "sky"), (3, 7, "I ice", "sky")]
@@ -35,20 +35,20 @@ L4 = chart_xy(10, 0, **S4)
 EPISODE = Episode(level=3, week=9, scenes=(
     # ------------------------------------------------------------------ s01 hook
     Scene("l3-w09-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Pixel has a new job: sorting dragon eggs into fire eggs and ice eggs.", cue="job", pause=0.3),
+        B("Pixi has a new job: sorting dragon eggs into fire eggs and ice eggs.", cue="job", pause=0.3),
         B("But nobody wrote any rules!", cue="rules", pause=0.3),
-        B("‘Just learn from these examples,’", speaker=NOVA, cue="learn", pause=0.1),
-        B("says Nova, and sets down a basket of labeled eggs.", cue="basket", pause=0.3),
-        B("‘Learn?’", speaker=PIXEL, cue="learnq", pause=0.1),
-        B("beeps Pixel.", cue="beeps", pause=0.1),
-        B("‘I only follow instructions!’", speaker=PIXEL, cue="only", pause=0.4),
+        B("‘Just learn from these examples,’", speaker=ROSE, cue="learn", pause=0.1),
+        B("says Rose, and sets down a basket of labeled eggs.", cue="basket", pause=0.3),
+        B("‘Learn?’", speaker=PIXI, cue="learnq", pause=0.1),
+        B("beeps Pixi.", cue="beeps", pause=0.1),
+        B("‘I only follow instructions!’", speaker=PIXI, cue="only", pause=0.4),
         B("Can a program really learn from examples?", cue="can", pause=1.6),
         B("And what if the examples are wrong?", cue="wrong", pause=3.0),
     ), actions=(
         A("door", "DOOR 9", x=1700, y=900),
-        A("nova", x=300, y=960, enter="left", point="basket", moods={"rules": "surprised", "can": "thinking"},
+        A("rose", x=300, y=960, enter="left", point="basket", moods={"rules": "surprised", "can": "thinking"},
           chin=("wrong", "end")),
-        A("pixel", x=600, y=760, drop=True, moods={"rules": "confused", "learnq": "surprised", "can": "confused"}),
+        A("pixi", x=600, y=760, drop=True, moods={"rules": "confused", "learnq": "surprised", "can": "confused"}),
         A("banner", "MISSION: Learn from examples", at="job"),
         A("chip", "FIRE (F)", at="job@0.5", until="can", x=900, y=260, color="orange", size=44),
         A("chip", "ICE (I)", at="job@0.75", until="can", x=1250, y=260, color="sky", size=44),
@@ -155,14 +155,14 @@ EPISODE = Episode(level=3, week=9, scenes=(
         B("Bug hunt!", cue="bug", pause=0.3),
         B("Someone collected new training eggs but met only one fire egg, a very unusual one at ten spots, size zero, "
           "plus lots of ice eggs.", cue="collected", pause=0.3),
-        B("Pixel tests it on four eggs it has never seen, and every fire egg gets labeled ice!", cue="tests",
+        B("Pixi tests it on four eggs it has never seen, and every fire egg gets labeled ice!", cue="tests",
           pause=0.4),
         B("Is the bug in the code, or in the data?", cue="isbug", pause=1.6),
         B("Let's use our steps.", cue="steps", pause=0.2),
         B("Read: there's no red error at all.", cue="read", pause=0.3),
         B("Predict.", cue="predict", pause=3.6),
-        B("‘The code runs fine. I think the examples are the problem,’", speaker=NOVA, cue="nova", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘The code runs fine. I think the examples are the problem,’", speaker=ROSE, cue="rose", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("Watch one guess on the chart.", cue="watch", pause=0.2),
         B("A real fire egg is six steps from that lonely fire example, but only four steps from an ice egg, so it "
           "copies ice.", cue="six", pause=0.4),
@@ -206,7 +206,7 @@ EPISODE = Episode(level=3, week=9, scenes=(
         A("badge", ok=False, at="tests@0.5", until="fix", x=1830, y=150, r=40),
         A("badge", ok=True, at="again$", x=1480, y=760),
         A("confetti", at="again$", x=1480, y=600),
-        A("nova", x=1720, y=1060, s=0.5, at="again", moods={"again": "happy", "again$": "proud"}),
+        A("rose", x=1720, y=1060, s=0.5, at="again", moods={"again": "happy", "again$": "proud"}),
     )),
     # ------------------------------------------------------------------ s05 recap, AI ethics, project kickoff
     Scene("l3-w09-s05", setting="workshop", tail=0.8, beats=(
@@ -227,8 +227,8 @@ EPISODE = Episode(level=3, week=9, scenes=(
         B("Then start your Build Something Big pitch card!", cue="pitch", pause=0.6),
     ), actions=(
         A("door", "DOOR 9", x=1700, y=920, open="door"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "finds"), ("pitch", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "finds"), ("pitch", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("cards", at="finds", until="wrongai", x=700, y=230, w=820, gap=110, size=36,
           items=["Patterns from labeled examples", "Features = what it measures", "Steps distance → nearest",
                  "Test pile → accuracy"],

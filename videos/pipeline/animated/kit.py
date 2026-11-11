@@ -15,7 +15,7 @@ from types import SimpleNamespace
 
 from . import props as P
 from . import pyrun
-from .characters import draw_cat, draw_grown_up, draw_nova, draw_pixel
+from .characters import draw_cat, draw_grown_up, draw_rose, draw_pixi
 from .engine import (
     safe_scale,
     C, FPS, H, W, appear, check_mark, circle, clamp, cross_mark, ease_in_out, ease_out, ellipse, fade,
@@ -23,7 +23,7 @@ from .engine import (
     vertical_gradient,
 )
 from .kit_dsl import A, Episode, resolve_time
-from .timeline import NOVA, PIXEL, SceneTiming
+from .timeline import ROSE, PIXI, SceneTiming
 
 COLORS = {"blue": C["blue"], "sky": C["sky_light"], "orange": C["orange_light"], "green": C["green_light"],
           "yellow": C["yellow"], "white": C["white"], "navy": C["navy"], "pink": "#FBD3E2", "purple": "#E3D8FB",
@@ -123,28 +123,28 @@ def _pop(d: D, x: float, y: float, start: float, draw, duration: float = 0.4) ->
 
 
 # =============================================================================== characters and props
-def c_nova(d: D, a: A, t0: float) -> None:
+def c_rose(d: D, a: A, t0: float) -> None:
     x, y = d.path(a.get("path"), (a.get("x", 300), a.get("y", 960)))
     enter = a.get("enter")
     if enter:
         k = ease_out(progress(d.t, t0, 0.9))
         x = lerp(-250 if enter == "left" else W + 250, x, k)
-    talk = d.sc.speaking(NOVA, d.t, FPS)
+    talk = d.sc.speaking(ROSE, d.t, FPS)
     mood = d.keyed(a.get("moods"), "happy")
-    draw_nova(d.ctx, x, y, a.get("s", 1.0), d.gt, mood="talk" if talk > 0.05 else mood, talk=talk,
+    draw_rose(d.ctx, x, y, a.get("s", 1.0), d.gt, mood="talk" if talk > 0.05 else mood, talk=talk,
               wave=d.within(a.get("wave")), point=d.within(a.get("point")),
               look=float(d.keyed(a.get("look"), 0.2)), hand_on_chin=d.within(a.get("chin")))
     if a.get("label"):
         P.chip(d.ctx, x, y + 70 * a.get("s", 1.0), a.get("label"), d.t, t0 + 0.3, color=C["white"], size=34)
 
 
-def c_pixel(d: D, a: A, t0: float) -> None:
+def c_pixi(d: D, a: A, t0: float) -> None:
     x, y = d.path(a.get("path"), (a.get("x", 700), a.get("y", 820)))
     if a.get("drop", False):
         y = lerp(-280, y, ease_out(progress(d.t, t0, 0.7)))
-    speaking = any(b.speaker == PIXEL and b.start <= d.sc.start + d.t < b.end for b in d.sc.beats)
+    speaking = any(b.speaker == PIXI and b.start <= d.sc.start + d.t < b.end for b in d.sc.beats)
     beep = 1.0 if speaking or d.within(a.get("beep")) > 0.5 else 0.0
-    draw_pixel(d.ctx, x, y, a.get("s", 0.9), d.gt, mood=d.keyed(a.get("moods"), "happy"),
+    draw_pixi(d.ctx, x, y, a.get("s", 0.9), d.gt, mood=d.keyed(a.get("moods"), "happy"),
                carrying=d.within(a.get("carrying")) > 0.5, beep=beep,
                ground=a.get("ground", y + 40 * a.get("s", 0.9) / 0.9 + 100 * a.get("s", 0.9)))
     if a.get("label"):
@@ -223,7 +223,7 @@ def c_bigtext(d: D, a: A, t0: float) -> None:
 
 def c_bubble(d: D, a: A, t0: float) -> None:
     t1 = d.T(a.until)
-    anchors = {"nova": (a.get("x", 300) + 70, a.get("y", 960) - 470), "pixel": (a.get("x", 700), a.get("y", 820) - 250),
+    anchors = {"rose": (a.get("x", 300) + 70, a.get("y", 960) - 470), "pixi": (a.get("x", 700), a.get("y", 820) - 250),
                "cat": (a.get("x", 1500) + 20, a.get("y", 960) - 230)}
     x, y = anchors.get(a.get("who"), (a.get("x", 960), a.get("y", 500)))
     P.speech_bubble(d.ctx, x, y, a.text, d.t, t0, t1 - 0.25, size=a.get("size", 38), tail=a.get("tail", "down-left"),
@@ -672,9 +672,9 @@ def _s_cat(ctx, x, y, s, gt, talking):
     draw_cat(ctx, x, y, s, gt, talking=talking)
 
 
-@_sprite("pixel")
-def _s_pixel(ctx, x, y, s, gt, talking):
-    draw_pixel(ctx, x, y - 40 * s, s * 0.7, gt, mood="happy", beep=1.0 if talking else 0.0, ground=y)
+@_sprite("pixi")
+def _s_pixi(ctx, x, y, s, gt, talking):
+    draw_pixi(ctx, x, y - 40 * s, s * 0.7, gt, mood="happy", beep=1.0 if talking else 0.0, ground=y)
 
 
 @_sprite("ghost")
@@ -730,7 +730,7 @@ def _s_balloon(ctx, x, y, s, gt, talking):
 def c_stage(d: D, a: A, t0: float) -> None:
     """A Scratch-style stage. actions=[(time, "say", text, seconds) | (time, "move", dx, seconds) |
     (time, "goto", x, y, seconds) | (time, "draw", sides, length, seconds[, turn]) | (time, "clear") |
-    (time, "turn", degrees, seconds) | (time, "hide") | (time, "show")]; monitors=[(name, [(time, value), ...])]; sprite="cat" (or pixel, ghost,
+    (time, "turn", degrees, seconds) | (time, "hide") | (time, "show")]; monitors=[(name, [(time, value), ...])]; sprite="cat" (or pixi, ghost,
     apple, bowl, star, balloon); extra=[(sprite, x, y)] for other sprites (stage coordinates).
     """
     x, y, w, h = a.get("x", 1180), a.get("y", 260), a.get("w", 620), a.get("h", 460)
@@ -1396,7 +1396,7 @@ def c_grid(d: D, a: A, t0: float) -> None:
     walker = d.path(a.get("walker"), tuple(a.get("walker")[0][1:3])) if a.get("walker") else None
     if walker:
         wc, wr = walker
-        draw_pixel(ctx, x + wc * cell + cell / 2, y + wr * cell + cell * 0.8, cell / 260, d.gt, mood="happy",
+        draw_pixi(ctx, x + wc * cell + cell / 2, y + wr * cell + cell * 0.8, cell / 260, d.gt, mood="happy",
                    ground=y + wr * cell + cell * 0.9)
 
 
@@ -1616,8 +1616,8 @@ def make_intro(level: int, week: int, title: str):
             tw, _ = text_size(label, 50, bold=True)
             fill_rounded(ctx, W / 2 - tw / 2 - 50, H / 2 + 150, tw + 100, 110, 55, C["white"], sub)
             text(ctx, label, W / 2, H / 2 + 205, 50, C["navy"], bold=True, alpha=sub)
-        draw_pixel(ctx, 260, 980 + 40 * (1 - ease_out(progress(t, 0.6, 0.8))), 0.6, gt, mood="happy", ground=1040)
-        draw_nova(ctx, 1660, 1110 - 120 * ease_out(progress(t, 0.9, 0.8)), 0.6, gt, mood="happy", wave=1.0)
+        draw_pixi(ctx, 260, 980 + 40 * (1 - ease_out(progress(t, 0.6, 0.8))), 0.6, gt, mood="happy", ground=1040)
+        draw_rose(ctx, 1660, 1110 - 120 * ease_out(progress(t, 0.9, 0.8)), 0.6, gt, mood="happy", wave=1.0)
     return intro
 
 
@@ -1629,8 +1629,8 @@ def make_outro(level: int):
         text(ctx, "See you next time!", W / 2, 640, 56, C["white"], bold=True, alpha=a)
         text(ctx, "Narration uses AI-generated voices.", W / 2, 790, 38, C["led"], bold=True, alpha=a)
         text(ctx, f"Kids Coding • Level {level} • Grades 4–5", W / 2, 860, 32, "#C9D6E3", alpha=a)
-        draw_pixel(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)
-        draw_nova(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
+        draw_pixi(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)
+        draw_rose(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
     return outro
 
 
@@ -1698,9 +1698,9 @@ def compile_episode(episode: Episode, title: str):
                 if action.kind == "timeline":
                     for when, _ in action.get("commits", []):
                         events.append((sc.start + resolve(when), "snap"))
-                if action.kind == "nova" and action.get("enter"):
+                if action.kind == "rose" and action.get("enter"):
                     events.append((start, "whoosh"))
-                if action.kind == "pixel" and action.get("drop"):
+                if action.kind == "pixi" and action.get("drop"):
                     events.append((start + 0.5, "boing"))
             # questions with a long pause get a soft ticking clock
             for beat, nxt in zip(sc.beats, sc.beats[1:] + [None]):

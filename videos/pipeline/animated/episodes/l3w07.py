@@ -1,6 +1,6 @@
 """Level 3 Week 7: Grids, Recursion and Fractal Art (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 # The finished countdown() from the Exercise 7.1 starter (comments shown as on-screen labels instead).
 COUNTDOWN = '''def countdown(n):
@@ -105,19 +105,19 @@ EPISODE = Episode(level=3, week=7, scenes=(
     # ------------------------------------------------------------------ s01 hook
     Scene("l3-w07-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
-        B("Today Nova wants two things: a whole forest of trees drawn by code, and a paint bucket that fills a pixel "
+        B("Today Rose wants two things: a whole forest of trees drawn by code, and a paint bucket that fills a pixel "
           "picture with one click.", cue="wants", pause=0.3),
-        B("‘That sounds like thousands of lines,’", speaker=PIXEL, cue="lines", pause=0.1),
-        B("beeps Pixel.", cue="beeps", pause=0.3),
-        B("‘Not if a function can call itself,’", speaker=NOVA, cue="notif", pause=0.1),
-        B("says Nova.", cue="says", pause=0.4),
+        B("‘That sounds like thousands of lines,’", speaker=PIXI, cue="lines", pause=0.1),
+        B("beeps Pixi.", cue="beeps", pause=0.3),
+        B("‘Not if a function can call itself,’", speaker=ROSE, cue="notif", pause=0.1),
+        B("says Rose.", cue="says", pause=0.4),
         B("Wait… a function that calls itself?", cue="wait", pause=0.3),
         B("Can it ever stop?", cue="stop", pause=3.0),
     ), actions=(
         A("door", "DOOR 7", x=1700, y=900),
-        A("nova", x=300, y=960, enter="left", wave="welcome",
+        A("rose", x=300, y=960, enter="left", wave="welcome",
           moods={"lines": "surprised", "notif": "proud", "wait": "thinking"}, point="notif", chin=("stop", "end")),
-        A("pixel", x=600, y=760, drop=True, moods={"lines": "worried", "wait": "confused"}),
+        A("pixi", x=600, y=760, drop=True, moods={"lines": "worried", "wait": "confused"}),
         A("banner", "MISSION: A forest and a paint bucket", at="wants"),
         A("turtle", code=FOREST, x=760, y=190, w=480, h=440, run="wants@0.15", duration=3.2, title="A forest",
           at="wants", until="lines"),
@@ -267,22 +267,22 @@ EPISODE = Episode(level=3, week=7, scenes=(
     # ------------------------------------------------------------------ s04 bug hunt
     Scene("l3-w07-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova writes a function called open_doll.", cue="writes", pause=0.2),
+        B("Rose writes a function called open_doll.", cue="writes", pause=0.2),
         B("It prints ‘Opening doll’ and the size, then calls itself with the size minus one.", cue="prints",
           pause=0.3),
-        B("Pixel runs it, starting from three.", cue="runs", pause=0.3),
+        B("Pixi runs it, starting from three.", cue="runs", pause=0.3),
         B("Three, two, one, zero, minus one, minus two…", cue="falling", pause=0.2),
         B("the numbers keep falling below zero, and then a red error appears.", cue="red", pause=0.4),
         B("Let's use our bug-hunting steps.", cue="steps", pause=0.3),
         B("One, read the last line of the error: RecursionError, maximum recursion depth exceeded.", cue="read",
           pause=0.3),
         B("Two, predict.", cue="predict", pause=0.2),
-        B("‘I think it never stops,’", speaker=NOVA, cue="never", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘I think it never stops,’", speaker=ROSE, cue="never", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("RecursionError? Look for the base case first!", cue="look", pause=0.4),
         B("Three, watch: in the debugger, Step into, and the calls pile up like plates.", cue="watch", pause=0.4),
         B("Four, fix one thing.", cue="fix", pause=3.6),
-        B("Nova adds a base case: if size is zero, print ‘Solid doll!’ and return.", cue="adds", pause=0.4),
+        B("Rose adds a base case: if size is zero, print ‘Solid doll!’ and return.", cue="adds", pause=0.4),
         B("Five, check: run it again.", cue="check", pause=0.3),
         B("Opening doll three, two, one, Solid doll!", cue="rerun", pause=0.8),
     ), actions=(
@@ -318,7 +318,7 @@ EPISODE = Episode(level=3, week=7, scenes=(
         A("badge", ok=False, at="red", until="adds", x=1830, y=380, r=40),
         A("badge", ok=True, at="rerun+1.0", x=1420, y=960),
         A("confetti", at="rerun+1.0", x=1420, y=700),
-        A("pixel", x=1770, y=930, s=0.45, ground=1000, at="rerun", moods={"rerun": "proud"}),
+        A("pixi", x=1770, y=930, s=0.45, ground=1000, at="rerun", moods={"rerun": "proud"}),
     )),
     # ------------------------------------------------------------------ s05 recap
     Scene("l3-w07-s05", setting="workshop", tail=0.8, beats=(
@@ -338,8 +338,8 @@ EPISODE = Episode(level=3, week=7, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 7", x=1700, y=920, open="door"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "rec"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "rec"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("box", "doll", x=780, y=520, w=200, h=180, color="pink", at="rec", until="koch", values=[("rec", "open")]),
         A("box", "solid", x=980, y=540, w=170, h=130, color="green", at="cases", until="koch", size=40,
           values=[("cases", "stop")]),

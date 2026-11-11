@@ -1,8 +1,9 @@
 """The Kids Coding characters, drawn as simple vector shapes so they animate smoothly.
 
-Nova: a ten-year-old inventor with workshop goggles (no gendered features or pronouns).
-Pixel: a palm-sized hovering helper robot with an LED face.
-Both blink, bob gently while idle, and change expression; Nova's mouth follows the voice.
+Rose: a ten-year-old inventor with workshop goggles, long straight brown hair and a blue hoodie
+with stripes across the chest only (the lower part, pocket and sleeves stay plain).
+Pixi: a palm-sized hovering helper robot with an LED face.
+Both blink, bob gently while idle, and change expression; Rose's mouth follows the voice.
 """
 
 from __future__ import annotations
@@ -16,10 +17,10 @@ from .engine import C, blink, safe_scale, circle, clamp, ellipse, fill_rounded, 
 # Moods: "happy", "talk", "surprised", "confused", "proud", "thinking", "worried"
 
 
-def draw_nova(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: str = "happy",
+def draw_rose(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: str = "happy",
               talk: float = 0.0, wave: float = 0.0, point: float = 0.0, look: float = 0.0,
               hand_on_chin: float = 0.0) -> None:
-    """Nova standing with feet at (x, y). s=1 is about 430 px tall.
+    """Rose standing with feet at (x, y). s=1 is about 430 px tall.
 
     wave: 0-1 waving right arm; point: 0-1 right arm stretched out; look: -1 (left) .. 1 (right);
     hand_on_chin: 0-1 thinking pose with the left hand.
@@ -36,8 +37,9 @@ def draw_nova(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: 
     ctx.translate(0, bob)
     # left arm (thinking pose bends to the chin)
     _arm(ctx, -70, -250, angle=lerp_angle(100, -35, hand_on_chin), bend=hand_on_chin)
-    # body: hoodie
+    # body: hoodie, striped across the upper chest only
     fill_rounded(ctx, -78, -270, 156, 170, 48, C["blue"])
+    _chest_stripes(ctx)
     fill_rounded(ctx, -40, -190, 80, 46, 18, "#2670D4")  # pocket
     line(ctx, -14, -268, -18, -222, C["white"], 6)  # hoodie strings
     line(ctx, 14, -268, 18, -222, C["white"], 6)
@@ -48,15 +50,11 @@ def draw_nova(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: 
     else:
         angle = lerp_angle(80, -55 + 22 * math.sin(t * 10), wave)
     _arm(ctx, 70, -250, angle=angle, bend=0.0, right=True)
-    # head
+    # head, framed by long straight hair (the back of the hair is drawn first, the head over it)
     hx, hy = look * 6, -350
+    _long_hair_back(ctx, hx, hy)
     circle(ctx, hx, hy, 84, C["skin"])
-    # ears
-    circle(ctx, hx - 82, hy + 8, 16, C["skin"])
-    circle(ctx, hx + 82, hy + 8, 16, C["skin"])
-    # hair: short curls
-    for cx, cy, r in ((-60, -40, 34), (-30, -66, 38), (8, -74, 40), (46, -62, 36), (70, -34, 28), (-76, -10, 22)):
-        circle(ctx, hx + cx, hy + cy, r, C["hair"])
+    _straight_bangs(ctx, hx, hy)
     # goggles on the forehead (the inventor's signature)
     line(ctx, hx - 84, hy - 30, hx + 84, hy - 30, C["orange"], 12)
     for gx in (-30, 30):
@@ -65,6 +63,50 @@ def draw_nova(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: 
         circle(ctx, hx + gx - 5, hy - 37, 4, C["white"])
     _face(ctx, hx, hy, t, mood, talk, look)
     ctx.restore()
+
+
+def _chest_stripes(ctx) -> None:
+    """Horizontal stripes on the top part of the hoodie only, stopping above the pocket."""
+    ctx.save()
+    rounded_rect(ctx, -78, -270, 156, 170, 48)
+    ctx.clip()
+    for i in range(3):
+        top = -258 + i * 22
+        ctx.rectangle(-80, top, 160, 11)
+        set_color(ctx, C["white"], 0.92)
+        ctx.fill()
+    ctx.restore()
+
+
+def _long_hair_back(ctx, hx, hy) -> None:
+    """Long, straight hair behind the head: falls past the shoulders with a straight-cut end."""
+    hair = C["hair"]
+    # the crown behind the head
+    circle(ctx, hx, hy - 6, 96, hair)
+    # two straight curtains that hang down over the shoulders to the chest
+    for side in (-1, 1):
+        x0 = hx + (60 if side > 0 else -106)
+        fill_rounded(ctx, x0, hy - 30, 46, 230, 14, hair)
+        # a few vertical strand lines, so the hair reads as straight (not curly)
+        for k in (12, 26):
+            sx = x0 + (k if side < 0 else 46 - k)
+            line(ctx, sx, hy + 40, sx, hy + 185, C["hair_shade"], 3, 0.8)
+
+
+def _straight_bangs(ctx, hx, hy) -> None:
+    """The top of the hair over the forehead, with a smooth, straight-cut fringe and a soft shine."""
+    ctx.save()
+    ctx.rectangle(hx - 120, hy - 140, 240, 110)  # keep only the part above the fringe line
+    ctx.clip()
+    circle(ctx, hx, hy - 4, 90, C["hair"])
+    ctx.restore()
+    # a soft highlight arc across the crown
+    ctx.new_sub_path()
+    ctx.arc(hx, hy - 4, 70, math.radians(205), math.radians(250))
+    set_color(ctx, C["hair_shine"], 0.9)
+    ctx.set_line_width(7)
+    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    ctx.stroke()
 
 
 def lerp_angle(a: float, b: float, x: float) -> float:
@@ -123,12 +165,12 @@ def _face(ctx, hx, hy, t, mood, talk, look) -> None:
         ctx.stroke()
 
 
-def draw_pixel(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: str = "happy",
+def draw_pixi(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: str = "happy",
                carrying: bool = False, facing: float = 0.0, beep: float = 0.0, ground: float | None = None) -> None:
-    """Pixel hovering with the bottom of its body near (x, y). s=1 is about 230 px tall.
+    """Pixi hovering with the bottom of its body near (x, y). s=1 is about 230 px tall.
 
-    beep: 0-1 flashes the antenna and widens the eyes (use while Pixel beeps or speaks).
-    ground: y of the floor for the shadow (defaults to just below Pixel).
+    beep: 0-1 flashes the antenna and widens the eyes (use while Pixi beeps or speaks).
+    ground: y of the floor for the shadow (defaults to just below Pixi).
     """
     hover = math.sin(t * 3.1) * 7
     floor = (ground if ground is not None else y + 40)
@@ -155,11 +197,11 @@ def draw_pixel(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood:
     # belly light strip
     for i, color in enumerate((C["green"], C["yellow"], C["sky"])):
         circle(ctx, -24 + i * 24, -42, 7, color)
-    _pixel_face(ctx, t, mood, beep)
+    _pixi_face(ctx, t, mood, beep)
     ctx.restore()
 
 
-def _pixel_face(ctx, t, mood, beep) -> None:
+def _pixi_face(ctx, t, mood, beep) -> None:
     eye_y = -132
     color = C["led"]
     open_amount = blink(t, seed=1.9)
@@ -256,4 +298,4 @@ def draw_grown_up(ctx: cairo.Context, x: float, y: float, s: float, t: float) ->
     ctx.restore()
 
 
-__all__ = ["draw_nova", "draw_pixel", "draw_cat", "draw_grown_up", "rounded_rect"]
+__all__ = ["draw_rose", "draw_pixi", "draw_cat", "draw_grown_up", "rounded_rect"]

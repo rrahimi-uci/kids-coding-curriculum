@@ -3,6 +3,14 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.11.0 - 2026-11-11
+
+The video characters have new names, and Rose has a new look.
+
+- The inventor is now called **Rose** and the helper robot is now called **Pixi**, in every one of the 36 videos: narration, voices, captions, transcripts, titles, the series logo ("Kids Coding with Rose and Pixi"), on-screen text and code examples. The voices, scripts and lessons are otherwise unchanged.
+- Rose has long, straight brown hair and a blue hoodie with stripes across the chest only; the lower part, the pocket and the sleeves stay plain. Rose looks the same in every video.
+- Names that are not the characters keep their names, such as the Pixel Art exercise, the Pixel Pet homework and the sample hero names in the lessons.
+
 ## 1.10.1 - 2026-11-11
 
 More natural video narration.
@@ -22,21 +30,21 @@ The teaching videos are on the website.
 
 Animated teaching videos for every week of all three levels.
 
-- 36 animated videos, one for each week of Levels 1, 2 and 3, all in the style of the Week 1 video: natural voices for the narrator, Nova and Pixel; animated characters; every idea shown on screen; music, sound effects and captions. They are made on your own computer for free with `animate`.
+- 36 animated videos, one for each week of Levels 1, 2 and 3, all in the style of the Week 1 video: natural voices for the narrator, Rose and Pixi; animated characters; every idea shown on screen; music, sound effects and captions. They are made on your own computer for free with `animate`.
 - New video scripts for Levels 2 and 3, written from the lessons, workbooks, homework, exercises and project briefs. Each was then checked line by line by a separate reviewer, and the review replaced examples that were too close to quiz, checkpoint or exercise answers.
 - Level 1 Weeks 2–12 narration was rewritten to sound natural when spoken. The facts checked in 1.7.0 are unchanged.
 - Code shown in a video runs for real on the course's Python 3.10, with the course's turtle. The Shell shows the program's true output, errors appear exactly as Thonny shows them (including "Did you mean …?" hints and full tracebacks when a lesson reads them), and turtle windows draw exactly what the code draws. Tests fail if a video's code output changes.
 - A reusable animation kit with Scratch blocks and stage, Thonny editor, turtle window, Terminal, pytest results and diagrams (variables, lists, dictionaries, flowcharts, function machines, git timelines, sorting bars, grids, feature charts, tables, class trees, stacks, queues, milestone road maps). There is a guide for writing new episodes (`videos/pipeline/animated/KIT.md`) and checks that catch a script that does not match the spec, a missing cue, code that does not fit its panel or prints something else.
 - Every video command now works per level (`--level`). New commands: `episode-check`, `contact-sheet` and `apply-narration`.
-- The series is called **Kids Coding with Nova and Pixel**. It uses the website's logo, and the website address appears in a small band at the bottom of every video that never covers the lesson.
+- The series is called **Kids Coding with Rose and Pixi**. It uses the website's logo, and the website address appears in a small band at the bottom of every video that never covers the lesson.
 
 ## 1.8.0 - 2026-11-10
 
 A fully animated, child-ready Week 1 video.
 
 - New `animate` command: makes finished animated episodes on your own computer, free, with no API key. Week 1, "Robots Need Exact Instructions", is the first (3:26).
-- Natural neural voices (Kokoro, open source) replace the robotic draft voice: a warm narrator, plus separate voices for Nova and Pixel. Each line is timed so the picture changes exactly when the words do.
-- Animated characters blink, change expression, wave, point and talk. Every idea is shown on screen: Pixel following an algorithm on a floor grid, step cards reordering, blocks snapping together, a stage-show bug hunt with the four detective steps, and a recap.
+- Natural neural voices (Kokoro, open source) replace the robotic draft voice: a warm narrator, plus separate voices for Rose and Pixi. Each line is timed so the picture changes exactly when the words do.
+- Animated characters blink, change expression, wave, point and talk. Every idea is shown on screen: Pixi following an algorithm on a floor grid, step cards reordering, blocks snapping together, a stage-show bug hunt with the four detective steps, and a recap.
 - Gentle background music and soft sound effects, made in code. The music dips under speech, and the loudness is normalized for online video.
 - The Week 1 narration was rewritten to sound natural when spoken, with a friendly opening, short sentences and a recap. Every fact checked in 1.7.0 is kept.
 - Captions come as a track in the video plus `.srt` and `.vtt` files.
@@ -49,7 +57,7 @@ Level 1 teaching videos: checked against the lessons, and ready to render.
 - Five scenes no longer give away answers children must find themselves: the week 2 pentagon (an exit-ticket answer), the week 6 relay hexagon and card-sort matches, the week 4 Apple Catch bug, and the week 8 homework loop. Each now teaches the same idea with a different example.
 - Fixed facts: Python scenes use the course's `t = turtle.Turtle()` pattern; week 7's error message is described correctly; week 10 adds `import random` and `random.choice(PALETTE)`; week 6 lists the real six big ideas, including My Blocks. Week 11 uses the project's real milestones (M1–M4); weeks 10–12 list all six project ingredients and the exit quiz.
 - Citizenship points now use each lesson's own wording: "two stars and a wish", credits comments for library art, saving files safely, "three before me", questions a program should not ask, and showcase safety (shown on screen only).
-- Scripts use the course's four detective steps and its block names. They are written for Grades 4–5 (ages 9–11), and Nova always writes the code while Pixel runs it.
+- Scripts use the course's four detective steps and its block names. They are written for Grades 4–5 (ages 9–11), and Rose always writes the code while Pixi runs it.
 - Free offline draft videos: `render --voice-provider macos-say` makes a full captioned MP4 with storyboard cards in the course font. No API key is needed.
 - Production narration moves to the Realtime API before the Speech API models shut down on January 6, 2027. A read that does not follow the script word for word is rejected.
 - Captions are timed to the measured voice, split at sentence boundaries, and also written as `.srt` and `.vtt` files. Symbols the course font lacks (→, ✓) fall back to another font. Paid pictures and narration are cached, so nothing is paid for twice.

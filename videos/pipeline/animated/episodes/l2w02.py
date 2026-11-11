@@ -1,6 +1,6 @@
 """Level 2 Week 2: Functions That Give Back (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 STICKERS = '''def stickers(sheets, loose):
     """Return how many stickers in all."""
@@ -27,21 +27,21 @@ NONE_ERROR = "TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 
 EPISODE = Episode(level=2, week=2, scenes=(
     Scene("l2-w02-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Pixel has opened a snack shop!", cue="shop", pause=0.3),
-        B("Nova built a function to count the cookies.", cue="built", pause=0.3),
-        B("‘How many cookies are in 3 boxes?’", speaker=NOVA, cue="ask", pause=0.1),
-        B("asks Nova.", cue="asks", pause=0.3),
+        B("Pixi has opened a snack shop!", cue="shop", pause=0.3),
+        B("Rose built a function to count the cookies.", cue="built", pause=0.3),
+        B("‘How many cookies are in 3 boxes?’", speaker=ROSE, cue="ask", pause=0.1),
+        B("asks Rose.", cue="asks", pause=0.3),
         B("The function shouts, ‘18!’", cue="shouts", pause=0.2),
         B("Great.", cue="great", pause=0.3),
-        B("Now Nova adds 2 more cookies…", cue="adds", pause=0.2),
+        B("Now Rose adds 2 more cookies…", cue="adds", pause=0.2),
         B("and the program crashes with a strange word: None.", cue="crash", pause=0.4),
         B("The function knew the answer.", cue="knew", pause=0.2),
         B("So why couldn't the program use it?", cue="why", pause=1.8),
         B("Let's find out!", cue="find", pause=0.6),
     ), actions=(
-        A("nova", x=240, y=960, enter="left", point="ask", moods={"crash": "surprised", "why": "thinking",
+        A("rose", x=240, y=960, enter="left", point="ask", moods={"crash": "surprised", "why": "thinking",
                                                                   "find": "happy"}, chin=("why", "find")),
-        A("pixel", x=500, y=780, s=0.8, drop=True, moods={"shop": "happy", "crash": "surprised"}, beep="shop"),
+        A("pixi", x=500, y=780, s=0.8, drop=True, moods={"shop": "happy", "crash": "surprised"}, beep="shop"),
         A("banner", "MISSION: Count the cookies", at="shop"),
         A("chip", "Snack Shop", at="shop", until="built", x=1250, y=440, color="pink", size=56),
         A("machine", "cookies_in", x=1250, y=440, at="built", items=[("asks", "3 boxes", "18")]),
@@ -73,13 +73,13 @@ EPISODE = Episode(level=2, week=2, scenes=(
         A("chip", "arguments: what you hand in", at="args", until="idea", x=440, y=700, color="yellow", size=36),
         A("chip", "parameters: labeled slots", at="params", until="idea", x=960, y=790, color="sky", size=36),
         A("chip", "return: hands it back", at="ret", until="idea", x=1480, y=700, color="green", size=36),
-        A("nova", x=380, y=1010, s=0.72, at="idea", until="only", moods={"printing": "happy"}, point="printing"),
+        A("rose", x=380, y=1010, s=0.72, at="idea", until="only", moods={"printing": "happy"}, point="printing"),
         A("chip", "print = shout it", at="printing", until="only", x=520, y=190, color="orange", size=46),
         A("bubble", "5!", x=470, y=520, at="printing@0.4", until="nobody$", size=52, tail="down"),
         A("chip", "nobody can keep it", at="nobody@0.4", until="only", x=520, y=320, color="white", size=38),
         A("badge", ok=False, at="nobody@0.6", until="only", x=820, y=320),
         A("chip", "return = hand it over", at="returning", x=1400, y=190, color="green", size=46),
-        A("pixel", x=1620, y=900, s=0.7, ground=1010, at="idea", moods={"returning": "happy", "only": "confused"}),
+        A("pixi", x=1620, y=900, s=0.7, ground=1010, at="idea", moods={"returning": "happy", "only": "confused"}),
         A("box", "variable", x=1260, y=420, w=300, at="returning@0.5", until="only",
           values=[("returning@0.5", 5)]),
         A("chip", "pocket = variable", at="pocket@0.3", until="only", x=1260, y=600, color="white", size=36),
@@ -88,8 +88,8 @@ EPISODE = Episode(level=2, week=2, scenes=(
         A("chip", "None = nothing came back", at="nothing", x=960, y=700, color="purple", size=46),
     )),
     Scene("l2-w02-s03", setting="lavender", beats=(
-        B("Pixel collects stickers: 10 on every sheet, plus some loose ones.", cue="collects", pause=0.3),
-        B("Nova defines a function called stickers, with two parameters: sheets and loose.", cue="def", pause=0.3),
+        B("Pixi collects stickers: 10 on every sheet, plus some loose ones.", cue="collects", pause=0.3),
+        B("Rose defines a function called stickers, with two parameters: sheets and loose.", cue="def", pause=0.3),
         B("Right under the def line goes a docstring, a sentence in triple quotes.", cue="doc"),
         B("It says: Return how many stickers in all.", cue="says"),
         B("It's a note for future-you and your friends.", cue="note", pause=0.3),
@@ -137,10 +137,10 @@ EPISODE = Episode(level=2, week=2, scenes=(
     )),
     Scene("l2-w02-s04", setting="mint", beats=(
         B("Back to the snack shop.", cue="back"),
-        B("Here's Nova's cookie function, with one parameter: boxes.", cue="def"),
+        B("Here's Rose's cookie function, with one parameter: boxes.", cue="def"),
         B("Inside: print boxes times 6.", cue="inside"),
         B("Then the program calls it with 3 boxes, adds 2, and stores that in total.", cue="total", pause=0.3),
-        B("Pixel runs it, exactly as written.", cue="runs", pause=0.2),
+        B("Pixi runs it, exactly as written.", cue="runs", pause=0.2),
         B("First, 18 appears on its own line.", cue="n18", pause=0.2),
         B("Then red text!", cue="red", pause=0.3),
         B("Read it from the bottom line up: TypeError, unsupported operand types for plus: NoneType and int.",
@@ -157,8 +157,8 @@ EPISODE = Episode(level=2, week=2, scenes=(
         B("The fix: change print to return.", cue="fix"),
         B("Run again.", cue="again"),
         B("No extra line, and total is 20.", cue="n20", pause=0.3),
-        B("‘20 cookies, in my hand!’", speaker=PIXEL, cue="hand", pause=0.1),
-        B("beeps Pixel.", cue="beeps", pause=0.6),
+        B("‘20 cookies, in my hand!’", speaker=PIXI, cue="hand", pause=0.1),
+        B("beeps Pixi.", cue="beeps", pause=0.6),
     ), actions=(
         A("banner", "BUG HUNT!", at="back", color="navy"),
         A("code", "", code=COOKIES_BUG, x=90, y=190, w=1000, h=620, size=36, shell_h=200, at="def", until="fix",
@@ -180,8 +180,8 @@ EPISODE = Episode(level=2, week=2, scenes=(
         A("badge", ok=False, at="cant@0.5", until="fix", x=1600, y=660),
         A("box", "total", x=1480, y=450, at="n20", values=[("n20", 20)], color="green"),
         A("badge", ok=True, at="n20+0.6", x=1700, y=450),
-        A("pixel", x=1740, y=930, s=0.55, ground=1000, moods={"red": "surprised", "n20": "happy"}, beep="hand"),
-        A("bubble", "20 cookies, in my hand!", who="pixel", x=1740, y=930, at="hand", tail="down-right"),
+        A("pixi", x=1740, y=930, s=0.55, ground=1000, moods={"red": "surprised", "n20": "happy"}, beep="hand"),
+        A("bubble", "20 cookies, in my hand!", who="pixi", x=1740, y=930, at="hand", tail="down-right"),
         A("confetti", at="n20+0.6", x=1480, y=500),
     )),
     Scene("l2-w02-s05", setting="workshop", tail=0.8, beats=(
@@ -204,8 +204,8 @@ EPISODE = Episode(level=2, week=2, scenes=(
         B("Happy building!", cue="happy", pause=0.6),
     ), actions=(
         A("door", "DOOR 2", x=1600, y=920, open="open"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("open", "remember"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("open", "remember"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "parameters = slots • arguments fill them", at="params", until="notes", x=1000, y=240,
           color="sky", size=42),
         A("chip", "Return it, don't just print it", at="ret", until="notes", x=1000, y=370, color="green", size=46),

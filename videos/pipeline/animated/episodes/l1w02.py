@@ -1,6 +1,6 @@
 """Level 1 Week 2: Loop-de-Loop (kit episode; also the worked example in KIT.md)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 MOVE = ("motion", "move [100] steps")
 TURN = ("motion", "turn ↻ [90] degrees")
@@ -9,15 +9,15 @@ EPISODE = Episode(level=1, week=2, scenes=(
     Scene("w02-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Today's door needs a square of light.", cue="door"),
-        B("Nova starts writing: move, turn, move, turn, move, turn…", cue="writing", pause=0.3),
-        B("The list gets so long, Pixel's paper rolls right across the floor!", cue="long", pause=0.3),
+        B("Rose starts writing: move, turn, move, turn, move, turn…", cue="writing", pause=0.3),
+        B("The list gets so long, Pixi's paper rolls right across the floor!", cue="long", pause=0.3),
         B("There must be a shorter way.", cue="shorter"),
-        B("What could tell Pixel to repeat the same two steps four times?", cue="question", pause=2.6),
+        B("What could tell Pixi to repeat the same two steps four times?", cue="question", pause=2.6),
     ), actions=(
         A("door", "DOOR 2", x=1560, y=900),
-        A("nova", x=300, y=960, enter="left", wave="welcome", moods={"long": "surprised", "shorter": "thinking"},
+        A("rose", x=300, y=960, enter="left", wave="welcome", moods={"long": "surprised", "shorter": "thinking"},
           chin=("shorter", "end")),
-        A("pixel", x=620, y=760, drop=True, moods={"long": "confused"}),
+        A("pixi", x=620, y=760, drop=True, moods={"long": "confused"}),
         A("banner", "MISSION: Light four sides", at="door"),
         A("scratch", blocks=[MOVE, TURN, MOVE, TURN, MOVE, TURN, MOVE, TURN], x=850, y=190, scale=0.78,
           panel=False, reveal=["writing", "writing@0.15", "writing@0.3", "writing@0.45", "writing@0.6",
@@ -85,7 +85,7 @@ EPISODE = Episode(level=1, week=2, scenes=(
     )),
     Scene("w02-s04", setting="mint", beats=(
         B("Time for a bug hunt!", cue="bug", pause=0.3),
-        B("Nova asks Pixel to draw a nine-sided shape, but the drawing leaves a gap.", cue="gap", pause=0.4),
+        B("Rose asks Pixi to draw a nine-sided shape, but the drawing leaves a gap.", cue="gap", pause=0.4),
         B("Expected: nine sides that close.", cue="expected"),
         B("What happened?", cue="happened", pause=0.2),
         B("The path stops short.", cue="short", pause=0.3),
@@ -99,7 +99,7 @@ EPISODE = Episode(level=1, week=2, scenes=(
         B("That gap was a useful clue.", cue="clue", pause=0.5),
     ), actions=(
         A("banner", "BUG HUNT!", at="bug", color="navy"),
-        A("scratch", "Nova's nine-sided shape", blocks=[("event", "when {flag} clicked"), ("pen", "pen down"),
+        A("scratch", "Rose's nine-sided shape", blocks=[("event", "when {flag} clicked"), ("pen", "pen down"),
                                                        ("control", "repeat [9]", [("motion", "move [70] steps"),
                                                                                   ("motion", "turn ↻ [30] degrees")])],
           x=200, y=300, w=760, h=520, at="gap", edits=[("fix", 4, "turn ↻ [40] degrees")],
@@ -114,7 +114,7 @@ EPISODE = Episode(level=1, week=2, scenes=(
         A("badge", ok=False, at="short", until="fix", x=1700, y=300),
         A("badge", ok=True, at="fix+3.4", x=1700, y=300),
         A("confetti", at="fix+3.4", x=1420, y=420),
-        A("nova", x=1010, y=1065, s=0.5, moods={"gap": "confused", "fix+3.4": "proud"}),
+        A("rose", x=1010, y=1065, s=0.5, moods={"gap": "confused", "fix+3.4": "proud"}),
     )),
     Scene("w02-s05", setting="workshop", tail=0.8, beats=(
         B("Door two glows!", cue="glows", pause=0.4),
@@ -131,8 +131,8 @@ EPISODE = Episode(level=1, week=2, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 2", x=1560, y=920, open="glows"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "shorter"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "shorter"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "repeat • forever • Pen", at="shorter", until="eyes", x=960, y=240, color="orange", size=46),
         A("chip", "turn = 360 ÷ sides", at="rule", until="eyes", x=960, y=380, color="green", size=46),
         A("icons", at="eyes", until="next", x=960, y=430, gap=280,

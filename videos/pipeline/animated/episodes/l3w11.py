@@ -1,6 +1,6 @@
-"""Level 3 Week 11: Project Studio 2: Test and Polish (kit episode). Bee Garden is Nova's own example."""
+"""Level 3 Week 11: Project Studio 2: Test and Polish (kit episode). Bee Garden is Rose's own example."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 BEE = '''class Bee:
     def __init__(self):
@@ -35,16 +35,16 @@ EPISODE = Episode(level=3, week=11, scenes=(
     # ------------------------------------------------------------------ s01 hook
     Scene("l3-w11-s01", setting="workshop", lead_in=0.2, beats=(
         B("Bee Garden runs!", cue="runs", pause=0.3),
-        B("Nova is ready to show everyone.", cue="ready", pause=0.3),
-        B("Then Pixel walks the bee into the corner of the garden…", cue="corner", pause=0.1),
+        B("Rose is ready to show everyone.", cue="ready", pause=0.3),
+        B("Then Pixi walks the bee into the corner of the garden…", cue="corner", pause=0.1),
         B("and the whole game crashes.", cue="crash", pause=0.4),
-        B("‘But it worked when I played it!’", speaker=NOVA, cue="worked", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘But it worked when I played it!’", speaker=ROSE, cue="worked", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("Other people press keys you'd never think of.", cue="keys", pause=0.3),
         B("How can we catch bugs like this before the showcase?", cue="how", pause=3.0),
     ), actions=(
         A("door", "DOOR 11", x=1720, y=900),
-        A("nova", x=300, y=960, enter="left", wave="runs",
+        A("rose", x=300, y=960, enter="left", wave="runs",
           moods={"crash": "surprised", "keys": "thinking"}, chin=("how", "end")),
         A("banner", "STUDIO MISSION: Catch bugs early", at="runs"),
         A("grid", x=800, y=200, cell=96, at="runs", until="how", rows=GARDEN,
@@ -52,7 +52,7 @@ EPISODE = Episode(level=3, week=11, scenes=(
           marks=[("runs", 0, 4, "P"), ("runs", 3, 0, "P"), ("runs", 1, 1, "W"), ("runs", 3, 3, "W")],
           walker=[("corner", 1, 2), ("corner@0.5", 4, 2), ("corner$", 4, 4)]),
         A("chip", "Bee Garden", at="runs", until="how", x=1040, y=720, color="white", size=36),
-        A("pixel", x=600, y=760, drop=True, moods={"crash": "surprised", "worked": "worried"}),
+        A("pixi", x=600, y=760, drop=True, moods={"crash": "surprised", "worked": "worried"}),
         A("sfx", "boing", at="crash"),
         A("chip", "red error!", at="crash", until="how", x=1040, y=820, color="red", size=44),
         A("badge", ok=False, at="crash", until="how", x=1380, y=180),
@@ -116,14 +116,14 @@ EPISODE = Episode(level=3, week=11, scenes=(
         B("Let's test a tiny Bee class.", cue="tiny", pause=0.3),
         B("A new bee has three lives.", cue="three", pause=0.3),
         B("The lose_life method takes one away, and if lives drop below zero, it sets them back to zero.", cue="lose", pause=0.4),
-        B("Nova writes two tests, and each name says what it checks.", cue="writes", pause=0.3),
+        B("Rose writes two tests, and each name says what it checks.", cue="writes", pause=0.3),
         B("Test one: a new bee starts with three lives.", cue="t1", pause=0.3),
         B("Test two is an edge case: lose five lives in a row, and lives should stop at zero.", cue="t2", pause=0.4),
         B("In Thonny's system shell, type python, dash m, pytest, dash q.", cue="shell", pause=0.3),
         B("Two dots: two passing tests!", cue="dots", pause=0.4),
         B("But is test two any good?", cue="good", pause=1.4),
         B("Break the code on purpose.", cue="breakit", pause=0.3),
-        B("Nova deletes the two lines that stop at zero, and runs again.", cue="deletes", pause=0.3),
+        B("Rose deletes the two lines that stop at zero, and runs again.", cue="deletes", pause=0.3),
         B("An F appears, with the name: lives never go below zero.", cue="f", pause=0.3),
         B("The test caught it!", cue="caught", pause=0.4),
         B("Put the lines back, green again, and commit: ‘Add tests for Bee lives.’", cue="back", pause=0.8),
@@ -163,7 +163,7 @@ EPISODE = Episode(level=3, week=11, scenes=(
     # ------------------------------------------------------------------ s04 playtest triage (bug hunt)
     Scene("l3-w11-s04", setting="mint", beats=(
         B("Playtest time!", cue="play", pause=0.3),
-        B("Pixel plays Bee Garden for three minutes, thinking out loud, while Nova stays silent and writes one "
+        B("Pixi plays Bee Garden for three minutes, thinking out loud, while Rose stays silent and writes one "
           "feedback card per thing: what happened, and what did the player expect?", cue="plays", pause=0.3),
         B("The cards say: the game crashes in the corner.", cue="c1", pause=0.3),
         B("Pollen and wasps look the same.", cue="c2", pause=0.3),
@@ -180,9 +180,9 @@ EPISODE = Episode(level=3, week=11, scenes=(
         B("Commit: ‘Fix crash when the bee walks into the corner.’", cue="commit", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! Playtest triage", at="play", color="navy"),
-        A("pixel", x=320, y=760, s=0.8, at="play", until="triage", moods={"plays": "thinking", "c1": "surprised"}),
+        A("pixi", x=320, y=760, s=0.8, at="play", until="triage", moods={"plays": "thinking", "c1": "surprised"}),
         A("bubble", "Hmm, where do I go?", at="plays@0.1", until="plays@0.45", x=360, y=520, size=32),
-        A("nova", x=1640, y=980, s=0.75, at="play", until="triage", moods={"plays": "thinking"}),
+        A("rose", x=1640, y=980, s=0.75, at="play", until="triage", moods={"plays": "thinking"}),
         A("chip", "silent • taking notes", at="plays@0.4", until="triage", x=1640, y=540, color="white", size=32),
         A("panel", "Feedback card", x=620, y=200, w=760, at="plays@0.5", until="triage", size=32,
           items=[("plays@0.75", "What happened?"), ("plays@0.88", "What did the player expect?")]),
@@ -230,8 +230,8 @@ EPISODE = Episode(level=3, week=11, scenes=(
         B("Then Milestone 4: your README and one accessibility fix.", cue="m4", pause=0.6),
     ), actions=(
         A("door", "DOOR 11", x=1720, y=920, open="up"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "recap"), ("m4@0.7", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "recap"), ("m4@0.7", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("cards", at="recap", until="check", x=700, y=230, w=820, gap=110, size=36,
           items=["Tests = crash-test dummies", "Edge cases hide in corners", "Triage: most important first"],
           reveal=["recap", "recap@0.35", "recap@0.7"]),

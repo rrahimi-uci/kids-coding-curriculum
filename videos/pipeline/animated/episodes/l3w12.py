@@ -1,10 +1,10 @@
-"""Level 3 Week 12: Showcase and Graduation (kit episode). Bee Garden is Nova's own example."""
+"""Level 3 Week 12: Showcase and Graduation (kit episode). Bee Garden is Rose's own example."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 GARDEN = ["....P", ".W...", "..#..", "P..W.", "....."]
 
-# Nova's Bee Garden history: short, verb-first commit messages (newest last here; git log shows newest first)
+# Rose's Bee Garden history: short, verb-first commit messages (newest last here; git log shows newest first)
 LOG = ["9e1f2a7 (HEAD -> master) Add README and credits", "6b3c8d0 Fix crash in the corner",
        "4a7e2f9 Add tests for Bee lives", "2d5b1c4 Add Critter class for Bee and Wasp",
        "8c0a9e3 Add pollen and scoring", "3f9a2c1 Add empty Garden and Bee classes"]
@@ -16,21 +16,21 @@ EPISODE = Episode(level=3, week=12, scenes=(
     Scene("l3-w12-s01", setting="workshop", lead_in=0.2, beats=(
         B("The whole Kids Coding workshop has turned into a gallery, and every station runs a project someone built.",
           cue="gallery", pause=0.3),
-        B("Nova has two minutes to present Bee Garden.", cue="two", pause=0.3),
-        B("‘I'll show all forty features!’", speaker=NOVA, cue="forty", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
-        B("Pixel's timer beeps.", cue="beeps", pause=0.3),
+        B("Rose has two minutes to present Bee Garden.", cue="two", pause=0.3),
+        B("‘I'll show all forty features!’", speaker=ROSE, cue="forty", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
+        B("Pixi's timer beeps.", cue="beeps", pause=0.3),
         B("Hmm.", cue="hmm", pause=0.2),
         B("In two minutes, what's the most interesting thing you could tell people about your project?", cue="what",
           pause=3.0),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="gallery",
+        A("rose", x=300, y=960, enter="left", wave="gallery",
           moods={"forty": "proud", "hmm": "thinking"}, chin=("what", "end")),
-        A("pixel", x=600, y=760, drop=True, beep=("beeps", "hmm"), moods={"beeps": "surprised", "what": "happy"}),
+        A("pixi", x=600, y=760, drop=True, beep=("beeps", "hmm"), moods={"beeps": "surprised", "what": "happy"}),
         A("banner", "FINAL MISSION: Tell the why", at="gallery"),
         A("icons", at="gallery", until="two", x=1180, y=420, gap=300,
-          items=[("laptop", "StarOwl", "gallery@0.4"), ("laptop", "PixelFox", "gallery@0.55"),
-                 ("laptop", "NovaCodes", "gallery@0.7")]),
+          items=[("laptop", "StarOwl", "gallery@0.4"), ("laptop", "PixiFox", "gallery@0.55"),
+                 ("laptop", "RoseCodes", "gallery@0.7")]),
         A("chip", "nicknames only", at="gallery@0.8", until="two", x=1180, y=640, color="white", size=34),
         A("icons", at="two", until="hmm", x=1500, y=360, items=[("clock", "2:00")]),
         A("panel", "Bee Garden: 40 features!", x=760, y=200, w=560, at="forty", until="what", size=30,
@@ -76,27 +76,27 @@ EPISODE = Episode(level=3, week=12, scenes=(
         A("chip", "which algorithm", at="great@0.6", x=1420, y=540, color="green", size=40),
         A("chip", "a test that caught a bug", at="great@0.8", x=1420, y=660, color="pink", size=40),
     )),
-    # ------------------------------------------------------------------ s03 Nova's model talk
+    # ------------------------------------------------------------------ s03 Rose's model talk
     Scene("l3-w12-s03", setting="lavender", beats=(
-        B("Let's hear Nova's talk.", cue="hear", pause=0.3),
-        B("‘This is Bee Garden. You collect all the pollen without bumping into a wasp.’", speaker=NOVA, cue="intro",
+        B("Let's hear Rose's talk.", cue="hear", pause=0.3),
+        B("‘This is Bee Garden. You collect all the pollen without bumping into a wasp.’", speaker=ROSE, cue="intro",
           pause=0.3),
-        B("Nova plays for twenty seconds.", cue="plays", pause=0.6),
+        B("Rose plays for twenty seconds.", cue="plays", pause=0.6),
         B("‘Problem: my bee and my wasps needed the same position and moving code, and I was copying it twice.",
-          speaker=NOVA, cue="problem", pause=0.3),
-        B("Choice: I made a Critter class, and Bee and Wasp are each a Critter.", speaker=NOVA, cue="choice",
+          speaker=ROSE, cue="problem", pause=0.3),
+        B("Choice: I made a Critter class, and Bee and Wasp are each a Critter.", speaker=ROSE, cue="choice",
           pause=0.3),
-        B("Why: inheritance keeps the shared code in one place, so a fix happens once.", speaker=NOVA, cue="whyb",
+        B("Why: inheritance keeps the shared code in one place, so a fix happens once.", speaker=ROSE, cue="whyb",
           pause=0.3),
-        B("Another way was copy and paste, but then every bug needs fixing twice.", speaker=NOVA, cue="another",
+        B("Another way was copy and paste, but then every bug needs fixing twice.", speaker=ROSE, cue="another",
           pause=0.3),
-        B("A test caught a real bug, too: lives dropping below zero.", speaker=NOVA, cue="caught", pause=0.3),
-        B("Next time, I'd add a second level loaded from a file.’", speaker=NOVA, cue="nexttime", pause=0.4),
-        B("Then Nova shows git log, and the save points tell the story, step by step.", cue="gitlog", pause=0.3),
-        B("‘Any questions?’", speaker=NOVA, cue="questions", pause=0.8),
+        B("A test caught a real bug, too: lives dropping below zero.", speaker=ROSE, cue="caught", pause=0.3),
+        B("Next time, I'd add a second level loaded from a file.’", speaker=ROSE, cue="nexttime", pause=0.4),
+        B("Then Rose shows git log, and the save points tell the story, step by step.", cue="gitlog", pause=0.3),
+        B("‘Any questions?’", speaker=ROSE, cue="questions", pause=0.8),
     ), actions=(
         A("chip", "Problem • Choice • Why • Next time", at="hear", x=960, y=110, color="orange", size=44),
-        A("nova", x=1760, y=1000, s=0.55, moods={"intro": "happy", "nexttime": "proud"}, point="plays"),
+        A("rose", x=1760, y=1000, s=0.55, moods={"intro": "happy", "nexttime": "proud"}, point="plays"),
         A("grid", x=880, y=230, cell=96, at="intro", until="problem", rows=GARDEN,
           marks=[("intro", 0, 4, "P"), ("intro", 3, 0, "P"), ("intro", 1, 1, "W"), ("intro", 3, 3, "W")],
           walker=[("intro", 0, 0), ("plays", 2, 0), ("plays@0.6", 4, 0), ("plays$", 4, 1)]),
@@ -149,8 +149,8 @@ EPISODE = Episode(level=3, week=12, scenes=(
     ), actions=(
         A("banner", "GALLERY WALK", at="walk", color="green", until="talks-0.3"),
         A("icons", at="visit", until="card", x=960, y=420, gap=340,
-          items=[("laptop", "StarOwl", "visit"), ("laptop", "PixelFox", "visit@0.3"),
-                 ("laptop", "NovaCodes", "visit@0.6")]),
+          items=[("laptop", "StarOwl", "visit"), ("laptop", "PixiFox", "visit@0.3"),
+                 ("laptop", "RoseCodes", "visit@0.6")]),
         A("panel", "Feedback card (face down)", x=160, y=220, w=860, at="card", until="talks", size=34,
           items=[("card@0.2", "★ Star: something specific you liked"), ("card@0.65", "Wish: a specific idea")]),
         A("chip", "Star + wish: kind, specific, useful", at="good", until="talks", x=590, y=560, color="orange",
@@ -198,8 +198,8 @@ EPISODE = Episode(level=3, week=12, scenes=(
         B("Happy coding, graduate!", cue="happy", pause=0.6),
     ), actions=(
         A("door", "LEVEL 3", x=1720, y=920, open="complete"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "saved"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "saved"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("confetti", at="complete", x=960, y=400),
         A("sfx", "sparkle", at="complete"),
         A("timeline", x=760, y=500, w=860, at="saved", until="keep", head=False,

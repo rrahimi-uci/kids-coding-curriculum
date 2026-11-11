@@ -1,7 +1,7 @@
 """Voices, music, sound effects and the final mix for animated episodes.
 
 - Voices: Kokoro-82M (Apache-2.0), an open neural text-to-speech model that runs locally and
-  free. Each character has its own voice; Pixel gets a light robot effect.
+  free. Each character has its own voice; Pixi gets a light robot effect.
 - Music and sound effects are synthesized here from simple waveforms, so there is nothing to
   license and every render sounds the same.
 - The music is ducked under the voices and the final mix is loudness-normalized when muxed.
@@ -17,7 +17,7 @@ import urllib.request
 import numpy as np
 
 from .speech import LEXICON, spoken_form  # noqa: F401  (re-exported for callers)
-from .timeline import NARRATOR, NOVA, PIXEL
+from .timeline import NARRATOR, ROSE, PIXI
 
 SR = 48_000
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -32,8 +32,8 @@ MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model
 # Voice casting: a warm, clear narrator; an energetic young inventor; a friendly robot.
 VOICES = {
     NARRATOR: {"voice": "af_heart", "speed": 0.94},
-    NOVA: {"voice": "af_bella", "speed": 1.02},
-    PIXEL: {"voice": "am_puck", "speed": 1.06, "robot": True},
+    ROSE: {"voice": "af_bella", "speed": 1.02},
+    PIXI: {"voice": "am_puck", "speed": 1.06, "robot": True},
 }
 
 # --------------------------------------------------------------------------- model files

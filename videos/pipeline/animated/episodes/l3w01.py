@@ -1,6 +1,6 @@
 """Level 3 Week 1: Save Points with Git (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 ROCKET = '''speed = 0
 print("Rocket ready!")
@@ -12,20 +12,20 @@ print("Speed:", speed)
 EPISODE = Episode(level=3, week=1, scenes=(
     Scene("l3-w01-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome to Level 3!", cue="welcome", pause=0.3),
-        B("Nova is building a rocket game, and it finally works.", cue="rocket", pause=0.3),
-        B("‘Let's add a giant laser!’", speaker=NOVA, cue="laser", pause=0.1),
-        B("says Nova.", cue="says", pause=0.2),
-        B("Pixel runs it, exactly as written…", cue="runs", pause=0.2),
+        B("Rose is building a rocket game, and it finally works.", cue="rocket", pause=0.3),
+        B("‘Let's add a giant laser!’", speaker=ROSE, cue="laser", pause=0.1),
+        B("says Rose.", cue="says", pause=0.2),
+        B("Pixi runs it, exactly as written…", cue="runs", pause=0.2),
         B("and the whole game crashes.", cue="crash", pause=0.3),
         B("Uh-oh.", cue="uhoh", pause=0.3),
-        B("Nova wants the working game back, but it's gone.", cue="gone", pause=0.3),
+        B("Rose wants the working game back, but it's gone.", cue="gone", pause=0.3),
         B("In a video game, you'd just load a save point.", cue="save", pause=0.3),
         B("Can code have save points too?", cue="question", pause=3.0),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="welcome",
+        A("rose", x=300, y=960, enter="left", wave="welcome",
           moods={"rocket": "happy", "crash": "surprised", "gone": "worried", "save": "thinking"},
           look={"gone": -1, "gone@0.5": 1, "save": 0}, chin=("question", "end")),
-        A("pixel", x=620, y=760, drop=True, moods={"crash": "confused", "save": "thinking"},
+        A("pixi", x=620, y=760, drop=True, moods={"crash": "confused", "save": "thinking"},
           beep=("runs", "runs$")),
         A("banner", "MISSION: Give code save points", at="rocket"),
         A("code", code=ROCKET, title="rocket.py", x=860, y=190, w=960, h=650, at="rocket", run="rocket@0.5",
@@ -76,17 +76,17 @@ EPISODE = Episode(level=3, week=1, scenes=(
         A("thought", "", at="point+0.3", until="end", x=1660, y=700),
     )),
     Scene("l3-w01-s03", setting="lavender", beats=(
-        B("Let's make Nova's first save point in Terminal.", cue="intro", pause=0.3),
+        B("Let's make Rose's first save point in Terminal.", cue="intro", pause=0.3),
         B("Terminal is a chat window with the computer: you type a command, press Return, and it answers.",
           cue="chat", pause=0.4),
-        B("Nova makes a git-quest folder in Documents and goes inside with cd.", cue="folder", pause=0.4),
+        B("Rose makes a git-quest folder in Documents and goes inside with cd.", cue="folder", pause=0.4),
         B("Important: git writes your name into every save point, forever.", cue="forever", pause=0.3),
-        B("So Nova uses git config --global user.name to set a nickname: StarOwl.", cue="config",
+        B("So Rose uses git config --global user.name to set a nickname: StarOwl.", cue="config",
           pause=0.2),
-        B("‘Never my real name,’", speaker=NOVA, cue="never", pause=0.1),
-        B("says Nova.", cue="says", pause=0.2),
+        B("‘Never my real name,’", speaker=ROSE, cue="never", pause=0.1),
+        B("says Rose.", cue="says", pause=0.2),
         B("The email is pretend too: it ends in example.com.", cue="email", pause=0.3),
-        B("Nova checks with git config user.name, and it answers StarOwl.", cue="check", pause=0.4),
+        B("Rose checks with git config user.name, and it answers StarOwl.", cue="check", pause=0.4),
         B("Then git init starts the save system.", cue="init", pause=0.3),
         B("git add rocket.py calls the file into the photo,", cue="add", pause=0.2),
         B("and git commit snaps it, with the message ‘Add rocket drawing’.", cue="commit", pause=0.4),
@@ -112,20 +112,20 @@ EPISODE = Episode(level=3, week=1, scenes=(
         A("timeline", at="log@0.6", x=1560, y=330, w=200, commits=[("log@0.6", "Add rocket drawing")]),
         A("chip", "Your id will be different!", at="different", x=680, y=700, color="yellow"),
         A("chip", "(master may say main)", at="different@0.5", x=680, y=810, color="white", size=34),
-        A("nova", x=1500, y=990, s=0.68, moods={"start": "happy", "never": "proud", "log": "proud"},
+        A("rose", x=1500, y=990, s=0.68, moods={"start": "happy", "never": "proud", "log": "proud"},
           point=("log@0.6", "end")),
-        A("pixel", x=1760, y=850, s=0.5, ground=990, moods={"log": "proud"}, beep=("commit@0.8", "commit$")),
+        A("pixi", x=1760, y=850, s=0.5, ground=990, moods={"log": "proud"}, beep=("commit@0.8", "commit$")),
         A("bubble", "Never my real name!", at="never", until="email", x=1540, y=640, tail="down", size=36),
     )),
     Scene("l3-w01-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova adds a smoke trail to the rocket and wants to save.", cue="smoke", pause=0.3),
-        B("Nova types git add rocket.py, then git add diary.txt, and is about to commit with the message "
+        B("Rose adds a smoke trail to the rocket and wants to save.", cue="smoke", pause=0.3),
+        B("Rose types git add rocket.py, then git add diary.txt, and is about to commit with the message "
           "‘things’.", cue="types", pause=0.3),
         B("Wait!", cue="wait", pause=0.2),
         B("First, let's check git status.", cue="status", pause=0.3),
         B("It lists the changes to be committed: diary.txt and rocket.py.", cue="changes", pause=0.3),
-        B("Nova's diary has a real name and an address in it.", cue="diary", pause=0.2),
+        B("Rose's diary has a real name and an address in it.", cue="diary", pause=0.2),
         B("That's the wrong file!", cue="wrong", pause=0.3),
         B("And does ‘things’ say what changed?", cue="things", pause=3.2),
         B("Let's be detectives: read the clue, find the line, guess, and test one change.", cue="detectives",
@@ -163,7 +163,7 @@ EPISODE = Episode(level=3, week=1, scenes=(
         A("chip", "Say WHAT changed in the message", at="fix2@0.4", x=600, y=940, color="green"),
         A("badge", ok=True, at="again$", x=1770, y=360),
         A("confetti", at="nice", x=1520, y=420),
-        A("nova", x=1100, y=1060, s=0.5, moods={"smoke": "happy", "diary": "worried", "things": "thinking",
+        A("rose", x=1100, y=1060, s=0.5, moods={"smoke": "happy", "diary": "worried", "things": "thinking",
                                                 "nice": "proud"}),
     )),
     Scene("l3-w01-s05", setting="workshop", tail=0.8, beats=(
@@ -184,8 +184,8 @@ EPISODE = Episode(level=3, week=1, scenes=(
         B("Can you get three commits with helpful messages?", cue="goal", pause=0.8),
     ), actions=(
         A("door", "DOOR 1", x=1660, y=920, open="unlocked"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("goal", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("goal", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "commit = save point + message + id", at="commit", until="public", x=960, y=230, color="green"),
         A("chip", "add → commit → log", at="add", until="public", x=960, y=350, color="orange", size=46),
         A("icons", at="add", until="public", x=1040, y=560, gap=240,

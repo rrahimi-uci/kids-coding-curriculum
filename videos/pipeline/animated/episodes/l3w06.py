@@ -1,6 +1,6 @@
 """Level 3 Week 6: Slow-Motion Debugging (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 FAST = '''total = 0
 for n in range(1, 9):
@@ -42,18 +42,18 @@ TOOLBAR = ["Run", "Debug", "Step over", "Step into", "Resume", "Stop"]
 EPISODE = Episode(level=3, week=6, scenes=(
     Scene("l3-w06-s01", setting="workshop", lead_in=0.2, beats=(
         B("Checkpoint week!", cue="checkpoint", pause=0.3),
-        B("Nova and Pixel look back at their quest map: save points, blueprints, families, searching and sorting.",
+        B("Rose and Pixi look back at their quest map: save points, blueprints, families, searching and sorting.",
           cue="map", pause=0.3),
-        B("But today, Nova's code does something strange, and it happens too fast to see.", cue="strange",
+        B("But today, Rose's code does something strange, and it happens too fast to see.", cue="strange",
           pause=0.3),
-        B("‘I wish I could slow it down,’", speaker=NOVA, cue="wish", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘I wish I could slow it down,’", speaker=ROSE, cue="wish", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("What if you could watch your code think, one line at a time?", cue="question", pause=3.0),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave=("checkpoint", "map"),
+        A("rose", x=300, y=960, enter="left", wave=("checkpoint", "map"),
           moods={"map": "proud", "strange": "surprised", "wish": "worried", "question": "thinking"},
           chin=("question", "end")),
-        A("pixel", x=620, y=760, drop=True, moods={"map": "proud", "strange": "confused"}),
+        A("pixi", x=620, y=760, drop=True, moods={"map": "proud", "strange": "confused"}),
         A("banner", "MISSION: Watch the code think", at="checkpoint"),
         A("roadmap", at="map", until="strange", x=880, y=480, w=900,
           items=["Git", "Classes", "Families", "Search", "Sort", "Debug"],
@@ -108,13 +108,13 @@ EPISODE = Episode(level=3, week=6, scenes=(
     Scene("l3-w06-s03", setting="lavender", beats=(
         B("Let's try it on a tiny Robot class.", cue="tiny", pause=0.2),
         B("Its setup gives every robot a battery of fifty, and charge adds some power.", cue="setup", pause=0.3),
-        B("At the bottom, Nova makes a robot named bolt and calls its charge method with twenty-five.", cue="bottom", pause=0.3),
-        B("Nova clicks Debug, and the first line lights up.", cue="debug", pause=0.3),
+        B("At the bottom, Rose makes a robot named bolt and calls its charge method with twenty-five.", cue="bottom", pause=0.3),
+        B("Rose clicks Debug, and the first line lights up.", cue="debug", pause=0.3),
         B("Step over, step over…", cue="steps", pause=0.3),
         B("In the Variables view, bolt appears.", cue="vars", pause=0.2),
         B("Click it, and the Object inspector shows its attributes: battery is fifty.", cue="inspect", pause=0.3),
         B("Now the highlighted line calls charge, one of our own methods.", cue="calls", pause=0.2),
-        B("So Nova clicks Step into.", cue="into", pause=0.3),
+        B("So Rose clicks Step into.", cue="into", pause=0.3),
         B("A small window opens.", cue="window", pause=0.2),
         B("That's normal: it shows the method's own variables, like power, which is twenty-five.", cue="normal",
           pause=0.3),
@@ -141,19 +141,19 @@ EPISODE = Episode(level=3, week=6, scenes=(
           states=[("window", [("self", "bolt"), ("power", 25)])], highlight=[("normal@0.6", "once", "power")]),
         A("chip", "power 25 → battery 75", at="once@0.6", until="print", x=1460, y=830, color="orange", size=40),
         A("chip", "Shell: 75", at="print@0.6", x=1460, y=830, color="green", size=44),
-        A("pixel", at="tiny", x=1790, y=170, s=0.35, ground=225, moods={"watched": "proud"},
+        A("pixi", at="tiny", x=1790, y=170, s=0.35, ground=225, moods={"watched": "proud"},
           beep=[("steps", "steps$"), ("once", "once$")]),
         A("badge", ok=True, at="watched", x=1460, y=950),
     )),
     Scene("l3-w06-s04", setting="mint", beats=(
         B("Bug-hunt workshop!", cue="bug", pause=0.3),
-        B("Nova wants to add up coins: 3, 4 and 5 should make 12.", cue="coins", pause=0.3),
+        B("Rose wants to add up coins: 3, 4 and 5 should make 12.", cue="coins", pause=0.3),
         B("But the program prints 5.", cue="prints", pause=0.4),
         B("There's no red error this time, so let's use the bug-hunting loop.", cue="loop", pause=0.3),
         B("One, read: we expected 12, but got 5.", cue="read", pause=0.3),
         B("Two, predict:", cue="predict", pause=0.2),
-        B("‘I think the total line is wrong,’", speaker=NOVA, cue="think", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘I think the total line is wrong,’", speaker=ROSE, cue="think", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("Three, watch: click Debug and step over.", cue="watch", pause=0.2),
         B("Total becomes 3, then jumps back to zero, then 4.", cue="total", pause=0.2),
         B("Then zero again!", cue="zero", pause=3.0),
@@ -194,7 +194,7 @@ EPISODE = Episode(level=3, week=6, scenes=(
         A("badge", ok=True, at="twelve", x=840, y=700),
         A("chip", "Still failing? Go around again", at="again", until="nice", x=1410, y=870, color="yellow", size=36),
         A("confetti", at="nice", x=1410, y=500),
-        A("nova", x=1800, y=1060, s=0.42, moods={"prints": "confused", "think": "thinking", "aha": "surprised",
+        A("rose", x=1800, y=1060, s=0.42, moods={"prints": "confused", "think": "thinking", "aha": "surprised",
                                                  "twelve": "proud"}),
     )),
     Scene("l3-w06-s05", setting="workshop", tail=0.8, beats=(
@@ -214,9 +214,9 @@ EPISODE = Episode(level=3, week=6, scenes=(
         B("Happy hunting!", cue="happy", pause=0.6),
     ), actions=(
         A("door", "DOOR 6", x=1660, y=920, open="reached"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "replay"), ("learn", "learn$"), ("happy", "end")],
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "replay"), ("learn", "learn$"), ("happy", "end")],
           moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud", "learn": "happy"},
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud", "learn": "happy"},
           beep=("learn", "learn$")),
         A("chip", "debugger = slow-motion replay", at="replay", until="secret", x=1000, y=240, color="orange",
           size=44),

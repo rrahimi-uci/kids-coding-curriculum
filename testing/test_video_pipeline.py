@@ -334,8 +334,8 @@ def test_python_shown_in_videos_runs_with_the_course_turtle() -> None:
 def test_voice_reads_code_like_a_teacher_while_captions_keep_it_written() -> None:
     from videos.pipeline.animated.speech import spoken_form
 
-    assert spoken_form("Nova saves self.height in stickers.txt and rocket.py.") == (
-        "Nova saves self dot height in stickers dot T X T and rocket dot pie.")
+    assert spoken_form("Rose saves self.height in stickers.txt and rocket.py.") == (
+        "Rose saves self dot height in stickers dot T X T and rocket dot pie.")
     assert spoken_form("__init__ and git config --global user.name") == (
         "dunder init and git config dash dash global user dot name")
     assert spoken_form("my_shape and flag_drawing.py") == "my underscore shape and flag underscore drawing dot pie"
