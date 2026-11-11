@@ -15,11 +15,11 @@ def render_plan(series: Series) -> str:
     direction = series.creative_direction
     longest = max(video.duration_seconds for video in series.videos)
     lines = [
-        "# Level 1 Teaching Video Production Plan",
+        f"# Level {series.level} Teaching Video Production Plan",
         "",
-        "> **Status:** Reviewed scripts and an automated regeneration contract for all 12 Level 1 lessons.",
+        f"> **Status:** Reviewed scripts and an automated regeneration contract for all 12 Level {series.level} lessons.",
         f"> Audience: {series.audience}. Every episode is at most {clock(longest)} long (the limit is 5:00).",
-        "> This file is generated from `videos/specs/level1.json`; edit the JSON, then run `python -m videos.pipeline.cli plan`.",
+        f"> This file is generated from `videos/specs/level{series.level}.json`; edit the JSON, then run `python -m videos.pipeline.cli plan --level {series.level}`.",
         "",
         "## 1. Instructional and creative direction",
         "",
@@ -54,12 +54,7 @@ def render_plan(series: Series) -> str:
         "",
         "## 2. Curriculum audit summary",
         "",
-        "The source review covered the Level 1 syllabus, teacher guide, all 12 lesson plans, workbook and homework chapters, every exercise brief and starter, and the final project materials. The sequence moves from Scratch (weeks 1–6) to Python and Thonny (weeks 7–12), while repeatedly connecting algorithms, events, loops, choices, variables, decomposition, testing, and reflection.",
-        "",
-        "The videos preserve the course's strongest teaching choices: concrete analogies before vocabulary; one-change-at-a-time debugging; Grade 4–5 mathematics; visible, testable outcomes; creativity alongside correctness; safe sharing; and a final interactive art project. Each script below names the misconception it prevents and points learners back to the exact lesson activity.",
-        "",
-        "In November 2026 every script was checked line by line against its week's lesson plan, workbook, homework and exercises. That review fixed handoffs that named the wrong exercise or task, three citizenship points that did not use the lesson's wording, Python code that did not match the course starters, invented project milestones, and five bug hunts or examples that gave away exercise or exit-ticket answers.",
-        "",
+        *[part for note in series.plan_notes for part in (note, "")],
         "## 3. Episode scripts and storyboards",
         "",
     ]
@@ -116,7 +111,7 @@ def render_plan(series: Series) -> str:
             "### Architecture",
             "",
             "```text",
-            "Level 1 sources ──> SHA-256 change detector ──> curriculum analyst agent",
+            f"Level {series.level} sources ──> SHA-256 change detector ──> curriculum analyst agent",
             "(answers and tests excluded)                        │",
             "                                                    v",
             "tracked plan/spec <── deterministic gates <──> scriptwriter agent",

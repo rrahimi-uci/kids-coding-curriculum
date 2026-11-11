@@ -255,12 +255,12 @@ def test_agent_drafts_keep_week_and_slug_stable(series) -> None:
 
 # --------------------------------------------------------------------------- animated episodes
 def test_animated_beats_say_exactly_the_spec_narration() -> None:
-    from videos.pipeline.animated.render import available_weeks
     from videos.pipeline.animated.timeline import check_against_spec
 
     spec = json.loads(SPEC.read_text(encoding="utf-8"))
-    assert 1 in available_weeks()
-    for week in available_weeks():
+    hand_made = sorted(int(p.stem[4:6]) for p in (ROOT / "videos/pipeline/animated/episodes").glob("week[0-9][0-9]_script.py"))
+    assert 1 in hand_made
+    for week in hand_made:
         script = __import__(f"videos.pipeline.animated.episodes.week{week:02d}_script", fromlist=["SCRIPTS"])
         video = next(v for v in spec["videos"] if v["week"] == week)
         assert check_against_spec(script.SCRIPTS, video) == []
@@ -291,3 +291,40 @@ def test_synthesized_music_and_effects_are_clean() -> None:
         assert len(sound) > 0 and np.isfinite(sound).all(), name
     stereo = audio.mix(6.0, [(1.0, np.sin(np.linspace(0, 2000, audio.SR)) * 0.5)], [(0.5, "pop")], 1.0, 5.0)
     assert stereo.shape[1] == 2 and np.abs(stereo).max() <= 1.0
+
+
+# --------------------------------------------------------------------------- all levels and kit episodes
+def _spec_levels():
+    return [level for level in (1, 2, 3) if (ROOT / "videos" / "specs" / f"level{level}.json").is_file()]
+
+
+@pytest.mark.parametrize("level", _spec_levels())
+def test_every_level_spec_is_valid_synced_and_current(level) -> None:
+    spec = ROOT / "videos" / "specs" / f"level{level}.json"
+    series = load_series(spec)
+    assert series.level == level
+    assert validate_series(series, ROOT, level) == []
+    assert (ROOT / "videos" / f"video-plan-level{level}.md").read_text(encoding="utf-8") == render_plan(series)
+    assert stale_weeks(ROOT, ROOT / "videos" / f"manifest-level{level}.json") == []
+
+
+def _kit_episodes():
+    from videos.pipeline.animated.episode_check import kit_episodes
+
+    return kit_episodes()
+
+
+@pytest.mark.parametrize("level_week", _kit_episodes(), ids=lambda lw: f"l{lw[0]}w{lw[1]:02d}")
+def test_kit_episode_matches_spec_and_shows_real_code_output(level_week) -> None:
+    from videos.pipeline.animated.episode_check import check_episode
+
+    assert check_episode(*level_week) == []
+
+
+def test_python_shown_in_videos_runs_with_the_course_turtle() -> None:
+    from videos.pipeline.animated import pyrun
+
+    result = pyrun.run("import turtle\nt = turtle.Turtle()\nfor i in range(3):\n    t.forward(50)\n    t.left(120)\n")
+    assert [item[0] for item in result["draw"]] == ["line"] * 3 and result["error"] == ""
+    shell = pyrun.shell_lines(pyrun.run('n = input("How many? ")\nprint(n + 1)', inputs=("4",)))
+    assert shell == ["How many? 4", 'TypeError: can only concatenate str (not "int") to str']

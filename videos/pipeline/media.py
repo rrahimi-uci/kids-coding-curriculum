@@ -191,7 +191,7 @@ def _draw_footer(draw, note: str | None, box_fill=None) -> None:
 
 
 def _header(video: Video, index: int, total: int) -> str:
-    return f"CODE QUEST  •  WEEK {video.week}  •  SCENE {index} OF {total}"
+    return f"KIDS CODING  •  WEEK {video.week}  •  SCENE {index} OF {total}"
 
 
 def render_scene_card(
@@ -540,9 +540,9 @@ def _ffmpeg(args: list[str]) -> None:
         raise RuntimeError("ffmpeg failed: " + result.stderr.strip()[-600:])
 
 
-def output_name(video: Video, voice_provider: str) -> str:
+def output_name(video: Video, voice_provider: str, level: int = 1) -> str:
     draft = "" if VOICE_PROVIDERS[voice_provider].paid else "-draft"
-    return f"level1-week{video.week:02d}-{video.slug}{draft}"
+    return f"level{level}-week{video.week:02d}-{video.slug}{draft}"
 
 
 def render_video(
@@ -550,6 +550,7 @@ def render_video(
     output_dir: Path,
     visual_provider: str = "cards",
     voice_provider: str = "openai-realtime",
+    level: int = 1,
 ) -> Path:
     """Render one episode to MP4 with a caption track and sidecar .srt/.vtt files."""
     if visual_provider not in VISUAL_PROVIDERS:
@@ -558,7 +559,7 @@ def render_video(
         raise ValueError(f"unknown voice provider: {voice_provider}")
     require_ffmpeg()
     voice = VOICE_PROVIDERS[voice_provider]
-    work = output_dir / ".work" / output_name(video, voice_provider)
+    work = output_dir / ".work" / output_name(video, voice_provider, level)
     work.mkdir(parents=True, exist_ok=True)
     concat_lines: list[str] = []
     speech_seconds: list[float] = []
@@ -600,7 +601,7 @@ def render_video(
 
     concat_file = work / "concat.txt"
     concat_file.write_text("\n".join(concat_lines) + "\n", encoding="utf-8")
-    stem = output_name(video, voice_provider)
+    stem = output_name(video, voice_provider, level)
     captions = output_dir / f"{stem}.srt"
     write_captions(video, captions, speech_seconds)
     write_webvtt(video, output_dir / f"{stem}.vtt", speech_seconds)
@@ -609,7 +610,7 @@ def render_video(
         "-f", "concat", "-safe", "0", "-i", str(concat_file), "-i", str(captions),
         "-map", "0:v", "-map", "0:a", "-map", "1:0",
         "-c:v", "copy", "-c:a", "copy", "-c:s", "mov_text",
-        "-metadata", f"title=Code Quest Week {video.week}: {video.title}",
+        "-metadata", f"title=Kids Coding with Nova and Pixel – Level {level} Week {video.week}: {video.title}",
         "-metadata", f"comment={voice.disclosure}",
         "-metadata:s:s:0", "language=eng", "-movflags", "+faststart",
         str(destination),

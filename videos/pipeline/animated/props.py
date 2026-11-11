@@ -137,7 +137,7 @@ def chip(ctx, x, y, label, t, start, color=C["sky_light"], ink=C["navy"], size=4
     ctx.save()
     cx = x if anchor == "center" else x + w / 2
     ctx.translate(cx, y)
-    ctx.scale(amount, amount)
+    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
     fill_rounded(ctx, -w / 2 + 4, -h / 2 + 6, w, h, h / 2, "#000000", 0.10)
     fill_rounded(ctx, -w / 2, -h / 2, w, h, h / 2, color)
     text(ctx, label, 0, 0, size, ink, bold=True)
@@ -153,7 +153,7 @@ def title_banner(ctx, label, t, start, y=96, size=56, color=C["navy"]) -> None:
     w, h = tw + 90, th + 34
     ctx.save()
     ctx.translate(W / 2, y)
-    ctx.scale(amount, amount)
+    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
     fill_rounded(ctx, -w / 2 + 6, -h / 2 + 8, w, h, 26, "#000000", 0.12)
     fill_rounded(ctx, -w / 2, -h / 2, w, h, 26, color)
     text(ctx, label, 0, 0, size, C["white"], bold=True)
@@ -174,7 +174,7 @@ def speech_bubble(ctx, x, y, label, t, start, end=None, size=40, tail="down-left
     bx = min(max(bx, 24), W - 24 - w)  # always keep the whole bubble on screen
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(amount, amount)
+    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
     ctx.translate(-x, -y)
     fill_rounded(ctx, bx + 4, by + 6, w, h, 28, "#000000", 0.10)
     rounded_rect(ctx, bx, by, w, h, 28)
@@ -199,10 +199,12 @@ def thought_bubble(ctx, x, y, t, start, end, label: str = "") -> None:
     if t < start or t > end + 0.3:
         return
     amount = appear(t, start, 0.4) * (1 - ease_out((t - end) / 0.3) if t > end else 1)
+    if amount <= 0.01:  # a zero-size bubble would make cairo's matrix singular
+        return
     width = max(300, text_size(label, 40, bold=True)[0] + 90) if label else 300
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(amount, amount)
+    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
     circle(ctx, -60, 90, 14, C["white"], stroke=C["navy"], width=3)
     circle(ctx, -30, 55, 22, C["white"], stroke=C["navy"], width=3)
     fill_rounded(ctx, -width / 2, -110, width, 140, 60, C["white"], stroke=C["navy"], width=4)
@@ -225,7 +227,7 @@ def step_card(ctx, x, y, w, number: int, label: str, t, start, active: float = 0
     ctx.save()
     ctx.translate(x + w / 2, y + h / 2)
     grow = 1 + 0.06 * active
-    ctx.scale(amount * grow, amount * grow)
+    ctx.scale(max(amount * grow, 1e-3), max(amount * grow, 1e-3))
     if active > 0:
         fill_rounded(ctx, -w / 2 - 10, -h / 2 - 10, w + 20, h + 20, 30, C["yellow"], 0.35 * active)
     fill_rounded(ctx, -w / 2 + 4, -h / 2 + 6, w, h, 22, "#000000", 0.10)
@@ -246,7 +248,7 @@ def badge(ctx, x, y, r, ok: bool, t, start) -> None:
         return
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(amount, amount)
+    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
     circle(ctx, 0, 0, r, C["green"] if ok else C["vermillion"])
     if ok:
         check_mark(ctx, 0, 0, r * 1.3, amount=clamp((t - start) / 0.4))
@@ -397,23 +399,65 @@ def green_flag_button(ctx, x, y, r, pressed: float = 0.0) -> None:
 
 
 # --------------------------------------------------------------------------- titles and transitions
+SITE_URL = "https://rrahimi-uci.github.io/kids-coding-curriculum/"
+SERIES = "Kids Coding"
+SUBTITLE = "with Nova and Pixel"
+
+
+def logo_mark(ctx, x, y, size, t: float = 9.0, start: float = 0.0) -> None:
+    """The website's logo (site/src/layouts/Base.astro): three code bars and a chevron, in a 32-unit box.
+
+    Drawn at (x, y) top-left, `size` pixels wide. The bars slide in one after another from `start`.
+    """
+    u = size / 32
+    bars = ((3, 13, "#E69F00"), (12.5, 19, "#0072B2"), (22, 15, "#009E73"))
+    for i, (by, bw, color) in enumerate(bars):
+        k = ease_out(clamp((t - start - i * 0.12) / 0.35))
+        if k > 0:
+            fill_rounded(ctx, x + 2 * u, y + by * u, bw * u * k, 7 * u, 2.5 * u, color)
+    k = ease_out(clamp((t - start - 0.4) / 0.35))
+    if k > 0:
+        ctx.move_to(x + 24 * u, y + 8 * u)
+        ctx.line_to(x + (24 + 6 * k) * u, y + (8 + 8 * k) * u)
+        if k > 0.5:
+            ctx.line_to(x + 24 * u, y + (16 + 16 * (k - 0.5)) * u)
+        set_color(ctx, "#D55E00")
+        ctx.set_line_width(3 * u)
+        ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+        ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+        ctx.stroke()
+
+
 def logo(ctx, x, y, s, t, start) -> None:
-    """The series logo: 'Code Quest' with Nova & Pixel's names and a spinning gear."""
+    """The series logo: the website's mark and 'Kids Coding' wordmark, with 'with Nova and Pixel'."""
     amount = appear(t, start, 0.6)
     if amount <= 0:
         return
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s * amount, s * amount)
-    fill_rounded(ctx, -470, -150, 960, 300, 70, "#000000", 0.14)
-    fill_rounded(ctx, -480, -160, 960, 300, 70, C["navy"])
-    _gear(ctx, -385, -10, 66, t * 1.2, C["orange"])
-    text(ctx, "Code Quest", 75, -30, 120, C["white"], bold=True)
-    text(ctx, "with Nova & Pixel", 75, 70, 46, C["led"], bold=True)
-    for i in range(5):
-        a = t * 1.5 + i * 1.256
-        star(ctx, 420 * math.cos(a) * 0.95, 130 * math.sin(a) * 1.1, 10, C["yellow"], 0.8, rotation=t * 2)
+    ctx.scale(max(s * amount, 1e-3), max(s * amount, 1e-3))
+    fill_rounded(ctx, -490, -150, 1000, 300, 70, "#000000", 0.14)
+    fill_rounded(ctx, -500, -160, 1000, 300, 70, C["white"])
+    logo_mark(ctx, -455, -110, 200, t, start + 0.2)
+    text(ctx, SERIES, -215, -38, 118, C["ink"], bold=True, anchor="left")
+    text(ctx, SUBTITLE, -212, 66, 48, "#0072B2", bold=True, anchor="left")
     ctx.restore()
+
+
+def footer(ctx, width: int, height: int, band: int) -> None:
+    """The bottom band shown in every video: the logo, the name and the website address."""
+    ctx.rectangle(0, height - band, width, band)
+    set_color(ctx, C["white"])
+    ctx.fill()
+    size = 26
+    label = f"{SERIES} with Nova and Pixel  •  {SITE_URL}"
+    tw, _ = text_size(label, size, bold=False)
+    mark = 30
+    total = mark + 14 + tw
+    x0 = (width - total) / 2
+    cy = height - band / 2
+    logo_mark(ctx, x0, cy - mark / 2, mark)
+    text(ctx, label, x0 + mark + 14, cy, size, "#3D4A57", anchor="left")
 
 
 def iris(ctx, cx, cy, radius) -> None:

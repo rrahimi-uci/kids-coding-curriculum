@@ -1,4 +1,4 @@
-"""The Code Quest characters, drawn as simple vector shapes so they animate smoothly.
+"""The Kids Coding characters, drawn as simple vector shapes so they animate smoothly.
 
 Nova: a ten-year-old inventor with workshop goggles (no gendered features or pronouns).
 Pixel: a palm-sized hovering helper robot with an LED face.

@@ -1,0 +1,246 @@
+{
+  "algorithm": "sha256",
+  "level": 2,
+  "schema_version": 2,
+  "weeks": {
+    "1": {
+      "digest": "aa775b802662f1ec004465f40667562b0ca41f9f904176594666fbf5d371bd60",
+      "files": {
+        "2-intermediate/exercises/week01/ex-hero-card/README.md": "c36d326e49a481435e07f3074a1c56c7516fdc17b4f28d4664ca5d7e0e33c3da",
+        "2-intermediate/exercises/week01/ex-hero-card/hints.md": "913976850a846f03df2015162670bfcdd1240342f8a6619bef851a46be80c669",
+        "2-intermediate/exercises/week01/ex-hero-card/starter.py": "6c7354a1afcdb5add4f3582e9c32e50a98e5422b63b1f4d90956f5bb701f6b3e",
+        "2-intermediate/exercises/week01/ex-mood-meter/README.md": "1e276c9b6eabf94d508b722007117cad351fbf84132ea05214841224e713047e",
+        "2-intermediate/exercises/week01/ex-mood-meter/hints.md": "089a583da43ae5c42aea462bc5b18e5621e758237214e84b7086d25ea657bb62",
+        "2-intermediate/exercises/week01/ex-mood-meter/starter.py": "722fd8d1ad759e140ff443a5dbf3c1bbc9f4c2ef6c203013394091d7a2cbaf1f",
+        "2-intermediate/exercises/week01/hw-dragon-door/README.md": "6afe32b2762bd7c2f76e051b8bdf4b734bc88563ed6be75fe8de8d8f286be677",
+        "2-intermediate/exercises/week01/hw-dragon-door/hints.md": "66e68739361790f77e6b58b61402cd000bcd923b6849bf5073d472c1c5e684fa",
+        "2-intermediate/exercises/week01/hw-dragon-door/starter.py": "43aad04179888db9785e225a6bbd83f8f29d9956e194ad78aa37a0a0d4f4130f",
+        "2-intermediate/teaching-material/homework/week01.tex": "c0d8d7137596761ffafcdb4f8e5cbbb8ffc52c184f7a60c0ed7cbf31f919ccce",
+        "2-intermediate/teaching-material/lessons/week01.tex": "c2fa726f49327f967bf9f5f2fd48baf3755fc50115edb009f2012f3ed8705de1",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week01.tex": "ded837f51c740dfe1cb9754393849c3e707b23ff7472dc0b938ba67e07a0bf09",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "10": {
+      "digest": "da63869deda3e9a98b2dbdcc52659e5cdab85669eb724eeeadbfa6d610fe6b3c",
+      "files": {
+        "2-intermediate/project/project-brief.tex": "29e3f6bcdbc49f054cea18d4471579bc4c08f561be4487375181e64ba02a61c3",
+        "2-intermediate/project/project-teacher-guide.tex": "898be36310333d6d441f019143c7a899c1b6785303cfbf5fef7385c6ba25aa9b",
+        "2-intermediate/project/starter/README.md": "e3cd0d4e483d9f245d3d4c51a7ab8d28fc43c378584d490bc618526dad54c10a",
+        "2-intermediate/project/starter/art_studio_template.py": "4940883f73fbcf41f6841a4397f735c25314659892c0091cd6d1b5497f508501",
+        "2-intermediate/project/starter/game_template.py": "4a9af7d743c2757a56c718b77decdb8489f7441b51b0327289e96467c3270733",
+        "2-intermediate/project/starter/my_tests.py": "7ce1da276e2edd3361a339c65ede723e21de1a5ce7520fb028f2cc1e670ac8ff",
+        "2-intermediate/teaching-material/homework/week10.tex": "739eb63c5b2431d6557e01c84e17d97fcbc20e00373d2a18145083d2cc9c281f",
+        "2-intermediate/teaching-material/lessons/week10.tex": "d5b11958257c9aa19291daf0bbd425b19123d138cd8ff7c87bdf4596a9be0f3c",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week10.tex": "ee7f148009132bc373e17fbdde9addc260dbc98237b056d724b8f9d8618102ff",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "11": {
+      "digest": "ad130bb22a8966d6542f43d4830098e1c1c48f2ece3576b201373ce02fc766fa",
+      "files": {
+        "2-intermediate/project/project-brief.tex": "29e3f6bcdbc49f054cea18d4471579bc4c08f561be4487375181e64ba02a61c3",
+        "2-intermediate/project/project-teacher-guide.tex": "898be36310333d6d441f019143c7a899c1b6785303cfbf5fef7385c6ba25aa9b",
+        "2-intermediate/project/starter/README.md": "e3cd0d4e483d9f245d3d4c51a7ab8d28fc43c378584d490bc618526dad54c10a",
+        "2-intermediate/project/starter/art_studio_template.py": "4940883f73fbcf41f6841a4397f735c25314659892c0091cd6d1b5497f508501",
+        "2-intermediate/project/starter/game_template.py": "4a9af7d743c2757a56c718b77decdb8489f7441b51b0327289e96467c3270733",
+        "2-intermediate/project/starter/my_tests.py": "7ce1da276e2edd3361a339c65ede723e21de1a5ce7520fb028f2cc1e670ac8ff",
+        "2-intermediate/teaching-material/homework/week11.tex": "749097f451a09374473246bab69ba0693a30d29a15d658adc19749d15d7fcfcd",
+        "2-intermediate/teaching-material/lessons/week11.tex": "1af8ade84e4845d8a90b0077ec11073d7c75685e91698cc3979225b35bc41b7a",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week11.tex": "8fbb410d776dbcf0c5d36deb04967b3ed9ce6c4e821a79c4ae5f8197a8bca390",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "12": {
+      "digest": "ab7db914ee238355fa10acbd3ce706e59022ae12c762734f34cd4ba591acd14b",
+      "files": {
+        "2-intermediate/project/project-brief.tex": "29e3f6bcdbc49f054cea18d4471579bc4c08f561be4487375181e64ba02a61c3",
+        "2-intermediate/project/project-teacher-guide.tex": "898be36310333d6d441f019143c7a899c1b6785303cfbf5fef7385c6ba25aa9b",
+        "2-intermediate/project/starter/README.md": "e3cd0d4e483d9f245d3d4c51a7ab8d28fc43c378584d490bc618526dad54c10a",
+        "2-intermediate/project/starter/art_studio_template.py": "4940883f73fbcf41f6841a4397f735c25314659892c0091cd6d1b5497f508501",
+        "2-intermediate/project/starter/game_template.py": "4a9af7d743c2757a56c718b77decdb8489f7441b51b0327289e96467c3270733",
+        "2-intermediate/project/starter/my_tests.py": "7ce1da276e2edd3361a339c65ede723e21de1a5ce7520fb028f2cc1e670ac8ff",
+        "2-intermediate/teaching-material/homework/week12.tex": "811eea7281d209a989bbf928a9ed6d410abf3b4ce2704c860132f8455f0ac906",
+        "2-intermediate/teaching-material/lessons/week12.tex": "0319de58b5c5989f86f2811a1ae28ea84f8b1578043e463f9556fa25f12e30a8",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week12.tex": "34e08a38ecd4db13425282c361920413e4d57c53577df440f7beca4d532f581a",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "2": {
+      "digest": "bfec5c58cd7b7873df69fcf683c97042bc2f9316352ed672491427d1a950fa16",
+      "files": {
+        "2-intermediate/exercises/week02/ex-flower-garden/README.md": "1e0d53410fa9f09c100cc65b8ea52ade6b9e69bc53fe0350008fbb17a86ff953",
+        "2-intermediate/exercises/week02/ex-flower-garden/hints.md": "7e435e929e448d499d35b15981637f7c8f86d81831dd5cb0ae48736265f15549",
+        "2-intermediate/exercises/week02/ex-flower-garden/starter.py": "2521191465674f9f3df529842c041a5e03195659f09396da235dd37138f61bed",
+        "2-intermediate/exercises/week02/ex-game-math/README.md": "569a01798e0670828cb7df5bac81b95db194f56447b241b2eb88d32ba585858e",
+        "2-intermediate/exercises/week02/ex-game-math/hints.md": "f1caf4c637c5597dd08c4dbd2b9396713761d5518650fb5d8aad174f254072d2",
+        "2-intermediate/exercises/week02/ex-game-math/starter.py": "a37805ec93f870b13395e522b27020b54d6aa02d20a3c48f3af2200c5c7c5df2",
+        "2-intermediate/exercises/week02/hw-shop-calculator/README.md": "15b46f82af241b71650b4148516298d561b4be65075b83035c63c398a0474590",
+        "2-intermediate/exercises/week02/hw-shop-calculator/hints.md": "1c91970652cb572e3207477fde771516ae2254db47d55196c0a1050e6a06afdf",
+        "2-intermediate/exercises/week02/hw-shop-calculator/starter.py": "3da8808b94e91424a54ef443a80b19dbcb9a9812fb2e061cf88a2b5157a8792c",
+        "2-intermediate/teaching-material/homework/week02.tex": "c6ea802975596d2c880c79445710fa3a15d743be9ce8d31e78669638a17cabf0",
+        "2-intermediate/teaching-material/lessons/week02.tex": "d8d34ad600de1b541eca73eb8087a66b56415400b256e90d43c28d7b4ad1dd79",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week02.tex": "2f747a79385c2e7103cf7ef1171c4e669408db5f10958c9908396842e96d095b",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "3": {
+      "digest": "ede8bca6e547b75ce39cd78e3fd26111551a5d1b8b67e13f3a12971e6a8d7753",
+      "files": {
+        "2-intermediate/exercises/week03/ex-high-scores/README.md": "b61e81def2181a5d5f1dd3316b6dcced617c54417df6517ef4ffd1532006f300",
+        "2-intermediate/exercises/week03/ex-high-scores/hints.md": "1d20b478113a059e52758cefbf6ba2a57a96ba6c88be2b6f9c2905e92220ce12",
+        "2-intermediate/exercises/week03/ex-high-scores/starter.py": "985514503b7f9f7cecd4f89b54f43b2b014bc697b4fc9dbc356a32b494215bbc",
+        "2-intermediate/exercises/week03/ex-inventory/README.md": "f08e48f3e3f93671a00badb2f8bcc3b1c5c506ec94981f95dc89d8e295796074",
+        "2-intermediate/exercises/week03/ex-inventory/hints.md": "ab692afdcf87b5ab7f198f4196f74ebf6de64499c6e150c2c16f9635a3e77087",
+        "2-intermediate/exercises/week03/ex-inventory/starter.py": "dc3c1a52d58c18120140c7b8be5ccf26cdc5e9f328336d911f56e21725dc6b28",
+        "2-intermediate/exercises/week03/ex-palette-stripes/README.md": "e2c3f5202421fe5664794f2fa759cf6c9c0cd49e676262a9acc72e3e3150ef0e",
+        "2-intermediate/exercises/week03/ex-palette-stripes/hints.md": "a00ca90aae74873bbd25c94a938eaae84442d41e083a02b2952408931a81332f",
+        "2-intermediate/exercises/week03/ex-palette-stripes/starter.py": "227a9748ea76e79a861015d9183daa8bf2e99ca4f2fb20dcc0bd55524ffdd629",
+        "2-intermediate/exercises/week03/hw-loot-bag/README.md": "9cc639e39e9707c10edf7e774b28442aae80f5b46575086a87ddec24e28cad82",
+        "2-intermediate/exercises/week03/hw-loot-bag/hints.md": "43fdc139787fabce8b034513c5419243e20fd271456bc3b5be3c556f6e5efcb8",
+        "2-intermediate/exercises/week03/hw-loot-bag/starter.py": "b426504557aedd878d85ffbad9034e13f5faab5d890984931e29671d05f770eb",
+        "2-intermediate/teaching-material/homework/week03.tex": "351deb4d0c734b20ea93c287b4cadc42370f5debccc84080c207b88220b03981",
+        "2-intermediate/teaching-material/lessons/week03.tex": "f3ef6f618c84c5acaec4d184ddd6e5c4783403e29bacd11c6bc790cb4f219c80",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week03.tex": "66aa445afdbeefa55c104c1fd8b9bd81a094a6be8a049f9e7eb4f27de0fae00b",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "4": {
+      "digest": "979cc3cdf0f2c004ba8ffaee0a5e514664e62a100f3037f465ba8a2c8eea4936",
+      "files": {
+        "2-intermediate/exercises/week04/ex-guess-number/README.md": "eee6c07c5d6085cc011a76049f8818b46cb94ddab368469a38444a0c52bdcfcb",
+        "2-intermediate/exercises/week04/ex-guess-number/hints.md": "cf48fbc60add689b12382f5ac16b9c5b178f6f21ffe2a14d719d35e9c0869e1e",
+        "2-intermediate/exercises/week04/ex-guess-number/starter.py": "77f58a105ad827864af2f988fa4aee22a13f2d3834438d0a2ac2f425c61e77f9",
+        "2-intermediate/exercises/week04/ex-pixel-art/README.md": "8e7b10ebd7255f2dc731736a61ecd8fc3a586888c5eb4bebe83b68713a4d256d",
+        "2-intermediate/exercises/week04/ex-pixel-art/hints.md": "b60e547a353c675a3f2ff1e3a3c6bd516533e537f40975416c30946ba43b036b",
+        "2-intermediate/exercises/week04/ex-pixel-art/starter.py": "d177de68f6962837f62bdeaffa4e3ea15d85fd09d049d7e9443c7188d97bcee8",
+        "2-intermediate/exercises/week04/hw-slime-battle/README.md": "cae315736a858a53741b3652c6ef4e311dd93bfd7867a0ce033b48106d834006",
+        "2-intermediate/exercises/week04/hw-slime-battle/hints.md": "8fbf8f56e115e3c1768cce97fff46ac6951852e95d91ba8fedecc0518620b66e",
+        "2-intermediate/exercises/week04/hw-slime-battle/starter.py": "4e736b3364065e46dc3779c3957b22b1bfdc8abfa78d888fb930da53ecf7f6f8",
+        "2-intermediate/teaching-material/homework/week04.tex": "17cf802144785754062e2b132b5cc3b3e7f4ec432a6224e2aabd596fa4448dd9",
+        "2-intermediate/teaching-material/lessons/week04.tex": "22c102c961113a2dd4237a7a5115f004f603876ffb498576bddc71216467155c",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week04.tex": "9cec85f2c0f296b2cd2af7099dada5e18bdc0bb3c7489e7c83472edd183458a1",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "5": {
+      "digest": "d04a31dae5a4c65eacf99f1c235664265326dad7208efc3a20a2e8f3077bdcca",
+      "files": {
+        "2-intermediate/exercises/week05/ex-caesar-cipher/README.md": "d4f1d4212529d54eb9c9a673cbbefe6e324939e2c2e2e9907231ce0775769ac6",
+        "2-intermediate/exercises/week05/ex-caesar-cipher/hints.md": "08826f7844ff17de8464c56723adf3bc095168f0837cb0bcdec15f2387b35bfa",
+        "2-intermediate/exercises/week05/ex-caesar-cipher/starter.py": "75062693dcd0ee6c316423d3717644f32d0136168f1b9e52ae2680cf7a509300",
+        "2-intermediate/exercises/week05/ex-monster-stats/README.md": "55624985eece9438bb73b86fcb4866eefd03d4223f3b244257c8a3fd1b9150d6",
+        "2-intermediate/exercises/week05/ex-monster-stats/hints.md": "688b366376008a00294073df4bc60acb178a741678e9bf7cc35e29806821734a",
+        "2-intermediate/exercises/week05/ex-monster-stats/starter.py": "9f0d3991d8e874449ee8a4a9f679e87e52da14171d29ac11bbd9b28048cd349f",
+        "2-intermediate/exercises/week05/hw-word-counter/README.md": "4fa7e48ab7812b89d99e185073fd436673692a50fef7c255dde459d49e40d28f",
+        "2-intermediate/exercises/week05/hw-word-counter/hints.md": "0fcb45090d70e4c1af1d979942d5bbcb60fdcd3d9b7f478f6dbd43fbf968e7ba",
+        "2-intermediate/exercises/week05/hw-word-counter/starter.py": "b85cca1726b7a01d506c8a885fdecc6eb2023982b8273dad19cfe5e65aff2959",
+        "2-intermediate/teaching-material/homework/week05.tex": "7de691c6159693d16f0e86fef063536afbe0119150d8dab4eb5505ad301d3bd2",
+        "2-intermediate/teaching-material/lessons/week05.tex": "c7cd693c9971563a3302c96b6001de8e3aa4a4716f9426283ceda8e59e05fe2b",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week05.tex": "b8f4cf73a3de97f9d22948faa4d49f27b0c927f204390d6da0d089c25024798a",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "6": {
+      "digest": "e6b21488cecbe8e0e69d40b8b30cab4e4abdc4af6b271a56a82a4b28425518f6",
+      "files": {
+        "2-intermediate/exercises/week06/ex-bug-countdown/README.md": "dad57b6adad11844632e4dde23075f410796684cfe5734d0ccdabea600ad2e20",
+        "2-intermediate/exercises/week06/ex-bug-countdown/hints.md": "95a12e1684e3e9185958011228fb986d7898b1eb1d980240b2fbe2b658f53d6b",
+        "2-intermediate/exercises/week06/ex-bug-countdown/starter.py": "4730ac2a2e075cddcbde8573882eb77e060fc02f0b31464b2f844becd2f90f01",
+        "2-intermediate/exercises/week06/ex-bug-hero-card/README.md": "9a0584965de54d389b53a8837055617f1c1e38166920ae992bab1533a068e718",
+        "2-intermediate/exercises/week06/ex-bug-hero-card/hints.md": "9de2bf632d7f2d787f1c91d77f4ffefa36dff68db805c24778cd3408f5265e85",
+        "2-intermediate/exercises/week06/ex-bug-hero-card/starter.py": "16df89bbd2943153c75ba51de5b9663e312e06d9b4c5d6956a0acd6f3390755f",
+        "2-intermediate/exercises/week06/ex-bug-high-scores/README.md": "515ffe65cd2a132f2a971b3a6643c0688564208f2fbe5c57bc81af6f34ec27a4",
+        "2-intermediate/exercises/week06/ex-bug-high-scores/hints.md": "d813aae422d43174caca386d9753835d6088f17dae34d1053dc036b36f222ac6",
+        "2-intermediate/exercises/week06/ex-bug-high-scores/starter.py": "6bfb19d1bca83470ac7bcdb2d4441e557dcfc01ba1961b4e32abad82ef9e8488",
+        "2-intermediate/exercises/week06/ex-bug-loot-shop/README.md": "914b59a8613e03a747e8e2c9268bf7efbcb89ca7c983021cf861c4f1126ef354",
+        "2-intermediate/exercises/week06/ex-bug-loot-shop/hints.md": "47a9a712aa9990e54e4f4c742aeefcd51a5244151da9b0976e4d8e7bef33c40e",
+        "2-intermediate/exercises/week06/ex-bug-loot-shop/starter.py": "8f1341a1efab3cbd98fe0053e23fd5d80950dd0f1743d7c8a62b841d93c1b9c2",
+        "2-intermediate/exercises/week06/hw-bug-pixel-pet/README.md": "d6ca7431cf8f8e6c796986b4f604f5523a6e34b08a01d96ac0735130bfc9e8f8",
+        "2-intermediate/exercises/week06/hw-bug-pixel-pet/hints.md": "b75119b1ab183360993af7af68b5b49c6fe6f8c2bdc31001cfe3b49bd3fc16f3",
+        "2-intermediate/exercises/week06/hw-bug-pixel-pet/starter.py": "d2c36d7f66cd3ccd71549819406aea6de3952ec2b2d124ed998d347ad71b6e25",
+        "2-intermediate/teaching-material/homework/week06.tex": "3a9443546cc7c5d9ec609e0655578361042d8fffd572cc60017534367b682fd3",
+        "2-intermediate/teaching-material/lessons/week06.tex": "442a5b7cab29163140d828f99cb3174afa80353e1b9405ced3344bc5af96d949",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week06.tex": "8991f9e50b88a171c7ef601a5f80a0669504663373b16ea919f1682b9a5f30b9",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "7": {
+      "digest": "98a8427f58ccb8e176244478c93d17f5cae96f343346724c2cb60d47e075a17d",
+      "files": {
+        "2-intermediate/exercises/week07/ex-dot-art-file/README.md": "4723a115bd95a78f1a6aac2e542b36df52d4b59d43fd3499c6751e170cc58235",
+        "2-intermediate/exercises/week07/ex-dot-art-file/hints.md": "cdbd4f17c2c2ddea268bf2b38e6b09b699543b5817f8e84ccaecf3ff61e6b644",
+        "2-intermediate/exercises/week07/ex-dot-art-file/my_art.txt": "94a5105c84603efc93be386417223b54d0e92bf63be18860697261a79a30a5ec",
+        "2-intermediate/exercises/week07/ex-dot-art-file/starter.py": "5170b09ecd9f8cde90d21a93e2a8d79a502ca2e070614d8eb19c15c1e1172901",
+        "2-intermediate/exercises/week07/ex-save-high-scores/README.md": "ee905c461eff1352d58bb3f3fed4660dd78b17e076a70472a0f227f849b3be31",
+        "2-intermediate/exercises/week07/ex-save-high-scores/hints.md": "ae84d43bf901517c20b8a98c58905d6f6b7584162681a975561c5aab416cac0b",
+        "2-intermediate/exercises/week07/ex-save-high-scores/starter.py": "2c0b155c7bfe1d36e5ba450ed4bf2d3f0ba623ae40b5d4c57216b7aab79473af",
+        "2-intermediate/exercises/week07/ex-word-guess/README.md": "f98f1e33665a3c7d0efc31f1bbff43b70be18338de4e5c0c731f1fa9714eb3bb",
+        "2-intermediate/exercises/week07/ex-word-guess/hints.md": "dbb335ba55774507506605811071167e34c53eef4e8f4e50e4bea6b821327f74",
+        "2-intermediate/exercises/week07/ex-word-guess/starter.py": "0336f18628c827c0fc0bbdc9ab54b6fff04a28aaa8c8e19d37b0cf0747f25945",
+        "2-intermediate/exercises/week07/ex-word-guess/words.txt": "992ab1035e7d1ee0724183f624759b552ce9c180e1c244d472e7f66f33523264",
+        "2-intermediate/exercises/week07/hw-idea-notebook/README.md": "750d04630cbf4ca50f527f7ce9edc11d414d8cb83e16992b7d26b373b670b17c",
+        "2-intermediate/exercises/week07/hw-idea-notebook/hints.md": "5b1b9987c810fdd11a9aaa11e9a27cfa9ef1b3c06daab52385c9187ccb3d0677",
+        "2-intermediate/exercises/week07/hw-idea-notebook/starter.py": "e392ca001d90932f1716a627ebd575890ebddf9698d8f3c00f1f7114752a3032",
+        "2-intermediate/teaching-material/homework/week07.tex": "6d1c66a5acaeb4a3cbcda15b4466bcf0d22dda3a0c87e0c155c74803a3d200eb",
+        "2-intermediate/teaching-material/lessons/week07.tex": "15a7aa2935c77c8da33e09e6639da7e5077694138501897dcf1fb33361598baf",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week07.tex": "e2e23ea724f850f908df5216b1c2cc11b408b0364683bd6888a024f95a5b7b43",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "8": {
+      "digest": "0324e187246ed2850745afed75ecd2fdaf9b67f99378ad60f6adbcb428c2f7b5",
+      "files": {
+        "2-intermediate/exercises/week08/ex-fix-the-bugs/README.md": "762c8a9878318e668593a4a998e723c2c0b7f0e400c04a36a2c98be0c7b58456",
+        "2-intermediate/exercises/week08/ex-fix-the-bugs/hints.md": "c3e3ea1c928adcd6c0ed7ea2ed935d9260388d71a76c74d850514af8f7ef7412",
+        "2-intermediate/exercises/week08/ex-fix-the-bugs/starter.py": "9373d167a906db52eb23a99f2031f56bda2bd64cd14696d855fc58899487da5d",
+        "2-intermediate/exercises/week08/ex-test-best-score/README.md": "9a4712bc960594eaf32476c9adb9f81e59f945e33aeef4faf0e495e306fcaff6",
+        "2-intermediate/exercises/week08/ex-test-best-score/hints.md": "7952944dfde4f21b58d307d8f304eaf1216f476f14e5c90b77c900d8b5e8805d",
+        "2-intermediate/exercises/week08/ex-test-best-score/score_tools.py": "72835b4059e61b3ef940221f1407efa501c7cfe77115e079afc82b6f12839151",
+        "2-intermediate/exercises/week08/ex-test-best-score/starter.py": "f32e78fbaca617cb2a76e57c0beae25be20d349e1d572d422265ab9c95d264d7",
+        "2-intermediate/exercises/week08/ex-test-the-clamp/README.md": "305044ea2fa7c07faad85111d2c20ada17dfc5ca459722d60e415df75c293291",
+        "2-intermediate/exercises/week08/ex-test-the-clamp/clamp_tools.py": "3d9e06b6407e26a20247b6b6375d08b145842390f89fc127dac615d09afc3963",
+        "2-intermediate/exercises/week08/ex-test-the-clamp/hints.md": "f585e3bc1ace443524e8269808d3883e3d021ec961453dc2c6009d45764c0898",
+        "2-intermediate/exercises/week08/ex-test-the-clamp/starter.py": "9c3f41f6ae59a90bdac639852b597852d332d7af6025e0a04e1d2a8b9c0c7ac0",
+        "2-intermediate/exercises/week08/hw-test-the-cipher/README.md": "f423240e86f00cc66bd6be7b8f97ee309969036d88e3024be4346f62c89aa97f",
+        "2-intermediate/exercises/week08/hw-test-the-cipher/cipher_tools.py": "4397c516b9ec30f600a08bf697a378894d053de69226389fd8751bee6bfdcdfb",
+        "2-intermediate/exercises/week08/hw-test-the-cipher/hints.md": "2f44b6b1d1fb3e6822f4d05933b6cade0787eff3a762e28b8b7906ee2a600184",
+        "2-intermediate/exercises/week08/hw-test-the-cipher/starter.py": "9119da5ba6fea3f73db803da6cec544ea66a92676a4042cebbf547e9e30d7a52",
+        "2-intermediate/teaching-material/homework/week08.tex": "8209b98a49e19391164a52e56533fe258fd83d2d156a9270a9f3bc392c42678b",
+        "2-intermediate/teaching-material/lessons/week08.tex": "54fbfb36c29f60ddd684c14b180d1c5f8584df8f91820c2c4cf47dab6bfb7008",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week08.tex": "8b486136a858d168eb52fbc63c5cbd6a40a91a1a7d894f407897918f9b37220c",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "9": {
+      "digest": "fe9dd88bd4d399f72b30739c4636f2e2c7fecfb5cf17f6067a7230d2eed27a0b",
+      "files": {
+        "2-intermediate/exercises/week09/ex-dodge-meteors/README.md": "c500a94b5e5f693c004d7d2882a84199050b36d3ec7e135846f1ba24a25faed9",
+        "2-intermediate/exercises/week09/ex-dodge-meteors/hints.md": "627c063fd36c3c51e4b834e82a7e24701286b657778dc1065b1449683e357f61",
+        "2-intermediate/exercises/week09/ex-dodge-meteors/starter.py": "ca181a5ee4aa232c6e4961169afa1955deb8f0b673e75022d4fbbe367b374e1b",
+        "2-intermediate/exercises/week09/ex-etch-a-sketch/README.md": "c6c5ab74f0945cda23576c4d4424e44829666c744925a0fc426995afb2067200",
+        "2-intermediate/exercises/week09/ex-etch-a-sketch/hints.md": "c446f341bfe6e6d79ebcfb26023237182f2a248e71699e85bc7a500c2690997c",
+        "2-intermediate/exercises/week09/ex-etch-a-sketch/starter.py": "9f35c5ca3863b54f3c8ea8179f33281260604d5d4a28443debfb4ac5b9119164",
+        "2-intermediate/exercises/week09/hw-stamp-studio/README.md": "eb11d795f0ee9613e2825ca8379c1cde656a270dbefbd8f86124068a1535fe6a",
+        "2-intermediate/exercises/week09/hw-stamp-studio/hints.md": "befe5f93a7ae8f121f2646834600c5f70399af506d4e0ed932f00e826271dacf",
+        "2-intermediate/exercises/week09/hw-stamp-studio/starter.py": "8ea2520ea1c5370356e92a94f884ac38c77f835d0af46ecded614c3c63e2a4d1",
+        "2-intermediate/teaching-material/homework/week09.tex": "7de918597109df7ac9e860ef073983f64b99564b6457eb4348e412a1d757d7b0",
+        "2-intermediate/teaching-material/lessons/week09.tex": "9bf924249681a1844eae5039b280618cdfcfe710ca62c3438eb2983824e11b6b",
+        "2-intermediate/teaching-material/teacher-guide.tex": "26e564ff0e7ee33fce2b5fab0a2f2d115e2aad4423a3d0aefaf3c128cfda378d",
+        "2-intermediate/teaching-material/workbook/week09.tex": "8bdc9db5372a60246d69e16082be86cc304d63014087be4e3dab12dbed9860ec",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    }
+  }
+}
