@@ -27,7 +27,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-TEXT_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".txt", ".xml", ".svg", ".md", ".py", ".csv", ".webmanifest"}
+TEXT_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".txt", ".xml", ".svg", ".md", ".py", ".csv", ".webmanifest", ".vtt", ".srt"}
 MIN_PY, MIN_TEX = 30, 70
 
 

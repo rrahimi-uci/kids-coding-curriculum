@@ -23,6 +23,7 @@ site/.astro/
 site/src/generated/
 site/public/generated/
 site/public/downloads/
+site/public/videos/
 build/site-cache/
 # Generated video media and paid-API caches. Plans, manifests, and specs are tracked.
 videos/output/

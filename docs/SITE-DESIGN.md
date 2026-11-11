@@ -22,7 +22,8 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
         │               figures.py ──► SVG figures
         │               exercises.py ► exercise pages (README + starter + hints)
         │               parents.py ──► research, slides, FAQ (from the parent deck, faq.tex + .bib)
-        └── pdfs.py ───► whole-level and per-week PDFs
+        ├── pdfs.py ───► whole-level and per-week PDFs
+        └── videos.py ─► teaching videos from the `videos` release ──► site/public/videos/
                                                            checks: private content, content, HTML, links, a11y, Lighthouse
 ```
 
@@ -96,7 +97,8 @@ No children's names, photos or personal data are used; the site has no analytics
   **Slides** (viewer, download, gallery); **FAQ**.
 * **Curriculum** (`/curriculum/`): three-level timeline (weeks 1–12 with the checkpoint, project and
   showcase), what is learned, final projects, how progress is measured.
-* **Level pages** and **week pages**: objectives, lesson content, exercises, new words, homework tiers
+* **Level pages** and **week pages**: objectives, the week's teaching video (always the first thing in the
+  lesson, right below the header, with captions and a transcript), lesson content, exercises, new words, homework tiers
   (Core, Challenge, Creative), downloads (week PDF, starter-file ZIP), previous/next and a self-check list
   (an ordinary list to read, not checkboxes).
 * **Exercises**: steps, starter code with copy and download, three hints, in order, from a small nudge to a bigger one. No solutions.
@@ -141,8 +143,8 @@ and self-hosted.
 ## Accessibility (WCAG 2.2 AA)
 
 Skip link, semantic landmarks and heading order, visible focus, keyboard-operable everything (menu,
-toggles, copy buttons), accessible names for scrollable tables, alt text for every figure and slide image, no flashing or
-autoplay, text resize to 200% without loss, reduced-motion support. Verified by `site/qa/a11y.mjs` (axe-core
+toggles, copy buttons), accessible names for scrollable tables, alt text for every figure and slide image, video captions on by default
+and a transcript for every video, no flashing or autoplay, text resize to 200% without loss, reduced-motion support. Verified by `site/qa/a11y.mjs` (axe-core
 with the WCAG 2.0 to 2.2 A and AA rule sets) in light and dark mode and a phone-width overflow check.
 
 ## Quality gates (CI)

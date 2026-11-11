@@ -351,6 +351,30 @@ def command_contact_sheet(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_publish_videos(args: argparse.Namespace) -> int:
+    """Make the website copies of rendered videos and (with --upload) replace them on the `videos` release."""
+    from . import publish
+
+    rendered = publish.rendered_videos()
+    wanted = {key for key in rendered
+              if (not args.level or key[0] == args.level) and (not args.week or key[1] in args.week)}
+    if not wanted:
+        print("No rendered video matches; run `animate` first.", file=sys.stderr)
+        return 2
+    try:
+        manifest = publish.build_web_copies(wanted)
+        print(f"Web copies are in {publish.WEB.relative_to(REPO_ROOT)}/ "
+              f"(preview the site with SITE_VIDEOS={publish.WEB.relative_to(REPO_ROOT)} make site)")
+        if args.upload:
+            publish.upload(manifest, wanted)
+            if args.rebuild_site:
+                publish.rebuild_site()
+    except RuntimeError as exc:
+        print(f"publish-videos: {exc}", file=sys.stderr)
+        return 1
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     from .media import VISUAL_PROVIDERS, VOICE_PROVIDERS
 
@@ -403,6 +427,14 @@ def build_parser() -> argparse.ArgumentParser:
     animate.add_argument("--preview", type=float, help="render only the first N seconds")
     animate.add_argument("--allow-stale", action="store_true")
     animate.set_defaults(handler=command_animate)
+
+    publish = subcommands.add_parser(
+        "publish-videos", help="make 720p website copies and (with --upload) replace them on the `videos` release")
+    level_arg(publish)
+    publish.add_argument("--week", type=int, choices=WEEKS, action="append")
+    publish.add_argument("--upload", action="store_true", help="upload to the GitHub release (needs gh and a login)")
+    publish.add_argument("--rebuild-site", action="store_true", help="after uploading, start the Website workflow")
+    publish.set_defaults(handler=command_publish_videos)
 
     narration = subcommands.add_parser("apply-narration", help="apply narration edits to a spec (locked, validated)")
     narration.add_argument("path")

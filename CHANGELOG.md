@@ -3,6 +3,14 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.10.0 - 2026-11-11
+
+The teaching videos are on the website.
+
+- Every week page of Levels 1, 2 and 3 shows its video in the same place: right below the page header, as the first part of the lesson, with a "Watch the video" link at the top of "On this page". The player has captions on by default, a poster picture, and a "Read the script" transcript; a note says the voices are computer-generated. The video is left out of printouts.
+- The videos are not stored in git. Web copies (720p, about 5 MB each) live on the repository's `videos` release, and the website copies them in when it is built, checking each file. If the release cannot be reached, the pages are built without the player.
+- New `publish-videos` command: makes the web copies and, with `--upload`, replaces them on the release; `--rebuild-site` then republishes the website. Changing a lesson's video no longer needs a code change.
+
 ## 1.9.0 - 2026-11-11
 
 Animated teaching videos for every week of all three levels.

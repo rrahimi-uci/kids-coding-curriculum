@@ -42,6 +42,7 @@ const toc = [
           <details>
             <summary>On this page</summary>
             <ol>
+              {w.video && <li><a href="#watch">Watch the video</a></li>}
               {toc.map((t: any) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}
               {inClass.length > 0 && <li><a href="#exercises">Exercises</a></li>}
               {w.vocab.length > 0 && <li><a href="#words">New words</a></li>}
@@ -51,6 +52,24 @@ const toc = [
         </nav>
       </aside>
       <div class="lesson" id="lesson">
+        {w.video && (
+          <section class="lesson-video" aria-labelledby="watch">
+            <h2 id="watch">Watch the video <span class="muted">({w.video.minutes} min)</span></h2>
+            <div class="video-frame">
+              <video controls preload="none" playsinline width="1280" height="720" poster={fix(w.video.poster)}
+                aria-label={`Video: Level ${l.number}, week ${w.n}: ${w.title}`}>
+                <source src={fix(w.video.src)} type="video/mp4" />
+                <track kind="captions" src={fix(w.video.captions)} srclang="en" label="English" default />
+                <a href={fix(w.video.src)}>Download the video (MP4, {w.video.mb} MB)</a>
+              </video>
+            </div>
+            <p class="video-note small muted">Captions are on; turn them off with the CC button. The narration uses computer-generated voices.</p>
+            <details class="more video-script">
+              <summary>Read the script</summary>
+              {w.video.transcript.map((para: string) => <p>{para}</p>)}
+            </details>
+          </section>
+        )}
         <div set:html={body} />
 
         {inClass.length > 0 && (

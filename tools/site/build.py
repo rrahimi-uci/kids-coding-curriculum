@@ -4,7 +4,8 @@
     python3 -m tools.site.build [--levels 1 2 3] [--skip-pdfs]
 
 Reads only what site/manifest.yml marks public; writes HTML fragments, JSON data, SVG figures and
-downloads into site/src/generated/ and site/public/generated/ (both git-ignored). The Astro project in
+downloads into site/src/generated/ and site/public/generated/ (both git-ignored), and copies the teaching
+videos into site/public/videos/ (see tools/site/videos.py). The Astro project in
 site/ turns that into pages. See docs/SITE-DESIGN.md.
 """
 from __future__ import annotations
@@ -28,6 +29,7 @@ from . import exercises as exmod
 from . import extras as extmod
 from . import parents as parentsmod
 from . import pdfs, syllabus, texconv
+from . import videos as videomod
 
 ROOT = Path(__file__).resolve().parents[2]
 GEN = ROOT / "site" / "src" / "generated"
@@ -226,6 +228,11 @@ def main(argv=None) -> int:
                            "published": False, "weeks": [], "downloads": {},
                            "syllabus_weeks": [{"n": w["n"], "title": w["title"], "idea": w["idea"]}
                                               for w in syl[n]["weeks"]]})
+    videos = videomod.collect(warnings)
+    for level in levels:
+        for week in level["weeks"]:
+            if (level["number"], week["n"]) in videos:
+                week["video"] = videos[(level["number"], week["n"])]
     write_json(GEN / "levels.json", levels)
     write_json(GEN / "resources.json", extmod.build_resources(manifest, GEN, warnings))
     parentsmod.build(manifest, GEN, PUB, warnings, skip_pdfs=args.skip_pdfs)
