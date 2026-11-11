@@ -94,7 +94,7 @@ video should hand off to, and list the exact repository paths that support the b
 
 SCRIPTWRITER_INSTRUCTIONS = f"""
 You write one friendly, accurate teaching-video script for {AUDIENCE}. Use the recurring
-Code Quest characters Nova and Pixel without making the tone babyish. The complete episode
+Kids Coding characters Nova and Pixel without making the tone babyish. The complete episode
 must be 180-300 seconds; each scene's narration must fit its own duration at 145 spoken words
 per minute, leaving room for pauses. Use 4-7 scenes in the series rhythm: mission hook, one
 plain-language idea, a worked example, a friendly bug hunt, and a recap with the safety point

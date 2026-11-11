@@ -1625,7 +1625,7 @@ def make_outro(level: int):
         vertical_gradient(ctx, 0, 0, W, H, "#18324B", "#25507A")
         P.logo(ctx, W / 2, 360, 0.75, t, 0.0)
         a = fade(t, 0.4)
-        text(ctx, "Next time: more Code Quest!", W / 2, 640, 56, C["white"], bold=True, alpha=a)
+        text(ctx, "See you next time!", W / 2, 640, 56, C["white"], bold=True, alpha=a)
         text(ctx, "Narration uses AI-generated voices.", W / 2, 790, 38, C["led"], bold=True, alpha=a)
         text(ctx, f"Kids Coding • Level {level} • Grades 4–5", W / 2, 860, 32, "#C9D6E3", alpha=a)
         draw_pixel(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)

@@ -13,6 +13,7 @@ Animated teaching videos for every week of all three levels.
 - Code shown in a video runs for real on the course's Python 3.10, with the course's turtle. The Shell shows the program's true output, errors appear exactly as Thonny shows them (including "Did you mean …?" hints and full tracebacks when a lesson reads them), and turtle windows draw exactly what the code draws. Tests fail if a video's code output changes.
 - A reusable animation kit with Scratch blocks and stage, Thonny editor, turtle window, Terminal, pytest results and diagrams (variables, lists, dictionaries, flowcharts, function machines, git timelines, sorting bars, grids, feature charts, tables, class trees, stacks, queues, milestone road maps). There is a guide for writing new episodes (`videos/pipeline/animated/KIT.md`) and checks that catch a script that does not match the spec, a missing cue, code that does not fit its panel or prints something else.
 - Every video command now works per level (`--level`). New commands: `episode-check`, `contact-sheet` and `apply-narration`.
+- The series is called **Kids Coding with Nova and Pixel**. It uses the website's logo, and the website address appears in a small band at the bottom of every video that never covers the lesson.
 
 ## 1.8.0 - 2026-11-10
 

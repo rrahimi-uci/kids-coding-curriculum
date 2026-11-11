@@ -7,7 +7,7 @@ TURN = ("motion", "turn ↻ [90] degrees")
 
 EPISODE = Episode(level=1, week=2, scenes=(
     Scene("w02-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Today's door needs a square of light.", cue="door"),
         B("Nova starts writing: move, turn, move, turn, move, turn…", cue="writing", pause=0.3),
         B("The list gets so long, Pixel's paper rolls right across the floor!", cue="long", pause=0.3),

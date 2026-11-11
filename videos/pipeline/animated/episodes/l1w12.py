@@ -22,7 +22,7 @@ def _stars(code: str) -> str:
 
 EPISODE = Episode(level=1, week=12, scenes=(
     Scene("w12-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("All twelve workshop doors open into a gallery.", cue="doors", pause=0.4),
         B("Nova has two minutes to guide visitors through an interactive artwork.", cue="minutes", pause=0.3),
         B("‘Should I show every line of code?’", speaker=NOVA, cue="should", pause=0.1),
@@ -174,7 +174,7 @@ EPISODE = Episode(level=1, week=12, scenes=(
         B("What do I want to make next?", cue="nextq", pause=1.4),
         B("Rehearse your two-minute demo, run the safety check, and celebrate every creator's progress.",
           cue="rehearse", pause=0.4),
-        B("The next code quest starts with your curiosity.", cue="curiosity", pause=0.4),
+        B("Your next coding adventure starts with your curiosity.", cue="curiosity", pause=0.4),
         B("Happy coding!", cue="happy", pause=0.6),
     ), actions=(
         A("door", "DOOR 12", x=1720, y=920, open="complete"),

@@ -26,7 +26,7 @@ TOOL_ICONS = [("magnifier", "traceback"), ("file", "print()"), ("person", "rubbe
 
 EPISODE = Episode(level=2, week=6, scenes=(
     Scene("l2-w06-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Five doors are open, and the Code Quest workshop is buzzing.", cue="five", pause=0.3),
+        B("Five doors are open, and the Kids Coding workshop is buzzing.", cue="five", pause=0.3),
         B("But today, Pixel finds a pile of broken programs on the bench.", cue="pile", pause=0.3),
         B("One crashes.", cue="crash", pause=0.2),
         B("One gives a wrong answer.", cue="wrong", pause=0.3),

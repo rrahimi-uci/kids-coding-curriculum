@@ -10,7 +10,7 @@ from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
 
 EPISODE = Episode(level=2, week=3, scenes=(
     Scene("l2-w03-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("‘Can we keep all my stickers in one place?’", speaker=NOVA, cue="ask", pause=0.1),
         B("asks Nova.", cue="asks"),
     ), actions=(

@@ -38,7 +38,7 @@ def _walk(steps: int) -> str:
 
 EPISODE = Episode(level=1, week=9, scenes=(
     Scene("w09-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("The next door asks,", cue="asks", pause=0.1),
         B("‘Choose a portal size: 40, 80, or 120.’", cue="portal", pause=0.3),
         B("Nova types 80.", cue="types", pause=0.3),

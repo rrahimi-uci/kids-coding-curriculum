@@ -97,7 +97,7 @@ def _line_y(top: int, size: int = 34, n: int = 1) -> float:
 
 EPISODE = Episode(level=1, week=10, scenes=(
     Scene("w10-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("The workshop gallery needs a hundred flowers, and no two should look exactly alike.", cue="gallery",
           pause=0.3),
         B("Nova could copy the same drawing code again and again.", cue="copy", pause=0.3),

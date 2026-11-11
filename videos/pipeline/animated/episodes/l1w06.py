@@ -6,7 +6,7 @@ FLAG = ("event", "when {flag} clicked")
 
 EPISODE = Episode(level=1, week=6, scenes=(
     Scene("w06-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Six workshop doors glow behind Nova and Pixel.", cue="doors", pause=0.4),
         B("The checkpoint console mixes up every symbol we've found:", cue="console", pause=0.3),
         B("a flag,", cue="flag", pause=0.4),

@@ -14,7 +14,7 @@ STORY = ["Problem", "Choice", "Why", "Next time"]
 EPISODE = Episode(level=3, week=12, scenes=(
     # ------------------------------------------------------------------ s01 hook
     Scene("l3-w12-s01", setting="workshop", lead_in=0.2, beats=(
-        B("The whole Code Quest workshop has turned into a gallery, and every station runs a project someone built.",
+        B("The whole Kids Coding workshop has turned into a gallery, and every station runs a project someone built.",
           cue="gallery", pause=0.3),
         B("Nova has two minutes to present Bee Garden.", cue="two", pause=0.3),
         B("‘I'll show all forty features!’", speaker=NOVA, cue="forty", pause=0.1),

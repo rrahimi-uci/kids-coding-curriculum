@@ -7,7 +7,7 @@ GEMS_ERROR = 'TypeError: can only concatenate str (not "int") to str'
 
 EPISODE = Episode(level=2, week=1, scenes=(
     Scene("l2-w01-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("It's Level 2, and Nova has built a Gem Counter for Pixel.", cue="level2", pause=0.3),
         B("‘Type how many gems you found,’", speaker=NOVA, cue="ask", pause=0.1),
         B("says Nova.", cue="says", pause=0.3),

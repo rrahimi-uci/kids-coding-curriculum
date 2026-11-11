@@ -2,13 +2,13 @@
   "schema_version": 2,
   "level": 2,
   "audience": "Children in Grades 4–5 (ages 9–11) who are complete beginners",
-  "series_title": "Nova & Pixel's Code Quest",
+  "series_title": "Kids Coding with Nova and Pixel",
   "creative_direction": {
     "frame": "16:9, 1920×1080, 24 or 30 fps",
     "narration": "Warm, curious, inclusive, and clear at about 140–145 words per minute; friendly without sounding babyish",
     "visual_language": "Bright modern 2D motion graphics, real Scratch or Thonny captures, deterministic code overlays, and a recurring mission map",
     "accessibility": "Closed captions (an MP4 caption track plus .srt and .vtt files), Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
-    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Code Quest workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
+    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
   },
   "plan_notes": [
     "The scripts were written from the Level 2 (Intermediate: Python in Thonny) syllabus, teacher guide, all 12 lesson plans, workbook and homework chapters, every exercise brief, starter and hint, and the final project materials, then checked line by line by a separate reviewer against the same sources and the answer keys.",
@@ -58,7 +58,7 @@
           "scene_id": "l2-w01-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! It's Level 2, and Nova has built a Gem Counter for Pixel. ‘Type how many gems you found,’ says Nova. Pixel types 6. The program should add a bonus of 5. Instead… beep! Red text! Pixel did exactly what the code said. So why the crash? The secret: every value has a type!",
+          "narration": "Welcome back to Kids Coding! It's Level 2, and Nova has built a Gem Counter for Pixel. ‘Type how many gems you found,’ says Nova. Pixel types 6. The program should add a bonus of 5. Instead… beep! Red text! Pixel did exactly what the code said. So why the crash? The secret: every value has a type!",
           "visual": "Workshop with a glowing Level 2 door. Nova at a Thonny-style laptop; Pixel types 6 into a Shell panel. A gem counter shows 6 and a +5 bonus gem flies in, then bounces off. Red text slides up in the Shell; Pixel freezes with a question-mark face.",
           "on_screen_text": [
             "MISSION: Fix the Gem Counter",
@@ -596,7 +596,7 @@
           "scene_id": "l2-w06-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Five doors are open, and the Code Quest workshop is buzzing. But today, Pixel finds a pile of broken programs on the bench. One crashes. One gives a wrong answer. ‘Should I change everything until it works?’ asks Pixel. ‘No way,’ says Nova. ‘Detectives use tools!’ Ready to grab yours?",
+          "narration": "Five doors are open, and the Kids Coding workshop is buzzing. But today, Pixel finds a pile of broken programs on the bench. One crashes. One gives a wrong answer. ‘Should I change everything until it works?’ asks Pixel. ‘No way,’ says Nova. ‘Detectives use tools!’ Ready to grab yours?",
           "visual": "Mission map with five open doors and a sixth glowing door marked CHECKPOINT. A workbench holds program cards: one with red text, one with a wrong-answer sign. Pixel holds a giant spanner, ready to bash; Nova hands over a detective kit with a magnifying glass, a print stamp, a rubber duck and a pencil.",
           "on_screen_text": [
             "MISSION: Debug like a detective",

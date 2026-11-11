@@ -10,7 +10,7 @@ RACE = [(f"second+{1.0 + 0.4 * i:.1f}", 1 + i) for i in range(15)]
 
 EPISODE = Episode(level=1, week=4, scenes=(
     Scene("w04-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Nova catches three falling stars.", cue="catches", pause=0.2),
         B("One, two, three!", cue="count", pause=0.4),
         B("Pixel cheers, but the scoreboard still says zero.", cue="cheers", pause=0.3),

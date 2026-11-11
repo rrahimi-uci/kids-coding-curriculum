@@ -60,7 +60,7 @@ PALETTE_CODES = ["#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00
 
 EPISODE = Episode(level=1, week=8, scenes=(
     Scene("w08-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Pixel types forward and left, four times, to draw a square.", cue="types", pause=0.3),
         B("‘This feels familiar,’", speaker=NOVA, cue="familiar", pause=0.1),
         B("Nova says.", cue="says"),

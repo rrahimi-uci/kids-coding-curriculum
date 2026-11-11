@@ -9,7 +9,7 @@ N = NARRATOR
 
 SCRIPTS = [
     SceneScript("w01-s01", (
-        Beat("Welcome to Code Quest!", cue="welcome", pause=0.35),
+        Beat("Welcome to Kids Coding!", cue="welcome", pause=0.35),
         Beat("Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told.", cue="meet"),
         Beat("Today, Nova needs Pixel to carry a glowing key to the workshop door.", cue="task"),
         Beat("‘Take it over there!’", speaker=NOVA, cue="take", pause=0.1),

@@ -191,7 +191,7 @@ def _draw_footer(draw, note: str | None, box_fill=None) -> None:
 
 
 def _header(video: Video, index: int, total: int) -> str:
-    return f"CODE QUEST  •  WEEK {video.week}  •  SCENE {index} OF {total}"
+    return f"KIDS CODING  •  WEEK {video.week}  •  SCENE {index} OF {total}"
 
 
 def render_scene_card(
@@ -610,7 +610,7 @@ def render_video(
         "-f", "concat", "-safe", "0", "-i", str(concat_file), "-i", str(captions),
         "-map", "0:v", "-map", "0:a", "-map", "1:0",
         "-c:v", "copy", "-c:a", "copy", "-c:s", "mov_text",
-        "-metadata", f"title=Code Quest Level {level} Week {video.week}: {video.title}",
+        "-metadata", f"title=Kids Coding with Nova and Pixel – Level {level} Week {video.week}: {video.title}",
         "-metadata", f"comment={voice.disclosure}",
         "-metadata:s:s:0", "language=eng", "-movflags", "+faststart",
         str(destination),

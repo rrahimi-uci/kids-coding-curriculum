@@ -19,7 +19,7 @@ FIXED = BUGGY.replace("t.lef(90)", "t.left(90)")
 
 EPISODE = Episode(level=1, week=7, scenes=(
     Scene("w07-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Today's door has no Scratch blocks, only a blinking text cursor.", cue="cursor", pause=0.3),
         B("Nova types ‘Hello, Pixel!’ and presses Run.", cue="types", pause=0.4),
         B("The words appear, and Pixel's screen lights up!", cue="appear", pause=0.4),

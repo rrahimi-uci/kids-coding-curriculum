@@ -104,7 +104,7 @@ def cell_center(row: int, col: int) -> tuple[float, float]:
 EPISODE = Episode(level=3, week=7, scenes=(
     # ------------------------------------------------------------------ s01 hook
     Scene("l3-w07-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Today Nova wants two things: a whole forest of trees drawn by code, and a paint bucket that fills a pixel "
           "picture with one click.", cue="wants", pause=0.3),
         B("‘That sounds like thousands of lines,’", speaker=PIXEL, cue="lines", pause=0.1),

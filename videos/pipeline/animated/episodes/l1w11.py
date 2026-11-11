@@ -24,7 +24,7 @@ def _line_y(top: int, n: int, size: int = 28) -> float:
 
 EPISODE = Episode(level=1, week=11, scenes=(
     Scene("w11-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Nova has a brilliant art-show plan, and forty new lines typed without running once.", cue="plan",
           pause=0.3),
         B("Pixel presses Run.", cue="presses", pause=0.4),

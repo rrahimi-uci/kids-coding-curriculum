@@ -62,7 +62,36 @@ def _scene_at(scenes: list[SceneTiming], t: float) -> int:
     return len(scenes) - 1
 
 
+FOOTER_BAND = 46  # px at the bottom of every frame for the logo and the website address
+TOP_MARGIN = 6
+
+
 def draw_frame(drawing, scenes: list[SceneTiming], total: float, t: float):
+    """One finished frame: the scene, scaled slightly so the footer band below never covers it."""
+    import cairo
+
+    from . import engine, props
+
+    scene = _draw_scene(drawing, scenes, total, t)
+    surface, ctx = engine.new_frame()
+    ctx.set_source_rgb(1, 1, 1)
+    ctx.paint()
+    scale = (engine.H - TOP_MARGIN - FOOTER_BAND) / engine.H
+    x0 = (engine.W - engine.W * scale) / 2
+    ctx.save()
+    engine.rounded_rect(ctx, x0, TOP_MARGIN, engine.W * scale, engine.H * scale, 16)
+    ctx.clip()
+    ctx.translate(x0, TOP_MARGIN)
+    ctx.scale(scale, scale)
+    ctx.set_source_surface(scene, 0, 0)
+    ctx.get_source().set_filter(cairo.FILTER_GOOD)
+    ctx.paint()
+    ctx.restore()
+    props.footer(ctx, engine.W, engine.H, FOOTER_BAND)
+    return surface
+
+
+def _draw_scene(drawing, scenes: list[SceneTiming], total: float, t: float):
     from . import engine, props
 
     surface, ctx = engine.new_frame()
@@ -229,7 +258,7 @@ def render_episode(week: int, output_dir: Path, workers: int | None = None, prev
             "-map", "0:v", "-map", "1:a", "-map", "2:0", "-c:v", "copy",
             "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,alimiter=limit=0.79:level=disabled", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
             "-c:s", "mov_text", "-metadata:s:s:0", "language=eng",
-            "-metadata", f"title=Code Quest Level {level} Week {week}: {video['title']}",
+            "-metadata", f"title=Kids Coding with Nova and Pixel – Level {level} Week {week}: {video['title']}",
             "-metadata", "comment=Narration uses AI-generated voices (Kokoro).",
             "-movflags", "+faststart", str(destination),
         ], check=True)

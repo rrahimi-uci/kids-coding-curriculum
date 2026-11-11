@@ -7,7 +7,7 @@ IF_POINTER = "if <touching mouse-pointer?>"  # the kit's if block is fixed-width
 
 EPISODE = Episode(level=1, week=3, scenes=(
     Scene("w03-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("Nova walks up to the workshop door.", cue="walks", pause=0.2),
         B("Nothing happens.", cue="nothing", pause=0.5),
         B("‘I checked once, before you arrived!’", speaker=PIXEL, cue="checked", pause=0.1),

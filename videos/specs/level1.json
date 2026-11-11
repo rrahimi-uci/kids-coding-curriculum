@@ -2,13 +2,13 @@
   "schema_version": 2,
   "level": 1,
   "audience": "Children in Grades 4–5 (ages 9–11) who are complete beginners",
-  "series_title": "Nova & Pixel's Code Quest",
+  "series_title": "Kids Coding with Nova and Pixel",
   "creative_direction": {
     "frame": "16:9, 1920×1080, 24 or 30 fps",
     "narration": "Warm, curious, inclusive, and clear at about 140–145 words per minute; friendly without sounding babyish",
     "visual_language": "Bright modern 2D motion graphics, real Scratch or Thonny captures, deterministic code overlays, and a recurring mission map",
     "accessibility": "Closed captions (an MP4 caption track plus .srt and .vtt files), Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
-    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Code Quest workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
+    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
   },
   "plan_notes": [
     "The source review covered the Level 1 syllabus, teacher guide, all 12 lesson plans, workbook and homework chapters, every exercise brief and starter, and the final project materials. The sequence moves from Scratch (weeks 1–6) to Python and Thonny (weeks 7–12), while repeatedly connecting algorithms, events, loops, choices, variables, decomposition, testing, and reflection.",
@@ -52,7 +52,7 @@
           "scene_id": "w01-s01",
           "duration_seconds": 32,
           "purpose": "Mission hook",
-          "narration": "Welcome to Code Quest! Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told. Today, Nova needs Pixel to carry a glowing key to the workshop door. ‘Take it over there!’ says Nova. Pixel zooms off… and puts the key on a chair. Beep boop! Pixel did exactly what it heard. But the instruction wasn't exact. Can you give Pixel steps it can't misunderstand?",
+          "narration": "Welcome to Kids Coding! Meet Nova, a young inventor, and Pixel, a helpful robot who does exactly what it's told. Today, Nova needs Pixel to carry a glowing key to the workshop door. ‘Take it over there!’ says Nova. Pixel zooms off… and puts the key on a chair. Beep boop! Pixel did exactly what it heard. But the instruction wasn't exact. Can you give Pixel steps it can't misunderstand?",
           "visual": "Workshop with Nova, Pixel, a chair and a locked door. Nova points vaguely; Pixel zooms to the chair, sets the key down and beeps proudly. Freeze on a thinking bubble before the question.",
           "on_screen_text": [
             "MISSION: Deliver the key",
@@ -150,7 +150,7 @@
           "scene_id": "w02-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! Today's door needs a square of light. Nova starts writing: move, turn, move, turn, move, turn… The list gets so long, Pixel's paper rolls right across the floor! There must be a shorter way. What could tell Pixel to repeat the same two steps four times?",
+          "narration": "Welcome back to Kids Coding! Today's door needs a square of light. Nova starts writing: move, turn, move, turn, move, turn… The list gets so long, Pixel's paper rolls right across the floor! There must be a shorter way. What could tell Pixel to repeat the same two steps four times?",
           "visual": "A comically long paper strip grows while a square outline waits unlit. Fold repeated move-turn cards into one loop card.",
           "on_screen_text": [
             "MISSION: Light four sides",
@@ -246,7 +246,7 @@
           "scene_id": "w03-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! Nova walks up to the workshop door. Nothing happens. ‘I checked once, before you arrived!’ says Pixel. A useful door has to keep noticing. So how can our program start with an event, check a condition, and react at the right time?",
+          "narration": "Welcome back to Kids Coding! Nova walks up to the workshop door. Nothing happens. ‘I checked once, before you arrived!’ says Pixel. A useful door has to keep noticing. So how can our program start with an event, check a condition, and react at the right time?",
           "visual": "Door-sensor timeline shows Pixel checking once, then Nova arriving later. Freeze on the missing connection.",
           "on_screen_text": [
             "MISSION: Make the door react",
@@ -344,7 +344,7 @@
           "scene_id": "w04-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! Nova catches three falling stars. One, two, three! Pixel cheers, but the scoreboard still says zero. ‘I watched every catch,’ says Pixel, ‘but I forgot the number!’ Our next door opens at five points. So what can a program use to remember a value while it changes?",
+          "narration": "Welcome back to Kids Coding! Nova catches three falling stars. One, two, three! Pixel cheers, but the scoreboard still says zero. ‘I watched every catch,’ says Pixel, ‘but I forgot the number!’ Our next door opens at five points. So what can a program use to remember a value while it changes?",
           "visual": "Three stars land in a basket while a frozen scoreboard stays at zero. A labeled empty memory box appears beside Pixel.",
           "on_screen_text": [
             "MISSION: Remember the score",
@@ -441,7 +441,7 @@
           "scene_id": "w05-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! The workshop stage has three performers. Nova tries to control every move in one giant stack. The blocks wobble higher than Pixel! One performer starts late, and another never moves. ‘This stack is too big!’ says Nova. Could we give each small job a name, and send one clear message when the curtain goes up?",
+          "narration": "Welcome back to Kids Coding! The workshop stage has three performers. Nova tries to control every move in one giant stack. The blocks wobble higher than Pixel! One performer starts late, and another never moves. ‘This stack is too big!’ says Nova. Could we give each small job a name, and send one clear message when the curtain goes up?",
           "visual": "A towering Scratch stack bends while three performers wait. It separates into neat labeled cards connected by one message envelope.",
           "on_screen_text": [
             "MISSION: Organize the show",
@@ -539,7 +539,7 @@
           "scene_id": "w06-s01",
           "duration_seconds": 30,
           "purpose": "Checkpoint hook",
-          "narration": "Welcome back to Code Quest! Six workshop doors glow behind Nova and Pixel. The checkpoint console mixes up every symbol we've found: a flag, a loop, a question, a score box, and a pink My Block. Can you name what each one does? Today, you're the lead code detective!",
+          "narration": "Welcome back to Kids Coding! Six workshop doors glow behind Nova and Pixel. The checkpoint console mixes up every symbol we've found: a flag, a loop, a question, a score box, and a pink My Block. Can you name what each one does? Today, you're the lead code detective!",
           "visual": "Mission map zooms across six doors. Five familiar icons land on a detective board as unlabeled evidence cards.",
           "on_screen_text": [
             "CHECKPOINT MISSION",
@@ -638,7 +638,7 @@
           "scene_id": "w07-s01",
           "duration_seconds": 30,
           "purpose": "New-language hook",
-          "narration": "Welcome back to Code Quest! Today's door has no Scratch blocks, only a blinking text cursor. Nova types ‘Hello, Pixel!’ and presses Run. The words appear, and Pixel's screen lights up! We've crossed into Python, where we write instructions with text. The ideas are familiar. The way we spell them is new.",
+          "narration": "Welcome back to Kids Coding! Today's door has no Scratch blocks, only a blinking text cursor. Nova types ‘Hello, Pixel!’ and presses Run. The words appear, and Pixel's screen lights up! We've crossed into Python, where we write instructions with text. The ideas are familiar. The way we spell them is new.",
           "visual": "Blocks transform into carefully typeset text. A cursor blinks in a simplified Thonny Editor and output appears in the Shell.",
           "on_screen_text": [
             "NEW MISSION: Python",
@@ -738,7 +738,7 @@
           "scene_id": "w08-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! Pixel types forward and left, four times, to draw a square. ‘This feels familiar,’ Nova says. ‘We used a Scratch repeat block for this!’ Python can loop too. But instead of a block's colored border, spaces show which instructions repeat. Can we shrink eight lines into three?",
+          "narration": "Welcome back to Kids Coding! Pixel types forward and left, four times, to draw a square. ‘This feels familiar,’ Nova says. ‘We used a Scratch repeat block for this!’ Python can loop too. But instead of a block's colored border, spaces show which instructions repeat. Can we shrink eight lines into three?",
           "visual": "Eight repeated Python lines fold into a for-loop card. Four visible space markers form a guide rail under the loop header.",
           "on_screen_text": [
             "MISSION: Make repetition shorter",
@@ -840,7 +840,7 @@
           "scene_id": "w09-s01",
           "duration_seconds": 25,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Code Quest! The next door asks, ‘Choose a portal size: 40, 80, or 120.’ Nova types 80. Pixel stores the answer, but then tries to add ten and gets stuck. The input looked like a number. So why does Python see it as text? And how can our program choose the right portal?",
+          "narration": "Welcome back to Kids Coding! The next door asks, ‘Choose a portal size: 40, 80, or 120.’ Nova types 80. Pixel stores the answer, but then tries to add ten and gets stuck. The input looked like a number. So why does Python see it as text? And how can our program choose the right portal?",
           "visual": "A portal console accepts 80, which lands on a card marked text. A plus-ten gear cannot connect until a converter appears.",
           "on_screen_text": [
             "MISSION: Ask, remember, choose",
@@ -939,7 +939,7 @@
           "scene_id": "w10-s01",
           "duration_seconds": 25,
           "purpose": "Creative mission hook",
-          "narration": "Welcome back to Code Quest! The workshop gallery needs a hundred flowers, and no two should look exactly alike. Nova could copy the same drawing code again and again. But Pixel has a better idea: ‘Teach Python one flower-making command, then call it with different sizes and random colors!’ Can one recipe create a whole garden?",
+          "narration": "Welcome back to Kids Coding! The workshop gallery needs a hundred flowers, and no two should look exactly alike. Nova could copy the same drawing code again and again. But Pixel has a better idea: ‘Teach Python one flower-making command, then call it with different sizes and random colors!’ Can one recipe create a whole garden?",
           "visual": "One flower multiplies into a varied garden. Repeated code sheets fold into a single recipe card with adjustable dials.",
           "on_screen_text": [
             "MISSION: One recipe, many artworks",
@@ -1036,7 +1036,7 @@
           "scene_id": "w11-s01",
           "duration_seconds": 25,
           "purpose": "Studio hook",
-          "narration": "Welcome back to Code Quest! Nova has a brilliant art-show plan, and forty new lines typed without running once. Pixel presses Run. ‘Uh-oh,’ says Nova. One tiny error hides somewhere in the stack. The studio clock is ticking. Would you rather search forty lines, or test each small piece as you build it? Today, we work like project engineers.",
+          "narration": "Welcome back to Kids Coding! Nova has a brilliant art-show plan, and forty new lines typed without running once. Pixel presses Run. ‘Uh-oh,’ says Nova. One tiny error hides somewhere in the stack. The studio clock is ticking. Would you rather search forty lines, or test each small piece as you build it? Today, we work like project engineers.",
           "visual": "Forty code lines form a maze around one tiny bug. The maze transforms into four short, testable stepping stones.",
           "on_screen_text": [
             "STUDIO MISSION",
@@ -1134,7 +1134,7 @@
           "scene_id": "w12-s01",
           "duration_seconds": 28,
           "purpose": "Showcase hook",
-          "narration": "Welcome back to Code Quest! All twelve workshop doors open into a gallery. Nova has two minutes to guide visitors through an interactive artwork. ‘Should I show every line of code?’ Nova wonders. No! The best museum guides choose a clear story. What did you make, what should we notice, and what did you learn while building it?",
+          "narration": "Welcome back to Kids Coding! All twelve workshop doors open into a gallery. Nova has two minutes to guide visitors through an interactive artwork. ‘Should I show every line of code?’ Nova wonders. No! The best museum guides choose a clear story. What did you make, what should we notice, and what did you learn while building it?",
           "visual": "Doors fold into a gallery wall. A two-minute timer appears beside three empty story frames labeled Make, Notice, Learn.",
           "on_screen_text": [
             "FINAL MISSION: Tell your coding story",
@@ -1185,7 +1185,7 @@
           "scene_id": "w12-s05",
           "duration_seconds": 55,
           "purpose": "Reflection and celebration",
-          "narration": "Level 1 complete! You learned to sequence exact steps, repeat with loops, react to events, choose with conditions, remember with variables, make your own functions, test inputs, and debug like a detective. The short exit quiz isn't pass or fail; it shows what you've learned. Then reflect: What part am I proudest of? Which bug taught me something? What do I want to make next? Rehearse your two-minute demo, run the safety check, and celebrate every creator's progress. The next code quest starts with your curiosity. Happy coding!",
+          "narration": "Level 1 complete! You learned to sequence exact steps, repeat with loops, react to events, choose with conditions, remember with variables, make your own functions, test inputs, and debug like a detective. The short exit quiz isn't pass or fail; it shows what you've learned. Then reflect: What part am I proudest of? Which bug taught me something? What do I want to make next? Rehearse your two-minute demo, run the safety check, and celebrate every creator's progress. Your next coding adventure starts with your curiosity. Happy coding!",
           "visual": "All concept badges form a constellation around the learner's project. Three reflection prompts appear with writing space; the gallery doors open toward a blank future map.",
           "on_screen_text": [
             "I'm proudest of…",
