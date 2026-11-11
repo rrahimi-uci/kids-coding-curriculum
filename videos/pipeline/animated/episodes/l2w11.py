@@ -133,11 +133,11 @@ EPISODE = Episode(level=2, week=11, scenes=(
         B("Drawing functions are the paint.", cue="paint", pause=0.2),
         B("A computer can't tell if your comet looks nice, but a person can.", cue="person", pause=0.4),
         B("Two tricks.", cue="tricks", pause=0.2),
-        B("One: keep the start-up code under if name equals main, so pytest can borrow your functions without "
-          "starting the game.", cue="guard", pause=0.4),
+        B("One: keep the start-up code under the main guard, so pytest can borrow your functions without starting "
+          "the game.", cue="guard", pause=0.4),
         B("Two: give file functions the file name as a parameter.", cue="param", pause=0.2),
-        B("The game uses highscore dot t x t.", cue="game", pause=0.2),
-        B("The tests use test scores dot t x t, so tests never wipe your real score.", cue="tests", pause=0.6),
+        B("The game uses highscore.txt.", cue="game", pause=0.2),
+        B("The tests use test_scores.txt, so tests never wipe your real score.", cue="tests", pause=0.6),
     ), actions=(
         A("bigtext", "test the brain • playtest the fun", at="idea", until="tricks", y=150, size=50, color="navy"),
         A("panel", "Logic = brain → pytest", at="logic", until="tricks", x=110, y=280, w=800,
@@ -167,9 +167,9 @@ EPISODE = Episode(level=2, week=11, scenes=(
         B("First, two recipe functions from the workbook: load high score and save high score.", cue="recipe",
           pause=0.3),
         B("No file yet? Then the high score is zero, not a crash.", cue="nofile", pause=0.5),
-        B("Next, a new file in the same folder: test mygame dot p y.", cue="newfile", pause=0.2),
-        B("A normal case: next x of zero and one, double equals twenty.", cue="normal", pause=0.2),
-        B("An edge case: next x of two hundred eighty and one, double equals two hundred eighty.", cue="edge"),
+        B("Next, a new file in the same folder: test_mygame.py.", cue="newfile", pause=0.2),
+        B("A normal case: next x with zero and one should give twenty.", cue="normal", pause=0.2),
+        B("An edge case: next x with two hundred eighty and one should stay at two hundred eighty.", cue="edge"),
         B("The player stays on screen.", cue="stays", pause=0.3),
         B("A round trip: save forty-two in the test file, then load it and expect forty-two.", cue="round",
           pause=0.2),
@@ -177,7 +177,7 @@ EPISODE = Episode(level=2, week=11, scenes=(
         B("Press F5.", cue="f5", pause=0.3),
         B("Four PASSED lines!", cue="four", pause=0.6),
         B("Now Nova breaks next x on purpose, removing the clamp.", cue="breaks", pause=0.4),
-        B("FAILED: assert three hundred, double equals, two hundred eighty.", cue="failed", pause=0.3),
+        B("FAILED: it got three hundred, not two hundred eighty.", cue="failed", pause=0.3),
         B("The test caught it!", cue="caught", pause=0.3),
         B("Undo, run again: all PASSED.", cue="undo", pause=0.8),
     ), actions=(

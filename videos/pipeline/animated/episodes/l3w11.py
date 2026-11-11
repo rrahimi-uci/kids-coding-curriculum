@@ -115,7 +115,7 @@ EPISODE = Episode(level=3, week=11, scenes=(
     Scene("l3-w11-s03", setting="lavender", beats=(
         B("Let's test a tiny Bee class.", cue="tiny", pause=0.3),
         B("A new bee has three lives.", cue="three", pause=0.3),
-        B("lose_life takes one away, and if lives drop below zero, it sets them back to zero.", cue="lose", pause=0.4),
+        B("The lose_life method takes one away, and if lives drop below zero, it sets them back to zero.", cue="lose", pause=0.4),
         B("Nova writes two tests, and each name says what it checks.", cue="writes", pause=0.3),
         B("Test one: a new bee starts with three lives.", cue="t1", pause=0.3),
         B("Test two is an edge case: lose five lives in a row, and lives should stop at zero.", cue="t2", pause=0.4),

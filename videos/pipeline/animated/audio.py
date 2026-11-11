@@ -16,6 +16,7 @@ import urllib.request
 
 import numpy as np
 
+from .speech import LEXICON, spoken_form  # noqa: F401  (re-exported for callers)
 from .timeline import NARRATOR, NOVA, PIXEL
 
 SR = 48_000
@@ -34,9 +35,6 @@ VOICES = {
     NOVA: {"voice": "af_bella", "speed": 1.02},
     PIXEL: {"voice": "am_puck", "speed": 1.06, "robot": True},
 }
-# Spoken-only respellings for words a text-to-speech model may say oddly (captions keep the original).
-LEXICON = {"Thonny": "Tonny", "elif": "el-if", "randint": "rand int", "def ": "deff "}
-
 
 # --------------------------------------------------------------------------- model files
 def fetch_models() -> None:
@@ -79,10 +77,9 @@ def _kokoro():
 
 
 # --------------------------------------------------------------------------- voices
-def spoken_form(text: str) -> str:
-    for word, said in LEXICON.items():
-        text = text.replace(word, said)
-    return text.replace("‘", "").replace("’s", "'s").replace("’", "'")
+def phonemes(text: str) -> str:
+    """How the voice will pronounce a line (for checking code words without rendering)."""
+    return _kokoro().tokenizer.phonemize(spoken_form(text), "en-us")
 
 
 def upsample_2x(signal: np.ndarray) -> np.ndarray:

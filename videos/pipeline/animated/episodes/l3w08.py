@@ -61,7 +61,7 @@ EPISODE = Episode(level=3, week=8, scenes=(
         B("A CSV file, short for comma-separated values, is a table saved as plain text.", cue="csv", pause=0.3),
         B("One line is one row, and commas split the columns.", cue="line", pause=0.3),
         B("The first line is the header: the column names.", cue="header", pause=0.4),
-        B("Python's csv dot DictReader turns each row into a dictionary, so row, pet, in square brackets, gives that "
+        B("Python's csv.DictReader turns each row into a dictionary, so looking up the pet column gives that "
           "row's answer.", cue="dict", pause=0.4),
         B("Next, clean.", cue="clean", pause=0.2),
         B("Data is like vegetables from the garden: you wash off the mud before you cook.", cue="veg", pause=0.3),
@@ -100,7 +100,7 @@ EPISODE = Episode(level=3, week=8, scenes=(
     # ------------------------------------------------------------------ s03 clean, tally, average, chart
     Scene("l3-w08-s03", setting="lavender", beats=(
         B("Here's Nova's little file.", cue="file", pause=0.3),
-        B("Row two says space, cat, space.", cue="row2", pause=0.3),
+        B("Row two is cat, with extra spaces around it.", cue="row2", pause=0.3),
         B("Row three is empty.", cue="row3", pause=0.3),
         B("Row four, Dog, has no minutes.", cue="row4", pause=0.3),
         B("After cleaning with strip and title, every spelling becomes Cat with a capital C, and the empty row is "
@@ -161,8 +161,8 @@ EPISODE = Episode(level=3, week=8, scenes=(
     # ------------------------------------------------------------------ s04 bug hunt
     Scene("l3-w08-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova's minutes came straight from a file: quote ten, quote nine, quote seven.", cue="minutes", pause=0.3),
-        B("Pixel finds the biggest with max, and max says quote nine.", cue="max", pause=0.3),
+        B("Nova's minutes came straight from a file: ten, nine and seven.", cue="minutes", pause=0.3),
+        B("Pixel finds the biggest with max, and max says nine.", cue="max", pause=0.3),
         B("Nine is bigger than ten?", cue="bigger", pause=1.2),
         B("Then sum crashes with a red error.", cue="crash", pause=0.4),
         B("Let's use our steps.", cue="steps", pause=0.2),
@@ -174,9 +174,9 @@ EPISODE = Episode(level=3, week=8, scenes=(
         B("Every CSV value arrives as text, and text is compared letter by letter.", cue="text", pause=0.4),
         B("Fix one thing:", cue="fix", pause=3.6),
         B("turn text into numbers while cleaning.", cue="turn", pause=0.3),
-        B("int of quote ten gives the number ten.", cue="int", pause=0.3),
+        B("Calling int on the text ten gives the number ten.", cue="int", pause=0.3),
         B("But careful!", cue="careful", pause=0.2),
-        B("int of an empty answer crashes with a ValueError, so a blank becomes None, and we skip it.", cue="empty",
+        B("Calling int on an empty answer crashes with a ValueError, so a blank becomes None, and we skip it.", cue="empty",
           pause=0.4),
         B("Check: run again.", cue="check", pause=0.3),
         B("The biggest is ten, and the total is twenty-six.", cue="total", pause=0.8),

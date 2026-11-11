@@ -271,7 +271,7 @@
           "scene_id": "w03-s03",
           "duration_seconds": 65,
           "purpose": "Build a responsive script",
-          "narration": "Let's make a ghost giggle when the pointer touches it. Start with when green flag clicked. Inside forever, place an if-else. If touching mouse-pointer, say ‘That tickles!’ Else, say with an empty box, which clears the bubble. Why forever? The pointer might move later, so the program has to ask the touching question again and again. Watch the highlight go around the loop: check, choose, react. Check, choose, react. Now move away, and the other path runs.",
+          "narration": "Let's make a ghost giggle when the pointer touches it. Start with when green flag clicked. Inside forever, place an if-else. If touching mouse-pointer, say ‘That tickles!’ Else, use a say block with an empty box, which clears the bubble. Why forever? The pointer might move later, so the program has to ask the touching question again and again. Watch the highlight go around the loop: check, choose, react. Check, choose, react. Now move away, and the other path runs.",
           "visual": "Authentic Scratch block overlay beside a ghost. A pulse travels through forever, condition, yes path, then else path as the pointer moves.",
           "on_screen_text": [
             "forever: keep checking",
@@ -383,7 +383,7 @@
           "scene_id": "w04-s04",
           "duration_seconds": 70,
           "purpose": "Two-bug investigation",
-          "narration": "Time for a bug hunt! Pixel finds two clues in Nova's star game. First, a new game begins with the last game's score. Expected: zero. What happened? Seven! The green-flag script forgot set score to zero. Second, one star gives lots of points. Remember the paper-ball game, when we scored for every second someone held the ball? Here, forever keeps asking ‘touching basket?’ while the star sits in the basket. What should happen right after adding one? Pause and point. Send the star back to the top before the next check. Change one thing, test, then investigate the next clue.",
+          "narration": "Time for a bug hunt! Pixel finds two clues in Nova's star game. First, a new game begins with the last game's score. Expected: zero. What happened? Seven! The green-flag script forgot to set score to zero. Second, one star gives lots of points. Remember the paper-ball game, when we scored for every second someone held the ball? Here, forever keeps asking ‘touching basket?’ while the star sits in the basket. What should happen right after adding one? Pause and point. Send the star back to the top before the next check. Change one thing, test, then investigate the next clue.",
           "visual": "Detective board shows bug A: stale score and bug B: rapidly spinning counter. Repairs are applied and tested separately.",
           "on_screen_text": [
             "Bug A: no reset",
@@ -453,7 +453,7 @@
           "scene_id": "w05-s02",
           "duration_seconds": 55,
           "purpose": "Explain decomposition and My Blocks",
-          "narration": "Decomposition means splitting a big job into smaller named parts. In Scratch, My Blocks, then Make a Block, lets us name a job we want to reuse. Nova makes a block called polygon, with two inputs: sides and length. Under the pink define hat go: pen down, repeat sides, move length steps, turn three hundred sixty divided by sides, and pen up. Now the main script can say polygon three, one hundred twenty, or polygon six, sixty. An input is a blank we fill in each time, so one block makes lots of shapes!",
+          "narration": "Decomposition means splitting a big job into smaller named parts. In Scratch, My Blocks, then Make a Block, lets us name a job we want to reuse. Nova makes a block called polygon, with two inputs: sides and length. Under the pink define hat go: pen down, repeat sides, move length steps, turn three hundred sixty divided by sides, and pen up. Now the main script can use polygon with three sides of length one hundred twenty, or six sides of length sixty. An input is a blank we fill in each time, so one block makes lots of shapes!",
           "visual": "Big ‘art show’ puzzle splits into shape, movement, and speech pieces. A pink define polygon (sides) (length) hat receives 3, 120 then 6, 60 and draws two labeled results.",
           "on_screen_text": [
             "Decomposition = smaller jobs",
@@ -664,7 +664,7 @@
           "scene_id": "w07-s03",
           "duration_seconds": 65,
           "purpose": "Write first Python and turtle commands",
-          "narration": "Let's type our first line. Print, open parenthesis, quotation mark, Hello, coder!, closing quotation mark, close parenthesis. Print shows words in the Shell. A line that starts with a hash mark is a comment. It's a note for people, and Python skips it. Every turtle program has the same shape. Import turtle gets the toolbox. t equals turtle dot Turtle, with a capital T, makes a turtle called t. Then t dot forward one hundred moves, and t dot left ninety turns. Turtle dot done keeps the window open. Run it, and watch each exact instruction happen in order.",
+          "narration": "Let's type our first line. Type print, then open a parenthesis and a quotation mark, write Hello, coder!, and close the quote and the parenthesis. Print shows words in the Shell. A line that starts with a hash mark is a comment. It's a note for people, and Python skips it. Every turtle program has the same shape. Import turtle gets the toolbox. The next line makes a turtle called t; notice the capital T in Turtle. Then t moves forward one hundred steps, and turns left ninety degrees. Finally, turtle.done keeps the window open. Run it, and watch each exact instruction happen in order.",
           "visual": "Large syntax-highlighted overlays appear line by line: print, a comment, import turtle, t = turtle.Turtle(), t.forward(100), t.left(90), turtle.done(). A turtle moves 100 and turns left 90 with labeled distance and angle arcs.",
           "on_screen_text": [
             "print(\"Hello, coder!\")",
@@ -678,7 +678,7 @@
           "scene_id": "w07-s04",
           "duration_seconds": 70,
           "purpose": "Error-message bug hunt",
-          "narration": "Time for a bug hunt! Nova typed t dot lef, with one letter missing. Expected: a corner. What happened? One line, then the turtle stops, and red text appears in the Shell. Don't panic, and don't read every line first. Find the line number, then read the last line. It says line four, and that the Turtle has no attribute lef. That means Python doesn't know a turtle command called lef. It even asks: did you mean left? What single change should we test? Pause and point. Add the missing letter t to make left, run again, and the turtle turns the corner! Errors are clues, not danger.",
+          "narration": "Time for a bug hunt! Nova typed a turn command with one letter missing. Expected: a corner. What happened? One line, then the turtle stops, and red text appears in the Shell. Don't panic, and don't read every line first. Find the line number, then read the last line. It points to line four, and says the Turtle has no attribute lef. That means Python doesn't know a turtle command called lef. It even asks: did you mean left? What single change should we test? Pause and point. Add the missing letter t to make left, run again, and the turtle turns the corner! Errors are clues, not danger.",
           "visual": "Sanitized Thonny capture: line 4, t.lef(90), last line AttributeError: 'Turtle' object has no attribute 'lef'. Did you mean: 'left'? Zoom to the line number and last line; a letter t slides onto lef; the rerun draws the corner.",
           "on_screen_text": [
             "1 Find the line number",
@@ -750,7 +750,7 @@
           "scene_id": "w08-s02",
           "duration_seconds": 55,
           "purpose": "Explain for, range, colon, and indentation",
-          "narration": "Read this line: for i in range four, colon. It means: repeat the pushed-in lines four times. The colon says a group is coming. Every line inside starts with the same four spaces. That's called indentation. Thonny helps: after a colon, press Return, and it pushes the next line in for you. Range four gives four numbers: zero, one, two, three. Python starts counting at zero, but there are still four numbers, so the loop runs four times. The i keeps count, even when our drawing doesn't use it.",
+          "narration": "This line starts a loop: for i in range four, with a colon at the end. It means: repeat the pushed-in lines four times. The colon says a group is coming. Every line inside starts with the same four spaces. That's called indentation. Thonny helps: after a colon, press Return, and it pushes the next line in for you. Range four gives four numbers: zero, one, two, three. Python starts counting at zero, but there are still four numbers, so the loop runs four times. The i keeps count, even when our drawing doesn't use it.",
           "visual": "The code line enlarges in parts. Four seats labeled 0, 1, 2, 3 fill one by one; four-space guides align two body lines.",
           "on_screen_text": [
             "for i in range(4):",
@@ -764,7 +764,7 @@
           "scene_id": "w08-s03",
           "duration_seconds": 65,
           "purpose": "Draw polygons and preview nesting",
-          "narration": "For a square, put t dot forward one hundred and t dot left ninety inside range four. The secret shape rule is back: repeats equal sides, and the turn equals three hundred sixty divided by sides. A triangle repeats three times and turns one hundred twenty. A loop can even hold another loop. That's a nested loop. In Square Flower, the outer loop takes one color at a time from a list called PALETTE, and the inner loop draws a whole square. The inner lines get eight spaces: four, then four more.",
+          "narration": "For a square, put the move forward one hundred and the turn left ninety inside a loop that runs four times. The secret shape rule is back: repeats equal sides, and the turn equals three hundred sixty divided by sides. A triangle repeats three times and turns one hundred twenty. A loop can even hold another loop. That's a nested loop. In Square Flower, the outer loop takes one color at a time from a list called PALETTE, and the inner loop draws a whole square. The inner lines get eight spaces: four, then four more.",
           "visual": "Square code runs with four highlighted trips, then values change to a triangle. A light preview shows a square flower with inner and outer loop brackets and a row of PALETTE color chips, each labeled.",
           "on_screen_text": [
             "repeats = sides",
@@ -778,7 +778,7 @@
           "scene_id": "w08-s04",
           "duration_seconds": 70,
           "purpose": "Two-clue bug hunt",
-          "narration": "Time for a bug hunt! Nova wants a triangle, but the turtle draws only two sides. Count the trips: the code says range two. That's an off-by-one bug: the loop runs one time too few. A triangle has three sides, so change two to three, and test. Next, Nova's triangle is one long straight line! Look at the spaces. t dot left one hundred twenty isn't pushed in, so it's outside the loop, and it turns only once, at the end. Push it in four spaces, under t dot forward, and test. If the spaces don't match, Python shows a red IndentationError. Pause before each repair: what evidence tells us which one thing to change?",
+          "narration": "Time for a bug hunt! Nova wants a triangle, but the turtle draws only two sides. Count the trips: the code says range two. That's an off-by-one bug: the loop runs one time too few. A triangle has three sides, so change two to three, and test. Next, Nova's triangle is one long straight line! Look at the spaces. The turn line isn't pushed in, so it's outside the loop, and the turtle turns only once, at the end. Push it in four spaces, under the forward line, and test. If the spaces don't match, Python shows a red IndentationError. Pause before each repair: what evidence tells us which one thing to change?",
           "visual": "Open two-sided triangle links to range(2); then one long line links to an un-indented t.left(120) with space guides; repairs are tested separately; a small inset shows a mismatched-space IndentationError.",
           "on_screen_text": [
             "Clue 1: loop runs one time too few",
@@ -852,7 +852,7 @@
           "scene_id": "w09-s02",
           "duration_seconds": 55,
           "purpose": "Explain variables, input, and conversion",
-          "narration": "A Python variable is a name connected to a value. This line asks a question and stores the answer: color underscore name equals input, open parenthesis, a playful question, close parenthesis. Input returns a string, which means text, even if you typed digits. When we need number math or comparisons, int can convert suitable digit text into a whole number. Size equals int of input. First ask, then convert, then use.",
+          "narration": "A Python variable is a name connected to a value. This line uses input to ask a playful question, then stores the answer in a variable called color_name. Input returns a string, which means text, even if you typed digits. When we need number math or comparisons, int can convert suitable digit text into a whole number. The next line asks for a size and turns the answer into a number. First ask, then convert, then use.",
           "visual": "Variable name tags connect to text cards. Exact code overlays animate through ask → store text → int converter → store whole number.",
           "on_screen_text": [
             "color_name = input(...)",
@@ -879,7 +879,7 @@
           "scene_id": "w09-s04",
           "duration_seconds": 70,
           "purpose": "Input bug hunt and testing",
-          "narration": "Time for a bug hunt! Pixel asks, ‘How many steps should I walk?’ Nova types 100. Expected: Pixel walks 100 steps. Actual: a red TypeError! Pause: what's inside the box called steps? Type steps in the Shell. Thonny shows ‘100’ with quote marks. That's text, and a turtle can't walk text. The fix: steps equals int of answer. Run again with 100, then 50, then 250. One more test: on a color question, type Blue with a capital B. No crash, but it goes to else, because Python is picky: ‘Blue’ and ‘blue’ are different. That's why a friendly else message helps.",
+          "narration": "Time for a bug hunt! Pixel asks, ‘How many steps should I walk?’ Nova types 100. Expected: Pixel walks 100 steps. Actual: a red TypeError! Pause: what's inside the box called steps? Type steps in the Shell. Thonny shows ‘100’ with quote marks. That's text, and a turtle can't walk text. The fix: convert the answer with int, so steps holds a number. Run again with 100, then 50, then 250. One more test: on a color question, type Blue with a capital B. No crash, but it goes to else, because Python is picky: ‘Blue’ and ‘blue’ are different. That's why a friendly else message helps.",
           "visual": "Text card ‘100’ (with quote marks) fails to drive the turtle and a red TypeError line appears; int turns it into the number tile 100. A short test table fills Expected and Actual rows.",
           "on_screen_text": [
             "Text '100' ≠ number 100",
@@ -951,7 +951,7 @@
           "scene_id": "w10-s02",
           "duration_seconds": 55,
           "purpose": "Explain functions and parameters",
-          "narration": "A function is your own command, just like a My Block in Scratch. We write def, the name flower, and an input slot in parentheses: a parameter called size. Then a colon. The pushed-in lines are the recipe. But a recipe card isn't a cake. Defining writes the card; nothing is drawn yet. To use it, call flower, open parenthesis, sixty, close parenthesis. Sixty goes into the size slot. Define once, call many times: thirty, sixty, and ninety make three flower sizes from one recipe.",
+          "narration": "A function is your own command, just like a My Block in Scratch. We write def, the name flower, and an input slot in parentheses: a parameter called size. Then a colon. The pushed-in lines are the recipe. But a recipe card isn't a cake. Defining writes the card; nothing is drawn yet. To use it, call flower with the number sixty. Sixty goes into the size slot. Define once, call many times: thirty, sixty, and ninety make three flower sizes from one recipe.",
           "visual": "Exact def code builds a recipe machine. Calls with 30, 60, and 90 feed labeled values into the size slot and produce three flowers.",
           "on_screen_text": [
             "def → define the recipe",
@@ -964,7 +964,7 @@
           "scene_id": "w10-s03",
           "duration_seconds": 65,
           "purpose": "Add bounded randomness",
-          "narration": "First, write import random at the top, next to import turtle. Random dot choice picks one item from a list, like picking a crayon from a bag with your eyes closed. Here, it picks from our color-blind-safe PALETTE. Random dot randint, ten comma eighty, picks a whole number from ten up to eighty, and both ten and eighty can be picked. Smaller number first! Random doesn't mean ‘anything in the universe.’ We choose the limits. A loop can call our flower function several times with new choices, so the garden changes every run, but it still follows our rules.",
+          "narration": "First, write import random at the top, next to import turtle. Then random.choice picks one item from a list, like picking a crayon from a bag with your eyes closed. Here, it picks from our color-blind-safe PALETTE. And random.randint, with ten and eighty, picks a whole number from ten up to eighty, and both ten and eighty can be picked. Smaller number first! Random doesn't mean ‘anything in the universe.’ We choose the limits. A loop can call our flower function several times with new choices, so the garden changes every run, but it still follows our rules.",
           "visual": "A choice wheel contains four named accessible colors. A number gate visibly spans 10 through 80. Both feed the flower function inside a loop.",
           "on_screen_text": [
             "import random",
@@ -978,7 +978,7 @@
           "scene_id": "w10-s04",
           "duration_seconds": 70,
           "purpose": "Function-call bug hunt",
-          "narration": "Time for a bug hunt! Nova's program runs with no red error, but the screen stays blank. ‘Where's my flower?’ asks Nova. What did we expect? One flower. What actually happened? Nothing. Read the code one line at a time, with your finger. The flower recipe looks perfect. But scan below it: nothing ever calls it. Defining writes the recipe; calling makes it run. Pause: what one line could we add? Flower, open parenthesis, sixty, close parenthesis, at the left edge, below the def, not pushed in. Run again. A blank screen with no error can still be a clue.",
+          "narration": "Time for a bug hunt! Nova's program runs with no red error, but the screen stays blank. ‘Where's my flower?’ asks Nova. What did we expect? One flower. What actually happened? Nothing. Read the code one line at a time, with your finger. The flower recipe looks perfect. But scan below it: nothing ever calls it. Defining writes the recipe; calling makes it run. Pause: what one line could we add? Call flower with sixty, on a new line below the recipe, at the left edge, not pushed in. Run again. A blank screen with no error can still be a clue.",
           "visual": "A complete function sits unused beside a blank turtle window. Detective scan reaches end-of-file, then one call line connects to the function and drawing begins.",
           "on_screen_text": [
             "Defined ≠ called",
@@ -1062,7 +1062,7 @@
           "scene_id": "w11-s03",
           "duration_seconds": 65,
           "purpose": "Use build-run-check and versions",
-          "narration": "Use a three-beat studio rhythm, like building a LEGO set bag by bag. Build one small change. Run it. Check: did it do what I expected? If something breaks, you know it was the last little change, so look there first. Before a big change, click File, then Save as, and add underscore v2 to the name, like fish_party_v2.py. If the change goes wrong, version one is still safe. A version is a saved checkpoint, not twelve mystery copies named final-final-really-final.",
+          "narration": "Use a three-beat studio rhythm, like building a LEGO set bag by bag. Build one small change. Run it. Check: did it do what I expected? If something breaks, you know it was the last little change, so look there first. Before a big change, click File, then Save as, and add v2 to the end of the name, like fish_party_v2.py. If the change goes wrong, version one is still safe. A version is a saved checkpoint, not twelve mystery copies named final-final-really-final.",
           "visual": "Build, Run, Check triangle rotates slowly. A tidy version ladder replaces chaotic filenames; each rung has a short milestone note.",
           "on_screen_text": [
             "BUILD → RUN → CHECK",

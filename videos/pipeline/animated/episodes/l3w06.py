@@ -108,7 +108,7 @@ EPISODE = Episode(level=3, week=6, scenes=(
     Scene("l3-w06-s03", setting="lavender", beats=(
         B("Let's try it on a tiny Robot class.", cue="tiny", pause=0.2),
         B("Its setup gives every robot a battery of fifty, and charge adds some power.", cue="setup", pause=0.3),
-        B("At the bottom, Nova makes bolt and calls bolt dot charge twenty-five.", cue="bottom", pause=0.3),
+        B("At the bottom, Nova makes a robot named bolt and calls its charge method with twenty-five.", cue="bottom", pause=0.3),
         B("Nova clicks Debug, and the first line lights up.", cue="debug", pause=0.3),
         B("Step over, step over…", cue="steps", pause=0.3),
         B("In the Variables view, bolt appears.", cue="vars", pause=0.2),
@@ -158,7 +158,7 @@ EPISODE = Episode(level=3, week=6, scenes=(
         B("Total becomes 3, then jumps back to zero, then 4.", cue="total", pause=0.2),
         B("Then zero again!", cue="zero", pause=3.0),
         B("Aha!", cue="aha", pause=0.2),
-        B("The line total equals zero is inside the loop, so it runs every time.", cue="inside", pause=0.3),
+        B("The line that sets total to zero is inside the loop, so it runs every time.", cue="inside", pause=0.3),
         B("Four, fix one thing: move that line above the loop.", cue="fix", pause=0.3),
         B("Five, check: run it.", cue="check", pause=0.3),
         B("12!", cue="twelve", pause=0.4),

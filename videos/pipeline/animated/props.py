@@ -8,7 +8,7 @@ import random
 import cairo
 
 from .engine import (
-    C, H, W, appear, check_mark, circle, clamp, cross_mark, ease_out, ellipse, fill_rounded, glow, line,
+    C, H, W, appear, safe_scale, check_mark, circle, clamp, cross_mark, ease_out, ellipse, fill_rounded, glow, line,
     rounded_rect, set_color, star, text, text_size, vertical_gradient,
 )
 
@@ -68,7 +68,7 @@ def key(ctx, x, y, s, t, glowing: bool = True, angle: float = 0.0) -> None:
     ctx.save()
     ctx.translate(x, y)
     ctx.rotate(angle)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     if glowing:
         glow(ctx, 0, 0, 70, C["gold"], 0.45 + 0.15 * math.sin(t * 6))
         for i in range(3):
@@ -104,7 +104,7 @@ def door(ctx, x, y, w, h, t, opened: float = 0.0, locked: bool = True, label: st
 def _padlock(ctx, x, y, s) -> None:
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     ctx.arc(0, -10, 18, math.pi, 0)
     set_color(ctx, C["gray"])
     ctx.set_line_width(8)
@@ -117,7 +117,7 @@ def _padlock(ctx, x, y, s) -> None:
 def chair(ctx, x, y, s) -> None:
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     for lx in (-50, 44):
         fill_rounded(ctx, lx, -90, 12, 90, 5, C["wood_dark"])
     fill_rounded(ctx, -60, -104, 120, 22, 8, C["wood"])
@@ -137,7 +137,7 @@ def chip(ctx, x, y, label, t, start, color=C["sky_light"], ink=C["navy"], size=4
     ctx.save()
     cx = x if anchor == "center" else x + w / 2
     ctx.translate(cx, y)
-    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
+    safe_scale(ctx, max(amount, 1e-3), max(amount, 1e-3))
     fill_rounded(ctx, -w / 2 + 4, -h / 2 + 6, w, h, h / 2, "#000000", 0.10)
     fill_rounded(ctx, -w / 2, -h / 2, w, h, h / 2, color)
     text(ctx, label, 0, 0, size, ink, bold=True)
@@ -153,7 +153,7 @@ def title_banner(ctx, label, t, start, y=96, size=56, color=C["navy"]) -> None:
     w, h = tw + 90, th + 34
     ctx.save()
     ctx.translate(W / 2, y)
-    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
+    safe_scale(ctx, max(amount, 1e-3), max(amount, 1e-3))
     fill_rounded(ctx, -w / 2 + 6, -h / 2 + 8, w, h, 26, "#000000", 0.12)
     fill_rounded(ctx, -w / 2, -h / 2, w, h, 26, color)
     text(ctx, label, 0, 0, size, C["white"], bold=True)
@@ -174,7 +174,7 @@ def speech_bubble(ctx, x, y, label, t, start, end=None, size=40, tail="down-left
     bx = min(max(bx, 24), W - 24 - w)  # always keep the whole bubble on screen
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
+    safe_scale(ctx, max(amount, 1e-3), max(amount, 1e-3))
     ctx.translate(-x, -y)
     fill_rounded(ctx, bx + 4, by + 6, w, h, 28, "#000000", 0.10)
     rounded_rect(ctx, bx, by, w, h, 28)
@@ -204,7 +204,7 @@ def thought_bubble(ctx, x, y, t, start, end, label: str = "") -> None:
     width = max(300, text_size(label, 40, bold=True)[0] + 90) if label else 300
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
+    safe_scale(ctx, max(amount, 1e-3), max(amount, 1e-3))
     circle(ctx, -60, 90, 14, C["white"], stroke=C["navy"], width=3)
     circle(ctx, -30, 55, 22, C["white"], stroke=C["navy"], width=3)
     fill_rounded(ctx, -width / 2, -110, width, 140, 60, C["white"], stroke=C["navy"], width=4)
@@ -227,7 +227,7 @@ def step_card(ctx, x, y, w, number: int, label: str, t, start, active: float = 0
     ctx.save()
     ctx.translate(x + w / 2, y + h / 2)
     grow = 1 + 0.06 * active
-    ctx.scale(max(amount * grow, 1e-3), max(amount * grow, 1e-3))
+    safe_scale(ctx, max(amount * grow, 1e-3), max(amount * grow, 1e-3))
     if active > 0:
         fill_rounded(ctx, -w / 2 - 10, -h / 2 - 10, w + 20, h + 20, 30, C["yellow"], 0.35 * active)
     fill_rounded(ctx, -w / 2 + 4, -h / 2 + 6, w, h, 22, "#000000", 0.10)
@@ -248,7 +248,7 @@ def badge(ctx, x, y, r, ok: bool, t, start) -> None:
         return
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(max(amount, 1e-3), max(amount, 1e-3))
+    safe_scale(ctx, max(amount, 1e-3), max(amount, 1e-3))
     circle(ctx, 0, 0, r, C["green"] if ok else C["vermillion"])
     if ok:
         check_mark(ctx, 0, 0, r * 1.3, amount=clamp((t - start) / 0.4))
@@ -279,7 +279,7 @@ def confetti(ctx, x, y, t, start, count=40, spread=520, seed=3) -> None:
 def magnifier(ctx, x, y, s, t) -> None:
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     ctx.rotate(-0.5)
     line(ctx, 0, 60, 0, 150, C["wood_dark"], 26)
     circle(ctx, 0, 0, 62, C["sky_light"], 0.35)
@@ -298,7 +298,7 @@ def pointer_hand(ctx, x, y, s) -> None:
     """A hand whose index finger points left at (x, y) (for 'read the blocks with your finger')."""
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(s, s)
+    safe_scale(ctx, s, s)
     fill_rounded(ctx, 0, -11, 80, 22, 11, C["skin"], stroke="#8A5534", width=3)  # index finger
     fill_rounded(ctx, 60, -34, 78, 70, 26, C["skin"], stroke="#8A5534", width=3)  # hand
     fill_rounded(ctx, 120, -26, 70, 54, 18, C["blue"])  # sleeve
@@ -327,7 +327,7 @@ def code_block(ctx, x, y, kind: str, parts: list[str], t: float = 0.0, highlight
     h = 76
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(scale, scale)
+    safe_scale(ctx, scale, scale)
     if highlight > 0:
         fill_rounded(ctx, -12, -14, w + 24, h + 30, 22, C["yellow"], 0.45 * highlight)
     _block_path(ctx, w, h, hat)
@@ -435,7 +435,7 @@ def logo(ctx, x, y, s, t, start) -> None:
         return
     ctx.save()
     ctx.translate(x, y)
-    ctx.scale(max(s * amount, 1e-3), max(s * amount, 1e-3))
+    safe_scale(ctx, max(s * amount, 1e-3), max(s * amount, 1e-3))
     fill_rounded(ctx, -490, -150, 1000, 300, 70, "#000000", 0.14)
     fill_rounded(ctx, -500, -160, 1000, 300, 70, C["white"])
     logo_mark(ctx, -455, -110, 200, t, start + 0.2)

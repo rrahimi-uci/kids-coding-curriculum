@@ -181,11 +181,11 @@ EPISODE = Episode(level=3, week=7, scenes=(
     )),
     # ------------------------------------------------------------------ s03 calls, fractal tree, grid
     Scene("l3-w07-s03", setting="lavender", beats=(
-        B("Let's watch countdown of three run.", cue="watch", pause=0.3),
-        B("It prints three, then calls countdown of two, which waits inside it like a smaller doll.", cue="prints",
+        B("Let's watch countdown run, starting from three.", cue="watch", pause=0.3),
+        B("It prints three, then calls countdown with two, which waits inside it like a smaller doll.", cue="prints",
           pause=0.2),
         B("Two, one…", cue="twoone", pause=0.2),
-        B("then countdown of zero reaches the base case: Liftoff!", cue="zero", pause=0.6),
+        B("then the call with zero reaches the base case: Liftoff!", cue="zero", pause=0.6),
         B("A fractal is a shape made of smaller copies of itself.", cue="fractal", pause=0.3),
         B("A tree is a trunk with two smaller trees on top, until the depth reaches zero.", cue="tree", pause=0.3),
         B("Depth one is one line.", cue="d1", pause=0.4),
@@ -193,7 +193,7 @@ EPISODE = Episode(level=3, week=7, scenes=(
         B("Depth three, seven.", cue="d3", pause=0.6),
         B("Now grids.", cue="grids", pause=0.2),
         B("A grid is a list of rows, and each row is a list.", cue="rows", pause=0.3),
-        B("grid, row one, column three, means go down to row one, then across to column three, both counted from "
+        B("To read the cell at row one, column three, go down to row one, then across to column three, both counted from "
           "zero.", cue="cell", pause=0.3),
         B("Like a movie ticket: row first, then seat.", cue="ticket", pause=0.3),
         B("That cell is H.", cue="h", pause=0.5),
@@ -268,9 +268,9 @@ EPISODE = Episode(level=3, week=7, scenes=(
     Scene("l3-w07-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
         B("Nova writes a function called open_doll.", cue="writes", pause=0.2),
-        B("It prints ‘Opening doll’ and the size, then calls open_doll with the size minus one.", cue="prints",
+        B("It prints ‘Opening doll’ and the size, then calls itself with the size minus one.", cue="prints",
           pause=0.3),
-        B("Pixel runs open_doll of three.", cue="runs", pause=0.3),
+        B("Pixel runs it, starting from three.", cue="runs", pause=0.3),
         B("Three, two, one, zero, minus one, minus two…", cue="falling", pause=0.2),
         B("the numbers keep falling below zero, and then a red error appears.", cue="red", pause=0.4),
         B("Let's use our bug-hunting steps.", cue="steps", pause=0.3),

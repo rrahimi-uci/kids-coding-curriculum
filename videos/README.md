@@ -65,7 +65,7 @@ python -m videos.pipeline.cli animate --level 1 --week 1 --preview 30   # just t
 
 What goes into an episode:
 
-- **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Nova (`af_bella`) and Pixel (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Spelling fixes for tricky words live in `LEXICON` in `animated/audio.py`.
+- **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Nova (`af_bella`) and Pixel (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Captions show code as it is written (`self.height`, `stickers.txt`, `__init__`); the voice reads it the way a teacher would ("self dot height", "stickers dot T X T", "dunder init"). These rules and the spelling fixes for tricky words (`LEXICON`) live in `animated/speech.py`.
 - **Animation:** Nova and Pixel blink, change expression, wave and point. Nova's mouth follows the voice. Every idea is shown as it is said: the floor-grid algorithm, step cards, snap-together blocks, the bug hunt, and a recap. Scenes change with a circular wipe.
 - **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. The final mix is normalized to -16 LUFS with peaks at or below -1.5 dBTP.
 - **Text:** the course font, large and short, timed to the narration. Captions are a selectable track plus `.srt` and `.vtt` files.
