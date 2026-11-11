@@ -3,6 +3,17 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.9.0 - 2026-11-11
+
+Animated teaching videos for every week of all three levels.
+
+- 36 animated videos, one for each week of Levels 1, 2 and 3, all in the style of the Week 1 video: natural voices for the narrator, Nova and Pixel; animated characters; every idea shown on screen; music, sound effects and captions. They are made on your own computer for free with `animate`.
+- New video scripts for Levels 2 and 3, written from the lessons, workbooks, homework, exercises and project briefs. Each was then checked line by line by a separate reviewer, and the review replaced examples that were too close to quiz, checkpoint or exercise answers.
+- Level 1 Weeks 2–12 narration was rewritten to sound natural when spoken. The facts checked in 1.7.0 are unchanged.
+- Code shown in a video runs for real on the course's Python 3.10, with the course's turtle. The Shell shows the program's true output, errors appear exactly as Thonny shows them (including "Did you mean …?" hints and full tracebacks when a lesson reads them), and turtle windows draw exactly what the code draws. Tests fail if a video's code output changes.
+- A reusable animation kit with Scratch blocks and stage, Thonny editor, turtle window, Terminal, pytest results and diagrams (variables, lists, dictionaries, flowcharts, function machines, git timelines, sorting bars, grids, feature charts, tables, class trees, stacks, queues, milestone road maps). There is a guide for writing new episodes (`videos/pipeline/animated/KIT.md`) and checks that catch a script that does not match the spec, a missing cue, code that does not fit its panel or prints something else.
+- Every video command now works per level (`--level`). New commands: `episode-check`, `contact-sheet` and `apply-narration`.
+
 ## 1.8.0 - 2026-11-10
 
 A fully animated, child-ready Week 1 video.

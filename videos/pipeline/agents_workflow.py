@@ -133,41 +133,42 @@ async def generate_video(
     week: int,
     current_video: dict[str, object] | None = None,
     max_revisions: int = 2,
+    level: int = 1,
 ) -> dict[str, object]:
     """Generate and review one week using typed Agent SDK outputs."""
     if not os.getenv("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY is required for Agent SDK generation")
     Agent, Runner, trace = _sdk()
     model = os.getenv("VIDEO_AGENT_MODEL", "gpt-6-astra")
-    paths = week_sources(repo_root, week)
+    paths = week_sources(repo_root, week, level)
     allowed = "\n".join(f"- {path}" for path in paths)
     source_digest = digest_files(repo_root, paths)
-    evidence = source_bundle(repo_root, week)
+    evidence = source_bundle(repo_root, week, level=level)
 
     analyst = Agent(
-        name="Level 1 curriculum analyst",
+        name=f"Level {level} curriculum analyst",
         model=model,
         instructions=ANALYST_INSTRUCTIONS,
         output_type=LessonBrief,
     )
     writer = Agent(
-        name="Level 1 child-friendly scriptwriter",
+        name=f"Level {level} child-friendly scriptwriter",
         model=model,
         instructions=SCRIPTWRITER_INSTRUCTIONS,
         output_type=VideoDraft,
     )
     reviewer = Agent(
-        name="Level 1 teacher reviewer",
+        name=f"Level {level} teacher reviewer",
         model=model,
         instructions=REVIEWER_INSTRUCTIONS,
         output_type=ReviewResult,
     )
 
-    metadata = {"level": "1", "week": str(week), "source_digest": source_digest}
-    with trace("level1-video-regeneration", metadata=metadata):
+    metadata = {"level": str(level), "week": str(week), "source_digest": source_digest}
+    with trace(f"level{level}-video-regeneration", metadata=metadata):
         brief_result = await Runner.run(
             analyst,
-            f"Build the evidence brief for Level 1 week {week}. Evidence paths must come from "
+            f"Build the evidence brief for Level {level} week {week}. Evidence paths must come from "
             f"this list:\n{allowed}\n\n{evidence}",
             max_turns=4,
         )
@@ -187,7 +188,7 @@ async def generate_video(
         for revision in range(max_revisions + 1):
             # Deterministic checks run before the reviewer, so timing, evidence-path and
             # readability problems go back to the writer instead of failing the whole run.
-            problems = validate_video(Video.from_dict(draft.model_dump(mode="json")), repo_root)
+            problems = validate_video(Video.from_dict(draft.model_dump(mode="json")), repo_root, level)
             review_result = await Runner.run(
                 reviewer,
                 "Review this draft against the evidence brief.\n\nBRIEF:\n"

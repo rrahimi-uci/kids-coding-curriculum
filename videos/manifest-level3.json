@@ -1,0 +1,260 @@
+{
+  "algorithm": "sha256",
+  "level": 3,
+  "schema_version": 2,
+  "weeks": {
+    "1": {
+      "digest": "c90b07509c4b021eb5eca05fe08888ec626ddb209c2b7da1f6a4314c0d1e2b87",
+      "files": {
+        "3-advanced/exercises/week01/ex-commit-coach/README.md": "af167f67c013d3aa20d7e90dcc8ad925d10ac611a4e0a2cb8e26ef97a248e059",
+        "3-advanced/exercises/week01/ex-commit-coach/hints.md": "a4b9a432f16bf2eceb76328050fea24bb442f383c4b22b2754873b40e75f535a",
+        "3-advanced/exercises/week01/ex-commit-coach/starter.py": "10241b66244bfffea7d9eb818a24348288548f555c20bbc683e4743df77dc76f",
+        "3-advanced/exercises/week01/ex-git-quest/README.md": "e9d92d4e6da6c7a513ad4c20e38f7dade42a494c7e7393f59d3dd16288c15226",
+        "3-advanced/exercises/week01/ex-git-quest/hero_badge.py": "4f69437f1279f9576f3010949fabe02ed65855d50eea4e2ade852422177be9a3",
+        "3-advanced/exercises/week01/ex-git-quest/hints.md": "131d193ce79269e91183dc769e264eb4f8cdd241142e93d850155effee4bc034",
+        "3-advanced/exercises/week01/ex-log-reader/README.md": "2b58e14442f075143b968810ea18753f3731a2f4609a535465863d5048b7174c",
+        "3-advanced/exercises/week01/ex-log-reader/hints.md": "b542f35d5fc4ab0fc2c41cc828a8b39a88453c252f03861208f43a7888031dc0",
+        "3-advanced/exercises/week01/ex-log-reader/starter.py": "954fe06cf64c2070d5042ee101fe0f55e3c4f117bccd1465a18e1c1bc67aaecc",
+        "3-advanced/exercises/week01/hw-inventory-review/README.md": "977837dd6fbc8b8acf36f18d153f2560da1e6c13a7924c315645dff9a617cb4e",
+        "3-advanced/exercises/week01/hw-inventory-review/hints.md": "6658cf02ea9810bd99e15c29be1b923f5b3e7a732ebf7cdf8f5bf26bdfbeda21",
+        "3-advanced/exercises/week01/hw-inventory-review/starter.py": "f19b0fa642e3862a34655e41a9dee9811499bb0b938e6609001dfa7a1692c35d",
+        "3-advanced/teaching-material/homework/week01.tex": "6480de7a1349b3619877443b1cfc962fa9b19d9bd6c37d798ab599d5977ca9e7",
+        "3-advanced/teaching-material/lessons/week01.tex": "c236067b444f602c75962a3621e1f3760bf4c3a1faec29c0a0d6f0d99da64275",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week01.tex": "f2f226a95da7bc63680cae59601808343b97f0269b7beda30e3e1b8ead115fd1",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "10": {
+      "digest": "938aa4251f31391f79b6301bd7486c1e0f1c72eebb29920bb26e5d21f71a523d",
+      "files": {
+        "3-advanced/project/project-brief.tex": "2e4eb344e2d37746f54f7c1ce364e93ba4f0c64de8696ed9ded321a585f2a28d",
+        "3-advanced/project/project-teacher-guide.tex": "0d14b6e5a4951d6974c0daebc2ebf2e41826f5e257e886a35bbaded1bc9f68f4",
+        "3-advanced/project/starter/README.md": "fd2297172bb1c652f39ba69f84c991b3e8596197c50fb4119faac0fe675d93fd",
+        "3-advanced/project/starter/art_app_template.py": "2e02be5da99ab667be0e1c406a3564dc666d47f2e3853177a7732554c7dc5198",
+        "3-advanced/project/starter/data_app_template.py": "9bc1b159f1a12e0f4646862958124ec39e60d162acf77e56d553c8d9c9352d2d",
+        "3-advanced/project/starter/grid_game_template.py": "11e41854546590a781b66618696286ffe2f219376bdef0aad857dc6aec1a37ec",
+        "3-advanced/project/starter/test_my_project.py": "cb39c35c9c3ff323be838b87f4dddffcde16e3b2019f7554ff62f8b0ada36395",
+        "3-advanced/teaching-material/homework/week10.tex": "53dae8eaab3722353aa7f90529ddf311591f16d75723695f165a27d92b7eb899",
+        "3-advanced/teaching-material/lessons/week10.tex": "87cbafbe1f0e893be3942a228aea6b05b6035bb1e2f0d391e6810dccbf291a71",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week10.tex": "1365a0e855fb3b7ccf6bc5834a157df46d582c40c4e581e35593e08e6464e0d4",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "11": {
+      "digest": "bf5dace0f23bd7d5f519e9025ed34599c9437444ee51be667b803894ea3bc80f",
+      "files": {
+        "3-advanced/project/project-brief.tex": "2e4eb344e2d37746f54f7c1ce364e93ba4f0c64de8696ed9ded321a585f2a28d",
+        "3-advanced/project/project-teacher-guide.tex": "0d14b6e5a4951d6974c0daebc2ebf2e41826f5e257e886a35bbaded1bc9f68f4",
+        "3-advanced/project/starter/README.md": "fd2297172bb1c652f39ba69f84c991b3e8596197c50fb4119faac0fe675d93fd",
+        "3-advanced/project/starter/art_app_template.py": "2e02be5da99ab667be0e1c406a3564dc666d47f2e3853177a7732554c7dc5198",
+        "3-advanced/project/starter/data_app_template.py": "9bc1b159f1a12e0f4646862958124ec39e60d162acf77e56d553c8d9c9352d2d",
+        "3-advanced/project/starter/grid_game_template.py": "11e41854546590a781b66618696286ffe2f219376bdef0aad857dc6aec1a37ec",
+        "3-advanced/project/starter/test_my_project.py": "cb39c35c9c3ff323be838b87f4dddffcde16e3b2019f7554ff62f8b0ada36395",
+        "3-advanced/teaching-material/homework/week11.tex": "9e59fb09132c853d78e770c82de93c3adfa0b5251a225423647ce26171dea27b",
+        "3-advanced/teaching-material/lessons/week11.tex": "7b2afe3dfdcc0f019c891f49a93be868ce6a67bf78dd891c0b7c1734da761694",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week11.tex": "df2c01496dba36998a31ff7fa0f78c6cae7360927219110dd4b634c52c1b016b",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "12": {
+      "digest": "8374ec59c2162f7dec8c699b9a1a7da93737d05abb0b58d0acb69549b2dfe93f",
+      "files": {
+        "3-advanced/project/project-brief.tex": "2e4eb344e2d37746f54f7c1ce364e93ba4f0c64de8696ed9ded321a585f2a28d",
+        "3-advanced/project/project-teacher-guide.tex": "0d14b6e5a4951d6974c0daebc2ebf2e41826f5e257e886a35bbaded1bc9f68f4",
+        "3-advanced/project/starter/README.md": "fd2297172bb1c652f39ba69f84c991b3e8596197c50fb4119faac0fe675d93fd",
+        "3-advanced/project/starter/art_app_template.py": "2e02be5da99ab667be0e1c406a3564dc666d47f2e3853177a7732554c7dc5198",
+        "3-advanced/project/starter/data_app_template.py": "9bc1b159f1a12e0f4646862958124ec39e60d162acf77e56d553c8d9c9352d2d",
+        "3-advanced/project/starter/grid_game_template.py": "11e41854546590a781b66618696286ffe2f219376bdef0aad857dc6aec1a37ec",
+        "3-advanced/project/starter/test_my_project.py": "cb39c35c9c3ff323be838b87f4dddffcde16e3b2019f7554ff62f8b0ada36395",
+        "3-advanced/teaching-material/homework/week12.tex": "6191353c889661f1fd2963fd3e1b0a3352758c7cfba53e0341c555f7505fbaa5",
+        "3-advanced/teaching-material/lessons/week12.tex": "0f1a26b3b63772802209c7b1b019bdc2a7b928dc55395f913950a8a7ad5ae4e3",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week12.tex": "94365ba74ce8a3e00d61d7faa592991bb386873cf479c37d892d08ee1b61ab00",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "2": {
+      "digest": "fbc4bce2ad43b27599c0268a648e17e11813a3ef25f68923cf41013783cbeb32",
+      "files": {
+        "3-advanced/exercises/week02/ex-bubble-art/README.md": "bca9717f29fca5862af01130fb67ba6208b194a57c570eaee1d2f200c71a8f4b",
+        "3-advanced/exercises/week02/ex-bubble-art/hints.md": "29e2c631a1528be32598f9f7b6fe6dcf2678a510b2e657cdce5b0a2b33e5d983",
+        "3-advanced/exercises/week02/ex-bubble-art/starter.py": "71560d9358d07fdb26f411a5cc20df6b1690fc72d2e4edb990ecf610aade53e4",
+        "3-advanced/exercises/week02/ex-pet-class/README.md": "7ed61cced8993d0ffe38e7f8fb3c7f2aa0846d8a4143e31ffcbe6ab9edb576b8",
+        "3-advanced/exercises/week02/ex-pet-class/hints.md": "e424ad1e01efc9b144ce667f3ff355699316d99311a1219eb32210ac329fba7f",
+        "3-advanced/exercises/week02/ex-pet-class/starter.py": "7495b6fe7eb881e691073d148ac1b26015a5fa575e97a259684ed4191d0052ea",
+        "3-advanced/exercises/week02/hw-coin-purse/README.md": "69aa35d2c5dc63f525d74943a00fee8e4e215345e2bd53236acf226a5e034106",
+        "3-advanced/exercises/week02/hw-coin-purse/hints.md": "14b1af1cf5484ff14c42051d0bdcc4422a4d199dd85607cda86447dfdbb8e68d",
+        "3-advanced/exercises/week02/hw-coin-purse/starter.py": "be6769397a20c88ef8a93425e9ca6044bdfc09db5f440878f9ca472c99e778c3",
+        "3-advanced/teaching-material/homework/week02.tex": "8a9d44c46b990dad6c1f31113575ae2803a683c2c72a00fcfdeb1a6ea09d60fd",
+        "3-advanced/teaching-material/lessons/week02.tex": "71e8c516c9e74565cf9dac76a2750c67617e8762c857e9e8491c8a9c14d80d49",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week02.tex": "569c4b98fd593b651ae811a471a86f8d4984010d067f2056ed1cc45028941ff9",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "3": {
+      "digest": "8893cf1213964fd75431b1a55a09da75ac39ea2c49d79a0fa2f7b2ce53865b4b",
+      "files": {
+        "3-advanced/exercises/week03/ex-enemy-family/README.md": "84121bc657913fc24a493d2de1091f3c23806da197a9a3bfaeef5d11f962c609",
+        "3-advanced/exercises/week03/ex-enemy-family/hints.md": "09f58f084342ed920c75dc4dbc756cf9865eb365dd7e0b116889048478966602",
+        "3-advanced/exercises/week03/ex-enemy-family/starter.py": "f3e7cfc963b0f9fc3541e8f8c1cd0a95be6c45a6a68b4d343089080f373d9cc2",
+        "3-advanced/exercises/week03/ex-game-roster/README.md": "71a4c52f5603fa01a2e872b495dead940280ddadf0a15d0c75055474817bf7b3",
+        "3-advanced/exercises/week03/ex-game-roster/hints.md": "2b869808a077dbeb5a60c048ecbd2456cfc0170b7f45032cc8678bd4f36c1a74",
+        "3-advanced/exercises/week03/ex-game-roster/starter.py": "d1d02d833f680be7294fc68eab111c0a61eeff74d8b90bcce1ecb0954fbb89a6",
+        "3-advanced/exercises/week03/ex-shape-family/README.md": "4aca362f8f103c61fcf85cf048ccb0d580e1bd1c286e36eb2e79d8297c911246",
+        "3-advanced/exercises/week03/ex-shape-family/hints.md": "700545a362eb04c3e2f1c7ebcf46debdb46f2d45caaf8bd53c9dd3dde038cd10",
+        "3-advanced/exercises/week03/ex-shape-family/starter.py": "3a8daaf3ec5d3cc01c324bc2500dd7f1cd3515b1946600dbe18b143fb699f449",
+        "3-advanced/exercises/week03/hw-hero-party/README.md": "c19fba0cf321eff9a2a6168ebccd870b12f56d8b1915e9b571e8d8dfc3df9fd2",
+        "3-advanced/exercises/week03/hw-hero-party/hints.md": "5af7dfca025bc15fbf48221d7514d5482d076b9a834aada99230e6fb0bf5e816",
+        "3-advanced/exercises/week03/hw-hero-party/starter.py": "04b092ae2b0a5d24d34a8a80c8161f7bf1aee7feaff56bb0bbc585735f610019",
+        "3-advanced/teaching-material/homework/week03.tex": "ebe7aad6fab2423948e297dc54913bf0286b45076522ae665ffde7eb44b0d77f",
+        "3-advanced/teaching-material/lessons/week03.tex": "9070c99456c2afe2990f9ee6363efdf345c5ace5cd852ea09325a62f580cd424",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week03.tex": "0067de22ce3dbeede79351dd93151ad09ade83b7bdee6afb6dca4c9c7c1564fa",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "4": {
+      "digest": "e04404007c2eb2019e3a7ccd9b2e65078243b61a7c5d393d5079fd2adc917110",
+      "files": {
+        "3-advanced/exercises/week04/ex-guess-bot/README.md": "55feffd3be2cf261536b3a695a2ecb4c76bace537ea887ffae3ab64fcfabf68c",
+        "3-advanced/exercises/week04/ex-guess-bot/hints.md": "0eb41d698c2201e09edd8217332af81fd3ce6dd213af30b6d7a97ee5c7b7d178",
+        "3-advanced/exercises/week04/ex-guess-bot/starter.py": "8870471e55e78aa06416950a17b535a76f4fb00156cf15b5d5137e543c389e04",
+        "3-advanced/exercises/week04/ex-search-race/README.md": "a148bef4b052da329d0ecb50344b52f8c0a18b2441b377ecc35999310d086f8b",
+        "3-advanced/exercises/week04/ex-search-race/hints.md": "f418ccf7481a4affa07ed6d84d6e47ee200e83d34f04ae9af14e31fc5b967e9b",
+        "3-advanced/exercises/week04/ex-search-race/starter.py": "bd2ee67b00892f435ba269e0d9223be324d9bfa0b20fb7092e80e3f304c6940f",
+        "3-advanced/exercises/week04/hw-growth-table/README.md": "0f1c165b989f24d95afb74c2db354bb3ea77823069155db773f8e5209a2a26f0",
+        "3-advanced/exercises/week04/hw-growth-table/hints.md": "b14149dd7ea1767aeab765fcb991d11700d474ea68fb53ff77727d538d1510bc",
+        "3-advanced/exercises/week04/hw-growth-table/starter.py": "8057d005c6a9b5b158c3e6d257cba5142bde278783658adc8e7e8ff3007ca700",
+        "3-advanced/teaching-material/homework/week04.tex": "c5f67d9f7e7b712f933b472bf1ca8e7d18b298cdd1cb1288347c43c5a90eca32",
+        "3-advanced/teaching-material/lessons/week04.tex": "ab644f1a33a12850d43bc60b6c6689f999beb754eac86b311a97a1d153b68596",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week04.tex": "48b600a0180b64ffaf9d8e9666e517c562afe59311293fa240ca71eb9dcf4aa7",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "5": {
+      "digest": "61fd9ddc1bc2f04f2d0b7e5cf9bc315f39d11f828cf15bdfb4f4fdee724d5719",
+      "files": {
+        "3-advanced/exercises/week05/ex-leaderboard/README.md": "cfabacb1f2eb62b0b1a5d96053f4ce2fe8c78c9f231eb1a79d15cbfff27feacd",
+        "3-advanced/exercises/week05/ex-leaderboard/hints.md": "23858a8e3cd4df552e5ae92a13932077149688cfca3df5d58d43b786bc7ac4c8",
+        "3-advanced/exercises/week05/ex-leaderboard/starter.py": "ce2ac1a8d62cc05e2f368e885ae8fb8ba7e8b0acafff93cba8c8d5e4617ec950",
+        "3-advanced/exercises/week05/ex-sort-race/README.md": "9498f37cf59f83d39b4446e341a84f3da6ff6854dec865f309fea623c2e532c9",
+        "3-advanced/exercises/week05/ex-sort-race/hints.md": "025e9163262a34fef98e8f2def20c0324380c66a14a64065fd0fa7b3865423be",
+        "3-advanced/exercises/week05/ex-sort-race/starter.py": "55a0e0bde3206e8d6354f5b55aaa6fafc1369a187f2da4735ce65fc6d5de4572",
+        "3-advanced/exercises/week05/ex-undo-paint/README.md": "cfbe7a2a4596f4d11f7696149f6beca2d5685c6c76c9ce7d23f38737756f55ab",
+        "3-advanced/exercises/week05/ex-undo-paint/hints.md": "8c2718fa049a182d3fd5b87f40bb01db6be5796df67c5c52e61ab028da87c531",
+        "3-advanced/exercises/week05/ex-undo-paint/starter.py": "614aa9cd2bd8e7cae5d2d5a5ad828fa3578f6196653e542b92a4f1bb167ff50b",
+        "3-advanced/exercises/week05/hw-turn-queue/README.md": "f4529094a2cac0ac146fcec9c60eb049819b5dd8c81c69e3864f8cd556b05944",
+        "3-advanced/exercises/week05/hw-turn-queue/hints.md": "e8d558e11d5d72142ed60bf0734ff1b366855c86b0059cecfd30e5aad502ad4f",
+        "3-advanced/exercises/week05/hw-turn-queue/starter.py": "d3457c7176931e428a123e7577d78312c0ee01e82fa3f450cbf370ce9524af8d",
+        "3-advanced/teaching-material/homework/week05.tex": "58d7b192b4b0fd579d58ce4dca3d5302584f32b42bc361f22eae6e33349ad861",
+        "3-advanced/teaching-material/lessons/week05.tex": "337535d42f072fa250b24867cfee4dee37dc07127e61ff41c5429c2ef78793c6",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week05.tex": "41a5f13bcf74a29c51031fadcfc46f318a4455368e6d5438e672e2df36ae50fe",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "6": {
+      "digest": "2164bddbbc0d106ee1ba48d83fc8ed19089d71f49b5389627105a7d7b229ee68",
+      "files": {
+        "3-advanced/exercises/week06/ex-bug-binary-search/README.md": "f3fffff4cb4df3da2ceb53c1fc954de28cfb7e8cff4e5ed66197a0e2e14892b2",
+        "3-advanced/exercises/week06/ex-bug-binary-search/hints.md": "070c76d2e4d47e2ff8e98f6ae188cd3a07348707ce6623c27602c36e6d9b9959",
+        "3-advanced/exercises/week06/ex-bug-binary-search/starter.py": "96ce73ad38244fffa01b22d55d57e7d74a02b47121cf1aaccc4859b9c024140a",
+        "3-advanced/exercises/week06/ex-bug-lost-items/README.md": "d8904aadaa26e8e94014ad67bfbe6bb10f6e035dc6d0465caaa39880d6473125",
+        "3-advanced/exercises/week06/ex-bug-lost-items/hints.md": "32b8a24a2459968a383ce70c8e5918af41b9cae6e4daca29af5147f52bfb767f",
+        "3-advanced/exercises/week06/ex-bug-lost-items/starter.py": "70e6288450819af2a8b1ec3e7417b1803968916a10c3c3ea43f29f75ee1a217d",
+        "3-advanced/exercises/week06/ex-bug-missing-self/README.md": "78128072abba4bd20ee025ea82ece296ba1b8d391dbb450a2a9e9a0bd3cf68c7",
+        "3-advanced/exercises/week06/ex-bug-missing-self/hints.md": "2ba8fb19d882da237d3cc2a2884235734a8b3537d6a20b23405a430ac15a729c",
+        "3-advanced/exercises/week06/ex-bug-missing-self/starter.py": "3ece51a6f55c274b918181de55e7e6bf612cb34d55f5d31150a15e6dd6ff0b9a",
+        "3-advanced/exercises/week06/ex-bug-shape-party/README.md": "4f8f1ef6d697f02920982d15555395520f7cf04dc93f3ece958d1e0e18e65f64",
+        "3-advanced/exercises/week06/ex-bug-shape-party/hints.md": "6ff3afeb8176ee02705104a4d38429562757f29b6a98b95c63ab66bea61dc78f",
+        "3-advanced/exercises/week06/ex-bug-shape-party/starter.py": "7a74213a57fbb20d2b0c82f586778e46812055c3fcdd2a695bdc64a360457758",
+        "3-advanced/exercises/week06/hw-bug-bank/README.md": "12791cd0ca18024c2026372d0d2d90b64c5d231b96e80edfc1ab76d08886d7f3",
+        "3-advanced/exercises/week06/hw-bug-bank/hints.md": "762e96781790d4958a5f5e33d658d1f432db89dae256a0a0f584e85149eda395",
+        "3-advanced/exercises/week06/hw-bug-bank/starter.py": "dfae97a2d911bf9a92d479248db765aba43d0094a1f4601ba898b1260ad7e743",
+        "3-advanced/teaching-material/homework/week06.tex": "eaff6467ff8f0dc7b339cc92d065ee1afc46488aab010b3456c63539c70f23a1",
+        "3-advanced/teaching-material/lessons/week06.tex": "7e924db33677d400b0f57a91b19eb41b9c43635611b03bc0c90000923671a25c",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week06.tex": "1cdf42622dd97903e1334e60f12019feb96fb947faa247335b7efea4c7ca1df2",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "7": {
+      "digest": "e84d4c5368bf78fd4eb0b33a822e33ec47bf33588630032e777fd3856f6ee2f4",
+      "files": {
+        "3-advanced/exercises/week07/ex-countdown-sum/README.md": "b223029e28ba302c4239fa5dcb4ce1bfb8c9ab268f26d69aeba966f93a45bf4f",
+        "3-advanced/exercises/week07/ex-countdown-sum/hints.md": "2aa455a1fc3f49242ea3e50a7593ef9341f7105499f93188fe8b794006d07e33",
+        "3-advanced/exercises/week07/ex-countdown-sum/starter.py": "08b40417690d9a44e64806c410b92ff296326793529eaa8f3983e79461f4943d",
+        "3-advanced/exercises/week07/ex-fractal-tree/README.md": "ce72d411fd2616ea31056c22b3fe8274abfaaa9b268255ebf30c39164ac47f47",
+        "3-advanced/exercises/week07/ex-fractal-tree/hints.md": "cf496ab515cf8fa5f2dc3e56b99fcb35ffb1245b1c1e630913795245e132461b",
+        "3-advanced/exercises/week07/ex-fractal-tree/starter.py": "2e8ce7a0cc6bbdc1145e0e01b8560224935e706d50d0a30e07f259044001a19f",
+        "3-advanced/exercises/week07/ex-paint-bucket/README.md": "fee6f411ac9d078b7dd785e5915a2dce76da4b979f9832029b5a6e5540301234",
+        "3-advanced/exercises/week07/ex-paint-bucket/hints.md": "57b0d1f5e9979cf7a27bbe53b23e91115a58d27e751e36539ec8d7a0e65208cc",
+        "3-advanced/exercises/week07/ex-paint-bucket/starter.py": "0e2e9013fddf49858a632d9a95055f6f3ab472c273aa19e8a8bac771d08d0275",
+        "3-advanced/exercises/week07/hw-koch-snowflake/README.md": "fc15237826d42f6edaeef45d2b1525a050b670f2efb1741dc99d0216a83050a8",
+        "3-advanced/exercises/week07/hw-koch-snowflake/hints.md": "8a581b5994f96654619e9324be1aaeb3f58637c476019d75236d17bc21effe2e",
+        "3-advanced/exercises/week07/hw-koch-snowflake/starter.py": "5c24241390ebc2dec552258d5fe912463ea624e33fc6e139bd45bf0d3ce518ac",
+        "3-advanced/exercises/week07/hw-treasure-map/README.md": "15b23e064da8f586e0abee043ca96d14601da46dd32b6c99eaf5cf413ad7f9e0",
+        "3-advanced/exercises/week07/hw-treasure-map/hints.md": "33555ff430414bcd898b17bebda353d9033c5af9ba0c2eb0d48597e31bb8449d",
+        "3-advanced/exercises/week07/hw-treasure-map/starter.py": "d8fc5a868b4fbd4d522a14fa4395474dbc8ec415b913328b43ece158583d662f",
+        "3-advanced/teaching-material/homework/week07.tex": "5d532cc2a3990b675a5c561e57475abbd5e231cd17b1229dc27bbd702dbf4670",
+        "3-advanced/teaching-material/lessons/week07.tex": "40c0aa4e3ea917d75aa1d7d4dd8e69fbc2112be57269dc59141c05dcf39a86c9",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week07.tex": "2e39bca1893e982f9f560b14e4832294e02537bc3ca259afdd999371384bee13",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "8": {
+      "digest": "79b1c61d3a798b7e7975a47f2bd7a4e2b3cec648bbc52b5d633b8b310d97ad2c",
+      "files": {
+        "3-advanced/exercises/week08/ex-bar-chart/README.md": "73e4904bbafd6df9479cdb13bfaa86713d199f33a63e879c8a0e39a821169b4a",
+        "3-advanced/exercises/week08/ex-bar-chart/favorite_games.csv": "a62553db6c1eef5503791743580c10affa3d39b60eeb4343e638d7ba956d2595",
+        "3-advanced/exercises/week08/ex-bar-chart/hints.md": "bde4e36e944eec41fe7dca23b46b6f8592a02a39503c4e231232a9597929cb93",
+        "3-advanced/exercises/week08/ex-bar-chart/starter.py": "531e5ef77454e2937c4028687fd4df806332db2a6ab8bf3001af4370bfaeefed",
+        "3-advanced/exercises/week08/ex-survey-cleaner/README.md": "3b2fbc516190956b56f2fe3d7e4eb1535b1746d5b622a7a6c15d2d319000a7bd",
+        "3-advanced/exercises/week08/ex-survey-cleaner/favorite_games.csv": "a62553db6c1eef5503791743580c10affa3d39b60eeb4343e638d7ba956d2595",
+        "3-advanced/exercises/week08/ex-survey-cleaner/hints.md": "f5ae175a9cc8a80315830ceb9ba9a0bd4966ade98b9d6fac20bae6bdd1dfe770",
+        "3-advanced/exercises/week08/ex-survey-cleaner/starter.py": "ae77c643940770dcecd6d5836bdd363f39121f1d84c8efb0ab1efba9e8c2cc24",
+        "3-advanced/exercises/week08/ex-survey-stats/README.md": "b9e216369c346fbd325ee8162a6733d25df237d960751d08440fe493b7ecfb2f",
+        "3-advanced/exercises/week08/ex-survey-stats/favorite_games.csv": "a62553db6c1eef5503791743580c10affa3d39b60eeb4343e638d7ba956d2595",
+        "3-advanced/exercises/week08/ex-survey-stats/hints.md": "d8d4339e0ffb18587c7ff86824f2191cb1d688349eaa1fbd5eb2b881aa582f84",
+        "3-advanced/exercises/week08/ex-survey-stats/starter.py": "41c358308b0fc838e70c00ae7abdd43ee219aea3fc5befa093d41e8e6e0248a5",
+        "3-advanced/exercises/week08/hw-survey-privacy/README.md": "4f0b439c55421be73074ee11e7b0759b69e408d87edb367c144a200aa154ca82",
+        "3-advanced/exercises/week08/hw-survey-privacy/hints.md": "71dc468386e2e2519695bb3838ea87ed561e360378d72a820b99d8b7e8bd2602",
+        "3-advanced/exercises/week08/hw-survey-privacy/snack_survey.csv": "ce9c36a8e524dd7b8968b1d129bb01ac3c9b9b97844a7e0f8e75663cfc273f2b",
+        "3-advanced/exercises/week08/hw-survey-privacy/starter.py": "8d216a99ebb35f32928807e902c4ec91b1b57ac2277b1eb99834e3b552dc5527",
+        "3-advanced/teaching-material/homework/week08.tex": "9309807f10af6babe2539230c9f3afc61712ce6ef527d3577895fa331bc93af2",
+        "3-advanced/teaching-material/lessons/week08.tex": "80e246457d1e68bf61033a41f97f87ba16fec958693cd611ab97abb854260d59",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week08.tex": "51f70678eb863154723a2ef01f91599e03ab6585aa5e9aa854192ed492035869",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    },
+    "9": {
+      "digest": "e3a465cba12794108aafc62195f6590110bf2b5943e021f73020554a304a54bf",
+      "files": {
+        "3-advanced/exercises/week09/ex-fair-or-biased/README.md": "66350b6e9f7740ded93d99c6ed8393a607b297042c2ac68b75b43fea1827519b",
+        "3-advanced/exercises/week09/ex-fair-or-biased/hints.md": "7f8c45723519ae13c7e00e7e2cf5acb920ad947dec3ce120625a7d97aaa7f8d4",
+        "3-advanced/exercises/week09/ex-fair-or-biased/starter.py": "77a475f3bf31dbb99a0ec0c0f2e52cd7bea374ad11764a7e7370ef0496317927",
+        "3-advanced/exercises/week09/ex-markov-story/README.md": "c57c712ea7ff6f983e76eff59104be9f4c2d4d5bd483a694defa570716bafc9e",
+        "3-advanced/exercises/week09/ex-markov-story/hints.md": "c17f5a66eb5f5ef4dfc9787fd5e82053fdd83af62f9c7364d56923fb521958c4",
+        "3-advanced/exercises/week09/ex-markov-story/starter.py": "6313028b7692db401e1514089741f40df17c12d5a4d214cbdf79223c89359b7e",
+        "3-advanced/exercises/week09/ex-monster-sorter/README.md": "c572a8e5c3336238e8606a07fcde3a8e0fda9417eb240a63aed6703b798d8826",
+        "3-advanced/exercises/week09/ex-monster-sorter/hints.md": "9034ea469b7df16532a69c36f5cf59981a1b86ef0418e3941c54d61126dfd5b0",
+        "3-advanced/exercises/week09/ex-monster-sorter/starter.py": "66c8978892321fdbd77484a8f02c3769b83d5be7265d27134733c7ca99b91c7a",
+        "3-advanced/exercises/week09/hw-fruit-detective/README.md": "7909534369f756aa4a1d9c39edb3bbe0843540fc568b37ed683bd8ff6ae8cba2",
+        "3-advanced/exercises/week09/hw-fruit-detective/hints.md": "776a24d5fd8e10a0d45ec84304db94fa0c277431c7e218cda6a2095854e109e5",
+        "3-advanced/exercises/week09/hw-fruit-detective/starter.py": "a7ee15dff9758aefcc92fb069cf9ad4e6e8ed780aa934b599f8712a512cf003d",
+        "3-advanced/teaching-material/homework/week09.tex": "1b2c19fe842192498c50073c84980821764f428d4bc0936da17d2c077867fb37",
+        "3-advanced/teaching-material/lessons/week09.tex": "d32fbbdd0b8f2f50d725a82fc49db061d8ed2c03ac3049f4080b5b8d1afd46f7",
+        "3-advanced/teaching-material/teacher-guide.tex": "0f7913ff9946967cecebcc31f204bd09936dea42905ef654c397f5076d5bbedc",
+        "3-advanced/teaching-material/workbook/week09.tex": "4eef69e80b1c0595850c813cdfe6522f1c3e70189d9bd5d8eab76f24d8b3be8b",
+        "docs/SYLLABUS.md": "526676baf4fe97cf0324b0fe05591342b8958de05aceac1e2d0b45ca04e70055"
+      }
+    }
+  }
+}

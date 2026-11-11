@@ -102,6 +102,7 @@ class Series:
     series_title: str
     creative_direction: dict[str, Any]
     videos: tuple[Video, ...]
+    plan_notes: tuple[str, ...] = ()
 
     @classmethod
     def from_dict(cls, value: dict[str, Any]) -> "Series":
@@ -112,6 +113,7 @@ class Series:
             series_title=str(value["series_title"]),
             creative_direction=dict(value["creative_direction"]),
             videos=tuple(Video.from_dict(item) for item in value["videos"]),
+            plan_notes=tuple(str(item) for item in value.get("plan_notes", ())),
         )
 
 
@@ -123,10 +125,14 @@ def scene_word_budget(scene: Scene) -> int:
     return int(scene.duration_seconds * WORDS_PER_MINUTE / 60)
 
 
-def validate_video(video: Video, repo_root: Path) -> list[str]:
+def scene_prefix(level: int, week: int) -> str:
+    return f"w{week:02d}-" if level == 1 else f"l{level}-w{week:02d}-"
+
+
+def validate_video(video: Video, repo_root: Path, level: int = 1) -> list[str]:
     """Deterministic checks for one episode; an empty list means it may ship to review."""
     errors: list[str] = []
-    label = f"week {video.week}"
+    label = f"level {level} week {video.week}" if level != 1 else f"week {video.week}"
     if not SLUG_RE.match(video.slug):
         errors.append(f"{label}: slug '{video.slug}' must be lowercase words joined by hyphens")
     if len(video.title) > MAX_TITLE_CHARS:
@@ -144,7 +150,7 @@ def validate_video(video: Video, repo_root: Path) -> list[str]:
         if not str(getattr(video, field)).strip():
             errors.append(f"{label}: {field} is required")
 
-    allowed_sources = set(week_sources(repo_root, video.week))
+    allowed_sources = set(week_sources(repo_root, video.week, level))
     if not video.source_files:
         errors.append(f"{label}: list the curriculum files the script is based on")
     for source in video.source_files:
@@ -166,8 +172,9 @@ def validate_video(video: Video, repo_root: Path) -> list[str]:
 
     for scene in video.scenes:
         sid = scene.scene_id
-        if not sid.startswith(f"w{video.week:02d}-"):
-            errors.append(f"{sid}: scene ids for week {video.week} start with 'w{video.week:02d}-'")
+        prefix = scene_prefix(level, video.week)
+        if not sid.startswith(prefix):
+            errors.append(f"{sid}: scene ids for this week start with '{prefix}'")
         if scene.duration_seconds <= 0:
             errors.append(f"{sid}: duration must be positive")
         if not scene.narration.strip() or not scene.visual.strip():
@@ -189,13 +196,15 @@ def validate_video(video: Video, repo_root: Path) -> list[str]:
     return errors
 
 
-def validate_series(series: Series, repo_root: Path) -> list[str]:
+def validate_series(series: Series, repo_root: Path, level: int | None = None) -> list[str]:
     """Return human-readable errors; an empty list means the spec is shippable."""
     errors: list[str] = []
     if series.schema_version != SCHEMA_VERSION:
         errors.append(f"unsupported schema_version {series.schema_version}; expected {SCHEMA_VERSION}")
-    if series.level != 1:
-        errors.append("the Level 1 pipeline received a different level")
+    if level is not None and series.level != level:
+        errors.append(f"expected a Level {level} spec, found Level {series.level}")
+    if series.level not in (1, 2, 3):
+        errors.append(f"unknown level {series.level}")
     weeks = [video.week for video in series.videos]
     if weeks != list(range(1, 13)):
         errors.append(f"videos must cover weeks 1-12 in order; found {weeks}")
@@ -203,7 +212,7 @@ def validate_series(series: Series, repo_root: Path) -> list[str]:
     scene_ids: set[str] = set()
     slugs: set[str] = set()
     for video in series.videos:
-        errors.extend(validate_video(video, repo_root))
+        errors.extend(validate_video(video, repo_root, series.level))
         if video.slug in slugs:
             errors.append(f"duplicate slug {video.slug}")
         slugs.add(video.slug)

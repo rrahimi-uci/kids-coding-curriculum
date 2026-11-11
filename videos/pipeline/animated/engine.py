@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import functools
 import math
+from pathlib import Path
 
 import cairo
 import numpy as np
@@ -225,12 +226,35 @@ def vertical_gradient(ctx, x, y, w, h, top: str, bottom: str) -> None:
 
 
 # --------------------------------------------------------------------------- text
-@functools.lru_cache(maxsize=2048)
-def _text_surface(text: str, size: int, color: str, bold: bool, max_width: int, align: str, spacing: float):
+@functools.lru_cache(maxsize=None)
+def mono_font(size: int, bold: bool = False):
+    """The course's code font (Atkinson Hyperlegible Mono), falling back to Menlo."""
+    import shutil
+    import subprocess
+
+    from PIL import ImageFont
+
+    name = "AtkinsonHyperlegibleMono-Bold.otf" if bold else "AtkinsonHyperlegibleMono-Regular.otf"
+    path = None
+    if shutil.which("kpsewhich"):
+        path = subprocess.run(["kpsewhich", name], capture_output=True, text=True).stdout.strip() or None
+    for candidate in (path, "/System/Library/Fonts/Menlo.ttc", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"):
+        if candidate and Path(candidate).is_file():
+            return ImageFont.truetype(candidate, size=size)
+    return ImageFont.load_default(size=size)
+
+
+def mono_width(size: int) -> float:
+    return mono_font(size).getlength("M")
+
+
+@functools.lru_cache(maxsize=4096)
+def _text_surface(text: str, size: int, color: str, bold: bool, max_width: int, align: str, spacing: float,
+                  mono: bool = False):
     """Render text with Pillow in the course font and convert it to a premultiplied cairo surface."""
     from PIL import Image, ImageDraw
 
-    font = media._font(size, bold)
+    font = mono_font(size, bold) if mono else media._font(size, bold)
     probe = ImageDraw.Draw(Image.new("L", (1, 1)))
     lines = media._wrap(probe, text, font, max_width) if max_width else [text]
     ascent, descent = font.getmetrics()
@@ -256,17 +280,21 @@ def _text_surface(text: str, size: int, color: str, bold: bool, max_width: int, 
     return surface, data, width, height  # keep `data` alive with the surface
 
 
-def text_size(text: str, size: int, bold: bool = False, max_width: int = 0, spacing: float = 1.15) -> tuple[int, int]:
-    _, _, width, height = _text_surface(text, size, "#000000", bold, max_width, "left", spacing)
+def text_size(text: str, size: int, bold: bool = False, max_width: int = 0, spacing: float = 1.15,
+              mono: bool = False) -> tuple[int, int]:
+    _, _, width, height = _text_surface(text, size, "#000000", bold, max_width, "left", spacing, mono)
     return width, height
 
 
 def text(ctx, value: str, x: float, y: float, size: int, color: str = C["ink"], bold: bool = False,
          anchor: str = "center", alpha: float = 1.0, scale: float = 1.0, max_width: int = 0,
-         align: str = "center", spacing: float = 1.15) -> tuple[int, int]:
+         align: str = "center", spacing: float = 1.15, mono: bool = False) -> tuple[int, int]:
     """Draw text. `anchor` is center, left (x is the left edge, y the middle) or topleft."""
-    surface, _, width, height = _text_surface(value, size, color, bold, max_width, align, spacing)
-    if alpha <= 0 or scale <= 0:
+    surface, _, width, height = _text_surface(value, size, color, bold, max_width, align, spacing, mono)
+    if alpha <= 0 or scale < 0.02:
+        return width, height
+    xx, yx, xy, yy, _, _ = ctx.get_matrix()
+    if abs(xx * yy - xy * yx) < 1e-3:  # an element scaled to (almost) nothing: drawing would fail
         return width, height
     ctx.save()
     ctx.translate(x, y)

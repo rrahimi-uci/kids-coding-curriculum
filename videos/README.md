@@ -1,12 +1,16 @@
-# Level 1 teaching videos
+# Teaching videos (Levels 1–3)
 
-This folder holds the plan for twelve short teaching videos, one per Level 1 week, and the pipeline that keeps them in line with the lessons. The videos are for children in Grades 4–5 (ages 9–11) who are complete beginners. No episode may be longer than five minutes. Each video launches the week's hands-on activity; it never replaces it.
+This folder holds 36 short, animated teaching videos, one for each week of all three levels, and the pipeline that keeps them in line with the lessons. The videos are for children in Grades 4–5 (ages 9–11). No episode may be longer than five minutes. Each video launches the week's hands-on activity; it never replaces it.
 
 ## What is tracked
 
-- `video-plan-level1.md`: the readable production plan, with objectives, timing, storyboards and full narration scripts. It is generated from the spec; do not edit it by hand.
-- `specs/level1.json`: the source of truth for the scripts.
-- `manifest-level1.json`: SHA-256 fingerprints of every curriculum file each week's video is based on (one hash per file, so a change names the file).
+For each level N (1, 2, 3):
+
+- `video-plan-levelN.md`: the readable production plan, with objectives, timing, storyboards and full narration scripts. It is generated from the spec; do not edit it by hand.
+- `specs/levelN.json`: the source of truth for the scripts.
+- `manifest-levelN.json`: SHA-256 fingerprints of every curriculum file each week's video is based on (one hash per file, so a change names the file).
+
+The animations themselves live in `pipeline/animated/episodes/` (one file per episode); see "Fully animated episodes" below.
 - `pipeline/`: source discovery, the OpenAI Agents SDK workflow, validation, picture and voice providers, captions and FFmpeg composition.
 
 Rendered MP4s, captions, scene pictures and the paid-API cache (`videos/output/`, `videos/.cache/`) are ignored, so reviews stay small and generated files never hide script changes.
@@ -34,9 +38,9 @@ python -m videos.pipeline.cli accept --week 7
 python -m videos.pipeline.cli generate --week 7
 ```
 
-`generate` with no `--week` rewrites every stale week. It updates the spec, the plan and the fingerprints of the weeks it rewrote; other stale weeks stay visible. If a week fails, the weeks that succeeded are kept in `specs/level1.candidate.json` for review.
+Every command takes `--level N` (`check` and `plan` default to all levels). `generate` with no `--week` rewrites every stale week. It updates the spec, the plan and the fingerprints of the weeks it rewrote; other stale weeks stay visible. If a week fails, the weeks that succeeded are kept in `specs/levelN.candidate.json` for review.
 
-After a hand edit to `specs/level1.json`, run `python -m videos.pipeline.cli plan` to rewrite the readable plan.
+After a hand edit to `specs/levelN.json`, run `python -m videos.pipeline.cli plan --level N` to rewrite the readable plan. If the narration of an animated week changed, its episode file must say the same words; `make test` checks this.
 
 ### How generation works
 
@@ -48,13 +52,15 @@ The default agent model is `gpt-6-astra`. You can override it without changing c
 
 ## Fully animated episodes (free, local)
 
-`animate` makes a finished, child-ready episode: animated characters and examples, natural neural voices, music, sound effects and captions. It makes no paid calls and needs no API key; Week 1 is done so far.
+`animate` makes a finished, child-ready episode: animated characters and examples, natural neural voices, music, sound effects and captions. It makes no paid calls and needs no API key. All 36 weeks are animated.
 
 ```bash
 python -m pip install -r videos/requirements-animate.txt   # once (needs the cairo library: brew install cairo)
 python -m videos.pipeline.cli fetch-voice                  # once: downloads the voice model (about 350 MB) and checks its SHA-256
-python -m videos.pipeline.cli animate --week 1             # about 25 seconds on a recent Mac
-python -m videos.pipeline.cli animate --week 1 --preview 30   # just the first 30 seconds
+python -m videos.pipeline.cli animate --level 1 --week 1   # one episode: about 25 seconds on a recent Mac
+python -m videos.pipeline.cli animate --level 2             # every episode of a level
+python -m videos.pipeline.cli animate                       # all 36 episodes
+python -m videos.pipeline.cli animate --level 1 --week 1 --preview 30   # just the first 30 seconds
 ```
 
 What goes into an episode:
@@ -74,7 +80,25 @@ How it is organized (`videos/pipeline/animated/`):
 | `engine.py`, `characters.py`, `props.py` | Drawing helpers, Nova, Pixel and the cat, and reusable props (cards, blocks, bubbles, doors, the logo). |
 | `audio.py`, `render.py` | Voices, music, effects and mix; parallel frame rendering and the final MP4. |
 
-To change what is said, edit `videos/specs/level1.json` and then update the beats in `episodes/weekNN_script.py` to match. To animate another week, add `weekNN_script.py` and `weekNN.py`; reuse the characters and props, and use the cue names from the script to time each picture.
+Level 1 Week 1 is hand-made (`episodes/week01_script.py` + `week01.py`). Every other episode is a data file, `episodes/l{N}w{WW}.py`, drawn by the **animation kit** (`kit.py`). It contains:
+
+- characters and props;
+- Scratch blocks and a stage;
+- a Thonny-style code editor that **runs the code shown** and displays its true output;
+- a turtle window that draws what the code really draws;
+- a Terminal;
+- pytest results;
+- diagrams (variable boxes, lists, dictionaries, flowcharts, function machines, git timelines, sorting bars, grids, feature charts, tables, class trees, stacks, queues, milestone road maps).
+
+How to write or change an episode is in [`pipeline/animated/KIT.md`](pipeline/animated/KIT.md). Three commands help:
+
+```bash
+python -m videos.pipeline.cli episode-check --level 2 --week 3   # script = spec, cues exist, code output is real, every action draws
+python -m videos.pipeline.cli contact-sheet --level 2 --week 3   # a grid of stills to look at (videos/output/sheets/)
+python -m videos.pipeline.cli apply-narration edits.json --level 2   # change narration safely (locked, validated, plan rewritten)
+```
+
+Code shown in a video runs on the course's Python 3.10 (the repository's `.venv`, or `VIDEO_PYTHON`) with the course's headless turtle. Error messages come from Python's own error printer, including hints such as "Did you mean: 'print'?" that Thonny shows. Their wording matches Thonny's bundled Python for every error the videos use.
 
 The voice is AI-generated. The end card and the file metadata say so, and a published description must say so too.
 
@@ -108,7 +132,7 @@ python -m videos.pipeline.cli render --week 7 --visual-provider openai --approve
 
 Output goes to `videos/output/`:
 
-- `level1-weekNN-<slug>.mp4`: 1920×1080, 30 fps, AAC audio, with an English caption track;
+- `levelN-weekWW-<slug>.mp4`: 1920×1080, 30 fps, AAC audio, with an English caption track;
 - matching `.srt` and `.vtt` caption files, for web players;
 - draft renders end in `-draft`.
 

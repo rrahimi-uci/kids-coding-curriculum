@@ -1,0 +1,200 @@
+"""Level 1 Week 11: Project Studio: Build, Run, Check (kit episode)."""
+
+from ..kit_dsl import A, B, Episode, NOVA, Scene
+
+FORTY_LINES = """import random
+import turtle
+t = turtle.Turtle()
+
+def fish(x, y, color):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color(colr)
+    t.circle(30)
+
+fish(0, 0, "#E69F00")"""
+
+MILESTONES = ["M1 Plan ✓", "M2 Core drawing works", "M3 Surprise and polish", "M4 Showcase"]
+
+
+def _line_y(top: int, n: int, size: int = 28) -> float:
+    return top + 90 + (n - 1) * size * 1.45 + size * 1.45 / 2
+
+
+EPISODE = Episode(level=1, week=11, scenes=(
+    Scene("w11-s01", setting="workshop", lead_in=0.2, beats=(
+        B("Welcome back to Code Quest!", cue="welcome", pause=0.3),
+        B("Nova has a brilliant art-show plan, and forty new lines typed without running once.", cue="plan",
+          pause=0.3),
+        B("Pixel presses Run.", cue="presses", pause=0.4),
+        B("‘Uh-oh,’", speaker=NOVA, cue="uhoh", pause=0.1),
+        B("says Nova.", cue="says", pause=0.3),
+        B("One tiny error hides somewhere in the stack.", cue="hides", pause=0.3),
+        B("The studio clock is ticking.", cue="clock", pause=0.4),
+        B("Would you rather search forty lines, or test each small piece as you build it?", cue="rather",
+          pause=2.8),
+        B("Today, we work like project engineers.", cue="today", pause=0.8),
+    ), actions=(
+        A("nova", x=300, y=960, enter="left", wave="welcome",
+          moods={"plan": "proud", "uhoh": "worried", "rather": "thinking", "today": "happy"},
+          chin=("rather", "today")),
+        A("pixel", x=620, y=760, drop=True, beep=("presses", "presses$"), moods={"uhoh": "confused",
+                                                                                 "today": "happy"}),
+        A("banner", "STUDIO MISSION", at="plan"),
+        A("code", title="art_show.py", code=FORTY_LINES, x=930, y=170, w=850, h=770, size=28, shell_h=170,
+          at="plan", until="rather", type=("plan@0.2", "plan$+0.3"), run="presses@0.3",
+          expect=["NameError: name 'colr' is not defined. Did you mean: 'color'?"], allow_error=True,
+          highlight=[(9, "hides@0.7", "rather")]),
+        A("chip", "40 lines • 0 runs", at="plan@0.6", until="presses", x=640, y=300, color="pink", size=40),
+        A("magnifier", x=1500, y=_line_y(170, 2), at="hides", until="rather",
+          path=[("hides", 1500, _line_y(170, 2)), ("hides@0.5", 1450, _line_y(170, 6)),
+                ("hides$", 1350, _line_y(170, 9))]),
+        A("icons", at="clock", until="rather", x=780, y=300, items=[("clock", "Tick, tock…", "clock")]),
+        A("sfx", "tick", at="clock+0.3"),
+        A("sfx", "tick", at="clock+1.0"),
+        A("chip", "Search 40 lines?", at="rather", x=1340, y=300, color="red", size=44),
+        A("chip", "…or test each small piece?", at="rather@0.5", x=1340, y=420, color="green", size=44),
+        A("thought", "", at="rather$+0.2", until="today", x=500, y=330),
+        A("chip", "Build small • Test often", at="today", x=1340, y=600, color="yellow", size=50),
+    )),
+    Scene("w11-s02", setting="sky", beats=(
+        B("A milestone is a checkpoint you can see and test.", cue="milestone", pause=0.3),
+        B("Your art show has four.", cue="four", pause=0.3),
+        B("M1, Plan: you finished it last week.", cue="m1", pause=0.4),
+        B("M2, Core drawing works: turn the example my_shape function into your own, draw it once, then call it "
+          "a second time somewhere else, with no red errors.", cue="m2", pause=0.4),
+        B("M3, Surprise and polish: add your questions, your if, your loop, something random, and a title.",
+          cue="m3", pause=0.3),
+        B("Then a partner tests it.", cue="partner", pause=0.4),
+        B("M4 is next week's Showcase.", cue="m4", pause=0.4),
+        B("Core first!", cue="core", pause=0.3),
+        B("Extras go on your wish list until the main drawing works.", cue="extras", pause=0.8),
+    ), actions=(
+        A("chip", "Milestone = a checkpoint you can see and test", at="milestone", x=960, y=120, color="orange",
+          size=42),
+        A("roadmap", at="four", x=260, y=300, w=1400, items=MILESTONES, checks=[("m1@0.5", 0)],
+          current=[("m2", 1), ("m3", 2), ("m4", 3), ("core", 1)]),
+        A("panel", "M2 Core drawing", x=140, y=520, w=780, size=32, at="m2", until="core",
+          items=[("m2@0.25", "Make my_shape your own function"), ("m2@0.5", "Draw it once"),
+                 ("m2@0.65", "Call it a second time"), ("m2@0.85", "No red errors")]),
+        A("panel", "M3 Surprise and polish", x=1000, y=520, w=780, size=32, at="m3", until="core",
+          items=[("m3@0.25", "Your questions"), ("m3@0.4", "Your if"), ("m3@0.5", "Your loop"),
+                 ("m3@0.65", "Something random"), ("m3@0.85", "A title"), ("partner", "A partner tests it")]),
+        A("bigtext", "Core first!", at="core", x=560, y=720, size=60, color="green"),
+        A("panel", "Wish list (later)", x=1080, y=560, w=620, size=32, color="purple", at="extras",
+          items=[("extras@0.3", "Extra colors"), ("extras@0.5", "A second drawing"), ("extras@0.7", "A fancy title")]),
+    )),
+    Scene("w11-s03", setting="lavender", beats=(
+        B("Use a three-beat studio rhythm, like building a LEGO set bag by bag.", cue="rhythm", pause=0.3),
+        B("Build one small change.", cue="build", pause=0.3),
+        B("Run it.", cue="run", pause=0.3),
+        B("Check: did it do what I expected?", cue="check", pause=0.5),
+        B("If something breaks, you know it was the last little change, so look there first.", cue="breaks",
+          pause=0.4),
+        B("Before a big change, click File, then Save as, and add underscore v2 to the name, like "
+          "fish_party_v2.py.", cue="save", pause=0.4),
+        B("If the change goes wrong, version one is still safe.", cue="safe", pause=0.4),
+        B("A version is a saved checkpoint, not twelve mystery copies named final-final-really-final.",
+          cue="version", pause=0.8),
+    ), actions=(
+        A("chip", "BUILD → RUN → CHECK", at="rhythm@0.4", x=480, y=170, color="navy", size=46),
+        A("cards", at="rhythm@0.5", x=160, y=280, w=640, gap=120,
+          items=["BUILD one small change", "RUN it", "CHECK: what I expected?"],
+          reveal=["rhythm@0.5", "rhythm@0.65", "rhythm@0.8"],
+          active=[("build", "run"), ("run", "check"), ("check", "breaks")],
+          done=["run", "check", "breaks"]),
+        A("chip", "Expected vs what happened", at="check@0.5", x=480, y=700, color="yellow", size=40),
+        A("chip", "Broken? Look at the last change", at="breaks@0.4", x=480, y=820, color="pink", size=38),
+        A("panel", "File", x=1060, y=170, w=420, size=34, at="save", until="safe",
+          items=[("save@0.1", "Save"), ("save@0.25", "Save as…")]),
+        A("file", "fish_party.py", x=1080, y=440, w=560, h=200, at="save@0.3", lines=["version 1"]),
+        A("file", "fish_party_v2.py", x=1080, y=680, w=560, h=200, at="save@0.75", lines=["the big change"]),
+        A("chip", "Save a _v2 before a big change", at="save$", x=1360, y=930, color="green", size=38),
+        A("badge", ok=True, at="safe@0.5", x=1700, y=520),
+        A("chip", "version 1 is safe", at="safe@0.5", until="version", x=1440, y=170, color="sky", size=40),
+        A("icons", at="version@0.5", x=1380, y=170, gap=220, size=26, crossed=[0, 1, 2],
+          items=[("file", "final", "version@0.5"), ("file", "final-final", "version@0.6"),
+                 ("file", "really-final", "version@0.7")]),
+    )),
+    Scene("w11-s04", setting="peach", beats=(
+        B("Now for the partner swap bug hunt.", cue="swap", pause=0.3),
+        B("Swap seats.", cue="seats", pause=0.8),
+        B("Run your partner's program twice: once with a normal answer, and once with a strange one, like zero, "
+          "a giant number, a word instead of a number, or a capital letter.", cue="twice", pause=0.4),
+        B("Write down what happened.", cue="write", pause=0.3),
+        B("Don't fix it; just report it!", cue="report", pause=0.6),
+        B("Then swap back and give two stars and a wish: two specific things you liked, and one wish.",
+          cue="stars", pause=0.3),
+        B("Make the wish about the program, never the person, like Nova's:", cue="wish", pause=0.1),
+        B("‘I wish the title was bigger.’", speaker=NOVA, cue="bigger", pause=0.4),
+        B("The creator says thank you, then decides what to change.", cue="thanks", pause=0.4),
+        B("It's their art.", cue="art", pause=0.8),
+    ), actions=(
+        A("banner", "PARTNER SWAP BUG HUNT!", at="swap", color="navy"),
+        A("chip", "Swap seats • Run twice • Report, don't fix", at="seats@0.3", until="stars", x=960, y=210,
+          color="yellow", size=42),
+        A("laptop", x=300, y=780, s=0.8),
+        A("laptop", x=1620, y=780, s=0.8),
+        A("nova", x=300, y=1060, s=0.55,
+          path=[("seats", 300, 1060), ("seats+1.4", 1620, 1060), ("stars", 1620, 1060), ("stars+1.4", 300, 1060)],
+          moods={"report": "happy", "bigger": "happy"}),
+        A("pixel", x=1620, y=990, s=0.5, ground=1050,
+          path=[("seats", 1620, 990), ("seats+1.4", 300, 990), ("stars", 300, 990), ("stars+1.4", 1620, 990)],
+          moods={"thanks": "proud"}, beep=("thanks", "thanks@0.4")),
+        A("listrow", "Strange answers", at="twice@0.45", until="write", x=960, y=580, cell=240, indexes=False,
+          items=["0", "999999", "pizza", "Blue"]),
+        A("chip", "Normal answer + strange answer", at="twice@0.2", until="stars", x=960, y=330, color="green",
+          size=40),
+        A("table", "Test notes", at="write", until="stars", x=480, y=420, col_w=320,
+          header=["Test", "Answer", "What happened"],
+          rows=[["Normal", "5", "5 fish drawn"], ["Strange", "pizza", "red error"]],
+          reveal=["write@0.3", "write$"]),
+        A("bigtext", "Report, don't fix!", at="report", until="stars", x=960, y=780, size=52, color="orange"),
+        A("chip", "2 stars + 1 wish (about the program)", at="stars", x=960, y=210, color="yellow", size=42),
+        A("panel", "Feedback card", x=560, y=310, w=800, size=34, at="stars@0.3",
+          items=[("stars@0.5", "Star: the random colors are fun"), ("stars@0.75", "Star: the question was easy"),
+                 ("bigger", "Wish: I wish the title was bigger")]),
+        A("bubble", "I wish the title was bigger.", x=340, y=760, at="bigger", until="thanks", size=36),
+        A("bubble", "Thank you!", x=1600, y=800, tail="down-right", at="thanks", until="art$", size=38),
+        A("chip", "The creator decides", at="thanks@0.5", x=960, y=760, color="sky", size=40),
+        A("chip", "It's their art.", at="art", x=960, y=870, color="pink", size=40),
+    )),
+    Scene("w11-s05", setting="workshop", tail=0.8, beats=(
+        B("Studio checkpoint complete!", cue="complete", pause=0.4),
+        B("Milestones keep a big project manageable.", cue="manage", pause=0.3),
+        B("Build, run, and check one small change at a time.", cue="brc", pause=0.3),
+        B("Save a version before a big change.", cue="savev", pause=0.3),
+        B("Test with a normal and a strange answer.", cue="testn", pause=0.4),
+        B("Good feedback is kind, specific, and helpful, about the program, never the person.", cue="good",
+          pause=0.3),
+        B("When you get feedback, say thank you, then you decide.", cue="get", pause=0.3),
+        B("Online, if a comment is unkind, don't reply; tell a grown-up.", cue="online", pause=0.5),
+        B("Now: Sprint 1 for M2, the partner swap bug hunt, then Sprint 2 for M3.", cue="now", pause=0.3),
+        B("The goal isn't perfect.", cue="goal", pause=0.2),
+        B("It's progress you tested and can explain.", cue="progress", pause=0.4),
+        B("Happy coding!", cue="happy", pause=0.4),
+    ), actions=(
+        A("door", "DOOR 11", x=1720, y=920, open="complete"),
+        A("nova", x=260, y=1010, s=0.72, wave=[("complete", "manage"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("chip", "Small step • Saved version • Evidence", at="manage", until="good", x=1000, y=250,
+          color="orange", size=44),
+        A("cards", at="manage", until="good", x=640, y=360, w=720, gap=110,
+          items=["Milestones", "Build → Run → Check", "Save a version", "Normal + strange test"],
+          reveal=["manage", "brc", "savev", "testn"]),
+        A("chip", "Kind • Specific • Helpful", at="good", until="now", x=1000, y=250, color="green", size=46),
+        A("icons", at="good", until="online", x=1000, y=450, gap=280,
+          items=[("heart", "Kind", "good@0.2"), ("magnifier", "Specific", "good@0.35"), ("star", "Helpful", "good@0.5")]),
+        A("chip", "Say thank you → you decide", at="get", until="online", x=1000, y=680, color="sky", size=40),
+        A("icons", at="online", until="now", x=1000, y=450, gap=300,
+          items=[("warning", "Unkind comment", "online@0.1"), ("cross", "Don't reply", "online@0.5"),
+                 ("grownup", "Tell a grown-up", "online@0.75")]),
+        A("banner", "NEXT: M2 → Partner swap → M3", at="now", color="green"),
+        A("cards", at="now", x=620, y=230, w=720, gap=110,
+          items=["Sprint 1: reach M2", "Partner swap bug hunt", "Sprint 2: reach M3"],
+          reveal=["now@0.15", "now@0.5", "now@0.8"]),
+        A("chip", "Progress you tested and can explain", at="progress", x=1000, y=620, color="yellow", size=42),
+        A("chip", "Happy coding!", at="happy", x=1000, y=760, color="orange", size=48),
+    )),
+))

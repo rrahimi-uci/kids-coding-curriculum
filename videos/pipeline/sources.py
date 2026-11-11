@@ -7,13 +7,17 @@ import json
 from pathlib import Path
 from typing import Iterable
 
-LEVEL_DIR = Path("1-introduction")
+LEVEL_DIRS = {1: Path("1-introduction"), 2: Path("2-intermediate"), 3: Path("3-advanced")}
+LEVEL_DIR = LEVEL_DIRS[1]
 MANIFEST_SCHEMA = 2
+PROJECT_WEEKS = range(10, 13)
 
-COMMON_SOURCES = (
-    "docs/SYLLABUS.md",
-    "1-introduction/teaching-material/teacher-guide.tex",
-)
+
+def common_sources(level: int) -> tuple[str, ...]:
+    return ("docs/SYLLABUS.md", str(LEVEL_DIRS[level] / "teaching-material" / "teacher-guide.tex"))
+
+
+COMMON_SOURCES = common_sources(1)
 
 # Files in an exercise folder that a video must never see: answers, the tests that encode them
 # and the self-check runner. Keeping them out of the agent packet prevents a script from
@@ -31,38 +35,42 @@ def _is_public_exercise_file(path: Path) -> bool:
     return not path.name.startswith(PRIVATE_EXERCISE_PREFIXES)
 
 
-def exercise_dirs(repo_root: Path, week: int) -> list[Path]:
+def exercise_dirs(repo_root: Path, week: int, level: int = 1) -> list[Path]:
     """Exercise folders for one week, relative to the repository root."""
-    week_dir = repo_root / LEVEL_DIR / "exercises" / f"week{week:02d}"
+    week_dir = repo_root / LEVEL_DIRS[level] / "exercises" / f"week{week:02d}"
     if not week_dir.is_dir():
         return []
     return [path.relative_to(repo_root) for path in sorted(week_dir.iterdir()) if path.is_dir()]
 
 
-def week_sources(repo_root: Path, week: int) -> tuple[str, ...]:
+def project_sources(repo_root: Path, level: int) -> list[str]:
+    """The project brief, its teacher guide and the public starter files (never the reference)."""
+    project = LEVEL_DIRS[level] / "project"
+    paths = [str(project / "project-brief.tex"), str(project / "project-teacher-guide.tex")]
+    starter = repo_root / project / "starter"
+    for path in sorted(starter.glob("*")):
+        if path.is_file() and path.suffix in {".md", ".py"} and "__pycache__" not in path.parts:
+            paths.append(str(path.relative_to(repo_root)))
+    return paths
+
+
+def week_sources(repo_root: Path, week: int, level: int = 1) -> tuple[str, ...]:
     """Return every student/teacher source that can affect a week's video."""
-    material = LEVEL_DIR / "teaching-material"
+    material = LEVEL_DIRS[level] / "teaching-material"
     candidates = [
         str(material / "lessons" / f"week{week:02d}.tex"),
         str(material / "workbook" / f"week{week:02d}.tex"),
         str(material / "homework" / f"week{week:02d}.tex"),
     ]
-    for folder in exercise_dirs(repo_root, week):
+    for folder in exercise_dirs(repo_root, week, level):
         for path in sorted((repo_root / folder).rglob("*")):
             if path.is_file() and _is_public_exercise_file(path):
                 candidates.append(str(path.relative_to(repo_root)))
-    if week >= 10:
-        candidates.extend(
-            [
-                str(LEVEL_DIR / "project" / "project-brief.tex"),
-                str(LEVEL_DIR / "project" / "project-teacher-guide.tex"),
-                str(LEVEL_DIR / "project" / "starter" / "README.md"),
-                str(LEVEL_DIR / "project" / "starter" / "my_art_show.py"),
-            ]
-        )
+    if week in PROJECT_WEEKS:
+        candidates.extend(project_sources(repo_root, level))
     # Common files are intentionally last so a bounded agent packet always contains
     # the exact weekly lesson, activities, and project material before broad context.
-    candidates.extend(COMMON_SOURCES)
+    candidates.extend(common_sources(level))
     return tuple(dict.fromkeys(candidates))
 
 
@@ -84,17 +92,17 @@ def digest_files(repo_root: Path, paths: Iterable[str]) -> str:
     return digest.hexdigest()
 
 
-def week_entry(repo_root: Path, week: int) -> dict[str, object]:
-    paths = week_sources(repo_root, week)
+def week_entry(repo_root: Path, week: int, level: int = 1) -> dict[str, object]:
+    paths = week_sources(repo_root, week, level)
     return {
         "digest": digest_files(repo_root, paths),
         "files": {relative: file_digest(repo_root / relative) for relative in paths},
     }
 
 
-def build_manifest(repo_root: Path) -> dict[str, object]:
-    weeks = {str(week): week_entry(repo_root, week) for week in range(1, 13)}
-    return {"schema_version": MANIFEST_SCHEMA, "level": 1, "algorithm": "sha256", "weeks": weeks}
+def build_manifest(repo_root: Path, level: int = 1) -> dict[str, object]:
+    weeks = {str(week): week_entry(repo_root, week, level) for week in range(1, 13)}
+    return {"schema_version": MANIFEST_SCHEMA, "level": level, "algorithm": "sha256", "weeks": weeks}
 
 
 def load_manifest(path: Path) -> dict[str, object]:
@@ -112,11 +120,11 @@ def manifest_text(manifest: dict[str, object]) -> str:
     return json.dumps(manifest, indent=2, sort_keys=True) + "\n"
 
 
-def write_manifest(repo_root: Path, destination: Path) -> None:
-    destination.write_text(manifest_text(build_manifest(repo_root)), encoding="utf-8")
+def write_manifest(repo_root: Path, destination: Path, level: int = 1) -> None:
+    destination.write_text(manifest_text(build_manifest(repo_root, level)), encoding="utf-8")
 
 
-def update_manifest_weeks(repo_root: Path, manifest_path: Path, weeks: Iterable[int]) -> None:
+def update_manifest_weeks(repo_root: Path, manifest_path: Path, weeks: Iterable[int], level: int = 1) -> None:
     """Record current fingerprints for some weeks only, leaving the others untouched.
 
     Used after a week's script was regenerated or a teacher confirmed that it still matches
@@ -125,11 +133,11 @@ def update_manifest_weeks(repo_root: Path, manifest_path: Path, weeks: Iterable[
     if manifest_path.is_file():
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         if manifest.get("schema_version") != MANIFEST_SCHEMA:
-            manifest = build_manifest(repo_root)  # old format: nothing reliable to keep
+            manifest = build_manifest(repo_root, level)  # old format: nothing reliable to keep
     else:
-        manifest = build_manifest(repo_root)
+        manifest = build_manifest(repo_root, level)
     for week in weeks:
-        manifest["weeks"][str(week)] = week_entry(repo_root, week)
+        manifest["weeks"][str(week)] = week_entry(repo_root, week, level)
     manifest_path.write_text(manifest_text(manifest), encoding="utf-8")
 
 
@@ -139,10 +147,11 @@ def changed_files(repo_root: Path, manifest_path: Path) -> dict[int, list[str]]:
     A file is listed as `+path` when it is new for that week and `-path` when it was removed.
     """
     expected = load_manifest(manifest_path)
+    level = int(expected.get("level", 1))
     result: dict[int, list[str]] = {}
     for week in range(1, 13):
         old = expected["weeks"][str(week)]
-        new = week_entry(repo_root, week)
+        new = week_entry(repo_root, week, level)
         if old["digest"] == new["digest"]:
             continue
         old_files, new_files = old["files"], new["files"]
@@ -157,11 +166,11 @@ def stale_weeks(repo_root: Path, manifest_path: Path) -> list[int]:
     return sorted(changed_files(repo_root, manifest_path))
 
 
-def source_bundle(repo_root: Path, week: int, max_chars: int = 120_000) -> str:
+def source_bundle(repo_root: Path, week: int, max_chars: int = 120_000, level: int = 1) -> str:
     """Build a bounded, labeled source packet for an Agent SDK run."""
     sections: list[str] = []
     size = 0
-    for relative in week_sources(repo_root, week):
+    for relative in week_sources(repo_root, week, level):
         text = (repo_root / relative).read_text(encoding="utf-8", errors="replace")
         section = f"\n\n===== {relative} =====\n{text}"
         if size + len(section) > max_chars:
