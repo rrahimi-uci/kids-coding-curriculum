@@ -8,7 +8,7 @@ Dates are in ISO format.
 The video characters have new names, and Rose has a new look.
 
 - The inventor is now called **Rose** and the helper robot is now called **Pixi**, in every one of the 36 videos: narration, voices, captions, transcripts, titles, the series logo ("Kids Coding with Rose and Pixi"), on-screen text and code examples. The voices, scripts and lessons are otherwise unchanged.
-- Rose has long, straight brown hair and a blue hoodie with stripes across the chest only; the lower part, the pocket and the sleeves stay plain. Rose looks the same in every video.
+- Rose has a new, more detailed look: long, straight dark-brown hair with a center part that falls just past the shoulders, a light-blue headband, big brown eyes, and a purple long-sleeve top with lavender stripes across the top of the shirt and the upper sleeves (the lower part stays plain). Rose is also a little taller, and speech bubbles moved up to match. Rose looks the same in every video.
 - Names that are not the characters keep their names, such as the Pixel Art exercise, the Pixel Pet homework and the sample hero names in the lessons.
 
 ## 1.10.1 - 2026-11-11

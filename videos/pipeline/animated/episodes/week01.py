@@ -9,7 +9,7 @@ from __future__ import annotations
 import math
 
 from .. import props as P
-from ..characters import draw_cat, draw_grown_up, draw_rose, draw_pixi
+from ..characters import ROSE_HEAD_TOP, draw_cat, draw_grown_up, draw_rose, draw_pixi
 from ..engine import (
     C, FPS, H, W, appear, circle, clamp, ease_in_out, ease_out, fade, fill_rounded, glow, lerp, line,
     progress, set_color, star, text, vertical_gradient,
@@ -90,16 +90,16 @@ def scene1(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     if t < zoom_start:
         P.chip(ctx, 640, FLOOR_Y + 70, "Pixi", t, _f(sc, "meet", 0.45), color=C["white"], size=36)
     # Rose's line and the mission
-    P.speech_bubble(ctx, rose_x + 70, FLOOR_Y - 470, "Take it over there!", t, sc.at("take"), sc.at("zoom") + 0.6)
+    P.speech_bubble(ctx, rose_x + 70, FLOOR_Y + 10 - ROSE_HEAD_TOP, "Take it over there!", t, sc.at("take"), sc.at("zoom") + 0.6)
     P.title_banner(ctx, "MISSION: Deliver the key", t, sc.at("task"), y=90)
     if t >= sc.at("exactly"):
         for i, dx in enumerate((-40, 20, 70)):
             amount = appear(t, sc.at("exactly") + i * 0.12, 0.3)
-            text(ctx, "?", rose_x + dx, FLOOR_Y - 560 - 10 * math.sin(gt * 4 + i), 70, C["vermillion"], bold=True,
+            text(ctx, "?", rose_x + dx, FLOOR_Y - 600 - 10 * math.sin(gt * 4 + i), 70, C["vermillion"], bold=True,
                  scale=amount, alpha=1 - progress(t, sc.at("question"), 0.3))
     q_start, q_end = _w(sc, "question")
     P.chip(ctx, W / 2, 205, "Pause: What exact steps would you give?", t, q_start, color=C["yellow"], size=40)
-    P.thought_bubble(ctx, rose_x + 330, FLOOR_Y - 520, t, q_start + 0.8, q_end - 0.1)
+    P.thought_bubble(ctx, rose_x + 330, FLOOR_Y - 560, t, q_start + 0.8, q_end - 0.1)
 
 
 def sfx1(sc: SceneTiming) -> list[tuple[float, str]]:
