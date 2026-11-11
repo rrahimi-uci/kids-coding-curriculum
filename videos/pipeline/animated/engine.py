@@ -42,7 +42,9 @@ C = {
     "gray": "#8A97A6",
     "gray_light": "#E9EEF3",
     "skin": "#B9784F",
-    "hair": "#2B1A12",
+    "hair": "#6B3F22",  # Rose's long brown hair (and eyebrows)
+    "hair_shade": "#4F2D17",
+    "hair_shine": "#94603A",
     "wood": "#B9773F",
     "wood_dark": "#8C5427",
     "gold": "#F5C542",

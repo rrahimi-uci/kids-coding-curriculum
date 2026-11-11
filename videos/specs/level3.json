@@ -2,13 +2,13 @@
   "schema_version": 2,
   "level": 3,
   "audience": "Children in Grades 4–5 (ages 9–11) who are complete beginners",
-  "series_title": "Kids Coding with Nova and Pixel",
+  "series_title": "Kids Coding with Rose and Pixi",
   "creative_direction": {
     "frame": "16:9, 1920×1080, 24 or 30 fps",
     "narration": "Warm, curious, inclusive, and clear at about 140–145 words per minute; friendly without sounding babyish",
     "visual_language": "Bright modern 2D motion graphics, real Scratch or Thonny captures, deterministic code overlays, and a recurring mission map",
     "accessibility": "Closed captions (an MP4 caption track plus .srt and .vtt files), Okabe–Ito palette, high contrast, large readable type, no color-only clues, gentle motion, and no rapid flashing",
-    "story_world": "Nova is an inventive ten-year-old coder. Pixel is a palm-sized helper robot who takes instructions very literally. Nova writes the code and Pixel runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
+    "story_world": "Rose is an inventive ten-year-old coder. Pixi is a palm-sized helper robot who takes instructions very literally. Rose writes the code and Pixi runs it exactly as written, so when something goes wrong the two investigate together. Each week, the pair opens a new door in the Kids Coding workshop by learning one idea, testing it, and repairing one friendly bug. Learners are invited to predict before the answer appears."
   },
   "plan_notes": [
     "The scripts were written from the Level 3 (Advanced: Python projects, git, objects, algorithms, data and AI) syllabus, teacher guide, all 12 lesson plans, workbook and homework chapters, every exercise brief, starter and hint, and the final project materials, then checked line by line by a separate reviewer against the same sources and the answer keys.",
@@ -63,8 +63,8 @@
           "scene_id": "l3-w01-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome to Level 3! Nova is building a rocket game, and it finally works. ‘Let's add a giant laser!’ says Nova. Pixel runs it, exactly as written… and the whole game crashes. Uh-oh. Nova wants the working game back, but it's gone. In a video game, you'd just load a save point. Can code have save points too?",
-          "visual": "Workshop. A code panel shows a small rocket game running. Nova types one new line and Pixel presses Run; the panel shakes gently and a red error appears. Nova searches for an undo button. A video-game save icon floats up with a question mark, then freeze on a thinking bubble.",
+          "narration": "Welcome to Level 3! Rose is building a rocket game, and it finally works. ‘Let's add a giant laser!’ says Rose. Pixi runs it, exactly as written… and the whole game crashes. Uh-oh. Rose wants the working game back, but it's gone. In a video game, you'd just load a save point. Can code have save points too?",
+          "visual": "Workshop. A code panel shows a small rocket game running. Rose types one new line and Pixi presses Run; the panel shakes gently and a red error appears. Rose searches for an undo button. A video-game save icon floats up with a question mark, then freeze on a thinking bubble.",
           "on_screen_text": [
             "MISSION: Give code save points",
             "Pause: When would you want a save?"
@@ -89,8 +89,8 @@
           "scene_id": "l3-w01-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: a nickname and a first commit",
-          "narration": "Let's make Nova's first save point in Terminal. Terminal is a chat window with the computer: you type a command, press Return, and it answers. Nova makes a git-quest folder in Documents and goes inside with cd. Important: git writes your name into every save point, forever. So Nova uses git config --global user.name to set a nickname: StarOwl. ‘Never my real name,’ says Nova. The email is pretend too: it ends in example.com. Nova checks with git config user.name, and it answers StarOwl. Then git init starts the save system. git add rocket.py calls the file into the photo, and git commit snaps it, with the message ‘Add rocket drawing’. Now git log --oneline shows one line: a commit id and the message. Your id will be different!",
-          "visual": "A Terminal panel. Commands type in one at a time: cd ~/Documents, mkdir git-quest, cd git-quest, the two git config lines, git config user.name (answer: StarOwl), git init, git add rocket.py, git commit -m \"Add rocket drawing\", git log --oneline. The answer line 3b8d2f1 (HEAD -> master) Add rocket drawing appears, and a first commit dot pops onto the timeline. Nova gives Pixel a thumbs-up.",
+          "narration": "Let's make Rose's first save point in Terminal. Terminal is a chat window with the computer: you type a command, press Return, and it answers. Rose makes a git-quest folder in Documents and goes inside with cd. Important: git writes your name into every save point, forever. So Rose uses git config --global user.name to set a nickname: StarOwl. ‘Never my real name,’ says Rose. The email is pretend too: it ends in example.com. Rose checks with git config user.name, and it answers StarOwl. Then git init starts the save system. git add rocket.py calls the file into the photo, and git commit snaps it, with the message ‘Add rocket drawing’. Now git log --oneline shows one line: a commit id and the message. Your id will be different!",
+          "visual": "A Terminal panel. Commands type in one at a time: cd ~/Documents, mkdir git-quest, cd git-quest, the two git config lines, git config user.name (answer: StarOwl), git init, git add rocket.py, git commit -m \"Add rocket drawing\", git log --oneline. The answer line 3b8d2f1 (HEAD -> master) Add rocket drawing appears, and a first commit dot pops onto the timeline. Rose gives Pixi a thumbs-up.",
           "on_screen_text": [
             "git config --global user.name \"StarOwl\"",
             "git add rocket.py",
@@ -103,8 +103,8 @@
           "scene_id": "l3-w01-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: the wrong file and an unhelpful message",
-          "narration": "Bug hunt! Nova adds a smoke trail to the rocket and wants to save. Nova types git add rocket.py, then git add diary.txt, and is about to commit with the message ‘things’. Wait! First, let's check git status. It lists the changes to be committed: diary.txt and rocket.py. Nova's diary has a real name and an address in it. That's the wrong file! And does ‘things’ say what changed? Let's be detectives: read the clue, find the line, guess, and test one change. Fix one: git restore --staged diary.txt takes the diary out of the photo before it's taken. Check git status again: only rocket.py is ready to save. Fix two: a message that says what changed, like ‘Add rocket smoke trail’. Nice catch!",
-          "visual": "Terminal panel. The two git add lines type in; Nova's hand hovers before a commit, then git status runs instead. Its output appears under ‘Changes to be committed:’ with ‘new file: diary.txt’ then ‘modified: rocket.py’ (git lists them A to Z); a magnifying glass highlights diary.txt and a sticky note shows a blurred name and address. The diary card steps out of the photo frame. The second git status shows only ‘modified: rocket.py’ under ‘Changes to be committed:’, with diary.txt moved down to ‘Untracked files:’. A message card crosses out ‘things’ and writes ‘Add rocket smoke trail’. A check mark appears only after the second git status.",
+          "narration": "Bug hunt! Rose adds a smoke trail to the rocket and wants to save. Rose types git add rocket.py, then git add diary.txt, and is about to commit with the message ‘things’. Wait! First, let's check git status. It lists the changes to be committed: diary.txt and rocket.py. Rose's diary has a real name and an address in it. That's the wrong file! And does ‘things’ say what changed? Let's be detectives: read the clue, find the line, guess, and test one change. Fix one: git restore --staged diary.txt takes the diary out of the photo before it's taken. Check git status again: only rocket.py is ready to save. Fix two: a message that says what changed, like ‘Add rocket smoke trail’. Nice catch!",
+          "visual": "Terminal panel. The two git add lines type in; Rose's hand hovers before a commit, then git status runs instead. Its output appears under ‘Changes to be committed:’ with ‘new file: diary.txt’ then ‘modified: rocket.py’ (git lists them A to Z); a magnifying glass highlights diary.txt and a sticky note shows a blurred name and address. The diary card steps out of the photo frame. The second git status shows only ‘modified: rocket.py’ under ‘Changes to be committed:’, with diary.txt moved down to ‘Untracked files:’. A message card crosses out ‘things’ and writes ‘Add rocket smoke trail’. A check mark appears only after the second git status.",
           "on_screen_text": [
             "Run git status before every commit",
             "git restore --staged diary.txt",
@@ -170,8 +170,8 @@
           "scene_id": "l3-w02-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Nova wants a garden game with lots and lots of plants. ‘I'll write the code for one plant,’ says Nova, ‘then copy it… and copy it… and copy it.’ Nova starts copying. Fifty copies later, Nova wants plants to grow faster. Uh-oh. That's fifty changes! Can we write the plan once and build as many plants as we like?",
-          "visual": "Code panel fills with copy after copy of the same plant code while Nova's typing hands blur and Pixel watches. A counter ticks to 50. Nova holds up a pencil to change one line and gasps at the scrolling wall of copies. Freeze on a thinking bubble.",
+          "narration": "Rose wants a garden game with lots and lots of plants. ‘I'll write the code for one plant,’ says Rose, ‘then copy it… and copy it… and copy it.’ Rose starts copying. Fifty copies later, Rose wants plants to grow faster. Uh-oh. That's fifty changes! Can we write the plan once and build as many plants as we like?",
+          "visual": "Code panel fills with copy after copy of the same plant code while Rose's typing hands blur and Pixi watches. A counter ticks to 50. Rose holds up a pencil to change one line and gasps at the scrolling wall of copies. Freeze on a thinking bubble.",
           "on_screen_text": [
             "MISSION: One plan, many plants",
             "Pause: How could we avoid 50 copies?"
@@ -196,7 +196,7 @@
           "scene_id": "l3-w02-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: a Plant class and two objects",
-          "narration": "Let's build a Plant class. It starts with class Plant. Inside, the __init__ method takes self and a name. It stores self.name and sets self.height to one. Then comes a method called water, which also takes self. It adds three to self.height. So what's self? Self means ‘my.’ So self.height means ‘my height.’ And Python fills in self for you. Now Nova makes two plants: one called Sunny, and one called Fern. Pixel runs the last line, which waters Sunny. Predict! How tall is Sunny now? Four. And Fern? Still one! Nothing happened to Fern. Watering Sunny only changed Sunny. Same blueprint, different objects, and each one keeps its own numbers.",
+          "narration": "Let's build a Plant class. It starts with class Plant. Inside, the __init__ method takes self and a name. It stores self.name and sets self.height to one. Then comes a method called water, which also takes self. It adds three to self.height. So what's self? Self means ‘my.’ So self.height means ‘my height.’ And Python fills in self for you. Now Rose makes two plants: one called Sunny, and one called Fern. Pixi runs the last line, which waters Sunny. Predict! How tall is Sunny now? Four. And Fern? Still one! Nothing happened to Fern. Watering Sunny only changed Sunny. Same blueprint, different objects, and each one keeps its own numbers.",
           "visual": "Code panel: class Plant: / def __init__(self, name): / self.name = name / self.height = 1 / def water(self): / self.height = self.height + 3 / sunny = Plant(\"Sunny\") / fern = Plant(\"Fern\") / sunny.water(). A blueprint card produces two object cards, Sunny and Fern, both height 1. When sunny.water() runs, only Sunny's card ticks to 4 and its sprout grows; Fern's card stays at 1.",
           "on_screen_text": [
             "self means “my”",
@@ -209,8 +209,8 @@
           "scene_id": "l3-w02-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: forgot self",
-          "narration": "Bug hunt! Nova writes a new version of water, but forgets something. The new water method has empty parentheses. Inside, it adds three to height. Pixel waters Sunny and gets a red error. Let's read it from the bottom up. TypeError: Plant.water() takes 0 positional arguments but 1 was given. Hmm. Python tried to hand the plant to the method, but there was no self to catch it! Guess, and test one change: put self in the parentheses. Run again. A new error: UnboundLocalError. Ask: whose height? Not the plant's! Change one more thing: write self.height on both sides. Run it. Sunny grows! Every method needs self first.",
-          "visual": "Code panel shows def water(): with an empty pair of parentheses glowing. A Shell panel shows the red error; a pointer starts at the bottom line. Pixel holds out a plant card to a method that has no hands to catch it. After the first fix, a second red error appears; a speech bubble asks ‘Whose height?’ and both height words gain self. in front. The rerun shows Sunny's sprout growing, then a check mark.",
+          "narration": "Bug hunt! Rose writes a new version of water, but forgets something. The new water method has empty parentheses. Inside, it adds three to height. Pixi waters Sunny and gets a red error. Let's read it from the bottom up. TypeError: Plant.water() takes 0 positional arguments but 1 was given. Hmm. Python tried to hand the plant to the method, but there was no self to catch it! Guess, and test one change: put self in the parentheses. Run again. A new error: UnboundLocalError. Ask: whose height? Not the plant's! Change one more thing: write self.height on both sides. Run it. Sunny grows! Every method needs self first.",
+          "visual": "Code panel shows def water(): with an empty pair of parentheses glowing. A Shell panel shows the red error; a pointer starts at the bottom line. Pixi holds out a plant card to a method that has no hands to catch it. After the first fix, a second red error appears; a speech bubble asks ‘Whose height?’ and both height words gain self. in front. The rerun shows Sunny's sprout growing, then a check mark.",
           "on_screen_text": [
             "def water():   # forgot self!",
             "TypeError: ... 0 positional arguments",
@@ -283,8 +283,8 @@
           "scene_id": "l3-w03-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Nova's robot workshop is growing. There's a plain Robot that rolls one step at a time. Now Nova wants a PaintBot that rolls and paints, and lots more kinds after that. ‘Do I have to copy the whole Robot class every time?’ asks Nova. Pixel holds up a family tree. What if robots could have families?",
-          "visual": "Workshop floor with one plain robot rolling a step. Nova sketches more robot kinds on a whiteboard, looking worried at a tall stack of copied code. Pixel unrolls a family-tree poster. Freeze on the poster.",
+          "narration": "Rose's robot workshop is growing. There's a plain Robot that rolls one step at a time. Now Rose wants a PaintBot that rolls and paints, and lots more kinds after that. ‘Do I have to copy the whole Robot class every time?’ asks Rose. Pixi holds up a family tree. What if robots could have families?",
+          "visual": "Workshop floor with one plain robot rolling a step. Rose sketches more robot kinds on a whiteboard, looking worried at a tall stack of copied code. Pixi unrolls a family-tree poster. Freeze on the poster.",
           "on_screen_text": [
             "MISSION: A family of robots",
             "Pause: What do all robots share?"
@@ -309,7 +309,7 @@
           "scene_id": "l3-w03-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: a PaintBot is a Robot",
-          "narration": "Here's the parent class, Robot. Its setup saves a name and an x position, and move adds one to x. Now the child class, PaintBot, with Robot in parentheses. That means a PaintBot is a Robot. PaintBot's __init__ starts by calling super, so the parent sets up the name and x. ‘Parent, set up your part!’ says Nova. Then the child adds its extra: a color. PaintBot also overrides move. First, super runs the parent's move. Then it adds its own part: a paint message. Nova makes a green PaintBot named Juno. Pixel tells Juno to move. Predict! x becomes one, and it prints: Juno paints a green dot. A plain Robot and a PaintBot both understand move, but each does it its own way. That's polymorphism: many shapes.",
+          "narration": "Here's the parent class, Robot. Its setup saves a name and an x position, and move adds one to x. Now the child class, PaintBot, with Robot in parentheses. That means a PaintBot is a Robot. PaintBot's __init__ starts by calling super, so the parent sets up the name and x. ‘Parent, set up your part!’ says Rose. Then the child adds its extra: a color. PaintBot also overrides move. First, super runs the parent's move. Then it adds its own part: a paint message. Rose makes a green PaintBot named Juno. Pixi tells Juno to move. Predict! x becomes one, and it prints: Juno paints a green dot. A plain Robot and a PaintBot both understand move, but each does it its own way. That's polymorphism: many shapes.",
           "visual": "Code panel: class Robot: with __init__(self, name, x=0) saving self.name and self.x, and move adding 1 to self.x; class PaintBot(Robot): with __init__(self, name, x=0, color=\"blue\") calling super().__init__(name, x) then self.color = color, and move calling super().move() then print(self.name, \"paints a\", self.color, \"dot\"). Below: juno = PaintBot(\"Juno\", color=\"green\") and juno.move(). Shell shows Juno paints a green dot. A plain robot and Juno roll side by side; only Juno leaves a green dot.",
           "on_screen_text": [
             "super().__init__(name, x)",
@@ -323,7 +323,7 @@
           "scene_id": "l3-w03-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: missing super().__init__ and an override typo",
-          "narration": "Bug hunt! Nova makes a quick copy of PaintBot, and it has two family bugs. Bug one: the child's setup forgot the line that calls super. It only saves the color. Pixel tells Juno to move and gets AttributeError: ‘PaintBot’ object has no attribute ‘x’. Read it from the bottom up. No x? The parent's setup never ran! Test one change: put the super line back. Run again. No crash! But wait… Juno rolls and never paints. No error at all. That's a silent bug. Look closely at the method's name: m, o, o, v, e. Moove! That doesn't match, so Python used the parent's move. Fix the spelling and test. Override names must match exactly.",
+          "narration": "Bug hunt! Rose makes a quick copy of PaintBot, and it has two family bugs. Bug one: the child's setup forgot the line that calls super. It only saves the color. Pixi tells Juno to move and gets AttributeError: ‘PaintBot’ object has no attribute ‘x’. Read it from the bottom up. No x? The parent's setup never ran! Test one change: put the super line back. Run again. No crash! But wait… Juno rolls and never paints. No error at all. That's a silent bug. Look closely at the method's name: m, o, o, v, e. Moove! That doesn't match, so Python used the parent's move. Fix the spelling and test. Override names must match exactly.",
           "visual": "Code panel of the buggy copy: __init__ with only self.color = color, and def moove(self):. A red AttributeError appears in the Shell; a pointer reads it from the bottom. The family tree shows the Robot setup box grayed out. After the fix, Juno rolls without painting; a magnifier spells m-o-o-v-e letter by letter beside the parent's m-o-v-e. After the spelling fix, Juno paints a green dot and a check mark appears.",
           "on_screen_text": [
             "AttributeError: ... no attribute 'x'",
@@ -391,8 +391,8 @@
           "scene_id": "l3-w04-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Pixel has a row of number cards, face down, sorted from smallest to largest. ‘Find the 40!’ says Nova. Pixel flips the first card. Then the next. Then the next. Flip, flip, flip… seven flips! ‘There has to be a faster way,’ says Nova. Can you find a number with fewer flips?",
-          "visual": "Seven face-down cards in a row on the workbench. Pixel flips them one at a time from the left while a flip counter ticks up to 7; the last card shows 40. Nova taps a stopwatch. Freeze on a thinking bubble.",
+          "narration": "Pixi has a row of number cards, face down, sorted from smallest to largest. ‘Find the 40!’ says Rose. Pixi flips the first card. Then the next. Then the next. Flip, flip, flip… seven flips! ‘There has to be a faster way,’ says Rose. Can you find a number with fewer flips?",
+          "visual": "Seven face-down cards in a row on the workbench. Pixi flips them one at a time from the left while a flip counter ticks up to 7; the last card shows 40. Rose taps a stopwatch. Freeze on a thinking bubble.",
           "on_screen_text": [
             "MISSION: Find it in fewer flips",
             "Pause: Which card would you flip first?"
@@ -403,7 +403,7 @@
           "scene_id": "l3-w04-s02",
           "duration_seconds": 55,
           "purpose": "Explain linear search, binary search and the worst case",
-          "narration": "Pixel just did a linear search: check the items one by one, from the start. It works on any list, but a long list means a long search. Binary search is smarter. Look at the middle card. If it's too small, the answer must be on the right, so throw away the whole left half. Then check the middle of what's left. Every step cuts the list in half. But there's one rule: the list must be sorted. To compare algorithms, we count the steps in the worst case: the unluckiest search. It's like finding a word in a dictionary. You open it in the middle, not on page one!",
+          "narration": "Pixi just did a linear search: check the items one by one, from the start. It works on any list, but a long list means a long search. Binary search is smarter. Look at the middle card. If it's too small, the answer must be on the right, so throw away the whole left half. Then check the middle of what's left. Every step cuts the list in half. But there's one rule: the list must be sorted. To compare algorithms, we count the steps in the worst case: the unluckiest search. It's like finding a word in a dictionary. You open it in the middle, not on page one!",
           "visual": "Left side: a pointer walks card by card (linear). Right side: a pointer jumps to the middle card, the left half fades to gray, then it jumps to the middle of what is left. A shuffled row appears with a ‘not sorted’ stop sign. A dictionary opens in the middle.",
           "on_screen_text": [
             "Linear: check one by one",
@@ -430,8 +430,8 @@
           "scene_id": "l3-w04-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: an off-by-one that loops forever",
-          "narration": "Bug hunt! Nova writes a binary search, but one line is off by one. When the middle card is too small, it sets low to mid. Pixel searches for 18 in four cards: 4, 9, 12, 18. Mid is one: 9. Too small, so low becomes one. Mid is two: 12. Too small, so low becomes two. Mid is two again: 12. And again. And again! Pixel is stuck in a loop forever. In Thonny, press the red Stop button. Now let's guess. We already checked the middle card, and it was too small, so we should throw it away too. Test one change: set low to mid plus one. Run it. Found 18! An off-by-one bug is a number that's one too big or one too small.",
-          "visual": "Code panel highlights the single line low = mid. Four cards with places 0 to 3; the mid pointer lands on 12 again and again while Pixel spins in a little circle and a loop counter climbs. A finger presses Thonny's red Stop button. The line changes to low = mid + 1; the rerun lands on 18 with a check mark.",
+          "narration": "Bug hunt! Rose writes a binary search, but one line is off by one. When the middle card is too small, it sets low to mid. Pixi searches for 18 in four cards: 4, 9, 12, 18. Mid is one: 9. Too small, so low becomes one. Mid is two: 12. Too small, so low becomes two. Mid is two again: 12. And again. And again! Pixi is stuck in a loop forever. In Thonny, press the red Stop button. Now let's guess. We already checked the middle card, and it was too small, so we should throw it away too. Test one change: set low to mid plus one. Run it. Found 18! An off-by-one bug is a number that's one too big or one too small.",
+          "visual": "Code panel highlights the single line low = mid. Four cards with places 0 to 3; the mid pointer lands on 12 again and again while Pixi spins in a little circle and a loop counter climbs. A finger presses Thonny's red Stop button. The line changes to low = mid + 1; the rerun lands on 18 with a check mark.",
           "on_screen_text": [
             "low = mid   # bug!",
             "mid 2 → 12… mid 2 → 12… forever!",
@@ -501,8 +501,8 @@
           "scene_id": "l3-w05-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Nova's game needs three things: a high-score board in order, an undo button, and a fair way to take turns. Pixel stares at a messy pile of score cards and blinks. ‘Where do I even start?’ beeps Pixel. Today we'll sort cards, stack plates and line up for lunch. Ready? Let's go!",
-          "visual": "Nova's to-do board shows three sticky notes with icons: a trophy board, an undo arrow, and a line of players. Pixel looks at a messy heap of number cards. A stack of plates and a lunch line slide in at the edges.",
+          "narration": "Rose's game needs three things: a high-score board in order, an undo button, and a fair way to take turns. Pixi stares at a messy pile of score cards and blinks. ‘Where do I even start?’ beeps Pixi. Today we'll sort cards, stack plates and line up for lunch. Ready? Let's go!",
+          "visual": "Rose's to-do board shows three sticky notes with icons: a trophy board, an undo arrow, and a line of players. Pixi looks at a messy heap of number cards. A stack of plates and a lunch line slide in at the edges.",
           "on_screen_text": [
             "MISSION: Sort it, undo it, take turns"
           ],
@@ -539,8 +539,8 @@
           "scene_id": "l3-w05-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: the swap that loses an item",
-          "narration": "Bug hunt! Nova wants two cards to trade places. Left is 9, and right is 4. First, Nova copies right into left. Then Nova copies left into right. Pixel runs it and prints both: 4 and 4! Where did the 9 go? Let's act it out. The first line puts a 4 where the 9 was, and the 9 is gone. The second line just copies that 4 back. A sort with this swap loses items! Guess, and test one change: Python can swap both at once. On one line, left and right become right and left. Run it: 4 and 9. Nothing lost! One more clue: if a high-score board shows the lowest score on top, check the order. For biggest first, call sorted with reverse set to True.",
-          "visual": "Two card slots labeled left and right holding 9 and 4. Line one: a 4 card drops onto the 9 slot and the 9 card puffs away; line two copies 4 into the right slot. The Shell prints 4 4. Pixel acts it out with two real cards. The fix line slides in and both cards cross paths at the same time; the Shell prints 4 9. Then a small score board flips from lowest-first to biggest-first when reverse=True is added.",
+          "narration": "Bug hunt! Rose wants two cards to trade places. Left is 9, and right is 4. First, Rose copies right into left. Then Rose copies left into right. Pixi runs it and prints both: 4 and 4! Where did the 9 go? Let's act it out. The first line puts a 4 where the 9 was, and the 9 is gone. The second line just copies that 4 back. A sort with this swap loses items! Guess, and test one change: Python can swap both at once. On one line, left and right become right and left. Run it: 4 and 9. Nothing lost! One more clue: if a high-score board shows the lowest score on top, check the order. For biggest first, call sorted with reverse set to True.",
+          "visual": "Two card slots labeled left and right holding 9 and 4. Line one: a 4 card drops onto the 9 slot and the 9 card puffs away; line two copies 4 into the right slot. The Shell prints 4 4. Pixi acts it out with two real cards. The fix line slides in and both cards cross paths at the same time; the Shell prints 4 9. Then a small score board flips from lowest-first to biggest-first when reverse=True is added.",
           "on_screen_text": [
             "left = right / right = left → 4 4",
             "left, right = right, left",
@@ -613,8 +613,8 @@
           "scene_id": "l3-w06-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Checkpoint week! Nova and Pixel look back at their quest map: save points, blueprints, families, searching and sorting. But today, Nova's code does something strange, and it happens too fast to see. ‘I wish I could slow it down,’ says Nova. What if you could watch your code think, one line at a time?",
-          "visual": "The mission map with five opened doors, each with an icon: a commit dot, a blueprint, a family tree, a halving pointer, sorted bars. A sixth door is marked with a magnifying glass. Nova's program flashes past in a blur, and a pause icon appears.",
+          "narration": "Checkpoint week! Rose and Pixi look back at their quest map: save points, blueprints, families, searching and sorting. But today, Rose's code does something strange, and it happens too fast to see. ‘I wish I could slow it down,’ says Rose. What if you could watch your code think, one line at a time?",
+          "visual": "The mission map with five opened doors, each with an icon: a commit dot, a blueprint, a family tree, a halving pointer, sorted bars. A sixth door is marked with a magnifying glass. Rose's program flashes past in a blur, and a pause icon appears.",
           "on_screen_text": [
             "MISSION: Watch the code think",
             "Pause: Where could a bug hide?"
@@ -639,8 +639,8 @@
           "scene_id": "l3-w06-s03",
           "duration_seconds": 65,
           "purpose": "Worked example: step into a method",
-          "narration": "Let's try it on a tiny Robot class. Its setup gives every robot a battery of fifty, and charge adds some power. At the bottom, Nova makes a robot named bolt and calls its charge method with twenty-five. Nova clicks Debug, and the first line lights up. Step over, step over… In the Variables view, bolt appears. Click it, and the Object inspector shows its attributes: battery is fifty. Now the highlighted line calls charge, one of our own methods. So Nova clicks Step into. A small window opens. That's normal: it shows the method's own variables, like power, which is twenty-five. Step over once more, and battery becomes seventy-five. Back outside, print shows 75. We watched every step!",
-          "visual": "Code panel: class Robot: / def __init__(self, name): / self.name = name / self.battery = 50 / def charge(self, power): / self.battery = self.battery + power / bolt = Robot(\"Bolt\") / bolt.charge(25) / print(bolt.battery). A highlight bar walks down the lines. The Variables panel shows bolt; the Object inspector shows battery 50. On Step into, a small method window opens showing power 25; battery ticks to 75. The Shell prints 75. Pixel watches with a tiny replay remote.",
+          "narration": "Let's try it on a tiny Robot class. Its setup gives every robot a battery of fifty, and charge adds some power. At the bottom, Rose makes a robot named bolt and calls its charge method with twenty-five. Rose clicks Debug, and the first line lights up. Step over, step over… In the Variables view, bolt appears. Click it, and the Object inspector shows its attributes: battery is fifty. Now the highlighted line calls charge, one of our own methods. So Rose clicks Step into. A small window opens. That's normal: it shows the method's own variables, like power, which is twenty-five. Step over once more, and battery becomes seventy-five. Back outside, print shows 75. We watched every step!",
+          "visual": "Code panel: class Robot: / def __init__(self, name): / self.name = name / self.battery = 50 / def charge(self, power): / self.battery = self.battery + power / bolt = Robot(\"Bolt\") / bolt.charge(25) / print(bolt.battery). A highlight bar walks down the lines. The Variables panel shows bolt; the Object inspector shows battery 50. On Step into, a small method window opens showing power 25; battery ticks to 75. The Shell prints 75. Pixi watches with a tiny replay remote.",
           "on_screen_text": [
             "bolt.battery → 50",
             "Step into: inside charge(25)",
@@ -653,7 +653,7 @@
           "scene_id": "l3-w06-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: the total that keeps resetting",
-          "narration": "Bug-hunt workshop! Nova wants to add up coins: 3, 4 and 5 should make 12. But the program prints 5. There's no red error this time, so let's use the bug-hunting loop. One, read: we expected 12, but got 5. Two, predict: ‘I think the total line is wrong,’ says Nova. Three, watch: click Debug and step over. Total becomes 3, then jumps back to zero, then 4. Then zero again! Aha! The line that sets total to zero is inside the loop, so it runs every time. Four, fix one thing: move that line above the loop. Five, check: run it. 12! If it's still failing, go around the loop again. Nice catch!",
+          "narration": "Bug-hunt workshop! Rose wants to add up coins: 3, 4 and 5 should make 12. But the program prints 5. There's no red error this time, so let's use the bug-hunting loop. One, read: we expected 12, but got 5. Two, predict: ‘I think the total line is wrong,’ says Rose. Three, watch: click Debug and step over. Total becomes 3, then jumps back to zero, then 4. Then zero again! Aha! The line that sets total to zero is inside the loop, so it runs every time. Four, fix one thing: move that line above the loop. Five, check: run it. 12! If it's still failing, go around the loop again. Nice catch!",
           "visual": "Code panel: for coin in [3, 4, 5]: / total = 0 / total = total + coin / print(total) (print is not indented, so it runs once after the loop). The Shell prints 5 next to an expected card saying 12. A five-step loop diagram (Read, Predict, Watch, Fix ONE thing, Check) lights up one step at a time. In the Variables panel, total flips 0, 3, 0, 4, 0, 5 like a scoreboard. The total = 0 line slides up above the for line; the rerun prints 12 and a check mark appears.",
           "on_screen_text": [
             "1 Read  2 Predict  3 Watch",
@@ -667,7 +667,7 @@
           "duration_seconds": 55,
           "purpose": "Recap, growth mindset, and handoff",
           "narration": "Checkpoint reached! A debugger is a slow-motion replay. Debug starts it, Step over runs one line, Step into goes inside your method, and the Variables view shows every value. When a bug appears: read, predict, watch, fix one thing, and check. Now, a secret: every programmer meets bugs every day. Bugs are how we learn! If you get stuck, ask for help clearly: what I expected, what happened, what I tried. That's a skill, not a weakness. And be kind when a partner's code is broken. Now open Bug Hunt 1, Score Keeper. Run it, read the last line of the error, and debug one fix at a time. Happy hunting!",
-          "visual": "Mission map: the sixth door opens. Recap icons for the debugger buttons and the five-step loop. Nova and Pixel high-five; a speech-bubble card reads ‘I expected…, but… happened. I tried…’. End card points to the Bug Hunt 1 folder.",
+          "visual": "Mission map: the sixth door opens. Recap icons for the debugger buttons and the five-step loop. Rose and Pixi high-five; a speech-bubble card reads ‘I expected…, but… happened. I tried…’. End card points to the Bug Hunt 1 folder.",
           "on_screen_text": [
             "Read • Predict • Watch • Fix • Check",
             "Bugs are how we learn",
@@ -720,8 +720,8 @@
           "scene_id": "l3-w07-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Welcome back to Kids Coding! Today Nova wants two things: a whole forest of trees drawn by code, and a paint bucket that fills a pixel picture with one click. ‘That sounds like thousands of lines,’ beeps Pixel. ‘Not if a function can call itself,’ says Nova. Wait… a function that calls itself? Can it ever stop?",
-          "visual": "Workshop door 7. Nova sketches a forest and a pixel picture on a whiteboard; Pixel stacks a towering pile of code pages that wobbles. Nova holds up one small recipe card. Freeze on Pixel's puzzled face and a big question mark.",
+          "narration": "Welcome back to Kids Coding! Today Rose wants two things: a whole forest of trees drawn by code, and a paint bucket that fills a pixel picture with one click. ‘That sounds like thousands of lines,’ beeps Pixi. ‘Not if a function can call itself,’ says Rose. Wait… a function that calls itself? Can it ever stop?",
+          "visual": "Workshop door 7. Rose sketches a forest and a pixel picture on a whiteboard; Pixi stacks a towering pile of code pages that wobbles. Rose holds up one small recipe card. Freeze on Pixi's puzzled face and a big question mark.",
           "on_screen_text": [
             "MISSION: A forest and a paint bucket",
             "Pause: Can a function call itself?"
@@ -759,8 +759,8 @@
           "scene_id": "l3-w07-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: missing base case (RecursionError)",
-          "narration": "Bug hunt! Nova writes a function called open_doll. It prints ‘Opening doll’ and the size, then calls itself with the size minus one. Pixel runs it, starting from three. Three, two, one, zero, minus one, minus two… the numbers keep falling below zero, and then a red error appears. Let's use our bug-hunting steps. One, read the last line of the error: RecursionError, maximum recursion depth exceeded. Two, predict. ‘I think it never stops,’ says Nova. RecursionError? Look for the base case first! Three, watch: in the debugger, Step into, and the calls pile up like plates. Four, fix one thing. Nova adds a base case: if size is zero, print ‘Solid doll!’ and return. Five, check: run it again. Opening doll three, two, one, Solid doll!",
-          "visual": "Code panel with the three-line open_doll function and the call open_doll(3). The Shell scrolls: Opening doll 3, 2, 1, 0, -1, -2… as nesting-doll icons shrink to dots, then the red last line. Five step cards light up in turn: Read, Predict, Watch, Fix ONE thing, Check. Thonny's debugger shows boxes stacking. The fix inserts an if-block at the top of the function; the rerun prints four lines and Pixel gives a thumbs-up.",
+          "narration": "Bug hunt! Rose writes a function called open_doll. It prints ‘Opening doll’ and the size, then calls itself with the size minus one. Pixi runs it, starting from three. Three, two, one, zero, minus one, minus two… the numbers keep falling below zero, and then a red error appears. Let's use our bug-hunting steps. One, read the last line of the error: RecursionError, maximum recursion depth exceeded. Two, predict. ‘I think it never stops,’ says Rose. RecursionError? Look for the base case first! Three, watch: in the debugger, Step into, and the calls pile up like plates. Four, fix one thing. Rose adds a base case: if size is zero, print ‘Solid doll!’ and return. Five, check: run it again. Opening doll three, two, one, Solid doll!",
+          "visual": "Code panel with the three-line open_doll function and the call open_doll(3). The Shell scrolls: Opening doll 3, 2, 1, 0, -1, -2… as nesting-doll icons shrink to dots, then the red last line. Five step cards light up in turn: Read, Predict, Watch, Fix ONE thing, Check. Thonny's debugger shows boxes stacking. The fix inserts an if-block at the top of the function; the rerun prints four lines and Pixi gives a thumbs-up.",
           "on_screen_text": [
             "RecursionError? Find the base case first",
             "Read • Predict • Watch • Fix one • Check",
@@ -825,8 +825,8 @@
           "scene_id": "l3-w08-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Nova ran a survey: ‘What's your favorite pet?’ Everyone could choose to answer or pass, and nobody wrote their name. Now the answers are in a file, and Pixel proudly reports: ‘Cat and CAT are two different pets!’ Hmm. That doesn't sound right. How can a data detective find the true story in messy answers?",
-          "visual": "Nova drops folded sticky notes into a box marked ‘No names. You can pass.’ The notes fly into a text file. Pixel holds up two signs, ‘Cat’ and ‘CAT’, with a proud beep. Nova raises an eyebrow; a detective magnifying glass appears.",
+          "narration": "Rose ran a survey: ‘What's your favorite pet?’ Everyone could choose to answer or pass, and nobody wrote their name. Now the answers are in a file, and Pixi proudly reports: ‘Cat and CAT are two different pets!’ Hmm. That doesn't sound right. How can a data detective find the true story in messy answers?",
+          "visual": "Rose drops folded sticky notes into a box marked ‘No names. You can pass.’ The notes fly into a text file. Pixi holds up two signs, ‘Cat’ and ‘CAT’, with a proud beep. Rose raises an eyebrow; a detective magnifying glass appears.",
           "on_screen_text": [
             "MISSION: Find the true story",
             "Pause: Are Cat and CAT the same?"
@@ -851,7 +851,7 @@
           "scene_id": "l3-w08-s03",
           "duration_seconds": 75,
           "purpose": "Worked example: clean, tally, fair-share average, chart",
-          "narration": "Here's Nova's little file. Row two is cat, with extra spaces around it. Row three is empty. Row four, Dog, has no minutes. After cleaning with strip and title, every spelling becomes Cat with a capital C, and the empty row is skipped. Now count with a dictionary, like a tally chart. A new pet starts at zero, then we add one. At the end: Cat, three. Dog, one. Next, the average minutes. The average is a fair share: put everything in one pile, then share it equally. Twenty plus ten plus thirty is sixty. Three people answered, so sixty divided by three is twenty. And the blank? A blank means ‘we don't know,’ not zero, so we skip it. Last, the chart. Cat gets the tallest bar. Dog has one vote and Cat has three, so Dog's bar is one third as tall. Write the name under every bar and the number on top.",
+          "narration": "Here's Rose's little file. Row two is cat, with extra spaces around it. Row three is empty. Row four, Dog, has no minutes. After cleaning with strip and title, every spelling becomes Cat with a capital C, and the empty row is skipped. Now count with a dictionary, like a tally chart. A new pet starts at zero, then we add one. At the end: Cat, three. Dog, one. Next, the average minutes. The average is a fair share: put everything in one pile, then share it equally. Twenty plus ten plus thirty is sixty. Three people answered, so sixty divided by three is twenty. And the blank? A blank means ‘we don't know,’ not zero, so we skip it. Last, the chart. Cat gets the tallest bar. Dog has one vote and Cat has three, so Dog's bar is one third as tall. Write the name under every bar and the number on top.",
           "visual": "A CSV table with columns response, pet, minutes_playing: 1, Cat, 20 / 2, ' cat ', 10 / 3, (empty) / 4, Dog, (blank) / 5, CAT, 30. The empty row is highlighted and slides away; the three cat spellings turn into 'Cat'. A tally chart fills: Cat ||| and Dog |. Counters for 20, 10 and 30 pile into 60 and split into three equal stacks of 20, while the blank cell shows a '?' tag that steps aside. A turtle bar chart draws two bars, Cat 3 and Dog 1, each with its name below and number on top.",
           "on_screen_text": [
             "Cat 3 • Dog 1",
@@ -865,8 +865,8 @@
           "scene_id": "l3-w08-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: numbers read as strings and empty answers",
-          "narration": "Bug hunt! Nova's minutes came straight from a file: ten, nine and seven. Pixel finds the biggest with max, and max says nine. Nine is bigger than ten? Then sum crashes with a red error. Let's use our steps. Read the last line: TypeError, unsupported operand types for plus, int and str. Predict. ‘I think these numbers are really words,’ says Nova. Watch: each number has quote marks around it. Every CSV value arrives as text, and text is compared letter by letter. Fix one thing: turn text into numbers while cleaning. Calling int on the text ten gives the number ten. But careful! Calling int on an empty answer crashes with a ValueError, so a blank becomes None, and we skip it. Check: run again. The biggest is ten, and the total is twenty-six.",
-          "visual": "Thonny Shell: minutes = [\"10\", \"9\", \"7\"]. max(minutes) prints '9' with a puzzled Pixel; sum(minutes) prints the red TypeError. The quote marks around each value pulse. The five step cards light up: Read, Predict, Watch, Fix ONE thing, Check. A converter machine turns \"10\" into 10. An empty answer \"\" bounces off with a ValueError tag and becomes a None card that steps aside. The rerun shows 10 and 26 with a green check.",
+          "narration": "Bug hunt! Rose's minutes came straight from a file: ten, nine and seven. Pixi finds the biggest with max, and max says nine. Nine is bigger than ten? Then sum crashes with a red error. Let's use our steps. Read the last line: TypeError, unsupported operand types for plus, int and str. Predict. ‘I think these numbers are really words,’ says Rose. Watch: each number has quote marks around it. Every CSV value arrives as text, and text is compared letter by letter. Fix one thing: turn text into numbers while cleaning. Calling int on the text ten gives the number ten. But careful! Calling int on an empty answer crashes with a ValueError, so a blank becomes None, and we skip it. Check: run again. The biggest is ten, and the total is twenty-six.",
+          "visual": "Thonny Shell: minutes = [\"10\", \"9\", \"7\"]. max(minutes) prints '9' with a puzzled Pixi; sum(minutes) prints the red TypeError. The quote marks around each value pulse. The five step cards light up: Read, Predict, Watch, Fix ONE thing, Check. A converter machine turns \"10\" into 10. An empty answer \"\" bounces off with a ValueError tag and becomes a None card that steps aside. The rerun shows 10 and 26 with a green check.",
           "on_screen_text": [
             "max([\"10\", \"9\", \"7\"]) → \"9\"",
             "CSV values arrive as text",
@@ -879,7 +879,7 @@
           "scene_id": "l3-w08-s05",
           "duration_seconds": 55,
           "purpose": "Recap, consent and anonymizing, and handoff",
-          "narration": "Case closed! Read the CSV, clean it, count with a dictionary, take a fair-share average that skips blanks, and label every bar. Now the most important part. Nova's survey asked first, let people pass, and had no names. That's consent and anonymity. Even without names, some answers together can point to one person, like the only thirteen-year-old in the chess club. Before sharing data, keep only the columns you need, replace names with IDs like R1 and R2, and never collect addresses, schools, birthdays or photos. Now open Exercise 8.1, the Survey cleaner, and type along with your teacher. Spot the mess in favorite_games.csv, then clean it until the Shell says Clean answers: seventeen. Happy detecting!",
+          "narration": "Case closed! Read the CSV, clean it, count with a dictionary, take a fair-share average that skips blanks, and label every bar. Now the most important part. Rose's survey asked first, let people pass, and had no names. That's consent and anonymity. Even without names, some answers together can point to one person, like the only thirteen-year-old in the chess club. Before sharing data, keep only the columns you need, replace names with IDs like R1 and R2, and never collect addresses, schools, birthdays or photos. Now open Exercise 8.1, the Survey cleaner, and type along with your teacher. Spot the mess in favorite_games.csv, then clean it until the Shell says Clean answers: seventeen. Happy detecting!",
           "visual": "Mission map: door 8 opens. The pipeline icons light up in order. A data table gets anonymized: a column of nickname cards is crossed out and replaced by R1, R2, R3; a 'club' column fades away. A checklist shows: asked first, can pass, no names. End card points to the Exercise 8.1 folder.",
           "on_screen_text": [
             "Clean • Count • Average • Label",
@@ -935,8 +935,8 @@
           "scene_id": "l3-w09-s01",
           "duration_seconds": 30,
           "purpose": "Mission hook",
-          "narration": "Pixel has a new job: sorting dragon eggs into fire eggs and ice eggs. But nobody wrote any rules! ‘Just learn from these examples,’ says Nova, and sets down a basket of labeled eggs. ‘Learn?’ beeps Pixel. ‘I only follow instructions!’ Can a program really learn from examples? And what if the examples are wrong?",
-          "visual": "A basket of speckled eggs, each with a tag reading FIRE or ICE (a flame or snowflake symbol plus the word). Pixel searches an empty rulebook, then stares at the basket. Freeze on a question mark above Pixel.",
+          "narration": "Pixi has a new job: sorting dragon eggs into fire eggs and ice eggs. But nobody wrote any rules! ‘Just learn from these examples,’ says Rose, and sets down a basket of labeled eggs. ‘Learn?’ beeps Pixi. ‘I only follow instructions!’ Can a program really learn from examples? And what if the examples are wrong?",
+          "visual": "A basket of speckled eggs, each with a tag reading FIRE or ICE (a flame or snowflake symbol plus the word). Pixi searches an empty rulebook, then stares at the basket. Freeze on a question mark above Pixi.",
           "on_screen_text": [
             "MISSION: Learn from examples",
             "Pause: Can a program learn?"
@@ -975,7 +975,7 @@
           "scene_id": "l3-w09-s04",
           "duration_seconds": 70,
           "purpose": "Friendly bug hunt: bad training data, bad predictions",
-          "narration": "Bug hunt! Someone collected new training eggs but met only one fire egg, a very unusual one at ten spots, size zero, plus lots of ice eggs. Pixel tests it on four eggs it has never seen, and every fire egg gets labeled ice! Is the bug in the code, or in the data? Let's use our steps. Read: there's no red error at all. Predict. ‘The code runs fine. I think the examples are the problem,’ says Nova. Watch one guess on the chart. A real fire egg is six steps from that lonely fire example, but only four steps from an ice egg, so it copies ice. That's bias: unbalanced examples make unfair guesses. When a learning program is wrong, check the examples before the code. Fix one thing: add more fire examples. Check: test again, and the fire eggs are labeled fire.",
+          "narration": "Bug hunt! Someone collected new training eggs but met only one fire egg, a very unusual one at ten spots, size zero, plus lots of ice eggs. Pixi tests it on four eggs it has never seen, and every fire egg gets labeled ice! Is the bug in the code, or in the data? Let's use our steps. Read: there's no red error at all. Predict. ‘The code runs fine. I think the examples are the problem,’ says Rose. Watch one guess on the chart. A real fire egg is six steps from that lonely fire example, but only four steps from an ice egg, so it copies ice. That's bias: unbalanced examples make unfair guesses. When a learning program is wrong, check the examples before the code. Fix one thing: add more fire examples. Check: test again, and the fire eggs are labeled fire.",
           "visual": "Training chart: one fire circle far away at (10, 0) and six ice squares at (2, 8), (3, 7), (2, 9), (4, 6), (3, 9) and (5, 5). Four test eggs appear: fire at (7, 3) and (6, 2), ice at (2, 7) and (3, 8). Both fire eggs get an 'ice' guess with a red X, while the ice eggs get green checks. For the fire egg at (7, 3), steps paths compare 3 + 3 = 6 steps (to the lonely fire egg) with 2 + 2 = 4 steps (to the ice egg at (5, 5)). A scale tips heavily toward ice. Three more fire examples join at (8, 2), (9, 4) and (7, 1), and both fire test eggs flip to fire with green checks.",
           "on_screen_text": [
             "Is the bug in the code or the data?",
@@ -983,7 +983,7 @@
             "Bias: unbalanced examples, unfair guesses",
             "Check the examples before the code"
           ],
-          "production_notes": "Four-second prediction pause before Nova's line. Do not say any accuracy percentages from Exercise 9.2 or the exit ticket's 9-out-of-10 answer; do not reuse the lesson's (7, 3, \"friendly\") label swap."
+          "production_notes": "Four-second prediction pause before Rose's line. Do not say any accuracy percentages from Exercise 9.2 or the exit ticket's 9-out-of-10 answer; do not reuse the lesson's (7, 3, \"friendly\") label swap."
         },
         {
           "scene_id": "l3-w09-s05",
@@ -1041,13 +1041,13 @@
           "scene_id": "l3-w10-s01",
           "duration_seconds": 30,
           "purpose": "Studio hook",
-          "narration": "Nova's pitch card says: Bee Garden, a grid game where a bee collects pollen and dodges wasps. Nova opens Thonny and starts typing as fast as possible. ‘Wait!’ beeps Pixel. ‘Which parts are there? Who does what?’ Builders draw plans before they pour concrete. Today we design first. What's your plan?",
-          "visual": "Nova's pitch card fills the screen, then Nova types furiously while code lines tangle into a knot. Pixel holds up a blank index card. A builder's blueprint unrolls behind them.",
+          "narration": "Rose's pitch card says: Bee Garden, a grid game where a bee collects pollen and dodges wasps. Rose opens Thonny and starts typing as fast as possible. ‘Wait!’ beeps Pixi. ‘Which parts are there? Who does what?’ Builders draw plans before they pour concrete. Today we design first. What's your plan?",
+          "visual": "Rose's pitch card fills the screen, then Rose types furiously while code lines tangle into a knot. Pixi holds up a blank index card. A builder's blueprint unrolls behind them.",
           "on_screen_text": [
             "STUDIO MISSION: Design first",
             "Pause: What parts does your project need?"
           ],
-          "production_notes": "Bee Garden is Nova's own example; it is not the reference project."
+          "production_notes": "Bee Garden is Rose's own example; it is not the reference project."
         },
         {
           "scene_id": "l3-w10-s02",
@@ -1081,7 +1081,7 @@
           "scene_id": "l3-w10-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: partner code review",
-          "narration": "Time for a partner code review! Partners swap seats and read each other's code using three questions. One: does every class match a CRC card? Two: is there a method that does two jobs? Three: is there a name I don't understand? Pixel reviews Nova's code. A Wasp is a Critter, but its __init__ only sets speed. Pixel runs it. Read the last line of the error: AttributeError, Wasp object has no attribute row. Predict. ‘I think Wasp never ran Critter's init,’ says Nova. Fix one thing: add a first line that calls __init__ through super, with row and col. Check: run it again. Now the wasp knows where it is! Pixel writes one star, ‘Clear class names,’ and one wish: ‘Add a test for Wasp.’",
+          "narration": "Time for a partner code review! Partners swap seats and read each other's code using three questions. One: does every class match a CRC card? Two: is there a method that does two jobs? Three: is there a name I don't understand? Pixi reviews Rose's code. A Wasp is a Critter, but its __init__ only sets speed. Pixi runs it. Read the last line of the error: AttributeError, Wasp object has no attribute row. Predict. ‘I think Wasp never ran Critter's init,’ says Rose. Fix one thing: add a first line that calls __init__ through super, with row and col. Check: run it again. Now the wasp knows where it is! Pixi writes one star, ‘Clear class names,’ and one wish: ‘Add a test for Wasp.’",
           "visual": "Two seats swap. A review card shows the three questions. Code panel: class Critter with __init__(self, row, col) setting self.row and self.col; class Wasp(Critter) whose __init__ only sets self.speed = 1. The Shell shows the red AttributeError. The step cards light up: Read, Predict, Watch, Fix ONE thing, Check. The line super().__init__(row, col) slides in at the top of Wasp's __init__; the rerun prints the row. A star sticky note and a wish sticky note appear.",
           "on_screen_text": [
             "3 review questions: card? two jobs? name?",
@@ -1145,8 +1145,8 @@
           "scene_id": "l3-w11-s01",
           "duration_seconds": 30,
           "purpose": "Studio hook",
-          "narration": "Bee Garden runs! Nova is ready to show everyone. Then Pixel walks the bee into the corner of the garden… and the whole game crashes. ‘But it worked when I played it!’ says Nova. Other people press keys you'd never think of. How can we catch bugs like this before the showcase?",
-          "visual": "Bee Garden on a grid: Pixel steers the bee into the bottom-right corner, the window freezes and a red error pops up. Nova's jaw drops. A calendar shows 'Showcase' circled.",
+          "narration": "Bee Garden runs! Rose is ready to show everyone. Then Pixi walks the bee into the corner of the garden… and the whole game crashes. ‘But it worked when I played it!’ says Rose. Other people press keys you'd never think of. How can we catch bugs like this before the showcase?",
+          "visual": "Bee Garden on a grid: Pixi steers the bee into the bottom-right corner, the window freezes and a red error pops up. Rose's jaw drops. A calendar shows 'Showcase' circled.",
           "on_screen_text": [
             "STUDIO MISSION: Catch bugs early",
             "Pause: How can we find them first?"
@@ -1171,7 +1171,7 @@
           "scene_id": "l3-w11-s03",
           "duration_seconds": 70,
           "purpose": "Worked example: two tests for a tiny Bee class",
-          "narration": "Let's test a tiny Bee class. A new bee has three lives. The lose_life method takes one away, and if lives drop below zero, it sets them back to zero. Nova writes two tests, and each name says what it checks. Test one: a new bee starts with three lives. Test two is an edge case: lose five lives in a row, and lives should stop at zero. In Thonny's system shell, type python, dash m, pytest, dash q. Two dots: two passing tests! But is test two any good? Break the code on purpose. Nova deletes the two lines that stop at zero, and runs again. An F appears, with the name: lives never go below zero. The test caught it! Put the lines back, green again, and commit: ‘Add tests for Bee lives.’",
+          "narration": "Let's test a tiny Bee class. A new bee has three lives. The lose_life method takes one away, and if lives drop below zero, it sets them back to zero. Rose writes two tests, and each name says what it checks. Test one: a new bee starts with three lives. Test two is an edge case: lose five lives in a row, and lives should stop at zero. In Thonny's system shell, type python, dash m, pytest, dash q. Two dots: two passing tests! But is test two any good? Break the code on purpose. Rose deletes the two lines that stop at zero, and runs again. An F appears, with the name: lives never go below zero. The test caught it! Put the lines back, green again, and commit: ‘Add tests for Bee lives.’",
           "visual": "Code panel bee_garden.py: class Bee with __init__ setting self.lives = 3, and lose_life doing self.lives -= 1, then if self.lives < 0: self.lives = 0. Second panel test_bee_garden.py: from bee_garden import Bee; def test_bee_starts_with_3_lives(): assert Bee().lives == 3; def test_lives_never_go_below_zero(): bee = Bee(), a for-loop calling bee.lose_life() five times, assert bee.lives == 0. Shell: python -m pytest -q prints '..' and '2 passed'. The two guard lines get deleted; rerun shows '.F' and the failing test name in red. Lines restored; '2 passed' again; git commit -m \"Add tests for Bee lives\".",
           "on_screen_text": [
             "python -m pytest -q",
@@ -1185,8 +1185,8 @@
           "scene_id": "l3-w11-s04",
           "duration_seconds": 65,
           "purpose": "Friendly bug hunt: playtest bug triage",
-          "narration": "Playtest time! Pixel plays Bee Garden for three minutes, thinking out loud, while Nova stays silent and writes one feedback card per thing: what happened, and what did the player expect? The cards say: the game crashes in the corner. Pollen and wasps look the same. And, ‘I wish there were sound effects.’ Now triage: sort the cards into three piles. Must fix: crashes, can't start, can't win. Should fix: confusing, unfair, hard to read. Nice to have: new ideas for version two. Which pile does the crash go in? Pause and decide. Yes, must fix! For a crash, first write a test that shows the bug, then fix it, so it never comes back. Commit: ‘Fix crash when the bee walks into the corner.’",
-          "visual": "Pixel plays with a speech bubble of thoughts; Nova's lips are zipped while three feedback cards fill in under the headings 'What happened?' and 'What did the player expect?'. Three labeled piles appear: 1 Must fix, 2 Should fix, 3 Nice to have. The cards fly to their piles: crash → Must fix, look-alike pollen and wasps → Should fix, sound effects → Nice to have. A new red test appears, then turns green after the fix, then a commit line.",
+          "narration": "Playtest time! Pixi plays Bee Garden for three minutes, thinking out loud, while Rose stays silent and writes one feedback card per thing: what happened, and what did the player expect? The cards say: the game crashes in the corner. Pollen and wasps look the same. And, ‘I wish there were sound effects.’ Now triage: sort the cards into three piles. Must fix: crashes, can't start, can't win. Should fix: confusing, unfair, hard to read. Nice to have: new ideas for version two. Which pile does the crash go in? Pause and decide. Yes, must fix! For a crash, first write a test that shows the bug, then fix it, so it never comes back. Commit: ‘Fix crash when the bee walks into the corner.’",
+          "visual": "Pixi plays with a speech bubble of thoughts; Rose's lips are zipped while three feedback cards fill in under the headings 'What happened?' and 'What did the player expect?'. Three labeled piles appear: 1 Must fix, 2 Should fix, 3 Nice to have. The cards fly to their piles: crash → Must fix, look-alike pollen and wasps → Should fix, sound effects → Nice to have. A new red test appears, then turns green after the fix, then a commit line.",
           "on_screen_text": [
             "Must fix • Should fix • Nice to have",
             "Crash? Write a test first, then fix",
@@ -1244,8 +1244,8 @@
           "scene_id": "l3-w12-s01",
           "duration_seconds": 30,
           "purpose": "Showcase hook",
-          "narration": "The whole Kids Coding workshop has turned into a gallery, and every station runs a project someone built. Nova has two minutes to present Bee Garden. ‘I'll show all forty features!’ says Nova. Pixel's timer beeps. Hmm. In two minutes, what's the most interesting thing you could tell people about your project?",
-          "visual": "Workshop doors fold back into a gallery of glowing project stations, each with a nickname card. Nova unrolls a very long feature list; Pixel holds up a 2:00 timer. Freeze on a thinking bubble.",
+          "narration": "The whole Kids Coding workshop has turned into a gallery, and every station runs a project someone built. Rose has two minutes to present Bee Garden. ‘I'll show all forty features!’ says Rose. Pixi's timer beeps. Hmm. In two minutes, what's the most interesting thing you could tell people about your project?",
+          "visual": "Workshop doors fold back into a gallery of glowing project stations, each with a nickname card. Rose unrolls a very long feature list; Pixi holds up a 2:00 timer. Freeze on a thinking bubble.",
           "on_screen_text": [
             "FINAL MISSION: Tell the why",
             "Pause: What's most interesting?"
@@ -1268,16 +1268,16 @@
         {
           "scene_id": "l3-w12-s03",
           "duration_seconds": 70,
-          "purpose": "Demo and explain: Nova's model talk",
-          "narration": "Let's hear Nova's talk. ‘This is Bee Garden. You collect all the pollen without bumping into a wasp.’ Nova plays for twenty seconds. ‘Problem: my bee and my wasps needed the same position and moving code, and I was copying it twice. Choice: I made a Critter class, and Bee and Wasp are each a Critter. Why: inheritance keeps the shared code in one place, so a fix happens once. Another way was copy and paste, but then every bug needs fixing twice. A test caught a real bug, too: lives dropping below zero. Next time, I'd add a second level loaded from a file.’ Then Nova shows git log, and the save points tell the story, step by step. ‘Any questions?’",
-          "visual": "Nova stands beside a running Bee Garden window (bee B, pollen P, wasps W). The four story cards light up one at a time as Nova speaks. A small class diagram shows Bee and Wasp pointing to Critter with 'is a' arrows; a copy-paste icon gets crossed out. A green test row flashes. A Terminal shows git log --oneline with short verb-first messages scrolling up.",
+          "purpose": "Demo and explain: Rose's model talk",
+          "narration": "Let's hear Rose's talk. ‘This is Bee Garden. You collect all the pollen without bumping into a wasp.’ Rose plays for twenty seconds. ‘Problem: my bee and my wasps needed the same position and moving code, and I was copying it twice. Choice: I made a Critter class, and Bee and Wasp are each a Critter. Why: inheritance keeps the shared code in one place, so a fix happens once. Another way was copy and paste, but then every bug needs fixing twice. A test caught a real bug, too: lives dropping below zero. Next time, I'd add a second level loaded from a file.’ Then Rose shows git log, and the save points tell the story, step by step. ‘Any questions?’",
+          "visual": "Rose stands beside a running Bee Garden window (bee B, pollen P, wasps W). The four story cards light up one at a time as Rose speaks. A small class diagram shows Bee and Wasp pointing to Critter with 'is a' arrows; a copy-paste icon gets crossed out. A green test row flashes. A Terminal shows git log --oneline with short verb-first messages scrolling up.",
           "on_screen_text": [
             "Problem • Choice • Why • Next time",
             "Choice: Bee and Wasp are Critters",
             "Why: shared code in one place",
             "Show git log: the story of your project"
           ],
-          "production_notes": "Use Nova's Bee Garden talk, never the Maze Muncher model talk or its git log. Commit messages shown are generic Bee Garden steps that start with a verb."
+          "production_notes": "Use Rose's Bee Garden talk, never the Maze Muncher model talk or its git log. Commit messages shown are generic Bee Garden steps that start with a verb."
         },
         {
           "scene_id": "l3-w12-s04",
@@ -1297,7 +1297,7 @@
           "duration_seconds": 60,
           "purpose": "Celebration, safe next steps online, and handoff",
           "narration": "Level 3 complete! You saved your work with git, built classes, searched and sorted, drew fractals, cleaned data, trained a tiny AI, and built something big. Want to keep coding? Your project is yours. If you share it, share with family, or post only with a parent, never with your real name, school, face or location. Choose any coding community with a parent: look for clear rules, moderators and a code of conduct, and use a nickname. Never move to private chats with strangers, never send photos, and tell an adult if anything feels wrong. Now set up your station with your talk card ready: Problem, Choice, Why, Next time. Then join the gallery walk with a star and a wish for every project. Happy coding, graduate!",
-          "visual": "A Level 3 timeline lights up stop by stop: git save points, classes, search and sort, recursion and grids, data and AI, my big project. A safety shield checks: nickname, parent, rules and moderators, no private chats. A graduation cap lands on Pixel. End card shows a talk card (Problem, Choice, Why, Next time) beside a star-and-wish feedback card.",
+          "visual": "A Level 3 timeline lights up stop by stop: git save points, classes, search and sort, recursion and grids, data and AI, my big project. A safety shield checks: nickname, parent, rules and moderators, no private chats. A graduation cap lands on Pixi. End card shows a talk card (Problem, Choice, Why, Next time) beside a star-and-wish feedback card.",
           "on_screen_text": [
             "Nickname • Parent • Code of conduct",
             "No private chats • No photos to strangers",

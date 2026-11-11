@@ -1,6 +1,6 @@
 """Level 3 Week 4: Searching: How Fast Is Fast? (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 CARDS = [4, 9, 12, 18, 25, 31, 40]
 ROW = [3 * (i + 1) for i in range(15)]  # 3, 6, ... 45 for the general explanation
@@ -21,20 +21,20 @@ def hidden(n):
 
 EPISODE = Episode(level=3, week=4, scenes=(
     Scene("l3-w04-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Pixel has a row of number cards, face down, sorted from smallest to largest.", cue="row", pause=0.3),
-        B("‘Find the 40!’", speaker=NOVA, cue="find", pause=0.1),
-        B("says Nova.", cue="says", pause=0.2),
-        B("Pixel flips the first card.", cue="first", pause=0.2),
+        B("Pixi has a row of number cards, face down, sorted from smallest to largest.", cue="row", pause=0.3),
+        B("‘Find the 40!’", speaker=ROSE, cue="find", pause=0.1),
+        B("says Rose.", cue="says", pause=0.2),
+        B("Pixi flips the first card.", cue="first", pause=0.2),
         B("Then the next.", cue="next1", pause=0.2),
         B("Then the next.", cue="next2", pause=0.2),
         B("Flip, flip, flip… seven flips!", cue="flips", pause=0.3),
-        B("‘There has to be a faster way,’", speaker=NOVA, cue="faster", pause=0.1),
-        B("says Nova.", cue="says2", pause=0.3),
+        B("‘There has to be a faster way,’", speaker=ROSE, cue="faster", pause=0.1),
+        B("says Rose.", cue="says2", pause=0.3),
         B("Can you find a number with fewer flips?", cue="question", pause=3.0),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", moods={"row": "happy", "flips": "surprised", "faster": "thinking"},
+        A("rose", x=300, y=960, enter="left", moods={"row": "happy", "flips": "surprised", "faster": "thinking"},
           chin=("question", "end")),
-        A("pixel", x=620, y=760, drop=True, moods={"flips": "confused"}, beep=("first", "flips$")),
+        A("pixi", x=620, y=760, drop=True, moods={"flips": "confused"}, beep=("first", "flips$")),
         A("banner", "MISSION: Find it in fewer flips", at="row@0.3"),
         A("listrow", "cards", at="row", x=1260, y=480, cell=130,
           states=[("row", hidden(7)), ("first@0.4", [4] + hidden(6)), ("next1@0.4", [4, 9] + hidden(5)),
@@ -54,7 +54,7 @@ EPISODE = Episode(level=3, week=4, scenes=(
         A("thought", "", at="question$+0.3", until="end", x=640, y=360),
     )),
     Scene("l3-w04-s02", setting="sky", beats=(
-        B("Pixel just did a linear search: check the items one by one, from the start.", cue="linear", pause=0.3),
+        B("Pixi just did a linear search: check the items one by one, from the start.", cue="linear", pause=0.3),
         B("It works on any list, but a long list means a long search.", cue="long", pause=0.4),
         B("Binary search is smarter.", cue="binary", pause=0.2),
         B("Look at the middle card.", cue="middle", pause=0.2),
@@ -132,9 +132,9 @@ EPISODE = Episode(level=3, week=4, scenes=(
     )),
     Scene("l3-w04-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova writes a binary search, but one line is off by one.", cue="writes", pause=0.3),
+        B("Rose writes a binary search, but one line is off by one.", cue="writes", pause=0.3),
         B("When the middle card is too small, it sets low to mid.", cue="says", pause=0.3),
-        B("Pixel searches for 18 in four cards: 4, 9, 12, 18.", cue="cards", pause=0.3),
+        B("Pixi searches for 18 in four cards: 4, 9, 12, 18.", cue="cards", pause=0.3),
         B("Mid is one: 9.", cue="mid1", pause=0.2),
         B("Too small, so low becomes one.", cue="low1", pause=0.3),
         B("Mid is two: 12.", cue="mid2", pause=0.2),
@@ -142,7 +142,7 @@ EPISODE = Episode(level=3, week=4, scenes=(
         B("Mid is two again: 12.", cue="again", pause=0.2),
         B("And again.", cue="again2", pause=0.1),
         B("And again!", cue="again3", pause=0.3),
-        B("Pixel is stuck in a loop forever.", cue="stuck", pause=0.3),
+        B("Pixi is stuck in a loop forever.", cue="stuck", pause=0.3),
         B("In Thonny, press the red Stop button.", cue="stop", pause=0.4),
         B("Now let's guess.", cue="guess", pause=3.2),
         B("We already checked the middle card, and it was too small, so we should throw it away too.", cue="throw",
@@ -172,7 +172,7 @@ EPISODE = Episode(level=3, week=4, scenes=(
         A("box", "loops", x=560, y=720, w=220, at="again",
           values=[("again", 3), ("again2", 4), ("again3", 5), ("again3$", 9), ("stuck", 27), ("stuck@0.5", 152),
                   ("stuck$", 999)], until="test"),
-        A("pixel", x=230, y=820, s=0.45, ground=900, at="writes",
+        A("pixi", x=230, y=820, s=0.45, ground=900, at="writes",
           path=[("stuck", 230, 820), ("stuck@0.25", 290, 780), ("stuck@0.5", 230, 740), ("stuck@0.75", 170, 780),
                 ("stuck$", 230, 820)],
           moods={"again2": "confused", "found": "proud"}, beep=("again", "stop")),
@@ -202,8 +202,8 @@ EPISODE = Episode(level=3, week=4, scenes=(
           pause=0.8),
     ), actions=(
         A("door", "DOOR 4", x=1660, y=920, open="solved"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "linear"), ("write@0.6", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "linear"), ("write@0.6", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Linear: one by one", at="linear", until="rank", x=1000, y=240, color="sky", size=44),
         A("chip", "Sorted list → check the middle → halve", at="binary", until="rank", x=1000, y=360, color="green",
           size=44),

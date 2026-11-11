@@ -44,7 +44,7 @@ After a hand edit to `specs/levelN.json`, run `python -m videos.pipeline.cli pla
 
 ### How generation works
 
-The OpenAI Agents SDK runs three typed roles: a curriculum analyst, a scriptwriter and a teacher reviewer. The analyst reads only the week's public material: lessons, workbook, homework, exercise READMEs, starters and hints, plus the syllabus, teacher guide and project files. **Answer files, tests and self-check scripts are never sent and never fingerprinted.** That way a script cannot show a child the fix they are meant to find. All three roles follow the same course rules: Grade 4–5 reading level, the lesson's own words, code exactly like the course starters, the four detective steps, no spoilers, and Nova and Pixel in fixed roles.
+The OpenAI Agents SDK runs three typed roles: a curriculum analyst, a scriptwriter and a teacher reviewer. The analyst reads only the week's public material: lessons, workbook, homework, exercise READMEs, starters and hints, plus the syllabus, teacher guide and project files. **Answer files, tests and self-check scripts are never sent and never fingerprinted.** That way a script cannot show a child the fix they are meant to find. All three roles follow the same course rules: Grade 4–5 reading level, the lesson's own words, code exactly like the course starters, the four detective steps, no spoilers, and Rose and Pixi in fixed roles.
 
 Each draft goes through the same deterministic checks as `check` *before* the reviewer sees it. Failures go back to the writer, with at most two revisions. The week number and slug are kept stable, so file names and links do not move. Traces carry the level, week and source digest.
 
@@ -65,8 +65,8 @@ python -m videos.pipeline.cli animate --level 1 --week 1 --preview 30   # just t
 
 What goes into an episode:
 
-- **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Nova (`af_bella`) and Pixel (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Captions show code as it is written (`self.height`, `stickers.txt`, `__init__`); the voice reads it the way a teacher would ("self dot height", "stickers dot T X T", "dunder init"). These rules and the spelling fixes for tricky words (`LEXICON`) live in `animated/speech.py`.
-- **Animation:** Nova and Pixel blink, change expression, wave and point. Nova's mouth follows the voice. Every idea is shown as it is said: the floor-grid algorithm, step cards, snap-together blocks, the bug hunt, and a recap. Scenes change with a circular wipe.
+- **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Rose (`af_bella`) and Pixi (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Captions show code as it is written (`self.height`, `stickers.txt`, `__init__`); the voice reads it the way a teacher would ("self dot height", "stickers dot T X T", "dunder init"). These rules and the spelling fixes for tricky words (`LEXICON`) live in `animated/speech.py`.
+- **Animation:** Rose and Pixi blink, change expression, wave and point. Rose's mouth follows the voice. Every idea is shown as it is said: the floor-grid algorithm, step cards, snap-together blocks, the bug hunt, and a recap. Scenes change with a circular wipe.
 - **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. The final mix is normalized to -16 LUFS with peaks at or below -1.5 dBTP.
 - **Text:** the course font, large and short, timed to the narration. Captions are a selectable track plus `.srt` and `.vtt` files.
 
@@ -77,7 +77,7 @@ How it is organized (`videos/pipeline/animated/`):
 | `timeline.py` | Beats (line, speaker, pause, cue) and the audio-driven clock. |
 | `episodes/weekNN_script.py` | Who says each line. **Its text must equal the spec narration**; `make test` checks this. |
 | `episodes/weekNN.py` | The scene drawings, timed by cue names, plus the sound-effect cues. |
-| `engine.py`, `characters.py`, `props.py` | Drawing helpers, Nova, Pixel and the cat, and reusable props (cards, blocks, bubbles, doors, the logo). |
+| `engine.py`, `characters.py`, `props.py` | Drawing helpers, Rose, Pixi and the cat, and reusable props (cards, blocks, bubbles, doors, the logo). |
 | `audio.py`, `render.py` | Voices, music, effects and mix; parallel frame rendering and the final MP4. |
 
 Level 1 Week 1 is hand-made (`episodes/week01_script.py` + `week01.py`). Every other episode is a data file, `episodes/l{N}w{WW}.py`, drawn by the **animation kit** (`kit.py`). It contains:

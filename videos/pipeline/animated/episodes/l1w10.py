@@ -3,7 +3,7 @@
 The video's recipe is flower(size); Flower Stamp's starter uses flower(x, y), and its calls are never shown.
 """
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 PALETTE_LINE = ('PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442",\n'
                 '           "#0072B2", "#D55E00", "#CC79A7", "#000000"]')
@@ -100,16 +100,16 @@ EPISODE = Episode(level=1, week=10, scenes=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("The workshop gallery needs a hundred flowers, and no two should look exactly alike.", cue="gallery",
           pause=0.3),
-        B("Nova could copy the same drawing code again and again.", cue="copy", pause=0.3),
-        B("But Pixel has a better idea:", cue="idea", pause=0.1),
+        B("Rose could copy the same drawing code again and again.", cue="copy", pause=0.3),
+        B("But Pixi has a better idea:", cue="idea", pause=0.1),
         B("‘Teach Python one flower-making command, then call it with different sizes and random colors!’",
-          speaker=PIXEL, cue="teach", pause=0.4),
+          speaker=PIXI, cue="teach", pause=0.4),
         B("Can one recipe create a whole garden?", cue="garden", pause=2.8),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="welcome", moods={"copy": "worried", "idea": "surprised",
+        A("rose", x=300, y=960, enter="left", wave="welcome", moods={"copy": "worried", "idea": "surprised",
                                                                     "teach": "happy", "garden": "thinking"},
           chin=("garden", "end")),
-        A("pixel", x=620, y=760, drop=True, beep="teach", moods={"teach": "proud"}),
+        A("pixi", x=620, y=760, drop=True, beep="teach", moods={"teach": "proud"}),
         A("banner", "MISSION: One recipe, many artworks", at="gallery"),
         A("chip", "100 flowers • no two alike", at="gallery@0.3", until="copy", x=1340, y=420, color="pink",
           size=46),
@@ -193,9 +193,9 @@ EPISODE = Episode(level=1, week=10, scenes=(
     )),
     Scene("w10-s04", setting="mint", beats=(
         B("Time for a bug hunt!", cue="bug", pause=0.3),
-        B("Nova's program runs with no red error, but the screen stays blank.", cue="blank", pause=0.3),
-        B("‘Where's my flower?’", speaker=NOVA, cue="where", pause=0.1),
-        B("asks Nova.", cue="asksnova", pause=0.4),
+        B("Rose's program runs with no red error, but the screen stays blank.", cue="blank", pause=0.3),
+        B("‘Where's my flower?’", speaker=ROSE, cue="where", pause=0.1),
+        B("asks Rose.", cue="asksrose", pause=0.4),
         B("What did we expect?", cue="expect", pause=0.6),
         B("One flower.", cue="one", pause=0.3),
         B("What actually happened?", cue="happened", pause=0.6),
@@ -223,7 +223,7 @@ EPISODE = Episode(level=1, week=10, scenes=(
         A("turtle", code=FLOWER60, x=1180, y=190, w=620, h=480, at="blank", run="runagain+0.3", duration=2.0),
         A("chip", "No red error can still mean a bug", at="blank@0.7", until="expect", x=580, y=960,
           color="yellow", size=40),
-        A("bubble", "Where's my flower?", x=1110, y=800, at="where", until="asksnova$", size=36),
+        A("bubble", "Where's my flower?", x=1110, y=800, at="where", until="asksrose$", size=36),
         A("panel", "Detective notes", x=1180, y=720, w=620, size=34, at="expect", until="defining",
           items=[("one", "Expected: one flower"), ("nothing", "Happened: nothing")]),
         A("badge", ok=False, at="nothing", until="runagain", x=1740, y=280),
@@ -233,7 +233,7 @@ EPISODE = Episode(level=1, week=10, scenes=(
         A("badge", ok=True, at="runagain+2.3", x=1740, y=280),
         A("confetti", at="runagain+2.3", x=1490, y=430),
         A("chip", "No red error can still mean a bug", at="clue", x=580, y=960, color="yellow", size=40),
-        A("nova", x=1110, y=1065, s=0.45, moods={"blank": "confused", "pause": "thinking",
+        A("rose", x=1110, y=1065, s=0.45, moods={"blank": "confused", "pause": "thinking",
                                                  "runagain+2.3": "proud"}),
     )),
     Scene("w10-s05", setting="workshop", tail=0.8, beats=(
@@ -252,8 +252,8 @@ EPISODE = Episode(level=1, week=10, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 10", x=1720, y=920, open="blooms"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("blooms", "recap"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("blooms", "recap"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("confetti", at="blooms", x=1000, y=400),
         A("cards", at="recap", until="meet", x=640, y=280, w=720, gap=110,
           items=["Functions = your own commands", "Parameters = input slots", "Calls make them run",

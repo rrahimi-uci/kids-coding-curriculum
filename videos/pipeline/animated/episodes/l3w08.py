@@ -1,8 +1,8 @@
 """Level 3 Week 8: Data Detectives: Clean, Count, Chart (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
-# Nova's little made-up, anonymous survey file (not the exercise's favorite_games.csv).
+# Rose's little made-up, anonymous survey file (not the exercise's favorite_games.csv).
 PETS = ["response,pet,minutes_playing", "1,Cat,20", "2, cat ,10", "3,,", "4,Dog,", "5,CAT,30"]
 
 READ_CODE = '''import csv
@@ -11,7 +11,7 @@ with open("pets.csv", newline="") as f:
     for row in csv.DictReader(f):
         print(row["pet"])'''
 
-# The panel shows READ_CODE; the run first writes Nova's file so the code reads a real CSV.
+# The panel shows READ_CODE; the run first writes Rose's file so the code reads a real CSV.
 READ_EXEC = "with open('pets.csv', 'w') as f:\n    f.write(" + repr("\n".join(PETS) + "\n") + ")\n" + READ_CODE
 
 BUG_CODE = '''minutes = ["10", "9", "7"]
@@ -28,18 +28,18 @@ print(sum(minutes))'''
 EPISODE = Episode(level=3, week=8, scenes=(
     # ------------------------------------------------------------------ s01 hook
     Scene("l3-w08-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Nova ran a survey: ‘What's your favorite pet?’", cue="survey", pause=0.3),
+        B("Rose ran a survey: ‘What's your favorite pet?’", cue="survey", pause=0.3),
         B("Everyone could choose to answer or pass, and nobody wrote their name.", cue="pass", pause=0.3),
-        B("Now the answers are in a file, and Pixel proudly reports:", cue="file", pause=0.1),
-        B("‘Cat and CAT are two different pets!’", speaker=PIXEL, cue="report", pause=0.4),
+        B("Now the answers are in a file, and Pixi proudly reports:", cue="file", pause=0.1),
+        B("‘Cat and CAT are two different pets!’", speaker=PIXI, cue="report", pause=0.4),
         B("Hmm.", cue="hmm", pause=0.2),
         B("That doesn't sound right.", cue="right", pause=0.3),
         B("How can a data detective find the true story in messy answers?", cue="how", pause=3.0),
     ), actions=(
         A("door", "DOOR 8", x=1700, y=900),
-        A("nova", x=300, y=960, enter="left", point="survey",
+        A("rose", x=300, y=960, enter="left", point="survey",
           moods={"report": "surprised", "hmm": "thinking"}, chin=("hmm", "end")),
-        A("pixel", x=600, y=760, drop=True, moods={"report": "proud", "how": "confused"}, beep="report$"),
+        A("pixi", x=600, y=760, drop=True, moods={"report": "proud", "how": "confused"}, beep="report$"),
         A("banner", "MISSION: Find the true story", at="survey"),
         A("chip", "What's your favorite pet?", at="survey@0.4", until="file", x=1080, y=240, color="white",
           size=44),
@@ -99,7 +99,7 @@ EPISODE = Episode(level=3, week=8, scenes=(
     )),
     # ------------------------------------------------------------------ s03 clean, tally, average, chart
     Scene("l3-w08-s03", setting="lavender", beats=(
-        B("Here's Nova's little file.", cue="file", pause=0.3),
+        B("Here's Rose's little file.", cue="file", pause=0.3),
         B("Row two is cat, with extra spaces around it.", cue="row2", pause=0.3),
         B("Row three is empty.", cue="row3", pause=0.3),
         B("Row four, Dog, has no minutes.", cue="row4", pause=0.3),
@@ -161,15 +161,15 @@ EPISODE = Episode(level=3, week=8, scenes=(
     # ------------------------------------------------------------------ s04 bug hunt
     Scene("l3-w08-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova's minutes came straight from a file: ten, nine and seven.", cue="minutes", pause=0.3),
-        B("Pixel finds the biggest with max, and max says nine.", cue="max", pause=0.3),
+        B("Rose's minutes came straight from a file: ten, nine and seven.", cue="minutes", pause=0.3),
+        B("Pixi finds the biggest with max, and max says nine.", cue="max", pause=0.3),
         B("Nine is bigger than ten?", cue="bigger", pause=1.2),
         B("Then sum crashes with a red error.", cue="crash", pause=0.4),
         B("Let's use our steps.", cue="steps", pause=0.2),
         B("Read the last line: TypeError, unsupported operand types for plus, int and str.", cue="read", pause=0.3),
         B("Predict.", cue="predict", pause=0.2),
-        B("‘I think these numbers are really words,’", speaker=NOVA, cue="words", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘I think these numbers are really words,’", speaker=ROSE, cue="words", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("Watch: each number has quote marks around it.", cue="watch", pause=0.3),
         B("Every CSV value arrives as text, and text is compared letter by letter.", cue="text", pause=0.4),
         B("Fix one thing:", cue="fix", pause=3.6),
@@ -187,7 +187,7 @@ EPISODE = Episode(level=3, week=8, scenes=(
           allow_error=True, error_line=3, expect=["9", "TypeError: unsupported operand type(s) for +: 'int' and 'str'"],
           highlight=[(2, "max", "bigger>"), (3, "crash", "read$"), (1, "watch", "text$")]),
         A("chip", 'max(["10", "9", "7"]) → "9"', at="max@0.8", until="read", x=530, y=780, color="orange", size=40),
-        A("pixel", x=1500, y=860, s=0.5, ground=930, at="max", until="steps", moods={"max": "proud", "bigger": "confused"}),
+        A("pixi", x=1500, y=860, s=0.5, ground=930, at="max", until="steps", moods={"max": "proud", "bigger": "confused"}),
         A("chip", "TypeError: unsupported operand type(s) for +: 'int' and 'str'", at="read", until="text", x=840,
           y=780, color="red", size=30),
         A("cards", at="steps", x=1090, y=240, w=660, gap=86, size=34,
@@ -208,7 +208,7 @@ EPISODE = Episode(level=3, week=8, scenes=(
         A("badge", ok=False, at="crash", until="turn", x=1830, y=370, r=40),
         A("badge", ok=True, at="total", x=1400, y=860),
         A("confetti", at="total", x=1400, y=700),
-        A("nova", x=1720, y=1060, s=0.5, at="total", moods={"total": "proud"}),
+        A("rose", x=1720, y=1060, s=0.5, at="total", moods={"total": "proud"}),
     )),
     # ------------------------------------------------------------------ s05 recap
     Scene("l3-w08-s05", setting="workshop", tail=0.8, beats=(
@@ -216,7 +216,7 @@ EPISODE = Episode(level=3, week=8, scenes=(
         B("Read the CSV, clean it, count with a dictionary, take a fair-share average that skips blanks, and label "
           "every bar.", cue="recap", pause=0.4),
         B("Now the most important part.", cue="important", pause=0.3),
-        B("Nova's survey asked first, let people pass, and had no names.", cue="asked", pause=0.3),
+        B("Rose's survey asked first, let people pass, and had no names.", cue="asked", pause=0.3),
         B("That's consent and anonymity.", cue="consent", pause=0.4),
         B("Even without names, some answers together can point to one person, like the only thirteen-year-old in the "
           "chess club.", cue="point", pause=0.4),
@@ -228,8 +228,8 @@ EPISODE = Episode(level=3, week=8, scenes=(
         B("Happy detecting!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 8", x=1700, y=920, open="closed"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "recap"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "recap"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("cards", at="recap", until="asked", x=720, y=230, w=760, gap=100, size=36,
           items=["Read the CSV", "Clean it", "Count with a dictionary", "Fair-share average", "Label every bar"],
           reveal=["recap", "recap@0.15", "recap@0.3", "recap@0.55", "recap@0.85"]),

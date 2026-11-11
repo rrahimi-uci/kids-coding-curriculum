@@ -401,7 +401,7 @@ def green_flag_button(ctx, x, y, r, pressed: float = 0.0) -> None:
 # --------------------------------------------------------------------------- titles and transitions
 SITE_URL = "https://rrahimi-uci.github.io/kids-coding-curriculum/"
 SERIES = "Kids Coding"
-SUBTITLE = "with Nova and Pixel"
+SUBTITLE = "with Rose and Pixi"
 
 
 def logo_mark(ctx, x, y, size, t: float = 9.0, start: float = 0.0) -> None:
@@ -429,7 +429,7 @@ def logo_mark(ctx, x, y, size, t: float = 9.0, start: float = 0.0) -> None:
 
 
 def logo(ctx, x, y, s, t, start) -> None:
-    """The series logo: the website's mark and 'Kids Coding' wordmark, with 'with Nova and Pixel'."""
+    """The series logo: the website's mark and 'Kids Coding' wordmark, with 'with Rose and Pixi'."""
     amount = appear(t, start, 0.6)
     if amount <= 0:
         return
@@ -450,7 +450,7 @@ def footer(ctx, width: int, height: int, band: int) -> None:
     set_color(ctx, C["white"])
     ctx.fill()
     size = 26
-    label = f"{SERIES} with Nova and Pixel  •  {SITE_URL}"
+    label = f"{SERIES} with Rose and Pixi  •  {SITE_URL}"
     tw, _ = text_size(label, size, bold=False)
     mark = 30
     total = mark + 14 + tw

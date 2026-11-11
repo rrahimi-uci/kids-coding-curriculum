@@ -137,7 +137,7 @@ it does not copy pages by hand. A private-content check prevents answer keys,
 solutions, lesson plans, teacher guides, and tests from being published.
 
 Every week page also shows that week's animated teaching video, *Kids Coding
-with Nova and Pixel*, in the same place, right below the page header, with captions
+with Rose and Pixi*, in the same place, right below the page header, with captions
 and a transcript. The videos are kept on the repository's `videos` release, not
 in Git; the build copies them in. See [videos/README.md](videos/README.md#on-the-website)
 for how to replace one.

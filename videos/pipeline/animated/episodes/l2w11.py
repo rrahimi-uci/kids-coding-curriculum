@@ -1,6 +1,6 @@
 """Level 2 Week 11: Project Studio 2: Test and Polish (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 GAME_FRAME = '''import turtle
 pen = turtle.Turtle()
@@ -100,17 +100,17 @@ EPISODE = Episode(level=2, week=11, scenes=(
     Scene("l2-w11-s01", setting="workshop", lead_in=0.2, beats=(
         B("Hi, coders!", cue="hi", pause=0.3),
         B("Next week is the Family Arcade, and Comet Catch works!", cue="works", pause=0.3),
-        B("Well, it works when Nova plays it.", cue="nova", pause=0.4),
-        B("Pixel tries it for the very first time, presses space twice, and red text appears.", cue="red",
+        B("Well, it works when Rose plays it.", cue="rose", pause=0.4),
+        B("Pixi tries it for the very first time, presses space twice, and red text appears.", cue="red",
           pause=0.5),
-        B("‘Also, I didn't know which keys to press,’", speaker=PIXEL, cue="keys", pause=0.1),
-        B("says Pixel.", cue="says", pause=0.3),
+        B("‘Also, I didn't know which keys to press,’", speaker=PIXI, cue="keys", pause=0.1),
+        B("says Pixi.", cue="says", pause=0.3),
         B("Uh-oh.", cue="uhoh", pause=0.4),
         B("How can we prove our game works, and make it fun for everyone?", cue="how", pause=2.4),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="hi",
+        A("rose", x=300, y=960, enter="left", wave="hi",
           moods={"works": "proud", "red": "surprised", "uhoh": "thinking"}, chin=("how", "end")),
-        A("pixel", x=650, y=760, drop=True, moods={"red": "surprised", "keys": "confused", "how": "thinking"},
+        A("pixi", x=650, y=760, drop=True, moods={"red": "surprised", "keys": "confused", "how": "thinking"},
           beep=("red@0.4", "red@0.7")),
         A("chip", "Family Arcade: next week", at="works", until="how", x=1000, y=300, color="purple", size=40),
         A("turtle", code=GAME_FRAME, title="Comet Catch", at="works@0.4", x=1180, y=400, w=620, h=500, world=230,
@@ -121,7 +121,7 @@ EPISODE = Episode(level=2, week=11, scenes=(
         A("badge", ok=False, at="red@0.8", until="how", x=1760, y=440),
         A("thought", "Which keys?", at="keys", until="how", x=880, y=520),
         A("banner", "STUDIO MISSION: Test, playtest, polish", at="how"),
-        A("chip", "Works for Nova… works for everyone?", at="how@0.4", x=1000, y=260, color="yellow", size=42),
+        A("chip", "Works for Rose… works for everyone?", at="how@0.4", x=1000, y=260, color="yellow", size=42),
         A("thought", "", at="how$+0.3", until="end", x=640, y=440),
     )),
     Scene("l2-w11-s02", setting="sky", beats=(
@@ -163,7 +163,7 @@ EPISODE = Episode(level=2, week=11, scenes=(
         A("chip", "your real score is safe", at="tests@0.7", x=1500, y=650, color="white", size=38),
     )),
     Scene("l2-w11-s03", setting="lavender", beats=(
-        B("Watch Nova add a file and tests.", cue="watch", pause=0.2),
+        B("Watch Rose add a file and tests.", cue="watch", pause=0.2),
         B("First, two recipe functions from the workbook: load high score and save high score.", cue="recipe",
           pause=0.3),
         B("No file yet? Then the high score is zero, not a crash.", cue="nofile", pause=0.5),
@@ -176,7 +176,7 @@ EPISODE = Episode(level=2, week=11, scenes=(
         B("And a missing file gives zero.", cue="missing", pause=0.3),
         B("Press F5.", cue="f5", pause=0.3),
         B("Four PASSED lines!", cue="four", pause=0.6),
-        B("Now Nova breaks next x on purpose, removing the clamp.", cue="breaks", pause=0.4),
+        B("Now Rose breaks next x on purpose, removing the clamp.", cue="breaks", pause=0.4),
         B("FAILED: it got three hundred, not two hundred eighty.", cue="failed", pause=0.3),
         B("The test caught it!", cue="caught", pause=0.3),
         B("Undo, run again: all PASSED.", cue="undo", pause=0.8),
@@ -234,17 +234,17 @@ EPISODE = Episode(level=2, week=11, scenes=(
         B("I was confused when.", cue="confused", pause=0.2),
         B("A bug I saw: what I did, what happened, what I expected.", cue="bug", pause=0.2),
         B("One idea.", cue="idea", pause=0.4),
-        B("Pixel's cards for Comet Catch say:", cue="pcards", pause=0.1),
-        B("‘I pressed space twice and it crashed.’", speaker=PIXEL, cue="c1", pause=0.2),
-        B("‘I didn't know which keys to use.’", speaker=PIXEL, cue="c2", pause=0.2),
-        B("‘Add a rainbow comet!’", speaker=PIXEL, cue="c3", pause=0.4),
-        B("Nova turns the cards into a bug list.", cue="list", pause=0.2),
+        B("Pixi's cards for Comet Catch say:", cue="pcards", pause=0.1),
+        B("‘I pressed space twice and it crashed.’", speaker=PIXI, cue="c1", pause=0.2),
+        B("‘I didn't know which keys to use.’", speaker=PIXI, cue="c2", pause=0.2),
+        B("‘Add a rainbow comet!’", speaker=PIXI, cue="c3", pause=0.4),
+        B("Rose turns the cards into a bug list.", cue="list", pause=0.2),
         B("MUST means it crashes or you can't play.", cue="must", pause=0.2),
         B("SHOULD means it's confusing.", cue="should", pause=0.2),
         B("COULD is a nice idea.", cue="could", pause=0.3),
         B("Pause and point: which gets fixed first?", cue="pause", pause=3.0),
         B("Yes, the crash!", cue="crash", pause=0.3),
-        B("Nova reads the traceback and finds the line.", cue="reads", pause=0.3),
+        B("Rose reads the traceback and finds the line.", cue="reads", pause=0.3),
         B("If a bug lives in a logic function, write a test that shows it first.", cue="logic", pause=0.2),
         B("It fails.", cue="fails", pause=0.2),
         B("Fix the code.", cue="fix", pause=0.2),
@@ -260,7 +260,7 @@ EPISODE = Episode(level=2, week=11, scenes=(
           size=36),
         A("chip", "What I did / happened / expected", at="bug@0.4", until="list", x=540, y=800, color="sky",
           size=36),
-        A("pixel", x=1500, y=860, s=0.6, ground=990, at="pcards", until="list", moods={"c1": "confused",
+        A("pixi", x=1500, y=860, s=0.6, ground=990, at="pcards", until="list", moods={"c1": "confused",
                                                                                      "c3": "happy"}),
         A("cards", at="c1", until="list", x=1060, y=240, w=800, gap=105, size=32,
           items=["I pressed space twice and it crashed.", "I didn't know which keys to use.", "Add a rainbow comet!"],
@@ -300,8 +300,8 @@ EPISODE = Episode(level=2, week=11, scenes=(
         B("Then playtest, fix the top MUST bug on your list, and do the accessibility check for M4.", cue="m4",
           pause=0.8),
     ), actions=(
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("m4$", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("m4$", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "pytest → brain • playtesters → fun", at="brain", until="polish", x=1150, y=460, color="orange",
           size=42),
         A("chip", "normal + edge • test_scores.txt", at="files", until="polish", x=1150, y=600, color="green",

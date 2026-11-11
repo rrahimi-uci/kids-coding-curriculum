@@ -12,9 +12,9 @@ from dataclasses import dataclass, field
 import re
 
 NARRATOR = "narrator"
-NOVA = "nova"
-PIXEL = "pixel"
-SPEAKERS = (NARRATOR, NOVA, PIXEL)
+ROSE = "rose"
+PIXI = "pixi"
+SPEAKERS = (NARRATOR, ROSE, PIXI)
 
 
 @dataclass(frozen=True)

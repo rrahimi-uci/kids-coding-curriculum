@@ -1,6 +1,6 @@
 """Level 1 Week 5: Messages and My Blocks (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 FLAG = ("event", "when {flag} clicked")
 SPIN = ("control", "repeat [24]", [("motion", "turn ↻ [15] degrees")])
@@ -14,17 +14,17 @@ EPISODE = Episode(level=1, week=5, scenes=(
     Scene("w05-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("The workshop stage has three performers.", cue="three", pause=0.3),
-        B("Nova tries to control every move in one giant stack.", cue="giant", pause=0.2),
-        B("The blocks wobble higher than Pixel!", cue="wobble", pause=0.4),
+        B("Rose tries to control every move in one giant stack.", cue="giant", pause=0.2),
+        B("The blocks wobble higher than Pixi!", cue="wobble", pause=0.4),
         B("One performer starts late, and another never moves.", cue="late", pause=0.4),
-        B("‘This stack is too big!’", speaker=NOVA, cue="big", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("‘This stack is too big!’", speaker=ROSE, cue="big", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("Could we give each small job a name, and send one clear message when the curtain goes up?",
           cue="question", pause=2.8),
     ), actions=(
-        A("nova", x=280, y=960, enter="left", wave="welcome",
+        A("rose", x=280, y=960, enter="left", wave="welcome",
           moods={"wobble": "surprised", "late": "worried", "question": "thinking"}, chin=("question", "end")),
-        A("pixel", x=500, y=780, drop=True, moods={"wobble": "surprised", "late": "confused"}, look={"wobble": 1}),
+        A("pixi", x=500, y=780, drop=True, moods={"wobble": "surprised", "late": "confused"}, look={"wobble": 1}),
         A("banner", "MISSION: Organize the show", at="three"),
         A("stage", x=1180, y=230, w=600, h=400, sprite="star", sprite_x=-150, sprite_y=-10, sprite_scale=0.6,
           at="three", until="question", flag_at="giant", extra=[("cat", 10, -50), ("balloon", 150, -40)],
@@ -34,7 +34,7 @@ EPISODE = Episode(level=1, week=5, scenes=(
         A("sfx", "boing", at="wobble"),
         A("chip", "late!", at="late", until="question", x=1300, y=700, color="orange", size=34),
         A("chip", "never moves", at="late@0.6", until="question", x=1540, y=700, color="red", size=34),
-        A("bubble", "This stack is too big!", who="nova", x=280, y=960, at="big", until="question"),
+        A("bubble", "This stack is too big!", who="rose", x=280, y=960, at="big", until="question"),
         A("chip", "Small jobs + clear messages", at="question", x=1150, y=230, color="yellow"),
         A("cards", at="question@0.3", x=880, y=340, w=560, gap=105, size=34,
           items=["Star's job", "Cat's job", "Backdrop's job"],
@@ -44,7 +44,7 @@ EPISODE = Episode(level=1, week=5, scenes=(
     Scene("w05-s02", setting="lavender", beats=(
         B("Decomposition means splitting a big job into smaller named parts.", cue="decomp", pause=0.4),
         B("In Scratch, My Blocks, then Make a Block, lets us name a job we want to reuse.", cue="make", pause=0.3),
-        B("Nova makes a block called polygon, with two inputs: sides and length.", cue="polygon", pause=0.3),
+        B("Rose makes a block called polygon, with two inputs: sides and length.", cue="polygon", pause=0.3),
         B("Under the pink define hat go:", cue="define", pause=0.1),
         B("pen down, repeat sides, move length steps, turn three hundred sixty divided by sides, and pen up.",
           cue="recipe", pause=0.4),
@@ -81,7 +81,7 @@ EPISODE = Episode(level=1, week=5, scenes=(
     )),
     Scene("w05-s03", setting="sky", beats=(
         B("A broadcast is like a stage manager's announcement.", cue="broadcast", pause=0.3),
-        B("Nova's main script broadcasts curtain up.", cue="sends", pause=0.3),
+        B("Rose's main script broadcasts curtain up.", cue="sends", pause=0.3),
         B("Every sprite with a ‘when I receive curtain up’ hat can respond.", cue="every", pause=0.3),
         B("The star spins, the cat speaks, and the backdrop changes.", cue="spins", pause=0.5),
         B("Broadcasting doesn't make every sprite do the same action.", cue="notsame", pause=0.2),
@@ -119,7 +119,7 @@ EPISODE = Episode(level=1, week=5, scenes=(
     )),
     Scene("w05-s04", setting="mint", beats=(
         B("Time for a bug hunt!", cue="bug", pause=0.3),
-        B("In Nova's show, the star never spins.", cue="never", pause=0.3),
+        B("In Rose's show, the star never spins.", cue="never", pause=0.3),
         B("Expected: all three performers start.", cue="expected", pause=0.3),
         B("What happened?", cue="happened", pause=0.2),
         B("Only two respond.", cue="two", pause=0.4),
@@ -143,7 +143,7 @@ EPISODE = Episode(level=1, week=5, scenes=(
         A("magnifier", x=700, y=360, s=0.7, at="sender", until="different",
           path=[("receiver", 700, 360), ("receiver@0.5", 760, 690)]),
         A("stage", x=1120, y=240, w=620, h=420, sprite="star", sprite_x=-150, sprite_y=-10, sprite_scale=0.55,
-          flag_at="never@0.3", at="never", extra=[("cat", 20, -40), ("pixel", 160, -40)],
+          flag_at="never@0.3", at="never", extra=[("cat", 20, -40), ("pixi", 160, -40)],
           actions=[("choose@0.6", "turn", 720, 2.0)]),
         A("bubble", "Hello!", x=1440, y=450, size=28, at="never@0.6", until="sender", tail="down-left"),
         A("bubble", "Beep!", x=1640, y=450, size=28, at="never@0.6", until="sender", tail="down-left"),
@@ -175,8 +175,8 @@ EPISODE = Episode(level=1, week=5, scenes=(
     ), actions=(
         A("door", "DOOR 5", x=1560, y=920, open="showtime"),
         A("confetti", at="showtime", x=1660, y=500),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "decompose"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "decompose"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Small jobs • My Blocks • Exact messages", at="decompose", until="access", x=960, y=260,
           color="orange", size=44),
         A("chip", "inputs change them • broadcast coordinates", at="recap", until="access", x=960, y=390,

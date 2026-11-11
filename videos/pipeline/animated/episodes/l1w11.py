@@ -1,6 +1,6 @@
 """Level 1 Week 11: Project Studio: Build, Run, Check (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 FORTY_LINES = """import random
 import turtle
@@ -25,21 +25,21 @@ def _line_y(top: int, n: int, size: int = 28) -> float:
 EPISODE = Episode(level=1, week=11, scenes=(
     Scene("w11-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
-        B("Nova has a brilliant art-show plan, and forty new lines typed without running once.", cue="plan",
+        B("Rose has a brilliant art-show plan, and forty new lines typed without running once.", cue="plan",
           pause=0.3),
-        B("Pixel presses Run.", cue="presses", pause=0.4),
-        B("‘Uh-oh,’", speaker=NOVA, cue="uhoh", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("Pixi presses Run.", cue="presses", pause=0.4),
+        B("‘Uh-oh,’", speaker=ROSE, cue="uhoh", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("One tiny error hides somewhere in the stack.", cue="hides", pause=0.3),
         B("The studio clock is ticking.", cue="clock", pause=0.4),
         B("Would you rather search forty lines, or test each small piece as you build it?", cue="rather",
           pause=2.8),
         B("Today, we work like project engineers.", cue="today", pause=0.8),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="welcome",
+        A("rose", x=300, y=960, enter="left", wave="welcome",
           moods={"plan": "proud", "uhoh": "worried", "rather": "thinking", "today": "happy"},
           chin=("rather", "today")),
-        A("pixel", x=620, y=760, drop=True, beep=("presses", "presses$"), moods={"uhoh": "confused",
+        A("pixi", x=620, y=760, drop=True, beep=("presses", "presses$"), moods={"uhoh": "confused",
                                                                                  "today": "happy"}),
         A("banner", "STUDIO MISSION", at="plan"),
         A("code", title="art_show.py", code=FORTY_LINES, x=930, y=170, w=850, h=770, size=28, shell_h=170,
@@ -126,8 +126,8 @@ EPISODE = Episode(level=1, week=11, scenes=(
         B("Don't fix it; just report it!", cue="report", pause=0.6),
         B("Then swap back and give two stars and a wish: two specific things you liked, and one wish.",
           cue="stars", pause=0.3),
-        B("Make the wish about the program, never the person, like Nova's:", cue="wish", pause=0.1),
-        B("‘I wish the title was bigger.’", speaker=NOVA, cue="bigger", pause=0.4),
+        B("Make the wish about the program, never the person, like Rose's:", cue="wish", pause=0.1),
+        B("‘I wish the title was bigger.’", speaker=ROSE, cue="bigger", pause=0.4),
         B("The creator says thank you, then decides what to change.", cue="thanks", pause=0.4),
         B("It's their art.", cue="art", pause=0.8),
     ), actions=(
@@ -136,10 +136,10 @@ EPISODE = Episode(level=1, week=11, scenes=(
           color="yellow", size=42),
         A("laptop", x=300, y=780, s=0.8),
         A("laptop", x=1620, y=780, s=0.8),
-        A("nova", x=300, y=1060, s=0.55,
+        A("rose", x=300, y=1060, s=0.55,
           path=[("seats", 300, 1060), ("seats+1.4", 1620, 1060), ("stars", 1620, 1060), ("stars+1.4", 300, 1060)],
           moods={"report": "happy", "bigger": "happy"}),
-        A("pixel", x=1620, y=990, s=0.5, ground=1050,
+        A("pixi", x=1620, y=990, s=0.5, ground=1050,
           path=[("seats", 1620, 990), ("seats+1.4", 300, 990), ("stars", 300, 990), ("stars+1.4", 1620, 990)],
           moods={"thanks": "proud"}, beep=("thanks", "thanks@0.4")),
         A("listrow", "Strange answers", at="twice@0.45", until="write", x=960, y=580, cell=240, indexes=False,
@@ -176,8 +176,8 @@ EPISODE = Episode(level=1, week=11, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 11", x=1720, y=920, open="complete"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("complete", "manage"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("complete", "manage"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Small step • Saved version • Evidence", at="manage", until="good", x=1000, y=250,
           color="orange", size=44),
         A("cards", at="manage", until="good", x=640, y=360, w=720, gap=110,

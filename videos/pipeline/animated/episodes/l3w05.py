@@ -1,6 +1,6 @@
 """Level 3 Week 5: Sorting, Stacks and Queues (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 SWAP_BUG = '''left = 9
 right = 4
@@ -20,17 +20,17 @@ print(sorted(scores, reverse=True))
 
 EPISODE = Episode(level=3, week=5, scenes=(
     Scene("l3-w05-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Nova's game needs three things: a high-score board in order, an undo button, and a fair way to take "
+        B("Rose's game needs three things: a high-score board in order, an undo button, and a fair way to take "
           "turns.", cue="needs", pause=0.3),
-        B("Pixel stares at a messy pile of score cards and blinks.", cue="pile", pause=0.3),
-        B("‘Where do I even start?’", speaker=PIXEL, cue="where", pause=0.1),
-        B("beeps Pixel.", cue="beeps", pause=0.3),
+        B("Pixi stares at a messy pile of score cards and blinks.", cue="pile", pause=0.3),
+        B("‘Where do I even start?’", speaker=PIXI, cue="where", pause=0.1),
+        B("beeps Pixi.", cue="beeps", pause=0.3),
         B("Today we'll sort cards, stack plates and line up for lunch.", cue="today", pause=0.3),
         B("Ready?", cue="ready", pause=0.5),
         B("Let's go!", cue="go", pause=0.8),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave=("go", "end"), moods={"needs": "happy", "go": "proud"}),
-        A("pixel", x=620, y=760, drop=True, moods={"pile": "confused", "today": "happy"}),
+        A("rose", x=300, y=960, enter="left", wave=("go", "end"), moods={"needs": "happy", "go": "proud"}),
+        A("pixi", x=620, y=760, drop=True, moods={"pile": "confused", "today": "happy"}),
         A("banner", "MISSION: Sort it, undo it, take turns", at="needs"),
         A("icons", at="needs", until="pile", x=1260, y=430, gap=300,
           items=[("trophy", "high scores in order", "needs@0.3"), ("clock", "undo button", "needs@0.6"),
@@ -128,11 +128,11 @@ EPISODE = Episode(level=3, week=5, scenes=(
     )),
     Scene("l3-w05-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova wants two cards to trade places.", cue="trade", pause=0.2),
+        B("Rose wants two cards to trade places.", cue="trade", pause=0.2),
         B("Left is 9, and right is 4.", cue="values", pause=0.3),
-        B("First, Nova copies right into left.", cue="l1", pause=0.2),
-        B("Then Nova copies left into right.", cue="l2", pause=0.3),
-        B("Pixel runs it and prints both: 4 and 4!", cue="runs", pause=0.3),
+        B("First, Rose copies right into left.", cue="l1", pause=0.2),
+        B("Then Rose copies left into right.", cue="l2", pause=0.3),
+        B("Pixi runs it and prints both: 4 and 4!", cue="runs", pause=0.3),
         B("Where did the 9 go?", cue="where", pause=3.2),
         B("Let's act it out.", cue="act", pause=0.2),
         B("The first line puts a 4 where the 9 was, and the 9 is gone.", cue="first", pause=0.3),
@@ -170,7 +170,7 @@ EPISODE = Episode(level=3, week=5, scenes=(
           highlight=[("clue@0.4", "reverse@0.5", 0), ("reverse@0.5", "end", 0)]),
         A("chip", "lowest on top?", at="clue@0.5", until="reverse@0.5", x=1360, y=560, color="red", size=38),
         A("chip", "Biggest first: reverse=True", at="reverse@0.5", x=1360, y=560, color="green", size=40),
-        A("pixel", x=1780, y=860, s=0.45, ground=950, beep=[("runs", "runs$"), ("run2", "run2$")],
+        A("pixi", x=1780, y=860, s=0.45, ground=950, beep=[("runs", "runs$"), ("run2", "run2$")],
           moods={"where": "confused", "nothing": "proud"}),
     )),
     Scene("l3-w05-s05", setting="workshop", tail=0.8, beats=(
@@ -189,9 +189,9 @@ EPISODE = Episode(level=3, week=5, scenes=(
           cue="finish", pause=0.8),
     ), actions=(
         A("door", "DOOR 5", x=1660, y=920, open="sorted"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "sel"), ("finish@0.7", "end")],
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "sel"), ("finish@0.7", "end")],
           moods={"start": "proud", "feel": "worried", "nick": "happy"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Sort • Stack • Queue", at="sel", until="lb", x=1000, y=240, color="orange", size=46),
         A("panel", "Remember", at="sel", until="lb", x=660, y=330, w=700,
           items=[("sel", "Selection: smallest to the front"), ("bub", "Bubble: neighbors swap"),
@@ -199,7 +199,7 @@ EPISODE = Episode(level=3, week=5, scenes=(
         A("thought", "", at="feel@0.6", until="nick", x=1000, y=500),
         A("table", at="nick", until="next", x=670, y=330, col_w=220,
           header=["place", "nickname", "points"],
-          rows=[["1", "ZoomCat", "90"], ["2", "SkyFox", "75"], ["3", "MoonBug", "60"], ["3", "Pixel8", "60"]],
+          rows=[["1", "ZoomCat", "90"], ["2", "SkyFox", "75"], ["3", "MoonBug", "60"], ["3", "Pixi8", "60"]],
           reveal=["nick@0.2", "nick@0.4", "nick@0.6", "nick@0.8"], highlight=[("ties", "best", 2), ("ties", "best", 3)]),
         A("chip", "Nicknames • ties share • most improved", at="best", until="next", x=1000, y=240, color="green",
           size=40),

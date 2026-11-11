@@ -1,6 +1,6 @@
 """Level 1 Week 4: Keeping Score with Variables (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 TO_TOP = ("motion", "go to x: [0] y: [170]")
@@ -11,19 +11,19 @@ RACE = [(f"second+{1.0 + 0.4 * i:.1f}", 1 + i) for i in range(15)]
 EPISODE = Episode(level=1, week=4, scenes=(
     Scene("w04-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
-        B("Nova catches three falling stars.", cue="catches", pause=0.2),
+        B("Rose catches three falling stars.", cue="catches", pause=0.2),
         B("One, two, three!", cue="count", pause=0.4),
-        B("Pixel cheers, but the scoreboard still says zero.", cue="cheers", pause=0.3),
-        B("‘I watched every catch,’", speaker=PIXEL, cue="watched", pause=0.1),
-        B("says Pixel,", cue="says", pause=0.1),
-        B("‘but I forgot the number!’", speaker=PIXEL, cue="forgot", pause=0.4),
+        B("Pixi cheers, but the scoreboard still says zero.", cue="cheers", pause=0.3),
+        B("‘I watched every catch,’", speaker=PIXI, cue="watched", pause=0.1),
+        B("says Pixi,", cue="says", pause=0.1),
+        B("‘but I forgot the number!’", speaker=PIXI, cue="forgot", pause=0.4),
         B("Our next door opens at five points.", cue="five", pause=0.3),
         B("So what can a program use to remember a value while it changes?", cue="question", pause=2.8),
     ), actions=(
         A("door", "DOOR 4", x=1620, y=900),
-        A("nova", x=300, y=960, enter="left", wave="welcome", point=("count", "cheers"),
+        A("rose", x=300, y=960, enter="left", wave="welcome", point=("count", "cheers"),
           moods={"cheers": "surprised", "five": "happy", "question": "thinking"}, chin=("question", "end")),
-        A("pixel", x=560, y=760, drop=True, moods={"cheers": "proud", "forgot": "confused"}),
+        A("pixi", x=560, y=760, drop=True, moods={"cheers": "proud", "forgot": "confused"}),
         A("banner", "MISSION: Remember the score", at="catches"),
         A("stage", x=860, y=220, w=620, h=420, sprite="star", sprite_y=150, sprite_scale=0.7, at="catches",
           until="question", flag=False, extra=[("bowl", 0, -130)], monitors=[("score", [("start", 0)])],
@@ -33,7 +33,7 @@ EPISODE = Episode(level=1, week=4, scenes=(
         A("icons", at="count", until="question", x=1170, y=770, gap=180,
           items=[("star", "1", "count"), ("star", "2", "count@0.33"), ("star", "3", "count@0.66")]),
         A("chip", "score: still 0!", at="cheers", until="question", x=1000, y=1010, color="red", size=36),
-        A("bubble", "I forgot the number!", who="pixel", x=560, y=760, at="watched", until="five"),
+        A("bubble", "I forgot the number!", who="pixi", x=560, y=760, at="watched", until="five"),
         A("chip", "Opens at 5 points", at="five", until="question", x=1735, y=330, color="orange", size=34),
         A("chip", "What can store a changing value?", at="question", x=1150, y=230, color="yellow"),
         A("box", "?", at="question", x=1150, y=520, values=[("question", "")]),
@@ -108,7 +108,7 @@ EPISODE = Episode(level=1, week=4, scenes=(
     )),
     Scene("w04-s04", setting="mint", beats=(
         B("Time for a bug hunt!", cue="bug", pause=0.3),
-        B("Pixel finds two clues in Nova's star game.", cue="clues", pause=0.3),
+        B("Pixi finds two clues in Rose's star game.", cue="clues", pause=0.3),
         B("First, a new game begins with the last game's score.", cue="first", pause=0.3),
         B("Expected: zero.", cue="expected", pause=0.3),
         B("What happened?", cue="happened", pause=0.2),
@@ -183,8 +183,8 @@ EPISODE = Episode(level=1, week=4, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 4", x=1560, y=920, open="five"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "store"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "store"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("box", "score", at="start", until="store", x=1000, y=420, values=[("start", 4), ("five", 5)]),
         A("confetti", at="five", x=1660, y=500),
         A("chip", "Store • Set • Change", at="store", until="credit", x=960, y=260, color="orange", size=46),

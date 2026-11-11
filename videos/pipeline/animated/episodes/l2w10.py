@@ -1,6 +1,6 @@
 """Level 2 Week 10: Project Studio 1: Plan and Core (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 # ----------------------------------------------------------------------------- the lesson's skeleton, in steps
 SKELETON_DATA = '''# My game - core loop skeleton (M2)
@@ -106,19 +106,19 @@ ROAD = ["M1 Pitch + plan", "M2 Core loop", "M3 Data + tests", "M4 Polish", "Show
 EPISODE = Episode(level=2, week=10, scenes=(
     Scene("l2-w10-s01", setting="workshop", lead_in=0.2, beats=(
         B("Hi, coders!", cue="hi", pause=0.3),
-        B("Nova has a giant plan: Comet Catch, with ten levels, boss battles and a rainbow title screen.",
+        B("Rose has a giant plan: Comet Catch, with ten levels, boss battles and a rainbow title screen.",
           cue="plan", pause=0.4),
-        B("Nova starts typing everything at once.", cue="typing", pause=0.3),
-        B("Pixel waits, and waits.", cue="waits", pause=0.5),
-        B("‘Which part can I run today?’", speaker=PIXEL, cue="which", pause=0.1),
-        B("asks Pixel.", cue="asks", pause=0.4),
+        B("Rose starts typing everything at once.", cue="typing", pause=0.3),
+        B("Pixi waits, and waits.", cue="waits", pause=0.5),
+        B("‘Which part can I run today?’", speaker=PIXI, cue="which", pause=0.1),
+        B("asks Pixi.", cue="asks", pause=0.4),
         B("Hmm. Nothing yet!", cue="nothing", pause=0.5),
         B("Nobody can ride one perfect wheel.", cue="wheel", pause=0.4),
-        B("So what should Nova build first?", cue="first", pause=2.4),
+        B("So what should Rose build first?", cue="first", pause=2.4),
     ), actions=(
-        A("nova", x=300, y=960, enter="left", wave="hi",
+        A("rose", x=300, y=960, enter="left", wave="hi",
           moods={"plan": "happy", "nothing": "surprised", "first": "thinking"}, chin=("first", "end")),
-        A("pixel", x=650, y=760, drop=True, moods={"waits": "thinking", "nothing": "confused", "first": "thinking"}),
+        A("pixi", x=650, y=760, drop=True, moods={"waits": "thinking", "nothing": "confused", "first": "thinking"}),
         A("panel", "Comet Catch", at="plan", until="typing", x=1050, y=380, w=700,
           items=[("plan@0.45", "10 levels"), ("plan@0.6", "boss battles"), ("plan@0.8", "rainbow title screen")]),
         A("code", code=HALF_TYPED, title="comet_catch.py", allow_error=True, x=1000, y=400, w=820, h=360,
@@ -179,7 +179,7 @@ EPISODE = Episode(level=2, week=10, scenes=(
     )),
     Scene("l2-w10-s03", setting="lavender", beats=(
         B("Let's turn a plan into a walking skeleton.", cue="skeleton", pause=0.3),
-        B("Nova saves a new file: mygame.py.", cue="save", pause=0.2),
+        B("Rose saves a new file: mygame.py.", cue="save", pause=0.2),
         B("Never call it turtle.py!", cue="never", pause=0.5),
         B("First, two dictionaries.", cue="dicts", pause=0.2),
         B("SETTINGS holds numbers we might change, like a step of twenty.", cue="settings", pause=0.3),
@@ -231,7 +231,7 @@ EPISODE = Episode(level=2, week=10, scenes=(
     Scene("l2-w10-s04", setting="mint", beats=(
         B("Time for a partner code review.", cue="review", pause=0.2),
         B("Swap seats.", cue="swap", pause=0.5),
-        B("Pixel runs Nova's code and reads it with three questions.", cue="three", pause=0.3),
+        B("Pixi runs Rose's code and reads it with three questions.", cue="three", pause=0.3),
         B("One: does it run?", cue="one", pause=0.2),
         B("If there's red text, which line does the traceback point to?", cue="red", pause=0.4),
         B("Two: are the names clear?", cue="two", pause=0.2),
@@ -239,20 +239,20 @@ EPISODE = Episode(level=2, week=10, scenes=(
         B("A function called thing two doesn't!", cue="thing2", pause=0.4),
         B("Three: does each function do one job, and are numbers you might change kept in the settings dictionary?",
           cue="job", pause=0.5),
-        B("Pixel also hunts last week's classic bugs: parentheses after a handler in onkey, a missing listen, and a "
+        B("Pixi also hunts last week's classic bugs: parentheses after a handler in onkey, a missing listen, and a "
           "game loop that never sets its timer again.", cue="classic", pause=0.5),
-        B("Then Pixel writes two stars and a wish.", cue="stars", pause=0.3),
-        B("‘Star: next x says exactly what it does.", speaker=PIXEL, cue="star1", pause=0.2),
-        B("Star: the square stops at the wall.", speaker=PIXEL, cue="star2", pause=0.2),
-        B("Wish: could thing two get a name that tells its job?’", speaker=PIXEL, cue="wish", pause=0.4),
-        B("Nova says thanks, and decides what to change.", cue="thanks", pause=0.8),
+        B("Then Pixi writes two stars and a wish.", cue="stars", pause=0.3),
+        B("‘Star: next x says exactly what it does.", speaker=PIXI, cue="star1", pause=0.2),
+        B("Star: the square stops at the wall.", speaker=PIXI, cue="star2", pause=0.2),
+        B("Wish: could thing two get a name that tells its job?’", speaker=PIXI, cue="wish", pause=0.4),
+        B("Rose says thanks, and decides what to change.", cue="thanks", pause=0.8),
     ), actions=(
         A("banner", "PARTNER CODE REVIEW", at="review", color="navy"),
         A("chair", x=280, y=1000, s=0.8),
         A("chair", x=560, y=1000, s=0.8),
-        A("nova", x=260, y=1000, s=0.65, path=[("swap", 260, 1000), ("swap+1.0", 560, 1000)],
+        A("rose", x=260, y=1000, s=0.65, path=[("swap", 260, 1000), ("swap+1.0", 560, 1000)],
           moods={"thing2": "thinking", "thanks": "happy"}, wave=("thanks", "end")),
-        A("pixel", x=560, y=860, s=0.55, ground=990, path=[("swap", 560, 860), ("swap+1.0", 260, 860)],
+        A("pixi", x=560, y=860, s=0.55, ground=990, path=[("swap", 560, 860), ("swap+1.0", 260, 860)],
           moods={"one": "thinking", "stars": "happy"}),
         A("chip", "Does it run? • Clear names? • One job?", at="three", until="classic", x=1250, y=220,
           color="yellow", size=40),
@@ -294,8 +294,8 @@ EPISODE = Episode(level=2, week=10, scenes=(
           "loop for M2.", cue="turn", pause=0.3),
         B("Small and working beats big and broken!", cue="small", pause=0.8),
     ), actions=(
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("small", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("small", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "pseudocode or flowchart", at="plan", until="team", x=1150, y=460, color="sky", size=44),
         A("chip", "→ functions", at="break", until="team", x=1150, y=590, color="orange", size=44),
         A("chip", "→ the skateboard first", at="build", until="team", x=1150, y=720, color="green", size=44),
@@ -305,7 +305,7 @@ EPISODE = Episode(level=2, week=10, scenes=(
         A("table", at="share", until="names", x=760, y=530, col_w=330, header=["TO DO", "DOING", "DONE"],
           rows=[["show_score", "game_loop", "next_x"], ["", "", ""], ["", "", ""]],
           highlight=[("share", "share+0.8", 0)]),
-        A("code", code="# Made by Comet and Pixel\n# Movement code remixed from Dodge the Meteors", title="mygame.py",
+        A("code", code="# Made by Comet and Pixi\n# Movement code remixed from Dodge the Meteors", title="mygame.py",
           at="names", until="turn", x=740, y=300, w=1080, h=200, size=30, shell=False),
         A("chip", "Credit remixed code", at="names@0.6", until="turn", x=1270, y=600, color="orange", size=42),
         A("icons", at="fine", until="turn", x=1270, y=760, gap=340, crossed=[1],

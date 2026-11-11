@@ -1,13 +1,13 @@
 """Level 1 Week 6: Scratch Detective Checkpoint (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 
 EPISODE = Episode(level=1, week=6, scenes=(
     Scene("w06-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
-        B("Six workshop doors glow behind Nova and Pixel.", cue="doors", pause=0.4),
+        B("Six workshop doors glow behind Rose and Pixi.", cue="doors", pause=0.4),
         B("The checkpoint console mixes up every symbol we've found:", cue="console", pause=0.3),
         B("a flag,", cue="flag", pause=0.4),
         B("a loop,", cue="loop", pause=0.4),
@@ -19,9 +19,9 @@ EPISODE = Episode(level=1, week=6, scenes=(
     ), actions=(
         *[A("door", str(i + 1), x=700 + i * 190, y=800, w=140, h=250, open="doors", until="console")
           for i in range(6)],
-        A("nova", x=280, y=960, enter="left", wave="welcome", moods={"question": "thinking", "detective": "proud"},
+        A("rose", x=280, y=960, enter="left", wave="welcome", moods={"question": "thinking", "detective": "proud"},
           chin=("question", "detective")),
-        A("pixel", x=540, y=780, drop=True, moods={"detective": "proud"}),
+        A("pixi", x=540, y=780, drop=True, moods={"detective": "proud"}),
         A("banner", "CHECKPOINT MISSION", at="doors"),
         A("scratch", "Evidence board", blocks=[], x=720, y=230, w=1100, h=560, at="console"),
         A("scratch", blocks=[FLAG], x=760, y=260, scale=0.85, panel=False, at="flag"),
@@ -77,12 +77,12 @@ EPISODE = Episode(level=1, week=6, scenes=(
         B("Two: what happened?", cue="d2", pause=0.4),
         B("Three: read the blocks one at a time, with your finger.", cue="d3", pause=0.4),
         B("Four: change one thing, then test again.", cue="d4", pause=0.5),
-        B("Nova's cat should go to the middle and say ‘Hello, detectives!’", cue="should", pause=0.3),
+        B("Rose's cat should go to the middle and say ‘Hello, detectives!’", cue="should", pause=0.3),
         B("It moves, but it says nothing.", cue="nothing", pause=0.5),
-        B("Pixel points at each block.", cue="points", pause=0.2),
-        B("‘When flag clicked: yes.", speaker=PIXEL, cue="p1", pause=0.2),
-        B("Go to: yes.", speaker=PIXEL, cue="p2", pause=0.2),
-        B("Say… wait, there's a gap!’", speaker=PIXEL, cue="p3", pause=0.4),
+        B("Pixi points at each block.", cue="points", pause=0.2),
+        B("‘When flag clicked: yes.", speaker=PIXI, cue="p1", pause=0.2),
+        B("Go to: yes.", speaker=PIXI, cue="p2", pause=0.2),
+        B("Say… wait, there's a gap!’", speaker=PIXI, cue="p3", pause=0.4),
         B("That block isn't snapped on, so it's not part of the script.", cue="snapped", pause=0.3),
         B("One change: snap it on.", cue="snap", pause=0.4),
         B("Test.", cue="test", pause=0.4),
@@ -109,7 +109,7 @@ EPISODE = Episode(level=1, week=6, scenes=(
         A("stage", x=1180, y=600, w=560, h=380, sprite_x=-150, sprite_y=-60, sprite_scale=0.5, at="should",
           flag_at="should@0.3",
           actions=[("should@0.3", "goto", 0, 0, 0.8), ("test", "say", "Hello, detectives!", 3.0)]),
-        A("pixel", x=620, y=900, s=0.45, ground=960, at="points", moods={"p3": "surprised", "hello": "proud"}),
+        A("pixi", x=620, y=900, s=0.45, ground=960, at="points", moods={"p3": "surprised", "hello": "proud"}),
         A("badge", ok=False, at="nothing", until="snap", x=1700, y=650),
         A("badge", ok=True, at="hello", x=1700, y=650),
     )),
@@ -172,8 +172,8 @@ EPISODE = Episode(level=1, week=6, scenes=(
     ), actions=(
         A("door", "DOOR 6", x=1560, y=920, open="complete"),
         A("confetti", at="complete", x=1660, y=500),
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "coders"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "coders"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Build • Debug • Explain", at="coders", until="designers", x=960, y=230, color="orange", size=46),
         A("icons", at="coders", until="designers", x=960, y=450, gap=280,
           items=[("gear", "Builder", "coders@0.2"), ("magnifier", "Detective", "detectives@0.2"),

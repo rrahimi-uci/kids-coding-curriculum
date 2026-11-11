@@ -1,6 +1,6 @@
 """Level 2 Week 5: Dictionaries and Secret Codes (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 SHIP = 'ship = {"name": "Comet",\n        "fuel": 20, "crew": 3}\n'
 SHIP_CODE = SHIP + 'ship["fuel"] = 25\nship["color"] = "orange"\nfor key, value in ship.items():\n    print(f"{key}: {value}")'
@@ -9,22 +9,22 @@ DICT_LINE = "{'name': 'Comet', 'fuel': 20, 'crew': 3, 'Crew': 4}"
 
 EPISODE = Episode(level=2, week=5, scenes=(
     Scene("l2-w05-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Nova slides a sticky note to Pixel.", cue="slides", pause=0.2),
+        B("Rose slides a sticky note to Pixi.", cue="slides", pause=0.2),
         B("It says: grj.", cue="says", pause=0.4),
-        B("‘Is that a word?’", speaker=PIXEL, cue="word", pause=0.1),
-        B("beeps Pixel.", cue="beeps", pause=0.3),
-        B("‘It's a secret code!’", speaker=NOVA, cue="secret", pause=0.1),
-        B("says Nova.", cue="saysn", pause=0.3),
+        B("‘Is that a word?’", speaker=PIXI, cue="word", pause=0.1),
+        B("beeps Pixi.", cue="beeps", pause=0.3),
+        B("‘It's a secret code!’", speaker=ROSE, cue="secret", pause=0.1),
+        B("says Rose.", cue="saysn", pause=0.3),
         B("Every letter moved three places along the alphabet.", cue="moved", pause=0.3),
-        B("To crack it, Pixel needs a lookup: give it a secret letter, get back the real one.", cue="lookup",
+        B("To crack it, Pixi needs a lookup: give it a secret letter, get back the real one.", cue="lookup",
           pause=0.3),
         B("Python has a tool made for lookups.", cue="tool"),
         B("It's called a dictionary.", cue="dict", pause=0.2),
         B("Let's open it!", cue="open", pause=0.6),
     ), actions=(
-        A("nova", x=280, y=960, enter="left", point=("slides", "says$"),
+        A("rose", x=280, y=960, enter="left", point=("slides", "says$"),
           moods={"secret": "happy", "lookup": "thinking", "dict": "happy"}),
-        A("pixel", x=600, y=780, drop=True, moods={"word": "confused", "dict": "happy"}, beep="word"),
+        A("pixi", x=600, y=780, drop=True, moods={"word": "confused", "dict": "happy"}, beep="word"),
         A("banner", "MISSION: Crack the code", at="slides"),
         A("chip", "grj", at="slides@0.5", until="says", x=900, y=560, color="yellow", size=64),
         A("chip", "Secret note: grj", at="says", x=1240, y=300, color="yellow", size=60),
@@ -92,7 +92,7 @@ EPISODE = Episode(level=2, week=5, scenes=(
     )),
     Scene("l2-w05-s03", setting="lavender", beats=(
         B("Let's build one in the Shell.", cue="build"),
-        B("Nova builds a dictionary called ship: the name is Comet, fuel is 20, and crew is 3.", cue="types",
+        B("Rose builds a dictionary called ship: the name is Comet, fuel is 20, and crew is 3.", cue="types",
           pause=0.3),
         B("Look up the key fuel, and ship gives back 20.", cue="lookup", pause=0.3),
         B("To change a value, use the same key: set fuel to 25.", cue="change", pause=0.3),
@@ -130,14 +130,14 @@ EPISODE = Episode(level=2, week=5, scenes=(
     Scene("l2-w05-s04", setting="mint", beats=(
         B("Bug hunt: two kinds today!", cue="bug", pause=0.3),
         B("The loud one first.", cue="loud"),
-        B("Nova asks ship for the key speed.", cue="types", pause=0.2),
+        B("Rose asks ship for the key speed.", cue="types", pause=0.2),
         B("Red text!", cue="red", pause=0.3),
         B("The last line says KeyError, then the key Python couldn't find, in quotes: speed.", cue="last",
           pause=0.3),
         B("There's no such key!", cue="nokey", pause=0.3),
         B("To be safe, check first: is speed in ship? Python says False.", cue="safe", pause=0.5),
         B("Now the quiet one.", cue="quiet"),
-        B("Nova adds a crew member, setting Crew, with a capital C, to 4.", cue="crew", pause=0.3),
+        B("Rose adds a crew member, setting Crew, with a capital C, to 4.", cue="crew", pause=0.3),
         B("No red text!", cue="nored", pause=0.2),
         B("But crew still says 3.", cue="still", pause=0.2),
         B("Why?", cue="why", pause=1.2),
@@ -147,7 +147,7 @@ EPISODE = Episode(level=2, week=5, scenes=(
         B("There are two crews now.", cue="two"),
         B("Crew with a capital C is a brand new key.", cue="capital", pause=0.2),
         B("Like a real dictionary, the spelling must be exact.", cue="exact", pause=0.3),
-        B("Nova fixes the line to a small c and runs it again.", cue="fixes", pause=0.2),
+        B("Rose fixes the line to a small c and runs it again.", cue="fixes", pause=0.2),
         B("Now crew is 4.", cue="now", pause=0.6),
     ), actions=(
         A("banner", "BUG HUNT!", at="bug", color="navy"),
@@ -203,8 +203,8 @@ EPISODE = Episode(level=2, week=5, scenes=(
         B("See you in the code!", cue="see", pause=0.6),
     ), actions=(
         A("door", "DOOR 5", x=1600, y=920, open="open", until="caesar"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("open", "remember"), ("see", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("open", "remember"), ("see", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Look up by name: key → value", at="dict", until="so", x=1000, y=240, color="orange", size=46),
         A("chip", "KeyError? Check the spelling, or use in", at="kerr", until="so", x=1000, y=370, color="red",
           size=40),

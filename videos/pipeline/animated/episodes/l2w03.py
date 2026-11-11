@@ -1,6 +1,6 @@
 """Level 2 Week 3: Lists: Collections of Things (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, NOVA, Scene
+from ..kit_dsl import A, B, Episode, ROSE, Scene
 
 THREE = ["Mercury", "Venus", "Earth"]
 FOUR = THREE + ["Mars"]
@@ -14,19 +14,19 @@ OKABE_ITO = [("black", "#000000"), ("orange", "#E69F00"), ("sky blue", "#56B4E9"
 
 EPISODE = Episode(level=2, week=3, scenes=(
     Scene("l2-w03-s01", setting="workshop", lead_in=0.2, beats=(
-        B("Nova and Pixel are planning a tour of the planets.", cue="tour", pause=0.3),
-        B("‘Mercury, Venus, Earth…’", speaker=NOVA, cue="names", pause=0.1),
-        B("says Nova.", cue="says", pause=0.3),
+        B("Rose and Pixi are planning a tour of the planets.", cue="tour", pause=0.3),
+        B("‘Mercury, Venus, Earth…’", speaker=ROSE, cue="names", pause=0.1),
+        B("says Rose.", cue="says", pause=0.3),
         B("Should each planet get its own variable?", cue="own", pause=0.3),
         B("planet1, planet2, planet3… and more keep coming!", cue="vars", pause=0.3),
-        B("Pixel is juggling boxes.", cue="juggle", pause=0.3),
+        B("Pixi is juggling boxes.", cue="juggle", pause=0.3),
         B("Is there one box that can hold many things, in order?", cue="one", pause=1.8),
         B("Yes! It's called a list.", cue="yes", pause=0.3),
         B("Let's pack!", cue="pack", pause=0.6),
     ), actions=(
-        A("nova", x=280, y=960, enter="left", point=("names", "says$"), moods={"vars": "surprised", "one": "thinking",
+        A("rose", x=280, y=960, enter="left", point=("names", "says$"), moods={"vars": "surprised", "one": "thinking",
                                                                                "yes": "happy"}, chin=("one", "yes")),
-        A("pixel", x=560, y=760, drop=True, moods={"juggle": "worried", "yes": "happy"},
+        A("pixi", x=560, y=760, drop=True, moods={"juggle": "worried", "yes": "happy"},
           path=[("juggle", 560, 760), ("juggle@0.3", 590, 730), ("juggle@0.6", 530, 760), ("juggle$", 580, 730),
                 ("one", 560, 760)]),
         A("banner", "MISSION: Plan a planet tour", at="tour"),
@@ -82,16 +82,16 @@ EPISODE = Episode(level=2, week=3, scenes=(
         A("chip", "IndexError: list index out of range", at="stops", x=960, y=810, color="red", size=44),
     )),
     Scene("l2-w03-s03", setting="lavender", beats=(
-        B("Let's plan Pixel's tour in the Thonny Shell.", cue="plan"),
-        B("Predict each answer before Pixel runs it!", cue="predict", pause=0.3),
-        B("Nova makes a list called planets, with Mercury, Venus and Earth.", cue="types", pause=0.3),
-        B("Now Nova appends Mars.", cue="append"),
+        B("Let's plan Pixi's tour in the Thonny Shell.", cue="plan"),
+        B("Predict each answer before Pixi runs it!", cue="predict", pause=0.3),
+        B("Rose makes a list called planets, with Mercury, Venus and Earth.", cue="types", pause=0.3),
+        B("Now Rose appends Mars.", cue="append"),
         B("Mars joins at the end.", cue="joins", pause=0.3),
         B("How many items will len count?", cue="len", pause=0.3),
         B("Pause and count…", cue="count", pause=2.4),
         B("four!", cue="four", pause=0.4),
         B("Now let's visit every item.", cue="visit"),
-        B("Nova writes a for loop: for each planet in planets, print it.", cue="loop", pause=0.3),
+        B("Rose writes a for loop: for each planet in planets, print it.", cue="loop", pause=0.3),
         B("The loop visits each item in order: Mercury, Venus, Earth, Mars.", cue="order", pause=0.4),
         B("But what if we also want the locker number?", cue="number"),
         B("Use range with len, so i counts through every locker number.", cue="range", pause=0.2),
@@ -125,10 +125,10 @@ EPISODE = Episode(level=2, week=3, scenes=(
     )),
     Scene("l2-w03-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova starts a new list with just three planets: Mercury, Venus and Earth.", cue="list", pause=0.3),
-        B("‘Earth is the third planet, so it's number 3,’", speaker=NOVA, cue="third", pause=0.1),
-        B("says Nova, and asks Python to print the planet at index 3.", cue="types", pause=0.3),
-        B("Pixel runs it, exactly as written.", cue="runs", pause=0.2),
+        B("Rose starts a new list with just three planets: Mercury, Venus and Earth.", cue="list", pause=0.3),
+        B("‘Earth is the third planet, so it's number 3,’", speaker=ROSE, cue="third", pause=0.1),
+        B("says Rose, and asks Python to print the planet at index 3.", cue="types", pause=0.3),
+        B("Pixi runs it, exactly as written.", cue="runs", pause=0.2),
         B("Red text!", cue="red", pause=0.3),
         B("Read it from the bottom up: IndexError: list index out of range.", cue="bottom", pause=0.4),
         B("Let's be detectives.", cue="detect"),
@@ -142,7 +142,7 @@ EPISODE = Episode(level=2, week=3, scenes=(
         B("So which index is Earth?", cue="which", pause=0.2),
         B("Pause and point.", cue="pp", pause=3.6),
         B("Yes, 2!", cue="yes2", pause=0.2),
-        B("Nova changes the 3 to a 2.", cue="change"),
+        B("Rose changes the 3 to a 2.", cue="change"),
         B("Run again: Earth!", cue="again", pause=0.6),
     ), actions=(
         A("banner", "BUG HUNT!", at="bug", color="navy"),
@@ -156,8 +156,8 @@ EPISODE = Episode(level=2, week=3, scenes=(
         A("chip", "IndexError: list index out of range", at="bottom@0.4", until="change", x=590, y=880,
           color="red", size=40),
         A("chip", "print(planets[2])  →  Earth", at="again", x=590, y=820, color="green", size=40),
-        A("nova", x=1720, y=1060, s=0.5, moods={"red": "surprised", "offby": "thinking", "again": "proud"}),
-        A("bubble", "Earth is number 3!", who="nova", x=1540, y=1060, at="third", until="types$", tail="down-left"),
+        A("rose", x=1720, y=1060, s=0.5, moods={"red": "surprised", "offby": "thinking", "again": "proud"}),
+        A("bubble", "Earth is number 3!", who="rose", x=1540, y=1060, at="third", until="types$", tail="down-left"),
         A("chip", "Draw the boxes: 0 • 1 • 2", at="draw", x=1450, y=220, color="yellow", size=40),
         A("listrow", "paper", x=1420, y=420, cell=180, at="draw@0.4", items=THREE, size=32,
           highlight=[("m0", "v1", 0), ("v1", "e2", 1), ("e2", "no3", 2), ("yes2", "end", 2)]),
@@ -185,8 +185,8 @@ EPISODE = Episode(level=2, week=3, scenes=(
         B("Have fun!", cue="fun", pause=0.6),
     ), actions=(
         A("door", "DOOR 3", x=1600, y=920, open="open", until="rule"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("open", "remember"), ("fun", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("open", "remember"), ("fun", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "List • index from 0 • append • len", at="list", until="rule", x=1000, y=240, color="orange",
           size=44),
         A("listrow", "tour", x=1000, y=500, cell=170, at="list@0.3", until="rule", items=["a", "b", "c"],

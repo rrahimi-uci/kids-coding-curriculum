@@ -9,12 +9,12 @@ from __future__ import annotations
 import math
 
 from .. import props as P
-from ..characters import draw_cat, draw_grown_up, draw_nova, draw_pixel
+from ..characters import draw_cat, draw_grown_up, draw_rose, draw_pixi
 from ..engine import (
     C, FPS, H, W, appear, circle, clamp, ease_in_out, ease_out, fade, fill_rounded, glow, lerp, line,
     progress, set_color, star, text, vertical_gradient,
 )
-from ..timeline import NOVA, SceneTiming
+from ..timeline import ROSE, SceneTiming
 from .week01_script import SCRIPTS
 
 TITLE = "Robots Need Exact Instructions"
@@ -48,8 +48,8 @@ def scene1(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     P.workshop(ctx, gt, floor_y=780)
     P.door(ctx, DOOR_X, FLOOR_Y, 230, 400, gt, locked=True)
     P.chair(ctx, CHAIR_X, FLOOR_Y, 1.0)
-    # Nova slides in while waving
-    nova_x = lerp(-200, 360, ease_out(progress(t, 0.0, 0.9)))
+    # Rose slides in while waving
+    rose_x = lerp(-200, 360, ease_out(progress(t, 0.0, 0.9)))
     mood, point, chin = "happy", 0.0, 0.0
     if t >= sc.at("take"):
         point = ease_out(progress(t, sc.at("take"), 0.3)) * (1 - progress(t, sc.at("zoom") + 0.6, 0.4))
@@ -57,28 +57,28 @@ def scene1(ctx, t: float, sc: SceneTiming, gt: float) -> None:
         mood = "surprised"
     if t >= sc.at("notexact"):
         mood, chin = "thinking", ease_out(progress(t, sc.at("notexact"), 0.4))
-    talk = sc.speaking(NOVA, t, FPS)
+    talk = sc.speaking(ROSE, t, FPS)
     wave = 1.0 if t < sc.end_of("meet") else 0.0
-    draw_nova(ctx, nova_x, FLOOR_Y + 10, 1.0, gt, mood="talk" if talk > 0.05 else mood, talk=talk,
+    draw_rose(ctx, rose_x, FLOOR_Y + 10, 1.0, gt, mood="talk" if talk > 0.05 else mood, talk=talk,
               wave=wave, point=point, look=0.6 if t > sc.at("zoom") else 0.2, hand_on_chin=chin)
-    # Pixel drops in, carries the key, zooms to the chair, beeps proudly
+    # Pixi drops in, carries the key, zooms to the chair, beeps proudly
     zoom_start, zoom_end = sc.at("zoom"), sc.end_of("zoom")
     px = lerp(640, CHAIR_X - 150, ease_in_out(progress(t, zoom_start + 0.2, zoom_end - zoom_start - 0.6)))
     drop = ease_out(progress(t, _f(sc, "meet", 0.45), 0.6))
     py = lerp(-260, 690, drop)
-    pixel_mood = "happy"
+    pixi_mood = "happy"
     beep = 0.0
     if sc.at("beep") <= t < sc.end_of("beep") + 0.2:
-        beep, pixel_mood = 1.0, "proud"
+        beep, pixi_mood = 1.0, "proud"
     elif t >= sc.end_of("beep") + 0.2:
-        pixel_mood = "proud"
+        pixi_mood = "proud"
     carrying = sc.at("task") + 0.8 <= t < zoom_end - 0.3
-    draw_pixel(ctx, px, py, 0.95, gt, mood=pixel_mood, carrying=carrying, beep=beep, ground=FLOOR_Y)
-    # the glowing key: appears, floats to Pixel, rides along, then lands on the chair
+    draw_pixi(ctx, px, py, 0.95, gt, mood=pixi_mood, carrying=carrying, beep=beep, ground=FLOOR_Y)
+    # the glowing key: appears, floats to Pixi, rides along, then lands on the chair
     if t >= sc.at("task"):
         appear_amount = appear(t, sc.at("task"), 0.4)
         if t < sc.at("task") + 0.8:
-            kx, ky = lerp(nova_x + 140, px, progress(t, sc.at("task") + 0.3, 0.5)), 560
+            kx, ky = lerp(rose_x + 140, px, progress(t, sc.at("task") + 0.3, 0.5)), 560
         elif carrying:
             kx, ky = px, py - 115 + math.sin(gt * 3.1) * 7
         else:
@@ -86,20 +86,20 @@ def scene1(ctx, t: float, sc: SceneTiming, gt: float) -> None:
             kx, ky = lerp(px, CHAIR_X, landing), lerp(py - 115, FLOOR_Y - 128, landing)
         P.key(ctx, kx, ky, 1.1 * appear_amount, gt, glowing=True)
     # name tags
-    P.chip(ctx, 360, FLOOR_Y + 70, "Nova", t, _f(sc, "meet", 0.05), color=C["white"], size=36)
+    P.chip(ctx, 360, FLOOR_Y + 70, "Rose", t, _f(sc, "meet", 0.05), color=C["white"], size=36)
     if t < zoom_start:
-        P.chip(ctx, 640, FLOOR_Y + 70, "Pixel", t, _f(sc, "meet", 0.45), color=C["white"], size=36)
-    # Nova's line and the mission
-    P.speech_bubble(ctx, nova_x + 70, FLOOR_Y - 470, "Take it over there!", t, sc.at("take"), sc.at("zoom") + 0.6)
+        P.chip(ctx, 640, FLOOR_Y + 70, "Pixi", t, _f(sc, "meet", 0.45), color=C["white"], size=36)
+    # Rose's line and the mission
+    P.speech_bubble(ctx, rose_x + 70, FLOOR_Y - 470, "Take it over there!", t, sc.at("take"), sc.at("zoom") + 0.6)
     P.title_banner(ctx, "MISSION: Deliver the key", t, sc.at("task"), y=90)
     if t >= sc.at("exactly"):
         for i, dx in enumerate((-40, 20, 70)):
             amount = appear(t, sc.at("exactly") + i * 0.12, 0.3)
-            text(ctx, "?", nova_x + dx, FLOOR_Y - 560 - 10 * math.sin(gt * 4 + i), 70, C["vermillion"], bold=True,
+            text(ctx, "?", rose_x + dx, FLOOR_Y - 560 - 10 * math.sin(gt * 4 + i), 70, C["vermillion"], bold=True,
                  scale=amount, alpha=1 - progress(t, sc.at("question"), 0.3))
     q_start, q_end = _w(sc, "question")
     P.chip(ctx, W / 2, 205, "Pause: What exact steps would you give?", t, q_start, color=C["yellow"], size=40)
-    P.thought_bubble(ctx, nova_x + 330, FLOOR_Y - 520, t, q_start + 0.8, q_end - 0.1)
+    P.thought_bubble(ctx, rose_x + 330, FLOOR_Y - 520, t, q_start + 0.8, q_end - 0.1)
 
 
 def sfx1(sc: SceneTiming) -> list[tuple[float, str]]:
@@ -123,9 +123,9 @@ def _tile(col: float, row: float) -> tuple[float, float]:
 PATH_OK = [((0, 3), 0), ((0, 0), 0), ((0, 0), 90), ((2, 0), 90)]  # (tile, heading in degrees: 0 = up, 90 = right)
 
 
-def _pixel_on_grid(ctx, t, gt, col, row, heading, carrying, mood="happy", beep=0.0):
+def _pixi_on_grid(ctx, t, gt, col, row, heading, carrying, mood="happy", beep=0.0):
     x, y = _tile(col, row)
-    # heading arrow under Pixel shows which way is "forward"
+    # heading arrow under Pixi shows which way is "forward"
     ctx.save()
     ctx.translate(x, y + 30)
     ctx.rotate(math.radians(heading))
@@ -136,7 +136,7 @@ def _pixel_on_grid(ctx, t, gt, col, row, heading, carrying, mood="happy", beep=0
     set_color(ctx, C["orange"])
     ctx.fill()
     ctx.restore()
-    draw_pixel(ctx, x, y + 40, 0.42, gt, mood=mood, carrying=carrying, beep=beep, ground=y + 58)
+    draw_pixi(ctx, x, y + 40, 0.42, gt, mood=mood, carrying=carrying, beep=beep, ground=y + 58)
     if carrying:
         P.key(ctx, x, y - 22, 0.5, gt, glowing=False)
 
@@ -170,13 +170,13 @@ def scene2(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     vertical_gradient(ctx, 0, 0, W, H, "#E8F5FF", "#FFF8EC")
     try_t = sc.at("try")
     intro_out = progress(t, try_t - 0.3, 0.5)
-    # --- part A: computers are like Pixel (before "Let's try one")
+    # --- part A: computers are like Pixi (before "Let's try one")
     if intro_out < 1:
         alpha = 1 - intro_out
         ctx.save()
         ctx.push_group()
-        draw_pixel(ctx, 620, 720, 1.1, gt, mood="confused" if t >= sc.at("mind") else "happy", ground=860)
-        # a friendly laptop = Pixel
+        draw_pixi(ctx, 620, 720, 1.1, gt, mood="confused" if t >= sc.at("mind") else "happy", ground=860)
+        # a friendly laptop = Pixi
         lx, ly = 1180, 560
         laptop = appear(t, _f(sc, "secret", 0.4))
         if laptop > 0:
@@ -212,7 +212,7 @@ def scene2(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     order = [1, 2, 3, 4]
     reorder = ease_in_out(progress(t, swap_t + 0.2, 0.7))
     pos_a, pos_b = _cards_positions([1, 2, 3, 4]), _cards_positions([4, 1, 2, 3])
-    # where is Pixel?
+    # where is Pixi?
     s1, s1e = _w(sc, "s1")
     s2, s2e = _w(sc, "s2")
     s3, s3e = _w(sc, "s3")
@@ -240,7 +240,7 @@ def scene2(ctx, t: float, sc: SceneTiming, gt: float) -> None:
         col = lerp(0, 2, ease_in_out(progress(t, run0 + 1.8, 0.6)))
         mood = "confused" if t > run0 + 2.4 else "happy"
     _grid(ctx, door_open, 0, t, gt, key_at=key_at)
-    _pixel_on_grid(ctx, t, gt, col, row, heading, carrying, mood=mood)
+    _pixi_on_grid(ctx, t, gt, col, row, heading, carrying, mood=mood)
     # the four step cards
     current = None
     for cue, step in (("s1", 1), ("s2", 2), ("s3", 3), ("s4", 4)):
@@ -259,11 +259,11 @@ def scene2(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     if t >= swap_t + 3.4:
         P.badge(ctx, _tile(3, 0)[0], _tile(3, 0)[1] - 110, 40, False, t, swap_t + 3.4)
     ctx.restore()
-    # Nova cheers "It worked!" from the corner
-    nova_in = appear(t, sc.at("worked") - 0.3) * (1 - progress(t, swap_t, 0.4))
-    if nova_in > 0:
-        talk = sc.speaking(NOVA, t, FPS)
-        draw_nova(ctx, 1700, 1180 - 230 * nova_in, 0.55, gt, mood="talk" if talk > 0.05 else "happy", talk=talk, wave=1.0)
+    # Rose cheers "It worked!" from the corner
+    rose_in = appear(t, sc.at("worked") - 0.3) * (1 - progress(t, swap_t, 0.4))
+    if rose_in > 0:
+        talk = sc.speaking(ROSE, t, FPS)
+        draw_rose(ctx, 1700, 1180 - 230 * rose_in, 0.55, gt, mood="talk" if talk > 0.05 else "happy", talk=talk, wave=1.0)
     if t >= sc.at("different"):
         P.chip(ctx, 1400, 860, "Same steps + new order = new result", t, sc.at("different"), color=C["white"], size=36)
     if t >= sc.at("matters"):
@@ -435,7 +435,7 @@ def scene4(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     ctx.translate(0, (1 - show) * 80)
     # code panel on the left
     fill_rounded(ctx, 100, 200, 820, 520, 30, C["white"], stroke=C["navy"], width=5)
-    text(ctx, "Nova's script", 140, 250, 36, C["navy"], bold=True, anchor="left")
+    text(ctx, "Rose's script", 140, 250, 36, C["navy"], bold=True, anchor="left")
     move_t = sc.at("move")
     swap = ease_in_out(progress(t, move_t + 0.2, 0.8))
     slot = lambda i: 400 + i * 80  # noqa: E731
@@ -444,7 +444,7 @@ def scene4(ctx, t: float, sc: SceneTiming, gt: float) -> None:
     lift = math.sin(swap * math.pi) * 40
     # when the script runs: before the fix and after it
     run1 = sc.at("blocks") + 0.2
-    run2 = sc.at("works") - 1.4  # the fixed script runs just before Nova says it works
+    run2 = sc.at("works") - 1.4  # the fixed script runs just before Rose says it works
     blocks_cue_end = _w(sc, "blocks")[1]
     hl_thanks = hl_welcome = 0.0
     bubble = None
@@ -479,23 +479,23 @@ def scene4(ctx, t: float, sc: SceneTiming, gt: float) -> None:
         cx = stage_x + 20 + side * (stage_w - 140)
         fill_rounded(ctx, cx, stage_y + 20, 100, stage_h - 40, 20, C["vermillion"])
     fill_rounded(ctx, stage_x + 20, stage_y + stage_h - 70, stage_w - 40, 50, 10, C["wood"])
-    pixel_mood = "happy"
+    pixi_mood = "happy"
     if blocks_cue_end - 2.0 <= t < sc.at("works") - 1.4 and not bubble:
-        pixel_mood = "confused"
-    draw_pixel(ctx, stage_x + stage_w / 2, stage_y + stage_h - 90, 0.62, gt, mood=pixel_mood,
+        pixi_mood = "confused"
+    draw_pixi(ctx, stage_x + stage_w / 2, stage_y + stage_h - 90, 0.62, gt, mood=pixi_mood,
                beep=1.0 if bubble else 0.0, ground=stage_y + stage_h - 60)
     if bubble:
         P.speech_bubble(ctx, stage_x + stage_w / 2, stage_y + 150, bubble[0], t, bubble[1], bubble[2] - 0.15,
                         size=34, tail="down")
     ctx.restore()
-    # Nova reacts at the bottom left
-    talk = sc.speaking(NOVA, t, FPS)
+    # Rose reacts at the bottom left
+    talk = sc.speaking(ROSE, t, FPS)
     mood = "happy"
     if sc.at("backwards") - 0.6 <= t < sc.at("right"):
         mood = "confused"
     if t >= sc.at("works") - 0.2:
         mood = "proud"
-    draw_nova(ctx, 300, 1075, 0.62, gt, mood="talk" if talk > 0.05 else mood, talk=talk,
+    draw_rose(ctx, 300, 1075, 0.62, gt, mood="talk" if talk > 0.05 else mood, talk=talk,
               hand_on_chin=1.0 if mood == "confused" else 0.0, wave=1.0 if t >= sc.at("works") else 0.0)
     # detective steps (two columns under the stage)
     labels = ["What did we expect?", "What happened?", "Read one block at a time", "Change one thing. Test."]
@@ -544,10 +544,10 @@ def scene5(ctx, t: float, sc: SceneTiming, gt: float) -> None:
         for i in range(6):
             a = gt * 1.5 + i
             star(ctx, 1635 + 180 * math.cos(a), 700 + 120 * math.sin(a), 10, C["yellow"], 0.8, rotation=gt)
-    talk = sc.speaking(NOVA, t, FPS)
+    talk = sc.speaking(ROSE, t, FPS)
     cheer = t < sc.at("remember") or t >= sc.at("happy")
-    draw_nova(ctx, 260, 1010, 0.72, gt, mood="proud" if cheer else "happy", wave=1.0 if cheer else 0.0, talk=talk)
-    draw_pixel(ctx, 470, 860, 0.62, gt, mood="proud" if cheer else "happy", ground=1000)
+    draw_rose(ctx, 260, 1010, 0.72, gt, mood="proud" if cheer else "happy", wave=1.0 if cheer else 0.0, talk=talk)
+    draw_pixi(ctx, 470, 860, 0.62, gt, mood="proud" if cheer else "happy", ground=1000)
     # recap chips
     r_items = [("r1", "Exact steps = algorithm", C["orange_light"]), ("r2", "Order = sequence", C["green_light"]),
                ("r3", "Top → bottom", C["sky_light"])]
@@ -571,7 +571,7 @@ def scene5(ctx, t: float, sc: SceneTiming, gt: float) -> None:
         ctx.translate(900, 300)
         ctx.scale(card, card)
         fill_rounded(ctx, -260, -90, 520, 180, 30, C["white"], stroke=C["green"], width=6)
-        draw_pixel(ctx, -170, 40, 0.38, gt, mood="happy", ground=60)
+        draw_pixi(ctx, -170, 40, 0.38, gt, mood="happy", ground=60)
         text(ctx, "StarCoder", 40, -20, 54, C["navy"], bold=True)
         text(ctx, "my coding nickname", 40, 40, 30, C["green"], bold=True)
         ctx.restore()
@@ -643,8 +643,8 @@ def intro(ctx, t: float, gt: float) -> None:
     if sub > 0:
         fill_rounded(ctx, W / 2 - 520, H / 2 + 150, 1040, 110, 55, C["white"], sub)
         text(ctx, f"Week {WEEK}: {TITLE}", W / 2, H / 2 + 205, 52, C["navy"], bold=True, alpha=sub)
-    draw_pixel(ctx, 260, 980 + 40 * (1 - ease_out(progress(t, 0.6, 0.8))), 0.6, gt, mood="happy", ground=1040)
-    draw_nova(ctx, 1660, 1110 - 120 * ease_out(progress(t, 0.9, 0.8)), 0.6, gt, mood="happy", wave=1.0)
+    draw_pixi(ctx, 260, 980 + 40 * (1 - ease_out(progress(t, 0.6, 0.8))), 0.6, gt, mood="happy", ground=1040)
+    draw_rose(ctx, 1660, 1110 - 120 * ease_out(progress(t, 0.9, 0.8)), 0.6, gt, mood="happy", wave=1.0)
 
 
 def outro(ctx, t: float, gt: float) -> None:
@@ -654,8 +654,8 @@ def outro(ctx, t: float, gt: float) -> None:
     text(ctx, "See you next time!", W / 2, 640, 56, C["white"], bold=True, alpha=a)
     text(ctx, "Narration uses AI-generated voices.", W / 2, 790, 38, C["led"], bold=True, alpha=a)
     text(ctx, "Kids Coding • Level 1 • Grades 4–5", W / 2, 860, 32, "#C9D6E3", alpha=a)
-    draw_pixel(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)
-    draw_nova(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
+    draw_pixi(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)
+    draw_rose(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
 
 
 SCENES = [scene1, scene2, scene3, scene4, scene5]

@@ -6,15 +6,15 @@ Level 1 Week 1. **Worked example: `episodes/l1w02.py`** (read it first). Style r
 `episodes/week01.py` + `week01_script.py`.
 
 ```python
-from ..kit_dsl import A, B, Episode, NOVA, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, ROSE, PIXI, Scene
 
 EPISODE = Episode(level=2, week=3, scenes=(
     Scene("l2-w03-s01", setting="workshop", lead_in=0.2, beats=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
-        B("‘Can we keep all my stickers in one place?’", speaker=NOVA, cue="ask", pause=0.1),
-        B("asks Nova.", cue="asks"),
+        B("‘Can we keep all my stickers in one place?’", speaker=ROSE, cue="ask", pause=0.1),
+        B("asks Rose.", cue="asks"),
     ), actions=(
-        A("nova", x=320, y=960, enter="left", wave="welcome"),
+        A("rose", x=320, y=960, enter="left", wave="welcome"),
         A("banner", "MISSION: One box for many things", at="ask"),
     )),
     ...
@@ -27,8 +27,8 @@ EPISODE = Episode(level=2, week=3, scenes=(
    that scene's `narration` in `videos/specs/level{L}.json` (only whitespace and curly vs straight
    quotes are ignored). Split narration into beats at sentences or natural phrases. Keep the quote
    marks inside the beat text.
-2. **Speakers:** text inside ‘…’ that a character says is its own beat with `speaker=NOVA` or
-   `speaker=PIXEL`. "says Nova" stays a narrator beat. Nova's mouth moves and Pixel's lights flash
+2. **Speakers:** text inside ‘…’ that a character says is its own beat with `speaker=ROSE` or
+   `speaker=PIXI`. "says Rose" stays a narrator beat. Rose's mouth moves and Pixi's lights flash
    automatically while they speak.
 3. **Every important idea is shown while it is said.** Use the cue of the beat that says it.
    Every item of the spec scene's `on_screen_text` must appear on screen at the right moment, spelled
@@ -81,13 +81,13 @@ after `until`. Actions are drawn in list order, so later ones sit on top. Positi
 
 | Kind | Options |
 |---|---|
-| `nova` | `x`, `y` (feet; 960 on the workshop floor), `s` (0.5–1.0), `enter="left"/"right"`, `moods={time: mood}`, `wave`, `point`, `chin` (thinking pose), `look` ({time: -1..1}), `path=[(time, x, y)]`, `label` |
-| `pixel` | `x`, `y` (body bottom; about 760–860 on the floor), `s` (0.4–1.0), `ground` (shadow y), `drop=True` (falls in), `moods`, `beep`, `carrying`, `path`, `label` |
+| `rose` | `x`, `y` (feet; 960 on the workshop floor), `s` (0.5–1.0), `enter="left"/"right"`, `moods={time: mood}`, `wave`, `point`, `chin` (thinking pose), `look` ({time: -1..1}), `path=[(time, x, y)]`, `label` |
+| `pixi` | `x`, `y` (body bottom; about 760–860 on the floor), `s` (0.4–1.0), `ground` (shadow y), `drop=True` (falls in), `moods`, `beep`, `carrying`, `path`, `label` |
 | `cat`, `grownup` | `x`, `y`, `s`, `path`; cat: `talk` |
 | `key`, `door`, `chair`, `laptop`, `pointer`, `magnifier` | `x`, `y`, `s`; key: `glow`; door: text = sign, `open=time`, `locked`; pointer/magnifier: `path` |
 
-Moods are `happy`, `surprised`, `confused`, `thinking`, `worried` and `proud`. Pixel also has its LED
-faces. Scenes usually place Nova at x≈260–360 and Pixel at x≈470–700, with props on the right.
+Moods are `happy`, `surprised`, `confused`, `thinking`, `worried` and `proud`. Pixi also has its LED
+faces. Scenes usually place Rose at x≈260–360 and Pixi at x≈470–700, with props on the right.
 
 **Text and callouts**
 
@@ -96,7 +96,7 @@ faces. Scenes usually place Nova at x≈260–360 and Pixel at x≈470–700, wi
 | `banner` | text; `color` (`navy`, `green`, `orange`, `blue`, `red`, `purple`); `y` (default 96); use it for MISSION / BUG HUNT! / NEXT: … |
 | `chip` | text; `x`, `y`, `color` (`sky`, `orange`, `green`, `yellow`, `pink`, `purple`, `red`, `white`, `navy`), `size` (default 42) |
 | `bigtext` | text; `x`, `y` (default 960), `size`, `color`; one big takeaway |
-| `bubble` | text; `who="nova"/"pixel"/"cat"` with that character's `x`, `y`, or a plain `x`, `y`; `tail` |
+| `bubble` | text; `who="rose"/"pixi"/"cat"` with that character's `x`, `y`, or a plain `x`, `y`; `tail` |
 | `thought` | text (empty = three bouncing dots); `x`, `y`; use it during prediction pauses |
 | `panel` | title text; `x`, `y`, `w`, `items=[(time, "line"), ...]`, `size` |
 | `cards` | numbered steps: `items=[...]`, `x`, `y`, `w`, `gap`, `reveal=[time per item]`, `active=[window per item]`, `done=[time per item]`, `reorder=(time, [new order])`, `color` |
@@ -110,7 +110,7 @@ faces. Scenes usually place Nova at x≈260–360 and Pixel at x≈470–700, wi
 | `code` | A Thonny editor. Options: `code="..."`, `title="main.py"`, `x`, `y`, `w`, `h`, `size`. It types with `type=(from, to)`, or shows line by line with `reveal=[time per line]`, or shows everything at `at`. `highlight=[(line, from, to)]`. `run=time` presses Run and fills the Shell with the **real** output. `inputs=[...]` answers `input()`. `expect=[...]` is required when run. `error_line=N` underlines the line when the run raises; `allow_error=True` is needed if the error is the lesson. `traceback=True` shows the whole traceback (file, line number, source line, error) exactly as Thonny does; use it when the narration reads the line number. `exec="..."` runs fuller code than is shown. `shell=False` hides the Shell. |
 | `turtle` | A turtle window that draws what the code really draws: `code="..."` (a whole program), `x`, `y`, `w`, `h`, `run=time` (default `at`), `duration` (seconds of drawing), `world` (zoom; it fits automatically) |
 | `scratch` | A block stack: `blocks=[(kind, "text"), ("control", "repeat [4]", [inner...]), ("control", "if <cond> then", [inner], [else inner])]`. Kinds: event, motion, looks, sound, control, sensing, operators, variables, pen, myblocks. `[x]` is an input; `{flag}` is the green flag. Options: `reveal=[time per block]`, `highlight=[(index, from, to)]`, `swap=(time, i, j)`, `edits=[(time, index, "new text")]`, title text, `x`, `y`, `w`, `h`, `scale`, `panel=False` |
-| `stage` | A Scratch stage. Options: `x`, `y`, `w`, `h`, `sprite` (cat, pixel, ghost, apple, bowl, star, balloon), `sprite_x`, `sprite_y` (stage coordinates, (0, 0) = middle), `flag_at`, `monitors=[(name, [(time, value)])]`, `extra=[(sprite, x, y)]`. `actions=[(time, "say", text, secs), (time, "move", steps, secs), (time, "turn", deg, secs), (time, "goto", x, y, secs), (time, "draw", sides, length, secs[, turn]), (time, "clear"), (time, "hide"/"show")]` |
+| `stage` | A Scratch stage. Options: `x`, `y`, `w`, `h`, `sprite` (cat, pixi, ghost, apple, bowl, star, balloon), `sprite_x`, `sprite_y` (stage coordinates, (0, 0) = middle), `flag_at`, `monitors=[(name, [(time, value)])]`, `extra=[(sprite, x, y)]`. `actions=[(time, "say", text, secs), (time, "move", steps, secs), (time, "turn", deg, secs), (time, "goto", x, y, secs), (time, "draw", sides, length, secs[, turn]), (time, "clear"), (time, "hide"/"show")]` |
 | `terminal` | `lines=[(time, "git status", "cmd"), (time, "On branch main", "out"), ...]` (commands are typed with a `$` prompt) |
 | `tests` | `items=[(time, "test_name", passed)]`, title text |
 | `file` | file name text; `lines=[...]` or `states=[(time, [lines])]` |
@@ -143,7 +143,7 @@ sounds. Add `sfx` only for story moments.
 
 ## A good scene (what reviewers check)
 
-- **Hook (workshop):** Nova and Pixel, the mission banner, a story problem acted out, and a question
+- **Hook (workshop):** Rose and Pixi, the mission banner, a story problem acted out, and a question
   with a thinking pause.
 - **Idea:** one concept at a time, with a diagram that changes as the words change, and the spec's
   on-screen text as chips.

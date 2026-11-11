@@ -1,6 +1,6 @@
 """Level 2 Week 8: Testing: Prove It Works (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 COIN_TOOLS = '''def total_coins(bags):
     total = 0
@@ -28,24 +28,24 @@ TEST_NAME = '''def test_two_plus_two():
 EPISODE = Episode(level=2, week=8, scenes=(
     Scene("l2-w08-s01", setting="workshop", lead_in=0.2, beats=(
         B("Hi, coders!", cue="hi", pause=0.3),
-        B("Nova's coin game is ready to share.", cue="ready", pause=0.3),
-        B("But this morning, Nova changed one line.", cue="changed", pause=0.3),
+        B("Rose's coin game is ready to share.", cue="ready", pause=0.3),
+        B("But this morning, Rose changed one line.", cue="changed", pause=0.3),
         B("Is everything still right?", cue="right", pause=0.6),
-        B("Pixel plays the game.", cue="plays", pause=0.2),
+        B("Pixi plays the game.", cue="plays", pause=0.2),
         B("Then again.", cue="again", pause=0.2),
         B("And again.", cue="again2", pause=0.2),
         B("Fifty times!", cue="fifty", pause=0.4),
-        B("‘Checking by hand is slow,’", speaker=PIXEL, cue="slow", pause=0.1),
-        B("says Pixel.", cue="says", pause=0.2),
-        B("‘My battery is at two percent.’", speaker=PIXEL, cue="battery", pause=0.5),
+        B("‘Checking by hand is slow,’", speaker=PIXI, cue="slow", pause=0.1),
+        B("says Pixi.", cue="says", pause=0.2),
+        B("‘My battery is at two percent.’", speaker=PIXI, cue="battery", pause=0.5),
         B("What if a tiny program could check the game for us, in less than a second?", cue="whatif", pause=2.2),
     ), actions=(
         A("laptop", x=1450, y=860, s=1.1),
         A("chip", "Coin Game", at="ready", x=1450, y=665, color="yellow", size=40),
         A("chip", "1 line changed", at="changed", until="plays", x=1450, y=520, color="orange", size=38),
-        A("nova", x=300, y=960, enter="left", wave="hi",
+        A("rose", x=300, y=960, enter="left", wave="hi",
           moods={"changed": "thinking", "right": "worried", "whatif": "happy"}),
-        A("pixel", x=650, y=760, drop=True, moods={"plays": "happy", "fifty": "worried", "whatif": "thinking"},
+        A("pixi", x=650, y=760, drop=True, moods={"plays": "happy", "fifty": "worried", "whatif": "thinking"},
           beep=[("plays", "fifty$")]),
         A("box", "games played", x=1180, y=505, w=300, at="plays",
           values=[("plays", 1), ("again", 2), ("again2", 3), ("fifty", 10), ("fifty+0.3", 25), ("fifty+0.6", 50)],
@@ -110,9 +110,9 @@ EPISODE = Episode(level=2, week=8, scenes=(
     )),
     Scene("l2-w08-s03", setting="lavender", beats=(
         B("Let's test one.", cue="testone", pause=0.3),
-        B("Nova's file, coin tools, has a function called total coins.", cue="file", pause=0.2),
+        B("Rose's file, coin tools, has a function called total coins.", cue="file", pause=0.2),
         B("It adds up the coins in a list of bags.", cue="adds", pause=0.6),
-        B("Now Nova makes a test file.", cue="testfile", pause=0.3),
+        B("Now Rose makes a test file.", cue="testfile", pause=0.3),
         B("First, it imports total coins from coin tools.", cue="import", pause=0.3),
         B("Then a test function called test three bags.", cue="def", pause=0.3),
         B("Inside, an assert checks that total coins for bags of two, five and three is ten, with the message: two "
@@ -122,7 +122,7 @@ EPISODE = Episode(level=2, week=8, scenes=(
         B("Now an edge case: a bag with zero coins in the middle.", cue="edge", pause=0.3),
         B("Its assert checks that four, zero and six add up to ten.", cue="assert2", pause=0.4),
         B("At the bottom, three lines let the Run button start pytest.", cue="bottom", pause=0.4),
-        B("Pixel presses Run.", cue="run", pause=0.6),
+        B("Pixi presses Run.", cue="run", pause=0.6),
         B("Two lines say PASSED, and the last line says two passed!", cue="passed", pause=0.8),
     ), actions=(
         A("code", code=COIN_TOOLS, title="coin_tools.py", x=80, y=200, w=1000, h=380, shell=False, at="file",
@@ -146,14 +146,14 @@ EPISODE = Episode(level=2, week=8, scenes=(
         A("tests", "pytest", at="run", x=50, y=770, w=1160,
           items=[("run+0.6", "test_coins.py::test_three_bags", True),
                  ("run+1.0", "test_coins.py::test_empty_bag_in_the_middle", True)]),
-        A("pixel", x=1560, y=880, s=0.5, ground=980, at="bottom", beep=("run", "run$")),
+        A("pixi", x=1560, y=880, s=0.5, ground=980, at="bottom", beep=("run", "run$")),
         A("chip", "Press Run: 2 passed", at="passed@0.6", x=1560, y=170, color="green", size=44),
         A("badge", ok=True, at="passed@0.6", x=1780, y=640),
     )),
     Scene("l2-w08-s04", setting="mint", beats=(
         B("Bug hunt!", cue="bug", pause=0.3),
-        B("Nova tidies up total coins and changes one line.", cue="tidies", pause=0.3),
-        B("Pixel presses Run.", cue="run", pause=0.3),
+        B("Rose tidies up total coins and changes one line.", cue="tidies", pause=0.3),
+        B("Pixi presses Run.", cue="run", pause=0.3),
         B("Both tests FAILED!", cue="failed", pause=0.5),
         B("Let's read it from the bottom up.", cue="bottom", pause=0.2),
         B("The last line is the score: two failed.", cue="score", pause=0.3),
@@ -165,9 +165,9 @@ EPISODE = Episode(level=2, week=8, scenes=(
         B("Two plus five plus three really is ten.", cue="really", pause=0.3),
         B("So the code is wrong, and the test stays.", cue="stays", pause=0.3),
         B("Pause and point.", cue="pause", pause=4.0),
-        B("Inside the loop, Nova wrote total equals coins.", cue="wrote", pause=0.3),
+        B("Inside the loop, Rose wrote total equals coins.", cue="wrote", pause=0.3),
         B("That throws away the old total each time.", cue="throws", pause=0.4),
-        B("Nova changes it to total equals total plus coins.", cue="changes", pause=0.4),
+        B("Rose changes it to total equals total plus coins.", cue="changes", pause=0.4),
         B("Run again: two passed!", cue="again", pause=1.2),
         B("Sneaky fact: a test with just one bag would pass, even with this bug.", cue="sneaky", pause=0.8),
     ), actions=(
@@ -229,8 +229,8 @@ EPISODE = Episode(level=2, week=8, scenes=(
         B("Then write an assert in each one, and add a test on a limit.", cue="write", pause=0.4),
         B("Happy testing!", cue="happy", pause=0.6),
     ), actions=(
-        A("nova", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud", "why": "thinking", "write": "happy"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("start", "remember"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud", "why": "thinking", "write": "happy"}),
         A("chip", "assert • test_ • pytest", at="assert", until="mars", x=1150, y=460, color="orange", size=46),
         A("tests", "pytest", at="pytest", until="mars", x=1500, y=560, w=380,
           items=[("pytest@0.6", "test_a", True), ("pytest@0.8", "test_b", False)]),

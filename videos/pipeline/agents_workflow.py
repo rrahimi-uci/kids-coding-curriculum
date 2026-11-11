@@ -75,7 +75,7 @@ Course rules that every script must follow:
 - The digital-citizenship point is the one the syllabus and lesson give for this week, in their words.
 - NEVER reveal an answer the learner must find: no exercise, homework, relay, exit-ticket,
   card-sort or project-reference fix. Teach the idea with a nearby, different example instead.
-- Nova (a ten-year-old coder) writes the code; Pixel (a literal helper robot) runs it exactly.
+- Rose (a ten-year-old coder) writes the code; Pixi (a literal helper robot) runs it exactly.
   Do not give either character a gendered pronoun.
 - Only nicknames and invented data on screen; never ask for real personal information.
 """.strip()
@@ -94,7 +94,7 @@ video should hand off to, and list the exact repository paths that support the b
 
 SCRIPTWRITER_INSTRUCTIONS = f"""
 You write one friendly, accurate teaching-video script for {AUDIENCE}. Use the recurring
-Kids Coding characters Nova and Pixel without making the tone babyish. The complete episode
+Kids Coding characters Rose and Pixi without making the tone babyish. The complete episode
 must be 180-300 seconds; each scene's narration must fit its own duration at 145 spoken words
 per minute, leaving room for pauses. Use 4-7 scenes in the series rhythm: mission hook, one
 plain-language idea, a worked example, a friendly bug hunt, and a recap with the safety point

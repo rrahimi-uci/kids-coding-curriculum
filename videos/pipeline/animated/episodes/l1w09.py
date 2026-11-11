@@ -1,6 +1,6 @@
 """Level 1 Week 9: Variables, Input, and Choices (kit episode)."""
 
-from ..kit_dsl import A, B, Episode, PIXEL, Scene
+from ..kit_dsl import A, B, Episode, PIXI, Scene
 
 ASK_CONVERT = """color_name = input("Portal glow color? ")
 size = int(input("Pick a size: "))
@@ -41,17 +41,17 @@ EPISODE = Episode(level=1, week=9, scenes=(
         B("Welcome back to Kids Coding!", cue="welcome", pause=0.3),
         B("The next door asks,", cue="asks", pause=0.1),
         B("‘Choose a portal size: 40, 80, or 120.’", cue="portal", pause=0.3),
-        B("Nova types 80.", cue="types", pause=0.3),
-        B("Pixel stores the answer, but then tries to add ten and gets stuck.", cue="stores", pause=0.4),
+        B("Rose types 80.", cue="types", pause=0.3),
+        B("Pixi stores the answer, but then tries to add ten and gets stuck.", cue="stores", pause=0.4),
         B("The input looked like a number.", cue="looked", pause=0.3),
         B("So why does Python see it as text?", cue="why", pause=1.8),
         B("And how can our program choose the right portal?", cue="choose", pause=2.6),
     ), actions=(
         A("door", "DOOR 9", x=1560, y=900),
-        A("nova", x=300, y=960, enter="left", wave="welcome",
+        A("rose", x=300, y=960, enter="left", wave="welcome",
           moods={"types": "happy", "stores": "surprised", "why": "thinking"}, chin=("why", "end"),
           point=("types", "types>")),
-        A("pixel", x=620, y=760, drop=True, beep=("stores", "stores@0.5"),
+        A("pixi", x=620, y=760, drop=True, beep=("stores", "stores@0.5"),
           moods={"stores@0.5": "confused", "choose": "thinking"}),
         A("banner", "MISSION: Ask, remember, choose", at="asks"),
         A("bubble", "Choose a portal size: 40, 80, or 120.", x=1540, y=520, tail="down-right", at="portal",
@@ -121,10 +121,10 @@ EPISODE = Episode(level=1, week=9, scenes=(
     )),
     Scene("w09-s04", setting="mint", beats=(
         B("Time for a bug hunt!", cue="bug", pause=0.3),
-        B("Pixel asks,", cue="asks", pause=0.1),
-        B("‘How many steps should I walk?’", speaker=PIXEL, cue="howmany", pause=0.2),
-        B("Nova types 100.", cue="types", pause=0.3),
-        B("Expected: Pixel walks 100 steps.", cue="expected", pause=0.3),
+        B("Pixi asks,", cue="asks", pause=0.1),
+        B("‘How many steps should I walk?’", speaker=PIXI, cue="howmany", pause=0.2),
+        B("Rose types 100.", cue="types", pause=0.3),
+        B("Expected: Pixi walks 100 steps.", cue="expected", pause=0.3),
         B("Actual: a red TypeError!", cue="actual", pause=0.4),
         B("Pause: what's inside the box called steps?", cue="pause", pause=2.6),
         B("Type steps in the Shell.", cue="shell", pause=0.3),
@@ -154,7 +154,7 @@ EPISODE = Episode(level=1, week=9, scenes=(
           until="again@0.75"),
         A("turtle", code=_walk(250), x=1240, y=190, w=600, h=440, world=300, at="again@0.75", duration=1.2,
           until="more"),
-        A("pixel", x=1180, y=1000, s=0.42, ground=1030, beep="howmany",
+        A("pixi", x=1180, y=1000, s=0.42, ground=1030, beep="howmany",
           moods={"actual": "confused", "again$": "proud"}, until="more"),
         A("bubble", "How many steps should I walk?", x=1230, y=820, at="howmany", until="types$", size=34),
         A("chip", "Expected: walks 100 steps", at="expected", until="pause", x=620, y=900, color="green", size=40),
@@ -172,7 +172,7 @@ EPISODE = Episode(level=1, week=9, scenes=(
         A("chip", "No crash → else", at="crash", x=1500, y=360, color="sky", size=42),
         A("chip", '"Blue" ≠ "blue"', at="crash@0.6", x=1500, y=500, color="yellow", size=48),
         A("chip", "A friendly else message helps", at="friendly", x=1500, y=640, color="green", size=38),
-        A("nova", x=1500, y=1060, s=0.5, at="more", moods={"more": "thinking", "friendly": "happy"}),
+        A("rose", x=1500, y=1060, s=0.5, at="more", moods={"more": "thinking", "friendly": "happy"}),
     )),
     Scene("w09-s05", setting="workshop", tail=0.8, beats=(
         B("Portal opened!", cue="opened", pause=0.4),
@@ -187,8 +187,8 @@ EPISODE = Episode(level=1, week=9, scenes=(
         B("Happy coding!", cue="happy", pause=0.4),
     ), actions=(
         A("door", "DOOR 9", x=1700, y=920, open="opened"),
-        A("nova", x=260, y=1010, s=0.72, wave=[("opened", "recap"), ("happy", "end")], moods={"start": "proud"}),
-        A("pixel", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
+        A("rose", x=260, y=1010, s=0.72, wave=[("opened", "recap"), ("happy", "end")], moods={"start": "proud"}),
+        A("pixi", x=470, y=860, s=0.62, ground=1000, moods={"start": "proud"}),
         A("chip", "Ask • Store • Convert • Choose", at="recap", until="rule", x=960, y=260, color="orange", size=46),
         A("cards", at="recap", until="rule", x=640, y=360, w=680, gap=110,
           items=["input asks", "variables remember", "int → a number", "if-elif-else: first true path"],
