@@ -17,7 +17,7 @@ import urllib.request
 import numpy as np
 
 from .speech import LEXICON, spoken_form  # noqa: F401  (re-exported for callers)
-from .timeline import NARRATOR, ROSE, PIXI
+from .timeline import AIDEN, NARRATOR, ROSE, PIXI
 
 SR = 48_000
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -34,6 +34,8 @@ VOICES = {
     NARRATOR: {"voice": "af_heart", "speed": 0.94},
     ROSE: {"voice": "af_bella", "speed": 1.02},
     PIXI: {"voice": "am_puck", "speed": 1.06, "robot": True},
+    # junior videos: an eight-year-old host; "pitch" raises the voice by that many semitones
+    AIDEN: {"voice": "af_river", "speed": 0.95, "pitch": 4.5},  # chosen by the owner from five kid-voice options
 }
 
 # --------------------------------------------------------------------------- model files
@@ -107,12 +109,17 @@ def speak(text: str, speaker: str) -> np.ndarray:
     path = VOICE_CACHE / (hashlib.sha256(key.encode()).hexdigest()[:32] + ".npy")
     if path.is_file():
         return np.load(path)
-    samples, rate = _kokoro().create(spoken_form(text), voice=settings["voice"], speed=settings["speed"], lang="en-us")
+    factor = 2 ** (settings.get("pitch", 0.0) / 12)  # > 1 raises the pitch
+    samples, rate = _kokoro().create(spoken_form(text), voice=settings["voice"], speed=settings["speed"] / factor,
+                                     lang="en-us")
     signal = np.asarray(samples, dtype=np.float64)
     if rate == 24_000:
         signal = upsample_2x(signal)
     elif rate != SR:
         raise RuntimeError(f"unexpected voice sample rate {rate}")
+    if factor != 1.0:  # play the slower take faster: higher pitch, the intended speed
+        positions = np.arange(0, len(signal) - 1, factor)
+        signal = np.interp(positions, np.arange(len(signal)), signal)
     signal = _trim(signal)
     if settings.get("robot"):
         signal = robotize(signal)

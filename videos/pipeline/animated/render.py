@@ -20,8 +20,18 @@ EPISODES = Path(__file__).parent / "episodes"
 TRANSITION = 0.55  # seconds of circular wipe between scenes
 
 
-def spec_path(level: int) -> Path:
-    return REPO_ROOT / "videos" / "specs" / f"level{level}.json"
+def is_junior(level) -> bool:
+    """Junior (Grades 2-3) episodes use level keys "j1".."j3"; the main track uses 1..3."""
+    return isinstance(level, str) and level.startswith("j")
+
+
+def spec_path(level) -> Path:
+    name = f"junior{level[1:]}" if is_junior(level) else f"level{level}"
+    return REPO_ROOT / "videos" / "specs" / f"{name}.json"
+
+
+def module_name(level, week: int) -> str:
+    return f"{level}w{week:02d}" if is_junior(level) else f"l{level}w{week:02d}"
 
 
 SPEC_PATH = spec_path(1)
@@ -40,14 +50,15 @@ def episode_modules(week: int, level: int = 1):
         return script, drawing
     from .kit import compile_episode
 
-    data = importlib.import_module(f"videos.pipeline.animated.episodes.l{level}w{week:02d}")
+    data = importlib.import_module(f"videos.pipeline.animated.episodes.{module_name(level, week)}")
     return compile_episode(data.EPISODE, spec_video(level, week)["title"])
 
 
 def available_episodes() -> list[tuple[int, int]]:
     found = {(1, int(p.stem[4:6])) for p in EPISODES.glob("week[0-9][0-9].py")}
     found |= {(int(p.stem[1]), int(p.stem[3:5])) for p in EPISODES.glob("l[1-3]w[0-9][0-9].py")}
-    return sorted(found)
+    found |= {(p.stem[:2], int(p.stem[3:5])) for p in EPISODES.glob("j[1-3]w[0-9][0-9].py")}
+    return sorted(found, key=lambda e: (str(e[0]), e[1]))
 
 
 def available_weeks(level: int = 1) -> list[int]:
@@ -138,6 +149,9 @@ def _render_chunk(args: tuple) -> str:
     level, week, scene_data, total, first, last, out_path = args
     from . import engine
 
+    from . import props
+
+    props.set_brand("junior" if is_junior(level) else "main")
     _, drawing = episode_modules(week, level)
     scenes = _load_scenes(scene_data)
     command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgra",
@@ -197,8 +211,9 @@ def _write_captions(cues, srt: Path, vtt: Path) -> None:
 def render_episode(week: int, output_dir: Path, workers: int | None = None, preview: float | None = None,
                    level: int = 1) -> Path:
     """Render one animated episode. `preview` renders only the first N seconds (for quick checks)."""
-    from . import audio, engine
+    from . import audio, engine, props
 
+    props.set_brand("junior" if is_junior(level) else "main")
     if not shutil.which("ffmpeg"):
         raise RuntimeError("ffmpeg is required")
     script, drawing = episode_modules(week, level)
@@ -229,7 +244,8 @@ def render_episode(week: int, output_dir: Path, workers: int | None = None, prev
     stereo = audio.mix(total, voice_events, sfx_events, drawing.INTRO, scenes[-1].end)
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    stem = f"level{level}-week{week:02d}-{video['slug']}" + ("-preview" if preview else "")
+    prefix = f"junior{level[1:]}" if is_junior(level) else f"level{level}"
+    stem = f"{prefix}-week{week:02d}-{video['slug']}" + ("-preview" if preview else "")
     work = Path(tempfile.mkdtemp(prefix=f"{stem}-", dir=output_dir))
     try:
         wav = work / "mix.wav"
@@ -258,7 +274,9 @@ def render_episode(week: int, output_dir: Path, workers: int | None = None, prev
             "-map", "0:v", "-map", "1:a", "-map", "2:0", "-c:v", "copy",
             "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,alimiter=limit=0.79:level=disabled", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
             "-c:s", "mov_text", "-metadata:s:s:0", "language=eng",
-            "-metadata", f"title=Kids Coding with Rose and Pixi – Level {level} Week {week}: {video['title']}",
+            "-metadata", f"title={props.SERIES} {props.SUBTITLE} – "
+                         f"{'Junior Level ' + level[1:] if is_junior(level) else 'Level ' + str(level)} "
+                         f"Week {week}: {video['title']}",
             "-metadata", "comment=Narration uses AI-generated voices (Kokoro).",
             "-movflags", "+faststart", str(destination),
         ], check=True)
@@ -269,7 +287,9 @@ def render_episode(week: int, output_dir: Path, workers: int | None = None, prev
 
 def still(week: int, seconds: list[float], out_dir: Path, level: int = 1) -> list[Path]:
     """Render single frames (PNG) at given times, for visual review without encoding video."""
-    from . import audio, engine
+    from . import audio, engine, props
+
+    props.set_brand("junior" if is_junior(level) else "main")
 
     script, drawing = episode_modules(week, level)
     durations, envelopes = [], []

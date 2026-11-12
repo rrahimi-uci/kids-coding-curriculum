@@ -1,0 +1,120 @@
+{
+ "schema_version": 1,
+ "track": "junior",
+ "level": 1,
+ "audience": "Grades 2-3 (ages 7-9), watched with a grown-up",
+ "series_title": "Kids Coding Junior with Aiden and Pixi",
+ "videos": [
+  {
+   "week": 2,
+   "slug": "meet-scratch",
+   "title": "Meet Scratch",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week02.tex",
+    "junior/1-little-robots/teaching-material/workbook/week02.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w02-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, we were robots. We followed exact steps, one card at a time. Today, we give steps to a computer instead. We will use an app called Scratch, and we will make a cat talk, meow and move! Are you ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Make the cat talk"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s02",
+     "narration": "Let's warm up with a puppet show. Here are three cards: say hello, move three steps, make a sound. Pixi reads the cards from top to bottom, and the cat does each one. Say hello! Move three steps! Make a sound! Now watch. I push one card away, so it is not in the line. Does the cat still do it? No! A card that is not in the line is not part of the show. Remember that. It will help us later.",
+     "on_screen_text": [
+      "card not in the line = not in the show"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s03",
+     "narration": "This is Scratch. The cat is called a sprite. A sprite is a character that can act. The white space is the stage. That is where the show happens. On the left are the blocks. Each color is a different kind of block. Up here is the green flag. When we click it, the show starts! And the red stop sign stops the show. Can you point to the sprite on your screen? Yes! The cat is the sprite.",
+     "on_screen_text": [
+      "sprite = a character",
+      "stage = where the show happens",
+      "blocks",
+      "green flag = start",
+      "stop sign = stop",
+      "the cat is the sprite!"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s04",
+     "narration": "Scratch blocks are like puzzle pieces. They have a bump on the bottom and a dent on top, so they click together. When blocks click together, they make a script. A script runs from top to bottom, one block after another, like the puppet show cards. Here is a top tip. Drag a block slowly. When you see a gray shadow, let go. Click! It snaps on. Click, click, click!",
+     "on_screen_text": [
+      "bump + dent = click!",
+      "script = blocks that click together",
+      "top to bottom",
+      "Wait for the gray shadow"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s05",
+     "narration": "Quick quiz! Look at this script. What will the cat do first? It says Hi first, because the say block is at the top. Then it meows. Then it moves. Top to bottom, every time!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "1. say Hi!",
+      "2. meow",
+      "3. move"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s06",
+     "narration": "Let's build our first script together. It is called Hello Cat. First, click the yellow Events circle, and drag in: when green flag clicked. Next, click the purple Looks circle. Snap on: say Hello for two seconds. Then type: Hi! Then the pink Sound circle. Snap on: play sound Meow until done. Last, the blue Motion circle. Snap on: move ten steps, and change ten to fifty. Now, click the green flag! Our script works! The cat talks, meows and moves. Beep! Hooray!",
+     "on_screen_text": [
+      "Exercise 2.1: Hello Cat",
+      "Events: yellow",
+      "Looks: purple",
+      "Sound: pink",
+      "Motion: blue"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s07",
+     "narration": "What do you think happens if we click the green flag again? The cat says Hi, meows, and moves fifty more steps. Every click moves it a little further. If the cat walks to the edge, that is OK. Drag the cat back to the middle with your mouse. It can never really get lost.",
+     "on_screen_text": [
+      "Every click: a little further",
+      "Drag the cat back"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s08",
+     "narration": "Uh oh. Time for a bug hunt! Kai built this script. The cat says Hi and meows, but it does not move. A bug is not a problem. A bug is a clue! Let's be detectives. Look closely at the blocks. Is every block snapped on? Look! The move block is not touching the others. It is like the card we pushed out of the puppet show. It is not part of the script, so it never runs. Let's drag it up until it clicks on. Now we test it again. It moves! We fixed the bug! Detective Aiden!",
+     "on_screen_text": [
+      "BUG HUNT! The Stuck Cat",
+      "A bug is a clue!",
+      "Is every block snapped on?",
+      "Not snapped on = never runs"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s09",
+     "narration": "Now make it yours! Click the white oval in the say block, and type new words. Use a nickname, like Pixel Panda, never your real name. You can click the little arrow on the sound block and pick a different sound. Or change fifty to a bigger number. What do you think will happen? The cat moves further in one go!",
+     "on_screen_text": [
+      "Nicknames only"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s10",
+     "narration": "While you code, look after your body. Sit up tall, hold the mouse gently, and keep drinks away from the computer. Every little while, look far away, out of a window, to rest your eyes. Let's do a wiggle break together! Stand up, shake your hands, and roll your shoulders. Wiggle, wiggle, beep!",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j1-w02-s11",
+     "narration": "Say the new words with me! Sprite! Stage! Script! The sprite is the character. The stage is where it acts. Blocks click together into a script, and the green flag starts it. Now it's your turn, with a grown-up. Build Hello Cat, then fix the Stuck Cat, then show your partner. Remember: wait for the gray shadow, then let go. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Sprite!",
+      "Stage!",
+      "Script!",
+      "sprite • stage • script",
+      "green flag = start",
+      "NEXT: Hello Cat and The Stuck Cat",
+      "Wait for the gray shadow"
+     ]
+    }
+   ]
+  }
+ ]
+}

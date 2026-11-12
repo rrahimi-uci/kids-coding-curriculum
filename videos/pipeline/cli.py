@@ -237,7 +237,9 @@ def command_animate(args: argparse.Namespace) -> int:
     if not wanted:
         print(f"No animated episode matches; available: {available_episodes()}", file=sys.stderr)
         return 2
-    for level in sorted({level for level, _ in wanted}):
+    for level in sorted({level for level, _ in wanted}, key=str):
+        if isinstance(level, str):
+            continue  # junior episodes have no curriculum manifest yet
         drift = _drift_report(level)
         if drift and not args.allow_stale:
             for line in drift + ["refusing to animate scripts that may not match the lessons (or pass --allow-stale)"]:
@@ -336,7 +338,8 @@ def command_contact_sheet(args: argparse.Namespace) -> int:
     for scene in scenes:
         for k in range(args.per_scene):
             times.append(round(scene.start + (k + 0.6) / args.per_scene * scene.duration, 2))
-    folder = OUTPUT_DIR / "sheets" / f"l{args.level}w{args.week:02d}"
+    tag = args.level if isinstance(args.level, str) else f"l{args.level}"
+    folder = OUTPUT_DIR / "sheets" / f"{tag}w{args.week:02d}"
     shutil_paths = still(args.week, times, folder, level=args.level)
     w, h = 640, 360
     cols = args.per_scene
@@ -345,9 +348,52 @@ def command_contact_sheet(args: argparse.Namespace) -> int:
     for i, path in enumerate(shutil_paths):
         sheet.paste(Image.open(path).resize((w, h)), ((i % cols) * w, (i // cols) * h))
         ImageDraw.Draw(sheet).text(((i % cols) * w + 8, (i // cols) * h + 6), f"{times[i]:.1f}s", fill="red")
-    out = OUTPUT_DIR / "sheets" / f"l{args.level}w{args.week:02d}-sheet.png"
+    out = OUTPUT_DIR / "sheets" / f"{tag}w{args.week:02d}-sheet.png"
     sheet.save(out)
     print(out.relative_to(REPO_ROOT))
+    return 0
+
+
+def command_junior_spec(args: argparse.Namespace) -> int:
+    """For the junior track the episode files are the source: write specs/juniorN.json from them.
+
+    Each video gets the week's title from its lesson plan banner (\\lesson{N}{Title}{...}), a slug, the
+    narration of every scene (the joined beats) and its on-screen text (banners, chips and big text).
+    The file is written atomically, so writers working on other weeks never read half a file.
+    """
+    import importlib
+    import re as _re
+
+    sys.path.insert(0, str(REPO_ROOT / "tools"))
+    import curriculum
+
+    from .animated.render import spec_path
+    from .animated.timeline import joined_text
+
+    level = curriculum.by_key(f"j{args.level}")
+    videos = []
+    for path in sorted((Path(__file__).parent / "animated" / "episodes").glob(f"j{args.level}w[0-9][0-9].py")):
+        week = int(path.stem[3:5])
+        episode = importlib.import_module(f"videos.pipeline.animated.episodes.{path.stem}").EPISODE
+        lesson = (level.path / "teaching-material" / "lessons" / f"week{week:02d}.tex").read_text(encoding="utf-8")
+        match = _re.search(r"\\lesson\{\d+\}\{([^}]*)\}", lesson)
+        title = match.group(1).replace("\\ldots", "…").replace("\\", "").strip() if match else f"Week {week}"
+        slug = _re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+        scenes = [{"scene_id": sc.scene_id, "narration": joined_text(script),
+                   "on_screen_text": [a.text for a in sc.actions if a.kind in ("banner", "chip", "bigtext") and a.text]}
+                  for sc, script in zip(episode.scenes, episode.scripts)]
+        videos.append({"week": week, "slug": slug, "title": title,
+                       "source_files": [f"{level.dir}/teaching-material/lessons/week{week:02d}.tex",
+                                        f"{level.dir}/teaching-material/workbook/week{week:02d}.tex"],
+                       "scenes": scenes})
+    data = {"schema_version": 1, "track": "junior", "level": args.level,
+            "audience": "Grades 2-3 (ages 7-9), watched with a grown-up",
+            "series_title": "Kids Coding Junior with Aiden and Pixi", "videos": videos}
+    target = spec_path(f"j{args.level}")
+    tmp = target.with_suffix(".tmp")
+    tmp.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.replace(target)
+    print(f"{target.relative_to(REPO_ROOT)}: {len(videos)} video(s)")
     return 0
 
 
@@ -451,6 +497,31 @@ def build_parser() -> argparse.ArgumentParser:
     sheet.add_argument("--week", type=int, choices=WEEKS, required=True)
     sheet.add_argument("--per-scene", type=int, default=4)
     sheet.set_defaults(handler=command_contact_sheet)
+
+    # Junior track (Grades 2-3): episodes `episodes/j{L}w{WW}.py`, scripts in `specs/junior{L}.json`.
+    spec = subcommands.add_parser("junior-spec", help="rebuild specs/juniorN.json from the junior episode files")
+    spec.add_argument("--level", type=int, choices=(1, 2, 3), required=True)
+    spec.set_defaults(handler=command_junior_spec)
+
+    def junior(args):
+        args.level = f"j{args.junior_level}" if args.junior_level else None
+        return args.junior_handler(args)
+
+    for name, handler, helptext in (("junior-animate", command_animate, "render junior episodes (Aiden and Pixi)"),
+                                    ("junior-check", command_episode_check, "check junior kit episodes"),
+                                    ("junior-sheet", command_contact_sheet, "contact sheet for one junior episode")):
+        sub = subcommands.add_parser(name, help=helptext)
+        sub.add_argument("--level", dest="junior_level", type=int, choices=(1, 2, 3),
+                         required=name == "junior-sheet")
+        sub.add_argument("--week", type=int, choices=range(1, 11),
+                         **({"required": True} if name == "junior-sheet" else {"action": "append"}))
+        if name == "junior-animate":
+            sub.add_argument("--workers", type=int)
+            sub.add_argument("--preview", type=float)
+            sub.add_argument("--allow-stale", action="store_true")
+        if name == "junior-sheet":
+            sub.add_argument("--per-scene", type=int, default=4)
+        sub.set_defaults(handler=junior, junior_handler=handler)
 
     fetch = subcommands.add_parser("fetch-voice", help="download the local neural voice model once")
     fetch.set_defaults(handler=command_fetch_voice)

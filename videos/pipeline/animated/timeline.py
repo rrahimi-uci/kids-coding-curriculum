@@ -14,7 +14,8 @@ import re
 NARRATOR = "narrator"
 ROSE = "rose"
 PIXI = "pixi"
-SPEAKERS = (NARRATOR, ROSE, PIXI)
+AIDEN = "aiden"  # host of the junior (Grades 2-3) videos
+SPEAKERS = (NARRATOR, ROSE, PIXI, AIDEN)
 
 
 @dataclass(frozen=True)
