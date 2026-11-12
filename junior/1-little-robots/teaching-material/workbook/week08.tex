@@ -1,0 +1,103 @@
+% Junior Level 1, Week 8 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{8}{Draw With the Pen}{The cat can draw: a square is repeat 4 of move and a quarter turn.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can make the cat draw with pen down.
+  \item I can draw a square with repeat 4 and a quarter turn.
+  \item I can fix a turn that is in the wrong place.
+\end{ican}
+
+\section{The cat has a pen}
+Pen down: the cat draws when it walks. Pen up: it stops drawing. A quarter turn is 90.
+
+\begin{center}
+%% alt: A square drawn by the cat. The cat starts at the top left corner. Arrows go around the square: move, then a curved arrow labeled quarter turn 90 at each corner, four times.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=3pt}]
+  \draw[kcblue,line width=2.5pt] (2,4) -- (6,4) -- (6,0) -- (2,0) -- cycle;
+  \node[font=\Huge] at (0.5,4) {\faCat};
+  \node[lab] at (4,4.7) {move 100};
+  \foreach \p/\s in {(6,4)/90,(6,0)/0,(2,0)/270,(2,4)/180}
+     \draw[->,kcvermillion,line width=1.2pt] \p ++(\s:0.6) arc[start angle=\s,end angle=\s-90,radius=0.6];
+  \node[lab,anchor=west] at (6.8,4) {quarter turn: 90};
+  \node[lab] at (4,2) {repeat 4};
+\end{tikzpicture}
+\end{center}
+
+\begin{grownup}[Adding the pen]
+Click \menu{Add Extension} at the bottom-left. Choose \menu{Pen}. A green Pen circle appears. Do this in every new project.
+\end{grownup}
+
+\begin{exercise}[Draw a Square]
+Make the cat draw a square.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Drag the cat to a place with room.
+  \item Build the script. Put move and turn inside the repeat.
+  \item Click the green flag. Count the sides.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{set size to \ovalnum{40} \%}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The One-Side Square]
+Omar's cat draws one long line. It turns only once. Circle the block in the wrong place.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+}
+\blockmove{turn \turnright{} \ovalnum{90} degrees}
+\end{scratch}
+\end{center}
+Fix it on your Mac. Move the turn inside the repeat.
+\end{exercise}
+
+\begin{exercise}[Stamp a Ring]
+Stamp leaves a picture of the cat. Make a ring of six cats.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Read the turn card. Six sides: turn 60.
+  \item Build the script. Click the green flag.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{set size to \ovalnum{40} \%}
+\blockpen{erase all}
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockpen{stamp}
+  \blockmove{move \ovalnum{60} steps}
+  \blockmove{turn \turnright{} \ovalnum{60} degrees}
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{pen}{A crayon for the sprite. Pen down draws. Pen up stops.}
+  \vocabword{stamp}{Leaves a picture of the sprite on the stage.}
+  \vocabword{quarter turn}{A turn of 90. Four quarter turns bring you back.}
+\end{vocab}
+
+\begin{reflection}
+Draw what your cat drew. How do you feel about the pen? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

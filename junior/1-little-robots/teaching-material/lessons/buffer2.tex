@@ -1,0 +1,143 @@
+% Junior Level 1, Buffer session B2 -- Remix Studio
+\kcpart{B2}{Remix Studio}{Take something you made, change it on purpose, and say what you changed.}
+\lessoninfo{Concepts: remixing (I), all concepts so far (R), giving credit (R)}{Tools: Scratch 3 offline app, a dice, saved projects from earlier weeks}{CSTA: 1A-AP-10, 1A-AP-13, 1A-AP-14, 1A-AP-15}
+
+\begin{teachernote}[When to use B2]
+Use B2 any time after week 5: after a missed session, before a holiday, or between weeks 9 and 10 as extra studio time to finish greeting cards. It needs at least one saved project from an earlier week (for example Hello Cat, a week 4 animation or a week 8 drawing). If nothing was saved, rebuild Hello Cat from week 2 in the first five minutes of Make it.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can choose a past project and change it in two ways on purpose. (J1.G2) [J1.B2.1]
+  \item The student can add a click or key event to an old project so it does something new. (J1.G3) [J1.B2.2]
+  \item The student can find and fix a bug that a partner hid in their remix. (J1.G4) [J1.B2.3]
+  \item The student can say what they changed, and give credit when the idea came from someone else. (J1.G6, J1.G7) [J1.B2.4]
+\end{objectives}
+
+\begin{materials}
+  \item One dice (or six folded slips of paper in a cup, numbered 1 to 6). The remix menu is in the box \enquote{Remix dice} below.
+  \item On each Mac: the Scratch app open, and the children's saved projects together in one folder (for example \enquote{Documents/scratch}). A mouse plugged in.
+  \item A sand timer (5 minutes). Prep time: about 5 minutes.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Remix a dance: do the week 4 dance, change two moves, and the others guess what changed. Then roll the remix dice.}
+  \timeslot{8--14}{Show me}{Open Hello Cat, save it with a new name, change two things, and say what changed and whose idea it was.}
+  \timeslot{14--36}{Make it}{Pairs remix a past project with two dice twists (14--28), hidden bug swap (28--32), free remix (32--36).}
+  \timeslot{36--38}{Wiggle break}{Remix the wiggle: everyone adds one new move to a stretch.}
+  \timeslot{38--45}{Share}{\enquote{I started from \ldots. I changed \ldots{} and \ldots.} Credit check, exit question, reflection.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Remix a dance]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Do the dance from week 4 together once (for example: repeat 4 of clap, stomp, spin).
+  \item One child changes two things: a different move, or a different number in the repeat. They do the new dance.
+  \item The others guess: \enquote{What did you change?} \enquote{You did repeat 2, and you jumped instead of stomping!}
+  \item \enquote{That is a \textbf{remix}: we start from something that already exists, and we change it on purpose. And we say where it came from: \enquote{This is a remix of our week 4 dance.}}
+\end{enumerate}
+With 1 child: you remix first and the child guesses, then swap. With 2--4: everyone remixes once, in turn. Then roll the dice once each to see the first twist for today.
+\end{unplugged}
+
+\begin{tip}[Remix dice]
+Roll the dice and add that twist to your project.
+\textbf{1:} a new sound (pink Sound). \textbf{2:} a new backdrop (purple Looks, \enquote{switch backdrop to}). \textbf{3:} a dance with a repeat (orange Control). \textbf{4:} a click or key event (yellow Events). \textbf{5:} draw or stamp with the pen (green Pen). \textbf{6:} your choice!
+\end{tip}
+
+\section{Show me (8--14 min)}
+\begin{teacherscript}
+\enquote{First, we keep the old project safe.} Click \menu{File} → \menu{Load from your computer} and open Hello Cat. Then click \menu{File} → \menu{Save to your computer} and save it with a new name: \enquote{hello-cat-remix}. \enquote{Now the old one is safe, and we can change this one as much as we like.}
+\end{teacherscript}
+
+\begin{analogy}[A new recipe from an old one]
+\enquote{A remix is like taking a pancake recipe and adding blueberries. It is still pancakes, but now it is your version. When you share it you say: \enquote{It is Grandma's recipe, with my blueberries.}}
+\end{analogy}
+
+\begin{workedexample}[Remix Hello Cat with two twists]
+Roll the dice twice. Say you get 3 (a dance) and 4 (a click event).
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Twist 3: click the orange \menu{Control} circle. Snap \enquote{repeat 10} under the cat's script and change 10 to 4.
+  \item Click the purple \menu{Looks} circle. Put \enquote{next costume} inside the repeat. Click the orange \menu{Control} circle and put \enquote{wait 1 seconds} under it.
+  \item Twist 4: click the yellow \menu{Events} circle. Drag \enquote{when this sprite clicked} to an empty space. Click the pink \menu{Sound} circle and snap \enquote{start sound Meow} under it.
+  \item Click the green flag: the cat says hi, meows, moves and dances. Click the cat: it meows.
+  \item Say it out loud: \enquote{I started from my Hello Cat. I added a dance and a click.} Save again.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blockmove{move \ovalnum{50} steps}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{start sound \selectmenu{Meow}}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (14--36 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse and makes the change. The \textbf{Helper} rolls the dice, reads the twist from the remix menu and points to the right color circle, but never grabs the mouse. Swap on the timer (5 minutes). With 1 child: you are the Helper and roll the dice. With 3: Driver, Helper and Checker (clicks the flag to test each twist). With 4: two pairs, one project per pair, then swap projects for the hidden bug swap.
+\end{pairroles}
+
+Each pair picks a past project, saves it with a new name, and adds two dice twists. Test after each twist.
+
+\begin{bughunt}[Hidden bug swap (minutes 28--32)]
+Each owner saves their remix first. Then the partner asks, \enquote{May I hide a bug?} and makes one small change while the owner looks away: pull one block off a script, move a block out of a repeat, or change the key in \enquote{when key pressed}. The owner clicks the green flag, tests the click or key, and hunts: \enquote{What should happen? What happened? Which block is the clue?} Then they fix it. With 1 child, you hide the bug.
+\end{bughunt}
+
+\begin{freebuild}[Free remix]
+Last 4 minutes: roll once more, or pick any twist you like. Remixing a greeting card is fine too (add a pen border, a new sprite or a key that plays a sound). Save at the end.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up and does a stretch together: reach up, touch toes, twist. Then each child remixes it by adding one new move, and everyone copies.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child clicks the green flag and shows their remix. They use the sentence: \enquote{I started from \ldots. I changed \ldots{} and \ldots.} If the idea came from a partner: \enquote{This is a remix of Zoe's dancing cat.} Others say which change they liked.
+\end{teacherscript}
+
+\begin{safety}[Credit and asking first]
+\enquote{When we remix our own project, we say what we started from. When we remix someone else's idea, we give them credit: we say their nickname. And we only change someone else's project if they say yes, on a copy with a new name. We remix projects from our family, not things from strangers on the internet.} Ask: \enquote{Kai wants to remix Mei's card. What does he do first?} (Ask Mei, save a copy with a new name, and say \enquote{This is a remix of Mei's card} when he shows it.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the project was saved with a new name before changing it; two changes that work; the child can name both changes; credit given when the idea came from someone else.
+
+\textbf{Ask:} \enquote{Why do we save the remix with a new name?}
+\textbf{Answer:} so the old project stays safe and does not change.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which twist was the most fun?} and \enquote{Whose idea would you like to remix next time?} Children give a thumbs up, sideways or down for how the remix went.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Changing the old project.} Always \menu{File} → \menu{Save to your computer} with a new name before changing anything.
+  \item \textbf{Too many changes at once.} Test after each twist, so a bug is quick to find.
+  \item \textbf{A new script with no hat block.} The click or key twist needs \enquote{when this sprite clicked} or \enquote{when key pressed} on top.
+  \item \textbf{No Pen blocks for twist 5.} Add the Pen extension (\menu{Add Extension}, bottom-left).
+  \item \textbf{Forgetting credit.} Make the sentence \enquote{I started from \ldots} part of every share.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use Hello Cat and make one change together, with you as the Helper. Roll the dice but allow a re-roll if the twist feels too big.
+\extensionpath Make three twists, or remix a partner's project (with permission) and give credit in a \enquote{say} block at the start: \enquote{Remix of Leo's cat}.
+\end{differentiation}
+
+\begin{stretchchallenge}[Remix back]
+Swap remixes with a partner (on copies). Each of you adds one twist to the other's remix, then show both versions side by side.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip the dance remix and roll the dice straight away. One twist instead of two. Keep the share sentence with credit: it is the heart of a remix.
+\end{teachernote}

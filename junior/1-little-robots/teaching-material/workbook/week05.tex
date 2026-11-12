@@ -1,0 +1,126 @@
+% Junior Level 1, Week 5 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{5}{Play Day and Show Me}{Practice everything, then show a grown-up what you can do.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can put robot cards in order to reach a goal.
+  \item I can find a bug and fix it.
+  \item I can make a show with a repeat and say what it does.
+\end{ican}
+
+\begin{exercise}[Arrow Maze]
+Help the robot reach the star. Robots cannot walk on trees. Use the cards from week 1. Draw one card in each box.
+\begin{center}
+%% alt: A 3 by 3 maze grid. A robot is in the bottom-left square, facing up. A tree is in the bottom middle square and a star is in the bottom-right square. Next to the grid are the three robot cards: FORWARD, TURN LEFT and TURN RIGHT. Below are six empty boxes for drawing cards.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\footnotesize\bfseries},
+  edge/.style={draw=kcblack,line width=0.7pt,rounded corners=2pt},
+  arr/.style={line width=2.5pt,-{Triangle[length=6pt,width=9pt]}},
+  word/.style={font=\scriptsize\bfseries,align=center}]
+  \draw[kcgray,line width=0.8pt] (0,0) grid[step=1.6] (4.8,4.8);
+  \draw[line width=1pt] (0,0) rectangle (4.8,4.8);
+  \node[font=\LARGE] at (0.8,0.95) {\faRobot};
+  \draw[-{Triangle},line width=1.5pt,kcblue] (0.8,1.32) -- (0.8,1.56);
+  \node[lab] at (0.8,0.3) {start};
+  \node[font=\LARGE,text=kcgreen] at (2.4,0.95) {\faTree};
+  \node[lab] at (2.4,0.3) {tree};
+  \node[font=\LARGE,text=kcorange] at (4.0,0.95) {\faStar};
+  \node[lab] at (4.0,0.3) {goal};
+  % the three robot cards
+  \begin{scope}[shift={(6.0,2.6)}]
+    \filldraw[edge,fill=kcblue!10] (0,0) rectangle (1.4,1.8);
+    \draw[arr,kcblue] (0.7,0.3) -- (0.7,1.6);
+    \node[word] at (0.7,-0.35) {FORWARD};
+  \end{scope}
+  \begin{scope}[shift={(7.8,2.6)}]
+    \filldraw[edge,fill=kcorange!12] (0,0) rectangle (1.4,1.8);
+    \draw[arr,kcorange!85!black] (0.9,0.3) -- (0.9,1.0) arc (0:90:0.45);
+    \node[word] at (0.7,-0.45) {TURN\\LEFT};
+  \end{scope}
+  \begin{scope}[shift={(9.6,2.6)}]
+    \filldraw[edge,fill=kcgreen!12] (0,0) rectangle (1.4,1.8);
+    \draw[arr,kcgreen] (0.5,0.3) -- (0.5,1.0) arc (180:90:0.45);
+    \node[word] at (0.7,-0.45) {TURN\\RIGHT};
+  \end{scope}
+  % six empty boxes
+  \foreach \i in {0,...,5}
+    \draw[kcgray!80!black,line width=0.8pt,rounded corners=2pt] (\i*1.8,-2.4) rectangle ++(1.4,1.8);
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Bug-Hunt Relay]
+Three projects are broken. Build each one as you see it. Test it. Find the bug. Fix it. Get a sticker!
+
+\textbf{Leg 1: The Quiet Cat.} It should say hi and meow.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\end{scratch}
+
+\vspace{0.3cm}
+\begin{scratch}[scale=0.85]
+\blocksound{play sound \selectmenu{Meow} until done}
+\end{scratch}
+\end{center}
+
+\textbf{Leg 2: Bye Before Hi.} It should say hi first, then bye.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Bye!} for \ovalnum{2} seconds}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+
+\textbf{Leg 3: Too Many Meows.} It should meow three times.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockrepeat{repeat \ovalnum{10}}{
+  \blocksound{play sound \selectmenu{Meow} until done}
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[My Best Show]
+Make your own show. It needs the green flag and a repeat. Here is one idea.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Watch me!} for \ovalnum{2} seconds}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockmove{move \ovalnum{10} steps}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\blocklook{say \ovalnum{Ta-da!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+Change the words or the numbers. Add a sound if you like. Then tell your grown-up what your script does.
+\end{exercise}
+
+\begin{grownup}[Show me]
+While your child plays, use the Week 5 show-me checklist in the Assessments booklet. It is not a test. \enquote{Not yet} is fine.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{practice}{Doing something again and again to get better at it.}
+  \vocabword{test}{Click the green flag and watch what happens.}
+\end{vocab}
+
+\begin{reflection}
+Color one star for each relay leg you fixed.
+
+\begin{center}
+\Huge\faStar[regular]\qquad\faStar[regular]\qquad\faStar[regular]
+\end{center}
+
+How do you feel about Play Day? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

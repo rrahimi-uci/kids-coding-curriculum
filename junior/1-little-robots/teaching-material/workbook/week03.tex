@@ -1,0 +1,93 @@
+% Junior Level 1, Week 3 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{3}{Bugs Are Clues}{A bug is a clue: test, look, change one thing.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can test my code and look for clues.
+  \item I can add a wait so I can see each step.
+  \item I can fix steps in the wrong order.
+\end{ican}
+
+\section{Be a bug detective}
+A \textbf{bug} is a mistake in code. Every coder finds bugs. A bug is a clue!
+
+\begin{center}
+%% alt: A circle of three steps joined by arrows. Step 1, Test, with a flag: click the green flag. Step 2, Look, with an eye: what went wrong? Step 3, Change one thing, with a wrench. An arrow goes from step 3 back to step 1.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  stage/.style={draw=kcblack,line width=0.8pt,rounded corners=6pt,minimum width=3.6cm,minimum height=2.2cm,align=center,font=\bfseries},
+  go/.style={line width=2pt,-{Triangle[length=9pt,width=12pt]},kcblue}]
+  \node[stage,fill=kcgreen!15] (t) at (5,3) {{\Large\faFlag}\\1. Test};
+  \node[stage,fill=kcsky!20] (l) at (10,0) {{\Large\faEye}\\2. Look};
+  \node[stage,fill=kcorange!20] (c) at (0,0) {{\Large\faWrench}\\3. Change\\one thing};
+  \draw[go] (t.east) to[bend left=25] (l.north);
+  \draw[go] (l.west) -- (c.east);
+  \draw[go] (c.north) to[bend left=25] (t.west);
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Ready, Set, Go!]
+The cat should say Ready, then Set, then Go!
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Build this script. Use the say block with no seconds.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Ready}}
+\blocklook{say \ovalnum{Set}}
+\blocklook{say \ovalnum{Go!}}
+\blockmove{glide \ovalnum{1} secs to \selectmenu{random position}}
+\end{scratch}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt,start=2]
+  \item Test: click the green flag.
+  \item Look: did you see Ready? Did you see Set?
+  \item The computer is too fast! Find the wait block in orange Control.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockcontrol{wait \ovalnum{1} seconds}
+\end{scratch}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt,start=5]
+  \item Change one thing: snap a wait under Ready. Test again.
+  \item Is Set still too fast? Fix it the same way.
+\end{enumerate}
+\end{exercise}
+
+\needspace{14\baselineskip}
+\begin{exercise}[The Sleepy Cat]
+Sam's cat should sleep, then wake up, then walk. Build it and click the flag. What goes wrong?
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Good morning!} for \ovalnum{2} seconds}
+\blockmove{move \ovalnum{50} steps}
+\blocklook{think \ovalnum{Zzz} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Circle the block in the wrong place.
+  \item Fix it on your Mac. Test again.
+\end{enumerate}
+\end{exercise}
+
+\begin{tip}[Kind words]
+When you find a bug in a friend's code, say: \enquote{I think I found a clue!} When a friend finds yours, say: \enquote{Thanks!}
+\end{tip}
+
+\begin{vocab}
+  \vocabword{bug}{A mistake in code. It is a clue!}
+  \vocabword{debug}{To find a bug and fix it.}
+  \vocabword{test}{Click the green flag and watch what happens.}
+\end{vocab}
+
+\needspace{12\baselineskip}
+\begin{reflection}
+Draw a bug detective. How do you feel when you find a bug? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

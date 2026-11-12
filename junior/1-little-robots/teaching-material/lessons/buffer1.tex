@@ -1,0 +1,195 @@
+% Junior Level 1, Buffer session B1 -- Unplugged Games Day (no computers)
+\kcpart{B1}{Unplugged Games Day}{Exact steps, number codes and bug clues work without a computer too.}
+\lessoninfo{Concepts: sequence and algorithms (R), numbers stand for colors (I), repeat (R), debugging (R)}{Tools: floor grid, arrow cards, crayons, the printables at the end of this plan}{CSTA: 1A-AP-08, 1A-AP-09, 1A-AP-11, 1A-AP-14}
+
+\begin{teachernote}[When to use B1]
+Use B1 any time after week 5: after a missed week, before a holiday, on a day the Mac is busy, or when everyone needs a break from screens. Everything happens on paper and on the floor. It works well between weeks 8 and 9, because the detective cards review every bug from the level.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can guide a partner through an arrow maze with arrow cards in the right order, and use a repeat card to make the program shorter. (J1.G1) [J1.B1.1]
+  \item The student can color a pixel grid where each number stands for a color, and write a small number code for a partner. (J1.G1, J1.G2) [J1.B1.2]
+  \item The student can find and fix the bug on a detective card by acting the steps out. (J1.G4) [J1.B1.3]
+  \item The student can take turns as reader and robot and use kind words when a partner's steps have a bug. (J1.G6, J1.G7) [J1.B1.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print (from the end of this plan): the pixel flower (one per child), the paper maze (one per pair), the detective cards (one set, cut apart), and a blank 5 by 5 grid (one per child).
+  \item The masking-tape floor grid from week 1, the arrow cards from week 1, and a \enquote{REPEAT} card you write by hand with a space for a number. Something to be the apple (a real apple or a soft toy) and two pillows as rocks.
+  \item Crayons: yellow, purple and green (one set per child). A sand timer. Prep time: about 10 minutes.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Arrow maze on the floor grid: lay the cards, the robot walks to the apple. Then make it shorter with a repeat card.}
+  \timeslot{8--14}{Show me}{Pixels: a picture made of squares, and a number for each color. Decode the first row of the pixel flower together.}
+  \timeslot{14--36}{Make it}{Pixel flower (8 min), detective card game (8 min), then free build: make your own pixel code or paper maze for a partner (6 min).}
+  \timeslot{36--38}{Wiggle break}{Robot dance: you call arrows, everyone steps and turns, then freeze.}
+  \timeslot{38--45}{Share}{Swap and decode each other's codes. Exit question and reflection.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Arrow maze]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Set up the floor grid like the paper maze at the end of this plan: the robot in one corner, the apple in the far corner, two pillows as rocks.
+  \item One child is the programmer and lays the arrow cards in a line on the floor. The other child is the robot and stands on the start square. The robot may not move until the whole program is laid out.
+  \item The programmer reads the cards one at a time, and the robot does exactly what each card says. Did the robot reach the apple? If not, find the card that went wrong and change only that one.
+  \item Point at three \enquote{forward} cards in a row. \enquote{Can we make this shorter?} Swap them for the REPEAT card with a 3 on it and one \enquote{forward} card inside. Walk it again: same path, fewer cards.
+\end{enumerate}
+With 1 child: the child programs and you are the robot, then swap. With 3: programmer, robot and a \enquote{checker} who watches for rocks. With 4: two teams, two mazes (or the same maze one after the other); swap the apple to a new square for the second team.
+\end{unplugged}
+
+\section{Show me (8--14 min)}
+\begin{teacherscript}
+\enquote{Look very closely at a screen or a photo in a magazine. Pictures on a screen are made of tiny squares called \textbf{pixels}. The computer does not see colors: it keeps a number for each square. A rule says which number means which color. Today we are the computer.}
+
+Show the pixel flower and the color key: \textbf{0 = leave it white, 1 = yellow, 2 = purple, 3 = green}.
+\end{teacherscript}
+
+\begin{analogy}[A mosaic]
+\enquote{A pixel picture is like a mosaic or a bead picture. Every little square has one color. Close up you see squares; far away you see a picture.}
+\end{analogy}
+
+\begin{workedexample}[The first row of the pixel flower]
+Do this together, out loud, with your finger on the grid.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{We always read a row from left to right, like a book.} The first row says: 0, 0, 2, 2, 2, 0, 0.
+  \item Square 1 is 0: leave it white. Square 2 is 0: white.
+  \item Squares 3, 4 and 5 are 2: color them purple.
+  \item Squares 6 and 7 are 0: white. \enquote{Row 1 is done. On to row 2.}
+  \item Let the children do row 2 while you watch, then carry on alone.
+\end{enumerate}
+\end{workedexample}
+
+\section{Make it (14--36 min)}
+\begin{pairroles}[Reader and robot]
+There is no mouse today, so the roles are \textbf{reader} (the Helper: reads the numbers or the steps out loud and points) and \textbf{robot} (the Driver: colors or acts out what is read). Swap after every row of the pixel flower and after every detective card. With 1 child: you read first, then the child reads to you. With 3: reader, robot and checker. With 4: two pairs, and each pair checks the other pair's flower at the end.
+\end{pairroles}
+
+\textbf{Pixel flower (8 minutes).} Pairs color the flower row by row. When it is done, hold it far away: what is it?
+
+\begin{bughunt}[Debugging detective cards (8 minutes)]
+Shuffle the detective cards and put them face down. A pair turns one over. The reader reads the goal and the steps; the robot acts out the steps (walks, claps, pretends to brush teeth). \enquote{What should happen? What happened instead? Which step is the clue?} Then they fix it by changing one thing and act it out again. Each card reviews a bug from the level: wrong order, a turn outside the repeat, too few repeats, talking at the same time, a wrong turn, and a script on the wrong sprite. Answers are in the notes below.
+\end{bughunt}
+
+\begin{freebuild}[Make your own code (6 minutes)]
+Each child gets a blank 5 by 5 grid. They make a tiny pixel picture (a heart, a smiley, a letter) using 0, 1, 2 and 3, and write the numbers in a second grid. Or they draw a paper maze with a robot, an apple and some rocks. At Share, a partner decodes the numbers or solves the maze.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Robot dance: everyone is a robot. Call out \enquote{forward}, \enquote{quarter turn right}, \enquote{forward}, \enquote{repeat 2: jump}, then \enquote{freeze!} Anyone who moves after \enquote{freeze} has a bug and does a silly robot noise.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Pairs swap their number codes and color each other's picture, or solve each other's maze. Then hold the pictures up next to the originals. \enquote{Do they match? If not, was the bug in the code or in the coloring?}
+\end{teacherscript}
+
+\begin{safety}[Screen breaks are good for us]
+\enquote{Today we did coding with no screen at all. Our eyes and our bodies like screen breaks. At home, when the timer says screen time is over, we stop, stretch and do something else, like a game on paper. And if any app asks for something, we still ask a grown-up first.} Ask: \enquote{What can you do after screen time?} (Play outside, draw, read, build.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} rows read left to right; 0 left white; the robot waits until the whole program is laid out; the bug fixed by changing one thing.
+
+\textbf{Ask:} \enquote{A code row says 1, 1, 0. Which squares do I color yellow?}
+\textbf{Answer:} the first two squares; the third stays white.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which game did you like best: the maze, the pixels or the detective cards?} and \enquote{Which bug was the trickiest to find?} Children draw a smiley next to their favorite game on the pixel page.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Reading a row from right to left.} The picture comes out back to front. Put a finger on the left square before each row.
+  \item \textbf{Skipping a row.} Lay a ruler or a strip of paper under the row you are on.
+  \item \textbf{Coloring the 0 squares.} 0 means leave it white. It is still a number, and it still counts as a square.
+  \item \textbf{Robot left and programmer left are different.} The programmer stands behind the robot, facing the same way.
+  \item \textbf{Fixing a detective card by starting over.} Ask: \enquote{Which one step can we change?}
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Color the pixel flower together, with you reading and the child coloring. Use only the first three detective cards. In the maze, use one \enquote{forward} card per step and skip the repeat card.
+\extensionpath Make a bigger pixel picture on an 8 by 8 grid with four colors. Write a detective card of your own, with a goal, steps and one hidden bug, and give it to a partner.
+\end{differentiation}
+
+\begin{stretchchallenge}[Shortest program]
+Solve the maze with as few cards as you can, using repeat cards. Then move the apple and the rocks and solve it again.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Play the maze once without the repeat card. Do the pixel flower and three detective cards. Send the blank grid home for the free build. Keep the wiggle break.
+\end{teachernote}
+
+\begin{teachernote}[Answers]
+\textbf{Pixel flower:} a purple flower with a yellow middle, a green stem and two green leaves.
+\textbf{Paper maze} (robot facing up): forward 2, quarter turn right, forward 4, quarter turn left, forward 2. With repeat cards: repeat 2 (forward), turn right, repeat 4 (forward), turn left, repeat 2 (forward). Other paths that avoid the rocks are right too.
+\textbf{Detective cards:} 1. Put toothpaste on before brushing (wrong order). 2. Put the quarter turn inside the repeat. 3. Change repeat 2 to repeat 4. 4. The Ballerina waits 2 seconds before she answers. 5. Make a quarter turn right, not left. 6. Move the click script to the balloon.
+\end{teachernote}
+
+\section{Printables}
+\subsection*{Printable 1: the pixel flower}
+Key: \textbf{0 = leave it white}, \textbf{1 = yellow}, \textbf{2 = purple}, \textbf{3 = green}. Read each row from left to right.
+\begin{center}
+\Large\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|*{7}{>{\centering\arraybackslash}p{1cm}|}}
+\hline
+0 & 0 & 2 & 2 & 2 & 0 & 0\\ \hline
+0 & 2 & 2 & 1 & 2 & 2 & 0\\ \hline
+0 & 2 & 1 & 1 & 1 & 2 & 0\\ \hline
+0 & 2 & 2 & 1 & 2 & 2 & 0\\ \hline
+0 & 0 & 0 & 3 & 0 & 0 & 0\\ \hline
+0 & 3 & 0 & 3 & 0 & 3 & 0\\ \hline
+0 & 0 & 3 & 3 & 3 & 0 & 0\\ \hline
+\end{tabular}
+\end{center}
+
+\clearpage
+\subsection*{Printable 2: the paper maze}
+The robot starts in the bottom-left square, facing up. Reach the apple. Do not step on a rock.
+\begin{center}
+\large\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|*{5}{>{\centering\arraybackslash}p{2.2cm}|}}
+\hline
+ & & ROCK & & APPLE\\ \hline
+ & & ROCK & & \\ \hline
+ & & & & \\ \hline
+ & ROCK & & ROCK & \\ \hline
+ROBOT & & & & \\ \hline
+\end{tabular}
+\end{center}
+
+\clearpage
+\subsection*{Printable 3: detective cards (cut apart)}
+\begin{enumerate}[leftmargin=1.6em,itemsep=4pt]
+  \item \textbf{Goal:} clean teeth. \textbf{Steps:} brush your teeth; put toothpaste on the brush; rinse. \textbf{What happened:} the teeth were brushed with no toothpaste.
+  \item \textbf{Goal:} walk a square. \textbf{Steps:} repeat 4 (walk 3 steps); then one quarter turn. \textbf{What happened:} one long straight line.
+  \item \textbf{Goal:} the cat claps 4 times. \textbf{Steps:} repeat 2 (clap). \textbf{What happened:} only 2 claps.
+  \item \textbf{Goal:} the cat says \enquote{Hi!}, then the Ballerina says \enquote{Hello!}. \textbf{Steps:} green flag: cat says Hi! Green flag: Ballerina says Hello! \textbf{What happened:} they both talk at the same time.
+  \item \textbf{Goal:} reach the apple, which is ahead and then to the right. \textbf{Steps:} forward, forward, quarter turn left, forward. \textbf{What happened:} the robot ended up far from the apple.
+  \item \textbf{Goal:} click the balloon and it pops. \textbf{Steps:} the cat has the script \enquote{when this sprite clicked: play sound Pop}. \textbf{What happened:} clicking the balloon does nothing.
+\end{enumerate}
+
+\needspace{14\baselineskip}
+\subsection*{Printable 4: a blank 5 by 5 grid (two per child)}
+\begin{center}
+\Large\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|*{5}{>{\centering\arraybackslash}p{1cm}|}}
+\hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+\end{tabular}
+\qquad
+\begin{tabular}{|*{5}{>{\centering\arraybackslash}p{1cm}|}}
+\hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+ & & & & \\ \hline
+\end{tabular}
+\end{center}

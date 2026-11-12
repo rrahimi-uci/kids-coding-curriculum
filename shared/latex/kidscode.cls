@@ -4,6 +4,9 @@
 %%
 %% Class options
 %%   level=1|2|3      level number (sets accent color + running header)
+%%   track=main|junior  main track (Grades 4-5, default) or junior track
+%%                    (Grades 2-3: 14pt type, junior level names; see
+%%                    docs/JUNIOR-SYLLABUS.md)
 %%   teacher          marks the document TEACHER ONLY (banner + header)
 %%   student          (default) student-facing document
 %%
@@ -22,6 +25,7 @@
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=kc,prefix=kc@}
 \DeclareStringOption[1]{level}
+\DeclareStringOption[main]{track}
 \DeclareBoolOption{teacher}
 \DeclareComplementaryOption{student}{teacher}
 \ProcessKeyvalOptions*
@@ -32,11 +36,19 @@
   \ifx\kcvariant\kc@dysname \kc@dyslexiatrue \fi
 \fi
 
-\ifkc@dyslexia
+\newif\ifkc@junior
+\def\kc@juniorname{junior}
+\ifx\kc@track\kc@juniorname \kc@juniortrue \fi
+
+\ifkc@junior
+  %% Junior pages are read aloud by a grown-up and followed by 7-9-year-olds:
+  %% 14pt type in both editions (the dyslexia edition adds its own spacing).
+  \LoadClass[14pt]{extarticle}
+\else\ifkc@dyslexia
   \LoadClass[12pt]{article}
 \else
   \LoadClass[11pt]{article}
-\fi
+\fi\fi
 
 %% ---------------------------------------------------------------- packages
 \RequirePackage{iftex}
@@ -146,8 +158,15 @@
   \colorlet{kcaccent}{kcblue}
 \fi
 
-\newcommand{\kclevelname}{%
-  \ifcase\kc@level\relax\or Level 1: Introduction\or Level 2: Intermediate\or Level 3: Advanced\fi}
+\ifkc@junior
+  \newcommand{\kclevelname}{%
+    \ifcase\kc@level\relax\or Level 1: Little Robots\or Level 2: Game Makers\or Level 3: Bridge to Python\fi}
+  \newcommand{\kctrackname}{Kids Coding Junior}
+\else
+  \newcommand{\kclevelname}{%
+    \ifcase\kc@level\relax\or Level 1: Introduction\or Level 2: Intermediate\or Level 3: Advanced\fi}
+  \newcommand{\kctrackname}{Kids Coding}
+\fi
 \newcommand{\kclevelnumber}{\kc@level}
 
 %% ---------------------------------------------------------------- headings
@@ -166,7 +185,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
-\fancyhead[L]{\small\textbf{Kids Coding} \textperiodcentered{} \kclevelname}
+\fancyhead[L]{\small\textbf{\kctrackname} \textperiodcentered{} \kclevelname}
 \fancyhead[R]{\small\kc@doctitle\ifkc@teacher\ \textperiodcentered\ \textbf{TEACHER ONLY}\fi}
 \fancyfoot[C]{\small Page \thepage\ of \pageref*{LastPage}}
 \fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
@@ -176,7 +195,7 @@
 %% \kctitle{Document title}{Short subtitle / audience line}
 \newcommand{\kctitle}[2]{%
   \renewcommand{\kc@doctitle}{#1}%
-  \hypersetup{pdftitle={Kids Coding - \kclevelname\ - #1}}%
+  \hypersetup{pdftitle={\kctrackname\ - \kclevelname\ - #1}}%
   \thispagestyle{plain}%
   \begin{tikzpicture}[remember picture,overlay]
     \fill[kcaccent] (current page.north west) rectangle ([yshift=-1.2cm]current page.north east);
@@ -184,7 +203,7 @@
       \fill[\c] ([xshift={(\i-1)*3cm},yshift=-1.2cm]current page.north west) rectangle ++(3cm,-0.25cm);
   \end{tikzpicture}%
   \vspace*{2.2cm}
-  {\color{kcgray}\Large\bfseries Kids Coding \textperiodcentered{} \kclevelname\par}
+  {\color{kcgray}\Large\bfseries \kctrackname{} \textperiodcentered{} \kclevelname\par}
   \vspace{0.6cm}
   {\fontsize{30}{36}\selectfont\bfseries #1\par}
   \vspace{0.4cm}
@@ -324,6 +343,23 @@
 %% Answer key boxes
 \newenvironment{answer}[1][]{\begin{kc@box}[colback=white]{kcgreen}{\faKey\ Answer\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 \newenvironment{rubric}[1][]{\begin{kc@box}{kcblue}{\faTable\ Rubric\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
+
+%% ---------------------------------------------------------------- junior track
+%% Student goals as "I can ..." statements (junior workbook chapters):
+%%   \begin{ican} \item I can ... \end{ican}
+\newenvironment{ican}{\begin{kc@box}{kcblue}{\faStar\ I can \ldots}\begin{itemize}[label={\faStar[regular]},leftmargin=1.6em,itemsep=2pt]}{\end{itemize}\end{kc@box}}
+%% A short note for the grown-up who reads the page aloud.
+\newenvironment{grownup}[1][]{\begin{kc@box}{kcgray}{\faUserFriends\ For the grown-up\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
+%% Junior homework: one optional 5-10 minute card, done with a grown-up.
+\newenvironment{playathome}[1][]{\begin{kc@box}{kcpurple}{\faHome\ Play at home (5--10 minutes, with a grown-up)\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
+%% Show-me checklist (observed, never graded):
+%%   \begin{showme}[Week 5] \showmerow{Puts arrow cards in order} \end{showme}
+\newenvironment{showme}[1][]{\par\noindent\textbf{\faEye[regular]\ Show me\ifstrempty{#1}{}{: #1}}\par\nopagebreak\noindent
+  \renewcommand{\arraystretch}{1.5}%
+  \tabularx{\linewidth}{@{}X>{\centering\arraybackslash}p{1.9cm}>{\centering\arraybackslash}p{1.9cm}>{\centering\arraybackslash}p{1.9cm}@{}}
+  \toprule \rowcolor{kcaccent!15} \textbf{The child can \ldots} & \small Not yet & \small Getting there & \small Got it\\ \midrule}
+  {\bottomrule\endtabularx\par}
+\newcommand{\showmerow}[1]{#1 & $\square$ & $\square$ & $\square$\\}
 
 %% ---------------------------------------------------------------- lesson structure
 %% \lesson{7}{Hello, Python!}{one-line big idea}

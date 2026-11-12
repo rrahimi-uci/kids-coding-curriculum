@@ -285,3 +285,47 @@ the web pages correct:
   `README.md`/`starter.py`/`hints.md`: those files are public.
 * **The self-check script** (`check_my_work.py`) is not published, so web pages drop the sentences that tell
   children to run it; the PDFs keep them.
+
+## 11. Junior track (Grades 2–3)
+
+Junior levels live under `junior/` and follow everything above **except** where this section
+says otherwise. The plan, goals and the "Junior rules" table are in
+[JUNIOR-SYLLABUS.md](JUNIOR-SYLLABUS.md); `testing/test_repo_structure.py` and
+`testing/test_junior.py` enforce the parts below. Junior Level 1 week 2
+(`junior/1-little-robots/…/week02.tex` and `exercises/week02/`) is the model to copy.
+
+* **Class option.** `\documentclass[track=junior,level=N]{kidscode}` (add `teacher` as usual).
+  It sets 14pt type and the junior level names.
+* **Lesson plan.** 45 minutes in Level 1, 60 in Levels 2–3; the timeplan must end exactly there.
+  Five phases, named verbatim: **Warm-up** (video or unplugged), **Show me** (concept + parent
+  demo, with the `analogy` and the `workedexample`), **Make it** (Driver/Helper pairs, swap every
+  5–7 minutes on a timer, last minutes free play), **Wiggle break** (2 minutes, stand up and
+  move), **Share** (show, exit question, hand out the card). Required boxes are the main-track
+  list minus `stretchchallenge` (still welcome). Each level needs at least 8 `unplugged`,
+  8 `bughunt`, 8 `pairroles`, 6 `freebuild` and 8 `safety` boxes across its 12 sessions.
+  Objectives still start “The student can …” and end with a goal code such as `(J1.G2)`.
+  Pair roles are **Driver** (mouse) and **Helper** (points and reads, never grabs the mouse).
+* **Workbook chapter ("My Robot Book").** Read aloud by the grown-up. At most **350 words**,
+  usually 200–300. Required: `\section{What you will learn}` with an `ican` list
+  (“I can …”, 2–3 items), one picture (TikZ with `%% alt:` or Scratch blocks), 1–3 `exercise`
+  boxes, a `vocab` box with 1–3 words, and a `reflection` with something to draw or circle
+  (smiley faces) instead of lines to write on. One short sentence per step. Use `grownup` boxes for
+  notes to the reader.
+* **Play-at-home card** (instead of homework tiers): one or two `playathome` boxes, mostly
+  unplugged, 5–10 minutes with a grown-up, plus a 2–3 item `selfcheck`. At most **200 words**.
+* **Answer key and show-me checklists.** Answers describe what you should see and hear.
+  Assessment is the `showme` table (`\showmerow{The child can …}`), observed by the parent in
+  weeks 5 and 10, never graded.
+* **Math and positions.** Whole numbers only; **no negative numbers**, **no typed or shown x/y
+  positions** (put a sprite in place by dragging it, or use “go to random position” /
+  “go to mouse-pointer”), and **no 360 ÷ sides**: turns are named (quarter turn = 90, half turn =
+  180) or read from a turn card. Random numbers stay within 1–10 in Level 1.
+* **Scratch blocks.** Level 1 uses only Motion, Looks, Sound, Events, Control and Pen. Name the
+  category and its color circle in every step (Events yellow, Looks purple, Sound pink, Motion
+  blue, Control orange, Pen green).
+* **Exercise folders.** Scratch exercise format as in section 7 (README with build steps,
+  “The script in words”, `## Expected behavior`, `## Checklist`; three-hint `hints.md`;
+  teacher `solution.md`). A README is at most **200 words**. Unplugged-only activities need no
+  folder: they live in the workbook and lesson plan.
+* **Tone.** Warm and concrete, never “easy” or “just”. Names in examples: Ada, Sam, Priya, Leo,
+  Mei, Omar, Zoe, Kai. Nicknames only, never real names.

@@ -1,0 +1,104 @@
+\documentclass[track=junior,level=1]{kidscode}
+%% one inline Scratch block (blocks flow like words inside a table cell)
+\newcommand{\sbk}[1]{\begin{scratch}[scale=0.72]#1\end{scratch}\hspace{8pt}\allowbreak}
+%% \cat{color}{icon}{name}{color word}{blocks}
+\newcommand{\cat}[5]{\swatch{#1}\ {\bfseries #2\ #3}\par{\small\RaggedRight #4\par}\vspace{2pt} &
+  \RaggedRight\vspace{1pt}#5\vspace{1pt}\\ \midrule}
+%% the real Scratch category colors, so the swatches match the screen (always with a word)
+\definecolor{scevents}{HTML}{FFBF00}\definecolor{scmotion}{HTML}{4C97FF}
+\definecolor{sclooks}{HTML}{9966FF}\definecolor{scsound}{HTML}{CF63CF}
+\definecolor{sccontrol}{HTML}{FFAB19}\definecolor{scpen}{HTML}{0FBD8C}
+\newcommand{\sheethead}[1]{\par\smallskip\noindent{\large\bfseries\color{kcaccent}#1}\par\vspace{2pt}}
+%% the dyslexia edition keeps its font with slightly tighter lines so the sheet stays short
+\makeatletter\ifkc@dyslexia\AtBeginDocument{\setstretch{1.2}}\fi\makeatother
+\begin{document}
+\kctitle{Cheat Sheet}{Scratch blocks, turns and bug fixing}
+\vspace{-1.2cm}
+
+\noindent\begin{minipage}[t]{0.56\linewidth}
+\sheethead{The Scratch window}
+%% alt: The Scratch window. On the left, colored circles labeled block circles. In the middle, a script labeled code area. Top right, the stage with a cat, with a green flag labeled start and a red octagon labeled stop above it. Below the stage, a box labeled sprites.
+\begin{tikzpicture}[x=0.62cm,y=0.62cm,
+  lab/.style={font=\small\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=2pt}]
+  \draw[rounded corners=3pt,line width=0.8pt] (0,0) rectangle (15,9);
+  \foreach \c [count=\i] in {scmotion,sclooks,scsound,scevents,sccontrol,scpen}
+     \fill[\c,draw=black] (0.8,9-\i*1.2) circle (0.35);
+  \node[lab,anchor=south west] at (0.2,0.2) {block circles};
+  \fill[scevents,rounded corners=2pt] (3.4,6.4) rectangle (7,7.1);
+  \fill[sclooks!70,rounded corners=2pt] (3.4,5.7) rectangle (7.2,6.4);
+  \fill[scmotion!70,rounded corners=2pt] (3.4,5.0) rectangle (6.8,5.7);
+  \node[lab] at (5.2,3.8) {code area};
+  \draw[line width=0.8pt] (8.6,4.2) rectangle (14.6,8.0);
+  \node[font=\Huge] at (11.6,6.1) {\faCat};
+  \node[lab] at (11.6,4.8) {stage};
+  \fill[kcgreen] (8.8,8.2) -- (9.3,8.4) -- (8.8,8.6) -- cycle; \draw (8.8,8.1) -- (8.8,8.7);
+  \node[regular polygon,regular polygon sides=8,fill=kcvermillion,draw=black,minimum size=0.45cm,inner sep=0pt] at (10.0,8.4) {};
+  \node[font=\small\bfseries,anchor=west] at (10.5,8.4) {start, stop};
+  \draw[line width=0.8pt] (8.6,0.4) rectangle (14.6,3.6);
+  \node[lab] at (11.6,2.0) {sprites};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\sheethead{Turns}
+\textbf{quarter turn = 90}\par
+\textbf{half turn = 180}\par\medskip
+\textbf{Turn card}\par
+%% alt: The turn card: a triangle labeled 120, a square labeled 90 and a hexagon labeled 60.
+\begin{tikzpicture}[font=\bfseries]
+  \node[regular polygon,regular polygon sides=3,draw=black,fill=kcorange!40,minimum size=1.5cm] (t) at (0,0) {};
+  \node[below=1pt of t] {120};
+  \node[regular polygon,regular polygon sides=4,draw=black,fill=kcsky!40,minimum size=1.5cm] (s) at (2.0,0) {};
+  \node[below=1pt of s] {90};
+  \node[regular polygon,regular polygon sides=6,draw=black,fill=kcgreen!40,minimum size=1.5cm] (h) at (4.0,0) {};
+  \node[below=1pt of h] {60};
+  \node[font=\small] at (0,-1.45) {triangle};
+  \node[font=\small] at (2.0,-1.45) {square};
+  \node[font=\small] at (4.0,-1.45) {hexagon};
+\end{tikzpicture}
+\end{minipage}
+
+\sheethead{My blocks}
+{\renewcommand{\arraystretch}{1.0}
+\begin{longtable}{@{}p{3.6cm}p{\dimexpr\linewidth-3.6cm-2\tabcolsep}@{}}
+\toprule
+\cat{scevents}{\faFlag}{Events}{yellow: start}{%
+  \sbk{\blockinit{when \greenflag clicked}}\sbk{\blockinit{when this sprite clicked}}%
+  \sbk{\blockinit{when \selectmenu{space} key pressed}}}
+\cat{scmotion}{\faRunning}{Motion}{blue: move}{%
+  \sbk{\blockmove{move \ovalnum{10} steps}}\sbk{\blockmove{turn \turnright{} \ovalnum{90} degrees}}%
+  \sbk{\blockmove{turn \turnleft{} \ovalnum{90} degrees}}\sbk{\blockmove{go to \selectmenu{random position}}}}
+\cat{sclooks}{\faTheaterMasks}{Looks}{purple: say and show}{%
+  \sbk{\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}}\sbk{\blocklook{next costume}}%
+  \sbk{\blocklook{switch backdrop to \selectmenu{backdrop1}}}\sbk{\blocklook{show}}\sbk{\blocklook{hide}}}
+\cat{scsound}{\faVolumeUp}{Sound}{pink: hear}{%
+  \sbk{\blocksound{start sound \selectmenu{Pop}}}\sbk{\blocksound{play sound \selectmenu{Meow} until done}}}
+\cat{sccontrol}{\faRedo}{Control}{orange: repeat, wait}{%
+  \sbk{\blockrepeat{repeat \ovalnum{4}}{\blockspace[0.3]}}\sbk{\blockcontrol{wait \ovalnum{1} seconds}}}
+\cat{scpen}{\faPen}{Pen}{green: draw}{%
+  \sbk{\blockpen{erase all}}\sbk{\blockpen{pen down}}\sbk{\blockpen{pen up}}\sbk{\blockpen{stamp}}%
+  \par{\small No Pen blocks? Click \menu{Add Extension}, then Pen.\par}}
+\end{longtable}}
+
+\sheethead{Square = repeat 4 of move and a quarter turn}
+\noindent\begin{minipage}[c]{0.36\linewidth}
+\begin{scratch}[scale=0.8]
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.6\linewidth}
+\sheethead{Fixing a bug}
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=0pt]
+  \item[\faEye] \textbf{Watch.} What does it do?
+  \item[\faSearch] \textbf{Find} the block.
+  \item[\faWrench] \textbf{Change one thing.}
+  \item[\faFlag] \textbf{Test.} Click the flag again.
+\end{enumerate}
+\smallskip
+{\small Bugs are clues. Everyone gets them!}
+\end{minipage}
+
+\end{document}

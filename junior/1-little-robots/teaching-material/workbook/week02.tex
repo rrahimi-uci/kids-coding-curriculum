@@ -1,0 +1,85 @@
+% Junior Level 1, Week 2 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{2}{Meet Scratch}{Blocks snap together to make a sprite act.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can find the sprite, the stage and the green flag.
+  \item I can snap blocks together to make the cat talk and move.
+  \item I can fix a block that is not snapped on.
+\end{ican}
+
+\section{Meet Scratch}
+The cat is a \textbf{sprite}. The stage is where it acts. Blocks snap together like puzzle pieces.
+
+\begin{center}
+%% alt: A simple Scratch window. On the left, colored block circles labeled blocks. In the middle, a short script labeled script. Top right, a stage with a cat labeled sprite, and a green flag labeled start above it.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=3pt}]
+  \draw[rounded corners=3pt,line width=0.8pt] (0,0) rectangle (14,7);
+  \foreach \c [count=\i] in {kcblue,kcpurple,kcvermillion!70,kcyellow,kcorange}
+     \fill[\c,draw=black] (0.8,7-\i*1.1) circle (0.35);
+  \node[lab] at (0.9,0.6) {blocks};
+  \fill[kcyellow,rounded corners=2pt] (3,5) rectangle (6.4,5.7);
+  \fill[kcpurple!60,rounded corners=2pt] (3,4.3) rectangle (6.6,5);
+  \fill[kcblue!60,rounded corners=2pt] (3,3.6) rectangle (6.2,4.3);
+  \node[lab] at (4.6,2.6) {script};
+  \draw[line width=0.8pt] (8,2.2) rectangle (13.6,6.2);
+  \node[font=\Huge] at (10.8,4.2) {\faCat};
+  \node[lab] at (10.8,1.5) {sprite on the stage};
+  \fill[kcgreen] (8.2,6.45) -- (8.7,6.65) -- (8.2,6.85) -- cycle; \draw (8.2,6.35) -- (8.2,6.9);
+  \node[lab,anchor=west] at (9,6.6) {start};
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Hello Cat]
+Make the cat say hi, meow and move.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Drag the blocks in. Wait for the gray shadow, then let go.
+  \item Type \enquote{Hi!} in the white oval.
+  \item Click the green flag.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blockmove{move \ovalnum{50} steps}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Stuck Cat]
+Kai's cat says hi and meows, but it does not move. Circle the block that is not snapped on.
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\blocksound{play sound \selectmenu{Meow} until done}
+\end{scratch}
+
+\vspace{0.4cm}
+\begin{scratch}[scale=0.9]
+\blockmove{move \ovalnum{50} steps}
+\end{scratch}
+\end{center}
+Now fix it on your Mac: drag the block up until it clicks on.
+\end{exercise}
+
+\begin{grownup}[Bringing the cat back]
+Each click on the green flag moves the cat a little further. To bring it back, drag the cat on the stage with the mouse.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{sprite}{A character in Scratch that can act, like the cat.}
+  \vocabword{stage}{The place where the sprites act.}
+  \vocabword{script}{Blocks snapped together. They run from top to bottom.}
+\end{vocab}
+
+\begin{reflection}
+Draw your sprite. How do you feel about Scratch? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

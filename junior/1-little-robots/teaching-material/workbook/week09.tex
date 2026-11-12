@@ -1,0 +1,84 @@
+% Junior Level 1, Week 9 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{9}{Project Studio}{Plan on a storyboard, then build one box at a time.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can plan my greeting card in three boxes.
+  \item I can build my card one box at a time.
+  \item I can check a card against its storyboard.
+\end{ican}
+
+\section{My Animated Greeting Card}
+Your card is for someone special. A \textbf{storyboard} is a plan in boxes: start, middle, end.
+
+\begin{exercise}[My Storyboard]
+Draw one picture in each box. A grown-up can write the words.
+\begin{center}
+%% alt: Three empty boxes in a row for drawing. Box 1 is labeled Start with a green flag. Box 2 is labeled Middle with a repeat arrow. Box 3 is labeled End with a mouse click and a key.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=3pt}]
+  \foreach \i/\t in {0/1 Start,1/2 Middle,2/3 End} {
+    \draw[line width=1pt,rounded corners=3pt] (\i*5.4,0) rectangle ++(4.8,4.2);
+    \node[lab,anchor=north west] at (\i*5.4+0.15,4.05) {\t};
+  }
+  \fill[kcgreen] (3.7,3.75) -- (4.3,3.95) -- (3.7,4.15) -- cycle; \draw (3.7,3.6) -- (3.7,4.15);
+  \node[font=\Large,kcorange] at (9.6,3.8) {\faRedo};
+  \node[font=\Large] at (14.5,3.8) {\faMousePointer\ \faKeyboard[regular]};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Start: the green flag. Who says hello? What sound?
+  \item Middle: what dances again and again?
+  \item End: click or press a key. What is the surprise?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Build My Card]
+Build one box. Click the green flag. Test it. Then do the next box.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Happy birthday!} for \ovalnum{2} seconds}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blocksound{play sound \selectmenu{Pop} until done}
+\blocklook{say \ovalnum{Surprise!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+Mei's card: the cat on the left, the balloon on the right. Yours can be different!
+\end{exercise}
+
+\begin{exercise}[Partner Check]
+Swap with a partner. Check their card. Circle yes or not yet.
+\begin{center}
+\begin{tabular}{@{}l c@{}}
+The green flag starts it. & yes \quad not yet\\
+Something repeats. & yes \quad not yet\\
+A click or a key does something. & yes \quad not yet\\
+I hear a sound. & yes \quad not yet\\
+Two sprites, or the backdrop changes. & yes \quad not yet\\
+It matches the storyboard. & yes \quad not yet\\
+\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{storyboard}{A plan in boxes. It shows the start, the middle and the end.}
+\end{vocab}
+
+\begin{reflection}
+Color in the boxes you finished: \quad \fbox{\strut\ 1\ } \fbox{\strut\ 2\ } \fbox{\strut\ 3\ }
+
+How do you feel about your card? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

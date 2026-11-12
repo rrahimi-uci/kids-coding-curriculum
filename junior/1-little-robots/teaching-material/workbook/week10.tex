@@ -1,0 +1,74 @@
+% Junior Level 1, Week 10 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{10}{Showcase and Certificate}{Show, explain and celebrate.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can show my greeting card to my family.
+  \item I can say what one script does.
+  \item I can give kind sticker feedback.
+\end{ican}
+
+\section{Showcase day}
+A \textbf{showcase} is a little show. You show your card. You say what your code does. Then we celebrate!
+
+\begin{exercise}[Last-Minute Bug Check]
+Check your card with a partner. Circle yes or not yet.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Click the green flag. Does it start? \hfill yes \quad not yet
+  \item Click the flag again. Same start? \hfill yes \quad not yet
+  \item Click or press the key. Surprise? \hfill yes \quad not yet
+  \item Can you hear the sound? \hfill yes \quad not yet
+\end{enumerate}
+Fix one thing. Then save.
+\end{exercise}
+
+\begin{exercise}[My Showcase]
+Show your card. Then point at one script. Say it from the top.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{play sound \selectmenu{Pop} until done}
+\blocklook{say \ovalnum{Surprise!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+Mei says: \enquote{When you click the balloon, it pops and says Surprise!}
+
+Now you:
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+  \item My card is for \rule{4cm}{0.4pt}.
+  \item When you \rule{3.5cm}{0.4pt}, it \rule{4cm}{0.4pt}.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}[Sticker Feedback]
+Visit a friend's card. Ask before you click. Put a sticker on the part you liked best. Say it out loud!
+\begin{center}
+%% alt: A sticker sheet with three columns. Column 1 says I liked the dance, with a music icon. Column 2 says I liked the sound, with a speaker icon. Column 3 says I liked the surprise, with a gift icon. Each column has one star sticker.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,align=center}]
+  \foreach \i/\t/\ic in {0/dance/\faMusic,1/sound/\faVolumeUp,2/surprise/\faGift} {
+    \draw[line width=1pt,rounded corners=3pt] (\i*4.4,0) rectangle ++(4,3.6);
+    \node[lab] at (\i*4.4+2,2.8) {I liked the\\\t};
+    \node[font=\Large] at (\i*4.4+2,1.7) {\ic};
+    \node[font=\Large,kcorange] at (\i*4.4+2,0.7) {\faStar};
+  }
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{grownup}[Showcase safety]
+Family only, at home. Use nicknames on the screen. Fill in the Week 10 show-me checklist as each child presents.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{showcase}{A little show where we share what we made.}
+\end{vocab}
+
+\begin{reflection}
+Draw your favorite part of your card. How do you feel about your card? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

@@ -1,0 +1,33 @@
+% Junior Level 1, Week 3 -- answer key
+\answersweek{3}{Bugs Are Clues}{Answers for workbook chapter 3 and play-at-home card 3.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+Only \enquote{Bye!} shows. The computer runs both say blocks so fast that \enquote{Hi!} is replaced before anyone can see it. A \enquote{wait 1 seconds} block between the two say blocks fixes it.
+\end{answer}
+
+\begin{answer}[Reflection]
+\enquote{What do we do when we find a bug?} Test, look, change one thing (or \enquote{click the flag and look}, \enquote{fix it and try again}). \enquote{What do you say when a friend finds a bug?} \enquote{Thanks!} or \enquote{Let's test it.} Any drawing of a bug detective is right, and every smiley is an honest answer: if a child circles the sad face, talk about it kindly.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 3.1: Ready, Set, Go!]
+\textbf{With the bug:} after the green flag the cat says only \enquote{Go!} and glides to a random place. Ready and Set flash by too fast to see.
+
+\textbf{After the fix:} the cat says \enquote{Ready}, one second later \enquote{Set}, one second later \enquote{Go!}, and glides to a random place. The fixed script has \enquote{wait 1 seconds} between \enquote{say Ready} and \enquote{say Set}, and between \enquote{say Set} and \enquote{say Go!}.
+
+\textbf{What to look for:} \tickbox{} the plain \enquote{say} block (not \enquote{for 2 seconds}) \quad \tickbox{} the child tests after the first wait and finds that Set is still too fast \quad \tickbox{} two waits, between the words.
+\end{answer}
+
+\begin{answer}[Exercise 3.2: The Sleepy Cat]
+The circled block is \enquote{think Zzz for 2 seconds}: it is last, but the cat should sleep first. (Circling \enquote{say Good morning!} is also fair: it should come after the sleep.) Fix: drag \enquote{think Zzz} up and drop it right under \enquote{when green flag clicked}. After the fix the cat thinks \enquote{Zzz} for 2 seconds, says \enquote{Good morning!} for 2 seconds, then moves a little to the right.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Spot the bug]
+Any bug the child spots and names is a success: \enquote{you rinsed before you brushed} (wrong order) or \enquote{you were too fast} (no wait). Look for the kind words and for a fix that names the step: \enquote{put toothpaste on first}.
+\end{answer}
+
+\begin{answer}[Slow motion]
+The jumps with a wait are easier to see and to count. This is why the wait block helps in Scratch.
+\end{answer}

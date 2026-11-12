@@ -1,0 +1,188 @@
+% Junior Level 1, Week 1 -- Robots Need Instructions (fully unplugged: no computer this week)
+\lesson{1}{Robots Need Instructions}{A program is a list of exact steps, in order.}
+\lessoninfo{Concepts: sequence (I), algorithm (I)}{Tools: masking-tape floor grid, arrow cards (printable page at the end of this plan), a paper star}{CSTA: 1A-AP-08, 1A-AP-11, 1A-AP-14, 1A-IC-17}
+
+\begin{objectives}
+  \item The student can lay arrow cards in order so the parent robot walks from the start square to the star on the floor grid. (J1.G1) [J1.W01.1]
+  \item The student can take turns laying and reading the cards, and say what each card will make the robot do. (J1.G6) [J1.W01.2]
+  \item The student can find an arrow card in the wrong place and move it so the robot reaches the star. (J1.G4) [J1.W01.3]
+  \item The student can say two of our rules: we use nicknames only, and we stop and ask a grown-up when an app asks for anything. (J1.G7) [J1.W01.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 1 and play-at-home card 1 (one per child), and the arrow-card page at the end of this plan \textbf{twice}. Cut the cards apart (or let the children help).
+  \item A floor grid: masking tape (painter's tape) on the floor, 4 squares by 4 squares. Each square is about one big grown-up step (16 inches or 40\,cm). Tiles, a rug pattern or 16 sheets of paper also work. No space? Draw a 4 by 4 grid on a big sheet of paper and use a toy as the robot.
+  \item A paper star (or any toy) for the goal, and a soft toy for the demo.
+  \item Sticky notes and a marker for nickname badges.
+  \item A sand timer or kitchen timer (5 minutes) for swapping jobs.
+  \item No computer this week. Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Hello and the \enquote{what do you like to make?} chat. Nickname badges and our two rules.}
+  \timeslot{8--16}{Show me}{Meet the three arrow cards. Walk a soft toy along a short path on the floor grid while the children read the cards with you.}
+  \timeslot{16--36}{Make it}{Parent robot! Children lay cards and read them, you walk. Exercise 1.1 Parent Robot, Exercise 1.2 The Wrong Card (bug hunt), then 1.3 My Own Path (free build). Swap jobs on the timer.}
+  \timeslot{36--38}{Wiggle break}{Robot dance: everyone follows the card you hold up.}
+  \timeslot{38--45}{Share}{Each child's path is tested by the robot. Exit question, hand out play-at-home card 1.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{teacherscript}[What do you like to make?]
+Sit together on the floor next to the grid. \enquote{Welcome to coding club! Before we start, I want to hear about you.} Ask, and really listen:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \enquote{What do you like to make? Drawings, Lego, stories, songs, dens?}
+  \item \enquote{What is your favorite game or app?}
+  \item \enquote{If you could make anything on a computer, what would it be?}
+\end{itemize}
+Every answer is a good answer. \enquote{In this club you will make your own animations and games. Today we start without a computer, with a robot!}
+\end{teacherscript}
+
+\begin{teachernote}[The chat is not a test]
+This chat is ungraded. Write one or two of each child's ideas on a sticky note and keep it: they are great starting points for the free-build minutes and for the week 9 project.
+\end{teachernote}
+
+\begin{safety}[Our rules]
+\enquote{Coders use a \textbf{nickname}, like Rocket Fox or Pixel. A nickname is a pretend name. We use it instead of our real name.} Each child picks a nickname and writes it (or you write it) on a sticky-note badge.
+
+Then play \enquote{Ask a grown-up!} \enquote{Sometimes an app asks for things. I will read what an app might say. If it asks for anything, put your hands on your head and shout: ask a grown-up!} Read: \enquote{What is your name?}, \enquote{Can I take a photo?}, \enquote{Tap OK to buy gems!}, \enquote{Make an account!}, \enquote{Where do you live?} Every time, hands on heads. \enquote{Those are our two rules: nicknames only, and when an app asks for anything, we stop and ask a grown-up.}
+\end{safety}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{A \textbf{robot} is a machine that follows instructions. Robots and computers are very fast, but they cannot guess what we mean. If I say \enquote{go to the star}, a robot does not know how. We have to tell it every step, in the right order.} Hold up the cards one at a time:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{FORWARD}: \enquote{Move one square ahead.}
+  \item \textbf{TURN LEFT} and \textbf{TURN RIGHT}: \enquote{Turn a quarter turn, on the spot. Your feet stay in the same square.} Show a quarter turn with your whole body.
+\end{itemize}
+\enquote{A row of cards is a \textbf{program}. Planning the steps to get a job done is called an \textbf{algorithm}. Today you are the coders, and I am the robot.}
+\end{teacherscript}
+
+\begin{analogy}[A friend with a blindfold]
+\enquote{Imagine a friend wearing a blindfold who wants to reach the door. If you say \enquote{over there!}, it does not help. If you say \enquote{two steps forward, turn right, one step forward}, they get there. A robot is like that friend: it needs exact steps, one at a time.}
+\end{analogy}
+
+\begin{workedexample}[The toy goes to the star]
+Do this on the floor grid while the children watch and read with you.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Put the START card in the near left corner square and the soft toy on it, facing the far side of the grid. \enquote{The robot always starts here, facing this way.}
+  \item Put the star two squares ahead and one square to the right.
+  \item Lay the cards in a row on the floor next to the grid, left to right: FORWARD, FORWARD, TURN RIGHT, FORWARD. Keep every arrow pointing up: the arrow shows the robot's move, not a direction on the floor.
+  \item Point at the first card and read it together: \enquote{FORWARD.} Move the toy one square. Do the same for each card. At TURN RIGHT, turn the toy on the spot.
+  \item The toy is on the star. \enquote{Our program worked! The robot did the cards one at a time, in order.}
+  \item Now ask: \enquote{What if I put TURN RIGHT first?} Try it: the toy ends up somewhere else. \enquote{The same cards in a different order make a different path.}
+\end{enumerate}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{unplugged}[Parent robot]
+You are the robot. Stand on the START square (near left corner), facing the far side of the grid. The children stand behind you, so your left and right are their left and right. Talk in a robot voice and be very exact: one FORWARD is one square, even if it walks you off the grid (\enquote{Beep! Off the grid!}). If someone says \enquote{go to the star} or points, say \enquote{Does not compute. I need cards.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{Exercise 1.1:} put the star on a square. The children lay a row of cards. The Helper reads them one at a time, and you do exactly what each card says. Did the robot reach the star? Play three or four rounds and move the star further each time.
+  \item \textbf{Exercise 1.2:} the bug hunt (below).
+  \item \textbf{Exercise 1.3:} the free build (below).
+\end{enumerate}
+With 1 child: the child lays and reads, you walk; then swap once so the child is the robot and you lay the cards. With 2: one lays, one reads, swap on the timer. With 3: add a Checker who watches your feet and calls \enquote{Bug!} if the robot does something different from the card. With 4: two pairs take turns; the waiting pair checks.
+\end{unplugged}
+
+\begin{pairroles}[Driver and Helper]
+This week the \textbf{Driver} holds the cards and lays them in a row: only the Driver puts cards down. The \textbf{Helper} reads the cards aloud to the robot and points at each one, but never moves a card. Swap when the timer runs out (5 minutes). Next week the Driver will hold the mouse instead of the cards.
+\end{pairroles}
+
+\begin{bughunt}[The Wrong Card (Exercise 1.2)]
+Look at Ada's cards in the workbook together first: FORWARD, TURN RIGHT, FORWARD, FORWARD, FORWARD on a 3 by 3 grid. Ask: \enquote{Will the robot reach the star?} Then lay the same row on the floor and walk it. Use 3 by 3 squares of your grid: start in the near left corner (facing the far side), star in the far right corner. The robot turns too early, walks along the middle row and ends up outside Ada's 3 by 3 area, nowhere near the star. Ask: \enquote{Which card is in the wrong place?} (TURN RIGHT: it should come after the second FORWARD.) The children move one card and you walk it again. \enquote{A bug is a mistake in a program. We found it and fixed it!}
+\end{bughunt}
+
+\begin{freebuild}[My Own Path (Exercise 1.3)]
+Last 5 minutes: each child puts the star anywhere on the grid (a cushion can be a rock the robot must walk around), plans the cards, draws them in the workbook, and lays them out. The robot tests every path. If the robot misses, the coder moves a card and tests again.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up and becomes a robot. Hold up one card at a time: FORWARD (one stomp forward), TURN LEFT, TURN RIGHT. Speed up, then finish with a slow \enquote{power down} to sitting.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child reads out their path from Exercise 1.3 while you walk it. \enquote{Did the robot reach the star? Which card was the hardest to choose?} Others give a thumbs up. Remind everyone of the two rules and the nickname badges.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the cards are laid in one row and read one at a time; the child counts squares before choosing FORWARD cards; the child turns the robot on the spot, without a step.
+
+\textbf{Ask:} lay two rows next to each other: FORWARD, TURN RIGHT, FORWARD and FORWARD, FORWARD, TURN RIGHT. \enquote{These rows have the same cards. Will the robot end on the same square?}
+\textbf{Answer:} no. The order is different, so the robot takes a different path. The order of the steps matters.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What does a robot need from us?} (exact steps, in order) and \enquote{What do we do when an app asks for something?} (stop and ask a grown-up). Children draw themselves as a robot in the workbook and circle a smiley face. Hand out play-at-home card 1.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{TURN means stepping sideways.} Children often expect TURN RIGHT to move the robot one square to the right. Turn on the spot, slowly and clearly: the feet stay in the square.
+  \item \textbf{Left and right get mixed up.} When the robot faces the children, its right is their left. Let the children stand behind the robot, facing the same way. A sticker on each child's right hand helps.
+  \item \textbf{Cards pointing sideways.} A child turns a FORWARD card to point to the right to mean \enquote{go right}. Every card points up; turning is done with a TURN card.
+  \item \textbf{Counting the start square.} FORWARD moves to the next square. Count the jumps between squares, not the squares.
+  \item \textbf{Real names on badges.} Gently change it to a nickname: \enquote{That is our rule.}
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Start with the star straight ahead, so only FORWARD cards are needed. Then add a single turn. The child can walk behind the robot with a hand on its back to feel each step.
+\extensionpath Add a cushion rock to walk around, or ask for the fewest cards that still reach the star. Plan the whole row before anyone walks: no testing halfway.
+\end{differentiation}
+
+\begin{stretchchallenge}[There and back]
+Reach the star, then come home to the START square. The robot needs to face the other way: two TURN RIGHT cards make a half turn. How many cards does the whole trip need?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the \enquote{what do you like to make?} chat to one question each. Skip the free build (do Exercise 1.3 as the play-at-home game instead). Never skip the bug hunt or the wiggle break.
+\end{teachernote}
+
+\begin{teachernote}[Before next week: install Scratch]
+Week 2 uses the free Scratch 3 app, which works with no account and no internet once it is installed. On each Mac, open the \menu{App Store}, search for \enquote{Scratch 3} (publisher: Scratch Foundation, free) and click \menu{Get}. Open it once and check that you see a cat on a white stage with a green flag above it. Plug in a mouse: dragging blocks with a trackpad is hard for small hands.
+\end{teachernote}
+
+\clearpage
+\section{Printable arrow cards}
+Print this page twice and cut along the dashed lines. Two copies give 8 FORWARD, 6 TURN LEFT and 6 TURN RIGHT cards. Every card has a word and a shape, so the colors are only a bonus.
+
+\begin{center}
+%% alt: Twelve cut-out cards with dashed borders. Top row: four FORWARD cards with a straight arrow pointing up. Middle row: three TURN LEFT cards with an arrow that goes up and bends to the left, and a START card with a robot. Bottom row: three TURN RIGHT cards with an arrow that goes up and bends to the right, and a STAR card.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  edge/.style={draw=kcblack,dashed,line width=0.8pt,rounded corners=4pt},
+  big/.style={line width=7pt,-{Triangle[length=16pt,width=26pt]}},
+  word/.style={font=\bfseries\large,align=center}]
+  % Row 1: FORWARD
+  \foreach \x in {0,4.2,8.4,12.6} {
+    \begin{scope}[shift={(\x,11)}]
+      \filldraw[edge,fill=kcblue!10] (0,0) rectangle (3.8,5);
+      \draw[big,kcblue] (1.9,1.9) -- (1.9,4.5);
+      \node[word] at (1.9,0.9) {FORWARD};
+    \end{scope}}
+  % Row 2: TURN LEFT and START
+  \foreach \x in {0,4.2,8.4} {
+    \begin{scope}[shift={(\x,5.5)}]
+      \filldraw[edge,fill=kcorange!12] (0,0) rectangle (3.8,5);
+      \draw[big,kcorange!85!black] (2.5,2.0) -- (2.5,3.3) arc (0:90:0.9);
+      \node[word] at (1.9,0.95) {TURN\\LEFT};
+    \end{scope}}
+  \begin{scope}[shift={(12.6,5.5)}]
+    \filldraw[edge,fill=white] (0,0) rectangle (3.8,5);
+    \node[scale=2.6] at (1.9,3.2) {\faRobot};
+    \node[word] at (1.9,0.9) {START};
+  \end{scope}
+  % Row 3: TURN RIGHT and STAR
+  \foreach \x in {0,4.2,8.4} {
+    \begin{scope}[shift={(\x,0)}]
+      \filldraw[edge,fill=kcgreen!12] (0,0) rectangle (3.8,5);
+      \draw[big,kcgreen] (1.3,2.0) -- (1.3,3.3) arc (180:90:0.9);
+      \node[word] at (1.9,0.95) {TURN\\RIGHT};
+    \end{scope}}
+  \begin{scope}[shift={(12.6,0)}]
+    \filldraw[edge,fill=kcyellow!25] (0,0) rectangle (3.8,5);
+    \node[scale=2.6] at (1.9,3.2) {\faStar};
+    \node[word] at (1.9,0.9) {STAR};
+  \end{scope}
+\end{tikzpicture}
+\end{center}

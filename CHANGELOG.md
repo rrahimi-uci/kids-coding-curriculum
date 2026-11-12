@@ -3,6 +3,16 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.12.0 - 2026-11-12
+
+Junior Level 1, *Little Robots*, is written: the first level of the new junior track for children in Grades 2–3 (ages 7–9).
+
+- Ten 45-minute sessions plus two optional buffer sessions: robot games with arrow cards on the floor, then the Scratch app (talking, moving, debugging, repeat, clicks and keys, two sprites, drawing with the pen) and a final project, *My Animated Greeting Card*.
+- A complete kit for the parent: Teacher Guide, Lesson Plans, *My Robot Book* (picture-first chapters to read aloud), Play-at-Home Cards (5–10 minutes, mostly without a computer), Answer Key, show-me checklists for weeks 5 and 10 instead of quizzes, cheat sheet, word book, progress tracker, notes for families, certificate, project brief and project teacher guide, each in the standard and dyslexia-friendly editions.
+- 18 Scratch exercise folders with build steps, three hints each and a teacher-only reference.
+- Junior pages use 14pt type, whole numbers only, no x/y positions and no "360 ÷ sides"; new checks keep them short and inside Grade 2–3 math.
+- Build it with `make pdf LEVEL=j1`. The junior track is not on the website yet.
+
 ## 1.11.0 - 2026-11-11
 
 The video characters have new names, and Rose has a new look.

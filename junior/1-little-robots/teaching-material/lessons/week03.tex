@@ -1,0 +1,138 @@
+% Junior Level 1, Week 3 -- Bugs Are Clues
+\lesson{3}{Bugs Are Clues}{A bug is a clue: test, look, change one thing.}
+\lessoninfo{Concepts: bug and debugging (I), test-and-change (I), wait (I), sequence (R)}{Tools: Scratch 3 offline app, routine cards, socks, shoes and a hat}{CSTA: 1A-AP-14, 1A-AP-10, 1A-CS-03, 1A-IC-17}
+
+\begin{objectives}
+  \item The student can test a script, say what went wrong, change one thing and test again. (J1.G4) [J1.W03.1]
+  \item The student can add a \enquote{wait 1 seconds} block so each step stays on the screen long enough to see. (J1.G2) [J1.W03.2]
+  \item The student can spot steps in the wrong order, in a robot routine and in a script, and put them in the right order. (J1.G1, J1.G4) [J1.W03.3]
+  \item The student can use kind words when a friend finds a bug in their work, or when they find a bug in a friend's work. (J1.G7) [J1.W03.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 3 and play-at-home card 3 (one per child).
+  \item Unplugged: five routine cards you write by hand: \enquote{1. PUT ON SOCKS}, \enquote{2. PUT ON SHOES}, \enquote{3. PUT ON HAT}, \enquote{4. WAVE BYE}, plus three cards that say \enquote{WAIT}. A pair of socks, a pair of (big, funny) shoes and a hat.
+  \item On each Mac: the Scratch app open with a new project, and a mouse plugged in.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (5 minutes).
+  \item Optional: a magnifying glass to pass around (detectives love one), and the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Spot the difference: the robot gets dressed. Bug 1: steps in the wrong order. Bug 2: too fast to see.}
+  \timeslot{8--16}{Show me}{A bug is a clue: test, look, change one thing. Build Ready, Set, Go! and fix it with the new wait block.}
+  \timeslot{16--36}{Make it}{Kind bug words. Driver and Helper, swap on the timer. Exercise 3.1 Ready, Set, Go!, Exercise 3.2 The Sleepy Cat (bug hunt), then free play: a joke or a countdown with waits.}
+  \timeslot{36--38}{Wiggle break}{Slow-motion robots: move, freeze, move, freeze.}
+  \timeslot{38--45}{Share}{Show one fixed bug each and say what the clue was. Exit question, hand out play-at-home card 3.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Spot the difference]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Lay the four routine cards in a line: socks, shoes, hat, wave. \enquote{This is the robot's plan for getting dressed. Watch closely: does the robot do the plan?}
+  \item \textbf{Round 1:} do the routine slowly and correctly. Thumbs up.
+  \item \textbf{Round 2:} secretly swap the socks and shoes cards, then do it: put on the shoes first and try to pull the socks on over them. Let the children laugh and shout. \enquote{What was different from the plan?} They find the two cards and swap them back. \enquote{That was a bug: steps in the wrong order.}
+  \item \textbf{Round 3:} do all four steps in a super-fast blur (two seconds in total). \enquote{Did you see me put on the hat? Could you see each step?} Not really. Put a WAIT card between each pair of cards. \enquote{WAIT means stop and count to one.} Do it again: socks, one, shoes, one, hat, one, wave. \enquote{Now we can see every step. Today we meet a new block called wait.}
+\end{enumerate}
+With 1 child: the child holds the plan and is the detective; then swap, and the child is the robot while you spot the bug (whisper the bug to the child first). With 3 or 4: one child is the robot (you whisper which bug to do), the others are detectives; change the robot each round.
+\end{unplugged}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{A \textbf{bug} is a mistake in a program. Every coder finds bugs, every day, even grown-up coders. A bug is not bad news. A bug is a \textbf{clue}. When we find one, we do three things.} Count them on your fingers:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{Test:} click the green flag and watch.
+  \item \textbf{Look:} what happened? What did we want to happen?
+  \item \textbf{Change one thing,} then test again.
+\end{enumerate}
+\enquote{Finding and fixing bugs is called \textbf{debugging}.}
+\end{teacherscript}
+
+\begin{analogy}[Detectives and flip books]
+\enquote{Detectives love clues. When a detective finds a footprint, they do not get cross. They say: a clue! Then they look closely. We do the same with bugs.} And for the wait block: \enquote{If you flip a flip book really fast, you only see the last page. The computer is that fast. A wait block makes it pause on each page.}
+\end{analogy}
+
+\begin{workedexample}[Ready, Set, Go! (Exercise 3.1)]
+Do this on your Mac while the children watch. Say each step out loud, and let the children call out the clues.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the yellow \menu{Events} circle. Drag in \enquote{when green flag clicked}.
+  \item Click the purple \menu{Looks} circle. Find the plain \enquote{say Hello!} block, the one \textbf{without} \enquote{for 2 seconds}. Snap it on and type \enquote{Ready}.
+  \item Snap on two more plain \enquote{say} blocks. Type \enquote{Set} and \enquote{Go!}.
+  \item Click the blue \menu{Motion} circle. Snap on \enquote{glide 1 secs to random position}.
+  \item \textbf{Test:} click the green flag. The cat says \enquote{Go!} and glides away. \textbf{Look:} \enquote{Did anyone see Ready? Did anyone see Set?} No! \enquote{A clue: the computer is so fast that it said all three words in a blink. Like the fast flip book.}
+  \item \textbf{Change one thing:} click the orange \menu{Control} circle. Drag \enquote{wait 1 seconds} in between \enquote{say Ready} and \enquote{say Set}. Test: now we see Ready, then Go!. \enquote{Better! But Set is still too fast. Another clue.}
+  \item Snap another \enquote{wait 1 seconds} between \enquote{say Set} and \enquote{say Go!}. Test: Ready \ldots\ Set \ldots\ Go! and the cat dashes off.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Ready}}
+\blockcontrol{wait \ovalnum{1} seconds}
+\blocklook{say \ovalnum{Set}}
+\blockcontrol{wait \ovalnum{1} seconds}
+\blocklook{say \ovalnum{Go!}}
+\blockmove{glide \ovalnum{1} secs to \selectmenu{random position}}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{safety}[Kind bug words]
+Before anyone touches a mouse, practice the words. \enquote{When you find a bug in your partner's work, you say: \enquote{I think I found a clue!} When your partner finds a bug in your work, you say: \enquote{Thanks! Let's test it.} We never laugh at a bug and we never say \enquote{you did it wrong}. Bugs happen to everyone.} Act it out once with each child, then let them say it to each other.
+\end{safety}
+
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} is the bug detective: they watch the stage when the flag is clicked and say what they see (\enquote{I saw Ready, then Go!}). The Helper points, but never grabs the mouse. Swap when the timer runs out (5 minutes). With 1 child: you are the Helper, then swap so the child watches while you drive. With 3: Driver, Helper and Checker (checks each block against the workbook picture). With 4: two pairs, then each pair tests the other pair's project.
+\end{pairroles}
+
+Work through the workbook: \textbf{3.1} Ready, Set, Go! (their own copy of the demo), then \textbf{3.2} The Sleepy Cat. The most common snag: choosing \enquote{say Hello! for 2 seconds} instead of the plain \enquote{say Hello!}. That block waits by itself, so the bug never appears. Swap it for the plain one.
+
+\begin{bughunt}[The Sleepy Cat (Exercise 3.2)]
+The workbook shows Sam's script: \enquote{say Good morning! for 2 seconds}, \enquote{move 50 steps}, \enquote{think Zzz for 2 seconds}. The cat should sleep, wake up, then walk. Children build it and click the flag (\textbf{test}). The cat says good morning, walks, and then falls asleep (\textbf{look}). Ask: \enquote{Which step is in the wrong place?} (\enquote{think Zzz} should come first.) \textbf{Change one thing:} drag \enquote{think Zzz} (the bottom block) up and drop it right under the green flag block; Scratch makes room for it. Test again. Link back to the robot that put its shoes on before its socks.
+\end{bughunt}
+
+\begin{freebuild}[Make it yours]
+Last 5 minutes: make the cat tell a joke with a wait in the middle (\enquote{What do you call a sleepy cat?}, wait 2 seconds, \enquote{A cat nap!}), or a countdown: say 3, wait, say 2, wait, say 1, wait, say Go!. Change the wait to 2 or 3 seconds to make it slower. Use nicknames only.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Slow-motion robots. Everyone stands up. Call out \enquote{Move!} (wiggle like a robot) and \enquote{Wait!} (freeze while everyone counts to one). Speed up, then end with one long wait of five seconds.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child clicks the green flag and shows one bug they fixed today. \enquote{What was the clue? What did you change?} Others answer with the kind words: \enquote{Great clue!} or \enquote{Thanks for showing us.}
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the child clicks the flag after every change (test, look, change one thing); waits sit between the say blocks; the child uses kind words when a partner finds a bug.
+
+\textbf{Ask:} show a script with \enquote{say Hi!} and then \enquote{say Bye!} (no wait). \enquote{What will we see when I click the green flag?}
+\textbf{Answer:} only \enquote{Bye!}, because the computer is too fast to show \enquote{Hi!}. A \enquote{wait 1 seconds} block between them fixes it.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What do we do when we find a bug?} (test, look, change one thing) and \enquote{What do you say when a friend finds a bug in your code?} Children draw a bug detective in the workbook and circle a smiley face. Hand out play-at-home card 3.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The wrong say block.} \enquote{say Hello! for 2 seconds} already waits, so Ready, Set, Go! works without the bug. Use the plain \enquote{say Hello!} block for Exercise 3.1.
+  \item \textbf{Dragging the middle of a script.} In Scratch, dragging a block also drags every block under it. If a script falls apart, drag the pieces back together. For The Sleepy Cat, drag the bottom block.
+  \item \textbf{Changing many things at once.} Then nobody knows which change fixed it. One change, one test.
+  \item \textbf{Wait in the wrong place.} A wait at the very end does not help. Waits go between the steps we want to see.
+  \item \textbf{Upset by bugs.} Some children feel a bug means they failed. Say it often: \enquote{Every coder has bugs. You found a clue!}
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath You are the Driver for Exercise 3.1 while the child spots the clues and says where the wait goes. For 3.2, circle the block in the workbook first, then the child makes one drag to fix it.
+\extensionpath Make a countdown from 5 with waits, or make the cat think one thing and say another. Try \enquote{wait 2 seconds}: what changes?
+\end{differentiation}
+
+\begin{stretchchallenge}[Bug makers]
+Each child secretly makes one bug in a working script: two steps in the wrong order, or a missing wait. Their partner tests it, finds the clue and fixes it. Then swap. Kind bug words only!
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+In the warm-up, do rounds 2 and 3 only. Skip the free play. If 3.2 does not fit, start next week with it as a five-minute warm-up. Never skip the kind-words practice or the wiggle break.
+\end{teachernote}

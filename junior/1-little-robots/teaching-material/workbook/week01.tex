@@ -1,0 +1,115 @@
+% Junior Level 1, Week 1 -- workbook chapter (read aloud by a grown-up). No computer this week.
+\chapterweek{1}{Robots Need Instructions}{A program is a list of exact steps, in order.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can give a robot exact steps, one card at a time.
+  \item I can follow arrow cards in order.
+  \item I can find a card in the wrong place.
+\end{ican}
+
+\section{Robot cards}
+A robot does exactly what you tell it. It cannot guess.
+
+\begin{center}
+%% alt: Three arrow cards. FORWARD has a straight arrow pointing up. TURN LEFT has an arrow that goes up and bends to the left. TURN RIGHT has an arrow that goes up and bends to the right.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  edge/.style={draw=kcblack,line width=0.8pt,rounded corners=3pt},
+  arr/.style={line width=4pt,-{Triangle[length=9pt,width=14pt]}},
+  word/.style={font=\bfseries\small,align=center}]
+  \filldraw[edge,fill=kcblue!10] (0,0) rectangle (2.6,3.2);
+  \draw[arr,kcblue] (1.3,1.2) -- (1.3,2.9);
+  \node[word] at (1.3,0.5) {FORWARD};
+  \filldraw[edge,fill=kcorange!12] (3.4,0) rectangle (6,3.2);
+  \draw[arr,kcorange!85!black] (5.1,1.3) -- (5.1,2.1) arc (0:90:0.6);
+  \node[word] at (4.7,0.55) {TURN\\LEFT};
+  \filldraw[edge,fill=kcgreen!12] (6.8,0) rectangle (9.4,3.2);
+  \draw[arr,kcgreen] (7.7,1.3) -- (7.7,2.1) arc (180:90:0.6);
+  \node[word] at (8.1,0.55) {TURN\\RIGHT};
+\end{tikzpicture}
+\end{center}
+
+FORWARD means one square ahead. A turn is a quarter turn, on the spot. The robot does not step when it turns.
+
+A row of cards is a \textbf{program}. The robot does the cards in order, from left to right.
+
+\begin{exercise}[Parent Robot]
+Your grown-up is the robot!
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Put the star on a square of the floor grid.
+  \item Lay your cards in a row.
+  \item Read the cards out loud, one at a time.
+  \item The robot does each card. Did it reach the star?
+  \item Swap jobs and play again.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Wrong Card]
+Ada wants the robot to reach the star. One card is in the wrong place.
+\begin{center}
+%% alt: A 3 by 3 grid. A robot is in the bottom-left square, facing up. A star is in the top-right square. Next to the grid, five cards in a row: FORWARD, TURN RIGHT, FORWARD, FORWARD, FORWARD.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  edge/.style={draw=kcblack,line width=0.7pt,rounded corners=2pt},
+  arr/.style={line width=2.5pt,-{Triangle[length=6pt,width=9pt]}}]
+  \draw[kcgray,line width=0.8pt] (0,0) grid[step=1.2] (3.6,3.6);
+  \node[scale=1.3] at (0.6,0.5) {\faRobot};
+  \draw[-{Triangle},line width=1.5pt,kcblue] (0.6,0.85) -- (0.6,1.15);
+  \node[scale=1.4] at (3.0,3.0) {\faStar};
+  \foreach \i in {1,3,4,5} {
+    \begin{scope}[shift={(3.0+\i*1.75,1.0)}]
+      \filldraw[edge,fill=kcblue!10] (0,0) rectangle (1.5,1.9);
+      \draw[arr,kcblue] (0.75,0.25) -- (0.75,1.7);
+      \node[font=\scriptsize\bfseries,align=center] at (0.75,-0.45) {FORWARD};
+    \end{scope}}
+  \begin{scope}[shift={(3.0+2*1.75,1.0)}]
+    \filldraw[edge,fill=kcgreen!12] (0,0) rectangle (1.5,1.9);
+    \draw[arr,kcgreen] (0.5,0.25) -- (0.5,1.1) arc (180:90:0.45);
+    \node[font=\scriptsize\bfseries,align=center] at (0.75,-0.45) {TURN\\RIGHT};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Put your finger on the robot. Move it one card at a time.
+  \item Circle the card in the wrong place.
+  \item Fix it on the floor. Test it with the robot!
+\end{enumerate}
+\end{exercise}
+
+\needspace{14\baselineskip}
+\begin{exercise}[My Own Path]
+Draw a star on a square. Draw the cards the robot needs, one in each box. Test it!
+\begin{center}
+%% alt: An empty 3 by 3 grid with a robot in the bottom-left square, facing up. Next to it, six empty boxes in a row for drawing cards.
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[kcgray,line width=0.8pt] (0,0) grid[step=1.2] (3.6,3.6);
+  \node[scale=1.3] at (0.6,0.5) {\faRobot};
+  \draw[-{Triangle},line width=1.5pt,kcblue] (0.6,0.85) -- (0.6,1.15);
+  \foreach \i in {1,...,6}
+    \draw[kcgray,line width=0.8pt,rounded corners=2pt] (3.0+\i*1.75,1.0) rectangle ++(1.5,1.9);
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{safety}[Our rules]
+\begin{itemize}[leftmargin=1.2em,itemsep=2pt]
+  \item I use a nickname, never my real name.
+  \item If an app asks me for anything, I stop and ask a grown-up.
+\end{itemize}
+My coding nickname: \rule{6cm}{0.4pt}
+\end{safety}
+
+\begin{vocab}
+  \vocabword{program}{Steps for a robot or a computer to do.}
+  \vocabword{algorithm}{A plan of exact steps to get a job done.}
+  \vocabword{sequence}{Steps in order, one after another.}
+\end{vocab}
+
+\needspace{12\baselineskip}
+\begin{reflection}
+Draw yourself as a robot. How did you like being the robot boss? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

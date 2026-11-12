@@ -29,14 +29,35 @@ def weeks(level: str) -> list[str]:
 def buffers(level: str) -> list[str]:
     return LEVEL_INFO[level].buffer_names
 
-LESSON_ENVS = ["objectives", "materials", "timeplan", "teacherscript", "analogy",
-               "workedexample", "commonmistakes", "differentiation", "stretchchallenge",
-               "formativecheck", "reflection"]
-LESSON_PHASES = ["Warm-up", "Concept", "Guided demo", "Hands-on build", "Wrap-up"]
-WORKBOOK_ENVS = ["vocab", "exercise", "reflection"]
-HOMEWORK_ENVS = ["core", "challenge", "creative", "selfcheck"]
-# minimum counts per level (across lessons + buffers)
-LEVEL_MINIMUMS = {"unplugged": 6, "bughunt": 10, "pairroles": 10, "freebuild": 10, "safety": 5}
+# Teaching-quality rules per track. The junior track (Grades 2-3) has a shorter session with
+# its own five phases, "I can" student goals, a play-at-home card instead of three homework
+# tiers, and an unplugged activity, bug hunt and safety talk in almost every session
+# (docs/JUNIOR-SYLLABUS.md).
+RULES = {
+    "main": {
+        "lesson_envs": ["objectives", "materials", "timeplan", "teacherscript", "analogy",
+                        "workedexample", "commonmistakes", "differentiation", "stretchchallenge",
+                        "formativecheck", "reflection"],
+        "phases": ["Warm-up", "Concept", "Guided demo", "Hands-on build", "Wrap-up"],
+        "workbook_envs": ["vocab", "exercise", "reflection"],
+        "homework_envs": ["core", "challenge", "creative", "selfcheck"],
+        # minimum counts per level (across lessons + buffers)
+        "minimums": {"unplugged": 6, "bughunt": 10, "pairroles": 10, "freebuild": 10, "safety": 5},
+    },
+    "junior": {
+        "lesson_envs": ["objectives", "materials", "timeplan", "teacherscript", "analogy",
+                        "workedexample", "commonmistakes", "differentiation",
+                        "formativecheck", "reflection"],
+        "phases": ["Warm-up", "Show me", "Make it", "Wiggle break", "Share"],
+        "workbook_envs": ["ican", "vocab", "exercise", "reflection"],
+        "homework_envs": ["playathome", "selfcheck"],
+        "minimums": {"unplugged": 8, "bughunt": 8, "pairroles": 8, "freebuild": 6, "safety": 8},
+    },
+}
+
+
+def rules(level: str) -> dict:
+    return RULES[LEVEL_INFO[level].track]
 
 TEACHING = {
     "teacher-guide.tex", "lesson-plans.tex", "student-workbook.tex", "homework.tex",
@@ -76,10 +97,10 @@ def test_lessons_follow_the_template(level):
         if not path.exists():
             continue
         tex = strip_comments(read(path))
-        for env in LESSON_ENVS:
+        for env in rules(level)["lesson_envs"]:
             if f"\\begin{{{env}}}" not in tex:
                 problems.append(f"{name}: no {env}")
-        for phase in LESSON_PHASES:
+        for phase in rules(level)["phases"]:
             if phase not in tex:
                 problems.append(f"{name}: timeplan lacks phase '{phase}'")
         for block in re.findall(r"\\begin\{objectives\}(.*?)\\end\{objectives\}", tex, re.S):
@@ -93,8 +114,9 @@ def test_lessons_follow_the_template(level):
 def test_level_threads_are_present(level):
     lessons = ROOT / level / "teaching-material" / "lessons"
     text = "".join(strip_comments(read(p)) for p in lessons.glob("*.tex"))
-    counts = {env: text.count(f"\\begin{{{env}}}") for env in LEVEL_MINIMUMS}
-    short = {env: (n, LEVEL_MINIMUMS[env]) for env, n in counts.items() if n < LEVEL_MINIMUMS[env]}
+    minimums = rules(level)["minimums"]
+    counts = {env: text.count(f"\\begin{{{env}}}") for env in minimums}
+    short = {env: (n, minimums[env]) for env, n in counts.items() if n < minimums[env]}
     assert not short, f"{level}: (found, needed) {short}"
 
 
@@ -106,10 +128,10 @@ def test_workbook_and_homework_shape(level):
         wb, hw = tm / "workbook" / f"{week}.tex", tm / "homework" / f"{week}.tex"
         if wb.exists():
             tex = strip_comments(read(wb))
-            problems += [f"workbook/{week}: no {e}" for e in WORKBOOK_ENVS if f"\\begin{{{e}}}" not in tex]
+            problems += [f"workbook/{week}: no {e}" for e in rules(level)["workbook_envs"] if f"\\begin{{{e}}}" not in tex]
         if hw.exists():
             tex = strip_comments(read(hw))
-            problems += [f"homework/{week}: no {e}" for e in HOMEWORK_ENVS if f"\\begin{{{e}}}" not in tex]
+            problems += [f"homework/{week}: no {e}" for e in rules(level)["homework_envs"] if f"\\begin{{{e}}}" not in tex]
     assert not problems, "\n".join(problems)
 
 
