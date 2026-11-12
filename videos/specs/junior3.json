@@ -1,0 +1,1166 @@
+{
+ "schema_version": 1,
+ "track": "junior",
+ "level": 3,
+ "audience": "Grades 2-3 (ages 7-9), watched with a grown-up",
+ "series_title": "Kids Coding Junior with Aiden and Pixi",
+ "videos": [
+  {
+   "week": 1,
+   "slug": "patterns-in-patterns",
+   "title": "Patterns in Patterns",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week01.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week01.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w01-s01",
+     "narration": "Hi! I'm Aiden, and this is Pixi. Welcome back to Level 3! Beep boop! Welcome back, coders! You are real coders now. You made games with scores, messages and My Blocks. In Level 3, we make art with patterns, plan on paper, collect data, and find out how computers learn. And then, we write real code with words, in a language called Python! Today's mission: a pattern inside a pattern. Are you ready? Let's go!",
+     "on_screen_text": [
+      "Games • Scores • Messages • My Blocks",
+      "MISSION: A pattern inside a pattern"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s02",
+     "narration": "Let's warm up with a clap pattern! Inside a REPEAT 3 card, we put three cards: clap, clap, stomp. Do it with me! Clap, clap, stomp! Clap, clap, stomp! Clap, clap, stomp! Now watch. We put the whole REPEAT 3 card, and a JUMP card, inside a big REPEAT 2 card. How many stomps will we do now? Three and three make six stomps! And two jumps. The inside pattern runs all the way through, every time the outside pattern goes round. Clap, clap, beep!",
+     "on_screen_text": [
+      "3 + 3 = 6 stomps",
+      "2 jumps",
+      "Inside runs every time"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s03",
+     "narration": "Remember Level 1? The cat drew a square: repeat four, move, then a quarter turn. Today, we put that whole square inside another repeat. A repeat inside a repeat is called a nested repeat. Say it with me: nested repeat! It's like nesting dolls: a small doll sits inside a bigger doll. Every time the big repeat goes round once, the small repeat does all of its turns. Small patterns make big patterns!",
+     "on_screen_text": [
+      "quarter turn = 90",
+      "outside repeat",
+      "inside repeat",
+      "Nested repeat!",
+      "Like nesting dolls",
+      "Big repeat: once round",
+      "Small repeat: all its turns"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s04",
+     "narration": "Let's build The Window together. First, we need the green Pen blocks: click Add Extension, and pick Pen. Yellow Events: drag in when green flag clicked. Purple Looks: snap on set size, and change it to forty, so the cat is small. Blue Motion: point in direction ninety, so the cat faces right. Green Pen: erase all, then pen down. Pen down, ready to draw! Beep!",
+     "on_screen_text": [
+      "Exercise 1.1: The Window",
+      "Add Extension → Pen",
+      "Events: yellow",
+      "Looks: purple",
+      "Motion: blue",
+      "Pen: green"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s05",
+     "narration": "Now orange Control. Snap on a repeat, and change it to four. This is the outside repeat. Drag a second repeat inside it, and change it to four too. This is the inside repeat. Blue Motion: move sixty steps and turn ninety degrees go in the inside repeat. That's one square! Then one more turn ninety, under the inside repeat, but still inside the outside repeat. Last, green Pen: pen up at the bottom. Drag the cat to the middle, and click the green flag! Four squares that touch at the corner. A window! Beep! I see a window!",
+     "on_screen_text": [
+      "Control: orange",
+      "Motion: blue",
+      "Pen: green",
+      "4 squares = a window!"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s06",
+     "narration": "Now let's turn our squares into a flower! Pink-red My Blocks: click Make a Block, and type square. Under define square, snap the square repeat: repeat four, move sixty steps, turn ninety. Now square is a brand-new block! How far do we turn between squares? Let's read the turn card. Square: ninety, a quarter turn. Triangle: one hundred twenty. Hexagon, six sides: sixty. Six squares, like the six sides of a hexagon, so we turn sixty. Under pen down, snap repeat six, with square and turn sixty inside. Click the green flag! The My Block hides the inside repeat, but it is still a repeat inside a repeat.",
+     "on_screen_text": [
+      "Exercise 1.2: Square Flower",
+      "My Blocks: pink-red",
+      "a brand-new block!",
+      "6 squares: turn 60",
+      "Still a repeat inside a repeat"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s07",
+     "narration": "Quick quiz! Here is The Window again. What if we change the outside repeat from four to two? How many squares will the cat draw? Two squares! The inside repeat draws one square, and the outside repeat says how many times. Let's test it. Beep! Two squares!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "Outside repeat 2 = 2 squares"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s08",
+     "narration": "Uh oh. Time for a bug hunt! Priya wanted a flower of six squares, but her cat draws only one square. Look at her script. The repeat six holds only the turn. And the square repeat sits under it, not inside it. Watch. The cat spins round six times, but spinning on the spot draws no line. Then it draws one square. Which repeat should be inside which? The square repeat goes inside the repeat six, above the turn! Like a clap card outside the REPEAT card, it only happens once. Let's drag it up into the mouth of repeat six, and test again. Six squares. A flower! We fixed the bug! Beep beep! Bug fixed!",
+     "on_screen_text": [
+      "BUG HUNT! The One-Square Flower",
+      "Spin, spin… no line!",
+      "Square repeat: inside repeat 6",
+      "Outside the card = only once"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s09",
+     "narration": "Your pattern is yours. You pick the numbers and the colors. If you see a pattern you love, you can learn from it. Then change it, to make it your own. And say whose idea it was: I got the rainbow idea from Mei. That's called giving credit. Sam copies Kai's flower, and says he made it all by himself. What could Sam say instead? He could say: I started from Kai's flower, and I changed the colors. Now stand up for a wiggle break! Do our nested clap pattern, faster and faster! Clap, clap, stomp, beep!",
+     "on_screen_text": [
+      "“I got the rainbow idea from Mei.”",
+      "Giving credit",
+      "“I started from Kai's flower.”",
+      "“I changed the colors.”",
+      "Clap, clap, stomp!"
+     ]
+    },
+    {
+     "scene_id": "j3-w01-s10",
+     "narration": "Say the new words with me! Nested repeat! My Block! Credit! A repeat inside a repeat makes amazing art. Now it's your turn, with a grown-up. Build The Window and the Square Flower, then fix the One-Square Flower. Then change the numbers and colors to make a pattern of your own. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Nested repeat!",
+      "My Block!",
+      "Credit!",
+      "A repeat inside a repeat",
+      "Inside: all the way, every time",
+      "NEXT: The Window and the Square Flower"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 2,
+   "slug": "plan-it-on-paper",
+   "title": "Plan It on Paper",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week02.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week02.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w02-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Is it party time? Almost! Last week, we made patterns inside patterns. Today, we find out how real programmers build big programs. They don't start by dragging blocks. They plan on paper first! Our mission: plan a party, then build it, one part at a time. Are you ready? Let's go!",
+     "on_screen_text": [
+      "Plan on paper first!",
+      "MISSION: Plan it on paper"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s02",
+     "narration": "Let's plan a party for a teddy bear. A party is a big job, so we cut it into parts. Invitations. Food. Games. Music. Each part gets a short step list, one line for each step. Food: one, pick a snack. Two, put it on plates. Three, bring it at three o'clock. And every part gets a person. Everyone gets a job! I can do music! Beep beep!",
+     "on_screen_text": [
+      "Everyone gets a job!"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s03",
+     "narration": "Now, a bug! The invitations say: the party starts at three o'clock. The food list says: bring the snack at four o'clock. Each part looks fine on its own. What happens at the party? The guests wait a whole hour for food! Hungry teddy! Beep! The parts must fit together. Remember that. It will help us later.",
+     "on_screen_text": [
+      "Guests wait an hour!",
+      "Parts must fit together"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s04",
+     "narration": "Programmers plan in parts too. They cut a big program into parts, write a few steps for each part, and decide how to test it. Then they build one part, test it, and only then build the next part. It's like a big LEGO set with numbered bags. You build bag one, and check it, before you open bag two. If something is wrong, you only look in the bag you built last. Say it with me: build a part, test a part!",
+     "on_screen_text": [
+      "Bag 1: build, check",
+      "Then open bag 2",
+      "Look in the last bag",
+      "Build a part, test a part!"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s05",
+     "narration": "Today's program is Party Time. The cat starts the party, a balloon appears, and you click the balloon to pop it! Here is our plan card, with three parts. Part 1, Start the party, is for the cat. Set pops to zero. Say Party time! Send the message balloons. And the test: click the flag. Part 2 and Part 3 are for the balloon. You build those later, one at a time.",
+     "on_screen_text": [
+      "Party Time: the plan card",
+      "Build later, one at a time"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s06",
+     "narration": "Let's build Part 1. Orange-red Variables: Make a Variable, and call it pops. Yellow Events: when green flag clicked. Variables again: set pops to zero. Purple Looks: say for two seconds, and type Party time! Yellow Events: broadcast. Pick New message, and type balloons. Now we test Part 1 on its own. Click the green flag! The cat says Party time!, and pops shows zero. Nothing else happens yet, and that's right. Nobody listens for the message yet. Part 1 passed its test, so we check it off. Top tip: you can test any script by clicking on it.",
+     "on_screen_text": [
+      "Exercise 2.2: Party Time, Part 1",
+      "Variables: orange-red",
+      "Events: yellow",
+      "Variables: orange-red",
+      "Looks: purple",
+      "Events: yellow",
+      "Nobody listens yet: OK!",
+      "Click a script to test it"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s07",
+     "narration": "Quick quiz! Part 1 works. Then you build Part 2, and now something is wrong. Where do you look first? In Part 2, the part you built last! Like the last LEGO bag. One part at a time keeps bugs small!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "Look in the part you built last"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s08",
+     "narration": "Uh oh. Time for a bug hunt! Leo built Party Time from the same plan. Each part works on its own. Click the cat's script: Party time! Click the balloon's when I receive script: the balloon appears. But with the green flag, the balloon never comes! Every part passed its test. Why is the party silent? Look where the parts meet: the message. The cat sends party, but the balloon listens for balloons. Like the party at three and the food at four! Let's set the broadcast back to balloons, and test again. The balloon comes! We fixed the bug! Test each part, then test them together!",
+     "on_screen_text": [
+      "BUG HUNT! The Silent Party",
+      "party, balloons: no match!",
+      "Names must match!",
+      "Test parts, then test together"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s09",
+     "narration": "When a team plans in parts, everyone can have a job. One person builds the cat part, one builds the balloon part, and one tests. Good teammates take turns, listen, and say kind things when a part has a bug. Kai's part has a bug, and Kai feels sad. What could a good teammate say? Let's look at it together! Not: you broke it. And nobody grabs the mouse, and nobody is left out.",
+     "on_screen_text": [
+      "Take turns • Listen • Be kind",
+      "“Let's look at it together!”",
+      "“You broke it.”"
+     ]
+    },
+    {
+     "scene_id": "j3-w02-s10",
+     "narration": "Wiggle break! Let's act out the party parts. Be the cat: arms up, and shout Party time! Be the balloon: float up on your tiptoes. Now clap to pop it! Pop! Pop, pop, beep!",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j3-w02-s11",
+     "narration": "Say the new words with me! Plan! Parts! Test! Big programs are small parts, planned first. Build one part, test it, then build the next. Now it's your turn, with a grown-up. Finish your party plan, build Party Time part by part, then fix the Silent Party. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Plan!",
+      "Parts!",
+      "Test!",
+      "Small parts, planned first",
+      "Build a part, test a part",
+      "NEXT: My Party Plan and Party Time"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 3,
+   "slug": "data-detectives",
+   "title": "Data Detectives",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week03.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week03.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w03-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Detective Pixi, reporting! Today, we are data detectives! Data is information we collect. We will ask one question: what is your favorite fruit? Apple, banana, orange or grapes? Then we count the answers, and draw a graph that tells their story. Are you ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Data detectives",
+      "Data = information we collect",
+      "Count • Graph • Story"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s02",
+     "narration": "We asked everyone at home, and the toys too: what is your favorite fruit? To keep count, we use tally marks. One line for each answer. Here's the trick. The fifth line goes across the other four, like a gate. Then we can count in fives! Count the banana row with me: one, two, three, four, the gate makes five, and six! Six bananas! Beep!",
+     "on_screen_text": [
+      "1 line = 1 answer",
+      "5th line = a gate",
+      "1, 2, 3, 4, gate = 5, 6!"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s03",
+     "narration": "A tally is great for counting. A bar graph is great for seeing. Each answer gets one square, and the squares stack up into a bar. Apple, three. Banana, six. Orange, two. Grapes, one. Which fruit is the favorite? Banana! The tallest bar is the favorite. How many more bananas than apples? Three more! The graph tells the story of our data at one look.",
+     "on_screen_text": [
+      "1 square = 1 answer",
+      "Tallest bar = favorite",
+      "6 is 3 more than 3"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s04",
+     "narration": "Now let's make a survey robot in Scratch! It asks a question, waits for you to type the answer, checks it, and counts it. Long ago, shepherds counted sheep with pebbles: one pebble in the bag for each sheep. A variable is like the bag. Each time we change it by one, one more pebble goes in. Our robot needs two bags: apple votes, and other votes.",
+     "on_screen_text": [
+      "1 pebble = 1 sheep",
+      "change by 1 = 1 more pebble"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s05",
+     "narration": "Let's build the Fruit Survey Robot. Orange-red Variables: make apple votes, and other votes. Yellow Events: when green flag clicked. Then set both of them to zero. Orange Control: repeat, changed to four. We will ask four people. Light blue Sensing: ask and wait, inside the repeat. The words are: What is your favorite fruit? We never ask for names. We only ask what we need.",
+     "on_screen_text": [
+      "Exercise 3.2: Fruit Survey Robot",
+      "Variables: orange-red",
+      "Events: yellow",
+      "Control: orange",
+      "Sensing: light blue",
+      "Only ask what we need"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s06",
+     "narration": "Orange Control: if then else, under the ask. Green Operators: the equals block goes in the if. Put the round answer block on the left, and type apple on the right. Variables: change apple votes by one in the top gap, and change other votes by one in the bottom gap. Last, purple Looks: say Thank you!, under the repeat. Click the flag, type apple, and press Return. Now type banana. Apple goes in the apple votes bag, and every other answer goes in other votes! Counting robot, beep beep!",
+     "on_screen_text": [
+      "Control: orange",
+      "Operators: green",
+      "Variables: orange-red",
+      "Looks: purple",
+      "typed: apple",
+      "typed: banana"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s07",
+     "narration": "Quick quiz! What if someone types Apple, with a big A? Does the robot count it as apple? Yes! In Scratch, the equals block does not care about big and small letters. But apples, with an s, counts as other. It is not exactly the same word. And here's a secret: soon we meet Python, and Python is pickier. It thinks Apple and apple are different! Picky Python! Beep!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "big or small letters: same in Scratch",
+      "Python is pickier!"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s08",
+     "narration": "Uh oh. Time for a bug hunt! Kai made a tally chart. Apple, with a big A, has two marks. apple, with a small a, has three. And banana has four. Kai says banana won! Are Apple and apple different fruits? No! They are the same answer, written two ways. The apple answers were split into two rows. Let's put the rows together. Two and three make five! Now we fix the graph too. Apple won, with five! Tidy data means one way to write each answer.",
+     "on_screen_text": [
+      "BUG HUNT! The Two Apples",
+      "Kai: “banana won!”",
+      "Same answer, two ways",
+      "2 + 3 = 5",
+      "One way to write each answer"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s09",
+     "narration": "Good data detectives only ask what they need. To find the favorite fruit, we need one answer: the fruit. We never ask for anybody's name, age, address, school, birthday or photo. That's personal information. If a program asks you for it, stop and tell a grown-up. Zoe's survey asks: What is your favorite fruit? And: What is your home address? Which question should she delete? The address question! Delete it.",
+     "on_screen_text": [
+      "We need: the fruit",
+      "Stop and tell a grown-up"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s10",
+     "narration": "A fair survey asks all kinds of people. If we only asked the apple club, our graph would say everyone loves apples. And it would be wrong! Next week, we find out that computers learn from data like this. So fair data really matters. Wiggle break! Let's make a bar graph out of people. Stand up, and line up behind your favorite fruit! I pick grapes! Beep!",
+     "on_screen_text": [
+      "Ask all kinds of people",
+      "Only the apple club? Not fair!"
+     ]
+    },
+    {
+     "scene_id": "j3-w03-s11",
+     "narration": "Say the new words with me! Data! Tally! Bar graph! Data is information we collect, and a graph tells its story. Now it's your turn, with a grown-up. Do Tally Time, build the Fruit Survey Robot, then hunt for the Two Apples. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Data!",
+      "Tally!",
+      "Bar graph!",
+      "A graph tells the story",
+      "NEXT: Tally Time and the Survey Robot"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 4,
+   "slug": "how-do-computers-learn",
+   "title": "How Do Computers Learn?",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week04.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week04.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w04-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! What will I learn today? Good question, Pixi! Today's big question is: how do computers learn? We don't need a computer today. We play a game instead! Pixi will be our Robot, and we will teach it with examples. Are you ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Teach the Robot",
+      "Learn from examples"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s02",
+     "narration": "Let's warm up with Guess my rule. I have a secret rule, and two piles: YES and NO. Toy car: yes. Spoon: no. Toy train: yes. Ball: no. Here's a book. Where does it go? No! And what is my secret rule? Has wheels! You learned my rule from examples, and I never told you. That is how many computers learn too.",
+     "on_screen_text": [
+      "New: book"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s03",
+     "narration": "Some computer programs are not built block by block. Instead, people show them lots of examples, each one marked YES or NO. The computer looks for a pattern in the examples. This is called machine learning, or AI. The things it looks at, like legs, wings or fur, are called features. When it sees something new, it makes a guess, called a prediction. It's like how you learned what a dog is. You saw lots of dogs, big and small, and then you could spot a new one. But a computer only knows the examples we give it. So give me good examples, please! Beep!",
+     "on_screen_text": [
+      "Not built block by block",
+      "machine learning = AI",
+      "legs • wings • fur",
+      "prediction = a guess",
+      "Lots of dogs → spot a new dog",
+      "Only the examples we give"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s04",
+     "narration": "Let's play Teach the Robot! I'm the Trainer, and Pixi is the Robot. Ready to learn! Beep! I take a secret rule card. Pixi can't see it. Here are six training examples. Cat: yes. Fish: no. Horse: yes. Dove: no. Frog: yes. Spider: no. The Trainer only says yes or no. No hints!",
+     "on_screen_text": [
+      "Trainer: Aiden",
+      "Robot: Pixi",
+      "Only: yes • no • right • wrong"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s05",
+     "narration": "Now the test! Here's a new card: the dog. What do you think Pixi will say? Dog: YES! Right! Now the hippo. Hippo: YES! Right! And the crow. Crow: NO! Right again! Three right, and none wrong. Pixi, what is the rule? Which feature did you look at? Legs! Four legs! The rule card says: HAS FOUR LEGS. Pixi never saw the rule. It learned it from the examples!",
+     "on_screen_text": [
+      "New card: dog",
+      "New card: hippo",
+      "New card: crow",
+      "Feature: legs"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s06",
+     "narration": "Wiggle break! Let's be sorting robots. Four legs: stomp! Can fly: flap your arms! Lives in water: swim! Horse! Crow! Fish! A duck? Flap and swim! Stomp, flap, swim, beep!",
+     "on_screen_text": [
+      "Horse!",
+      "Crow!",
+      "Fish!",
+      "Duck!"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s07",
+     "narration": "Uh oh. Time for a bug hunt! Sam trained the Robot with the rule IS A BIRD. His YES examples: dove, crow, dove. Every one can fly. His NO examples: cat, dog, fish. Now the test: the kiwi, a bird that cannot fly, and the bug, which flies but is not a bird. What will Sam's Robot guess? Kiwi: not a bird! Bug: a bird! Both wrong! Is the Robot silly, or were the examples one-sided? The examples! The Robot learned exactly what it was shown: bird means flying. The fix: add different examples. Kiwi goes on YES. Bug goes on NO. Then train and test again. Kiwi: a bird! Bug: not a bird! We fixed the bug, with better examples!",
+     "on_screen_text": [
+      "BUG HUNT! The One-Sided Robot",
+      "All YES birds can fly",
+      "Test: kiwi, bug",
+      "It learned: bird = flying",
+      "Add different examples"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s08",
+     "narration": "Real computers make this mistake too. If an AI only learns from pictures of some kinds of people, or only hears some kinds of voices, it makes more mistakes with everyone else. That's unfair, and it's called bias. The fix is the same as ours: more and different examples, and people checking the results. Fair examples make fair robots!",
+     "on_screen_text": [
+      "Real AI makes this mistake too",
+      "Bias = unfair mistakes"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s09",
+     "narration": "Some apps have an AI chatbot. You type, and it writes back like a person. It can be helpful, but like our Robot, it can be wrong, even when it sounds very sure. If an answer matters, check it with a grown-up or a good book. A chatbot is a computer program, not a friend. Never tell it personal information: not your name, address, school, age, a photo, or a password. A chatbot asks: What is your name, and where do you live? What do you do? Don't answer. Close it, and tell a grown-up. And only use a chatbot with a grown-up next to you.",
+     "on_screen_text": [
+      "AI can be wrong",
+      "A program, not a friend"
+     ]
+    },
+    {
+     "scene_id": "j3-w04-s10",
+     "narration": "Say the new words with me! Examples! Features! Prediction! Computers learn patterns from examples, and they copy our mistakes. So we give them fair examples. Now it's your turn, with a grown-up. Play Teach the Robot, color your Robot Report, then fix the One-Sided Robot. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Examples!",
+      "Features!",
+      "Prediction!",
+      "Learn from examples",
+      "Fair examples, fewer mistakes",
+      "NEXT: Teach the Robot"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 5,
+   "slug": "play-day-blocks-to-words",
+   "title": "Play Day: Blocks to Words",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week05.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week05.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w05-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Is it Play Day? Yes! Today is Play Day! We practice everything from weeks one to four: patterns, plans, data, and how computers learn. And there's something new. Every Scratch block has a word twin, in a coding language called Python! Are you ready? Let's go!",
+     "on_screen_text": [
+      "PLAY DAY!",
+      "MISSION: Find the word twins",
+      "t.forward(100)"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s02",
+     "narration": "Python uses words instead of blocks. You can say hello in English, and hola in Spanish. Different words, same idea. A Scratch block and its Python line are like that: two ways to tell the computer the same thing. Let's play the card sort, and find the twins! Hola, twins! Beep!",
+     "on_screen_text": [
+      "Python: words, not blocks",
+      "hello",
+      "hola",
+      "Different words, same idea",
+      "t.forward(100)",
+      "Two ways, same thing"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s03",
+     "narration": "Here's our first block: move one hundred steps. Which Python word sounds like moving ahead? Forward! Its twin is t.forward, with one hundred inside the brackets. The same number, one hundred, is in both twins. And what is the t? It is not a typo. t is the name of our turtle, the one that will draw in Python. Every turtle line starts with it, like a name on a letter.",
+     "on_screen_text": [
+      "t.forward(100)",
+      "same number: 100",
+      "t = our turtle's name",
+      "like a name on a letter"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s04",
+     "narration": "Next block: turn left ninety degrees. Its twin is t.left, with ninety inside. Careful! t.forward and t.left both have a number. Which one moves, and which one turns? Forward moves. Left turns! Say it with me: forward moves, left turns! Now the green pen block: set pen color to blue. Its twin is t.color, with blue inside quotation marks. Blue words, blue lines! Beep!",
+     "on_screen_text": [
+      "t.left(90)",
+      "forward = moves",
+      "left = turns",
+      "t.color(\"blue\")",
+      "\" \" around the color"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s05",
+     "narration": "Quick quiz! Here's the orange repeat four block. Which word card is its twin? For i in range four! It means: do this four times. The four is the same as in the repeat block. Four times, beep!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "repeat 4 = for i in range(4):"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s06",
+     "narration": "Now let's turn a whole Scratch square into Python words. Read the twins from the top. t.color, blue. For i in range four. t.forward, one hundred. t.left, ninety. In Scratch, the blocks inside the repeat sit in its mouth. In Python, the lines inside the loop move in a little. That little gap is called an indent. Say it with me: indent! In week six, we type lines like these. Here's a sneak peek of what the turtle will draw! A blue square, from Python words! Today we stay in Scratch. Same square, blocks or words! Beep!",
+     "on_screen_text": [
+      "A square in Python words",
+      "inside the loop = moved in",
+      "Indent!",
+      "Today: Scratch"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s07",
+     "narration": "Wiggle break! Stand up and be the Python turtle. t.forward, three: take three big steps! t.left, ninety: a quarter turn left! Now for i in range four, with forward and left inside. Walk a square! Did you end where you started? Beep!",
+     "on_screen_text": [
+      "t.forward(3)",
+      "3 big steps!",
+      "t.left(90)",
+      "a quarter turn left!",
+      "Walk a square!"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s08",
+     "narration": "Time for the bug-hunt relay! Three broken projects, and a sticker for each fix. Leg one: The Window. It should draw four squares. But watch. The cat goes back and forth on one line! Look inside the inside repeat. What is wrong? There are two turns in there! The second turn belongs under the inside repeat, but still inside the outside repeat. Drag the bottom turn out, drop it in the right place, and test again! A window! Sticker number one! Legs two and three are yours: The Magic Trick, and The Stuck Counter. Change one thing at a time!",
+     "on_screen_text": [
+      "BUG HUNT! The relay, leg 1",
+      "Should do: 4 squares",
+      "Two turns: one too many inside"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s09",
+     "narration": "While you play, your grown-up may ask: can you show me? That's not a test. Not yet is a fine answer! We are halfway through Level 3. Think of everything you made: patterns, plans, graphs, the robot game, and bug fixes. What are you proud of so far? Your grown-up writes it on Our Proud Wall, with your nickname. Two rules for proud coders. My own work, or say whose idea it was: the flower idea came from Kai. And proud work stays safe: nicknames only, never a full name, school or address. I'm proud of my beeps!",
+     "on_screen_text": [
+      "“Can you show me?”",
+      "Not yet = fine!",
+      "Nicknames only"
+     ]
+    },
+    {
+     "scene_id": "j3-w05-s10",
+     "narration": "Say the new words with me! Python! Word twin! Indent! Every Scratch block has a word twin in Python. The t is our turtle, and lines inside a loop are indented. Now it's your turn, with a grown-up. Match the word twins, run the bug-hunt relay, then plan and build My Best Pattern. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Python!",
+      "Word twin!",
+      "Indent!",
+      "1 block = 1 word twin",
+      "t = turtle • indent = inside",
+      "NEXT: Blocks to Words and the relay"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 6,
+   "slug": "hello-python",
+   "title": "Hello, Python!",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week06.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week06.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w06-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, every Scratch block found its word twin. Today, we use the words for real, in Python! Scratch blocks can never be spelled wrong. Words can. And Python is very picky about spelling. Are you ready? Let's go!",
+     "on_screen_text": [
+      "t.forward(100)",
+      "MISSION: Hello, Python!",
+      "Python is picky!"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s02",
+     "narration": "Let's warm up with a game called Python is picky. Here are two lines. One is right, and one has a tiny mistake. Can you spot the difference? Yes! The second one is missing an r. Python does not know forwad. Here is another one. Look closely. What is different this time? A capital L! These Python words use small letters. Great detective eyes! Programmers do this every day. Beep! Picky, picky, picky!",
+     "on_screen_text": [
+      "t.forward(100)",
+      "t.forwad(100)",
+      "missing r",
+      "t.left(90)",
+      "t.Left(90)",
+      "small letters"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s03",
+     "narration": "This is Thonny, the app where we write Python. It is in simple mode, so it shows big buttons with words under them. The green Run button is our green flag. The red Stop button stops the program. If anything gets stuck, click Stop. Nothing breaks. The big white part is the Editor. Our program lives here. The part at the bottom is the Shell. Python talks back there. And the turtle window is our stage. The turtle is our sprite! Its pen is already down, so it draws wherever it walks. Can you point to the Run button? There it is, at the top! Green, like the green flag.",
+     "on_screen_text": [
+      "Simple mode: big buttons",
+      "Run = green flag",
+      "Stop = nothing breaks",
+      "Editor: my program",
+      "Shell: Python talks back",
+      "turtle = our sprite",
+      "Run = green flag"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s04",
+     "narration": "Every turtle line has a Scratch twin. Move one hundred steps is t dot forward, one hundred. The number in the brackets is like the white oval in Scratch. Turn left ninety degrees is t dot left, ninety. That is a quarter turn. Small letters, a dot, and both brackets. Python needs every one. Twins! Beep!",
+     "on_screen_text": [
+      "( ) = the white oval",
+      "quarter turn = 90",
+      "small letters • a dot • ( )"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s05",
+     "narration": "Let's run our first program. It is Exercise 6.1, Hello, Turtle! We read it from top to bottom. Get the turtle toolbox. Make a turtle called t. Show it as a turtle. Walk forward fifty. Make a quarter turn to the left. Keep the window open. Now, click Run! The turtle draws a short line, then turns to look up. No turtle window? It is hiding behind Thonny. Click the Python icon in the Dock.",
+     "on_screen_text": [
+      "Exercise 6.1: Hello, Turtle!",
+      "Run = green flag",
+      "Hiding? Click Python in the Dock"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s06",
+     "narration": "Now let's change one number. We change fifty to one hundred fifty. We keep the brackets! Then we click Save, and Run. What do you think will happen? Same program, longer line! We changed the white oval. Longer line, beep!",
+     "on_screen_text": [
+      "50 → 150",
+      "Same program, longer line!"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s07",
+     "narration": "Quick quiz! Where do we type our program? In the big Editor at the top, or in the Shell at the bottom? In the Editor! The Shell runs one line and then forgets it. Programs live in the big white part.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "A: the Editor (top)",
+      "B: the Shell (bottom)"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s08",
+     "narration": "Uh oh. Time for a bug hunt! Ada typed this program. She expected a line. But the turtle does not move, and red text appears in the Shell. Don't worry. Red text means Python is confused, and it tells us where to look. First, find the line number. It says line four. Then read the last line: the Turtle has no attribute forwad. That means: I don't know a word called forwad. It even asks: did you mean forward? Can you find the typo on line four? A missing r! We put the r back, save, and run again. It works! The turtle draws a line and turns. Bugs are normal. Reading the red text is a superpower! Super detective!",
+     "on_screen_text": [
+      "BUG HUNT! The typo",
+      "Expected: a line",
+      "line 4",
+      "no attribute 'forwad'",
+      "Did you mean: 'forward'?",
+      "Red text = a clue!"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s09",
+     "narration": "Wiggle break! Stand up. You are a picky robot. Move only when the word is spelled right. If it is wrong, freeze and say: Error! Ready? Forward three! Left! Forwad two! Error! Error! Great freezing! Now, forward two! Super picky robots!",
+     "on_screen_text": [
+      "WIGGLE BREAK: the picky robot",
+      "Wrong word? Freeze!",
+      "forward 3",
+      "left",
+      "forwad 2",
+      "Error! Freeze!",
+      "forward 2"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s10",
+     "narration": "In Python, every program is saved as its own file. A good name helps us find it again. Rule one: the name says what it is. Square dot py, not untitled dot py. Use small letters, and an underscore instead of a space. Rule two: add your nickname, never your real name. Files can travel to other computers. Rule three: never call a file turtle dot py. Python would open your file instead of the real turtle! Our files stay on our own Mac. Nothing is uploaded.",
+     "on_screen_text": [
+      "small letters and _",
+      "nicknames only"
+     ]
+    },
+    {
+     "scene_id": "j3-w06-s11",
+     "narration": "Say the new words with me! Thonny! Run! Typo! We write in the Editor, click Run, and read the Shell. A typo stops Python, and the red text tells us where to look. Now it's your turn, with a grown-up. Run Hello, Turtle! Then finish the square. Then be a typo detective. Remember: small letters, a dot, and both brackets. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Thonny!",
+      "Run!",
+      "Typo!",
+      "Editor • Run • Shell",
+      "Red text = where to look",
+      "NEXT: Hello, Turtle! and Typo Detective",
+      "small letters • a dot • ( )"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 7,
+   "slug": "repeat-in-python",
+   "title": "Repeat in Python",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week07.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week07.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w07-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello again, coders! Last week, our square needed eight lines: forward, left, forward, left, again and again. In Scratch, we would use a repeat block. Python has a repeat too! It is called for. Can we make eight lines into three? Yes, we can! Let's find out how.",
+     "on_screen_text": [
+      "MISSION: Repeat in Python",
+      "for = repeat"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s02",
+     "narration": "Let's warm up! Imagine a box on the floor, made of tape. The box is the inside of a repeat. The card on top says: for i in range three. Clap and Stomp stand inside the box. Wave stands outside, below it. Do it with me! Clap, stomp! Clap, stomp! Clap, stomp! Wave! Why did Wave happen only once? Wave is not inside the box! Now Wave steps into the box. Clap, stomp, wave, three times! In Python, the box is made of spaces.",
+     "on_screen_text": [
+      "WAVE",
+      "3 times",
+      "once",
+      "3 times",
+      "box = spaces"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s03",
+     "narration": "Here are the repeat twins. In Scratch: repeat four, with move and turn inside. In Python: for i in range four, with a colon at the end. For i in range four means: repeat four. The i is only a name Python needs. We don't use it yet. Eight lines last week. Three lines today! Three lines! Beep!",
+     "on_screen_text": [
+      "for i in range(4): = repeat 4",
+      "i = a name Python needs",
+      "8 lines → 3 lines!"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s04",
+     "narration": "Now look closely at the end of the first line. A colon! The colon says: here comes the inside. The lines under it are pushed in by four spaces. Pushed in means inside the repeat. In Scratch, blocks sit in the orange mouth of the repeat. Python has no mouth, so we push the lines in with spaces. To push a line in, click at the very start of the line, and press the Tab key once. Tab jumps four spaces!",
+     "on_screen_text": [
+      ":",
+      ": = here comes the inside",
+      "4 spaces",
+      "pushed in = inside",
+      "Tab key = 4 spaces",
+      "Click at the very start first"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s05",
+     "narration": "Let's try it in Thonny. It is Exercise 7.1, Repeat 4. This program says for i in range two. Let's click Run. How many sides did the turtle draw? Only two! The repeat went round two times: one side and one quarter turn, each time. We change two to four. We keep the colon! Save, and Run. A square! One side and one quarter turn, four times. Beep! Square!",
+     "on_screen_text": [
+      "Exercise 7.1: Repeat 4",
+      "2 sides",
+      "range(2) → range(4)",
+      "4 sides, 4 corners"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s06",
+     "narration": "Quick quiz! Look at the left edge of each line. Which lines are inside the repeat? Point to them! The two lines that are pushed in: forward and left. Turtle dot done starts at the left edge. It is outside, so it runs only once, at the very end.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "pushed in = inside",
+      "left edge = outside, runs once"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s07",
+     "narration": "Uh oh. Time for a bug hunt! It is called The Lonely Turn. This program should draw a square. Let's run it. Hmm. One long, straight line. How many times did the turtle turn? Only once, at the very end! Which line is outside the box? T dot left is not pushed in. It is like Wave in our warm-up, so it runs only once. Let's click at the start of that line, and press Tab once. Save, and Run again. A square! The turtle turns at every corner. Bug fixed! Beep!",
+     "on_screen_text": [
+      "BUG HUNT! The Lonely Turn",
+      "Expected: a square",
+      "1 turn",
+      "not pushed in = runs once",
+      "Tab key"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s08",
+     "narration": "Remember the flower from week one? A repeat inside a repeat. Here it is in Python. The outer repeat is at the left edge. It counts the squares. The inner repeat is pushed in. It draws one square. And t dot left sixty is pushed in once, not twice. So the turtle turns once after each square. The starter draws two squares. In Exercise 7.3, you change one number to grow the whole flower!",
+     "on_screen_text": [
+      "outer: counts the squares",
+      "inner: draws one square",
+      "one turn after each square",
+      "Exercise 7.3: Python Flower"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s09",
+     "narration": "When code does something strange, a good question gets help fast. Say two things: what I expected, and what happened. Like this: I expected a square, but the turtle drew one long line and turned once. Which is the better question? It's broken! Or: I expected a square, but I got a line? The second one! Now a helper knows where to look. Ask a grown-up you know. Never type your name or school into a website or a chatbot to get help.",
+     "on_screen_text": [
+      "A good question gets help fast",
+      "“It's broken!”",
+      "“I expected a square, but I got a line.”"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s10",
+     "narration": "Wiggle break! Stand up. Repeat four: jump, clap! One! Two! Three! Four! Outside the repeat: one big stretch! Now push the stretch inside the repeat. Jump, clap, stretch, four times! Great moving, coders!",
+     "on_screen_text": [
+      "STRETCH"
+     ]
+    },
+    {
+     "scene_id": "j3-w07-s11",
+     "narration": "Say the new words with me! Colon! Four spaces! Inside! For i in range four means repeat four. Lines that are pushed in are inside the repeat. A line at the left edge runs only once. Now it's your turn, with a grown-up. Make Repeat 4, fix The Lonely Turn, then grow the Python Flower. Remember: one press of Tab pushes a line in. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Colon!",
+      "Four spaces!",
+      "Inside!",
+      "for i in range(4): = repeat 4",
+      "left edge = runs once",
+      "NEXT: Repeat 4, Lonely Turn, Python Flower",
+      "Tab key = push a line in"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 8,
+   "slug": "colors-and-my-own-pattern",
+   "title": "Colors and My Own Pattern",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week08.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week08.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w08-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, our programs drew in black, with a thin pen. Today, we make them ours, with colors and thick lines! We will change a program that already works. Ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Colors and my own pattern",
+      "Change a working program"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s02",
+     "narration": "Let's warm up with color by code. Here is a grid with a number in every square. And here is a tiny program, a color key. Every one is gold. Every two is blue. Color it in, and a pattern appears! Now let's change the program. Two is green now. Same program, one change, a new picture! Here is another key. It says two is purpel: P, U, R, P, E, L. What will the computer do at number two? It stops! It does not know purpel. Python is picky about color names too.",
+     "on_screen_text": [
+      "1 = \"gold\"",
+      "2 = \"blue\"",
+      "2 = \"green\"",
+      "one change, a new picture",
+      "1 = \"gold\"",
+      "2 = \"purpel\"",
+      "Error! I don't know purpel"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s03",
+     "narration": "Now, two new Python lines. T dot color, blue. It is like Scratch's set pen color block. The color name goes inside quote marks. T dot pen size, five. It is like the set pen size block. A bigger number draws a thicker line. Good colors to try: orange, blue, purple, green, gold and black. Almost everyone can tell purple and gold apart.",
+     "on_screen_text": [
+      "\" \" around the color name",
+      "bigger number = thicker line",
+      "orange",
+      "blue",
+      "purple",
+      "green",
+      "gold",
+      "black",
+      "purple + gold: easy to tell apart"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s04",
+     "narration": "A working program is like a cake recipe that already tastes good. Change one thing, and taste it. Then change the next thing. Let's try it! It is Exercise 8.1, Color My Square. First, we run it. A thin black square. We change black to blue. We leave both quote marks where they are. Save, and Run. A blue square, and a blue turtle!",
+     "on_screen_text": [
+      "A working program = a tasty recipe",
+      "Exercise 8.1: Color My Square",
+      "\"black\" → \"blue\"",
+      "One change, then Run"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s05",
+     "narration": "Next, the pen size. We change one to five. What do you think will happen? Save, and Run. A thick blue square! One change, then Run. Then the next change. Thick and blue! Beep!",
+     "on_screen_text": [
+      "pensize(1) → pensize(5)"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s06",
+     "narration": "Time for a bug hunt! Here is the same program, with one tiny change. The color says bleu: B, L, E, U. Let's run it. The turtle does not draw, and red text appears in the Shell. Read the last line: bad color string, bleu. Python says: I don't know a color called bleu. Which line has the color? How do we fix it? Line four! We spell it B, L, U, E, save, and run again. It works! Color names must be spelled right. Bad color string? Not anymore!",
+     "on_screen_text": [
+      "BUG HUNT! The color typo",
+      "Expected: a blue square",
+      "bad color string: bleu",
+      "I don't know bleu!",
+      "Spell colors right"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s07",
+     "narration": "Next comes Exercise 8.2, the Two-Color Flower. The starter draws six purple squares, like the flower from last week. You change the second color, so the squares take turns. At the top is a credit line. Made by: the Kids Coding course. Changed by: your nickname.",
+     "on_screen_text": [
+      "Exercise 8.2: Two-Color Flower",
+      "change the second color",
+      "Changed by: a nickname"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s08",
+     "narration": "Starting from someone's program and changing it is called a remix. Remixing is great! Programmers do it all the time. But we always say whose idea we started from. That is called giving credit. Your friend Leo drew a cool flower, and you want to remix it. What do you do first? Ask Leo! Then write at the top: Idea from Leo. Use a nickname, never your real name, because files can travel.",
+     "on_screen_text": [
+      "remix = change someone's program",
+      "credit = say whose idea"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s09",
+     "narration": "Wiggle break! Let's play color hunt. When I call a color, run and touch something that color. Blue! Orange! G, R, E, N! Bad color string! Freeze! Great freezing, color hunters!",
+     "on_screen_text": [
+      "WIGGLE BREAK: color hunt",
+      "blue!",
+      "orange!",
+      "G-R-E-N?",
+      "Freeze!"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s10",
+     "narration": "Here is a stretch idea, for when you are ready. Remember making a My Block called square in Scratch? Python has My Blocks too. Def square, with a colon, is like the pink define block. The lines pushed in under it are what the block does. And square, with brackets, uses the block. That is Exercise 8.3, My Square Block.",
+     "on_screen_text": [
+      "STRETCH IDEA",
+      "def square(): = define square",
+      "square() = use the block",
+      "Exercise 8.3: My Square Block (stretch)"
+     ]
+    },
+    {
+     "scene_id": "j3-w08-s11",
+     "narration": "Say the new words with me! Color! Pen size! Credit! Change one thing, then Run. Keep the quote marks, and spell colors right. Now it's your turn, with a grown-up. Color your square, make the Two-Color Flower, and try My Square Block if you are ready. Next week is the project studio. You can choose a Scratch game or a Python postcard! See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Color!",
+      "Pen size!",
+      "Credit!",
+      "One change, then Run",
+      "\"blue\" not \"bleu\"",
+      "NEXT: Color My Square and Two-Color Flower",
+      "Next week: Project Studio"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 9,
+   "slug": "project-studio",
+   "title": "Project Studio",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week09.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week09.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w09-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, builders! Today is a big day. You build your own big project: your Big Build! Builders draw a plan before they build a house. Coders do too. First we plan. Then we build. Then we test. Let's go!",
+     "on_screen_text": [
+      "MISSION: My Big Build",
+      "Plan first, like real builders"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s02",
+     "narration": "First, choose a path. Both are great! Path A is Scratch: a game or an art app. Path B is Python: a turtle postcard picture. Can't choose? Ask yourself: do I want people to play it, or to look at it? Play it? Pick Scratch. Look at it? Pick Python.",
+     "on_screen_text": [
+      "play it → Scratch",
+      "look at it → Python"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s03",
+     "narration": "Each path has must-haves. Scratch needs the green flag, a repeat inside a repeat or a My Block, and a score or a counter. Python needs a program that runs, a for loop, two colors, and a shape you changed. Both paths need a plan card, and a partner check.",
+     "on_screen_text": [
+      "My must-haves",
+      "Both: a plan card + a partner check"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s04",
+     "narration": "Now, the plan card. Here is Omar's. He circled B, for Python. He drew what it will look like: a house with a roof, and a sun. He named three parts, in the order he will build them: the house, the roof, and a sun. He checked his must-haves, and wrote whose idea he used: the starter program. Keep it quick. A quick drawing is perfect! Three parts is plenty. Extra ideas go on the back of the card, for later.",
+     "on_screen_text": [
+      "A quick drawing is perfect!",
+      "3 parts is plenty • extras on the back"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s05",
+     "narration": "We don't build the whole project at once. It's like a snowman. You roll the bottom ball, and check that it stands. Then the middle. Then the head. Build one part. Test it. Check it off. Then the next part. If something breaks, we know where to look: in the part we just made.",
+     "on_screen_text": [
+      "Not all at once!",
+      "A bug? Look in the newest part"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s06",
+     "narration": "Let's watch Omar build, part by part. First, he presses Run. The starter already works: an orange house with a purple roof. Part one, the house. He changes orange to blue, and keeps the quote marks. Quick quiz! Omar changed one line. What should he do next? Press Run, and test it! A blue house! Check it off. Next, he changes purple to gold, and runs it again. Then he makes the house bigger. He changes all three one hundreds to one hundred twenty. A bigger house! He changed a shape. That is a must-have. Then he clicks Save. Save often, so the working version stays safe!",
+     "on_screen_text": [
+      "QUICK QUIZ: what next?",
+      "Run and test!",
+      "Part 1: the house ✓",
+      "a shape I changed ✓",
+      "Save often!"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s07",
+     "narration": "On the Scratch path, here is Leo's Flower Garden. Press the space key, and a flower of six squares appears at the mouse pointer. The flowers counter goes up by one, every time. A repeat inside a repeat, and a counter. Both must-haves!",
+     "on_screen_text": [
+      "space key = a flower",
+      "repeat in a repeat + counter"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s08",
+     "narration": "Now, the partner check. It is our bug hunt! Swap seats. Your partner holds your plan card, presses Run, and checks each part. Mei checks Omar's postcard. Part one, the house: matches! Part two, the roof: not yet! Mei says it like a good bug report: I expected a roof, but it drew one long line. Can you see the bug? T dot left one hundred twenty is not pushed in, so it runs only once. Omar fixes it himself, with one press of Tab. The partner finds it. The owner fixes it. A roof! Check it off. Matches! Beep!",
+     "on_screen_text": [
+      "BUG HUNT! The partner check",
+      "house: matches ✓",
+      "roof: not yet",
+      "I expected a roof, but…",
+      "not pushed in = runs once",
+      "roof: matches ✓"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s09",
+     "narration": "Wiggle break! Stand up and act out your plan card. Part one: strike a pose! Part two: make a move, and repeat it four times! One, two, three, four! Part three: a big finish! Ta-da! Great building, builders!",
+     "on_screen_text": [
+      "WIGGLE BREAK: act out your plan",
+      "Part 1: pose!",
+      "Part 2: move × 4",
+      "Part 3: big finish!"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s10",
+     "narration": "Can everyone see your project? Some people see red and green as the same color. Some people need things big to see them. Try the squint test. Squint your eyes at this postcard. Can you still see every part? The thin yellow lines almost disappear! Use thick lines, a pen size of five or more. Put dark next to light, like blue next to gold. Don't use color alone, and make things big enough to see. And check that every plan card says whose idea you used, with nicknames only.",
+     "on_screen_text": [
+      "thick lines • dark next to light",
+      "not color alone • big enough",
+      "Whose idea? Nicknames only"
+     ]
+    },
+    {
+     "scene_id": "j3-w09-s11",
+     "narration": "Say it with me! Plan! Build! Test! Today: fill in your plan card, then make it work, one part at a time. Next week is the showcase! Now it's your turn, with a grown-up. Make your plan card, build part by part, then do the partner check. And save often! See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Plan!",
+      "Build!",
+      "Test!",
+      "NEXT: Plan, build and check My Big Build",
+      "Save often!"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 10,
+   "slug": "graduation-showcase",
+   "title": "Graduation Showcase",
+   "source_files": [
+    "junior/3-bridge-to-python/teaching-material/lessons/week10.tex",
+    "junior/3-bridge-to-python/teaching-material/workbook/week10.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j3-w10-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Today is a party! Yes! Today is our Graduation Showcase! A showcase is a little show where we share what we made. You will show your Big Build, explain one part of your code, and celebrate! Ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Graduation Showcase"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s02",
+     "narration": "Look how far you have come! In Little Robots, you gave exact steps, and made a cat talk, move and repeat. In Game Makers, you made games with forever loops, scores and messages. And in Bridge to Python, you made patterns, collected data, and learned how computers learn. Then you wrote real Python! That is the whole junior track. Wow! And every time you found a bug, you treated it like a clue.",
+     "on_screen_text": [
+      "steps • Scratch • repeat",
+      "forever • score • messages",
+      "patterns • data • Python",
+      "A bug is a clue!"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s03",
+     "narration": "Before a show, performers check their props. Coders check their code. Start your project. Then start it a second time. Does it start the same way? Check each must-have on your plan card. Can everyone see it? Fix one thing only. Then stop building, and save. Then comes the typo rescue! Your grown-up hides one typo in a copy of the postcard. Press Run, read the last line of the red text, find the line number, and fix it. Then change one color and one number, and run it again. This is a check, not a test. If a fix takes a long time, ask your grown-up to help.",
+     "on_screen_text": [
+      "Last-minute bug check",
+      "Typo rescue!",
+      "Then: one new color, one new number",
+      "A check, not a test",
+      "Check your props!"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s04",
+     "narration": "How do we explain our code? Like a museum guide! A guide does not explain every painting. A guide stops at one, points, and tells you something special about it. You are the guide of your own project. Pick one part, point at the code, and tell us about it.",
+     "on_screen_text": [
+      "Be a museum guide!",
+      "one part, one point, one story"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s05",
+     "narration": "Here is Omar's showcase, in three sentences. One, my plan: my plan card said a house and a roof, and both parts work. Two, one part of my code: this for loop draws the roof. Quick quiz! How many times does this loop go round? Three times, because a triangle has three sides. The two lines pushed in are inside the loop: forward, then turn one hundred twenty. Three, what I changed, and credit: I made the house blue and the roof gold. The house and roof came from the starter program. Great guide! Beep!",
+     "on_screen_text": [
+      "1. My plan",
+      "2. One part of my code",
+      "3 times: a triangle",
+      "3. What I changed + credit"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s06",
+     "narration": "Now you practice. Say your three sentences to your grown-up. My plan card said… This part of my code… I changed… and my idea came from… If you freeze, that's OK. Point at one loop and say what it does.",
+     "on_screen_text": [
+      "Practice with your grown-up",
+      "Frozen? Point at one loop"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s07",
+     "narration": "Wiggle break! It's a turtle parade. Stand up! Walk a square: four sides, and a quarter turn after each. Now a triangle: three sides, and a big turn. Now a hexagon: six small sides. And a graduation bow! Beep! Bow!",
+     "on_screen_text": [
+      "WIGGLE BREAK: turtle parade",
+      "Square!",
+      "Triangle!",
+      "Hexagon!",
+      "Bow!"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s08",
+     "narration": "Next, the gallery walk. Walk around like visitors in a museum, with your hands behind your back. At each project, ask the owner: May I try it? Then put one sticker in the column you liked best: the colors, the pattern, or the surprise. Say why: I liked the colors, because the gold roof stands out. Only kind words. And never change someone else's project. Did not like something? Then say nothing about it. That is kind, too.",
+     "on_screen_text": [
+      "Gallery walk: like a museum",
+      "“May I try it?”",
+      "…because the gold roof stands out",
+      "Kind words only • hands off"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s09",
+     "narration": "After today, you might find coding websites, games and apps. Some of them ask for things. A game says: Type your name, your age and your school to save your score! What do you do? Three steps. Say them with me! Stop! Don't type it! Get a grown-up! The grown-up decides. If the site is OK, we use a nickname. A chatbot asks where you live? The same three steps.",
+     "on_screen_text": [
+      "Some sites ask for things",
+      "OK site? A nickname only",
+      "Chatbot? Same three steps"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s10",
+     "narration": "And now, the moment you have been waiting for! You planned a Big Build, built it part by part, and explained your code. You are a Bridge to Python graduate! Give yourself a big clap! Hooray! Beep, beep, hooray! Put your certificate where you can see it!",
+     "on_screen_text": [
+      "Clap, clap, clap!"
+     ]
+    },
+    {
+     "scene_id": "j3-w10-s11",
+     "narration": "What comes next? Main-track Level 1, the course for grades four and five. Lots of it will feel familiar: Scratch, loops, events and Python. Until then, Scratch and Thonny stay on your Mac for free play. Offline, with no accounts. Now it's your turn, with a grown-up. Check your Big Build, show it off, and visit the gallery. I'm so proud of you. Happy coding, graduates! Beep boop, bye!",
+     "on_screen_text": [
+      "Next: main-track Level 1",
+      "Scratch • loops • events • Python",
+      "Free play: offline, no accounts",
+      "NEXT: Bug check, showcase, gallery walk",
+      "Happy coding, graduates!"
+     ]
+    }
+   ]
+  }
+ ]
+}

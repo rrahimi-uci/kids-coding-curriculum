@@ -684,6 +684,27 @@ def _sprite(name):
     return register
 
 
+@_sprite("banana")
+def _s_banana(ctx, x, y, s, gt, talking):
+    """A banana (Mei's Banana Drop game in Junior Level 2)."""
+    ctx.save()
+    ctx.translate(x, y - 45 * s)
+    safe_scale(ctx, s, s)
+    ctx.move_to(-58, -26)
+    ctx.curve_to(-46, 38, 46, 38, 58, -26)
+    ctx.curve_to(30, 8, -30, 8, -58, -26)
+    ctx.close_path()
+    set_color(ctx, "#F7D038")
+    ctx.fill_preserve()
+    set_color(ctx, "#B88A12")
+    ctx.set_line_width(4)
+    ctx.stroke()
+    ctx.rectangle(54, -38, 10, 16)
+    set_color(ctx, "#7A5A1E")
+    ctx.fill()
+    ctx.restore()
+
+
 @_sprite("cat")
 def _s_cat(ctx, x, y, s, gt, talking):
     draw_cat(ctx, x, y, s, gt, talking=talking)

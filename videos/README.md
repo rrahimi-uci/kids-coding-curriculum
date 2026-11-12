@@ -102,6 +102,35 @@ Code shown in a video runs on the course's Python 3.10 (the repository's `.venv`
 
 The voice is AI-generated. The end card and the file metadata say so, and a published description must say so too.
 
+## Junior videos (Aiden and Pixi, Grades 2–3)
+
+The junior track (`junior/`) has its own series, **Kids Coding Junior with Aiden and Pixi**: one
+episode per week of Junior Levels 1–3 (30 in all), 5–7 minutes each, paced for 7–9-year-olds who
+watch with a grown-up.
+
+- **Aiden** is the host: an eight-year-old coder in a red hoodie (`draw_aiden` in
+  `animated/characters.py`, drawn from the owner's approved character sheet). He has Rose's poses and
+  moods and talks straight to the child. His voice is Kokoro `af_river` raised 4.5 semitones
+  (`VOICES[AIDEN]` in `animated/audio.py`; the owner picked it from five kid-voice options).
+  **Pixi** is the same robot helper as in the main series.
+- **Episodes are the source.** Each episode is `animated/episodes/j{L}w{WW}.py` (level key `"j1"`..`"j3"`,
+  Aiden as `A("aiden", ...)` and `speaker=AIDEN`). `junior-spec` writes `specs/junior{L}.json` from
+  the episode files (title from the lesson banner, narration, on-screen text); there is no agent
+  generation or curriculum manifest for junior yet.
+- **Junior rules** (checked by `testing/test_junior_videos.py`): Aiden says most of every episode,
+  about 650–850 spoken words, 300–430 seconds, and nothing seen or heard uses negative numbers, x/y
+  positions or "360 divided by sides".
+
+```bash
+python -m videos.pipeline.cli junior-spec --level 1              # rewrite specs/junior1.json from the episodes
+python -m videos.pipeline.cli junior-check --level 1 --week 2    # script, cues, real code output
+python -m videos.pipeline.cli junior-sheet --level 1 --week 2    # contact sheet: videos/output/sheets/j1w02-sheet.png
+python -m videos.pipeline.cli junior-animate --level 1 --week 2  # videos/output/junior1-week02-meet-scratch.mp4
+python -m videos.pipeline.cli junior-animate                     # every junior episode
+```
+
+The junior videos are not on the website yet; publishing them is a separate step.
+
 ## On the website
 
 Every week page shows its video in the same place: right below the page header, as the first part of the lesson ("Watch the video"), with captions on, a "Read the script" transcript and a note that the voices are computer-generated. The videos are not stored in git. They live on the repository's [`videos` release](https://github.com/rrahimi-uci/kids-coding-curriculum/releases/tag/videos), and the website copies them in each time it is built.

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -354,12 +355,11 @@ def command_contact_sheet(args: argparse.Namespace) -> int:
     return 0
 
 
-def command_junior_spec(args: argparse.Namespace) -> int:
-    """For the junior track the episode files are the source: write specs/juniorN.json from them.
+def build_junior_spec(level_number: int) -> dict:
+    """The junior spec for one level, built from its episode files (the source of truth for junior).
 
     Each video gets the week's title from its lesson plan banner (\\lesson{N}{Title}{...}), a slug, the
     narration of every scene (the joined beats) and its on-screen text (banners, chips and big text).
-    The file is written atomically, so writers working on other weeks never read half a file.
     """
     import importlib
     import re as _re
@@ -367,12 +367,11 @@ def command_junior_spec(args: argparse.Namespace) -> int:
     sys.path.insert(0, str(REPO_ROOT / "tools"))
     import curriculum
 
-    from .animated.render import spec_path
     from .animated.timeline import joined_text
 
-    level = curriculum.by_key(f"j{args.level}")
+    level = curriculum.by_key(f"j{level_number}")
     videos = []
-    for path in sorted((Path(__file__).parent / "animated" / "episodes").glob(f"j{args.level}w[0-9][0-9].py")):
+    for path in sorted((Path(__file__).parent / "animated" / "episodes").glob(f"j{level_number}w[0-9][0-9].py")):
         week = int(path.stem[3:5])
         episode = importlib.import_module(f"videos.pipeline.animated.episodes.{path.stem}").EPISODE
         lesson = (level.path / "teaching-material" / "lessons" / f"week{week:02d}.tex").read_text(encoding="utf-8")
@@ -386,14 +385,21 @@ def command_junior_spec(args: argparse.Namespace) -> int:
                        "source_files": [f"{level.dir}/teaching-material/lessons/week{week:02d}.tex",
                                         f"{level.dir}/teaching-material/workbook/week{week:02d}.tex"],
                        "scenes": scenes})
-    data = {"schema_version": 1, "track": "junior", "level": args.level,
+    return {"schema_version": 1, "track": "junior", "level": level_number,
             "audience": "Grades 2-3 (ages 7-9), watched with a grown-up",
             "series_title": "Kids Coding Junior with Aiden and Pixi", "videos": videos}
+
+
+def command_junior_spec(args: argparse.Namespace) -> int:
+    """Write specs/juniorN.json from the junior episode files (atomically, so parallel writers are safe)."""
+    from .animated.render import spec_path
+
+    data = build_junior_spec(args.level)
     target = spec_path(f"j{args.level}")
-    tmp = target.with_suffix(".tmp")
+    tmp = target.with_suffix(f".{os.getpid()}.tmp")
     tmp.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     tmp.replace(target)
-    print(f"{target.relative_to(REPO_ROOT)}: {len(videos)} video(s)")
+    print(f"{target.relative_to(REPO_ROOT)}: {len(data['videos'])} video(s)")
     return 0
 
 
