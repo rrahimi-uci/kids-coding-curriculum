@@ -1,0 +1,97 @@
+\documentclass[track=junior,level=3]{kidscode}
+%% one Scratch block in a table cell (stacked blocks: \sbk{...}\par\sbk{...})
+\newcommand{\sbk}[1]{\begin{scratch}[scale=0.7]#1\end{scratch}}
+%% the twin table: Scratch, Python, Scratch, Python
+\newcolumntype{S}{>{\RaggedRight}m{\dimexpr0.24\linewidth-1.5\tabcolsep}}
+\newcolumntype{P}{>{\RaggedRight}m{\dimexpr0.26\linewidth-1.5\tabcolsep}}
+%% Python code in a cell: \pyl{t.forward(100)}  (an indented line: \pyin{...})
+\newcommand{\pyl}[1]{{\ttfamily\bfseries #1}\par}
+\newcommand{\pyin}[1]{\hspace*{2.2em}{\ttfamily\bfseries #1}\par}
+\newcommand{\sheethead}[1]{\par\smallskip\noindent{\large\bfseries\color{kcaccent}#1}\par\vspace{2pt}}
+%% the dyslexia edition keeps its font with slightly tighter lines so the sheet stays short
+\makeatletter\ifkc@dyslexia\AtBeginDocument{\setstretch{1.15}}\fi\makeatother
+\begin{document}
+\kctitle{Cheat Sheet}{Scratch and Python side by side, running, and fixing bugs}
+\vspace{-1.2cm}
+
+\sheethead{Every block has a Python twin}
+{\renewcommand{\arraystretch}{1.15}\small
+\noindent\begin{tabular}{@{}SPS>{\RaggedRight\arraybackslash}m{\dimexpr0.26\linewidth-1.5\tabcolsep}@{}}
+\toprule
+\textbf{\faPuzzlePiece\ Scratch} & \textbf{\faCode\ Python} & \textbf{\faPuzzlePiece\ Scratch} & \textbf{\faCode\ Python}\\ \midrule
+\sbk{\blockmove{move \ovalnum{100} steps}} & \pyl{t.forward(100)} &
+  \sbk{\blockmove{turn \turnleft{} \ovalnum{90} degrees}}\par\sbk{\blockmove{turn \turnright{} \ovalnum{90} degrees}} & \pyl{t.left(90)}\pyl{t.right(90)}\\ \midrule
+\sbk{\blockpen{set pen color to \pencolor{kcblue}}} & \pyl{t.color("blue")} &
+  \sbk{\blockpen{set pen size to \ovalnum{5}}} & \pyl{t.pensize(5)}\\ \midrule
+\sbk{\blockpen{pen up}}\par\sbk{\blockpen{pen down}} & \pyl{t.penup()}\pyl{t.pendown()} &
+  \sbk{\blockmoreblocks{define \ovalmoreblocks{flower}}}\par(a My Block) & \pyl{def flower():}(stretch)\\ \midrule
+\multicolumn{2}{@{}>{\RaggedRight}m{\dimexpr0.5\linewidth-\tabcolsep}}{\sbk{\blockrepeat{repeat \ovalnum{4}}{\blockmove{move \ovalnum{100} steps}\blockmove{turn \turnleft{} \ovalnum{90} degrees}}}} &
+  \multicolumn{2}{>{\RaggedRight\arraybackslash}m{\dimexpr0.5\linewidth-\tabcolsep}@{}}{\normalsize\pyl{for i in range(4):}\pyin{t.forward(100)}\pyin{t.left(90)}%
+   \smallskip{\small The lines inside the loop are \textbf{pushed in} 4 spaces. Press \keys{Tab}.\par}}\\
+\bottomrule
+\end{tabular}\par}
+
+\noindent\begin{minipage}[t]{0.53\linewidth}
+\sheethead{Run a program in Thonny}
+\begin{enumerate}[leftmargin=1.8em,itemsep=1pt,topsep=0pt]
+  \item[\faFolderOpen] Click \menu{Load}. Open \texttt{starter.py}.
+  \item[{\color{kcgreen}\faPlayCircle}] Click the green \menu{Run}.
+  \item[\faEye] Look at the turtle window.
+  \item[\faTimesCircle] Close it before you Run again.
+  \item[\faSave] Click \menu{Save} when you finish.
+\end{enumerate}
+{\small Run is the green flag of Python. No window? Press \keys{Cmd}+\keys{Tab}.\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.43\linewidth}
+\sheethead{Fixing a bug}
+\begin{enumerate}[leftmargin=1.6em,itemsep=1pt,topsep=0pt]
+  \item[\faPlay] \textbf{Test.} Run it.
+  \item[\faEye] \textbf{Look.} What did it do?
+  \item[\faWrench] \textbf{Change one thing.}
+  \item[\faRedo] \textbf{Test again.}
+\end{enumerate}
+{\small Bugs are clues. Everyone gets them!\par}
+\end{minipage}
+
+\sheethead{Red text is a clue}
+Read the \textbf{last} red line. It says the line number.
+\enquote{Did you mean} tells you the right word.
+The Helper reads the line letter by letter. Check the line above it too.\par\smallskip
+{\renewcommand{\arraystretch}{1.2}\small
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight}p{0.42\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+\toprule
+\textbf{Bug} & \textbf{Fix}\\ \midrule
+\texttt{t.forwad(100)} & Spell it: \texttt{t.forward(100)}\\
+\texttt{t.left(90} & Add the missing \texttt{)}\\
+\texttt{t.color("bleu")} & Spell the color: \texttt{"blue"}\\
+A line is not pushed in & Press \keys{Tab} at the start of the line\\
+\bottomrule
+\end{tabularx}\par}
+
+\noindent\begin{minipage}[t]{0.56\linewidth}
+\sheethead{The turn card}
+\textbf{quarter turn = 90}\quad\textbf{half turn = 180}\par\smallskip
+%% alt: The turn card: a triangle labeled 120, a square labeled 90 and a hexagon labeled 60.
+\begin{tikzpicture}[font=\bfseries]
+  \node[regular polygon,regular polygon sides=3,draw=black,fill=kcorange!40,minimum size=1.4cm] (t) at (0,0) {};
+  \node[below=1pt of t] {120};
+  \node[regular polygon,regular polygon sides=4,draw=black,fill=kcsky!40,minimum size=1.4cm] (s) at (2.0,0) {};
+  \node[below=1pt of s] {90};
+  \node[regular polygon,regular polygon sides=6,draw=black,fill=kcgreen!40,minimum size=1.4cm] (h) at (4.0,0) {};
+  \node[below=1pt of h] {60};
+  \node[font=\small] at (0,1.0) {triangle};
+  \node[font=\small] at (2.0,1.0) {square};
+  \node[font=\small] at (4.0,1.0) {hexagon};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\sheethead{Colors I can type}
+{\renewcommand{\arraystretch}{1.1}\begin{tabular}{@{}l@{\hspace{1.2em}}l@{}}
+\swatch{kcorange}\ \texttt{"orange"} & \swatch{kcblue}\ \texttt{"blue"}\\
+\swatch{kcpurple}\ \texttt{"purple"} & \swatch{kcgreen}\ \texttt{"green"}\\
+\swatch{kcyellow}\ \texttt{"gold"} & \swatch{kcblack}\ \texttt{"black"}\\
+\end{tabular}\par}
+{\small Small letters, with quote marks on both sides.\par}
+\end{minipage}
+
+\end{document}

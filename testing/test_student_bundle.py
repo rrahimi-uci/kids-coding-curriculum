@@ -35,7 +35,10 @@ def test_every_python_exercise_can_self_check(bundle):
             if not (folder / "starter.py").exists():
                 continue  # Scratch / Terminal exercise
             copy = bundle / folder.relative_to(ROOT)
-            for name in ("README.md", "hints.md", "starter.py", "check_my_work.py"):
+            # Junior children check by matching the picture in the README (no check_my_work.py).
+            junior = level.startswith("junior/")
+            names = ("README.md", "hints.md", "starter.py") + (() if junior else ("check_my_work.py",))
+            for name in names:
                 assert (copy / name).is_file(), f"{copy} is missing {name}"
             assert list(copy.glob("test_*.py")), f"{copy} has no tests"
     for name in ("conftest.py", "pytest.ini", "testing/kidtest/checker.py", "START-HERE.txt"):

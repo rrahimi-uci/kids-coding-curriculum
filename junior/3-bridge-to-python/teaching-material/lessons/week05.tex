@@ -1,0 +1,231 @@
+% Junior Level 3, Week 5 -- Play Day: Blocks to Words
+\lesson{5}{Play Day: Blocks to Words}{Every Scratch block has a word twin in Python.}
+\lessoninfo{Concepts: all concepts (R), blocks-to-words card sort (I); show-me checklist}{Tools: blocks-to-words cards, Scratch 3 offline app with the Pen extension, the Assessments booklet}{CSTA: 1B-AP-10, 1B-AP-11, 1B-AP-15, 1B-DA-07}
+
+\begin{objectives}
+  \item The student can match Scratch blocks to their Python word twins, such as \enquote{move 100 steps} to \texttt{t.forward(100)} and \enquote{repeat 4} to \texttt{for i in range(4):}. (J3.G5) [J3.W05.1]
+  \item The student can find and fix the bug in a nested repeat, a program built in two parts and a counter, by testing and changing one thing at a time. (J3.G6) [J3.W05.2]
+  \item The student can plan a pattern in three named parts and build it with a repeat inside a repeat. (J3.G1, J3.G2) [J3.W05.3]
+  \item The student can say one thing they are proud of in their own work and give credit for an idea they borrowed. (J3.G7) [J3.W05.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 5 and play-at-home card 5 (one per child); the \textbf{Week 5 show-me checklist} from the Assessments booklet (one row of boxes per child); the \textbf{blocks-to-words cards} and the \textbf{show-me corner sheet} from the printables at the end of this plan. Cut the cards apart (one set per pair) and keep each set in an envelope.
+  \item \textbf{Before the lesson (about 8 minutes):} build the three relay projects on your Mac exactly as printed in Exercise 5.2, bugs and all, and save each one with \menu{File} → \menu{Save to your computer}: \enquote{relay-1-window}, \enquote{relay-2-trick}, \enquote{relay-3-counter}. Copy them to each Mac (or take turns on one Mac). No time? Children build each leg from the workbook picture; it adds about 2 minutes per leg.
+  \item On each Mac: the Scratch app with the Pen extension added and a \textbf{mouse}. A kitchen timer (6--7 minutes) for Driver/Helper swaps.
+  \item Stickers or a stamp (three per child) for the relay, crayons for the bar graph, and a sheet of paper titled \enquote{Our Proud Wall}.
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Blocks-to-words card sort: match each Scratch block card to its Python word twin. Then Exercise 5.1 on paper.}
+  \timeslot{10--20}{Show me}{Play day rules. Turn a Scratch square into Python, one card at a time.}
+  \timeslot{20--33}{Make it}{Bug-hunt relay (Exercise 5.2): three broken projects, a sticker for each fix, swap Driver every leg.}
+  \timeslot{33--35}{Wiggle break}{Be the Python turtle: forward, left, repeat.}
+  \timeslot{35--50}{Make it}{Exercise 5.3 My Best Pattern: plan three parts, then build. One by one, children visit the show-me corner (data and AI questions). Free play at the end.}
+  \timeslot{50--60}{Share}{Our Proud Wall: what am I proud of so far? Show patterns. Exit question, hand out play-at-home card 5.}
+\end{timeplan}
+
+\begin{teachernote}[The show-me checklist]
+Use the \textbf{Week 5 show-me checklist in the Assessments booklet} while children play. Do not announce a test: watch, ask \enquote{Can you show me\ldots?} and check \emph{Not yet}, \emph{Getting there} or \emph{Got it}. It is observed, never graded, and \emph{Not yet} is a normal answer halfway through a level. Where to watch for each row:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt]
+  \item uses a repeat inside a repeat to make a pattern (Exercise 5.3);
+  \item plans a program in parts before building (the plan at the top of Exercise 5.3);
+  \item tallies data and makes a bar graph (the show-me corner);
+  \item explains that a computer learns from examples and can learn unfair mistakes (the show-me corner);
+  \item matches Scratch blocks to Python words (warm-up and Exercise 5.1);
+  \item finds and fixes a bug (the relay).
+\end{enumerate}
+\end{teachernote}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Blocks-to-words card sort]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Give each pair an envelope. Lay the \textbf{block cards} (pictures of Scratch blocks) in a row on the table, face up. Mix the \textbf{word cards} (Python lines) in a pile.
+  \item \enquote{In a few weeks we will meet a new coding language called \textbf{Python}. Python uses words instead of blocks. Every block card has a word twin. Can you find the twins?}
+  \item Children take turns: turn over a word card, read it out loud (you help with the reading), and put it next to the block it matches. Give clues, not answers: \enquote{Which word sounds like moving ahead?} (forward) \enquote{Which number is the same?}
+  \item Check together, pair by pair. Say each twin out loud: \enquote{Move 100 steps is \texttt{t.forward(100)}.} The \texttt{t} is the turtle that will draw in Python.
+  \item Last 3 minutes: everyone does Exercise 5.1 in the workbook.
+\end{enumerate}
+With 1 child: you turn over the word cards and the child places them, then swap. With 3: one child reads, one places, one checks, and rotate each card. With 4: two pairs, each with its own set; when both are done, they check each other's table.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Today is \textbf{Play Day}. We practice everything from weeks 1 to 4: patterns, plans, data and how computers learn. First a bug-hunt relay, then you build your best pattern. While you build, I will call each of you to my corner for a little chat.}
+
+\enquote{Here is something new. Look at the twins we found. Python does the same jobs as Scratch, but we write words. Let us turn a whole Scratch square into Python.}
+\end{teacherscript}
+
+\begin{analogy}[Two languages, one idea]
+\enquote{You can say \enquote{hello} in English and \enquote{hola} in Spanish. Different words, same idea. A Scratch block and its Python line are like that: two ways to tell the computer the same thing.}
+\end{analogy}
+
+\begin{workedexample}[A Scratch square in Python words]
+Put these Scratch block cards on the table, one under the other, as a script: \enquote{set pen color to blue}, \enquote{repeat 4} with \enquote{move 100 steps} and \enquote{turn left 90 degrees} inside it.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockpen{set pen color to \pencolor{kcblue}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnleft{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Point at each block, top to bottom. Children put its word twin next to it.
+  \item Read the twins from the top: \texttt{t.color("blue")}, then \texttt{for i in range(4):}, then \texttt{t.forward(100)}, then \texttt{t.left(90)}.
+  \item \enquote{In Scratch, the blocks inside the repeat sit in its mouth. In Python, the lines inside the loop move in a little, like this.} Slide the last two word cards a finger's width to the right. \enquote{That little gap is called an \textbf{indent}. It means: these lines are inside the repeat.}
+  \item Write the four lines on a sheet of paper as children read them out, with the indent:
+\end{enumerate}
+\begin{pycode}
+t.color("blue")
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+\end{pycode}
+\enquote{In week 6 we will type lines like these, and a turtle will draw this square. Today we stay in Scratch.} Leave the paper on the wall.
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Relay roles]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the \enquote{should do} line in the workbook, points at the blocks and says what to test, but never grabs the mouse. Swap at the end of every leg (about 4 minutes each); use the timer if a leg runs long. With 1 child: the child drives legs 1 and 3; you drive leg 2 and the child is your Helper. With 3: Driver, Helper and Checker (compares the stage with the \enquote{should do} line), moving one job along each leg. With 4: two pairs; one pair starts at leg 1 and the other at leg 3.
+\end{pairroles}
+
+\begin{bughunt}[Bug-hunt relay: three broken projects (Exercise 5.2)]
+Each leg revisits a week. Children open the saved project (or build it from the workbook), click the green flag, compare with the \enquote{should do} line, find the bug and fix it. A sticker for each leg that works.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Leg 1, The Window} (week 1). Should draw a window of four squares. The bug: the second \enquote{turn right 90 degrees} is \textbf{inside} the inside repeat, so the cat goes back and forth on one line. Fix: drag that turn out and drop it under the inside repeat, still inside the outside repeat.
+  \item \textbf{Leg 2, The Magic Trick} (week 2). Should say \enquote{Watch this!}, then vanish. The bug: the two parts each have their own green flag, so they run at the same time and the trick goes wrong. Each part works alone. Fix: snap \enquote{hide} under the say block and delete the second green flag block.
+  \item \textbf{Leg 3, The Stuck Counter} (week 3). Should count every click on the apple: 1, 2, 3\ldots{} The bug: \enquote{set apples to 0} is in the click script, so the count starts again at every click and stays at 1. Fix: move \enquote{set apples to 0} into a new \enquote{when green flag clicked} script.
+\end{itemize}
+If a pair is stuck for 2 minutes, give one hint at a time: (1) \enquote{Read the should-do line. What did you see instead?} (2) Point at the part of the script where the bug lives. (3) Ask a yes/no question: \enquote{Should this block run every time, or only once at the start?}
+\end{bughunt}
+
+\section{Wiggle break (33--35 min)}
+Be the Python turtle. Call out word twins and everyone acts them: \enquote{\texttt{t.forward(3)}}: three big steps. \enquote{\texttt{t.left(90)}}: a quarter turn left. \enquote{\texttt{for i in range(4):}} with forward and left inside: walk a square. Finish with a stretch to the ceiling.
+
+\section{Make it (35--50 min)}
+\textbf{Exercise 5.3 My Best Pattern.} First 2 minutes: each child writes or draws the three parts in the workbook plan (Part 1 get ready, Part 2 the pattern, Part 3 the ending), then builds one part at a time and tests after each. Drivers swap on the timer (6--7 minutes) if two children share a Mac.
+
+\begin{teachernote}[The show-me corner (3 minutes per child)]
+While the others build, call one child at a time to a corner of the table with the \textbf{show-me corner sheet}.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{Data:} \enquote{Twelve toys voted for their favorite fruit. Make a tally, then color the bar graph.} Watch for groups of five tally marks and for \enquote{Apple} and \enquote{apple} counted together (the week 3 bug). Ask: \enquote{Which fruit won? How do you know from the graph?}
+  \item \textbf{AI:} \enquote{Remember the robot that learned to sort animal cards? What if every cat picture we showed it was an orange cat?} Listen for: it would learn from those examples only, so it might say a gray cat is not a cat; it is not fair to gray cats; fix it with more and different examples.
+\end{enumerate}
+Check rows 3 and 4 of the show-me checklist. With 1 child, do the corner first, then let the child build the pattern for the rest of the time.
+\end{teachernote}
+
+\begin{freebuild}[Pattern free play]
+When the plan's three parts work, children change the pattern freely: a different pen color or size, a different shape from the turn card (triangle 120, hexagon 60), a My Block for the shape, or a second sprite with its own pattern. Remind them: \enquote{If you borrowed an idea from a friend, say whose it was at the Share.}
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[What am I proud of so far?]
+\enquote{We are halfway through Level 3. Think about everything you made: patterns, plans, graphs, the robot sorting game, today's bug fixes. What are you proud of?} Each child says one thing and you write it, with their \textbf{nickname}, on Our Proud Wall. Then talk about two rules for proud coders:
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt]
+  \item \textbf{My own work, or say whose idea it was.} Borrowing is fine when you say so: \enquote{The flower idea came from Kai.}
+  \item \textbf{Proud work stays safe.} The wall uses nicknames only. If we show our work outside the family, a grown-up helps, and we never add our full name, school or address.
+\end{itemize}
+\end{safety}
+
+\begin{teacherscript}
+Each child clicks the green flag on their pattern and says one sentence: \enquote{My pattern has a repeat inside a repeat. The inside repeat draws \ldots{} and the outside repeat \ldots} Others say one thing they like.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} at least one relay leg fixed by each child; a pattern with a repeat inside a repeat; most twins matched in Exercise 5.1.
+
+\textbf{Ask:} hold up the word card \texttt{for i in range(4):}. \enquote{Which Scratch block is this?}
+\textbf{Answer:} repeat 4. The lines inside it are moved in (indented), like blocks inside the repeat's mouth.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which word twin was the easiest to find? Which bug was the trickiest?} Children color a star for each relay leg they fixed and circle a smiley face in the workbook. Hand out play-at-home card 5.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Matching by the number only.} \texttt{t.forward(100)} and \enquote{turn left 90} both have a number. Ask: \enquote{Which one moves, and which one turns?}
+  \item \textbf{Thinking \texttt{t} is a typo.} \texttt{t} is the name of our turtle. Every turtle line starts with it, like a name on a letter.
+  \item \textbf{Leg 1: dragging the wrong turn.} Dragging a block takes every block under it. Drag the bottom turn in the inside repeat, which comes out alone.
+  \item \textbf{Leg 2: adding a wait instead of joining the parts.} A wait helps a bit, but two green flags still race each other. One script, in order, is the fix.
+  \item \textbf{Leg 3: deleting \enquote{set apples to 0}.} The counter then never starts again from 0 when you click the flag. It belongs under the green flag.
+  \item \textbf{Treating the checklist as a test.} Keep it out of sight. Watching while they play gives a truer picture.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use only the four main card pairs (forward, left, repeat, color). Do the relay with you as Driver and the child pointing at the bug, then the child drives the fix. In Exercise 5.3, start from the window in leg 1 and change only the color and the numbers.
+\extensionpath Match all the bonus cards and write the Python twins for a whole Scratch hexagon (repeat 6, move, turn left 60). In Exercise 5.3, make the shape a My Block, then use it in the outside repeat. Or build a buggy project for a partner to fix.
+\end{differentiation}
+
+\begin{stretchchallenge}[Translate a pattern]
+Take the window from leg 1 (after the fix). Lay out the word cards for it, with two indents: one for the inside repeat and one more for the lines inside it. Python can nest loops too!
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Use only the four main card pairs and skip Exercise 5.1 (it can be done at home). Do legs 1 and 3 of the relay. Let Exercise 5.3 be the free play and keep the show-me corner short (only the AI question; the tally can be checked from week 3). Never skip the wiggle break or the Proud Wall.
+\end{teachernote}
+
+\section{Printables}
+\subsection*{Printable 1: blocks-to-words cards (cut apart, one set per pair)}
+Block cards. The last two are bonus cards.
+\begin{center}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|>{\centering\arraybackslash}p{7cm}|>{\centering\arraybackslash}p{7cm}|}
+\hline
+\begin{scratch}[scale=0.8]\blockmove{move \ovalnum{100} steps}\end{scratch} &
+\begin{scratch}[scale=0.8]\blockmove{turn \turnleft{} \ovalnum{90} degrees}\end{scratch}\\ \hline
+\begin{scratch}[scale=0.8]\blockmove{turn \turnright{} \ovalnum{90} degrees}\end{scratch} &
+\begin{scratch}[scale=0.8]\blockrepeat{repeat \ovalnum{4}}{\blockspace[0.4]}\end{scratch}\\ \hline
+\begin{scratch}[scale=0.8]\blockpen{set pen color to \pencolor{kcblue}}\end{scratch} (blue) &
+\begin{scratch}[scale=0.8]\blockpen{set pen size to \ovalnum{5}}\end{scratch}\\ \hline
+Bonus: \begin{scratch}[scale=0.8]\blockinit{when \greenflag clicked}\end{scratch} &
+Bonus: \begin{scratch}[scale=0.8]\blockpen{pen down}\end{scratch}\\ \hline
+\end{tabular}
+\end{center}
+
+Word cards.
+\begin{center}
+\large\renewcommand{\arraystretch}{2.4}
+\begin{tabular}{|>{\centering\arraybackslash}p{7cm}|>{\centering\arraybackslash}p{7cm}|}
+\hline
+\texttt{t.forward(100)} & \texttt{t.left(90)}\\ \hline
+\texttt{t.right(90)} & \texttt{for i in range(4):}\\ \hline
+\texttt{t.color("blue")} & \texttt{t.pensize(5)}\\ \hline
+\normalsize Bonus: the green \textbf{Run} button in Thonny & \normalsize Bonus: nothing to type! The turtle's pen starts down.\\ \hline
+\end{tabular}
+\end{center}
+
+\clearpage
+\subsection*{Printable 2: the show-me corner sheet (one per child)}
+Twelve toys voted for their favorite fruit:
+\begin{center}
+\large apple, banana, grape, apple, banana, Apple,\\ grape, apple, banana, grape, apple, banana
+\end{center}
+Make a tally mark for each vote. Then color one square for each vote.
+\begin{center}
+\Large\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|p{3cm}|p{6cm}|}
+\hline
+apple & \\ \hline
+banana & \\ \hline
+grape & \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+%% alt: An empty bar graph with three columns labeled apple, banana and grape, and squares numbered 1 to 6 going up.
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \foreach \c/\name in {0/apple,1/banana,2/grape} {
+    \foreach \r in {0,...,5}
+      \draw[kcgray!80!black,line width=0.8pt] (1+\c*2.4,\r) rectangle ++(1.6,1);
+    \node[font=\large\bfseries] at (1.8+\c*2.4,-0.45) {\name};
+  }
+  \foreach \r in {1,...,6}
+    \node[font=\large] at (0.5,\r-0.5) {\r};
+\end{tikzpicture}
+\end{center}
+Which fruit won? \rule{6cm}{0.4pt}

@@ -1,0 +1,44 @@
+% Junior Level 3, Week 8 -- answer key
+\answersweek{8}{Colors and My Own Pattern}{Answers for workbook chapter 8 and play-at-home card 8.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+Thonny stops with red text that ends in \texttt{bad color string: bleu}, because Python does not know a color called \enquote{bleu}. The fix is \texttt{t.color("blue")}, with both quote marks. The line \texttt{t.pensize(5)} makes the lines thicker.
+\end{answer}
+
+\begin{answer}[Reflection]
+Any drawing of the child's pattern is right. Good spoken answers: \enquote{I changed the second color to gold and the pen to 10}, and \enquote{I started from the Kids Coding flower} (or a friend's program, by nickname).
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 8.1: Color My Square]
+\textbf{What you should see:} the same square as last week, in the color the child picked, with thick lines (pen size 5). The turtle is the same color.
+
+\textbf{Bug hunt:} the typo is \texttt{"bleu"}; the right spelling is \texttt{"blue"}. \texttt{"gold"} and \texttt{"green"} are fine.
+
+\textbf{What to look for:} \tickbox{} the quote marks are still there \quad \tickbox{} the child changed one thing and pressed Run before the next change \quad \tickbox{} any color name Python knows is right (a red \texttt{bad color string} means a spelling to fix).
+\end{answer}
+\pyfile{../exercises/week08/ex-color-square/solution.py}
+
+\begin{answer}[Exercise 8.2: Two-Color Flower]
+\textbf{What you should see:} a flower of six squares with thick lines. The squares take turns: purple, then the child's color, then purple, all the way round. The credit line at the top says \texttt{Made by: the Kids Coding course.} and \texttt{Changed by:} with the child's nickname.
+
+\textbf{What to look for:} \tickbox{} the second \texttt{t.color} line changed (the one marked \texttt{CHANGE ME}) \quad \tickbox{} the spaces in front of it are still there \quad \tickbox{} a nickname, never a full name, in the credit line.
+\end{answer}
+\pyfile{../exercises/week08/ex-two-color-flower/solution.py}
+
+\begin{answer}[Exercise 8.3: My Square Block (stretch)]
+\textbf{What you should see:} four blue squares that touch in the middle, like a window with four panes. If the child changed \texttt{60} to \texttt{100} inside the block, all four squares are bigger.
+
+\textbf{What to look for:} the child can point at \texttt{def square():} and say \enquote{this is like define square}, and at \texttt{square()} and say \enquote{this uses the block}. This is a stretch: \enquote{Not yet} is fine.
+\end{answer}
+\pyfile{../exercises/week08/ex-square-block/solution.py}
+
+\section{Play-at-home card}
+\begin{answer}[Color by code]
+The first grid has gold corners and a gold square of four in the middle; the other squares are blue, like a window with a frame. The remix shows the same pattern in new colors. Look for: the credit line with a nickname. Any color choice is right.
+\end{answer}
+
+\begin{answer}[If you have Thonny at home]
+The flower draws with very thick lines; the squares may look filled in near the middle. Either answer (too thick or right) is fine: the point is changing a number and looking.
+\end{answer}

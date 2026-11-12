@@ -1,0 +1,111 @@
+% Junior Level 3, Week 2 -- workbook chapter (read aloud with a grown-up)
+\chapterweek{2}{Plan It on Paper}{Big programs are small parts, planned first.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can plan a program in parts on paper.
+  \item I can test each part on its own.
+  \item I can fix parts that do not fit together.
+\end{ican}
+
+\section{Plan first, then build}
+A big program is made of small \textbf{parts}. Each part has a short list of steps. Build one part. Test it. Then build the next part.
+
+\begin{exercise}[My Party Plan]
+Read the plan card. One step in Part 3 is missing. Write it on the line. Then write who builds each part.
+\begin{center}
+%% alt: A plan card with three boxes. Part 1, Start the party, for the Cat: set pops to 0, say Party time, send the message balloons; test: click the flag. Part 2, The balloon comes, for Balloon1: hide at the start, when the message balloons comes go to a random place and show; test: click the script. Part 3, Pop, for Balloon1: when clicked play Pop, then an empty line, then jump to a random place; test: click the balloon. Each box has a test checkbox and a line for who builds it.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  part/.style={draw=kcblack,line width=0.8pt,rounded corners=4pt},
+  head/.style={font=\bfseries,anchor=west},
+  stepline/.style={anchor=west,font=\small}]
+  \foreach \y/\col/\title/\a/\b/\c/\test in {
+      7/kcyellow/{Part 1: Start the party \quad (Cat)}/{1. Set pops to 0.}/{2. Say \enquote{Party time!}}/{3. Send the message \enquote{balloons}.}/{click the flag.},
+      3.5/kcblue/{Part 2: The balloon comes \quad (Balloon1)}/{1. Hide at the start.}/{2. When \enquote{balloons} comes: go to a random place.}/{3. Show.}/{click the script.},
+      0/kcpurple/{Part 3: Pop! \quad (Balloon1)}/{1. When clicked: play the Pop sound.}/{2. \rule{6cm}{0.4pt}}/{3. Jump to a random place.}/{click the balloon.}} {
+    \begin{scope}[shift={(0,\y)}]
+      \filldraw[part,fill=\col!12] (0,0) rectangle (15,3.2);
+      \draw[part] (13.6,0.3) rectangle (14.6,1.1);
+      \node[font=\scriptsize] at (14.1,1.45) {tested};
+      \node[head] at (0.2,2.75) {\title};
+      \node[stepline] at (0.4,2.15) {\a};
+      \node[stepline] at (0.4,1.6) {\b};
+      \node[stepline] at (0.4,1.05) {\c};
+      \node[stepline] at (0.4,0.45) {Test: \test \qquad Built by: \rule{3cm}{0.4pt}};
+    \end{scope}}
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Party Time]
+Build the plan one part at a time.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Make a variable called \enquote{pops}. Build Part 1 for the cat.
+  \item Test Part 1. Check the tested box.
+  \item Add Balloon1. Build Part 2 and Part 3 for the balloon.
+  \item Test each part. Click a script to run it.
+  \item Click the flag. Do all the parts work together?
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{pops} to \ovalnum{0}}
+\blocklook{say \ovalnum{Party time!} for \ovalnum{2} seconds}
+\blockevent{broadcast \selectmenu{balloons}}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blocklook{hide}
+\end{scratch}
+
+\begin{scratch}[scale=0.75]
+\blockinit{when I receive \selectmenu{balloons}}
+\blockmove{go to \selectmenu{random position}}
+\blocklook{show}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.75]
+\blockinit{when this sprite clicked}
+\blocksound{start sound \selectmenu{Pop}}
+\blockvariable{change \selectmenu{pops} by \ovalnum{1}}
+\blockmove{go to \selectmenu{random position}}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Silent Party]
+Leo's parts all pass their tests. But with the flag, the balloon never comes! Change your cat's message to Leo's message, \enquote{party}. Test it.
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{pops} to \ovalnum{0}}
+\blocklook{say \ovalnum{Party time!} for \ovalnum{2} seconds}
+\blockevent{broadcast \selectmenu{party}}
+\end{scratch}
+\end{center}
+Circle the bug. Fix it on your Mac.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{part}{A small piece of a big program. You can build and test it on its own.}
+  \vocabword{step list}{The steps for one part, written in order.}
+  \vocabword{test}{Run it and check that it does what the plan says.}
+\end{vocab}
+
+\begin{reflection}
+Which part did you build? Circle it.
+
+\begin{center}
+\begin{tabular}{c@{\hspace{1.2cm}}c@{\hspace{1.2cm}}c}
+{\Huge\faCat} & {\Huge\faEye[regular]} & {\Huge\faHandPointer[regular]}\\
+Part 1 & Part 2 & Part 3
+\end{tabular}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

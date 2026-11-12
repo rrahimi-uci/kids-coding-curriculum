@@ -48,8 +48,8 @@ One calm, creative 60-minute session a week for children in Grades 4–5
 > **Younger children (Grades 2–3, ages 7–9):** a gentler **junior track** of
 > three 10-week levels (*Little Robots*, *Game Makers*, *Bridge to Python*) of
 > unplugged games and Scratch, ending with a first look at Python and leading
-> into Level 1 above. **Junior Levels 1 and 2 are ready to teach** (`make pdf LEVEL=j1`,
-> `LEVEL=j2`); Level 3 is planned. See [junior/](junior/) and the
+> into Level 1 above. **All three junior levels are ready to teach** (`make pdf LEVEL=j1`,
+> `LEVEL=j2`, `LEVEL=j3`). See [junior/](junior/) and the
 > [junior syllabus](docs/JUNIOR-SYLLABUS.md). The junior track is not on the website yet.
 
 <div align="center">
@@ -111,7 +111,7 @@ expected-behavior and checklist sections.
 1-introduction/        Level 1: Scratch, then Python turtle
 2-intermediate/        Level 2: functions, data, files, testing, and games
 3-advanced/            Level 3: OOP, algorithms, Git, data, and simple AI
-junior/                junior track for Grades 2-3 (Levels 1 and 2 written; Level 3 planned)
+junior/                junior track for Grades 2-3 (all three levels written)
 curriculum.json        which tracks and levels exist, their folders and week counts
 docs/                  syllabus, design decisions, standards, and authoring guide
 parents/               parent information evening deck, notes, and handout
@@ -202,7 +202,7 @@ make pdf-dyslexia                  # dyslexia-friendly edition only
 make -C parents                    # parent deck, notes, and handout
 ```
 
-`make help` prints the complete command list. `LEVEL=1|2|3|j1|j2` narrows PDF and
+`make help` prints the complete command list. `LEVEL=1|2|3|j1|j2|j3` narrows PDF and
 student-bundle commands; omit it to include all levels. Level keys, folders
 and week counts come from [`curriculum.json`](curriculum.json); a level marked
 `planned` there is skipped by every command until its content exists.

@@ -1,0 +1,158 @@
+\documentclass[track=junior,level=3]{kidscode}
+%% outline stars to color in: \stars{n}
+\newcommand{\ostar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=0.8pt,fill=white,minimum size=0.75cm,inner sep=0pt]{};}
+\newcommand{\stars}[1]{\ifcase#1\or\ostar\or\ostar\,\ostar\or\ostar\,\ostar\,\ostar\fi}
+%% plan card boxes (the whole plan card fits on one page in both editions)
+\makeatletter\ifkc@dyslexia
+  \newcommand{\drawheight}{3.4cm}\newcommand{\partheight}{1.15cm}
+\else
+  \newcommand{\drawheight}{4.6cm}\newcommand{\partheight}{1.35cm}
+\fi\makeatother
+%% \planbox{height}{label}: a box to draw or write in, with its label in the corner
+\newcommand{\planbox}[2]{%
+%% alt: An empty box to draw or write in, labeled with its plan-card step.
+\begin{tikzpicture}
+  \draw[line width=1.2pt,rounded corners=6pt] (0,0) rectangle (\linewidth,-#1);
+  \node[anchor=north west,font=\bfseries,fill=white,draw=black,rounded corners=3pt] at (0.25,-0.2) {#2};
+\end{tikzpicture}}
+\begin{document}
+\kctitle{My Big Build}{Project brief, plan card and stars (weeks 9 and 10)}
+
+\begin{grownup}[How to use this brief]
+Read it aloud together at the start of week 9. Your child fills in the plan card before building.
+Saying, pointing and drawing all count: only a few words are written.
+\end{grownup}
+
+\section{Your mission}
+Make your own Big Build. Choose Scratch or Python.\par
+Plan it in parts. Build one part at a time.\par
+In week 10, you show it at your graduation!
+
+\begin{safety}[Nicknames and credit]
+Use a nickname, never your full name.
+Started from a starter or a friend's idea? Say so on your plan card!
+\end{safety}
+
+\section{Choose your path}
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight}X>{\RaggedRight\arraybackslash}X@{}}
+\toprule
+{\Large\faPuzzlePiece}\ \textbf{Path A: Scratch} & {\Large\faPython}\ \textbf{Path B: Python}\\
+A game or an art app. & A turtle postcard.\\
+\midrule
+{\Large\tickbox}\ It starts with the \textbf{green flag}. &
+  {\Large\tickbox}\ It starts from \texttt{postcard.py} and \textbf{runs}.\\
+{\Large\tickbox}\ A \textbf{repeat inside a repeat}, or a \textbf{My Block}. &
+  {\Large\tickbox}\ A \textbf{\texttt{for} loop}.\\
+{\Large\tickbox}\ A \textbf{score} or a \textbf{counter}. &
+  {\Large\tickbox}\ At least \textbf{two colors}.\\
+ & {\Large\tickbox}\ \textbf{One shape} you changed or added.\\
+\midrule
+\multicolumn{2}{@{}l@{}}{{\Large\tickbox}\ Both paths: a \textbf{plan card}, and a \textbf{partner check}.}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Idea menu}
+Pick one, or think of your own!
+\begin{center}
+%% alt: Six project ideas in a row, each with a picture: a seedling for a flower garden counter, an apple for a catch-the-apple game, a star for star pattern art, a house for a house postcard, a sun for a sunny day postcard and a robot for a robot face postcard. The first three are Scratch ideas (A), the last three Python ideas (B).
+\begin{tikzpicture}[idea/.style={draw=black,line width=1pt,rounded corners=5pt,minimum width=2.6cm,minimum height=2.4cm,align=center,text width=2.3cm,font=\footnotesize}]
+  \foreach \icon/\word [count=\i] in {\faSeedling/{A: Flower garden counter},\faApple*/{A: Catch the apple},\faStar/{A: Star pattern art}}
+    \node[idea,fill=kcorange!12] at (\i*2.85,0) {{\fontsize{22}{26}\selectfont\icon}\\[3pt]\textbf{\word}};
+  \foreach \icon/\word [count=\i] in {\faHome/{B: My house postcard},\faSun/{B: Sunny day postcard},\faRobot/{B: Robot face postcard}}
+    \node[idea,fill=kcsky!20] at (8.55+\i*2.85,0) {{\fontsize{22}{26}\selectfont\icon}\\[3pt]\textbf{\word}};
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+\section{My plan card (Milestone 1)}
+\noindent\textbf{My Big Build is called} \rule{7.5cm}{0.4pt}\par\medskip
+\noindent\textbf{Circle one:}\quad {\Large\faPuzzlePiece}\ \textbf{A: Scratch}\qquad {\Large\faPython}\ \textbf{B: Python}\par\medskip
+
+\noindent\planbox{\drawheight}{Draw it: what will it look like?}\par\medskip
+\noindent\textbf{My three parts, in order:}\par\smallskip
+\noindent\planbox{\partheight}{Part 1}\par\smallskip
+\noindent\planbox{\partheight}{Part 2}\par\smallskip
+\noindent\planbox{\partheight}{Part 3}\par\medskip
+
+\noindent\textbf{My must-haves} (check them when they are in your plan):\par
+\noindent A:\ {\Large\tickbox}\,green flag\quad{\Large\tickbox}\,repeat in a repeat or My Block\quad{\Large\tickbox}\,score or counter\par
+\noindent B:\ {\Large\tickbox}\,it runs\quad{\Large\tickbox}\,\texttt{for} loop\quad{\Large\tickbox}\,two colors\quad{\Large\tickbox}\,my shape\par\medskip
+\noindent\textbf{Whose idea did I use?} \rule{8cm}{0.4pt}\par\medskip
+\noindent\textbf{Partner check by} (nickname) \rule{5cm}{0.4pt}\quad {\Large\tickbox}\ done
+
+\clearpage
+\section{Milestones}
+Build one part at a time. Test after every change.
+
+\begin{center}\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}c>{\bfseries}p{4.4cm}X@{}}
+\toprule
+ & Milestone & Done when \ldots\\
+\midrule
+\tickbox & M1 Plan card\newline{\normalfont\small week 9, start} & I chose A or B. I drew it and named three parts.\\ \midrule
+\tickbox & M2 It works\newline{\normalfont\small week 9, end} & It runs. It has every must-have. A partner checked it. I saved it.\\ \midrule
+\tickbox & M3 Graduation showcase\newline{\normalfont\small week 10} & I showed my Big Build. I said what one part of my code does.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Need a different path?}
+\begin{tip}[Core path: start from a template]
+A grown-up gets your project ready. Path A: a Scratch project with a backdrop, the cat, the Pen
+and a counter. Path B: your own copy of \texttt{postcard.py}. It already draws a house and a roof!
+Change one \texttt{CHANGE ME} line at a time. Press Run after each change.
+\end{tip}
+
+\noindent\begin{minipage}{\linewidth}
+\begin{pycode}[postcard.py: change the color, then press Run]
+t.color("orange")   # CHANGE ME: the color of the house
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+\end{pycode}
+\end{minipage}
+
+\begin{stretchchallenge}[Stretch path: my own block]
+\begin{minipage}[t]{0.5\linewidth}\RaggedRight
+Do you draw the same shape again and again?\par\smallskip
+Give it a name with \texttt{def}. It is a Python My Block!\par\smallskip
+The lines inside are pushed in. Then use it with its name.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}\vspace{0pt}
+\begin{pycode}
+def box():
+    for i in range(4):
+        t.forward(50)
+        t.left(90)
+
+box()
+\end{pycode}
+\end{minipage}
+\end{stretchchallenge}
+
+\needspace{22\baselineskip}
+\section{How my Big Build is checked}
+Color the stars you have now. Look again after the showcase!
+
+\begin{rubric}[My stars]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.6cm}*{3}{>{\RaggedRight\arraybackslash}X}@{}}
+ & \stars{1} & \stars{2} & \stars{3}\\
+\midrule
+It works & It starts. & Most parts work. & It all works, every time.\\ \midrule
+It has every must-have & one of them & most of them & all of them\\ \midrule
+I can explain one part of my code & I can say what my Big Build does. & I can point to a part and name its blocks or lines. & I can say what each block or line in one part does.\\ \midrule
+I planned it on my plan card & I filled in a plan card. & My Big Build has some of my plan. & My Big Build matches my three parts.\\
+\end{tabularx}
+\end{rubric}
+
+\begin{reflection}[After the showcase]
+Draw the part of your Big Build you like best. How do you feel? Circle one.
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{2.6cm}
+\end{reflection}
+\end{document}

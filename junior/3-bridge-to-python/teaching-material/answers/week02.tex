@@ -1,0 +1,39 @@
+% Junior Level 3, Week 2 -- answer key
+\answersweek{2}{Plan It on Paper}{Answers for workbook chapter 2 and play-at-home card 2.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+Look where the parts meet: the message. The name in the cat's \enquote{broadcast} block must be exactly the same as the name in the balloon's \enquote{when I receive} block. Answers like \enquote{the parts must talk to each other} or \enquote{check the message} show understanding.
+\end{answer}
+
+\begin{answer}[Reflection]
+We plan on paper first so we know the parts and the steps before we build, and so we can find a bug in one small part instead of the whole program. To test one part: click its script in the code area (or click the sprite for a \enquote{when this sprite clicked} part) and check that it does what the plan card says. Any part the child circles is right if they built it.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 2.1: My Party Plan]
+The missing step in Part 3 is \enquote{Add 1 to pops} (also right: \enquote{change pops by 1}, \enquote{count the pop}, \enquote{pops goes up}). The \enquote{Built by} lines show nicknames; with one child, the child and the grown-up share the parts. The tested boxes are checked during Exercise 2.2, only after each test.
+\end{answer}
+
+\begin{answer}[Exercise 2.2: Party Time]
+\textbf{What you should see and hear:} after the green flag, the balloon disappears and pops shows 0. The cat says \enquote{Party time!} for 2 seconds. Then the balloon appears somewhere new. Each click on the balloon makes a pop sound, adds 1 to pops and makes the balloon jump to a new place.
+
+\textbf{Testing each part:} clicking the cat's script runs Part 1 (the balloon also comes, because the message is sent; that is fine). Clicking the \enquote{when I receive balloons} script makes the balloon appear. Clicking the balloon on the stage pops it.
+
+\textbf{What to look for:} \tickbox{} the cat has Part 1, the balloon has Parts 2 and 3 \quad \tickbox{} the broadcast and the \enquote{when I receive} both say \enquote{balloons} \quad \tickbox{} each part was tested before the next was built.
+\end{answer}
+
+\begin{answer}[Exercise 2.3: The Silent Party]
+\textbf{The bug:} circle \enquote{party} in \enquote{broadcast party}. The cat sends the message \enquote{party}, but the balloon listens for \enquote{balloons}, so nobody hears the cat. Each part works when you click it on its own, but they do not work together.
+
+\textbf{Fix:} click the arrow on the cat's broadcast block and choose \enquote{balloons}. Now the flag starts the whole party again.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Plan a picnic in parts]
+Any three boxes with two steps each are right, for example FOOD: make sandwiches, pack apples; GAMES: pick a ball, pick a card game; PACKING: cups, blanket. Look for the check at the end: the parts must agree (4 people need 4 sandwiches and 4 cups).
+\end{answer}
+
+\begin{answer}[Get ready for Data Detectives]
+Nothing to check: a list of who can answer (family members, a neighbor, toys) is a great start. Children should not ask anything except the fruit question.
+\end{answer}

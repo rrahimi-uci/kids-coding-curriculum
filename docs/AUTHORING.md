@@ -327,5 +327,14 @@ says otherwise. The plan, goals and the "Junior rules" table are in
   “The script in words”, `## Expected behavior`, `## Checklist`; three-hint `hints.md`;
   teacher `solution.md`). A README is at most **200 words**. Unplugged-only activities need no
   folder: they live in the workbook and lesson plan.
+* **Python exercises (Level 3 weeks 6–9).** Folder = `README.md`, `hints.md`, `starter.py`,
+  `solution.py` and `test_<slug>.py`, but **no `check_my_work.py`**: children check their work by
+  comparing the window with the README's `## What you should see` section, and the tests check
+  `solution.py` in CI. Every starter already runs and draws something; the child changes numbers
+  and color names, or types at most one short new line per step. Use `import turtle`,
+  `t = turtle.Turtle()`, `forward`, `left`/`right` with 90 or 180 (or a turn-card number),
+  `for i in range(n):`, `t.color("blue")`, `t.pensize(n)`, and end with `turtle.done()`. No
+  `input()`, no `goto`, no negative numbers. Simple color names (orange, blue, purple, green,
+  gold, black) are easier to type than hex codes.
 * **Tone.** Warm and concrete, never “easy” or “just”. Names in examples: Ada, Sam, Priya, Leo,
   Mei, Omar, Zoe, Kai. Nicknames only, never real names.

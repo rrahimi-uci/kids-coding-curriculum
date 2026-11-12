@@ -1,0 +1,154 @@
+% Junior Level 3, Week 1 -- Patterns in Patterns (also opens the level)
+\lesson{1}{Patterns in Patterns}{A repeat inside a repeat makes amazing art.}
+\lessoninfo{Concepts: nested repeat (I), pen (R), My Blocks (R)}{Tools: Scratch 3 offline app with the Pen extension, turn card, the Assessments booklet}{CSTA: 1B-AP-10, 1B-AP-11, 1B-AP-14, 1B-AP-15}
+
+\begin{objectives}
+  \item The student can clap a pattern inside a pattern and build a repeat inside a repeat in Scratch that draws a window of four squares. (J3.G1) [J3.W01.1]
+  \item The student can use a \enquote{square} My Block inside a repeat to draw a flower of six squares, reading the turn from the turn card. (J3.G1) [J3.W01.2]
+  \item The student can find and fix an inner repeat that sits under the outer repeat instead of inside it. (J3.G6) [J3.W01.3]
+  \item The student can make a pattern of their own and say whose idea it came from when they borrow one. (J3.G7) [J3.W01.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 1 and play-at-home card 1 (one per child), and the \textbf{Week 1 show-me warm-up} page from the Assessments booklet (one copy is enough).
+  \item The \textbf{turn card} from Levels 1 and 2 (or write a new one on an index card): \enquote{Square: 90 (quarter turn). Triangle: 120. Hexagon (6 sides): 60.}
+  \item Unplugged: three cards you write by hand: \enquote{CLAP}, \enquote{STOMP} and a big \enquote{REPEAT 3} card that the others fit inside, plus a second big card \enquote{REPEAT 2} and a small \enquote{JUMP} card.
+  \item On each Mac: the Scratch app with a new project and a \textbf{mouse}. Add the Pen extension once yourself before the lesson so you know where the button is.
+  \item A kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Welcome back to coding club. Five-minute show-me warm-up (ungraded) from the Assessments booklet, then clap patterns: repeat 3 of (clap, clap, stomp).}
+  \timeslot{10--20}{Show me}{A pattern inside a pattern. Build The Window together: a repeat inside a repeat draws four squares.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 1.1 The Window, then Exercise 1.2 Square Flower with a \enquote{square} My Block.}
+  \timeslot{33--35}{Wiggle break}{The nested clap pattern, standing up, faster and faster.}
+  \timeslot{35--50}{Make it}{Exercise 1.3 The One-Square Flower (bug hunt), then free build: my own pattern.}
+  \timeslot{50--60}{Share}{Gallery of patterns. Talk about my own pattern, not a copy. Exit question, hand out play-at-home card 1.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{teacherscript}[Welcome back]
+\enquote{Welcome to Level 3! You are coders now: you made games with scores, messages and My Blocks. This level we make art with patterns, plan programs on paper, collect data, find out how computers learn, and then we write real code with words, in a language called Python.}
+\end{teacherscript}
+
+\begin{teachernote}[The show-me warm-up (5 minutes, ungraded)]
+Use \textbf{the Week 1 show-me warm-up in the Assessments booklet}. Each child shows you a few things they remember from Level 2 on the Mac while you watch. Nothing is graded and nobody fails: you only want to know what carried over after the break. Make a quick note of anything that was hard; this week's plan already revisits the pen and My Blocks. With 3 or 4 children, let them show in pairs, one Mac per pair.
+\end{teachernote}
+
+\begin{unplugged}[Clap patterns]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Put the \enquote{CLAP}, \enquote{CLAP} and \enquote{STOMP} cards inside the \enquote{REPEAT 3} card. Everyone performs it: clap, clap, stomp, three times.
+  \item \enquote{That is a pattern. Now watch.} Put the whole \enquote{REPEAT 3} card, plus the \enquote{JUMP} card under it, inside the big \enquote{REPEAT 2} card. Perform it: (clap, clap, stomp) three times, jump, and all of that twice.
+  \item Ask: \enquote{How many stomps did we do?} Count together: 3 and 3 make 6. \enquote{How many jumps?} (2.) \enquote{The inside repeat runs all the way through every time the outside repeat goes round once.}
+  \item Let a child make a new pattern with the cards for everyone to perform.
+\end{enumerate}
+With 1 child: you perform together, then the child builds a pattern for you. With 3 or 4: each child gets one turn to build a pattern.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{In Level 1 the cat drew a square with repeat 4 of move and a quarter turn. Today we put that whole square inside another repeat. A repeat inside a repeat is called a \textbf{nested repeat}, like the clap pattern inside the jump pattern. Small patterns make big patterns.}
+\end{teacherscript}
+
+\begin{analogy}[Nesting dolls]
+\enquote{Do you know the dolls that open up, with a smaller doll inside? A nested repeat is like that: a small repeat sits inside a bigger one. Every time the big one goes round once, the small one does all of its turns.}
+\end{analogy}
+
+\begin{workedexample}[The Window (Exercise 1.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Add the Pen extension: the \menu{Add Extension} button at the bottom left, then \menu{Pen}.
+  \item Yellow \menu{Events}: drag in \enquote{when green flag clicked}.
+  \item Purple \menu{Looks}: snap on \enquote{set size to 100 \%} and change it to 40, so the cat is small.
+  \item Blue \menu{Motion}: snap on \enquote{point in direction 90}, so the cat faces right.
+  \item Green \menu{Pen}: snap on \enquote{erase all}, then \enquote{pen down}.
+  \item Orange \menu{Control}: snap on \enquote{repeat 10} and change it to 4. This is the \textbf{outside} repeat.
+  \item Drag a second \enquote{repeat} \textbf{inside} the first one and change it to 4. This is the \textbf{inside} repeat.
+  \item Blue \menu{Motion}: put \enquote{move 60 steps} and \enquote{turn 90 degrees} (the clockwise arrow) in the inside repeat. That is one square.
+  \item Put another \enquote{turn 90 degrees} \textbf{under the inside repeat, but still inside the outside repeat}. Point at the gap carefully as you drop it.
+  \item Green \menu{Pen}: snap \enquote{pen up} at the very bottom. Drag the cat to the middle of the stage and click the green flag.
+\end{enumerate}
+\enquote{Four squares that touch at the corner: a window! The square repeat ran four times, and after each square the cat made one more quarter turn.}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{set size to \ovalnum{40} \%}
+\blockmove{point in direction \ovalnum{90}}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{move \ovalnum{60} steps}
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
+  }
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the script in the book from top to bottom, says which color circle comes next, and checks that each block lands \textbf{inside} the right repeat. The Helper never grabs the mouse. Swap when the timer rings (6--7 minutes). With 1 child: you are the Helper, then swap. With 3: Driver, Helper and Counter (counts the squares as they are drawn, out loud). With 4: two pairs, then visit each other's art.
+\end{pairroles}
+
+Work through the workbook: \textbf{1.1} The Window, then \textbf{1.2} Square Flower. For the flower, children make a My Block called \enquote{square} (pink-red \menu{My Blocks}, \menu{Make a Block}), put the square repeat under \enquote{define square}, and then use \enquote{square} inside a repeat 6 with a turn of 60 from the turn card. \enquote{The My Block hides the inside repeat, but it is still a repeat inside a repeat.}
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up. Perform the nested clap pattern from the warm-up three times, a little faster each time. Finish with one big slow stretch.
+
+\section{Make it (35--50 min)}
+\begin{bughunt}[The One-Square Flower (Exercise 1.3)]
+Priya wanted a flower of six squares, but her cat draws only \textbf{one} square. In her script the outside \enquote{repeat 6} holds only the turn, and the square repeat sits \textbf{under} it, not inside it. Children build it as printed and click the flag. Ask: \enquote{How many squares? Which repeat should be inside which?} The cat first spins round six times without drawing anything you can see (pen down, but turning on the spot draws no line), then draws one square. Fix: drag the \enquote{repeat 4} up into the mouth of the \enquote{repeat 6}, above the turn. Link back to the warm-up: the clap card that sits outside the REPEAT card is only done once.
+\end{bughunt}
+
+\begin{freebuild}[My own pattern]
+Last 6--7 minutes: change the flower to make it yours. Change the 6 and the 60 to another pair from the turn card (4 and 90), use a triangle (repeat 3, turn 120) instead of a square, or snap \enquote{change pen color by 10} (green \menu{Pen}) inside the outside repeat for a rainbow. Bigger and smaller numbers in \enquote{move} are fine too.
+\end{freebuild}
+
+\begin{stretchchallenge}[A flower of flowers]
+Make a My Block \enquote{flower} that draws the six-square flower. Then drag the cat to three places on the stage and click \enquote{flower} each time. Or use \enquote{go to random position} (blue \menu{Motion}) with pen up, then pen down and \enquote{flower}, inside a repeat 3.
+\end{stretchchallenge}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Gallery: each child clicks the green flag and shows their own pattern. Ask: \enquote{Where is the inside repeat? What does it draw? How many times does it run?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[My own pattern, not a copy]
+\enquote{Your pattern is yours: you picked the numbers and the colors. If you see a pattern you love, you can learn from it, but you change it to make it your own, and you say whose idea it came from: \enquote{I got the rainbow idea from Mei.} That is called giving \textbf{credit}. Real artists and coders do that too.} Ask: \enquote{Sam copies Kai's flower and says he made it all by himself. What could Sam say instead?} (\enquote{I started from Kai's flower and changed the colors.})
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the square repeat sits inside the outside repeat; the outside turn is under the square repeat but still inside the outside repeat; the child reads 60 off the turn card instead of guessing.
+
+\textbf{Ask:} point at the Window script. \enquote{The inside repeat says 4 and the outside repeat says 4. How many squares does the cat draw?}
+\textbf{Answer:} 4 squares. (Bonus: the cat draws 16 lines, but the window shows them as one big square cut into four.)
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What is a repeat inside a repeat?} and \enquote{Which pattern are you proudest of?} Children draw their favorite pattern in the workbook and circle a smiley face. Hand out play-at-home card 1.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{No green Pen circle.} The Pen extension is added in each new project: \menu{Add Extension}, then \menu{Pen}.
+  \item \textbf{The outside turn is inside the inside repeat.} Each move is followed by a half turn, so the cat walks back and forth and draws one short line instead of squares. Drag the last turn down until the gray shadow sits under the inside repeat, not inside it.
+  \item \textbf{Only one square.} The inside repeat is under the outside repeat (today's bug hunt).
+  \item \textbf{The define block is empty.} After \menu{Make a Block}, the repeat must be snapped under \enquote{define square}, which appears in the code area.
+  \item \textbf{The flower runs off the stage.} Drag the cat to the middle, or make 60 smaller.
+  \item \textbf{Old lines stay.} \enquote{erase all} is missing at the top of the script.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build The Window together, with you as Driver and the child as Helper, then swap for the flower. Skip the My Block: a plain repeat 4 inside a repeat 6 draws the same flower.
+\extensionpath Try every pair on the turn card: repeat 3 with turn 120, repeat 6 with turn 60. Make a triangle flower and a hexagon flower. Add \enquote{set pen size to 5} for thick lines.
+\end{differentiation}
+
+\begin{teachernote}[If you are short on time]
+Keep the show-me warm-up to two things per child and do the clap pattern once. Do 1.1 and 1.3 and leave 1.2 for free build or buffer B2. Keep the credit talk short, but keep it.
+\end{teachernote}

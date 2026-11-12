@@ -1,0 +1,99 @@
+% Junior Level 3, Week 7 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{7}{Repeat in Python}{\texttt{for} plus an indent is Scratch's repeat block.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can use \texttt{for} to repeat in Python.
+  \item I can push a line in, so it is inside the repeat.
+  \item I can change a repeat inside a repeat.
+\end{ican}
+
+\section{The repeat twins}
+\noindent
+\begin{minipage}[c]{0.4\linewidth}
+\centering
+\begin{scratch}[scale=0.8]
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnleft{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{minipage}%
+\begin{minipage}[c]{0.08\linewidth}
+\centering\Large\textrightarrow
+\end{minipage}%
+\begin{minipage}[c]{0.52\linewidth}
+\begin{pycode}
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+\end{pycode}
+\end{minipage}
+
+\medskip
+The \textbf{colon} \texttt{:} says: here comes the inside. Lines pushed in by 4 spaces are inside the repeat. Press \keys{Tab} once to push a line in.
+
+\begin{exercise}[Repeat 4]
+Folder: \texttt{week07/ex-repeat-square}.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Load \texttt{starter.py}. Run it. Only 2 sides!
+  \item Change \texttt{range(2)} to \texttt{range(4)}.
+  \item Save and Run. A square!
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Lonely Turn]
+Folder: \texttt{week07/ex-lonely-turn}. This should draw a square. Run it. What happens?
+\begin{pycode}
+for i in range(4):
+    t.forward(80)
+t.left(90)
+\end{pycode}
+Circle the line that runs only once. Push it in with \keys{Tab}. Save and Run.
+\end{exercise}
+
+\begin{exercise}[Python Flower]
+Folder: \texttt{week07/ex-python-flower}. Remember the week 1 flower? It is a repeat inside a repeat.
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{move \ovalnum{80} steps}
+    \blockmove{turn \turnleft{} \ovalnum{90} degrees}
+  }
+  \blockmove{turn \turnleft{} \ovalnum{60} degrees}
+}
+\end{scratch}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Run the starter. 2 squares.
+  \item Find the outer repeat. It is at the left edge.
+  \item Change its \texttt{2} to \texttt{6}. Save and Run.
+\end{enumerate}
+\end{exercise}
+
+\begin{tip}[Asking for help]
+Say what you expected and what happened: \enquote{I expected a square, but I got a line.}
+\end{tip}
+
+\begin{vocab}
+  \vocabword{loop}{Code that repeats. In Python, \texttt{for} makes a loop.}
+  \vocabword{indent}{Spaces at the start of a line. They put the line inside the loop.}
+\end{vocab}
+
+\begin{reflection}
+What was the trickiest part? Circle one.
+
+\begin{center}
+\begin{tabular}{c@{\hspace{1.5cm}}c@{\hspace{1.5cm}}c}
+{\Huge\texttt{:}} & {\Huge\faArrowRight} & {\Huge\texttt{4}}\\
+the colon & the spaces & the numbers
+\end{tabular}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

@@ -1,0 +1,41 @@
+% Junior Level 3, Week 6 -- answer key
+\answersweek{6}{Hello, Python!}{Answers for workbook chapter 6 and play-at-home card 6.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+A corner: the turtle draws one line to the right, makes a quarter turn to the left, then draws one line going up. It looks like a backwards L. It is not a square: the computer does only the lines that are written, in order.
+\end{answer}
+
+\begin{answer}[Reflection]
+Either circle is right. Good spoken answers about typing: \enquote{you have to spell it right}, \enquote{it is slower}, \enquote{you can see all the words}. About the red text: \enquote{it says which line has the bug} or \enquote{it tells us what Python did not know}.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 6.1: Hello, Turtle!]
+\textbf{What you should see:} a white turtle window. The turtle walks to the right and draws one long black line (150 steps instead of 50), then turns to face up.
+
+\textbf{What to look for:} \tickbox{} only the number changed, the brackets are still there \quad \tickbox{} the child clicks Save and Run after the change \quad \tickbox{} any number from 100 to 300 is right.
+\end{answer}
+\pyfile{../exercises/week06/ex-hello-turtle/solution.py}
+
+\begin{answer}[Exercise 6.2: Finish the Square]
+\textbf{What you should see:} a closed black square with 4 equal sides; the turtle ends in the corner where it started, looking up (or to the right, if the child also typed \texttt{t.left(90)}).
+
+\textbf{What to look for:} \tickbox{} the new line is \texttt{t.forward(100)}, all small letters, with both brackets \quad \tickbox{} it starts at the left edge, with no spaces in front \quad \tickbox{} the child checked the new line against the line for side 3.
+\end{answer}
+\pyfile{../exercises/week06/ex-finish-square/solution.py}
+
+\begin{answer}[Exercise 6.3: Typo Detective]
+Line 9: \texttt{forwad} is missing the letter r. The fix is \texttt{t.forward(100)}.
+Line 16: the closing bracket is missing. The fix is \texttt{t.forward(100)}.
+The child should connect \enquote{line 9} and \enquote{line 16} in the red text with the line to look at. For the typo the grown-up hides, any fix that makes the square appear again is right. Look for: the child reads the line number before changing anything, and fixes one thing, then runs again.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[The picky robot]
+The robot does the lines before the typo, then freezes and names the line number of the typo, like Python. After the fix, the robot starts again from the top. Look for: the child stops at the typo and does not \enquote{guess} what was meant; Python never guesses either.
+\end{answer}
+
+\begin{answer}[If you have Thonny at home]
+A small square, half the size of the one from class. All four \texttt{t.forward} lines must say \texttt{50}; if one still says \texttt{100}, the square does not close.
+\end{answer}

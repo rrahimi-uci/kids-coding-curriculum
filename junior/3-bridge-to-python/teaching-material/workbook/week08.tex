@@ -1,0 +1,85 @@
+% Junior Level 3, Week 8 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{8}{Colors and My Own Pattern}{Change the numbers and colors to make it yours.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can change the color and the pen size in Python.
+  \item I can fix a color name with a typo.
+  \item I can remix a program and give credit.
+\end{ican}
+
+\section{Colors and pens}
+Python knows many color names. Here are six good ones.
+\begin{center}
+%% alt: Six color squares, each with its name under it: orange, blue, purple, green, gold and black. Below them, three lines that get thicker, labeled pen size 1, pen size 5 and pen size 10.
+\begin{tikzpicture}[font=\small]
+  \foreach \c/\name [count=\i] in {kcorange/orange,kcblue/blue,kcpurple/purple,kcgreen/green,kcyellow/gold,black/black} {
+    \fill[\c] (\i*2.1,0) rectangle ++(1.4,1.4);
+    \draw (\i*2.1,0) rectangle ++(1.4,1.4);
+    \node[font=\ttfamily\footnotesize] at (\i*2.1+0.7,-0.35) {"\name"};
+  }
+  \foreach \w/\y in {1/-1.2,5/-1.9,10/-2.6} {
+    \draw[line width=\w pt] (2.1,\y) -- (8.5,\y);
+    \node[anchor=west] at (8.8,\y) {\texttt{t.pensize(\w)}};
+  }
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Color My Square]
+Folder: \texttt{week08/ex-color-square}.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Load \texttt{starter.py}. Run it. A thin black square.
+  \item Change \texttt{black} to a color you like. Keep the quote marks!
+  \item Save and Run.
+  \item Change \texttt{t.pensize(1)} to \texttt{t.pensize(5)}. Save and Run.
+\end{enumerate}
+\textbf{Bug hunt:} one color has a typo. Python shows red text: \texttt{bad color string}. Circle the typo.
+\begin{center}
+\texttt{t.color("gold")}\qquad\texttt{t.color("bleu")}\qquad\texttt{t.color("green")}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Two-Color Flower]
+Folder: \texttt{week08/ex-two-color-flower}. Six purple squares make a flower.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Find the second \texttt{t.color("purple")}.
+  \item Change it to another color. Save and Run.
+  \item At the top, after \texttt{Changed by:}, type your nickname.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[My Square Block (stretch)]
+Folder: \texttt{week08/ex-square-block}. Python has My Blocks too!
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockmoreblocks{define \ovalmoreblocks{square}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{60} steps}
+  \blockmove{turn \turnleft{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{center}
+\begin{pycode}
+def square():
+    for side in range(4):
+        t.forward(60)
+        t.left(90)
+\end{pycode}
+Change \texttt{range(1)} at the bottom to \texttt{range(4)}. Save and Run. A window!
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{pen size}{How thick the turtle's line is. Bigger numbers draw thicker lines.}
+  \vocabword{remix}{A new version of someone's program. Say whose idea it was!}
+\end{vocab}
+
+\begin{reflection}
+Draw your pattern here.
+\answerspace{4cm}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

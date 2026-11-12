@@ -1,0 +1,139 @@
+% Junior Level 3, Week 7 -- Repeat in Python
+\lesson{7}{Repeat in Python}{\texttt{for} plus an indent is Scratch's repeat block.}
+\lessoninfo{Concepts: \texttt{for} with \texttt{range} (I), indentation (I), nested repeat (R)}{Tools: Thonny in simple mode with Python's turtle, masking tape, action cards, turn card}{CSTA: 1B-AP-10, 1B-AP-15, 1B-AP-16, 1B-NI-05}
+
+\begin{objectives}
+  \item The student can read \texttt{for i in range(4):} as \enquote{repeat 4} and change its number to draw a square, or a triangle with the number from the turn card. (J3.G5) [J3.W07.1]
+  \item The student can find a line that is not pushed in, explain that it runs only once, and fix it by pushing it in with the Tab key. (J3.G6) [J3.W07.2]
+  \item The student can point to the inner and the outer repeat of a repeat inside a repeat in Python, and change the outer number to draw a flower of six squares. (J3.G5, J3.G1) [J3.W07.3]
+  \item The student can ask for help well by saying what they expected and what happened, and asks a grown-up they know instead of a website or a chatbot. (J3.G6, J3.G7) [J3.W07.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 7 and play-at-home card 7 (one per child). The turn card from week 1: \enquote{Square: 90 (quarter turn). Triangle: 120. Hexagon (6 sides): 60.}
+  \item Unplugged: masking tape for a box on the floor (about as big as a doormat), a big card \texttt{for i in range(3):} for the top edge of the box, and three action cards you write by hand: \enquote{CLAP}, \enquote{STOMP}, \enquote{WAVE}.
+  \item On each Mac: Thonny open in simple mode, a \textbf{mouse}, and the \texttt{week07} exercise folder ready (\menu{Load} \textrightarrow{} \texttt{kids-coding} \textrightarrow{} \texttt{junior} \textrightarrow{} \texttt{3-bridge-to-python} \textrightarrow{} \texttt{exercises} \textrightarrow{} \texttt{week07}).
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{\enquote{Indent the line-up}: children stand inside or outside a tape box and act out a loop.}
+  \timeslot{10--20}{Show me}{Scratch's repeat block next to Python's \texttt{for}. The colon and the four spaces. Demo of Exercise 7.1 Repeat 4.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 7.1 Repeat 4, then Exercise 7.2 The Lonely Turn (bug hunt).}
+  \timeslot{33--35}{Wiggle break}{Repeat 4 of jump and clap, then one big stretch outside the loop.}
+  \timeslot{35--50}{Make it}{Exercise 7.3 Python Flower (a repeat inside a repeat), then free build with the turn card.}
+  \timeslot{50--60}{Share}{Show the flowers. Asking for help well. Exit question. Hand out play-at-home card 7.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Indent the line-up]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Tape a box on the floor. Put the big \texttt{for i in range(3):} card at its top edge. \enquote{This box is the inside of a repeat, like the mouth of the orange repeat block in Scratch.}
+  \item Give out the action cards. The children with \enquote{CLAP} and \enquote{STOMP} stand \textbf{inside} the box. The child with \enquote{WAVE} stands \textbf{outside}, below the box.
+  \item You are the computer. Read the program: point at the inside people three times (they clap, stomp; clap, stomp; clap, stomp), then point at the outside person once (wave).
+  \item Ask: \enquote{Why did WAVE happen only once?} (It is not inside the box.) Now WAVE steps into the box. Run it again: clap, stomp, wave, three times.
+  \item \enquote{In Python, the box is made of spaces. A line that is pushed in is inside the repeat. A line at the left edge is outside.}
+\end{enumerate}
+With 1 child: put the cards on the floor instead of people; the child moves the WAVE card in and out and you both do the actions. With 2: each child holds one or two cards. With 3: one card each. With 4: the fourth child is the computer and reads the program.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Last week the square needed 8 lines: forward, left, forward, left \ldots{} In Scratch we would use a repeat. Python has one too. It is called \textbf{for}.}
+
+Write it big on paper and read it aloud: \texttt{for i in range(4):} \enquote{means repeat 4. The colon at the end says: here comes the inside. The lines under it that are pushed in by 4 spaces are inside the repeat.} Point out that \texttt{i} is only a name Python needs; we do not use it yet.
+\end{teacherscript}
+
+\begin{analogy}[The mouth of the repeat block]
+\enquote{In Scratch, the blocks inside the repeat sit in its orange mouth. In Python there is no mouth, so we push the lines in with spaces. Pushed in means: inside the mouth.}
+\end{analogy}
+
+\begin{workedexample}[Repeat 4 (Exercise 7.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click \menu{Load}. Open \texttt{week07} \textrightarrow{} \texttt{ex-repeat-square} \textrightarrow{} \texttt{starter.py}.
+  \item Click \menu{Run}. The turtle draws only two sides. \enquote{How many times does the repeat go round?} (2.)
+  \item Point at the two lines under the \texttt{for} line. \enquote{These are pushed in. They are inside. One side and one quarter turn, each time round.}
+  \item Change \texttt{2} to \texttt{4}. Click \menu{Save}, then \menu{Run}: a square. \enquote{8 lines last week, 3 lines today!}
+  \item Show the Tab key: click at the very start of an empty line and press \keys{Tab}. The cursor jumps 4 spaces to the right. Press \keys{Delete} to go back.
+\end{enumerate}
+\begin{pycode}
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+\end{pycode}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} has the keyboard and the mouse. The \textbf{Helper} reads the steps and is the \enquote{line checker}: after every change, the Helper runs a finger down the left edge of the lines and says which ones are inside the repeat. The Helper never grabs the mouse. Swap when the timer runs out (6--7 minutes). With 1 child: you are the Helper; swap once so the child checks your lines. With 3: Driver, Helper and Checker (counts the sides as the turtle draws). With 4: two pairs.
+\end{pairroles}
+
+Work through the workbook: \textbf{7.1} Repeat 4, then \textbf{7.2} The Lonely Turn. Fast pairs try the extra in 7.1: \texttt{range(3)} with \texttt{t.left(120)} from the turn card makes a triangle.
+
+\begin{bughunt}[The Lonely Turn (Exercise 7.2)]
+The starter should draw a square, but \texttt{t.left(90)} is not pushed in. It sits outside the repeat. The turtle walks 80 steps four times in a straight line, then turns once at the very end. Ask: \enquote{How many times did the turtle turn?} (Once.) \enquote{Which line is outside the box?} Link back to WAVE in the warm-up. Fix: click at the very start of \texttt{t.left(90)} and press \keys{Tab} once, so it lines up under \texttt{t.forward(80)}. If Thonny shows \texttt{IndentationError}, the spaces do not match: delete them and press Tab once.
+\end{bughunt}
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up. \enquote{Repeat 4: jump, clap!} Four jumps and four claps. \enquote{Outside the repeat: one big stretch!} Then do it again with the stretch \enquote{pushed in}: jump, clap, stretch, four times.
+
+\section{Make it (35--50 min)}
+\textbf{Exercise 7.3} Python Flower: \enquote{Remember the flower from week 1? A square repeat inside a repeat 6, with a turn of 60. Here it is in Python.} The starter draws 2 squares. Children find the two \texttt{for} lines: the outer one (at the left edge) counts the squares, the inner one (pushed in) draws one square. They change the outer \texttt{2} to \texttt{6}. Point at \texttt{t.left(60)}: \enquote{It is pushed in once, not twice. So it is inside the outer repeat, but outside the inner one: one turn after each square.}
+
+\begin{freebuild}[Make it yours]
+Last 6--7 minutes: change the flower with the turn card. Try \texttt{range(4)} with \texttt{t.left(90)} in the outer repeat (a window). Make the squares bigger or smaller (change \texttt{80}). Make the petals triangles: change the inner \texttt{range(4)} to \texttt{range(3)} and its \texttt{t.left(90)} to \texttt{t.left(120)}. Change one thing at a time and press Run each time.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child clicks Run to show their flower. \enquote{Point at the outer repeat. Point at the inner one. Which line runs once after each square?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[Asking for help well]
+\enquote{When code does something strange, a good question gets help fast. Say two things: \textbf{what I expected} and \textbf{what happened}.} Practice with the Lonely Turn: \enquote{I expected a square, but the turtle drew one long line and turned once.} Add a third part if you can: \enquote{I tried \ldots}.
+
+\enquote{Ask a grown-up you know: me, a teacher, a family member. Do not ask strangers on a website, and do not type your name, school or other personal information into a chatbot to get help. If an app or website asks for that, stop and ask a grown-up.} Ask: \enquote{Which is the better question: \enquote{It's broken!} or \enquote{I expected a square, but I got a line}?}
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the child changes the number in \texttt{range( )}, not in the comment; uses Tab at the start of a line to push it in; can point to the inner and the outer repeat.
+
+\textbf{Ask:} show these lines. \enquote{How many times does the turtle turn? How do we fix it?}
+\begin{pycode}
+for i in range(3):
+    t.forward(100)
+t.left(120)
+\end{pycode}
+\textbf{Answer:} once, at the end, because \texttt{t.left(120)} is not pushed in. Push it in by 4 spaces (Tab), under \texttt{t.forward(100)}, and the turtle draws a triangle.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{How does Python know which lines are inside the repeat?} (They are pushed in.) Children circle the trickiest part in the workbook (the colon, the spaces or the numbers) and circle a smiley face. Hand out play-at-home card 7 (the indent dance).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The colon is missing.} Thonny shows \texttt{SyntaxError: expected ':'}. The \texttt{for} line always ends with a colon.
+  \item \textbf{Spaces that do not match.} Two or three spaces instead of four give \texttt{IndentationError} (for example \texttt{unindent does not match any outer indentation level}). Delete the spaces and press Tab once.
+  \item \textbf{Tab pressed in the middle of a word.} Thonny may offer to finish the word instead of pushing the line in. Click at the very start of the line first.
+  \item \textbf{\texttt{turtle.done()} pushed in.} The window waits after the first side. \texttt{turtle.done()} always starts at the left edge, after the loop.
+  \item \textbf{The number changed in the comment.} The comment after \texttt{\#} is a note for people; Python skips it. Change the number inside \texttt{range( )}.
+  \item \textbf{The inner number changed in 7.3.} Changing the inner \texttt{4} makes tangled shapes, not squares. The outer repeat counts the squares.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath You are the Driver; the child is the Helper who points at each line and says \enquote{inside} or \enquote{outside} before you run it. Do 7.1 and 7.2 only, and do 7.3 together on your Mac. Use the tape box again if the idea of \enquote{inside} is shaky.
+\extensionpath Try every pair on the turn card in 7.1 (3 and 120, 6 and 60). In 7.3, make a triangle flower. Then click \menu{New}, type the three lines of a square loop yourself (plus the first lines and \texttt{turtle.done()} from a starter), and save it in \texttt{my-python} with a clear name.
+\end{differentiation}
+
+\begin{stretchchallenge}[From 8 lines to 3]
+Open the finished square from week 6 (\texttt{ex-finish-square}). Ask: \enquote{Can we make these 8 lines into 3 lines with a repeat?} The child replaces them with \texttt{for i in range(4):} and two pushed-in lines, and checks that the square still looks the same.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do the warm-up with cards on the floor instead of people (5 minutes). Do 7.1 as the demo only, so children start with 7.2. Do 7.3 together on your Mac, letting each child change the outer number once. Keep the \enquote{what I expected, what happened} practice: it is two sentences and pays off every week.
+\end{teachernote}
