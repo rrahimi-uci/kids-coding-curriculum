@@ -1,0 +1,92 @@
+% Junior Level 3, Week 4 -- workbook chapter (read aloud with a grown-up; no computer this week)
+\chapterweek{4}{How Do Computers Learn?}{Computers learn patterns from examples, and copy our mistakes.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can teach a robot friend with examples.
+  \item I can count the robot's right and wrong guesses.
+  \item I can say why one-sided examples cause mistakes.
+\end{ican}
+
+\section{Learning from examples}
+Some computers learn from \textbf{examples}. We show many examples and say YES or NO. The computer looks for a pattern. Then it guesses about new things.
+
+\begin{exercise}[Teach the Robot]
+Play with a partner and the animal cards.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item The Trainer picks a secret rule card.
+  \item The Trainer shows 6 examples on YES and NO.
+  \item The Robot guesses new cards: YES or NO?
+  \item Make a tally of the guesses.
+\end{enumerate}
+\begin{center}
+%% alt: An empty tally chart with two rows, right guesses with a check mark and wrong guesses with a cross, with space to draw tally marks.
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small]
+  \foreach \y/\name/\icon in {1/right/\faCheck,0/wrong/\faTimes} {
+    \draw[kcgray] (0,\y-0.5) rectangle (8,\y+0.5);
+    \node[anchor=west] at (0.2,\y) {\icon\ \name};
+  }
+\end{tikzpicture}
+\end{center}
+Which feature helped the Robot? Circle it.
+
+\begin{center}
+\Large legs \qquad wings \qquad fur \qquad fins
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Robot Report]
+Color a bar graph of your tally. One square for each guess.
+\begin{center}
+%% alt: An empty bar graph with two columns labeled right and wrong, and the numbers 1 to 6 up the side.
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small]
+  \foreach \x in {0,1} \foreach \y in {0,...,5}
+    \draw[kcgray] (\x*1.6+0.2,\y*0.6) rectangle (\x*1.6+1.4,\y*0.6+0.6);
+  \foreach \y in {1,...,6} \node[anchor=east] at (0,\y*0.6-0.3) {\y};
+  \draw[line width=1pt] (0,0) -- (3.4,0);
+  \node[anchor=base] at (0.8,-0.5) {right};
+  \node[anchor=base] at (2.4,-0.5) {wrong};
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The One-Sided Robot]
+Sam taught the Robot the rule \enquote{IS A BIRD}. Here are Sam's examples.
+\begin{center}
+%% alt: Sam's examples. On the YES side: a dove, a crow and another dove, all birds that fly. On the NO side: a cat, a dog and a fish.
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \node[font=\bfseries] at (2,1.4) {YES};
+  \node[font=\bfseries] at (8,1.4) {NO};
+  \foreach \x/\icon in {0.5/\faDove,2/\faCrow,3.5/\faDove,6.5/\faCat,8/\faDog,9.5/\faFish}
+    \node[scale=2.2] at (\x,0.3) {\icon};
+  \draw[kcgray,line width=1pt] (5,-0.5) -- (5,1.7);
+\end{tikzpicture}
+\end{center}
+The Robot sees a kiwi bird. It cannot fly. What does the Robot guess? Circle it.
+
+\begin{center}
+\Large bird \qquad not a bird
+\end{center}
+How can Sam fix his examples? Tell your partner.
+\end{exercise}
+
+\begin{grownup}[Stay safe with AI]
+AI can be wrong. Never tell a chatbot your name, where you live or your school.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{example}{One thing we show the computer, marked YES or NO.}
+  \vocabword{feature}{Something the computer looks at, like legs or wings.}
+  \vocabword{prediction}{The computer's guess about something new.}
+\end{vocab}
+
+\begin{reflection}
+Draw your made-up creature.
+\answerspace{4cm}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

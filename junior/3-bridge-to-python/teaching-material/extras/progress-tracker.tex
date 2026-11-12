@@ -1,0 +1,74 @@
+\documentclass[track=junior,level=3]{kidscode}
+%% a big outline star to color in
+\newcommand{\colorstar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=1pt,fill=white,minimum size=1.35cm,inner sep=0pt]{};}
+%% \wkrow{week}{icon}{I can ...}
+\newcommand{\wkrow}[3]{\textbf{\Large #1} & {\Large #2} & #3 & \colorstar\\ \midrule}
+\makeatletter\ifkc@dyslexia\newcommand{\wkstretch}{1.25}\else\newcommand{\wkstretch}{1.6}\fi\makeatother
+\newenvironment{weektable}{\par\noindent\renewcommand{\arraystretch}{\wkstretch}%
+  \longtable{@{}>{\centering}p{1.3cm}>{\centering}p{1.1cm}>{\RaggedRight}m{\dimexpr\linewidth-5.2cm-6\tabcolsep}>{\centering\arraybackslash}m{2.8cm}@{}}
+  \toprule
+  \textbf{Week} & & \textbf{I can \ldots} & \textbf{Color it!}\\ \midrule\endhead}
+  {\endlongtable\par}
+%% badge to color: \badge{shape}{icon}{name}{how to earn it}
+\newcommand{\badge}[4]{%
+%% alt: A badge outline to color in, with an icon, the badge name and how to earn it underneath.
+  \begin{tikzpicture}
+    \node[#1,draw=black,line width=1.4pt,fill=white,minimum size=2.7cm,inner sep=1pt,
+          align=center,font=\small\bfseries,text width=2.3cm] (b) {{\LARGE #2}\\[3pt] #3};
+    \node[below=3pt of b,text width=3.7cm,align=center,font=\footnotesize] {#4};
+  \end{tikzpicture}}
+\begin{document}
+\kctitle{My Progress Tracker}{One copy per child: what I can do, week by week}
+
+\begin{grownup}[How the tracker works]
+At the end of each session (2 minutes, in the Share part), read the week's \enquote{I can} line
+aloud. When your child feels ready, they color the star. A new idea can wait: the same ideas come
+back in later weeks, so a star can be colored any time. Keep the tracker in a folder and bring it
+out at the graduation showcase.
+\end{grownup}
+
+\noindent\textbf{Nickname:} \rule{6cm}{0.4pt}
+
+\section{My stars, week by week}
+\begin{weektable}
+\wkrow{1}{\faTh}{I can make a pattern with a repeat inside a repeat.}
+\wkrow{2}{\faClipboardList}{I can plan a program in parts on paper.}
+\wkrow{3}{\faChartBar}{I can make a bar graph and say what it shows.}
+\wkrow{4}{\faRobot}{I can say how a computer learns from examples.}
+\wkrow{5}{\faExchange*}{I can match a Scratch block to its Python twin.}
+\wkrow{6}{\faPlayCircle}{I can run a Python program and fix a typo.}
+\wkrow{7}{\faRedo}{I can repeat in Python with \texttt{for} and an indent.}
+\wkrow{8}{\faPalette}{I can change numbers and colors to make it mine.}
+\wkrow{9}{\faClipboardCheck}{I can plan my Big Build on a plan card.}
+\wkrow{10}{\faGraduationCap}{I can show my Big Build and explain my code.}
+\end{weektable}
+
+\section{My Big Build}
+\begin{center}\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.6cm}X>{\centering\arraybackslash}m{2.8cm}@{}}
+\toprule
+Milestone & Done when \ldots & \textbf{Color it!}\\
+\midrule
+M1 Plan card\newline{\normalfont\small week 9, start} & I chose Scratch or Python and filled in my plan card. & \colorstar\\ \midrule
+M2 It works\newline{\normalfont\small week 9, end} & It runs, it has every must-have, and a partner checked it. & \colorstar\\ \midrule
+M3 Graduation showcase\newline{\normalfont\small week 10} & I showed my Big Build and said what one part of my code does. & \colorstar\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{My badges}
+A grown-up says when you have earned a badge. Then color it in! Anyone can earn every badge, at any time.
+\begin{center}
+\badge{circle}{\faTh}{Pattern Maker}{Made a pattern with a repeat inside a repeat.}\hfill
+\badge{diamond}{\faChartBar}{Data Detective}{Made a bar graph from a survey.}\hfill
+\badge{rectangle}{\faRobot}{Robot Teacher}{Taught the robot with good examples.}
+\par\medskip
+\badge{rectangle}{\faCode}{Python Starter}{Ran a Python program in Thonny.}\hfill
+\badge{circle}{\faBug}{Typo Catcher}{Fixed 3 typos from the red text.}\hfill
+\badge{diamond}{\faShield*}{Privacy Pro}{Kept personal information private.}
+\par\medskip
+\badge{diamond}{\faThumbsUp}{Credit Giver}{Said whose idea I remixed.}\hfill
+\badge{rectangle}{\faMedal}{Robot Olympian}{Raced in the Robot Olympics (B1).}\hfill
+\badge{circle}{\faGraduationCap}{Junior Graduate}{Showed my Big Build.}
+\end{center}
+\end{document}

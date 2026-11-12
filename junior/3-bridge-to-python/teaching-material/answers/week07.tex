@@ -1,0 +1,42 @@
+% Junior Level 3, Week 7 -- answer key
+\answersweek{7}{Repeat in Python}{Answers for workbook chapter 7 and play-at-home card 7.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+The turtle turns once, at the very end, because \texttt{t.left(120)} is not pushed in: it is outside the repeat. It walks 100 steps three times in a straight line, then turns. Fix: push \texttt{t.left(120)} in by 4 spaces (one press of Tab) so it lines up under \texttt{t.forward(100)}. Then the turtle draws a triangle.
+\end{answer}
+
+\begin{answer}[Reflection]
+Any circle is right. Good spoken answers to \enquote{How does Python know which lines are inside the repeat?}: \enquote{they are pushed in}, \enquote{they have spaces in front}, \enquote{they are under the for line and moved to the right}.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 7.1: Repeat 4]
+\textbf{What you should see:} a closed black square with 4 equal sides, drawn with one side and one quarter turn each time round the repeat.
+
+\textbf{What to look for:} \tickbox{} the number changed inside \texttt{range( )}, not in the comment \quad \tickbox{} the colon is still there \quad \tickbox{} the child can say \enquote{the two pushed-in lines are inside}. The extra (\texttt{range(3)} with \texttt{t.left(120)}) draws a triangle.
+\end{answer}
+\pyfile{../exercises/week07/ex-repeat-square/solution.py}
+
+\begin{answer}[Exercise 7.2: The Lonely Turn]
+The circled line is \texttt{t.left(90)}. Before the fix the turtle draws one long straight line (80 steps, four times) and turns once at the end. After pushing \texttt{t.left(90)} in with Tab, it lines up under \texttt{t.forward(80)} and the turtle draws a closed square with 4 sides of 80.
+
+\textbf{What to look for:} the child says why it ran once (\enquote{it was outside the repeat}), not only how to fix it.
+\end{answer}
+\pyfile{../exercises/week07/ex-lonely-turn/solution.py}
+
+\begin{answer}[Exercise 7.3: Python Flower]
+\textbf{What you should see:} six black squares that all meet in the middle, like a flower with six petals. The turtle ends in the middle, looking the same way as at the start.
+
+\textbf{What to look for:} \tickbox{} the outer \texttt{range(2)} became \texttt{range(6)}, the inner \texttt{range(4)} is unchanged \quad \tickbox{} the child points to the outer and the inner repeat \quad \tickbox{} the child can say that 60 comes from the turn card. The extra (\texttt{range(4)} with \texttt{t.left(90)} in the outer repeat) draws a window of four squares.
+\end{answer}
+\pyfile{../exercises/week07/ex-python-flower/solution.py}
+
+\section{Play-at-home card}
+\begin{answer}[The indent dance]
+First version: clap, stomp three times, then one wave (1 wave). With \texttt{wave} pushed in: clap, stomp, wave, three times (3 waves). Any dance the child writes is right if the pushed-in moves are repeated and the others happen once.
+\end{answer}
+
+\begin{answer}[If you have Thonny at home]
+The same flower of six squares, smaller. All four sides of each square change, because the one \texttt{t.forward(50)} line runs for every side.
+\end{answer}

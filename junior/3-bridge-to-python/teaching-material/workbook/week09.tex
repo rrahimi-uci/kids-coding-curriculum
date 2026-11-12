@@ -1,0 +1,103 @@
+% Junior Level 3, Week 9 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{9}{Project Studio}{Choose a Scratch game or a Python picture; plan, build, test.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can plan my Big Build on a plan card.
+  \item I can build and test one part at a time.
+  \item I can check a partner's project against the plan.
+\end{ican}
+
+\section{My Big Build}
+Choose one path. Both are great!
+\begin{center}
+%% alt: Two cards side by side. Card A shows a puzzle piece and says Scratch: a game or art app. Card B shows the Python snake logo and says Python: a postcard picture.
+\begin{tikzpicture}[x=1cm,y=1cm,lab/.style={font=\bfseries,align=center}]
+  \draw[line width=1pt,rounded corners=3pt,fill=kcorange!12] (0,0) rectangle (7.2,3);
+  \node[font=\huge] at (1.1,1.5) {\faPuzzlePiece};
+  \node[lab] at (4.4,1.5) {A: Scratch\\a game or art app};
+  \draw[line width=1pt,rounded corners=3pt,fill=kcsky!20] (7.8,0) rectangle (15,3);
+  \node[font=\huge] at (8.9,1.5) {\faPython};
+  \node[lab] at (12.2,1.5) {B: Python\\a postcard picture};
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[My Plan Card]
+Fill in your plan card.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Circle A or B.
+  \item Draw what it will look like.
+  \item Name three parts, in order.
+  \item Check the must-haves.
+  \item Write whose idea you used.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Build My Big Build]
+Build one part. Test it. Check it off. Then build the next part.
+
+\textbf{Path A.} Leo's Flower Garden. Press space for a flower!
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockvariable{set \selectmenu{flowers} to \ovalnum{0}}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.75]
+\blockinit{when \selectmenu{space} key pressed}
+\blockmove{go to \selectmenu{mouse-pointer}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{move \ovalnum{30} steps}
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
+  }
+  \blockmove{turn \turnright{} \ovalnum{60} degrees}
+}
+\blockpen{pen up}
+\blockvariable{change \selectmenu{flowers} by \ovalnum{1}}
+\end{scratch}
+\end{center}
+
+\textbf{Path B.} Omar's postcard. He changed a color and a number. Press Run after every change!
+
+\noindent\begin{minipage}{\linewidth}
+\begin{pycode}
+t.color("blue")
+for i in range(4):
+    t.forward(120)
+    t.left(90)
+\end{pycode}
+\end{minipage}
+\end{exercise}
+
+\begin{exercise}[Partner Check]
+Swap with a partner. Check their project. Circle yes or not yet.
+\begin{center}
+\begin{tabular}{@{}l c@{}}
+It starts with the green flag or Run. & yes \quad not yet\\
+Part 1 works. & yes \quad not yet\\
+Part 2 works. & yes \quad not yet\\
+Part 3 works. & yes \quad not yet\\
+It has every must-have. & yes \quad not yet\\
+Everyone can see it. & yes \quad not yet\\
+\end{tabular}
+\end{center}
+Tell your partner one \enquote{not yet}: \enquote{I expected \ldots, but it \ldots}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{plan card}{A plan on paper: what you will build, in parts.}
+  \vocabword{partner check}{A friend tests your project against your plan.}
+\end{vocab}
+
+\begin{reflection}
+Color in the parts you finished: \quad \fbox{\strut\ 1\ } \fbox{\strut\ 2\ } \fbox{\strut\ 3\ }
+
+How do you feel about your Big Build? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

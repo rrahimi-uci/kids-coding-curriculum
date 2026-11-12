@@ -158,8 +158,16 @@ def test_exercise_folder_is_complete(folder):
         for heading in ("## The finished project", "## What you should see", "## Check-off list"):
             assert heading in sol, f"solution.md is missing '{heading}'"
         return
-    for required in ["starter.py", "solution.py", "check_my_work.py", "README.md"]:
-        assert required in names, f"{folder} is missing {required}"
+    # Junior children check Python work by matching the picture in the README, not with
+    # check_my_work.py (docs/JUNIOR-SYLLABUS.md); the tests still check solution.py in CI.
+    junior = curriculum.level_of(folder).track == "junior"
+    required = ["starter.py", "solution.py", "README.md"] + (["hints.md"] if junior else ["check_my_work.py"])
+    for name in required:
+        assert name in names, f"{folder} is missing {name}"
+    if junior:
+        assert "check_my_work.py" not in names, "junior exercises are checked by matching a picture, not check_my_work.py"
+        assert "## What you should see" in read(folder / "README.md"), \
+            "a junior Python README needs a '## What you should see' section describing the picture"
     assert any(n.startswith("test_") and n.endswith(".py") for n in names), f"{folder} has no test_*.py"
 
 

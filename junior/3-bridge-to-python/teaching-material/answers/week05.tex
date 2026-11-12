@@ -1,0 +1,49 @@
+% Junior Level 3, Week 5 -- answer key
+\answersweek{5}{Play Day: Blocks to Words}{Answers for workbook chapter 5 and play-at-home card 5.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+Repeat 4. \texttt{for i in range(4):} runs the lines under it four times. Those lines are moved in (indented), just as blocks sit inside the mouth of the repeat block.
+\end{answer}
+
+\begin{answer}[Blocks-to-words card sort (warm-up)]
+The twins: move 100 steps and \texttt{t.forward(100)}; turn left 90 degrees and \texttt{t.left(90)}; turn right 90 degrees and \texttt{t.right(90)}; repeat 4 and \texttt{for i in range(4):}; set pen color to blue and \texttt{t.color("blue")}; set pen size to 5 and \texttt{t.pensize(5)}. Bonus: \enquote{when green flag clicked} matches the green Run button in Thonny; \enquote{pen down} has nothing to type, because the Python turtle's pen starts down. Look for children using the words (forward, left, color) and not only the numbers.
+\end{answer}
+
+\begin{answer}[Show-me corner]
+\textbf{Data:} apple 5 (four \enquote{apple} votes and one \enquote{Apple} vote), banana 4, grape 3. Apple won: its bar is the tallest. A child who counts \enquote{Apple} on its own row has found the week 3 bug the hard way; ask, \enquote{Is Apple a different fruit?} \textbf{AI:} if every cat example is orange, the computer learns that cats are orange and may say a gray cat is not a cat. That is unfair to gray cats. Fix: show it many different examples (gray, black, striped, big and small cats).
+\end{answer}
+
+\begin{answer}[Reflection and Proud Wall]
+Any number of stars and any honest smiley is right. Any proud moment is right; look for a child naming something specific (\enquote{my flower with six squares}) and saying whose idea it was when it was borrowed.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 5.1: Blocks to Words]
+Move 100 steps and \texttt{t.forward(100)}. Turn left 90 degrees and \texttt{t.left(90)}. Repeat 4 and \texttt{for i in range(4):}. Set pen color to blue and \texttt{t.color("blue")}. The lines cross: that is on purpose. Look for: the child says why each pair matches (\enquote{forward means move}, \enquote{range 4 is four times}).
+\end{answer}
+
+\begin{answer}[Exercise 5.2: Bug-Hunt Relay]
+\textbf{Leg 1, The Window.} With the bug, the cat walks back and forth on one short line, because it turns twice (a half turn) after every side. Fix: drag the bottom \enquote{turn right 90 degrees} out of the inside repeat and drop it under the inside repeat, still inside the outside repeat. \textbf{You should see:} four squares that touch at one corner, like a window.
+
+\textbf{Leg 2, The Magic Trick.} With the bug, both green flag scripts run at the same time: the cat vanishes before you can read \enquote{Watch this!}, or it never vanishes. Each part works when you click it alone. Fix: snap \enquote{hide} under \enquote{say Watch this! for 2 seconds} and delete the second \enquote{when green flag clicked}. \textbf{You should see:} the cat says \enquote{Watch this!} for 2 seconds, then disappears. Click the flag again: \enquote{show} brings it back first.
+
+\textbf{Leg 3, The Stuck Counter.} With the bug, the apples counter on the stage shows 1 after every click. Fix: take \enquote{set apples to 0} out of the click script and put it under a new \enquote{when green flag clicked} (yellow Events). \textbf{You should see:} the flag sets apples to 0, then each click on the apple adds 1: 1, 2, 3\ldots
+
+\textbf{What to look for:} \tickbox{} tests before fixing \quad \tickbox{} says what was wrong \quad \tickbox{} changes one thing \quad \tickbox{} tests again.
+\end{answer}
+
+\begin{answer}[Exercise 5.3: My Best Pattern]
+Every pattern is different. The plan has three parts, for example: Part 1 \enquote{erase, purple pen, pen down}; Part 2 \enquote{six squares in a ring}; Part 3 \enquote{cat says Ta-da}. With the example script, the cat draws six purple squares around one point, each turned by 60 (the hexagon number on the turn card), like a flower, then says \enquote{Ta-da!}.
+
+\textbf{What to look for:} \tickbox{} three parts written or drawn before building \quad \tickbox{} a repeat inside a repeat \quad \tickbox{} the child tests after each part \quad \tickbox{} the child can say what the inside repeat draws and what the outside repeat does.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Be the Python turtle]
+Three steps, a quarter turn left, a half turn (facing back the way they came), then a square of four sides with a quarter turn left after each. After the square, the child is back on the starting spot, facing the same way. If not, count the turns together: a square needs four quarter turns.
+\end{answer}
+
+\begin{answer}[Spot the twin]
+\texttt{t.forward(100)}: move 100 steps. \texttt{t.left(90)}: turn left 90 degrees. \texttt{for i in range(4):}: repeat 4. \texttt{t.color("blue")}: set pen color to blue.
+\end{answer}

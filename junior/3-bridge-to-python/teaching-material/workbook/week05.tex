@@ -1,0 +1,115 @@
+% Junior Level 3, Week 5 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{5}{Play Day: Blocks to Words}{Every Scratch block has a word twin in Python.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can match a Scratch block to its Python word twin.
+  \item I can find a bug and fix it.
+  \item I can plan a pattern in parts and build it.
+\end{ican}
+
+\begin{exercise}[Blocks to Words]
+Python is a coding language with words instead of blocks. Draw a line from each block to its word twin.
+\begin{center}
+\renewcommand{\arraystretch}{2.4}
+\begin{tabular}{@{}l p{2.2cm} l@{}}
+\begin{scratch}[scale=0.8]\blockmove{move \ovalnum{100} steps}\end{scratch} & $\bullet$\hfill$\bullet$ & \texttt{for i in range(4):}\\
+\begin{scratch}[scale=0.8]\blockmove{turn \turnleft{} \ovalnum{90} degrees}\end{scratch} & $\bullet$\hfill$\bullet$ & \texttt{t.color("blue")}\\
+\begin{scratch}[scale=0.8]\blockrepeat{repeat \ovalnum{4}}{\blockspace[0.4]}\end{scratch} & $\bullet$\hfill$\bullet$ & \texttt{t.forward(100)}\\
+\begin{scratch}[scale=0.8]\blockpen{set pen color to \pencolor{kcblue}}\end{scratch} blue & $\bullet$\hfill$\bullet$ & \texttt{t.left(90)}\\
+\end{tabular}
+\end{center}
+The \texttt{t} is the turtle that draws in Python.
+\end{exercise}
+
+\begin{exercise}[Bug-Hunt Relay]
+Three projects are broken. Click the green flag. Find the bug. Fix it. Get a sticker!
+
+\textbf{Leg 1: The Window.} It should draw four squares.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{move \ovalnum{60} steps}
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
+  }
+}
+\end{scratch}
+\end{center}
+
+\textbf{Leg 2: The Magic Trick.} It should say \enquote{Watch this!}, then vanish.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blocklook{show}
+\blocklook{say \ovalnum{Watch this!} for \ovalnum{2} seconds}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blocklook{hide}
+\end{scratch}
+\end{center}
+
+\textbf{Leg 3: The Stuck Counter.} It should count every click on the apple.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockvariable{set \selectmenu{apples} to \ovalnum{0}}
+\blockvariable{change \selectmenu{apples} by \ovalnum{1}}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[My Best Pattern]
+Plan first. Write or draw your three parts.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Part 1, get ready: \rule{6cm}{0.4pt}
+  \item Part 2, the pattern: \rule{6cm}{0.4pt}
+  \item Part 3, the ending: \rule{6cm}{0.4pt}
+\end{enumerate}
+Build one part. Test it. Then build the next part. Your pattern needs a repeat inside a repeat. Here is one idea.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockpen{set pen color to \pencolor{kcpurple}}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{move \ovalnum{50} steps}
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
+  }
+  \blockmove{turn \turnright{} \ovalnum{60} degrees}
+}
+\blocklook{say \ovalnum{Ta-da!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{grownup}[Show me]
+While your child plays, use the Week 5 show-me checklist in the Assessments booklet. It is not a test. \enquote{Not yet} is fine.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{Python}{A coding language that uses words instead of blocks.}
+  \vocabword{word twin}{A Python line that does the same job as a Scratch block.}
+\end{vocab}
+
+\begin{reflection}
+Color one star for each relay leg you fixed.
+
+\begin{center}
+\Huge\faStar[regular]\qquad\faStar[regular]\qquad\faStar[regular]
+\end{center}
+
+How do you feel about Play Day? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}
