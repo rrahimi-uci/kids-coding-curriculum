@@ -15,10 +15,13 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = {1: "1-introduction", 2: "2-intermediate", 3: "3-advanced"}
-
 sys.path.insert(0, str(ROOT / "tools"))
 import coverage  # noqa: E402  (tools/coverage.py)
+import curriculum  # noqa: E402  (tools/curriculum.py)
+
+# Active levels of every track, keyed by their CLI key ("1", "2", "3", later "j1", ...).
+LEVEL_INFO = {lv.key: lv for lv in curriculum.levels()}
+LEVELS = {key: lv.dir for key, lv in LEVEL_INFO.items()}
 
 
 def strip_comments(tex: str) -> str:
@@ -43,7 +46,7 @@ def test_every_objective_has_a_goal_and_every_goal_is_taught(level):
             for g in goals:
                 taught.setdefault(g, set()).add(path.stem)
     assert not untagged, "Objectives without a goal code:\n" + "\n".join(untagged)
-    goals = [code for code, _d, _s in coverage.syllabus_goals(level)]
+    goals = [code for code, _d, _s in coverage.syllabus_goals(LEVEL_INFO[level])]
     thin = {g: sorted(taught.get(g, ())) for g in goals if len(taught.get(g, ())) < 2}
     assert not thin, f"Goals taught in fewer than 2 sessions: {thin}"
 

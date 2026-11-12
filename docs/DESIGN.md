@@ -131,3 +131,25 @@ No accounts, no internet requirement, no personal data: programs ask for
 nicknames or favorite colors, git uses a nickname and a placeholder email,
 data exercises use made-up anonymous data, certificates are filled in by
 hand, and showcases happen on screen at home with nothing uploaded.
+
+## 10. Tracks and `curriculum.json`
+
+The repository holds more than one **track**: the main track (Grades 4–5,
+three 12-week levels) and the planned **junior track** (Grades 2–3, three
+10-week levels, see [JUNIOR-SYLLABUS.md](JUNIOR-SYLLABUS.md)). Both share the
+LaTeX class, palette, website pipeline, student copy, privacy checks and video
+kit, which is why the junior track lives here rather than in a second
+repository.
+
+[`curriculum.json`](../curriculum.json) is the single list of tracks and
+levels: each level's key (`1`, `j1`, ...), folder, goal-code prefix (`L1`,
+`J1`), number of core weeks and buffers, and status. `tools/curriculum.py`
+reads it, and the PDF build, coverage tables, student copy, website build and
+quality gate all ask it instead of hard-coding level folders or twelve weeks
+(`testing/test_curriculum.py` fails if a hard-coded list comes back).
+
+A level is `planned` (declared, with a README in its folder, skipped by every
+build and check) or `active` (fully written and checked like any other
+level). Main-track folders stay at the repository root so existing links,
+website URLs and build paths do not change; junior levels live under
+`junior/`.

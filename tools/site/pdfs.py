@@ -12,6 +12,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from tools import curriculum
+
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -26,7 +28,7 @@ def ensure_level_pdfs(level_dir: str, stems: list[str], variants=("standard", "d
             if found and found[0].stat().st_mtime < newest:
                 found = []  # a source file changed after the PDF was built: rebuild it
             if not found:
-                subprocess.run(["python3", str(ROOT / "tools" / "build.py"), "--level", level_dir.split("-")[0],
+                subprocess.run(["python3", str(ROOT / "tools" / "build.py"), "--level", curriculum.by_dir(level_dir).key,
                                 "--variant", variant, "--only", stem], cwd=ROOT, check=True,
                                capture_output=True, text=True)
                 found = list((ROOT / "build" / "pdf" / variant / level_dir).rglob(f"{stem}.pdf"))

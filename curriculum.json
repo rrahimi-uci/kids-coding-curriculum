@@ -1,0 +1,29 @@
+{
+  "_comment": "Single source of truth for which tracks and levels exist, where they live and how many weeks each has. Read by tools/curriculum.py; see docs/DESIGN.md section 10. A level with status 'planned' is declared but has no content yet: builds, the student copy and the quality gate skip it until it is switched to 'active'.",
+  "tracks": [
+    {
+      "id": "main",
+      "title": "Kids Coding",
+      "grades": "4-5",
+      "ages": "9-11",
+      "syllabus": "docs/SYLLABUS.md",
+      "levels": [
+        {"key": "1", "number": 1, "dir": "1-introduction", "title": "Introduction", "goal_prefix": "L1", "weeks": 12, "buffers": 2, "status": "active"},
+        {"key": "2", "number": 2, "dir": "2-intermediate", "title": "Intermediate", "goal_prefix": "L2", "weeks": 12, "buffers": 2, "status": "active"},
+        {"key": "3", "number": 3, "dir": "3-advanced", "title": "Advanced", "goal_prefix": "L3", "weeks": 12, "buffers": 2, "status": "active"}
+      ]
+    },
+    {
+      "id": "junior",
+      "title": "Kids Coding Junior",
+      "grades": "2-3",
+      "ages": "7-9",
+      "syllabus": "docs/JUNIOR-SYLLABUS.md",
+      "levels": [
+        {"key": "j1", "number": 1, "dir": "junior/1-little-robots", "title": "Little Robots", "goal_prefix": "J1", "weeks": 10, "buffers": 2, "status": "planned"},
+        {"key": "j2", "number": 2, "dir": "junior/2-game-makers", "title": "Game Makers", "goal_prefix": "J2", "weeks": 10, "buffers": 2, "status": "planned"},
+        {"key": "j3", "number": 3, "dir": "junior/3-bridge-to-python", "title": "Bridge to Python", "goal_prefix": "J3", "weeks": 10, "buffers": 2, "status": "planned"}
+      ]
+    }
+  ]
+}
