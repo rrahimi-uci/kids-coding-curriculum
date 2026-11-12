@@ -1,0 +1,43 @@
+% Junior Level 2, Week 8 -- answer key
+\answersweek{8}{Start, Win and Lose}{Answers for workbook chapter 8 and play-at-home card 8.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+No. An \enquote{if} above the forever loop checks only once, right after the green flag, when misses is 0. Later misses are never checked. Drag the if into the forever so it keeps checking.
+\end{answer}
+
+\begin{answer}[Reflection]
+The three parts are the \textbf{start} (set score and misses to 0, tell the goal), the \textbf{play} (the forever loop) and the \textbf{ending} (you win or game over, then stop all). Most children say an ending makes the game more fun because you can win; any honest answer with a reason is right. Colored boxes should match the game: three colored boxes means both endings work.
+\end{answer}
+
+\begin{answer}[No tricks (safety talk)]
+Good answers: stop anyway; say \enquote{No thanks, I am done}; take a break; tell a grown-up if it is hard to stop. Look for the idea that a game which never ends or keeps saying \enquote{you almost won} is made to keep you playing, and that the player decides when to stop.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 8.1: Win and Lose]
+\textbf{What you should see:} after the green flag, the score and misses show 0 and the Bowl says \enquote{Catch 10 apples!} for 2 seconds while the apple starts to fall. Each catch adds 1 to the score; each apple that reaches the bottom adds 1 to misses. At score 10 the Bowl says \enquote{You win!} for 2 seconds and everything stops. At 3 misses it says \enquote{Game over!} and everything stops. A new green flag starts a fresh game at 0 and 0.
+
+\textbf{What to look for:} \tickbox{} \enquote{change misses by 1} in the Apple's edge check \quad \tickbox{} the referee script on the Bowl with both sets above the forever \quad \tickbox{} both ifs inside the forever \quad \tickbox{} \enquote{stop all} inside each if \quad \tickbox{} the child tested both endings. Full reference: \texttt{exercises/week08/ex-win-and-lose/solution.md}.
+\end{answer}
+
+\begin{answer}[Exercise 8.2: Never or Right Away?]
+\textbf{Leo:} circle \enquote{misses = 0}. Misses start at 0, so the check is true at once and the game says \enquote{Game over!} right at the start. Fix: \enquote{misses = 3}.
+
+\textbf{Zoe:} circle the \enquote{if score = 10} block that sits above the forever loop. It checks once, at the start, when the score is 0, and never again, so catching 10 apples does nothing and the game goes on (it can still end with 3 misses). Fix: drag the if into the forever.
+
+\textbf{On the computer:} the child saves a copy of the game, makes each bug, sees it happen, and fixes it. Full reference: \texttt{exercises/week08/ex-never-or-right-away/solution.md}.
+\end{answer}
+
+\begin{answer}[Exercise 8.3: My Game Rules]
+Any clear, fair rules are right. Examples: catch game: \enquote{Start: the player learns to catch 10 apples. I win when I catch 10. I lose when I miss 3.} Maze game: \enquote{Start: the player learns to reach the apple. I win when I touch the apple. I lose when the ghost catches me 3 times.} Look for: a goal that can be reached, and a way to lose. Keep the page: it goes on the game plan card in week 9.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Rule detectives]
+Answers depend on the game. Tic-tac-toe: start with an empty grid, X goes first; win with three in a row; it ends when the grid is full. Look for a start, a way to win and an ending for any game. Games that never end (like passing a ball) are a good thing to notice.
+\end{answer}
+
+\begin{answer}[My arcade game idea]
+Any drawing with a player, a thing to catch or a maze, and a stage is right, plus a spoken way to win and to lose. Bring it to week 9: it is the start of the game plan card (milestone M1).
+\end{answer}

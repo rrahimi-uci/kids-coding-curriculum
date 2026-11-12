@@ -1,0 +1,77 @@
+% Junior Level 2, Week 10 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{10}{Arcade Showcase}{Show, explain and celebrate.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can show my game in one minute.
+  \item I can say one choice I made, and why.
+  \item I can give kind sticker feedback.
+\end{ican}
+
+\section{Arcade day}
+Today our home is an arcade! You show your game. A Player plays it. Then we celebrate!
+
+\begin{exercise}[Last-Minute Bug Check]
+Check your game with a partner. Circle yes or not yet.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Click the flag. Does it start at 0? \hfill yes \quad not yet
+  \item Play to win. Does it say You win! and stop? \hfill yes \quad not yet
+  \item Click the flag again. Play to lose. Game over? \hfill yes \quad not yet
+  \item Can you hear the sound? \hfill yes \quad not yet
+\end{enumerate}
+Fix one thing. Then save.
+\end{exercise}
+
+\begin{exercise}[My One-Minute Demo]
+Mei points at her referee script:
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{3}} then}{
+  \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+  \blockstop{stop \selectmenu{all}}
+}
+\end{scratch}
+\end{center}
+Mei says: \enquote{I chose 3 misses, because my Player said 1 was too hard.}
+
+Now you:
+\begin{itemize}[leftmargin=1.4em,itemsep=6pt]
+  \item My game is called \rule{5cm}{0.4pt}. You are the \rule{3cm}{0.4pt}.
+  \item You win when \rule{6.5cm}{0.4pt}.
+  \item I chose \rule{4cm}{0.4pt}, because \rule{4cm}{0.4pt}.
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}[Arcade Stickers]
+Ask before you play a friend's game. Put a sticker on the part you liked best. Then say two stars and a wish!
+\begin{center}
+%% alt: A sticker card with three columns. Column 1 says Fun to play, with a game controller icon. Column 2 says Cool sounds, with a speaker icon. Column 3 says Great surprise, with a gift icon. Each column has one star sticker.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,align=center}]
+  \foreach \i/\t/\ic in {0/Fun to\\play/\faGamepad,1/Cool\\sounds/\faVolumeUp,2/Great\\surprise/\faGift} {
+    \draw[line width=1pt,rounded corners=3pt] (\i*4.4,0) rectangle ++(4,3.6);
+    \node[lab] at (\i*4.4+2,2.8) {\t};
+    \node[font=\Large] at (\i*4.4+2,1.7) {\ic};
+    \node[font=\Large,kcorange] at (\i*4.4+2,0.7) {\faStar};
+  }
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{grownup}[Arcade safety]
+Family only, at home. Nicknames on the screen. Fill in the Week 10 show-me checklist as each child presents.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{design choice}{Something you decide on purpose when you make a game, like how many misses.}
+  \vocabword{arcade}{A place with lots of games to play.}
+\end{vocab}
+
+\begin{reflection}
+Draw your favorite moment from the arcade. How do you feel about your game? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

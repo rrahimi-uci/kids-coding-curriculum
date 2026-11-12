@@ -1,0 +1,61 @@
+% Junior Level 2, Week 5 -- answer key
+\answersweek{5}{Play Day and Show Me}{Answers for workbook chapter 5 and play-at-home card 5.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+The score says 1. \enquote{set score to 1} puts the score at 1 on every click, so after four clicks it still says 1. With \enquote{change score by 1} it would say 4.
+\end{answer}
+
+\begin{answer}[Warm-up: Be the computer]
+With apples on squares 2, 3 and 5, the score at the end is 3. The scorekeeper changes the score only when the reader's question \enquote{Are you touching an apple?} gets a yes.
+\end{answer}
+
+\begin{answer}[Reflection]
+Any number of colored stars is fine: it shows how many relay legs the child fixed. Any circled skill is right; ask \enquote{Show me}. For \enquote{Which bug was the trickiest?} any leg with a reason is a good answer (\enquote{Leg 1, because all the blocks were there}). Note proud moments on the show-me checklist.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 5.1: Be the Computer]
+The score at the end is \textbf{4}. The cat steps onto squares 1 to 6, one square per time round the repeat. It touches an apple on squares 1, 4, 5 and 6, so the score goes 1, 1, 1, 2, 3, 4. The ghost on square 2 does not count: the if only asks about apples.
+
+\textbf{What to look for:} \tickbox{} the child starts at 0 \quad \tickbox{} moves one square at a time \quad \tickbox{} adds one only on an apple \quad \tickbox{} stops after six squares.
+\end{answer}
+
+\begin{answer}[Exercise 5.2: Bug-Hunt Relay]
+\textbf{Leg 1, Stuck at the Edge.} The bug: \enquote{if on edge, bounce} is above the forever loop, so it runs once, at the start. The cat walks to the right edge and stays there. Fix: drag the forever away from the bounce block, put the bounce block into the forever under \enquote{move 10 steps}, and snap the forever back under the green flag block. \textbf{You should see:} the cat walks to one edge, turns around (the right way up, thanks to \enquote{set rotation style left-right}) and walks to the other, forever.
+
+\textbf{Leg 2, The Stuck Score.} The bug: the click script uses \enquote{set score to 1}, so every click puts the score at 1. Fix: drag out the set block and put \enquote{change score by 1} in its place. \textbf{You should see:} flag: score 0; each click on the ghost: a pop and one more point (1, 2, 3\ldots).
+
+\textbf{Leg 3, The Apple That Won't Pop.} The bug: the Apple checks \enquote{touching edge?} instead of touching the cat. Fix: in the touching block's dropdown, pick Sprite1 (the cat). \textbf{You should see:} the cat follows the mouse; when it touches the Apple, a pop, and the Apple jumps to a surprise place.
+
+\textbf{What to look for:} \tickbox{} the child tests first \quad \tickbox{} says what was wrong \quad \tickbox{} changes one thing \quad \tickbox{} tests again.
+\end{answer}
+
+\begin{answer}[Exercise 5.3: My Best Game]
+Many games are right. The Apple's code should look like this:
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockinfloop{forever}{
+  \blockif{if \boolsensing{touching \ovalsensing*{Sprite1} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmove{go to \selectmenu{random position}}
+  }
+}
+\end{scratch}
+\end{center}
+\textbf{You should see:} the score shows 0 at the flag; each catch adds exactly 1, pops and sends the Apple to a surprise place.
+
+\textbf{What to look for:} \tickbox{} a forever loop keeps the cat following the mouse \quad \tickbox{} the if-touching check is inside the forever \quad \tickbox{} the score starts at 0 and goes up by 1 \quad \tickbox{} \enquote{go to random position} (or another pick random) gives a surprise \quad \tickbox{} the child can say how the game works, for example \enquote{You move the cat with the mouse. You get a point when you catch the apple, and then it jumps somewhere new.}
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Be the computer at home]
+The score is the number of squares with a sock on them (2 the first time). The child adds a finger only when standing on a sock, and starts with a closed fist (0). After the swap, check the grown-up's score together.
+\end{answer}
+
+\begin{answer}[I got better at\ldots]
+Any honest answer is right: fixing bugs, finding blocks, making a score, taking turns, being a good sport. Praise the drawing and the effort, not the speed.
+\end{answer}

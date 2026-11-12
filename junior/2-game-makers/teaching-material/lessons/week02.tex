@@ -1,0 +1,142 @@
+% Junior Level 2, Week 2 -- If Touching...
+\lesson{2}{If Touching\ldots}{If-then lets a sprite check something and choose.}
+\lessoninfo{Concepts: if-then (I), touching (I), forever (R)}{Tools: Scratch 3 offline app, a paper star, sticky notes}{CSTA: 1B-AP-10, 1B-AP-13, 1B-AP-15, 1B-AP-16}
+
+\begin{objectives}
+  \item The student can put an \enquote{if touching \ldots{} then} block inside a forever loop so a sprite reacts every time it is touched. (J2.G2, J2.G1) [J2.W02.1]
+  \item The student can build a catch game in which an apple falls from a hidden Star marker, and goes back to the Star when it touches the bowl or the edge. (J2.G2) [J2.W02.2]
+  \item The student can find an if that sits outside the forever loop, explain that it checks only once, and move it inside. (J2.G5) [J2.W02.3]
+  \item The student can give kind feedback on a partner's game with two stars and a wish. (J2.G6, J2.G7) [J2.W02.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 2 and play-at-home card 2 (one per child).
+  \item Unplugged: a paper star (or any toy) to hold up during Simon says IF.
+  \item On each computer: the Scratch app with a new project and a \textbf{mouse}.
+  \item Sticky notes and a pencil for two stars and a wish.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\begin{teachernote}[The Star-marker trick (used all level)]
+In Level 2 we never type x and y positions, so how does a falling apple get back to the top? We use a \textbf{Star marker}: add the Star sprite, drag it to where the apple should start (near the top, a little below the edge), and hide it when the flag is clicked. The apple then uses the blue Motion block \enquote{go to Star}. A hidden sprite can still be a place to go to. Later weeks reuse this trick for everything that falls, so teach it carefully today. To move the Star later: click it in the sprite list, click the \menu{Show} eye in the sprite info under the stage, drag it, and click the flag again.
+\end{teachernote}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Simon says IF: do it only if it is true. Then the once-only robot.}
+  \timeslot{10--20}{Show me}{If-then checks a question and chooses. Build Boo Ghost together, then show the Star-marker trick.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 2.1 Boo Ghost, then 2.2 Catch the Apple: the Star and the bowl.}
+  \timeslot{33--35}{Wiggle break}{Standing Simon says IF.}
+  \timeslot{35--50}{Make it}{2.2 Catch the Apple: the falling apple. Exercise 2.3 Ghost Tag (bug hunt). Free play: make the game yours.}
+  \timeslot{50--60}{Share}{Play each other's catch games and give two stars and a wish. Exit question, save, hand out play-at-home card 2.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Simon says IF]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{I will say IF and a question. Check yourself. If it is true for you, do it. If it is not true, stay still.} Try: \enquote{If you have a sock on, jump!} \enquote{If you had breakfast, touch your nose.} \enquote{If you are wearing something with stripes, spin around.}
+  \item Point out: \enquote{Everyone heard the same rule, but you each checked, and you chose. That is an \textbf{if}.}
+  \item Now a rule that keeps checking: \enquote{All the time, again and again: if I hold up the star, clap!} Hold the star up and down at surprise moments. Children clap only while it is up.
+  \item The once-only robot: one child is a robot who may look only once, right at the start, and then must close their eyes. Hold the star down, say \enquote{Go!}, then lift it. The robot misses it. \enquote{The robot checked only once, at the start. Our clappers kept checking, like a forever loop.} Remember this for the bug hunt.
+\end{enumerate}
+With 1 child: you take turns calling the rules. With 3 or 4: each child calls one IF rule; the once-only robot is a new child each round.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Games are full of questions. Did the apple touch the bowl? Did the ghost catch the cat? The \textbf{if-then} block asks a question. If the answer is yes, it runs the blocks inside. If the answer is no, it skips them. If-then is in the orange \menu{Control} circle. The question goes in the pointy hole. Questions like \enquote{touching?} are in the light blue \menu{Sensing} circle, and they have pointy ends too.}
+\end{teacherscript}
+
+\begin{analogy}[The lifeguard]
+\enquote{A lifeguard at the pool looks and looks, all the time. That is the forever. Each time she looks, she asks: is someone in trouble? That is the if. Most of the time the answer is no, and she keeps looking. If the answer is yes, she jumps in. A lifeguard who looked only once, when the pool opened, would not be much help!}
+\end{analogy}
+
+\begin{workedexample}[Boo Ghost (Exercise 2.1) and the Star marker]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \menu{Choose a Sprite} (under the stage): pick the \textbf{Ghost}. Click it in the sprite list.
+  \item Yellow \menu{Events}: \enquote{when green flag clicked}. Orange \menu{Control}: snap on \enquote{forever}.
+  \item Orange \menu{Control}: put \enquote{if \ldots{} then} inside the forever. Point at the empty pointy hole: \enquote{The question goes here.}
+  \item Light blue \menu{Sensing}: drag \enquote{touching mouse-pointer?} into the pointy hole. (If it says something else, pick mouse-pointer in its little menu.)
+  \item Purple \menu{Looks}: put \enquote{say Boo! for 1 seconds} inside the if.
+  \item Click the flag. Move the mouse onto the ghost: \enquote{Boo!} Move it away: nothing. \enquote{The forever keeps asking. The if says Boo only when the answer is yes.}
+  \item Now the Star marker, for next exercise: add the \textbf{Star}, drag it to the top of the stage, a little below the edge. Give it \enquote{when green flag clicked, hide}. Add the \textbf{Apple}, give it \enquote{when green flag clicked, go to Star} (blue \menu{Motion}, pick Star in the little menu). Drag the apple to the bottom and click the flag: it jumps to the hidden Star. \enquote{The Star is our secret start spot.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockif{if \boolsensing{touching \ovalsensing*{mouse-pointer} ?} then}{
+    \blocklook{say \ovalnum{Boo!} for \ovalnum{1} seconds}
+  }
+}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper, 6--7 minutes]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the step, names the color circle, and checks which sprite has the blue frame in the sprite list before each script: today there are many sprites. Swap when the timer rings. With 1 child: you are the Helper, then swap. With 3: Driver, Helper and Player (plays the catch game to test it and says what happened). With 4: two pairs; at the end each pair plays the other pair's game.
+\end{pairroles}
+
+Work through the workbook: \textbf{2.1} Boo Ghost, then start \textbf{2.2} Catch the Apple in a new project (\menu{File} → \menu{New}): the Star marker first, then the Bowl and its arrow keys. The Bowl needs \enquote{set rotation style left-right}, like the cat last week, or it turns upside down when it goes left. Test the bowl before the apple: both arrow keys should move it.
+
+\section{Wiggle break (33--35 min)}
+Simon says IF, standing up and fast: \enquote{If you can touch your toes, do it! If you are taller than the chair, stretch up high! If you like apples, catch an imaginary apple!}
+
+\section{Make it (35--50 min)}
+Finish \textbf{2.2}: the falling apple. Its forever loop holds two ifs: one for the bowl (pop, back to the Star) and one for the edge (missed it, back to the Star). Play it. Save it in the \enquote{Game Makers} folder as nickname plus \enquote{catch}: \textbf{we add a score to this game next week.}
+
+\begin{bughunt}[Ghost Tag (Exercise 2.3)]
+Kai's ghost should say \enquote{Got you!} when it flies into the Ballerina. Children add the Ghost and the Ballerina to a new project, build Kai's script in the Ghost's code, and drag the Ballerina into the ghost's path (to one side, at the same height). The ghost flies right through her and says nothing. The \enquote{if touching Ballerina? then} block is \textbf{above} the forever: it checks once, at the very start, when the ghost is far from the cat, and never again. Fix: drag the if (with the say inside it) into the forever, under \enquote{if on edge, bounce}. Link back to the once-only robot from the warm-up.
+\end{bughunt}
+
+\begin{freebuild}[Make the catch game yours]
+Last 3--5 minutes: pick a backdrop you like, choose a different catch sound, make the apple faster or slower by changing \enquote{move 5 steps}, or paint a new color on the bowl in the \menu{Costumes} tab.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[Kind feedback: two stars and a wish]
+\enquote{When we play someone's game, we give \textbf{two stars and a wish}. A star is something you liked: \enquote{I liked the pop sound.} A wish is one idea to make it even better: \enquote{I wish the apple was a bit slower.} Stars and wishes are about the game, never about the person. The maker says thank you and decides what to do with the wish: it is their game.} Write the stars and the wish on a sticky note and stick it next to the maker's computer. With 1 child, you play the game and give the stars and the wish; then the child gives you two stars and a wish about how you taught today.
+\end{safety}
+
+\begin{teacherscript}
+Each pair plays another pair's catch game for one minute, then gives two stars and a wish. Then everyone saves.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} if blocks inside the forever loop; the touching question in the pointy hole; the apple going back to the Star after a catch or a miss.
+
+\textbf{Ask:} show the buggy Ghost Tag script. \enquote{Why does the ghost never say Got you?}
+\textbf{Answer:} the if is outside the forever, so it checks only once, at the start. Inside the forever it checks again and again.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Tell me an if from real life.} (If it rains, take an umbrella. If the light is red, stop.) Children draw something their sprite touched today and circle a smiley face in the workbook. Hand out play-at-home card 2.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The if is empty.} The touching block was dropped next to the if, not in the pointy hole. Drag it until the hole lights up.
+  \item \textbf{Touching the wrong thing.} The little menu in \enquote{touching} still says mouse-pointer or edge. Pick Bowl.
+  \item \textbf{The apple sticks at the top and flickers.} The Star is so close to the top that the apple touches the edge at the start, so it goes back to the Star again and again. Show the Star, drag it lower, try again.
+  \item \textbf{The apple sticks at the bottom.} The \enquote{if touching edge} check is missing or outside the forever.
+  \item \textbf{The apple is upside down.} \enquote{set rotation style left-right} is missing from the apple's script.
+  \item \textbf{The Star shows during the game.} The Star's \enquote{hide} script is missing, or the child built it in the apple's code.
+  \item \textbf{Arrow keys do nothing.} Click the stage once, then press the keys.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build the Star and the Bowl before the session; the child builds the apple's script with you reading each block. Leave out the edge check at first, see the apple stick at the bottom, then add it together.
+\extensionpath Add a second falling thing, Bananas, with its own Star marker in a different place. Or make the Ghost float across the top and give the apple an \enquote{if touching Ghost? then} that sends it back to the Star with a spooky sound.
+\end{differentiation}
+
+\begin{stretchchallenge}[Say something nice]
+Make the bowl say \enquote{Yum!} for 1 second every time it catches an apple. Which sprite needs the if, the bowl or the apple? (Either works: the bowl can ask \enquote{touching Apple?} inside its own forever loop.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do the Simon says rounds without the once-only robot (you can play it later as the link for the bug hunt). Build 2.1 only as the demo, and let the children start with 2.2. Do 2.3 together on your computer. Do not skip saving the catch game: week 3 adds a score to it.
+\end{teachernote}

@@ -1,0 +1,39 @@
+% Junior Level 2, Week 3 -- answer key
+\answersweek{3}{Keep Score}{Answers for workbook chapter 3 and play-at-home card 3.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+\enquote{Set score to 0.} Set puts a new number in the box, whatever was there before. \enquote{Change score by 1} adds one to the number already there, so it would make 8.
+\end{answer}
+
+\begin{answer}[Reflection]
+Scores in real life: a soccer or basketball scoreboard, points in a board game, stars on a sticker chart, a counter on a game. The drawing should show a box with a label (score) and a number inside. Any number is right.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 3.1: Pop the Balloon]
+\textbf{What you should see:} a score window on the stage that says 0 after the flag. Each click on the balloon plays a pop, changes the balloon's color, and adds 1 to the score: after five clicks it says 5. Clicking the flag again puts the score back to 0.
+
+\textbf{What happens to the score?} It goes back to 0, because \enquote{set score to 0} runs when the flag is clicked.
+
+\textbf{What to look for:} \tickbox{} the variable is called score and made for all sprites \quad \tickbox{} \enquote{set score to 0} under the green flag \quad \tickbox{} \enquote{change score by 1} under \enquote{when this sprite clicked}.
+\end{answer}
+
+\begin{answer}[Exercise 3.2: Catch and Count]
+\textbf{What you should see:} the catch game from week 2 with a score window on the stage. It says 0 when the flag is clicked. Each apple caught in the bowl plays a pop and adds 1. A missed apple goes back to the top and does not change the score. A new flag click starts again at 0.
+
+\textbf{What to look for:} \tickbox{} \enquote{set score to 0} is above the forever in the apple's script \quad \tickbox{} \enquote{change score by 1} is inside \enquote{if touching Bowl? then}, not inside the edge if and not loose in the forever \quad \tickbox{} the game is saved again.
+\end{answer}
+
+\begin{answer}[Exercise 3.3: The Sticky Score]
+\textbf{Circle:} \enquote{change score by 0} in the green-flag script. Changing by 0 adds nothing, so the old score stays.
+
+\textbf{Fix:} replace it with \enquote{set score to 0} (drag the change block back to the block list to delete it).
+
+\textbf{What you should see after the fix:} clicking the bananas adds 1 each time with a pop. Clicking the flag makes the score 0 again, so every new game starts fresh.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Sock ball with score boxes]
+The child says the rules before playing, empties the SCORE cup and puts 3 buttons in LIVES at the start, adds one button for each basket and takes one out of LIVES for each miss. For the grown-up's turn, the first thing to do is set the score to 0 (empty the cup) and the lives to 3. That is the same as \enquote{set score to 0} under the green flag.
+\end{answer}

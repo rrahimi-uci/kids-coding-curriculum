@@ -1,0 +1,105 @@
+% Junior Level 2, Week 7 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{7}{My Own Blocks}{Give a group of blocks a name and use it again.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can make my own block with a name.
+  \item I can use my block again and again.
+  \item I can make a game easier for everyone.
+\end{ican}
+
+\section{A name for a group of blocks}
+A \textbf{My Block} is a group of blocks with a name. You make it once. Then one block does all of them!
+
+\begin{exercise}[Celebrate Block]
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Pink-red \menu{My Blocks}: click \menu{Make a Block}.
+  \item Type \enquote{celebrate}. Click \menu{OK}.
+  \item Snap the blocks under \enquote{define celebrate}.
+  \item Put \enquote{celebrate} under two yellow \menu{Events} blocks.
+  \item Click the cat. Press space. Hooray!
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\initmoreblocks{define \namemoreblocks{celebrate}}
+\blocksound{start sound \selectmenu{Pop}}
+\blockrepeat{repeat \ovalnum{24}}{
+  \blockmove{turn \turnright{} \ovalnum{15} degrees}
+}
+\blocklook{say \ovalnum{Hooray!} for \ovalnum{1} seconds}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockmoreblocks{celebrate}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when \selectmenu{space} key pressed}
+\blockmoreblocks{celebrate}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Lost Block]
+Sam's game: click the running cat to score. The flag should set the score to 0 and say \enquote{Go!}. It does not! Build it and test it.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\initmoreblocks{define \namemoreblocks{get ready}}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blocklook{say \ovalnum{Go!} for \ovalnum{1} seconds}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\end{scratch}
+\end{center}
+Circle the block that is made but never used. Where should it go? Fix it.
+\end{exercise}
+
+\needspace{16\baselineskip}
+\begin{exercise}[A Game for Everyone]
+Which game is easier for everyone to play? Circle it.
+\begin{center}
+%% alt: Two small game screens side by side. Screen A has tiny score text and two apples that are the same shape, one red and one green. Screen B has a big score that says Score 3, a round apple to catch and a ghost to dodge.
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[line width=1pt,rounded corners=3pt] (0,0) rectangle (5.4,3.6);
+  \node[font=\bfseries] at (2.7,4) {A};
+  \node[font=\tiny,anchor=north west] at (0.15,3.45) {score 3};
+  \fill[kcvermillion] (1.6,1.4) circle (0.45);
+  \fill[kcgreen] (3.8,1.4) circle (0.45);
+  \draw[line width=1pt,rounded corners=3pt] (6.4,0) rectangle (11.8,3.6);
+  \node[font=\bfseries] at (9.1,4) {B};
+  \node[font=\Large\bfseries,anchor=north west,fill=kcorange!25,rounded corners=2pt] at (6.55,3.45) {Score 3};
+  \fill[kcvermillion] (7.9,1.2) circle (0.45);
+  \node[font=\scriptsize] at (7.9,0.45) {apple};
+  \node[font=\huge,kcblack] at (10.4,1.3) {\faGhost};
+  \node[font=\scriptsize] at (10.4,0.45) {ghost};
+\end{tikzpicture}
+\end{center}
+Why? Circle: \quad big words \quad shapes and colors \quad both
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{My Block}{A block you make yourself. Its name stands for a group of blocks.}
+  \vocabword{define}{The hat block on top of a My Block. It holds the blocks your block does.}
+\end{vocab}
+
+\begin{reflection}
+Draw a move with a name, like \enquote{the twirl}. How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3cm}
+\end{reflection}

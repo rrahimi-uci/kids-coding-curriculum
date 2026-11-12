@@ -1,0 +1,100 @@
+% Junior Level 2, Week 8 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{8}{Start, Win and Lose}{A game needs a start, a goal and an ending.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can give my game a start and a goal.
+  \item I can make my game end: you win, or game over.
+  \item I can fix a game that never ends.
+\end{ican}
+
+\section{Three parts of a game}
+A game has a \textbf{start}, a \textbf{play} part and an \textbf{ending}. The block \enquote{stop all} is the final whistle.
+
+\begin{exercise}[Win and Lose]
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Open your catch game. Make a variable called \enquote{misses}.
+  \item Apple: put \enquote{change misses by 1} in its edge check.
+  \item Bowl: build the referee script.
+  \item Play to win. Then play to lose!
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockvariable{set \selectmenu{misses} to \ovalnum{0}}
+\blocklook{say \ovalnum{Catch 10 apples!} for \ovalnum{2} seconds}
+\blockinfloop{forever}{
+  \blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{3}} then}{
+    \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+  \blockif{if \booloperator{\ovalvariable{score} = \ovalnum{10}} then}{
+    \blocklook{say \ovalnum{You win!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\needspace{26\baselineskip}
+\begin{exercise}[Never or Right Away?]
+Leo's game ends right at the start. Zoe catches 10 apples, but her game never ends. Circle the bug in each.
+
+\begin{center}
+\begin{tabular}{@{}c@{\hspace{1cm}}c@{}}
+\textbf{Leo} & \textbf{Zoe}\\[2pt]
+\begin{scratch}[scale=0.7]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{misses} to \ovalnum{0}}
+\blockinfloop{forever}{
+  \blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{0}} then}{
+    \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.7]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockif{if \booloperator{\ovalvariable{score} = \ovalnum{10}} then}{
+  \blocklook{say \ovalnum{You win!} for \ovalnum{2} seconds}
+  \blockstop{stop \selectmenu{all}}
+}
+\blockinfloop{forever}{
+  \blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{3}} then}{
+    \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+}
+\end{scratch}
+\end{tabular}
+\end{center}
+Try each bug in a copy of your game. Then fix it.
+\end{exercise}
+
+\begin{exercise}[My Game Rules]
+Next week you make your own arcade game! Circle one: \quad catch game \quad maze game
+\begin{itemize}[leftmargin=1.4em,itemsep=6pt]
+  \item Start: the player learns \rule{6cm}{0.4pt}
+  \item I win when \rule{7cm}{0.4pt}
+  \item I lose when \rule{7cm}{0.4pt}
+\end{itemize}
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{goal}{What you try to do to win, like catch 10 apples.}
+  \vocabword{game over}{The ending when you lose. The game stops.}
+\end{vocab}
+
+\begin{reflection}
+Color the parts your game has: \quad \fbox{\strut\ start\ } \fbox{\strut\ play\ } \fbox{\strut\ ending\ }
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

@@ -1,0 +1,149 @@
+% Junior Level 2, Week 1 -- Forever and Bounce (first session of the level)
+\lesson{1}{Forever and Bounce}{A forever loop keeps going until you press stop.}
+\lessoninfo{Concepts: forever (I), if on edge, bounce (I), repeat (R), events (R)}{Tools: Scratch 3 offline app, music to dance to, a kitchen timer}{CSTA: 1B-AP-10, 1B-AP-15, 1B-AP-16}
+
+\begin{objectives}
+  \item The student can use a forever loop with \enquote{move 10 steps} and \enquote{if on edge, bounce} to keep a sprite moving until the red stop sign is clicked. (J2.G1) [J2.W01.1]
+  \item The student can say how repeat and forever differ: a repeat stops after its number, a forever loop keeps going until someone presses stop. (J2.G1) [J2.W01.2]
+  \item The student can find blocks placed under a forever loop, explain why they never run, and move them above the loop. (J2.G5) [J2.W01.3]
+  \item The student can stop playing when the timer rings and say their own stop plan. (J2.G7) [J2.W01.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 1 of \enquote{My Game Book} and play-at-home card 1 (one per child), and the Week 1 show-me warm-up page from the Assessments booklet (one per child).
+  \item On each computer: the Scratch 3 offline app with a new project and a \textbf{mouse}.
+  \item A song the children like and a way to pause it (phone or speaker), for the freeze dance.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\begin{teachernote}[Setting up Level 2 (do this once, before week 1)]
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Longer sessions.} Level 2 sessions are 60 minutes instead of 45, with two \enquote{Make it} blocks and a wiggle break between them. Driver and Helper now swap every 6--7 minutes.
+  \item \textbf{Update Scratch.} Open the Scratch 3 offline app on each computer and install any update it offers. Still no account and nothing uploaded: we only use \menu{File} → \menu{Save to your computer}.
+  \item \textbf{A games folder.} Make one folder on each computer called \enquote{Game Makers}. Games are saved there with a nickname and the game's name, for example \enquote{rocket-fox-bounce}. From week 2 we reopen last week's game, so saving matters this level.
+  \item \textbf{New blocks.} Level 1 used Motion, Looks, Sound, Events, Control and Pen. Level 2 adds Sensing (light blue), Operators (green), Variables (orange-red) and My Blocks (pink-red). We still never type x and y positions: sprites are dragged into place or sent somewhere with \enquote{go to}.
+  \item \textbf{Mouse, volume, chairs.} A mouse for each computer, sound at a low volume, and chairs at the right height. The sitting and screen-break habits from Level 1 still apply.
+\end{itemize}
+\end{teachernote}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Welcome back. The Week 1 show-me warm-up from the Assessments booklet (5 minutes, ungraded). Then the forever freeze dance.}
+  \timeslot{10--20}{Show me}{A forever loop keeps going until you press stop. Build Bounce Cat together.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 1.1 Bounce Cat, then 1.2 Dance Forever.}
+  \timeslot{33--35}{Wiggle break}{Bounce walk: walk forward, touch a wall, turn around.}
+  \timeslot{35--50}{Make it}{Exercise 1.3 The Missing Hello (bug hunt), then free play: make anything bounce.}
+  \timeslot{50--60}{Share}{The stop plan: screen-time balance. Show a bouncing sprite. Exit question, save the games, hand out play-at-home card 1.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{teacherscript}[Welcome back, Game Makers]
+\enquote{Welcome back! In Level 1 you were Little Robots: you made animations and greeting cards. In Level 2 you are \textbf{Game Makers}. By week 10 each of you will make your own arcade game and let other people play it. Sessions are a little longer now, and there are new block colors to meet. First, I want to see what you still remember.}
+\end{teacherscript}
+
+Run the \textbf{Week 1 show-me warm-up in the Assessments booklet} (about 5 minutes). It is ungraded: a quick look at what carried over from Level 1, so you know where to start. Keep it light, help where needed, and write a note on the sheet. Children who did not do Level 1 watch and try; the support path below has a plan for them.
+
+\begin{unplugged}[Forever freeze dance]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{When the music plays, you dance. You keep dancing and dancing. You only stop when the music stops.} Play the song. Pause it at a surprise moment: everyone freezes.
+  \item Ask: \enquote{Who decided when you stopped? You, or me?} (You, the one with the pause button.) \enquote{Your dance was a \textbf{forever} dance. It did not stop after 4 moves, like a repeat 4. It kept going until someone pressed stop.}
+  \item One more round. This time a child holds the pause button.
+\end{enumerate}
+With 1 child: you dance too, and the child gets the pause button for round two. With 3 or 4: each round, a different child is the stop button.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Games keep going. The apple keeps falling, the ghost keeps flying. In Level 1 we had \textbf{repeat}: it does the steps a number of times, then stops. Today we meet \textbf{forever}. A forever loop does the steps inside it again and again, and never stops by itself. In Scratch, the red stop sign is the pause button from our dance. Forever is in the orange \menu{Control} circle, next to repeat.}
+\end{teacherscript}
+
+\begin{analogy}[A merry-go-round]
+\enquote{A merry-go-round goes round and round. It does not count the turns and stop. It keeps going until the person running it presses the stop button. A forever loop is a merry-go-round for blocks. And a bounce is like a ball hitting a wall: when it reaches the wall, it turns around and comes back.}
+\end{analogy}
+
+\begin{workedexample}[Bounce Cat (Exercise 1.1)]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Yellow \menu{Events}: drag in \enquote{when green flag clicked}.
+  \item Blue \menu{Motion}: snap on \enquote{point in direction 90}. \enquote{90 means facing right, like in Level 1.}
+  \item Orange \menu{Control}: snap on \enquote{forever}. Point at its flat bottom: \enquote{Look, no bump at the bottom. Nothing can go after forever.}
+  \item Blue \menu{Motion}: put \enquote{move 10 steps} inside the forever. Click the green flag. The cat runs to the edge and gets stuck there, running on the spot. Click the red stop sign.
+  \item Blue \menu{Motion}: put \enquote{if on edge, bounce} inside the forever, under the move. Click the flag. The cat bounces from side to side. But it is upside down when it walks left! Let the children laugh.
+  \item Blue \menu{Motion}: snap \enquote{set rotation style left-right} above the forever. Drag the cat the right way up again (or click \enquote{point in direction 90} once), then click the flag. Now the cat turns to face the way it walks.
+  \item Click the red stop sign. \enquote{Who stopped the cat? We did. Forever only stops when we press stop.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{point in direction \ovalnum{90}}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper, 6--7 minutes]
+Same jobs as in Level 1. The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the step from the book, names the color circle, and checks the picture; the Helper never grabs the mouse. Swap when the timer rings, every 6--7 minutes, even in the middle of an exercise: the new Driver carries on from where the last one stopped. With 1 child: you are the Helper, then swap. With 3: Driver, Helper and Tester (clicks the flag and the stop sign, and says what happened). With 4: two pairs, side by side.
+\end{pairroles}
+
+Work through the workbook: \textbf{1.1} Bounce Cat (the cat from the demo), then \textbf{1.2} Dance Forever. In 1.2, children first make the Ballerina dance 4 times with a repeat and the space key, then dance forever with the green flag. Ask: \enquote{Which one stopped by itself?}
+
+\section{Wiggle break (33--35 min)}
+Bounce walk! Everyone stands at one side of the room and walks forward slowly, \enquote{moving 10 steps forever}. When you touch a wall, you bounce: turn around and walk back. You are the stop sign: call \enquote{Stop!} after a few bounces.
+
+\section{Make it (35--50 min)}
+\begin{bughunt}[The Missing Hello (Exercise 1.3)]
+Kai wants the cat to say \enquote{Watch me!}, meow, and then bounce forever. Children build Kai's script from the book. The cat bounces, but it never says \enquote{Watch me!} and never meows. The say and sound blocks sit \textbf{under} the forever loop: they will not snap on, because forever has a flat bottom, and even if they could, the loop never ends, so their turn never comes. Fix: drag the say and sound blocks up and snap them between \enquote{when green flag clicked} and the forever. Link back to the dance: \enquote{If I said: dance until the music stops, and THEN eat a cookie, but the music never stops\ldots{} no cookie!}
+\end{bughunt}
+
+\begin{freebuild}[Make anything bounce]
+Last 5 minutes: add the Balloon1 or the Ghost (\menu{Choose a Sprite}, under the stage) and make it bounce too. Try \enquote{point in direction 0} to bounce up and down. Change the 10 in \enquote{move 10 steps} to 5 (slow) or 20 (fast).
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[The stop plan: screen-time balance]
+\enquote{A forever loop never stops by itself. Lots of games and videos are made like that too: they keep going and going, so it is up to us to press stop. In our club, the timer is our stop sign. When it rings, we finish the sentence we are saying, save, and stand up.} Ask each child for their \textbf{stop plan} at home: \enquote{When the timer rings, I will\ldots{}} (press stop, save, go and play outside, have a snack). Today, set the timer for the last 5 minutes and stop when it rings, so the children see the plan in action.
+\end{safety}
+
+\begin{teacherscript}
+Each child shows one bouncing sprite and says: \enquote{My cat bounces forever, until I press stop.} Then save the project in the \enquote{Game Makers} folder: \menu{File} → \menu{Save to your computer}, nickname plus \enquote{bounce}.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a forever loop with \enquote{move} and \enquote{if on edge, bounce} inside it; the child stops the project with the red stop sign; say and sound blocks above the forever in 1.3.
+
+\textbf{Ask:} \enquote{I want the ballerina to dance until I press stop. Do I use repeat 4 or forever?}
+\textbf{Answer:} forever. A repeat 4 stops by itself after 4 times; forever keeps going until someone presses stop.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What else in real life goes on and on until someone stops it?} (a merry-go-round, a fan, music on a loop, a video that plays the next one). Children circle the loop they used most today, repeat or forever, and a smiley face in the workbook. Hand out play-at-home card 1.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The cat runs off and sticks at the edge.} \enquote{if on edge, bounce} is missing, or it is outside the forever. Ask: \enquote{Is it inside the orange loop?}
+  \item \textbf{The cat walks upside down.} \enquote{set rotation style left-right} is missing. Add it above the forever, then click \enquote{point in direction 90} once to turn the cat back.
+  \item \textbf{Nothing stops.} The child keeps clicking the flag. Show the red stop sign next to the flag.
+  \item \textbf{Blocks will not snap under forever.} That is right: forever has a flat bottom. Put them above the loop.
+  \item \textbf{The Ballerina keeps dancing after space.} The flag script is still running. Press the red stop sign first, then test the space key.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Children who are new or rusty: do the show-me warm-up tasks together first. In Make it, build 1.1 with them step by step, skip 1.2, and do 1.3 with the buggy script already built by you.
+\extensionpath Make two sprites bounce in different directions: the cat left and right, the Balloon1 up and down. Add \enquote{next costume} inside the cat's forever so it looks as if it walks. Does it walk too fast? Try a \enquote{wait 1 seconds} and talk about why that is too slow for a game.
+\end{differentiation}
+
+\begin{stretchchallenge}[A bouncing band]
+Put \enquote{start sound Pop} inside the forever loop, right after \enquote{if on edge, bounce}. What happens? (Pop, pop, pop, all the time.) Can you make the sound happen only sometimes? Keep the question for next week: it needs an \textbf{if}.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the welcome to one minute and the freeze dance to one round. In Make it, do 1.1 and 1.3; leave 1.2 for the play-at-home time or next week's warm-up. Do not skip the show-me warm-up (it guides your next weeks) or the stop-plan talk (two sentences are enough).
+\end{teachernote}

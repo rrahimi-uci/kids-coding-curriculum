@@ -1,0 +1,41 @@
+% Junior Level 2, Week 6 -- answer key
+\answersweek{6}{Messages}{Answers for workbook chapter 6 and play-at-home card 6.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+Nothing. The Balloon listens for \enquote{start}, but the Star sends \enquote{go}. A message only starts the scripts that listen for exactly that name. Fix: pick \enquote{go} in the Balloon's \enquote{when I receive} dropdown.
+\end{answer}
+
+\begin{answer}[Reflection]
+Broadcast sends a message to every sprite at once. Lines to draw: \enquote{start} to the Cat (and to the Ballerina too, if the child gave her the start dance in 6.1: a message can have more than one listener); \enquote{ghost} to the Ghost; \enquote{dance} to the Ballerina. For \enquote{Who made the sprites?}, good answers are \enquote{the Scratch artists} or \enquote{the Scratch library}, plus the child's nickname for anything they painted.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 6.1: Start Button]
+\textbf{What you should see:} after the green flag, the Star shows in the middle and nothing else moves. Clicking the Star plays a pop, the Star disappears, the cat says \enquote{Let's play!} for 2 seconds and then walks back and forth across the stage forever, and the Ballerina starts her dance at the same moment. The red stop sign stops everything; the next green flag brings the Star back.
+
+\textbf{What to look for:} \tickbox{} \enquote{broadcast start} in the Star's click script \quad \tickbox{} \enquote{when I receive start} in the cat and the Ballerina, with the same name \quad \tickbox{} \enquote{when green flag clicked, show} on the Star.
+\end{answer}
+
+\begin{answer}[Exercise 6.2: Pass the Message]
+\textbf{What you should see:} after the flag, the cat says \enquote{Hi, Ghost!} for 2 seconds; then the Ghost says \enquote{Boo!} for 2 seconds; then the Ballerina changes costume four times, one each second. Each sprite starts only when the one before it has finished.
+
+\textbf{What to look for:} \tickbox{} the cat broadcasts \enquote{ghost} and the Ghost listens for \enquote{ghost} \quad \tickbox{} the Ghost broadcasts \enquote{dance} and the Ballerina listens for \enquote{dance} \quad \tickbox{} each broadcast is \textbf{after} the say block, so the next sprite waits its turn.
+\end{answer}
+
+\begin{answer}[Exercise 6.3: Nobody Is Listening]
+\textbf{Bug 1, nobody is listening:} circle the Ghost's \enquote{when green flag clicked}. The Ghost says \enquote{Boo!} as soon as the flag is clicked, and nobody listens for \enquote{go}. Fix: snap the say block under \enquote{when I receive go}.
+
+\textbf{Bug 2, wrong message name:} circle \enquote{message1} in the Balloon's hat block. Fix: pick \enquote{go} in the dropdown.
+
+\textbf{What you should see after the fix:} the flag does nothing visible. Clicking the Star makes the Balloon turn to face up and float up the stage, and the Ghost says \enquote{Boo!} for 2 seconds at the same time.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Pass the note at home]
+The child claps on CLAP, waits while the grown-up hops, and sings on SING. On DANCE, nothing happens: nobody has a DANCE job, like a broadcast that no sprite is listening for.
+\end{answer}
+
+\begin{answer}[Who made it?]
+Any book works. The child finds the writer (author) and the artist (illustrator) on the cover or the first pages. Connect it to the game: the Scratch sprites were drawn by artists too, so we say where they came from.
+\end{answer}

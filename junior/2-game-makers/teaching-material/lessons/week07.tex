@@ -1,0 +1,143 @@
+% Junior Level 2, Week 7 -- My Own Blocks
+\lesson{7}{My Own Blocks}{Give a group of blocks a name and use it again.}
+\lessoninfo{Concepts: My Blocks (I), decomposition (I), one number input (I, stretch)}{Tools: Scratch 3 offline app, recipe cards, envelopes}{CSTA: 1B-AP-11, 1B-AP-12, 1B-AP-15, 1B-IC-21}
+
+\begin{objectives}
+  \item The student can make a My Block with a name, such as \enquote{celebrate}, and use it in two different scripts. (J2.G4) [J2.W07.1]
+  \item The student can split a job into named steps on recipe cards and say which group of steps each name stands for. (J2.G4) [J2.W07.2]
+  \item The student can find and fix a My Block that was made but never used, by testing and looking for the block in the scripts. (J2.G5) [J2.W07.3]
+  \item The student can make a game easier for everyone to play, with big text and things that differ by shape as well as color. (J2.G7) [J2.W07.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 7 and play-at-home card 7 (one per child).
+  \item Unplugged: six recipe cards you write by hand, one step each, with a little drawing: \enquote{get the bread}, \enquote{put it in the toaster}, \enquote{push the lever}, \enquote{wait}, \enquote{take it out}, \enquote{spread butter}. Two envelopes: write \enquote{MAKE TOAST} on one and \enquote{WASH HANDS} on the other. Put three cards in the second envelope: \enquote{turn on the tap}, \enquote{soap and rub}, \enquote{rinse and dry}.
+  \item On each computer: the Scratch app with a new project and a \textbf{mouse}.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Recipe cards: act out \enquote{make toast} step by step, then fold the steps into one named envelope and use it twice.}
+  \timeslot{10--20}{Show me}{My Blocks give a group of blocks a name. Build the \enquote{celebrate} block together and use it in two scripts.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 7.1 Celebrate Block, then Exercise 7.2 The Lost Block (bug hunt).}
+  \timeslot{33--35}{Wiggle break}{\enquote{Do the celebrate!}: everyone does a named move when you call its name.}
+  \timeslot{35--50}{Make it}{Games for everyone: Exercise 7.3 on paper, then make the score big in the Lost Block game. Free play: invent another My Block.}
+  \timeslot{50--60}{Share}{Show a My Block and where it is used. Exit question, reflection, hand out play-at-home card 7.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Recipe cards]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Lay the six toast cards in a row. One child reads them; another acts them out (pretend bread, pretend toaster). \enquote{That is a lot of cards for one slice of toast.}
+  \item Put the six cards into the \enquote{MAKE TOAST} envelope and seal it. \enquote{Now this envelope is one step with a name. When I say MAKE TOAST, you do all six cards inside.}
+  \item Lay a new breakfast plan: \enquote{MAKE TOAST}, \enquote{pour juice}, \enquote{MAKE TOAST}. The robot child acts it out: two slices, and we did not have to write the six cards twice.
+  \item Show the \enquote{WASH HANDS} envelope. \enquote{I made this one too.} Act out the breakfast plan again. Ask: \enquote{Did anyone wash their hands?} (No.) \enquote{Why not?} (The envelope is not in the plan.) \enquote{Making a named step is not enough: we have to use it.} Put it at the start of the plan. Remember this for the bug hunt.
+\end{enumerate}
+With 1 child: the child acts, you read; then swap. With 3: reader, robot and a \enquote{breakfast checker} who checks each step happened. With 4: two teams; each team makes up a named envelope of its own (\enquote{GET DRESSED}, \enquote{FEED THE CAT}) and the other team acts it out.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Scratch lets us make our own envelope. It is called a \textbf{My Block}. We put a group of blocks under a name, and then one block does all of them. Splitting a big job into named parts is what game makers do all the time. The My Blocks circle is the pink-red one at the very bottom of the circles.}
+\end{teacherscript}
+
+\begin{analogy}[A dance move with a name]
+\enquote{When the music teacher says \enquote{Do the twirl!}, you know it means: arms up, turn around, bow. Nobody has to say all three steps. The name stands for the steps. A My Block is a dance move with a name.}
+\end{analogy}
+
+\begin{workedexample}[Celebrate Block (Exercise 7.1)]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the pink-red \menu{My Blocks} circle. Click the \menu{Make a Block} button. A window opens with a pink-red block in it.
+  \item Type \enquote{celebrate} in the block. Click \menu{OK}. A hat block \enquote{define celebrate} appears in the code area, and a new \enquote{celebrate} block appears in the list.
+  \item Under \enquote{define celebrate}, snap: \enquote{start sound Pop} (pink \menu{Sound}); \enquote{repeat 10} (orange \menu{Control}), changed to 24, with \enquote{turn 15 degrees} (blue \menu{Motion}) inside; \enquote{say Hello! for 2 seconds} (purple \menu{Looks}), changed to \enquote{Hooray!} for 1 second.
+  \item \enquote{The define script is the recipe in the envelope. It does nothing on its own. Watch.} Click the green flag: nothing happens.
+  \item Yellow \menu{Events}: drag in \enquote{when this sprite clicked}. From pink-red \menu{My Blocks}, drag the \enquote{celebrate} block under it. Click the cat: it pops, spins and says Hooray!
+  \item Drag in \enquote{when space key pressed} and snap another \enquote{celebrate} under it. Press space. \enquote{One recipe, used twice. If I want a different sound, I change it once, in the define script, and both scripts change.} Show this: pick a different sound in the define script, then click the cat and press space.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\initmoreblocks{define \namemoreblocks{celebrate}}
+\blocksound{start sound \selectmenu{Pop}}
+\blockrepeat{repeat \ovalnum{24}}{
+  \blockmove{turn \turnright{} \ovalnum{15} degrees}
+}
+\blocklook{say \ovalnum{Hooray!} for \ovalnum{1} seconds}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blockmoreblocks{celebrate}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when \selectmenu{space} key pressed}
+\blockmoreblocks{celebrate}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the steps in the workbook, says the color circle (\enquote{pink-red My Blocks!}) and checks the name is spelled the same everywhere, but never grabs the mouse. Swap when the timer runs out (6--7 minutes). With 1 child: you are the Helper, then swap so the child helps you. With 3: Driver, Helper and Tester (the only one who clicks the cat or presses the key to test). With 4: two pairs; at the end each pair tries the other pair's celebrate.
+\end{pairroles}
+
+Work through the workbook: \textbf{7.1} Celebrate Block, then \textbf{7.2} The Lost Block. Each child (or pair) starts a new project for 7.2.
+
+\begin{bughunt}[The Lost Block (Exercise 7.2)]
+The workbook shows Sam's game: the cat runs around the stage, and you click it to score. Sam made a My Block \enquote{get ready} that sets the score to 0 and says \enquote{Go!}. Children build it as printed (they make the \enquote{score} variable first: orange-red \menu{Variables}, \menu{Make a Variable}, \enquote{For all sprites}). Click the flag, click the cat a few times, then click the flag again. The cat never says \enquote{Go!} and the score does not go back to 0. Ask: \enquote{What should happen? What happened?} Then: \enquote{Is \enquote{get ready} used anywhere?} It is not: the define script sits alone, like the WASH HANDS envelope. Fix: drag \enquote{get ready} from pink-red \menu{My Blocks} under \enquote{when green flag clicked}, \textbf{above} the forever loop (a block under a forever loop never runs). Test again: flag, click, flag.
+\end{bughunt}
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up. Teach two named moves: \enquote{celebrate} (jump, spin, \enquote{Hooray!}) and \enquote{sneeze} (ah, ah, ah-choo and a wobble). Call the names in any order, fast and slow. End with \enquote{rest}: arms down, three slow breaths.
+
+\section{Make it (35--50 min)}
+\begin{safety}[Games for everyone]
+Look at Exercise 7.3 together. \enquote{Some people see red and green as the same color. Some people need big words to read them. Some people play with the sound off. A good game maker makes the game work for all of them. So we use \textbf{big text}, and we make good things and bad things look different by \textbf{shape and color}, not color alone: a red apple to catch and a gray ghost to dodge, not a red apple and a green apple.} Then, in the Lost Block game, right-click the score on the stage and choose \menu{large readout}: the score is bigger and easier to read. Ask: \enquote{What else could make your game easier for everyone?} (Bigger sprites with \enquote{set size to} in purple Looks; a sound \textbf{and} a word when you score.)
+\end{safety}
+
+\begin{freebuild}[Invent a My Block]
+Last 8 minutes: make another My Block for any sprite, with a fun name: \enquote{sneeze}, \enquote{dance}, \enquote{grow} or \enquote{hide and peek}. Use it in a click script and a key script. Then show your partner: they guess what it does from the name before they press the key.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child shows one My Block: \enquote{My block is called \ldots. It does \ldots. I use it when \ldots.} Point at the define script, then at the place where the block is used. Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a \enquote{define} script with blocks under it; the same named block used under a hat block; the child changes the define script once and sees both uses change; the get ready block is above the forever loop.
+
+\textbf{Ask:} point at a \enquote{define celebrate} script with no \enquote{celebrate} block anywhere else. \enquote{I click the flag and the cat. Will the cat celebrate?}
+\textbf{Answer:} no. The block is made but never used. Put \enquote{celebrate} under a hat block, such as \enquote{when this sprite clicked}.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What is your My Block called, and what does it do?} and \enquote{What helps everyone play a game?} Children draw their own named move in the workbook and circle a smiley face. Hand out play-at-home card 7.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Clicking the green flag and waiting.} The define script has no flag. It runs only where the named block is used.
+  \item \textbf{Snapping the named block under its own define.} The block calls itself and the cat spins on and on. Drag it out and put it under a hat block instead.
+  \item \textbf{Two blocks with similar names}, such as \enquote{celebrate} and \enquote{celebrate2}, after pressing Make a Block twice. Delete the extra define script; use the one that has the blocks.
+  \item \textbf{My Block made on the wrong sprite.} A My Block belongs to one sprite. Click the sprite in the sprite list first, then make the block.
+  \item \textbf{\enquote{get ready} under the forever loop.} It will not snap there; it has to go above the forever.
+  \item \textbf{No large readout option.} Right-click the score box on the stage (not the block). If the score box is missing, check the box next to \enquote{score} in the Variables list.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build 7.1 together, with you as the Driver and the child naming the block and choosing the sound. For 7.2, build Sam's game before the session and let the child find where to put \enquote{get ready}. Skip the free play My Block and add \enquote{celebrate} to one more key instead.
+\extensionpath Make a second sprite (Ballerina) and give her her own \enquote{celebrate}. Or use a My Block inside a My Block: \enquote{party} could do \enquote{celebrate} and then \enquote{next costume}.
+\end{differentiation}
+
+\begin{stretchchallenge}[A My Block with a number (one input)]
+In \menu{Make a Block}, type \enquote{celebrate}, then click \menu{Add an input number or text} and name the input \enquote{times}. Click OK. Under the new define block, put a new \enquote{repeat} around the old blocks (pop, the repeat 24 spin, Hooray), and drag the round \enquote{times} oval from the define block into the new repeat's number. Now \enquote{celebrate 2} celebrates twice and \enquote{celebrate 5} five times. The number in the white oval is the input: the same recipe, a different amount, like \enquote{make toast, 2 slices}.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do the toast envelope without the breakfast plan, but keep the WASH HANDS moment: it is the bug hunt. In Make it, do 7.1 and 7.2, and do 7.3 together as a two-minute talk with the large readout. Leave the invented My Block for free play next week. Keep the games-for-everyone talk.
+\end{teachernote}

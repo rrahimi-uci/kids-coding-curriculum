@@ -1,0 +1,93 @@
+% Junior Level 2, Week 9 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{9}{Project Studio}{Plan on a game card, build the core, then playtest.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can plan my game on a game plan card.
+  \item I can build my game one must-have at a time.
+  \item I can watch a Player test my game and fix a bug.
+\end{ican}
+
+\section{My First Arcade Game}
+Today you make your own arcade game! A \textbf{must-have} is a part every game needs.
+
+\begin{exercise}[My Game Plan Card]
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Use your rules from last week.
+  \item Fill in the game plan card in your project brief.
+  \item Draw your stage and your pieces on paper.
+  \item A partner plays your paper game. Can they win? Can they lose?
+\end{enumerate}
+\end{exercise}
+
+\needspace{30\baselineskip}
+\begin{exercise}[Build My Game]
+Build one must-have. Test it. Check it off. Then the next one!
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}c l@{}}
+\tickbox & A forever loop keeps it going.\\
+\tickbox & An if touching makes something happen.\\
+\tickbox & A score or misses variable counts.\\
+\tickbox & Random gives a surprise.\\
+\tickbox & You can win, or it is game over.\\
+\end{tabular}
+\end{center}
+Mei's bananas fall and wait a surprise time:
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockmove{go to \selectmenu{Star}}
+\blockmove{point in direction \ovalnum{180}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{5} steps}
+  \blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmove{go to \selectmenu{Star}}
+    \blockcontrol{wait \ovaloperator{pick random \ovalnum{1} to \ovalnum{3}} seconds}
+  }
+  \blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{
+    \blockvariable{change \selectmenu{misses} by \ovalnum{1}}
+    \blockmove{go to \selectmenu{Star}}
+    \blockcontrol{wait \ovaloperator{pick random \ovalnum{1} to \ovalnum{3}} seconds}
+  }
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\needspace{13\baselineskip}
+\begin{exercise}[Playtest]
+A Player plays your game. Watch. Keep your hands in your lap! Write or draw each bug.
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|p{8.5cm}|c|}
+\hline
+\textbf{What went wrong?} & \textbf{Fixed?}\\ \hline
+ & yes \quad not yet\\ \hline
+ & yes \quad not yet\\ \hline
+ & yes \quad not yet\\ \hline
+\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{grownup}[Playtest tip]
+The maker says nothing while the Player plays. If the Player is stuck, that is a bug to write down.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{prototype}{A quick test version of a game, made before the real one.}
+  \vocabword{playtest}{Someone plays your game so you can find bugs.}
+\end{vocab}
+
+\begin{reflection}
+Color one star for each must-have that works: \quad {\Large\faStar[regular]\ \faStar[regular]\ \faStar[regular]\ \faStar[regular]\ \faStar[regular]}
+
+How do you feel about your game? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

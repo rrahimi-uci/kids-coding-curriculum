@@ -1,0 +1,41 @@
+% Junior Level 2, Week 4 -- answer key
+\answersweek{4}{Surprise! Random}{Answers for workbook chapter 4 and play-at-home card 4.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+Only one number. The \enquote{set roll to pick random 1 to 10} block is above the forever loop, so the die is rolled once, when the flag is clicked. The forever loop then says that same number again and again. To get a new number each time, the set block goes inside the forever loop, at the top.
+\end{answer}
+
+\begin{answer}[Reflection]
+Any dots on the die are right (one to six dots, or more for a pretend ten-sided die). For \enquote{Where did you use random?} good answers are: the dice race roll, the ghost's surprise place, the stuck dice. For the feelings question, any honest answer is fine; praise a child who said \enquote{good game} after losing.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 4.1: Dice Race]
+\textbf{What you should see:} each press of c makes the cat say a number from 1 to 6 for one second, then dash to the right in that many quick hops, changing costume as it goes. Each press of b does the same for the Ballerina. The \enquote{roll} box on the stage shows the last number rolled. Nobody can tell which racer will reach the right side first; a different racer may win each race.
+
+\textbf{What to look for:} \tickbox{} the round \enquote{roll} block (not the typed word) is in the say block and in the repeat \quad \tickbox{} the Cat listens for c and the Ballerina for b \quad \tickbox{} the child predicts \enquote{I don't know!} before a roll \quad \tickbox{} \enquote{good game} at the end.
+\end{answer}
+
+\begin{answer}[Exercise 4.2: Ghost Pop]
+\textbf{What you should see:} when the flag is clicked the score shows 0 and the ghost jumps to a new surprise place every second. Clicking the ghost adds 1 to the score, plays a pop and makes the ghost jump away at once. Clicking the flag again puts the score back to 0.
+
+\textbf{What to look for:} \tickbox{} \enquote{set score to 0} under the green flag, above the forever \quad \tickbox{} \enquote{go to random position} and \enquote{wait 1 seconds} inside the forever \quad \tickbox{} \enquote{change score by 1} in the click script.
+\end{answer}
+
+\begin{answer}[Exercise 4.3: The Stuck Dice]
+\textbf{The bug:} circle \enquote{set roll to pick random 1 to 10}. It runs only once, before the forever loop, so the cat says the same number every time.
+
+\textbf{Fix:} drag the forever block away from the set block, drag the set block into the top of the forever's mouth, and snap the forever back under the green flag block. (Adding a second set block inside the forever, at the top, also works.)
+
+\textbf{What you should see after the fix:} the cat says a number for one second, waits one second, then says a new number. Sometimes the same number comes twice in a row: that is still random.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[Dice race at home]
+Any race is right. The child hops the number shown on the die, counting each square, and says \enquote{good game} at the end, whether they won or lost.
+\end{answer}
+
+\begin{answer}[Can you guess it?]
+Random (\enquote{Surprise!}): the next number on the die, and which hand hides the coin. Not random (\enquote{I can guess it!}): Tuesday comes after Monday, and the sky is blue on a sunny day. Other random things at home: drawing a card from a shuffled pile, which way a spun bottle points.
+\end{answer}
