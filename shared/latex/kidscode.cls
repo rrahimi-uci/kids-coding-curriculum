@@ -345,6 +345,9 @@
 \newenvironment{rubric}[1][]{\begin{kc@box}{kcblue}{\faTable\ Rubric\ifstrempty{#1}{}{: #1}}}{\end{kc@box}}
 
 %% ---------------------------------------------------------------- junior track
+%% Defined only for track=junior, so main-track documents that define their own
+%% \ican or similar helpers are not affected.
+\ifkc@junior
 %% Student goals as "I can ..." statements (junior workbook chapters):
 %%   \begin{ican} \item I can ... \end{ican}
 \newenvironment{ican}{\begin{kc@box}{kcblue}{\faStar\ I can \ldots}\begin{itemize}[label={\faStar[regular]},leftmargin=1.6em,itemsep=2pt]}{\end{itemize}\end{kc@box}}
@@ -360,6 +363,7 @@
   \toprule \rowcolor{kcaccent!15} \textbf{The child can \ldots} & \small Not yet & \small Getting there & \small Got it\\ \midrule}
   {\bottomrule\endtabularx\par}
 \newcommand{\showmerow}[1]{#1 & $\square$ & $\square$ & $\square$\\}
+\fi
 
 %% ---------------------------------------------------------------- lesson structure
 %% \lesson{7}{Hello, Python!}{one-line big idea}
