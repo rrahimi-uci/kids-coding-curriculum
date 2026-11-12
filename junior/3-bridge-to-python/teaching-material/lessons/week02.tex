@@ -1,0 +1,136 @@
+% Junior Level 3, Week 2 -- Plan It on Paper
+\lesson{2}{Plan It on Paper}{Big programs are small parts, planned first.}
+\lessoninfo{Concepts: decomposition (R), step list (I), test each part (I), messages (R), variables (R)}{Tools: Scratch 3 offline app, a big sheet of paper, plan cards}{CSTA: 1B-AP-11, 1B-AP-13, 1B-AP-15, 1B-AP-16}
+
+\begin{objectives}
+  \item The student can split a party, and then a Scratch program, into named parts on a plan card, with a short step list for each part. (J3.G2) [J3.W02.1]
+  \item The student can build a program one part at a time and test each part on its own by clicking its script. (J3.G2, J3.G6) [J3.W02.2]
+  \item The student can find and fix a part that works alone but not with the others because a message has the wrong name. (J3.G6) [J3.W02.3]
+  \item The student can share out the parts of a plan so that everyone on the team has a job. (J3.G2) [J3.W02.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 2 and play-at-home card 2 (one per child).
+  \item Unplugged: a big sheet of paper and markers, and four sticky notes with the part names \enquote{INVITATIONS}, \enquote{FOOD}, \enquote{GAMES}, \enquote{MUSIC}.
+  \item On each Mac: the Scratch app with a new project and a \textbf{mouse}.
+  \item A kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Plan a party in named parts on a big sheet of paper. Who does which part? Then spot two parts that do not fit together.}
+  \timeslot{10--20}{Show me}{A plan card for the Party Time program: three parts, a step list and a test for each. Build and test Part 1 together.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 2.1 My Party Plan (paper), then Exercise 2.2 Party Time, Parts 2 and 3, testing each part on its own.}
+  \timeslot{33--35}{Wiggle break}{Party parts: everyone acts out one part of the party in turn.}
+  \timeslot{35--50}{Make it}{Exercise 2.3 The Silent Party (bug hunt), then free build: plan a new part on the card first, then build it.}
+  \timeslot{50--60}{Share}{Show the party and the plan card. Teamwork talk. Exit question, hand out play-at-home card 2.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Plan a party in named parts]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{We are planning a party for a teddy bear. A party is a big job. Let's cut it into parts.} Stick the four part names on the big sheet: INVITATIONS, FOOD, GAMES, MUSIC.
+  \item For each part, children say two or three short steps and you write them under it, one line per step: \enquote{FOOD: 1. Pick a snack. 2. Put it on plates. 3. Bring it at 3 o'clock.} That is a \textbf{step list}.
+  \item Give every part a person: write a nickname next to each part. \enquote{Everyone gets a job.}
+  \item Now the bug: write \enquote{Party starts at 3 o'clock} on the invitations, and \enquote{Bring the snack at 4 o'clock} on the food list. \enquote{Each part looks fine on its own. What happens at the party?} (The guests wait an hour for food.) \enquote{The parts must fit together. Today's bug hunt is the same in Scratch.}
+\end{enumerate}
+With 1 child: the child plans two parts and you plan two, then you check each other's. With 3 or 4: each child owns one part and reads its steps to the group.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Real programmers do not start by dragging blocks. They plan on paper first. They cut a big program into \textbf{parts}, write a few steps for each part, and decide how to \textbf{test} each part. Then they build one part, test it, and only then build the next part. Today we plan and build a party game called Party Time: the cat starts the party, a balloon appears, and you click the balloon to pop it.}
+\end{teacherscript}
+
+\begin{analogy}[Building with LEGO bags]
+\enquote{A big LEGO set comes in numbered bags. You build bag 1 and check it looks like the picture before you open bag 2. If something is wrong, you only look in the bag you built last. Parts in a program work the same way.}
+\end{analogy}
+
+\begin{workedexample}[Part 1 of Party Time (Exercise 2.2)]
+Show the plan card in the workbook (Exercise 2.1) and read Part 1 aloud: \enquote{Start the party (Cat): set pops to 0, say Party time!, send the message balloons. Test: click the flag.} Then build it while the children watch.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Orange-red \menu{Variables}: \menu{Make a Variable}, name it \enquote{pops}, \enquote{For all sprites}, OK.
+  \item Yellow \menu{Events}: \enquote{when green flag clicked}.
+  \item Orange-red \menu{Variables}: snap on \enquote{set pops to 0}.
+  \item Purple \menu{Looks}: snap on \enquote{say Hello! for 2 seconds}; type \enquote{Party time!}.
+  \item Yellow \menu{Events}: snap on \enquote{broadcast message1}. Click its little arrow, choose \menu{New message} and type \enquote{balloons}.
+  \item \textbf{Test Part 1 on its own:} click the green flag. The cat says \enquote{Party time!} and pops shows 0. Check off Part 1 on the plan card. \enquote{Nothing else happens yet, and that is right: nobody listens for the message yet.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{pops} to \ovalnum{0}}
+\blocklook{say \ovalnum{Party time!} for \ovalnum{2} seconds}
+\blockevent{broadcast \selectmenu{balloons}}
+\end{scratch}
+\end{center}
+Show one more trick: \enquote{You can test any script by clicking on it in the code area. Scratch runs only that script.}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} holds the plan card, reads the next step aloud, and says \enquote{Test!} at the end of each part; only after a passing test does the Helper check off the part. The Helper never grabs the mouse. Swap when the timer rings (6--7 minutes). With 1 child: you are the Helper, then swap. With 3: Driver, Helper and Tester (runs each test). With 4: two pairs; each pair builds one part of a shared plan, then they put the parts together on one Mac.
+\end{pairroles}
+
+Work through the workbook: \textbf{2.1} My Party Plan (fill in the missing step on paper; it is \enquote{add 1 to pops}), then \textbf{2.2} Party Time, Parts 2 and 3. Children add the Balloon1 sprite (\menu{Choose a Sprite}) and build its two parts under the balloon. After each part: test it on its own (click the script, or click the balloon) and check it off on the plan card. Then click the green flag to test all the parts together.
+
+\section{Wiggle break (33--35 min)}
+Party parts: stand up. One child is the cat (\enquote{Party time!} with arms up), one is the balloon (float on tiptoes), and everyone else pops it with a clap. Swap parts and do it again.
+
+\section{Make it (35--50 min)}
+\begin{bughunt}[The Silent Party (Exercise 2.3)]
+Leo built Party Time from the same plan. Each part works on its own: click the cat's script and the cat says \enquote{Party time!}; click the balloon's \enquote{when I receive} script and the balloon appears. But with the green flag, the balloon never comes. Children change their cat's broadcast to Leo's version (a new message called \enquote{party}) and test. Ask: \enquote{Every part passed its test. Why does the party stay silent?} The cat sends \enquote{party}, but the balloon listens for \enquote{balloons}: like the invitations at 3 and the food at 4. Fix: set the broadcast back to \enquote{balloons}. \enquote{Testing each part is good. We also test the parts together.}
+\end{bughunt}
+
+\begin{freebuild}[Plan a new part first]
+Last 6--7 minutes: write Part 4 on the plan card \textbf{before} building it: two or three steps and a test. Ideas: a second balloon (right-click Balloon1, \menu{duplicate}); the cat says \enquote{Pop!} when it receives \enquote{balloons}; music (pink \menu{Sound}, any sound from the dropdown) when the party starts. Then build it and test it.
+\end{freebuild}
+
+\begin{stretchchallenge}[A party that ends]
+Add Part 5 to the plan: when pops reaches 10, the cat says \enquote{Great party!}. Use \enquote{wait until} (orange \menu{Control}) with \enquote{pops = 10} (green \menu{Operators}) in a new cat script that starts with the message \enquote{balloons}.
+\end{stretchchallenge}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each pair holds up the plan card and reads one part aloud, then clicks the green flag and lets a friend pop the balloon. Ask: \enquote{Which part did you test first? Which part was the trickiest?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[Teamwork: everyone gets a job]
+\enquote{When a team plans in parts, everyone can have a job: one person builds the cat part, one builds the balloon part, one tests. Good teammates take turns, listen, and say kind things when a part has a bug: \enquote{Let's look at it together}, not \enquote{You broke it}. Nobody grabs the mouse, and nobody is left out.} Ask: \enquote{Kai's part has a bug and Kai feels sad. What could a good teammate say?}
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the child checks off a part only after testing it; the child tests a part by clicking its script or the sprite; the message names in \enquote{broadcast} and \enquote{when I receive} match.
+
+\textbf{Ask:} \enquote{Part 1 works and Part 2 works when you click them, but together the balloon never comes. Where do you look first?}
+\textbf{Answer:} the place where the parts meet: the message. The name in \enquote{broadcast} must be the same as the name in \enquote{when I receive}.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Why do we plan on paper first?} and \enquote{How do you test one part?} Children circle the part they built in the workbook and a smiley face. Hand out play-at-home card 2.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building in the wrong sprite.} The balloon's scripts end up under the cat. Check which sprite is selected (blue frame in the sprite list) before building.
+  \item \textbf{The balloon never hides.} \enquote{hide} is missing from the balloon's flag script, so it is visible before the party starts. Not wrong, but not the plan.
+  \item \textbf{The balloon stays hidden after a test.} Clicking \enquote{hide} hid it. Click the \enquote{when I receive balloons} script, or click \enquote{show} in the purple Looks list.
+  \item \textbf{Two messages with similar names} (\enquote{balloon} and \enquote{balloons}). Use the dropdown to pick the same one in both places. Spare names in the list do no harm.
+  \item \textbf{pops does not go up.} \enquote{change pops by 1} is missing, or it says \enquote{my variable} instead of \enquote{pops} in its dropdown.
+  \item \textbf{Ticking without testing.} Gently ask: \enquote{Show me the test.}
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Fill in the plan card together and build Part 2 together. Let the child build Part 3, using the workbook pictures. For the bug hunt, change the message yourself and let the child find it.
+\extensionpath Write the whole plan card for a new tiny program before building anything (for example: a Ghost that appears when the cat says \enquote{Boo!}), then build and test it part by part.
+\end{differentiation}
+
+\begin{teachernote}[If you are short on time]
+Keep the party plan to two parts plus the 3 o'clock bug. Do 2.2 and 2.3, and fill in the plan card (2.1) together during Show me. Free build can wait for buffer B2.
+\end{teachernote}
+
+\begin{teachernote}[Before next week: Data Detectives]
+Next week the children run a family survey. If you can, ask the people at home (and maybe a grandparent on the phone) to be ready to answer one question: \enquote{What is your favorite fruit: apple, banana, orange or grapes?} Toys can vote too if the family is small.
+\end{teachernote}

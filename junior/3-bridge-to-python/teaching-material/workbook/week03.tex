@@ -1,0 +1,107 @@
+% Junior Level 3, Week 3 -- workbook chapter (read aloud with a grown-up)
+\chapterweek{3}{Data Detectives}{Data is information we collect; a graph tells its story.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can count with tally marks and make a bar graph.
+  \item I can make Scratch ask a question and count the answers.
+  \item I can spot one answer counted in two places.
+\end{ican}
+
+\section{Collect, count, show}
+\textbf{Data} is information we collect. A \textbf{tally mark} is one line for each answer. The fifth line goes across, like a gate.
+
+\begin{exercise}[Tally Time]
+Count the tally marks. Then color one square for each answer to make a bar graph.
+\begin{center}
+%% alt: Left, a tally chart: apple has five marks (four lines and one across), banana has three, orange has two, grapes has four. Right, an empty bar graph grid with four columns labeled apple, banana, orange, grapes, and the numbers 1 to 6 up the side.
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small]
+  % tally chart
+  \foreach \y/\name/\n in {3.6/apple/5,2.6/banana/3,1.6/orange/2,0.6/grapes/4} {
+    \node[anchor=west] at (0.15,\y) {\name};
+    \draw[kcgray] (0,\y-0.5) rectangle (4.4,\y+0.5);
+    \draw[kcgray] (2,\y-0.5) -- (2,\y+0.5);
+    \foreach \i in {1,...,4} {
+      \ifnum\i>\n\relax\else
+        \draw[line width=1.2pt] (2+\i*0.4,\y-0.3) -- (2+\i*0.4,\y+0.3);
+      \fi
+    }
+    \ifnum\n>4
+      \draw[line width=1.2pt] (2.2,\y-0.25) -- (3.8,\y+0.25);
+    \fi
+  }
+  % empty bar graph
+  \begin{scope}[shift={(5.6,0)}]
+    \foreach \x in {0,...,3} \foreach \y in {0,...,5}
+      \draw[kcgray] (\x*1.9+0.3,\y*0.7) rectangle (\x*1.9+1.6,\y*0.7+0.7);
+    \foreach \y in {1,...,6} \node[anchor=east] at (0,\y*0.7-0.35) {\y};
+    \draw[line width=1pt] (0,0) -- (7.7,0);
+    \foreach \x/\name in {0/apple,1/banana,2/orange,3/grapes}
+      \node[anchor=base] at (\x*1.9+0.95,-0.5) {\name};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+Which fruit won? Circle it on the graph.
+\end{exercise}
+
+\begin{exercise}[Fruit Survey Robot]
+Make the cat ask about fruit and count the answers.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Orange-red \menu{Variables}: make \enquote{apple votes} and \enquote{other votes}.
+  \item Light blue \menu{Sensing}: \enquote{ask and wait} and \enquote{answer}.
+  \item Green \menu{Operators}: the \enquote{=} block.
+  \item Build the script. Click the flag. Type an answer, then press Return.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{apple votes} to \ovalnum{0}}
+\blockvariable{set \selectmenu{other votes} to \ovalnum{0}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocksensing{ask \ovalnum{What is your favorite fruit?} and wait}
+  \blockifelse{if \booloperator{\ovalsensing{answer} = \ovalnum{apple}} then}{
+    \blockvariable{change \selectmenu{apple votes} by \ovalnum{1}}
+  }{
+    \blockvariable{change \selectmenu{other votes} by \ovalnum{1}}
+  }
+}
+\blocklook{say \ovalnum{Thank you!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Two Apples]
+Kai made this tally. Kai says banana won.
+\begin{center}
+%% alt: Kai's tally chart with three rows: Apple with a big A has two marks, apple with a small a has three marks, banana has four marks.
+\begin{tikzpicture}[x=1cm,y=1cm,font=\small]
+  \foreach \y/\name/\n in {2/Apple/2,1/apple/3,0/banana/4} {
+    \node[anchor=west] at (0.15,\y) {\name};
+    \draw[kcgray] (0,\y-0.5) rectangle (4.4,\y+0.5);
+    \draw[kcgray] (2,\y-0.5) -- (2,\y+0.5);
+    \foreach \i in {1,...,\n}
+      \draw[line width=1.2pt] (2+\i*0.4,\y-0.3) -- (2+\i*0.4,\y+0.3);
+  }
+\end{tikzpicture}
+\end{center}
+Is Kai right? Circle the bug. Fix the tally.
+
+Now test your robot. Type \enquote{Apple}. Then type \enquote{apples}. Which one does it count as apple?
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{data}{Information we collect, like answers to a question.}
+  \vocabword{tally mark}{One line for each answer. Five marks look like a gate.}
+  \vocabword{bar graph}{A picture of data. The tallest bar has the most.}
+\end{vocab}
+
+\begin{reflection}
+Draw your favorite fruit.
+\answerspace{3cm}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

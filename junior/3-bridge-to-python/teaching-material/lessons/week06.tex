@@ -1,0 +1,167 @@
+% Junior Level 3, Week 6 -- Hello, Python!
+\lesson{6}{Hello, Python!}{Python uses words instead of blocks, and it is picky about spelling.}
+\lessoninfo{Concepts: Thonny (I), Run (I), turtle forward and left (I), typos and error messages (I)}{Tools: Thonny in simple mode with Python's turtle, \enquote{Python is picky} cards}{CSTA: 1B-AP-10, 1B-AP-12, 1B-AP-15, 1B-CS-03}
+
+\begin{objectives}
+  \item The student can open a starter program in Thonny, press Run, point to the Editor, the Shell and the turtle window, and change a number to make the turtle walk further. (J3.G5) [J3.W06.1]
+  \item The student can match \texttt{t.forward(100)} and \texttt{t.left(90)} to the Scratch move and turn blocks, and type one new line to finish a square. (J3.G5) [J3.W06.2]
+  \item The student can find a typo such as \texttt{forwad} or a missing bracket by reading the line number and the last line of Thonny's red error text, and fix it. (J3.G6) [J3.W06.3]
+  \item The student can save a program with a clear file name that uses a nickname, never a real name. (J3.G7) [J3.W06.4]
+\end{objectives}
+
+\begin{materials}
+  \item \textbf{One-time setup first} (see the teacher note below): Thonny installed on each Mac, switched to simple mode, and the Level 3 exercise folder copied into the child's \menu{Documents}.
+  \item Print: workbook chapter 6 and play-at-home card 6 (one per child).
+  \item Unplugged: five \enquote{Python is picky} cards you write by hand on index cards. Each card has two lines, one right and one wrong: \texttt{t.forward(100)} / \texttt{t.forwad(100)}; \texttt{t.left(90)} / \texttt{t.Left(90)}; \texttt{t.forward(100)} / \texttt{t.forward(100}; \texttt{t.left(90)} / \texttt{t.left 90}; \texttt{turtle.done()} / \texttt{turtle.dome()}. Keep the week 5 word-twin cards nearby.
+  \item On each Mac: Thonny open in simple mode, a \textbf{mouse}, and Finder open at \texttt{kids-coding} \textrightarrow{} \texttt{junior} \textrightarrow{} \texttt{3-bridge-to-python} \textrightarrow{} \texttt{exercises} \textrightarrow{} \texttt{week06}.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\begin{teachernote}[One-time setup: Thonny in simple mode (about 20 minutes per Mac)]
+Do this a few days before week 6. Internet is needed for step 1 only. No account anywhere.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{Install Thonny (free).} In Safari go to \texttt{thonny.org} and click the download for \textbf{Mac}. Open the downloaded file and click \menu{Continue}, \menu{Agree}, \menu{Install}. Thonny comes with its own Python and turtle: nothing else to install.
+  \item \textbf{First start.} Open Thonny from \menu{Applications}. If the Mac asks whether to open an app from the internet, click \menu{Open}. Pick the language and click \menu{Let's go!}.
+  \item \textbf{Simple mode.} Click \menu{Tools} \textrightarrow{} \menu{Options\ldots} \textrightarrow{} tab \menu{General}. Set \menu{UI mode} to \menu{simple}. Click \menu{OK}, quit Thonny and open it again. (If Thonny already shows a link \enquote{Switch to regular mode} at the top right, it is in simple mode already.) Now Thonny shows big buttons with words under them (\menu{New}, \menu{Load}, \menu{Save}, \menu{Run}, \menu{Stop} and a few more). Simple mode hides the extra menus children do not need.
+  \item \textbf{Copy the exercises.} Copy the Level 3 exercise folder into the child's \menu{Documents} as the Teacher Guide describes (the student copy has no solutions). Make one more folder there: \texttt{my-python}, for the child's own programs.
+  \item \textbf{Test it.} Click \menu{Load}, open \texttt{week06} \textrightarrow{} \texttt{ex-hello-turtle} \textrightarrow{} \texttt{starter.py}, click the green \menu{Run}. A window called \enquote{Python Turtle Graphics} opens and a turtle draws a short line. Close that window. Setup done.
+\end{enumerate}
+\end{teachernote}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{\enquote{Python is picky}: spot the difference on five cards. Optional video.}
+  \timeslot{10--20}{Show me}{Blocks become words. A tour of Thonny. Run the 6.1 starter, change one number, then make a typo on purpose and read the red text.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 6.1 Hello, Turtle! and Exercise 6.2 Finish the Square.}
+  \timeslot{33--35}{Wiggle break}{\enquote{Picky robot}: move only when the command is spelled right.}
+  \timeslot{35--50}{Make it}{Exercise 6.3 Typo Detective (paper, then a typo hidden on the grown-up's Mac). Free build: change the numbers in the square. Save with a clear name.}
+  \timeslot{50--60}{Share}{Show the squares. Saving files with clear names. Exit question. Hand out play-at-home card 6.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Python is picky]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{Last week every Scratch block found its word twin. Today we use the words for real, in an app called Thonny. Scratch blocks cannot be misspelled. Words can. And Python is very \textbf{picky}.}
+  \item Lay out the five cards. On each card, one line is right and one has a tiny mistake. Children point at the mistake and say what is different: a missing letter, a capital letter, a missing bracket, a space instead of brackets, a wrong letter.
+  \item Read each right line aloud as a Scratch block: \enquote{\texttt{t.forward(100)} is move 100 steps. \texttt{t.left(90)} is a quarter turn to the left.}
+  \item Celebrate every find: \enquote{Great detective eyes. Programmers do this every day.}
+\end{enumerate}
+With 1 child: the child finds the mistakes, then hides a mistake for you to find on a sixth card. With 2: take turns, one card each. With 3 or 4: deal the cards out, each child explains one to the others. Optional: play the Rose and Pixi video for this week first.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{In Scratch we snapped blocks. In Python we \textbf{type} the same ideas as words. The turtle is our sprite. It has a pen that is already down, so it draws wherever it walks.}
+
+Show Thonny on your Mac while the children watch. Point at each part:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Run} (the green button with a white triangle): \enquote{This is our green flag.}
+  \item \textbf{Stop} (the red button): \enquote{If anything gets stuck, click Stop. Nothing breaks.}
+  \item \textbf{Editor} (the big white part): \enquote{The program lives here, like the Scratch code area.}
+  \item \textbf{Shell} (the part at the bottom): \enquote{Python talks back here. Red text means Python is confused, and it tells us where.}
+  \item \textbf{Turtle window}: a separate window called \enquote{Python Turtle Graphics}. \enquote{This is our stage.}
+\end{itemize}
+\end{teacherscript}
+
+\begin{analogy}[A very picky reader]
+\enquote{Imagine a friend who does exactly what a note says, but only if every word is spelled right. If the note says \enquote{forwad}, the friend stops and says: \enquote{Line 9? I don't know that word!} That friend is Python. It is not angry. It is telling us where to look.}
+\end{analogy}
+
+\begin{workedexample}[Hello, Turtle! (Exercise 6.1)]
+Do this on your Mac. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click \menu{Load}. Open \texttt{week06} \textrightarrow{} \texttt{ex-hello-turtle} \textrightarrow{} \texttt{starter.py}.
+  \item Read the program aloud, top to bottom: \enquote{Get the turtle toolbox. Make a turtle called t. Show it as a turtle. Walk forward 50. Quarter turn left. Keep the window open.}
+  \item Click \menu{Run}. The turtle window opens and the turtle draws a short line. If you do not see it, it is hiding behind Thonny: click the Python icon in the Dock.
+  \item Change \texttt{50} to \texttt{150}. Click \menu{Save}, then \menu{Run}. \enquote{Same program, longer line. We changed the white oval!}
+  \item Now break it on purpose: delete the \texttt{r} in \texttt{forward}, Save and Run. Read the red text slowly. Point at \enquote{line 9}, then at the last line: \texttt{'Turtle' object has no attribute 'forwad'}. \enquote{Python says: on line 9, I don't know \enquote{forwad}.} Put the \texttt{r} back and run again. \enquote{Bugs are normal. Reading the red text is a superpower.}
+\end{enumerate}
+\begin{pycode}
+t.forward(150)   # move 150 steps
+t.left(90)       # a quarter turn to the left
+\end{pycode}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} has the keyboard and the mouse. The \textbf{Helper} reads the steps in the workbook and, when the Driver types, spells the line one letter at a time (\enquote{t, dot, f, o, r \ldots}), but never grabs the keyboard. Swap when the timer runs out (6--7 minutes). With 1 child: you are the Helper; swap once so the child spells for you. With 3: Driver, Helper and Checker (compares the new line with the line above, letter by letter). With 4: two pairs, then visit each other's turtles.
+\end{pairroles}
+
+Work through the workbook: \textbf{6.1} Hello, Turtle! (the change from the demo, now on their own Mac), then \textbf{6.2} Finish the Square: three sides are drawn, and children type one new line, \texttt{t.forward(100)}, for side 4. Children open each \texttt{starter.py} with \menu{Load} and save their changes in the same file with \menu{Save}.
+
+\begin{tip}[Typing one line]
+For a Grade 3 child, typing \texttt{t.forward(100)} is real work: brackets need the Shift key, and the dot is small and quick to miss. Let the Helper spell it out and let the Driver type slowly. Correct the line together only after Run shows red text: finding the typo is part of the lesson.
+\end{tip}
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up and is a picky robot. You call out commands: \enquote{forward 3}, \enquote{left}, \enquote{forwad 2}, \enquote{forward 2}. The robots move only when the word is spelled right. For a wrong word they freeze and say \enquote{Error!} in a robot voice.
+
+\section{Make it (35--50 min)}
+\begin{bughunt}[Typo hunt: forwad and a missing bracket (Exercise 6.3)]
+Starter files never contain typos, so this bug hunt happens on paper and on \textbf{your} Mac. First, children do the workbook page: two lines of code, each with Thonny's red text. They draw a line from the red text to the bug and circle it (\texttt{forwad} is missing an r; \texttt{t.forward(100} is missing its \texttt{)}). Then the grown-up's turn: on your Mac, open the child's finished square and hide one typo while they look away. Try \texttt{t.forwad(100)} first. Thonny shows:
+
+\texttt{AttributeError: 'Turtle' object has no attribute 'forwad'} (sometimes followed by \texttt{Did you mean: 'forward'?}).
+
+Next time, delete one \texttt{)}. Thonny shows \texttt{SyntaxError: '(' was never closed} and points at the line. Coach with questions, not answers: \enquote{Which line number does it say? Look at that line and the line above. What is different from a line that works?} The child fixes it, Saves and Runs. Hide a second typo if time allows (a capital \texttt{T.forward}, or \texttt{t.left 90}).
+\end{bughunt}
+
+\begin{freebuild}[Make it yours]
+Last 5 minutes: change the numbers in the square. Try 50 for a tiny square or 200 for a big one. Try a rectangle: 200, 100, 200, 100. If a child wants a fresh program, click \menu{New}, copy the lines of the square, and click \menu{Save}: save it in \texttt{my-python} with a clear name like \texttt{zoe\_square.py} (see the safety talk below).
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child clicks Run to show their square. \enquote{Which line draws side 4? Point at it.} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[Saving files with clear names]
+\enquote{In Scratch our projects were saved in one file. In Python, every program is its own file, and it needs a good name, or we will never find it again.} Agree three rules together:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item A file name says \textbf{what it is}: \texttt{square.py}, not \texttt{untitled.py}. Small letters, and \texttt{\_} instead of a space.
+  \item Add your \textbf{nickname}, never your real name: \texttt{kai\_square.py}. Files can travel to other computers, and your name should not.
+  \item Never call a file \texttt{turtle.py}: Python would open your file instead of the real turtle, and nothing works.
+\end{itemize}
+Our files stay on our own Mac. Nothing is uploaded.
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the child presses Run after each change; the new line starts at the left edge with no spaces; the child looks at the line number when red text appears.
+
+\textbf{Ask:} show these three lines. \enquote{What will the turtle draw?}
+\begin{pycode}
+t.forward(100)
+t.left(90)
+t.forward(100)
+\end{pycode}
+\textbf{Answer:} a corner: one line to the right, a quarter turn, then one line going up (like a backwards L). A child who says \enquote{a square} needs one more go at \enquote{the computer does exactly what we write, in order}.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What was different about typing words instead of dragging blocks?} and \enquote{What does the red text tell us?} Children circle blocks or words in the workbook and circle a smiley face. Hand out play-at-home card 6 (the picky robot game).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing in the Shell instead of the Editor.} The Shell runs one line and forgets it. \enquote{Programs live in the big white part.}
+  \item \textbf{\enquote{Nothing happened!}} The turtle window is hiding behind Thonny. Click the Python icon in the Dock.
+  \item \textbf{Capital letters.} \texttt{T.forward} or \texttt{t.Forward} stop the program. Python words are all small letters here.
+  \item \textbf{Spaces at the start of a line.} Thonny says \texttt{unexpected indent}. Delete the spaces so the line starts at the left edge like the others.
+  \item \textbf{A missing bracket.} The red text says \texttt{'(' was never closed}. Sometimes the arrow points one line lower: look at the line above too.
+  \item \textbf{A side panel opens on an error.} Thonny's \enquote{Assistant} sometimes explains the error in a panel on the right. Read it together or close it; the red text in the Shell is enough.
+  \item \textbf{The window closes at once.} The last line \texttt{turtle.done()} was deleted. Put it back at the bottom.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath You are the Driver for 6.2 and the child is the Helper who spells the new line letter by letter. Let the child change the numbers in 6.1 on their own. Do Exercise 6.3 together, pointing at the line number with your finger.
+\extensionpath Turn the square into a rectangle door (200, 100, 200, 100). Draw a staircase with \texttt{t.left(90)} and \texttt{t.right(90)} taking turns. Draw the first letter of your nickname with straight lines (L, T, E or F work well).
+\end{differentiation}
+
+\begin{stretchchallenge}[Count the lines]
+The square needs 8 lines of forward and left. Ask: \enquote{Is there a shorter way to say \enquote{do this 4 times}?} Let the child guess. (Next week: Python's repeat.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Use three warm-up cards instead of five. Do 6.1 as the demo only, so children start with 6.2. Do the grown-up's hidden typo for one child while the others watch, instead of one each. Keep the file-name rules: next week children need to find their files.
+\end{teachernote}

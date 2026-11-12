@@ -22,7 +22,7 @@
       "levels": [
         {"key": "j1", "number": 1, "dir": "junior/1-little-robots", "title": "Little Robots", "goal_prefix": "J1", "weeks": 10, "buffers": 2, "status": "active"},
         {"key": "j2", "number": 2, "dir": "junior/2-game-makers", "title": "Game Makers", "goal_prefix": "J2", "weeks": 10, "buffers": 2, "status": "planned"},
-        {"key": "j3", "number": 3, "dir": "junior/3-bridge-to-python", "title": "Bridge to Python", "goal_prefix": "J3", "weeks": 10, "buffers": 2, "status": "planned"}
+        {"key": "j3", "number": 3, "dir": "junior/3-bridge-to-python", "title": "Bridge to Python", "goal_prefix": "J3", "weeks": 10, "buffers": 2, "status": "active"}
       ]
     }
   ]

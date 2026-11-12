@@ -1,0 +1,99 @@
+% Junior Level 3, Week 1 -- workbook chapter (read aloud with a grown-up)
+\chapterweek{1}{Patterns in Patterns}{A repeat inside a repeat makes amazing art.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can put a repeat inside a repeat.
+  \item I can draw a flower with a My Block.
+  \item I can fix a repeat in the wrong place.
+\end{ican}
+
+\section{A pattern inside a pattern}
+Clap, clap, stomp. Do it 3 times. Then jump. Now do all of that 2 times! That is a pattern inside a pattern. In Scratch it is a \textbf{nested repeat}.
+
+\begin{exercise}[The Window]
+Draw four squares that make a window.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Add the green \menu{Pen} blocks: \menu{Add Extension}, then \menu{Pen}.
+  \item Build the script. The repeats are orange \menu{Control}.
+  \item Put one repeat inside the other.
+  \item Drag the cat to the middle. Click the flag.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blocklook{set size to \ovalnum{40} \%}
+\blockmove{point in direction \ovalnum{90}}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{move \ovalnum{60} steps}
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
+  }
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Square Flower]
+Make a My Block called \enquote{square}. Use it 6 times.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Pink-red \menu{My Blocks}: click \menu{Make a Block}. Type \enquote{square}.
+  \item Snap the square repeat under \enquote{define square}.
+  \item Change the flag script: repeat 6 of \enquote{square} and turn 60. The turn card says 60.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockmoreblocks{define \ovalmoreblocks{square}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{60} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.8]
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockmoreblocks{square}
+  \blockmove{turn \turnright{} \ovalnum{60} degrees}
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The One-Square Flower]
+Priya wants six squares. Her cat draws only one! Build her script and test it.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockmove{turn \turnright{} \ovalnum{60} degrees}
+}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{60} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\end{scratch}
+\end{center}
+Circle the repeat in the wrong place. Fix it on your Mac.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{nested repeat}{A repeat inside another repeat.}
+  \vocabword{pattern}{Something that happens again and again in the same way.}
+\end{vocab}
+
+\begin{reflection}
+Draw your favorite pattern.
+\answerspace{4cm}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

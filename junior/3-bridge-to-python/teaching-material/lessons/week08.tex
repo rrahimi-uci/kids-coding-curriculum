@@ -1,0 +1,135 @@
+% Junior Level 3, Week 8 -- Colors and My Own Pattern
+\lesson{8}{Colors and My Own Pattern}{Change the numbers and colors to make it yours.}
+\lessoninfo{Concepts: color names (I), pen size (I), changing a working program (R), \texttt{def} as a My Block (I, stretch)}{Tools: Thonny in simple mode with Python's turtle, color-by-code cards, crayons}{CSTA: 1B-AP-10, 1B-AP-11, 1B-AP-12, 1B-AP-14, 1B-AP-15}
+
+\begin{objectives}
+  \item The student can change a color name and a pen size in a working Python program, one change at a time, and run it after each change. (J3.G5) [J3.W08.1]
+  \item The student can find a misspelled color name with the help of Thonny's red \enquote{bad color string} text and fix the spelling. (J3.G6) [J3.W08.2]
+  \item The student can remix a working flower into a two-color pattern and write a credit line that says whose program it started from, using only a nickname. (J3.G5, J3.G7) [J3.W08.3]
+  \item The student can say that \texttt{def square():} is like a Scratch My Block called square and use it inside a repeat (stretch). (J3.G1, J3.G5) [J3.W08.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 8 and play-at-home card 8 (one per child).
+  \item Unplugged: for each child a 4 by 4 grid drawn on paper, with a number in every square. Use this pattern, row by row: 1 2 2 1 / 2 1 1 2 / 2 1 1 2 / 1 2 2 1. Two \textbf{color key cards} written by hand: card A says \texttt{1 = "gold"} and \texttt{2 = "blue"}; card B says \texttt{1 = "gold"} and \texttt{2 = "purpel"} (a typo on purpose). Crayons in gold (yellow is fine), blue, purple, green and orange.
+  \item On each Mac: Thonny open in simple mode, a \textbf{mouse}, and the \texttt{week08} exercise folder ready (\menu{Load} \textrightarrow{} \ldots{} \textrightarrow{} \texttt{exercises} \textrightarrow{} \texttt{week08}).
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Color-by-code cards: color a grid with key card A, then spot the typo on key card B.}
+  \timeslot{10--20}{Show me}{Color names and pen size. Demo of Exercise 8.1: black becomes blue, pen size 1 becomes 5. Then a typo on purpose: \texttt{"bleu"}.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 8.1 Color My Square (with the color bug hunt), then Exercise 8.2 Two-Color Flower.}
+  \timeslot{33--35}{Wiggle break}{Color hunt: run and touch something of the color called out. A misspelled color means freeze!}
+  \timeslot{35--50}{Make it}{Finish 8.2 with a credit line. Exercise 8.3 My Square Block (stretch) for children who are ready. Free build: my own pattern.}
+  \timeslot{50--60}{Share}{Show the patterns. Credit: whose idea did I remix? Exit question. Preview of next week's project. Hand out play-at-home card 8.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Color-by-code cards]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Give each child a numbered grid. Show key card A: \enquote{This is a tiny program. It says: every 1 is gold, every 2 is blue.} Children color the grid. A pattern appears.
+  \item \enquote{Now let's change the program.} Ask each child to pick a new color for 2 (green, orange or purple) and color one row again on the back of the paper. \enquote{Same program, one change, a new picture. That is what we do in Python today.}
+  \item Show key card B. \enquote{The computer reads this card. What will happen at number 2?} (It does not know \enquote{purpel}! It stops.) \enquote{Python is picky about color names too. They must be spelled right.}
+\end{enumerate}
+With 1 child: the child colors and you play the computer for card B (\enquote{Error! I don't know purpel!}). With 2--4: each child picks a different new color for 2, then compare the remixes side by side: same pattern, different colors.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Last week's programs drew in black, with a thin pen. Today we make them ours.} Show the two lines and read them aloud:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \texttt{t.color("blue")}: \enquote{Like Scratch's set pen color. The color name goes inside quote marks.}
+  \item \texttt{t.pensize(5)}: \enquote{Like Scratch's set pen size. A bigger number draws a thicker line.}
+\end{itemize}
+Colors that work well: orange, blue, purple, green, gold, black. \enquote{Almost everyone can tell purple and gold apart.}
+\end{teacherscript}
+
+\begin{analogy}[Changing a recipe]
+\enquote{A working program is like a cake recipe that already tastes good. You can swap the sprinkles or the frosting color and it is still a cake. Change one thing, taste it, then change the next thing. If you change everything at once and it tastes strange, you won't know why.}
+\end{analogy}
+
+\begin{workedexample}[Color My Square (Exercise 8.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click \menu{Load}. Open \texttt{week08} \textrightarrow{} \texttt{ex-color-square} \textrightarrow{} \texttt{starter.py}. Click \menu{Run}: a thin black square.
+  \item Change \texttt{black} to \texttt{blue}. Leave both quote marks where they are. Save and Run: a thin blue square, and a blue turtle.
+  \item Change \texttt{1} in \texttt{t.pensize(1)} to \texttt{5}. Save and Run: a thick blue square. \enquote{One change, then Run. Then the next change.}
+  \item Now a typo on purpose: change \texttt{blue} to \texttt{bleu}. Save and Run. Read the last line of the red text: \texttt{turtle.TurtleGraphicsError: bad color string: bleu}. \enquote{Python says: I don't know a color called bleu.} Fix it and Run again.
+\end{enumerate}
+\begin{pycode}
+t.color("blue")
+t.pensize(5)
+\end{pycode}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} has the keyboard and the mouse. The \textbf{Helper} reads the steps, chooses the color for this turn, and spells it letter by letter. The Helper never grabs the mouse. When the timer runs out (6--7 minutes), swap, and the new Helper picks the next color. With 1 child: you are the Helper and the child has the last word on colors. With 3: Driver, Helper and \enquote{color judge} who checks the spelling before Run. With 4: two pairs; visit each other's flowers at the end.
+\end{pairroles}
+
+Work through the workbook: \textbf{8.1} Color My Square, then \textbf{8.2} Two-Color Flower. In 8.2 the starter draws six purple squares; children change the \textbf{second} color, so the squares take turns, and then type their nickname in the credit line at the top.
+
+\begin{bughunt}[A color name spelled wrong (Exercise 8.1)]
+Starter files never contain typos, so do this on paper and on your Mac. On the workbook page, children circle the color name Python will not know (\texttt{"bleu"}) and say the right spelling. Then the grown-up's turn: on your Mac, open the child's finished square and change the color to a misspelled one while they look away (\texttt{"purpel"}, \texttt{"gren"} or \texttt{"orang"}). The child runs it, reads the last line of the red text (\texttt{bad color string: purpel}), finds the line with the color, and fixes it. Coach with questions: \enquote{What word does the red text show? Where is that word in the program?} Note that capital letters are not a bug here: \texttt{"Blue"} works, but we keep small letters like the rest of Python.
+\end{bughunt}
+
+\section{Wiggle break (33--35 min)}
+Color hunt: call out a color (\enquote{blue!}) and everyone runs to touch something blue. Then spell one wrong: \enquote{G, R, E, N!} Everyone freezes and says \enquote{bad color string!} in a robot voice.
+
+\section{Make it (35--50 min)}
+Children finish 8.2 with the credit line. Children who are ready try \textbf{8.3} My Square Block (stretch): \enquote{Remember making a My Block called square in week 1? Python has My Blocks too. \texttt{def square():} is the pink define block, and \texttt{square()} uses it.} They change the bottom \texttt{range(1)} to \texttt{range(4)} for a window of four squares, then change \texttt{60} inside the block to \texttt{100}: all four squares grow at once.
+
+\begin{freebuild}[My own pattern]
+Last 6--7 minutes: make the flower from 8.2 truly yours. Change both colors, the pen size, the size of the squares (\texttt{80}), or the number of squares (four instead of six: change \texttt{range(3)} to \texttt{range(2)} and both \texttt{t.left(60)} lines to \texttt{t.left(90)}). Change one thing, Run, look. Save it as a new file in \texttt{my-python} with a clear name like \texttt{omar\_flower.py}, and keep the credit line at the top.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child clicks Run to show their pattern and reads their credit line aloud. \enquote{What did you change? What did you keep?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[Credit: whose idea did I remix?]
+\enquote{Today you started from a program somebody else made and changed it. That is called a \textbf{remix}. Remixing is great, and programmers do it all the time. But we always say whose idea we started from. That is called giving \textbf{credit}.} Point at the credit line in 8.2: \enquote{Made by: the Kids Coding course. Changed by: your nickname.} \enquote{We use a nickname, never our real name, because files can travel.} Ask: \enquote{Your friend Leo drew a cool flower and you want to remix it. What do you do first?} (Ask Leo, then write \enquote{Idea from: Leo} at the top.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the child changes one thing at a time and runs after each change; keeps the quote marks around color names; reads the last line of the red text when a color is misspelled.
+
+\textbf{Ask:} show these lines. \enquote{What will Thonny do? How do we fix it? Which line makes the lines thicker?}
+\begin{pycode}
+t.color("bleu")
+t.pensize(5)
+\end{pycode}
+\textbf{Answer:} Thonny stops with red text ending in \texttt{bad color string: bleu}. Fix the spelling to \texttt{"blue"}. The line \texttt{t.pensize(5)} makes the lines thicker.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What did you change to make the flower yours? Whose program did you start from?} Children draw their pattern in the workbook and circle a smiley face. \textbf{Project preview:} \enquote{Next week is the project studio: you choose a Scratch game or art app, or a Python postcard, and plan it on a plan card.} Hand out play-at-home card 8 (color by code).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Quote marks deleted.} \texttt{t.color(blue)} gives \texttt{NameError: name 'blue' is not defined}. Color names always sit inside quote marks.
+  \item \textbf{Only one quote mark.} \texttt{t.color("blue)} gives a \texttt{SyntaxError} about a string that is not closed. Add the missing quote mark.
+  \item \textbf{A color Python does not know.} \texttt{bad color string} means a misspelling or a made-up name (\enquote{sky}). Pick from the list in the workbook.
+  \item \textbf{Two changes at once.} If the program breaks, the child cannot tell which change did it. Undo one (\keys{Cmd}+\keys{Z}) and change one thing at a time.
+  \item \textbf{Both colors still purple in 8.2.} The child changed the first color line. The second \texttt{t.color} line has the \texttt{CHANGE ME} comment.
+  \item \textbf{8.3: \texttt{square} without brackets.} Nothing is drawn and there is no red text. The brackets in \texttt{square()} mean \enquote{use the block now}.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 8.1 and 8.2 only. You type the quote marks and brackets; the child chooses and types the color names and numbers. Skip the credit line typing: the child says their nickname and you type it.
+\extensionpath Do 8.3 My Square Block. Then add a third color to the flower, or change the petals to triangles with the turn card (inner \texttt{range(3)} and \texttt{t.left(120)} in both places). Try \texttt{t.speed(1)} and \texttt{t.speed(10)} and say which you like.
+\end{differentiation}
+
+\begin{stretchchallenge}[One change, four squares]
+In 8.3, ask the child to predict first: \enquote{If I change one number inside \texttt{def square():}, how many squares change?} Change \texttt{60} to \texttt{100} and run. (All four, because they all use the same block.) Then put \texttt{t.color("purple")} as the first line inside the block (pushed in by 4 spaces): every square turns purple.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Color only the first two rows in the warm-up. Do 8.1 as the demo, so children start with 8.2. Leave 8.3 for buffer B2 or for fast finishers next week. Keep the credit talk and the project preview: the plan card next week builds on them.
+\end{teachernote}

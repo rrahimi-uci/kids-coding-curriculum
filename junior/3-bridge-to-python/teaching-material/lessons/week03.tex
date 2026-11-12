@@ -1,0 +1,151 @@
+% Junior Level 3, Week 3 -- Data Detectives
+\lesson{3}{Data Detectives}{Data is information we collect; a graph tells its story.}
+\lessoninfo{Concepts: data (I), tally (I), bar graph (I), ask and answer (I), if/else (R), variables (R)}{Tools: Scratch 3 offline app, squared paper, crayons, fruit picture cards}{CSTA: 1B-DA-06, 1B-DA-07, 1B-AP-09, 1B-NI-05}
+
+\begin{objectives}
+  \item The student can run a family survey, keep count with tally marks, and draw a bar graph that shows which fruit won. (J3.G3) [J3.W03.1]
+  \item The student can build a Scratch survey that asks a question, checks the answer with if/else and counts it in a variable. (J3.G3) [J3.W03.2]
+  \item The student can find one answer counted in two places, such as \enquote{Apple} and \enquote{apple}, and fix the tally and the graph. (J3.G3, J3.G6) [J3.W03.3]
+  \item The student can say why we only ask what we need, never ask for personal information, and why asking only one kind of person gives a graph that is not fair. (J3.G7, J3.G4) [J3.W03.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 3 and play-at-home card 3 (one per child).
+  \item Unplugged: four fruit cards you draw by hand (apple, banana, orange, grapes), a big sheet of squared paper (or normal paper with squares drawn on), crayons, and sticky notes.
+  \item Survey answers: the people at home, a grandparent on the phone, or soft toys that \enquote{vote} (you whisper their answer). Aim for 8 to 15 answers.
+  \item On each Mac: the Scratch app with a new project and a \textbf{mouse}.
+  \item A kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Family survey: \enquote{What is your favorite fruit?} Collect the answers and keep count with tally marks.}
+  \timeslot{10--20}{Show me}{Turn the tally into a paper bar graph together. Then the Fruit Survey robot in Scratch: ask and wait, answer, if/else, and a variable to count.}
+  \timeslot{20--33}{Make it}{Exercise 3.1 Tally Time (paper), then Driver and Helper start Exercise 3.2 Fruit Survey Robot. Swap on the timer.}
+  \timeslot{33--35}{Wiggle break}{A human bar graph: line up behind your favorite fruit card.}
+  \timeslot{35--50}{Make it}{Finish 3.2 and test it with tricky answers. Exercise 3.3 The Two Apples (bug hunt). Then free build: a new question.}
+  \timeslot{50--60}{Share}{Show the graphs and the robots. Only ask what you need. Fair data. Exit question, hand out play-at-home card 3.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Family survey]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{Today we are \textbf{data detectives}. Data is information we collect. We will collect answers to one question: what is your favorite fruit: apple, banana, orange or grapes?}
+  \item Lay the four fruit cards in a row. Children ask everyone present (and the toys, and a grandparent on the phone if you set that up). Each answer goes on a sticky note under its card.
+  \item Now show \textbf{tally marks}: one line for each answer. The fifth line goes across the other four, like a gate. \enquote{Then we can count in fives.} Children make the tally on the big sheet, one row per fruit.
+  \item Count each row together. \enquote{Which fruit has the most? How many more than banana?}
+\end{enumerate}
+With 1 child: the child asks and you write the tally first, then swap. With 3 or 4: one asker, one tally keeper, one checker who counts the sticky notes; swap after each fruit.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{A tally is great for counting. A \textbf{bar graph} is great for seeing. Each answer gets one square, and the squares stack up into a bar. The tallest bar is the favorite.} Color one bar together on the big sheet; the children color the other bars. \enquote{The graph tells the story of our data at one look.}
+
+\enquote{Now let's make a survey robot in Scratch. It asks a question, waits for you to type the answer, checks it, and counts it.}
+\end{teacherscript}
+
+\begin{analogy}[A tally is a pile of pebbles]
+\enquote{Long ago, shepherds counted sheep with pebbles: one pebble in the bag for each sheep. A tally mark is a pebble on paper. A variable in Scratch is the bag: each time we \enquote{change by 1}, one more pebble goes in.}
+\end{analogy}
+
+\begin{workedexample}[Fruit Survey Robot (Exercise 3.2)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Orange-red \menu{Variables}: make two variables, \enquote{apple votes} and \enquote{other votes}, \enquote{For all sprites}. Their counters appear on the stage.
+  \item Yellow \menu{Events}: \enquote{when green flag clicked}. Orange-red \menu{Variables}: \enquote{set apple votes to 0} and \enquote{set other votes to 0}.
+  \item Orange \menu{Control}: \enquote{repeat 10}, changed to 4. We will ask 4 people.
+  \item Light blue \menu{Sensing}: put \enquote{ask What's your name? and wait} inside the repeat. Change the words to \enquote{What is your favorite fruit?}. \enquote{We never ask for names. We only ask what we need.}
+  \item Orange \menu{Control}: put \enquote{if then else} under the ask, inside the repeat.
+  \item Green \menu{Operators}: drag the \enquote{=} block into the if. Light blue \menu{Sensing}: drag the round \enquote{answer} block into its left side. Type \enquote{apple} on the right side.
+  \item Orange-red \menu{Variables}: \enquote{change apple votes by 1} in the top gap, \enquote{change other votes by 1} in the bottom gap.
+  \item Purple \menu{Looks}: under the repeat, \enquote{say Thank you! for 2 seconds}.
+  \item Click the flag. A box appears under the stage. Type \enquote{apple}, press Return. Watch apple votes go to 1. Type \enquote{banana}: other votes goes to 1.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{apple votes} to \ovalnum{0}}
+\blockvariable{set \selectmenu{other votes} to \ovalnum{0}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocksensing{ask \ovalnum{What is your favorite fruit?} and wait}
+  \blockifelse{if \booloperator{\ovalsensing{answer} = \ovalnum{apple}} then}{
+    \blockvariable{change \selectmenu{apple votes} by \ovalnum{1}}
+  }{
+    \blockvariable{change \selectmenu{other votes} by \ovalnum{1}}
+  }
+}
+\blocklook{say \ovalnum{Thank you!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse and types. The \textbf{Helper} reads the script in the book, names the color circle for each block, and is the first \enquote{person} to answer the survey when it runs. The Helper never grabs the mouse. Swap when the timer rings (6--7 minutes). With 1 child: you are the Helper, then swap. With 3: Driver, Helper and Survey Taker (answers the questions when testing). With 4: two pairs, and each pair answers the other pair's survey.
+\end{pairroles}
+
+Start with \textbf{3.1} Tally Time on paper (5 minutes): count the tally marks and color the bar graph. Then build \textbf{3.2} Fruit Survey Robot.
+
+\section{Wiggle break (33--35 min)}
+Put the four fruit cards on the floor in a row. Everyone (toys too!) lines up behind their favorite fruit. \enquote{Look: we made a bar graph out of people!} Switch to a second question: \enquote{Favorite season?}
+
+\section{Make it (35--50 min)}
+Finish 3.2 and test it with tricky answers: \enquote{Apple} with a big A, \enquote{APPLE}, and \enquote{apples}. Which ones does the robot count as apple? Write it down.
+
+\begin{bughunt}[The Two Apples (Exercise 3.3)]
+Kai's tally chart has a row \enquote{Apple} with 2 marks and another row \enquote{apple} with 3 marks, and a \enquote{banana} row with 4. Kai says banana won. Ask: \enquote{Are Apple and apple different fruits?} No: they are the same answer, written two ways, so the 5 apple answers were split into two rows. Fix: merge the rows, apple has 5, apple won. Then fix the graph.
+
+\textbf{In Scratch} (the children test this on their robot): the \enquote{=} block does not care about big and small letters, so \enquote{Apple}, \enquote{APPLE} and \enquote{apple} all count as apple. But \enquote{apples}, \enquote{aple} or \enquote{apple } with a space at the end count as \enquote{other}: they are not exactly the same word. Tidy data means agreeing on one way to write each answer. Tell the children: \enquote{In a few weeks we meet Python, and Python is pickier: it thinks Apple and apple are different!}
+\end{bughunt}
+
+\begin{freebuild}[A new question]
+Last 6--7 minutes: change the question and the answer the robot checks for: \enquote{What is your favorite color?} with \enquote{blue}, or \enquote{Cats or dogs?} with \enquote{cats}. Rename the variables to match (right-click the variable in the Variables list, \menu{rename variable}). Or change 4 to the number of people in the room.
+\end{freebuild}
+
+\begin{stretchchallenge}[Big numbers, bigger squares]
+A school asked 300 children. Apple: 120, banana: 90, orange: 60, grapes: 30. Draw a bar graph where \textbf{one square stands for 10 children}. How many squares tall is the apple bar? (12.) Or in Scratch: add a third variable \enquote{banana votes} and put a second if/else inside the \enquote{else} gap, checking for banana.
+\end{stretchchallenge}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child holds up their bar graph and says one sentence about it: \enquote{Apple won with 5. Grapes got only 1.} Then a friend answers the survey robot on their Mac. Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[Only ask what you need]
+\enquote{Good data detectives only ask what they need. To find the favorite fruit we need one answer: the fruit. We do not need anybody's name, age, address, school, birthday or photo: that is \textbf{personal information}, and we never ask for it, and never give it to an app or a website. If a program asks you for those things, stop and tell a grown-up.}
+
+\enquote{And a fair survey asks all kinds of people. If we only asked the apple club, our graph would say everyone loves apples, and it would be wrong. Next week we find out that computers learn from data like this, so fair data really matters.} Ask: \enquote{Zoe's survey asks \enquote{What is your favorite fruit?} and \enquote{What is your home address?} Which question should she delete?}
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} tally marks with the fifth mark across; one square per answer in the bar graph, all bars starting at the bottom line; in Scratch, \enquote{answer} inside the \enquote{=} block and a \enquote{change by 1} in each gap of the if/else.
+
+\textbf{Ask:} show the tally \enquote{banana: 4, Banana: 2, orange: 5}. \enquote{Which fruit really won?}
+\textbf{Answer:} banana, with 6. \enquote{banana} and \enquote{Banana} are the same answer, so 4 and 2 must be added together.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What is data?} and \enquote{What does the tallest bar tell us?} Children draw their own favorite fruit in the workbook and circle a smiley face. Hand out play-at-home card 3.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Bars that float.} Every bar starts at the bottom line, one square per answer, no gaps. Count the squares against the tally.
+  \item \textbf{Tally with the fifth mark as a sixth line.} The fifth mark goes across the four, like a gate.
+  \item \textbf{Nothing to type.} The answer box appears under the stage only while \enquote{ask and wait} is waiting. Click in it, type, and press Return (or click the check mark).
+  \item \textbf{Every answer counts as other.} \enquote{answer} is not in the \enquote{=} block, or the right side says \enquote{apples} or has a space. Check the spelling of the word after the \enquote{=}.
+  \item \textbf{The counts keep growing between runs.} The two \enquote{set \ldots{} to 0} blocks are missing at the top.
+  \item \textbf{Both counters go up together.} One \enquote{change} block is under the if/else, not in a gap.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Make the tally and the bar graph together, with you drawing the squares and the child coloring. In Scratch, build the robot together; the child does the testing and watches the counters.
+\extensionpath The stretch challenge: a bar graph with one square for 10 children, or a third counter with an if/else inside the else.
+\end{differentiation}
+
+\begin{teachernote}[If you are short on time]
+Collect 6 to 8 answers in the warm-up and skip 3.1 (the warm-up graph is enough). Do 3.2 and the two-apples bug hunt. Never skip the talk about personal information.
+\end{teachernote}

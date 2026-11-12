@@ -1,0 +1,126 @@
+% Junior Level 3, Week 6 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{6}{Hello, Python!}{Python uses words instead of blocks, and it is picky about spelling.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can run a Python program in Thonny.
+  \item I can change a number and type one new line.
+  \item I can find a typo with the help of the red text.
+\end{ican}
+
+\section{Meet Thonny}
+Thonny is the app where we write Python. The turtle is our sprite. It draws wherever it walks.
+
+\begin{center}
+%% alt: The Thonny window in simple mode. A row of buttons at the top: Load, Save, a green Run button and a red Stop button. Under it the big Editor shows a short turtle program. At the bottom the Shell is where Python talks back. On the right, a separate turtle window shows a turtle at the end of a line.
+\begin{tikzpicture}[font=\small,
+  lab/.style={draw=kcgray,fill=white,rounded corners=2pt,inner sep=3pt,align=center}]
+  \draw[thick,rounded corners=3pt,fill=kcgray!10] (0,0) rectangle (9,6.4);
+  \node[anchor=west,font=\small\bfseries] at (0.2,6.15) {Thonny};
+  % toolbar with labeled buttons
+  \foreach \x/\name in {0.8/Load,2.0/Save} {
+    \draw[fill=white,rounded corners=1pt] (\x-0.25,5.45) rectangle (\x+0.25,5.85);
+    \node[font=\scriptsize] at (\x,5.25) {\name};
+  }
+  \fill[kcgreen] (3.3,5.65) circle (0.24);
+  \fill[white] (3.21,5.52) -- (3.21,5.78) -- (3.42,5.65) -- cycle;
+  \node[font=\scriptsize\bfseries] at (3.3,5.25) {Run};
+  \fill[kcvermillion] (4.5,5.65) circle (0.24);
+  \fill[white] (4.41,5.56) rectangle (4.59,5.74);
+  \node[font=\scriptsize] at (4.5,5.25) {Stop};
+  % editor
+  \draw[fill=white] (0.2,2.2) rectangle (8.8,5.0);
+  \node[anchor=north west,font=\ttfamily\footnotesize\setstretch{1},align=left] at (0.35,4.9)
+    {import turtle\\t = turtle.Turtle()\\t.forward(150)\\t.left(90)\\turtle.done()};
+  \node[lab,fill=kcsky!20] at (6.8,3.6) {\textbf{Editor}\\my program};
+  % shell
+  \draw[fill=kcblack!4] (0.2,0.2) rectangle (8.8,2.0);
+  \node[anchor=north west,font=\ttfamily\footnotesize] at (0.35,1.9) {Shell};
+  \node[lab,fill=kcyellow!30] at (6.8,1.0) {\textbf{Shell}\\Python talks back};
+  % turtle window
+  \draw[thick,rounded corners=3pt,fill=white] (9.6,1.2) rectangle (13.4,4.6);
+  \node[anchor=west,font=\scriptsize\bfseries] at (9.7,4.35) {Turtle window};
+  \draw[very thick] (10.2,2.4) -- (12.4,2.4);
+  \fill[kcgreen!70!black] (12.4,2.4) ellipse (0.18 and 0.12);
+  % labels
+  \node[lab] (run) at (6.6,7.1) {\textbf{Run} is the green flag};
+  \draw[-{Stealth},thick] (run.west) -- (3.6,5.85);
+\end{tikzpicture}
+\end{center}
+
+Every Scratch block has a word twin.
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}l c l@{}}
+\begin{scratch}[scale=0.8]\blockmove{move \ovalnum{100} steps}\end{scratch} & \textrightarrow & \texttt{t.forward(100)}\\
+\begin{scratch}[scale=0.8]\blockmove{turn \turnleft{} \ovalnum{90} degrees}\end{scratch} & \textrightarrow & \texttt{t.left(90)}\\
+\end{tabular}
+\end{center}
+
+\begin{exercise}[Hello, Turtle!]
+Folder: \texttt{week06/ex-hello-turtle}.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Click \menu{Load}. Open \texttt{starter.py}.
+  \item Click \menu{Run}. Watch the turtle.
+  \item Change \texttt{50} to \texttt{150}.
+  \item Click \menu{Save}, then \menu{Run}. The line is longer!
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Finish the Square]
+Folder: \texttt{week06/ex-finish-square}. The turtle draws 3 sides. Type side 4 under \texttt{CHANGE ME}:
+\begin{pycode}
+t.forward(100)
+\end{pycode}
+Small letters. A dot. Both brackets. Save and Run. Do you see a square?
+\end{exercise}
+
+\begin{exercise}[Typo Detective]
+Python stops at a typo. It shows red text in the Shell. The \textbf{line number} says where to look. The \textbf{last line} says what is wrong. Circle the typo in each message.
+\begin{center}
+%% alt: Two red messages from the Thonny Shell. Bug 1: File starter.py, line 9, the line t.forwad(100), and the last line AttributeError: 'Turtle' object has no attribute 'forwad'. Bug 2: File starter.py, line 16, the line t.forward(100 with a little arrow under the bracket, and the last line SyntaxError: '(' was never closed.
+\begin{tikzpicture}[
+  err/.style={draw=kcvermillion,fill=kcvermillion!6,rounded corners=2pt,inner sep=5pt,align=left,
+    font=\ttfamily\footnotesize,text=kcvermillion!85!black},
+  tag/.style={font=\small\bfseries,anchor=south west,inner sep=1pt}]
+  \node[err,anchor=north west] (b1) at (0,0) {Traceback (most recent call last):\\
+    \ \ File "starter.py", line 9, in <module>\\
+    \ \ \ \ t.forwad(100)\\
+    AttributeError: 'Turtle' object has no attribute 'forwad'};
+  \node[tag] at (b1.north west) {Bug 1};
+  \node[err,anchor=north west] (b2) at ([yshift=-0.9cm]b1.south west) {\ \ File "starter.py", line 16\\
+    \ \ \ \ t.forward(100\\
+    \ \ \ \ \ \ \ \ \ \ \ \ \ \textasciicircum\\
+    SyntaxError: '(' was never closed};
+  \node[tag] at (b2.north west) {Bug 2};
+\end{tikzpicture}
+\end{center}
+Now your grown-up hides one typo in your square. Can you find it?
+\end{exercise}
+
+\begin{grownup}[No turtle?]
+The turtle window can hide behind Thonny. Click the Python icon in the Dock.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{Thonny}{The app where we write and run Python.}
+  \vocabword{typo}{A small spelling mistake, like \texttt{forwad}.}
+  \vocabword{error message}{Red text from Python. It says which line has a problem.}
+\end{vocab}
+
+\begin{reflection}
+What do you like more today? Circle one.
+
+\begin{center}
+\begin{tabular}{c@{\hspace{2cm}}c}
+{\Huge\faPuzzlePiece} & {\Huge\faKeyboard[regular]}\\
+blocks & words
+\end{tabular}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

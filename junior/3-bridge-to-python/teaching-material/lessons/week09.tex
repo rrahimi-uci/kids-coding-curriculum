@@ -1,0 +1,147 @@
+% Junior Level 3, Week 9 -- Project Studio
+\lesson{9}{Project Studio}{Choose a Scratch game or a Python picture; plan, build, test.}
+\lessoninfo{Concepts: all concepts (R)}{Tools: the plan card from the project brief, Scratch 3 offline app, Thonny in simple mode}{CSTA: 1B-AP-10, 1B-AP-11, 1B-AP-13, 1B-AP-14, 1B-AP-15}
+
+\begin{objectives}
+  \item The student can plan their Big Build on the plan card: choose Scratch or Python, draw it, and name its parts and steps before building. (J3.G2) [J3.W09.1]
+  \item The student can build their project one part at a time and test after each part: a Scratch game or art app with a nested repeat or a My Block and a score or counter, or a Python postcard with a \texttt{for} loop and two colors. (J3.G1, J3.G5) [J3.W09.2]
+  \item The student can check a partner's project against the plan card, and find and fix a bug in blocks or a typo in Python. (J3.G6) [J3.W09.3]
+  \item The student can choose colors and sizes that everyone can see, and write down whose idea they used. (J3.G7) [J3.W09.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 9, play-at-home card 9, and \textbf{the plan card in the project brief} (one per child, plus a spare). Pencils and crayons.
+  \item \textbf{Before the lesson (core path, about 3 minutes per child).} Scratch path: open a new project, add the Pen extension, pick a backdrop you like, keep the cat, make a variable for the counter (\menu{Make a Variable}, For all sprites; the child can rename it later), and save it as \enquote{bigbuild-} plus the child's nickname. Python path: in Finder, copy \texttt{project/starter/postcard.py} into the child's \texttt{my-python} folder (from week 6) and rename the copy \texttt{postcard\_} plus the nickname, for example \texttt{postcard\_kai.py}. Not sure which path a child will choose? Prepare both; it takes a minute.
+  \item On each Mac: Scratch and Thonny (simple mode) ready, and a \textbf{mouse}. A kitchen timer (6--7 minutes) for Driver/Helper swaps.
+  \item Sticky notes for the partner check. Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\begin{teachernote}[The project in one look]
+\textbf{My Big Build.} Each child chooses one path. \textbf{Path A, Scratch:} a game or art app that uses a repeat inside a repeat or a My Block, plus a score or a counter. \textbf{Path B, Python:} a turtle postcard that starts from the working starter \texttt{postcard.py}, uses a \texttt{for} loop, at least two colors and one shape the child changed or added. Both are planned on the plan card and checked by a partner. Milestones: \textbf{M1 Plan card} (start of today), \textbf{M2 It works} (end of today: every must-have works and the partner check is done), \textbf{M3 Graduation showcase} (week 10). Stretch path: a \texttt{def} for a repeated shape (Python) or a My Block with a number input (Scratch). Full details and the reference postcard are in the project brief and the project teacher guide.
+\end{teachernote}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{The plan card (M1, Exercise 9.1): choose Scratch or Python, draw it, name three parts, check the must-haves.}
+  \timeslot{10--20}{Show me}{Build part by part: change the Python postcard one line at a time and press Run after each change; a quick look at a Scratch art app.}
+  \timeslot{20--33}{Make it}{Exercise 9.2 Build My Big Build: Part 1, then Part 2. Driver and Helper, swap on the timer.}
+  \timeslot{33--35}{Wiggle break}{Act out your plan card: one pose per part.}
+  \timeslot{35--50}{Make it}{Part 3, then Exercise 9.3 Partner Check against the plan (bug hunt) at about minute 42. Fix, save, M2. Free build with extras.}
+  \timeslot{50--60}{Share}{Can everyone see it? The squint test. Show one part that works. Exit question, hand out play-at-home card 9.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[The plan card (Exercise 9.1, milestone M1)]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{Today you build your own big project: your \textbf{Big Build}. Builders draw a plan before they build a house. Coders do too.} Hand out the plan cards.
+  \item \textbf{Choose:} path A (a Scratch game or art app) or path B (a Python postcard). Both are great. If a child cannot choose, ask: \enquote{Do you want people to play it, or to look at it?}
+  \item \textbf{Draw} what it will look like when it is finished: a stage with sprites, or a postcard picture.
+  \item \textbf{Name three parts}, one line each, in the order you will build them. Scratch example: \enquote{1. get ready, 2. the flower pattern, 3. the counter.} Python example: \enquote{1. the house, 2. the roof, 3. a sun.}
+  \item \textbf{Check the must-haves} on the card and write \textbf{whose idea} you borrowed, if any (a friend, the starter, a week of the course).
+\end{enumerate}
+With 1 child: fill in your own plan card next to them, then swap cards and explain them to each other. With 2--4: everyone makes their own card, then tells the next person their three parts in three sentences. Keep it to 10 minutes: a quick drawing is perfect.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{We do not build the whole project at once. We build \textbf{one part}, we \textbf{test} it, and we check it off on the plan card. Then the next part. If something breaks, we know where to look: in the part we just made.}
+\end{teacherscript}
+
+\begin{analogy}[Building a snowman]
+\enquote{You do not throw all the snow in one pile. You roll the bottom ball and check it stands. Then the middle, then the head. A plan card is your snowman picture: one ball, one part, at a time.}
+\end{analogy}
+
+\begin{workedexample}[Omar's postcard, part by part (path B)]
+In Thonny, click \menu{Load} and open your copy of the postcard while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Press the green \textbf{Run} button first. \enquote{It already works: an orange house with a purple roof. Starting from something that works is the core path.}
+  \item Close the turtle window. Find the line \texttt{t.color("orange")}. Change \texttt{orange} to \texttt{blue}, keeping the quote marks. Run. \enquote{Part 1, the house, is mine now. Check it off.}
+  \item Find \texttt{t.color("purple")} and change it to \texttt{gold}. Run.
+  \item Make the house bigger: change the three \texttt{100}s to \texttt{120} (the comments say which ones). Run after the change. \enquote{I changed a shape: it is bigger. That is a must-have.}
+  \item Plant a typo on purpose: delete the last \texttt{)} of a \texttt{t.forward(120)} line. Run. Read the red message in the Shell with the children: \enquote{Python tells us the line number. Let us look there.} Put the \texttt{)} back and Run again.
+  \item Show the extra for later: \enquote{Part 3 is a sun. I add a new color line and a loop under the roof, one line at a time, pressing Run each time.}
+\end{enumerate}
+The changed house part looks like this:
+\end{workedexample}
+\begin{pycode}[Omar's house, changed]
+t.color("blue")     # was orange
+for i in range(4):
+    t.forward(120)  # was 100
+    t.left(90)
+\end{pycode}
+
+\begin{tip}[Path A in one look]
+For children on the Scratch path, show this art app quickly: Leo's \enquote{Flower Garden}. Press the space key and a flower of six squares appears at the mouse-pointer, and the flowers counter goes up by 1. Its scripts are in workbook Exercise 9.2 and in the exercise folder \texttt{exercises/week09/ex-my-big-build}. A game works too: for example, the apple goes to a random position and every click on it adds 1 to the score, while a pattern is drawn with a repeat inside a repeat.
+\end{tip}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper on two projects]
+Each child has their own project. The \textbf{Driver} builds their own project. The \textbf{Helper} holds the Driver's plan card, reads the next part out loud, points at the category color in Scratch or at the \texttt{CHANGE ME} line in Python, and says \enquote{Test it!} after every change. The Helper never grabs the mouse or the keyboard. Swap on the timer (6--7 minutes), so each child is Driver on their own project and Helper on the other. With 1 child: you are the Helper the whole time; let the child explain each part back to you. With 3: two Drivers on two Macs and one Helper who moves between them on the timer. With 4: two pairs.
+\end{pairroles}
+
+Work through workbook Exercise 9.2: Part 1, test, check it off; Part 2, test, check it off. Save often: Scratch \menu{File} → \menu{Save to your computer} (same name); Thonny \menu{Save}.
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up and acts out their own plan card: a pose for Part 1, a move for Part 2 (repeat it four times!), and a big finish for Part 3.
+
+\section{Make it (35--50 min)}
+Part 3, then the partner check, then extras.
+
+\begin{bughunt}[Partner Check against the plan (Exercise 9.3)]
+At about minute 42, swap seats. The partner holds the owner's plan card and the checklist in the workbook, clicks the green flag or presses Run, tries the keys or clicks, and says \enquote{matches} or \enquote{not yet} for each row. Then they describe one \enquote{not yet} like a good bug report from week 7: \enquote{I expected \ldots, but it \ldots} The owner fixes it, never the partner. Common finds: a new Scratch script with no hat block, so it never starts; the counter never goes back to 0 (no \enquote{set} under the green flag); a typo in Python such as \texttt{t.colr}, \texttt{"bleu"} or a missing \texttt{)}; a line under a \texttt{for} that is not indented, so it runs once; a part from the plan card that is not built yet.
+\end{bughunt}
+
+\begin{freebuild}[Extras after M2]
+When every must-have works and the partner check is done (M2): add one extra from the back of the plan card. Python: a new shape with its own color, a thicker pen, or the stretch path: a \texttt{def} for a shape you draw again and again, like the week 8 square block. Scratch: a sound when the counter goes up, a second pattern, or a My Block with a number input for the size. Save first, so the working version stays safe.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[Can everyone see it? Colors and sizes for all]
+\enquote{Some people see red and green as the same color. Some people need things big to see them. A good coder makes a project that everyone can enjoy.} Do the \textbf{squint test}: everyone squints at each project. Can you still see every part? Then share four tips and let each child pick one to try:
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt]
+  \item \textbf{Thick lines:} a pen size of 5 or more (\texttt{t.pensize(5)}, or \enquote{set pen size to 5}).
+  \item \textbf{Dark next to light:} blue next to gold or orange is easy to see; yellow on white is not.
+  \item \textbf{Not color alone:} if green means \enquote{good}, also say \enquote{Good!} or add a shape.
+  \item \textbf{Big enough:} big sprites, big shapes, words that stay long enough to read.
+\end{itemize}
+Also check that every plan card says whose idea was borrowed, and that projects use nicknames only.
+\end{safety}
+
+\begin{teacherscript}
+Each child runs their project and shows one part that works. \enquote{Which part is this on your plan card? Which code makes it happen?} Others give a thumbs up.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a filled-in plan card (M1); the must-haves for the chosen path; testing after each part; the partner check done and one fix made (M2).
+
+\textbf{Ask:} point at Part 2 on the child's plan card. \enquote{Show me the code that makes this part.}
+\textbf{Answer:} the child points at the right script in Scratch (for example the repeat inside a repeat that draws the flower) or the right lines in Python (for example the \texttt{for} loop that draws the roof, with its indented lines).
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which part was the hardest to build? Which part are you proudest of?} Children color in the parts they finished in the workbook and circle a smiley face. Hand out play-at-home card 9.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{A plan that is too big.} Three parts is plenty. Extra ideas go on the back of the plan card for later.
+  \item \textbf{Changing many things before testing.} One change, then Run or the green flag. A bug in a small change is quick to find.
+  \item \textbf{Deleting quote marks in Python.} \texttt{t.color(blue)} gives a red message. Color names need their quote marks: \texttt{t.color("blue")}.
+  \item \textbf{Changing only one of the \texttt{100}s.} The house and the roof no longer fit together. The starter's comments say which numbers belong together.
+  \item \textbf{The counter never resets} (Scratch). Put \enquote{set \ldots{} to 0} under \enquote{when green flag clicked}, as in the week 5 relay.
+  \item \textbf{The partner fixes the bug.} The partner finds and says it; the owner fixes it.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use the core path. Python: change only the two colors and one size number, pressing Run after each; that meets the must-haves. Scratch: start from the week 5 pattern, put it under \enquote{when space key pressed} and add \enquote{change \ldots{} by 1}. Build Part 1 together, then let the child build Part 2 with you as Helper.
+\extensionpath Path B: add a new shape with its own \texttt{for} loop (a sun with the hexagon turn 60), or use the stretch \texttt{def}. Path A: a game with a score and a second sprite, or a My Block with a number input so flowers come in different sizes.
+\end{differentiation}
+
+\begin{stretchchallenge}[A second partner check]
+Ask a family member who did not see the plan to try the project with no help. Can they work out what to do? If not, add a short instruction: a \enquote{say} block at the start (Scratch) or a title drawn on the postcard.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the plan card to 8 minutes and skip the planted typo in the demo. If a project is not finished (M2 not reached), use buffer B2 or the first 15 minutes of week 10 as extra studio time. Keep the partner check, even if short: it is this week's bug hunt.
+\end{teachernote}

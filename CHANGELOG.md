@@ -3,6 +3,15 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.14.0 - 2026-11-13
+
+Junior Level 3, *Bridge to Python*, is written: ten 60-minute sessions plus two optional buffer sessions that end the junior track and lead into main-track Level 1.
+
+- Weeks 1–5 in Scratch: nested repeats, planning in parts, data with tally marks and bar graphs, an unplugged lesson on how computers learn (and copy our mistakes), and a blocks-to-words card sort. Weeks 6–8 in Python turtle with Thonny in simple mode: running and changing programs, `for` loops and indentation, colors. The final project, *My Big Build*, is a Scratch game or a Python postcard.
+- Python activities are change-not-write: every starter already runs, children change numbers and color names, and they check their work against a "What you should see" description. Tests check every solution, and each test fails on the untouched starter.
+- The full kit in both editions, 17 exercise folders (8 in Python), a tested Python postcard starter and reference, and a junior graduation certificate.
+- Build it with `make pdf LEVEL=j3`. The junior track is not on the website yet.
+
 ## 1.12.0 - 2026-11-12
 
 Junior Level 1, *Little Robots*, is written: the first level of the new junior track for children in Grades 2–3 (ages 7–9).
