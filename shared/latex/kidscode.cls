@@ -162,10 +162,14 @@
   \newcommand{\kclevelname}{%
     \ifcase\kc@level\relax\or Level 1: Little Robots\or Level 2: Game Makers\or Level 3: Bridge to Python\fi}
   \newcommand{\kctrackname}{Kids Coding Junior}
+  %% the running header uses the short form, so long document titles (and the dyslexia
+  %% edition's wider type) never run into it
+  \newcommand{\kcheadlevel}{Level \kc@level}
 \else
   \newcommand{\kclevelname}{%
     \ifcase\kc@level\relax\or Level 1: Introduction\or Level 2: Intermediate\or Level 3: Advanced\fi}
   \newcommand{\kctrackname}{Kids Coding}
+  \newcommand{\kcheadlevel}{\kclevelname}
 \fi
 \newcommand{\kclevelnumber}{\kc@level}
 
@@ -185,7 +189,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
-\fancyhead[L]{\small\textbf{\kctrackname} \textperiodcentered{} \kclevelname}
+\fancyhead[L]{\small\textbf{\kctrackname} \textperiodcentered{} \kcheadlevel}
 \fancyhead[R]{\small\kc@doctitle\ifkc@teacher\ \textperiodcentered\ \textbf{TEACHER ONLY}\fi}
 \fancyfoot[C]{\small Page \thepage\ of \pageref*{LastPage}}
 \fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
