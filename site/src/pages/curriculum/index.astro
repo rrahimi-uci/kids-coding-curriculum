@@ -1,24 +1,30 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, levels, fix } from '../../lib/data';
-const L = levels();
+import { u, trackLevels, tracks, fix } from '../../lib/data';
+const L = trackLevels('main');
+const J = trackLevels('junior');
+const T = Object.fromEntries(tracks().map((t) => [t.id, t]));
 const milestone = (w: number) => w === 6 || w === 10 || w === 11 || w === 12;
+// Junior rhythm (docs/JUNIOR-SYLLABUS.md): week 5 play day, week 9 project studio, week 10 showcase.
+const jMilestone = (w: number) => w === 5 || w === 9 || w === 10;
+const weeks = (n: number) => Array.from({ length: n }, (_, i) => i + 1);
 ---
-<Base title="Curriculum and timeline" description="The three-level roadmap: what students learn, the skills they gain, example projects and how progress is measured.">
+<Base title="Curriculum and timeline" description="The three-level roadmap and the junior track: what students learn, the skills they gain, example projects and how progress is measured.">
   <div class="measure stack">
     <p class="eyebrow">Curriculum</p>
     <h1>Three levels, one clear path</h1>
     <p class="lead">Each level is 10 to 12 weeks with one 60-minute session a week, so the whole course takes 30 to 36 weeks. Every level has the same rhythm and ends with a project you design, build and show.</p>
+    {J.length > 0 && <p>Younger children (Grades {T.junior.grades}, ages {T.junior.ages}) start with the <a href="#junior">junior track</a>: three shorter levels that lead into Level 1.</p>}
   </div>
 
   <section aria-labelledby="timeline" style="margin-top:2rem">
     <h2 id="timeline">The timeline</h2>
     <div class="timeline">
       {L.map((l) => (
-        <div class={`tl-row l${l.number}`} role="group" aria-labelledby={`tl-label-${l.number}`}>
-          <div class="tl-label" id={`tl-label-${l.number}`}>Level {l.number}: {l.name}</div>
+        <div class={`tl-row l${l.number}`} role="group" aria-labelledby={`tl-label-${l.slug}`}>
+          <div class="tl-label" id={`tl-label-${l.slug}`}>Level {l.number}: {l.name}</div>
           <ol class="tl-track">
-            {Array.from({ length: 12 }, (_, i) => i + 1).map((w) => <li class={`tl-week${milestone(w) ? ' milestone' : ''}`}><span class="visually-hidden">Week </span>{w}</li>)}
+            {weeks(12).map((w) => <li class={`tl-week${milestone(w) ? ' milestone' : ''}`}><span class="visually-hidden">Week </span>{w}</li>)}
           </ol>
         </div>
       ))}
@@ -42,9 +48,46 @@ const milestone = (w: number) => w === 6 || w === 10 || w === 11 || w === 12;
     </section>
   ))}
 
+  {J.length > 0 && (
+    <section aria-labelledby="junior" style="margin-top:3.5rem">
+      <div class="measure stack">
+        <h2 id="junior">Junior track (Grades {T.junior.grades}, ages {T.junior.ages})</h2>
+        <p>A gentler first track: unplugged games and Scratch first, then a short, friendly first look at Python. The pages are picture-first and a grown-up reads them aloud. Each level has 10 weeks plus 2 optional buffer sessions, with one 45-minute session a week in Level 1 and 45 to 60 minutes in Levels 2 and 3. After Junior Level 3, a child is ready for Level 1 of the main track.</p>
+      </div>
+      <h3 id="junior-timeline">The junior timeline</h3>
+      <div class="timeline">
+        {J.map((l) => (
+          <div class={`tl-row l${l.number}`} role="group" aria-labelledby={`tl-label-${l.slug}`}>
+            <div class="tl-label" id={`tl-label-${l.slug}`}>{l.label}: {l.name}</div>
+            <ol class="tl-track" style={`--weeks:${l.weeks_total}`}>
+              {weeks(l.weeks_total).map((w) => <li class={`tl-week${jMilestone(w) ? ' milestone' : ''}`}><span class="visually-hidden">Week </span>{w}</li>)}
+            </ol>
+          </div>
+        ))}
+      </div>
+      <p class="tl-key"><span>Week 5: play day and show-me checklist</span><span>Week 9: project studio</span><span>Week 10: showcase</span></p>
+
+      {J.map((l) => (
+        <section class={`l${l.number}`} aria-labelledby={`level-${l.slug}`} style="margin-top:2.5rem">
+          <div class="card accent">
+            <p class="eyebrow accent-text">{l.label}</p>
+            <h3 id={`level-${l.slug}`}>{l.name}</h3>
+            <p class="muted"><span set:html={fix(l.tools)} /></p>
+            <h4>What children learn</h4>
+            <ul>{l.goals.map((g) => <li><span set:html={fix(g.text)} /></li>)}</ul>
+            <h4>Final project: {l.project_title}</h4>
+            <p set:html={fix(l.project_html.replace(/^<strong>.*?<\/strong>\s*/, ''))} />
+            <p><a class="btn" href={u(`levels/${l.slug}/`)}>Open {l.label}</a></p>
+          </div>
+        </section>
+      ))}
+    </section>
+  )}
+
   <section class="measure stack" style="margin-top:3rem" aria-labelledby="progress">
     <h2 id="progress">How progress is measured</h2>
     <p>Through projects, rubrics and friendly checkpoints, never grades. Rubrics have four levels: <em>Just starting</em>, <em>Getting there</em>, <em>Got it</em> and <em>Expert</em>. Creativity, working code and the ability to explain it count equally.</p>
+    {J.length > 0 && <p>The junior track has no quizzes. In weeks 5 and 10 the grown-up watches the child show what they can do and notes <em>Not yet</em>, <em>Getting there</em> or <em>Got it</em>. It is never graded.</p>}
     <p>Parents: see <a href={u('parents/#assessment')}>how progress is checked</a> and <a href={u('parents/research/')}>what the research says</a>.</p>
   </section>
 </Base>

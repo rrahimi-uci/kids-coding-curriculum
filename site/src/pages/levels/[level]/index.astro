@@ -7,14 +7,21 @@ const { l } = Astro.props;
 const hasWeeks = l.weeks.length > 0;
 const wk = Object.fromEntries(l.weeks.map((w: any) => [w.n, w]));
 const dls = l.downloads || {};
+const junior = l.track === 'junior';
+const xdl = l.extra_downloads || {};
 ---
-<Base title={`Level ${l.number}: ${l.name}`} level={l.number} description={`Level ${l.number} (${l.name}): ${l.languages}. Weekly lessons, exercises, homework and a final project.`}>
+<Base title={`${l.label}: ${l.name}`} level={l.number} description={junior
+  ? `${l.label} (${l.name}), the junior track for Grades 2–3: ${l.languages}. Weekly lessons read aloud with a grown-up, exercises, play-at-home cards and a final project.`
+  : `Level ${l.number} (${l.name}): ${l.languages}. Weekly lessons, exercises, homework and a final project.`}>
   <div class={`l${l.number} stack`}>
-    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('curriculum/')}>Curriculum</a></li><li aria-current="page">Level {l.number}</li></ol></nav>
-    <p class="eyebrow accent-text">Level {l.number}</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('curriculum/')}>Curriculum</a></li><li aria-current="page">{l.label}</li></ol></nav>
+    <p class="eyebrow accent-text">{junior ? `${l.label} · Junior track, Grades 2–3` : `Level ${l.number}`}</p>
     <h1>{l.name}</h1>
-    <p class="lead">{l.languages}. 10 to 12 weeks, one session a week.</p>
+    {junior
+      ? <p class="lead">{l.languages.charAt(0).toUpperCase() + l.languages.slice(1)}. {l.weeks_total} weeks and {l.buffers} optional extra sessions, one session a week. A grown-up reads the pages aloud.</p>
+      : <p class="lead">{l.languages}. 10 to 12 weeks, one session a week.</p>}
     <p class="measure" set:html={fix(l.tools)} />
+    {junior && <p class="measure">Part of the <a href={u('curriculum/#junior')}>junior track</a> for Grades 2–3.{l.number === 3 && <> When it is done, the next step is <a href={u('levels/level-1/')}>Level 1</a> of the main track.</>}</p>}
   </div>
 
   <section class={`l${l.number}`} aria-labelledby="weeks" style="margin-top:2.5rem">
@@ -37,7 +44,7 @@ const dls = l.downloads || {};
     <div class="card accent">
       <h2 id="project">Final project: {l.project_title}</h2>
       <p set:html={fix(l.project_html.replace(/^<strong>.*?<\/strong>\s*/, ''))} />
-      {l.project && <p><a class="btn" href={u(`levels/${l.slug}/project/`)}>Project brief, rubric and starter files <Icon name="arrow" /></a></p>}
+      {l.project && <p><a class="btn" href={u(`levels/${l.slug}/project/`)}>{l.project.zip ? 'Project brief, rubric and starter files' : 'Project brief and plan'} <Icon name="arrow" /></a></p>}
     </div>
   </section>
 
@@ -46,9 +53,10 @@ const dls = l.downloads || {};
       <h2 id="tools">For this level</h2>
       <div class="grid cols-3">
         <a class="card accent" href={u(`levels/${l.slug}/cheat-sheet/`)}><h3>Cheat sheet</h3><p class="small muted">The commands and ideas of this level on one page.</p></a>
-        <a class="card accent" href={u('resources/glossary/')}><h3>Glossary</h3><p class="small muted">{l.glossary_count} words in plain language.</p></a>
+        <a class="card accent" href={u(junior ? `resources/glossary/#${l.slug}` : 'resources/glossary/')}><h3>{junior ? l.glossary_title : 'Glossary'}</h3><p class="small muted">{l.glossary_count} words in plain language.</p></a>
         <a class="card accent" href={u(`parents/notes/${l.slug}/`)}><h3>Notes for families</h3><p class="small muted">What children learn, safety and how to help at home.</p></a>
       </div>
+      {junior && xdl['progress-tracker']?.standard && <p><a class="btn secondary small" href={fix(xdl['progress-tracker'].standard.url)}><Icon name="download" /> Progress tracker to print (PDF, {xdl['progress-tracker'].standard.kb} KB)</a></p>}
     </section>
   )}
 
@@ -57,9 +65,9 @@ const dls = l.downloads || {};
       <h2 id="downloads">Download the whole level</h2>
       <ul class="dl-list">
         {dls['student-workbook']?.standard && <li><a class="btn secondary" href={fix(dls['student-workbook'].standard.url)}><Icon name="download" /> Student workbook (PDF, {dls['student-workbook'].standard.kb} KB)</a></li>}
-        {dls['homework']?.standard && <li><a class="btn secondary" href={fix(dls['homework'].standard.url)}><Icon name="download" /> Homework sets (PDF, {dls['homework'].standard.kb} KB)</a></li>}
+        {dls['homework']?.standard && <li><a class="btn secondary" href={fix(dls['homework'].standard.url)}><Icon name="download" /> {junior ? 'Play-at-home cards' : 'Homework sets'} (PDF, {dls['homework'].standard.kb} KB)</a></li>}
         {dls['student-workbook']?.dyslexia && <li><a class="btn secondary" href={fix(dls['student-workbook'].dyslexia.url)}><Icon name="download" /> Student workbook, dyslexia-friendly edition (PDF, {dls['student-workbook'].dyslexia.kb} KB)</a></li>}
-        {dls['homework']?.dyslexia && <li><a class="btn secondary" href={fix(dls['homework'].dyslexia.url)}><Icon name="download" /> Homework sets, dyslexia-friendly edition (PDF, {dls['homework'].dyslexia.kb} KB)</a></li>}
+        {dls['homework']?.dyslexia && <li><a class="btn secondary" href={fix(dls['homework'].dyslexia.url)}><Icon name="download" /> {junior ? 'Play-at-home cards' : 'Homework sets'}, dyslexia-friendly edition (PDF, {dls['homework'].dyslexia.kb} KB)</a></li>}
       </ul>
     </section>
   )}

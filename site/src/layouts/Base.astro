@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
-import { u, siteInfo, levels, resources } from '../lib/data';
+import { u, siteInfo, levels, resources, tracks } from '../lib/data';
 // The three fonts almost every page uses: fetched early so text does not reflow when they arrive.
 import fontRegular from '../fonts/atkinson-regular.woff2?url';
 import fontBold from '../fonts/atkinson-bold.woff2?url';
@@ -18,11 +18,12 @@ const canonical = new URL(path, Astro.site).href;
 // ---- Site navigation (one source for the sidebar). Groups follow the order a family meets the course:
 // orientation (home, parents, curriculum), the learning path (levels > weeks), then reference material.
 const L = levels();
+const T = tracks();
 const R = resources();
 const here = (p: string) => rel === p;                    // exactly this page
 const within = (p: string) => rel.startsWith(p);         // this section
-// Exercise pages live at /levels/level-N/exercises/weekNN-.../: they belong to that week in the menu.
-const exWeek = rel.match(/^\/levels\/(level-\d)\/exercises\/week(\d\d)-/);
+// Exercise pages live at /levels/level-N/exercises/weekNN-.../ (junior: /levels/junior-N/...): they belong to that week in the menu.
+const exWeek = rel.match(/^\/levels\/([a-z]+-\d)\/exercises\/week(\d\d)-/);
 const inWeek = (lslug: string, wslug: string) =>
   rel.startsWith(`/levels/${lslug}/${wslug}/`) || (!!exWeek && exWeek[1] === lslug && `week-${exWeek[2]}` === wslug);
 const cur = (on: boolean) => (on ? 'page' : undefined);
@@ -82,14 +83,15 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
             <li><a class="nav-link" href={u('curriculum/')} aria-current={cur(here('/curriculum/'))}><Icon name="map" />Curriculum and timeline</a></li>
           </ul>
 
-          <p class="nav-heading">Levels</p>
+          {T.map((t) => (<>
+          <p class="nav-heading">{t.id === 'main' ? 'Levels' : 'Junior track'}<span class="nav-heading-note"> (Grades {t.grades})</span></p>
           <ul class="nav-list">
-            {L.map((l) => {
+            {L.filter((l) => l.track === t.id).map((l) => {
               const base = `/levels/${l.slug}/`;
               return (
                 <li class={`l${l.number}`}>
                   <details class="nav-group" open={within(base) || within(`/parents/notes/${l.slug}/`) ? true : undefined}>
-                    <summary class="nav-link"><span class="level-dot" aria-hidden="true">{l.number}</span><span class="grow">Level {l.number}<span class="sub">{l.name}</span></span><Icon name="chevron-down" class="chev" /></summary>
+                    <summary class="nav-link"><span class="level-dot" aria-hidden="true">{l.track === 'main' ? l.number : `J${l.number}`}</span><span class="grow">{l.label}<span class="sub">{l.name}</span></span><Icon name="chevron-down" class="chev" /></summary>
                     <ul class="nav-sub">
                       <li><a href={u(`levels/${l.slug}/`)} aria-current={cur(here(base))}>Overview</a></li>
                       {l.weeks.length > 0 && (
@@ -109,6 +111,7 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
               );
             })}
           </ul>
+          </>))}
 
           <p class="nav-heading">For parents</p>
           <ul class="nav-list">
@@ -143,7 +146,7 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
         </main>
         <footer class="site-footer">
           <div class="wrap">
-            <p><strong>Kids Coding</strong>: a free course for children in Grades 4–5. Scratch blocks first, then Python, one 60-minute session a week.</p>
+            <p><strong>Kids Coding</strong>: a free course for children in Grades 4–5, with a gentler junior track for Grades 2–3. Scratch blocks first, then Python, one session a week.</p>
             <p class="foot-meta"><span><Icon name="lock" /> No accounts, no ads, no tracking</span><span>Version {info.version}, updated <time datetime={info.updated}>{info.updated}</time></span><a href={u('about/#changelog')}>What changed</a><a href={u('about/')}>Accessibility and credits</a></p>
           </div>
         </footer>

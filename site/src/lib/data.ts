@@ -29,18 +29,28 @@ export interface Week {
     transcript: string[] };
 }
 export interface Level {
+  /** Track id from curriculum.json ("main" for Grades 4-5, "junior" for Grades 2-3) and the level's key ("1", "j1"). */
+  track: string; key: string;
+  /** How pages name the level: "Level 1" or "Junior Level 1". */
+  label: string; weeks_total: number; buffers: number; glossary_title?: string;
   number: number; slug: string; dir: string; name: string; languages: string; tools: string;
   goals: { code: string; text: string }[]; project_title: string; project_html: string;
   published: boolean; weeks: Week[]; downloads: Record<string, Record<string, { url: string; kb: number }>>;
   syllabus_weeks: { n: number; title: string; idea: string }[];
   project?: { title: string; toc: { level: number; id: string; text: string }[]; starter_readme: string;
-    starter_files: { name: string; html: string; url: string }[]; zip: { url: string; kb: number } } | null;
+    starter_files: { name: string; html: string; url: string }[]; zip: { url: string; kb: number } | null } | null;
   extras?: Record<string, { title: string; subtitle: string; toc: { level: number; id: string; text: string }[] }>;
   extra_downloads?: Record<string, Record<string, { url: string; kb: number }>>;
   glossary_count?: number;
 }
 export interface GlossaryEntry { term: string; key: string; where: string; meaning: string; example: string }
+export interface Track { id: string; title: string; grades: string; ages: string; levels: string[] }
+/** Every published level of every track (main track first). */
 export const levels = (): Level[] => JSON.parse(read('levels.json'));
+/** The tracks that have levels on the site, in curriculum.json order. */
+export const tracks = (): Track[] => JSON.parse(read('tracks.json'));
+export const trackLevels = (track: string): Level[] => levels().filter((l) => l.track === track);
+export const isJunior = (l: Level): boolean => l.track === 'junior';
 export const siteInfo = (): { version: string; updated: string; commit: string; changelog_html?: string } =>
   JSON.parse(read('site.json'));
 export const parentsData = () => JSON.parse(read('parents.json'));

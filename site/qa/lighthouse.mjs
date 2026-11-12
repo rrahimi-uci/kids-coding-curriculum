@@ -8,7 +8,7 @@ import { serve } from './serve.mjs';
 
 const dist = path.resolve(process.argv[2] || 'dist');
 const { server, url } = await serve(dist);
-const pick = ['', 'parents/', 'parents/research/', 'parents/faq/', 'curriculum/', 'levels/level-1/', 'levels/level-2/project/', 'levels/level-3/cheat-sheet/', 'levels/level-3/week-07/', 'resources/', 'resources/glossary/', 'resources/setup-mac/', 'parents/notes/level-2/'];
+const pick = ['', 'parents/', 'parents/research/', 'parents/faq/', 'curriculum/', 'levels/level-1/', 'levels/level-2/project/', 'levels/level-3/cheat-sheet/', 'levels/level-3/week-07/', 'resources/', 'resources/glossary/', 'resources/setup-mac/', 'parents/notes/level-2/', 'levels/junior-1/', 'levels/junior-3/week-06/', 'levels/junior-2/cheat-sheet/'];
 const week = fs.readdirSync(path.join(dist, 'levels/level-1')).filter((d) => d.startsWith('week-')).sort();
 if (week.length) pick.push(`levels/level-1/${week[6] || week[0]}/`);
 const ex = fs.existsSync(path.join(dist, 'levels/level-1/exercises')) ? fs.readdirSync(path.join(dist, 'levels/level-1/exercises')).sort() : [];

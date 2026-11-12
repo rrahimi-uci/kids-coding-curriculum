@@ -28,6 +28,11 @@ BASE = "%BASE%"
 _FMT = HtmlFormatter(nowrap=True, classprefix="tok-")
 
 
+def track_tag(track: str) -> str:
+    """'level' or 'junior level', for build messages."""
+    return "level" if track == "main" else f"{track} level"
+
+
 # ------------------------------------------------------------------------------------ pdf helpers
 def level_pdfs(d: str, slug: str, stems: list[str], skip: bool) -> dict:
     out: dict[str, dict] = {}
@@ -67,13 +72,17 @@ def _inline(tex_list: list[str]) -> list[str]:
 
 def parse_glossary(tex_path: Path) -> list[dict]:
     s = tex_path.read_text(encoding="utf-8")
+    # \gl has four arguments (term, where, meaning, example) in Level 1 and Junior Level 1, three in the
+    # other junior word books (no example)
+    arity = re.search(r"\\newcommand\{\\gl\}\[(\d)\]", s)
+    gl_args = int(arity.group(1)) if arity else 4
     s = s.split("\\begin{document}", 1)[1]
     items: list[tuple[str, str, str, str]] = []  # term, where, meaning, example (all LaTeX)
     # Level 1: \gl{term}{where}{meaning}{example}
     for m in re.finditer(r"\\gl(?![A-Za-z])", s):
-        a, _ = read_args(s, m.end(), 4)
-        if len(a) == 4:
-            items.append((a[0], a[1], a[2], a[3]))
+        a, _ = read_args(s, m.end(), gl_args)
+        if len(a) == gl_args:
+            items.append((a[0], a[1], a[2], a[3] if gl_args == 4 else ""))
     # Levels 2 and 3: \term{term}{meaning}{week}
     for m in re.finditer(r"\\term(?![A-Za-z])", s):
         a, _ = read_args(s, m.end(), 3)
@@ -106,20 +115,24 @@ def _highlight(code: str) -> str:
 def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings: list[str]) -> dict | None:
     pub = manifest["public"]
     d, slug, n = entry["dir"], entry["slug"], entry["number"]
+    track = entry.get("track", "main")
     brief = ROOT / pub["project_brief"].format(dir=d)
     if not brief.exists():
         return None
-    res = texconv.convert_file(brief, n, fig_dir, f"{BASE}generated/fig/{slug}", {})
-    warnings += [f"level {n} project brief: {w}" for w in res.warnings]
+    res = texconv.convert_file(brief, n, fig_dir, f"{BASE}generated/fig/{slug}", {}, track=track)
+    warnings += [f"{track_tag(track)} {n} project brief: {w}" for w in res.warnings]
     html_dir = gen / "html" / slug
     html_dir.mkdir(parents=True, exist_ok=True)
     (html_dir / "project.html").write_text(res.html, encoding="utf-8")
-    # starter folder (templates only)
+    # starter folder (templates only); Junior Levels 1 and 2 have none (their projects start in Scratch)
     sdir = ROOT / pub["project_starter_dir"].format(dir=d)
     files, readme_html = [], ""
     dest = ROOT / "site" / "public" / "downloads" / slug / "project-starter"
     if dest.exists():
         shutil.rmtree(dest)
+    if not sdir.is_dir() or not any(f.is_file() for f in sdir.rglob("*")):
+        return {"title": texconv_title(res), "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc],
+                "starter_readme": "", "starter_files": [], "zip": None}
     zpath = ROOT / "site" / "public" / "downloads" / slug / f"{slug}-project-starter-files.zip"
     zpath.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
@@ -168,17 +181,21 @@ def texconv_title(res) -> str:
 def build_extras(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings: list[str]) -> dict:
     pub = manifest["public"]
     d, slug, n = entry["dir"], entry["slug"], entry["number"]
+    track = entry.get("track", "main")
     out: dict = {}
     html_dir = gen / "html" / slug
     html_dir.mkdir(parents=True, exist_ok=True)
     for key, name in (("cheat_sheet", "cheat-sheet"), ("parent_notes", "parent-notes")):
         path = ROOT / pub[key].format(dir=d)
-        res = texconv.convert_file(path, n, fig_dir, f"{BASE}generated/fig/{slug}", {})
-        warnings += [f"level {n} {name}: {w}" for w in res.warnings]
+        res = texconv.convert_file(path, n, fig_dir, f"{BASE}generated/fig/{slug}", {}, track=track)
+        warnings += [f"{track_tag(track)} {n} {name}: {w}" for w in res.warnings]
         (html_dir / f"{name}.html").write_text(res.html, encoding="utf-8")
         out[key] = {"title": res.meta.get("title", name), "subtitle": res.meta.get("subtitle", ""),
                     "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc if lv == 2 or key == "cheat_sheet"]}
-    out["glossary"] = parse_glossary(ROOT / pub["glossary"].format(dir=d))
+    gpath = ROOT / pub["glossary"].format(dir=d)
+    out["glossary"] = parse_glossary(gpath)
+    gtitle = re.search(r"\\kctitle\{([^}]*)\}", gpath.read_text(encoding="utf-8"))
+    out["glossary_title"] = gtitle.group(1).strip() if gtitle else "Glossary"  # the junior word books: "Word Book"
     return out
 
 

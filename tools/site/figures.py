@@ -18,8 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CLASS_DIR = ROOT / "shared" / "latex"
 
-PREAMBLE = r"""\documentclass[level=%(level)s]{kidscode}
-\pagestyle{empty}
+PREAMBLE = r"""\documentclass[%(options)s]{kidscode}
+%(extra)s\pagestyle{empty}
 \newsavebox{\figbox}
 \newcommand{\figpage}[1]{\savebox{\figbox}{#1}%%
   \pagewidth=\dimexpr\wd\figbox+2pt\relax \pageheight=\dimexpr\ht\figbox+\dp\figbox+2pt\relax
@@ -28,8 +28,10 @@ PREAMBLE = r"""\documentclass[level=%(level)s]{kidscode}
 """
 
 
-def fig_key(kind: str, source: str, level: int) -> str:
-    return hashlib.sha1(f"{kind}|{level}|{source}".encode()).hexdigest()[:12]
+def fig_key(kind: str, source: str, level: int, track: str = "main", extra: str = "") -> str:
+    # main-track keys are unchanged, so the figure cache of earlier builds stays valid
+    salt = "" if track == "main" and not extra else f"|{track}|{extra}"
+    return hashlib.sha1(f"{kind}|{level}|{source}{salt}".encode()).hexdigest()[:12]
 
 
 def svg_size(path: Path) -> tuple[int, int]:
@@ -40,13 +42,17 @@ def svg_size(path: Path) -> tuple[int, int]:
     return 400, 300
 
 
-def render(figs, level: int, out_dir: Path, url_prefix: str) -> dict[str, tuple[str, int, int]]:
-    """figs: list of objects with .token .kind .source ; returns token -> (url, w, h)."""
+def render(figs, level: int, out_dir: Path, url_prefix: str, track: str = "main",
+           extra_preamble: str = "") -> dict[str, tuple[str, int, int]]:
+    """figs: list of objects with .token .kind .source ; returns token -> (url, w, h).
+
+    `track` is passed to the class (junior figures use the junior type size); `extra_preamble` holds
+    preamble lines of the source document that its figures need, such as \\definecolor."""
     out_dir.mkdir(parents=True, exist_ok=True)
     result: dict[str, tuple[str, int, int]] = {}
     todo: list[tuple[str, object]] = []
     for f in figs:
-        f.key = fig_key(f.kind, f.source, level)
+        f.key = fig_key(f.kind, f.source, level, track, extra_preamble)
         svg = out_dir / f"{f.key}.svg"
         if svg.exists():
             w, h = svg_size(svg)
@@ -60,7 +66,8 @@ def render(figs, level: int, out_dir: Path, url_prefix: str) -> dict[str, tuple[
         return result
     with tempfile.TemporaryDirectory(prefix="figs-") as tmp:
         tmpd = Path(tmp)
-        body = [PREAMBLE % {"level": level}]
+        options = f"level={level}" if track == "main" else f"track={track},level={level}"
+        body = [PREAMBLE % {"options": options, "extra": extra_preamble}]
         order = list(uniq)
         for key in order:
             body.append("\\figpage{" + uniq[key].source + "}\n")

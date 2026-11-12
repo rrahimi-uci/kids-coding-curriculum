@@ -4,24 +4,30 @@ import { u, levels, glossary, fix } from '../../lib/data';
 const L = levels();
 const sections = L.map((l) => ({ l, entries: glossary(l.slug) }));
 const letter = (e: any) => (e.key.replace(/[^a-z]/g, '')[0] ?? '#').toUpperCase();
+// Main-track sections keep their ids (level-1 ...); the junior word books use the level slug (junior-1 ...).
+const sid = (l: any) => (l.track === 'main' ? `level-${l.number}` : l.slug);
+const lid = (l: any) => (l.track === 'main' ? `l${l.number}` : l.slug);
+const heading = (l: any) => (l.track === 'main' ? `Level ${l.number}: ${l.name}` : `${l.label}: ${l.name} (${l.glossary_title ?? 'Glossary'})`);
+const hasJunior = L.some((l) => l.track === 'junior');
 ---
-<Base title="Glossary" description="Every new word in the three levels, from A to Z, in plain language.">
+<Base title="Glossary" description={hasJunior ? 'Every new word in the three levels and in the junior word books, from A to Z, in plain language.' : 'Every new word in the three levels, from A to Z, in plain language.'}>
   <div class="measure stack">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('resources/')}>Resources</a></li><li aria-current="page">Glossary</li></ol></nav>
     <h1>Glossary</h1>
     <p class="lead">New words from all three levels, in plain language. The label tells you which week you first meet the word. Words in <code>this font</code> are typed exactly like that in Python.</p>
-    <nav aria-label="Jump to a level"><ul class="chips">{sections.map(({ l }) => <li><a class={`pill l${l.number}`} href={`#level-${l.number}`}>Level {l.number}: {l.name}</a></li>)}</ul></nav>
+    {hasJunior && <p>The junior track (Grades 2–3) has its own short word books, one per level, below the main levels. They are made to be read aloud.</p>}
+    <nav aria-label="Jump to a level"><ul class="chips">{sections.map(({ l }) => <li><a class={`pill l${l.number}`} href={`#${sid(l)}`}>{l.label}: {l.name}</a></li>)}</ul></nav>
   </div>
   {sections.map(({ l, entries }) => {
     const letters = [...new Set(entries.map(letter))];
     return (
-      <section class={`l${l.number}`} aria-labelledby={`level-${l.number}`} style="margin-top:2.5rem">
+      <section class={`l${l.number}`} aria-labelledby={sid(l)} style="margin-top:2.5rem">
         <div class="measure">
-          <h2 id={`level-${l.number}`}>Level {l.number}: {l.name}</h2>
-          <nav aria-label={`Letters for level ${l.number}`}><ul class="chips">{letters.map((c) => <li><a class="pill" href={`#l${l.number}-${c}`}>{c}</a></li>)}</ul></nav>
+          <h2 id={sid(l)}>{heading(l)}</h2>
+          <nav aria-label={`Letters for ${l.label.toLowerCase()}`}><ul class="chips">{letters.map((c) => <li><a class="pill" href={`#${lid(l)}-${c}`}>{c}</a></li>)}</ul></nav>
           {letters.map((c) => (
             <div>
-              <h3 id={`l${l.number}-${c}`}>{c}</h3>
+              <h3 id={`${lid(l)}-${c}`}>{c}</h3>
               <dl class="gloss">
                 {entries.filter((e) => letter(e) === c).map((e) => (
                   <><dt><span set:html={fix(e.term)} /> {e.where && <span class="pill">{e.where}</span>}</dt><dd><span set:html={fix(e.meaning)} />{e.example && <><br /><span class="muted small">Example: <span set:html={fix(e.example)} /></span></>}</dd></>

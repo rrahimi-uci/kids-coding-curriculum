@@ -13,7 +13,9 @@ Three layers of defence, all driven by site/manifest.yml (deny by default):
    may appear in any published text, ZIP member or PDF text.
 3. Fingerprints: distinctive lines of every private source (solution code, answer keys, teacher
    lessons, assessments) must not appear anywhere in the output. Lines that also occur in public
-   sources (starter code, workbooks, READMEs) are ignored, so legitimate shared text is fine.
+   sources (starter code, workbooks, READMEs, syllabi) are ignored, so legitimate shared text is fine.
+   Video captions are NOT treated as public: a lesson line spoken in a video is still flagged, so the
+   lesson is reworded instead (the check stays strict).
 """
 from __future__ import annotations
 
@@ -161,8 +163,7 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
         rel = pub["parents"].get(key)
         if rel and (root / rel).exists():
             public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
-    syl = root / "docs" / "SYLLABUS.md"
-    if syl.exists():
+    for syl in sorted((root / "docs").glob("*SYLLABUS.md")):  # SYLLABUS.md and JUNIOR-SYLLABUS.md are public
         public_parts.append(syl.read_text(encoding="utf-8"))
     public_blob = loose("\n".join(public_parts))
     checked = 0

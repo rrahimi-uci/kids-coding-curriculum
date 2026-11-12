@@ -7,11 +7,11 @@ const { l } = Astro.props;
 const e = l.extras!.cheat_sheet;
 const dl = l.extra_downloads?.['cheat-sheet'] ?? {};
 ---
-<Base title={`Level ${l.number} cheat sheet`} level={l.number} description={`${e.title} for Level ${l.number}: ${e.subtitle}`}>
+<Base title={`${l.label} cheat sheet`} level={l.number} description={`${e.title} for ${l.label}: ${e.subtitle}`}>
   <div class={`l${l.number}`}>
-    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('resources/')}>Resources</a></li><li aria-current="page">Level {l.number} cheat sheet</li></ol></nav>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('resources/')}>Resources</a></li><li aria-current="page">{l.label} cheat sheet</li></ol></nav>
     <header class="page-head stack">
-      <p class="eyebrow accent-text">Level {l.number} · {l.name}</p>
+      <p class="eyebrow accent-text">{l.label} · {l.name}</p>
       <h1>{e.title}</h1>
       <p class="lead">{e.subtitle}</p>
       <div class="btn-row">

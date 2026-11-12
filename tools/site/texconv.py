@@ -42,12 +42,19 @@ CALLOUTS = {
     "bughunt": ("bughunt", "Bug hunt"),
     "selfcheck": ("selfcheck", "Self-check"),
     "vocab": ("vocab", "New words"),
+    # junior track (Grades 2-3), defined in kidscode.cls for track=junior
+    "ican": ("ican", "I can"),
+    "grownup": ("grownup", "For the grown-up"),
+    "playathome": ("playathome", "Play at home"),
 }
 CALLOUT_LABELS = {
     "tip": "Tip", "safety": "Safety", "reflection": "Reflect", "core": "Core",
     "challenge": "Challenge", "creative": "Creative", "exercise": "Exercise",
     "bughunt": "Bug hunt", "selfcheck": "Self-check", "vocab": "New words",
+    "ican": "I can \u2026", "grownup": "For the grown-up", "playathome": "Play at home (5\u201310 minutes, with a grown-up)",
 }
+# Junior environments that hold an itemized list without their own \begin{itemize}.
+LIST_ENVS = ("selfcheck", "checklist", "ican")
 SELFCHECK_TITLE = "Self-check: check off each box when it is true"
 
 SYMBOLS = {
@@ -64,6 +71,10 @@ OKABE = {
     "kcorange": "#E69F00", "kcsky": "#56B4E9", "kcgreen": "#009E73", "kcyellow": "#F0E442",
     "kcblue": "#0072B2", "kcvermillion": "#D55E00", "kcpurple": "#CC79A7",
     "kcblack": "#000000", "kcgray": "#555555", "kcpaper": "#FFFFFF",
+    # Scratch category colors (junior cheat sheets show them next to the category name)
+    "scevents": "#FFBF00", "scmotion": "#4C97FF", "sclooks": "#9966FF", "scsound": "#CF63CF",
+    "sccontrol": "#FFAB19", "scpen": "#0FBD8C", "scsensing": "#5CB1D6", "scoperators": "#59C059",
+    "scvariables": "#FF8C1A", "scmyblocks": "#FF6680",
 }
 C_BLOCKS = {"blockrepeat", "blockinfloop", "blockif", "blockifelse", "blockuntil", "blockforever"}
 
@@ -274,12 +285,22 @@ def split_document(tex: str) -> str:
     return body
 
 
-def expand_sheet_macros(s: str) -> str:
-    """Macros of the cheat sheets: inline Scratch blocks, command tables, category rows."""
+def expand_sheet_macros(s: str, cat_args: int = 4) -> str:
+    """Macros of the cheat sheets: inline Scratch blocks, command tables, category rows.
+
+    `\\cat` has four arguments in the main track (color, title, tip, blocks) and five in the junior track
+    (color, icon, name, color word, blocks); the junior row also shows a color swatch next to its words."""
     s = replace_cmd(s, "sbk", 1, lambda a: "\\begin{scratch}[scale=0.58]" + a + "\\end{scratch} ")
-    s = replace_cmd(s, "cshead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
-    s = replace_cmd(s, "cmdhead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
-    s = replace_cmd(s, "cat", 4, lambda c, t, tip, blocks: "\n\n\\subsection{" + t + "}\n\n" + tip + "\n\n" + blocks + "\n\n")
+    # one line of Python in a table cell (junior Level 3); \\pyin is the same line pushed in by four spaces
+    s = replace_cmd(s, "pyl", 1, lambda a: "\\texttt{" + a + "}\\par ")
+    s = replace_cmd(s, "pyin", 1, lambda a: "\\texttt{~~~~" + a + "}\\par ")
+    for head in ("cshead", "cmdhead", "sheethead"):
+        s = replace_cmd(s, head, 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
+    if cat_args == 5:
+        s = replace_cmd(s, "cat", 5, lambda c, icon, name, word, blocks:
+                        "\n\n\\subsection{" + name + "}\n\n\\swatch{" + c + "} " + word + "\n\n" + blocks + "\n\n")
+    else:
+        s = replace_cmd(s, "cat", 4, lambda c, t, tip, blocks: "\n\n\\subsection{" + t + "}\n\n" + tip + "\n\n" + blocks + "\n\n")
     s = re.sub(r"\\begin\{cmdtable\}(?:\[[^\]]*\])?\{([^}]*)\}", lambda m: "\n\n\\subsection{" + m.group(1) + "}\n\n\\begin{tabular}{ll}\n", s)
     s = s.replace("\\end{cmdtable}", "\\end{tabular}\n")
     if "\\cat{" in s or "\\begin{longtable}" in s and "\\subsection{" in s:
@@ -297,9 +318,41 @@ def expand_sheet_macros(s: str) -> str:
     return s
 
 
+def _count_columns(spec: str) -> int:
+    """Number of columns in a tabular column spec such as `@{}SP>{\\RaggedRight}m{2cm}@{}`."""
+    spec = re.sub(r"[@<>!]\{(?:[^{}]|\{[^{}]*\})*\}", "", spec)       # @{..} >{..} <{..}: no column
+    spec = re.sub(r"\*\{(\d+)\}\{([^{}]*)\}", lambda m: m.group(2) * int(m.group(1)), spec)
+    spec = re.sub(r"[pmbX]\{(?:[^{}]|\{[^{}]*\})*\}", "c", spec)       # p{..} m{..} b{..}: one column
+    return len(re.findall(r"[A-Za-z]", spec))
+
+
+def simplify_tabulars(s: str) -> str:
+    """Tables built with the document's own column types (\\newcolumntype, for example the junior Scratch and
+    Python twin table): Pandoc cannot read those specs, so they become plain `l` columns, and paragraph breaks
+    inside the table become line breaks (one cell can hold several blocks or lines of code)."""
+    out, pos = [], 0
+    for m in re.finditer(r"\\begin\{tabular\}", s):
+        if m.start() < pos:
+            continue
+        args, after = read_args(s, m.end(), 1)
+        end = s.find("\\end{tabular}", after)
+        if not args or end < 0:
+            continue
+        body = re.sub(r"\\par(?![A-Za-z])", r"\\newline ", s[after:end])
+        body = re.sub(r"(\\multicolumn\{\d+\})\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}", r"\1{l}", body)
+        out.append(s[pos:m.start()] + "\\begin{tabular}{" + "l" * max(1, _count_columns(args[0])) + "}" + body)
+        pos = end
+    out.append(s[pos:])
+    return "".join(out)
+
+
 def prepare(tex: str, file_label: str, week_hint: str = "") -> tuple[str, Result]:
     res = Result()
     code_store: list = []
+    if "\\begin{showme}" in tex:  # show-me checklists are assessments: private, never converted
+        raise ValueError(f"{file_label}: contains a show-me checklist (assessment), which must not be published")
+    cat_args = 5 if re.search(r"\\newcommand\{\\cat\}\[5\]", tex) else 4
+    own_columns = "\\newcolumntype" in tex.split("\\begin{document}", 1)[0]
     tex = split_document(tex)
     title = re.search(r"\\kctitle\{", tex)
     if title:
@@ -307,7 +360,9 @@ def prepare(tex: str, file_label: str, week_hint: str = "") -> tuple[str, Result
         if len(args) == 2:
             res.meta = {"title": args[0].strip(), "subtitle": args[1].strip()}
             tex = tex[: title.start()] + tex[end:]
-    tex = expand_sheet_macros(tex)
+    tex = expand_sheet_macros(tex, cat_args)
+    if own_columns:
+        tex = simplify_tabulars(tex)
     s = extract_code(tex, code_store)
     s = extract_figures(s, res.figures, file_label)
     s = strip_comments(s)
@@ -359,8 +414,8 @@ def prepare(tex: str, file_label: str, week_hint: str = "") -> tuple[str, Result
     s = re.sub(r"\\begin\{vocab\}", r"\\begin{vocab}\n\\begin{description}", s)
     s = re.sub(r"\\end\{vocab\}", r"\\end{description}\n\\end{vocab}", s)
 
-    # self-check lists: wrap items in an itemize list
-    for env in ("selfcheck", "checklist"):
+    # self-check and "I can" lists: wrap items in an itemize list
+    for env in LIST_ENVS:
         s = re.sub(r"\\begin\{" + env + r"\}", r"\\begin{" + env + r"}\n\\begin{itemize}", s)
         s = re.sub(r"\\end\{" + env + r"\}", r"\\end{itemize}\n\\end{" + env + "}", s)
 
@@ -504,7 +559,7 @@ def post_process(raw_html: str, res: Result, fig_urls: dict[str, tuple[str, int,
     for div in body.find_all("div", class_="checklist"):
         div["class"] = ["checklist"]
     # Self-check and checklist items are ordinary list items: the page is for reading, not for ticking.
-    for li in body.select(".callout-selfcheck li, .checklist li"):
+    for li in body.select(".callout-selfcheck li, .callout-ican li, .checklist li"):
         for p in li.find_all("p", recursive=False):
             p.unwrap()
 
@@ -661,8 +716,15 @@ def cleanup_selfcheck_sentences(body) -> None:
 # --------------------------------------------------------------------------- public entry point
 
 
+def preamble_colors(tex: str) -> str:
+    """The \\definecolor lines of a standalone document's preamble (its figures may use those colors)."""
+    pre = tex.split("\\begin{document}", 1)[0] if "\\begin{document}" in tex else ""
+    return "".join(m.group(0) + "\n" for m in re.finditer(r"\\definecolor\{[^}]*\}\{[^}]*\}\{[^}]*\}", pre))
+
+
 def convert_file(path, level: int, fig_dir, fig_url_prefix: str, exercise_pages: dict[str, str] | None = None,
-                 week_hint: str = "") -> Result:
+                 week_hint: str = "", track: str = "main") -> Result:
+    """Convert one .tex file; `track` ("main" or "junior") selects the class options used for its figures."""
     from pathlib import Path
 
     from . import figures
@@ -672,7 +734,8 @@ def convert_file(path, level: int, fig_dir, fig_url_prefix: str, exercise_pages:
     for f in res.figures:
         if f.kind == "tikz" and not f.alt:
             res.warnings.append(f"{Path(path).name}: TikZ figure without `%% alt:` text ({f.token})")
-    fig_urls = figures.render(res.figures, level, Path(fig_dir), fig_url_prefix)
+    fig_urls = figures.render(res.figures, level, Path(fig_dir), fig_url_prefix, track=track,
+                              extra_preamble=preamble_colors(tex))
     raw = run_pandoc(prepared)
     res.html = post_process(raw, res, fig_urls, exercise_pages or {})
     return res

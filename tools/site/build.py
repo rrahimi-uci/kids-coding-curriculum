@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the website data from the course sources.
 
-    python3 -m tools.site.build [--levels 1 2 3] [--skip-pdfs]
+    python3 -m tools.site.build [--levels 1 2 3 j1 j2 j3] [--skip-pdfs]
 
 Reads only what site/manifest.yml marks public; writes HTML fragments, JSON data, SVG figures and
 downloads into site/src/generated/ and site/public/generated/ (both git-ignored), and copies the teaching
@@ -83,8 +83,22 @@ def plain(text: str) -> str:
     return re.sub(r"\\[A-Za-z]+\s?", "", text).strip()
 
 
+def level_identity(entry: dict) -> dict:
+    """What the pages need to name a level: its track, curriculum key and label ("Level 1", "Junior Level 1")."""
+    cur = curriculum.by_dir(entry["dir"])
+    track = entry.get("track", cur.track)
+    if track != cur.track:
+        raise ValueError(f"site/manifest.yml: {entry['dir']} is in track {cur.track!r} in curriculum.json, not {track!r}")
+    prefix = "" if track == "main" else f"{track.capitalize()} "
+    return {"track": track, "key": cur.key, "label": f"{prefix}Level {entry['number']}",
+            "weeks_total": cur.weeks, "buffers": cur.buffers}
+
+
 def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str]) -> dict:
     n, d, slug = entry["number"], entry["dir"], entry["slug"]
+    ident = level_identity(entry)
+    track = ident["track"]
+    tag = ident["label"].lower()  # "level 1" or "junior level 1", for build messages
     pub = manifest["public"]
     fig_dir = PUB / "fig" / slug
     fig_prefix = f"{BASE}generated/fig/{slug}"
@@ -96,7 +110,7 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
         files = [f.name for f in dpath.iterdir() if any(fnmatch.fnmatch(f.name, pat) for pat in pub["exercise_files"])]
         ex = exmod.build_exercise(dpath, n, sorted(files), warnings)
         if not ex["hints"]:
-            warnings.append(f"ERROR level {n}: exercise {ex['folder']} has no hints.md")
+            warnings.append(f"ERROR {tag}: exercise {ex['folder']} has no hints.md")
         ex_by_week.setdefault(ex["week"], []).append(ex)
         ex_pages[ex["folder"]] = f"{BASE}levels/{slug}/exercises/{ex['slug']}/"
         ex["url"] = ex_pages[ex["folder"]]
@@ -120,17 +134,17 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
         hw = ROOT / pub["homework"].format(dir=d).replace("week[0-9][0-9]", f"week{nn}")
         if not wb.exists():
             continue
-        res = texconv.convert_file(wb, n, fig_dir, fig_prefix, ex_pages, week_hint=str(w))
+        res = texconv.convert_file(wb, n, fig_dir, fig_prefix, ex_pages, week_hint=str(w), track=track)
         objectives, body = extract_objectives(res.html)
         body = strip_vocab(body)
         if not objectives:
-            warnings.append(f"ERROR level {n} week {w}: no 'What you will learn' objectives found")
-        warnings += [f"level {n} week {w}: {x}" for x in res.warnings]
+            warnings.append(f"ERROR {tag} week {w}: no 'What you will learn' objectives found")
+        warnings += [f"{tag} week {w}: {x}" for x in res.warnings]
         hw_html, hw_meta = "", {}
         if hw.exists():
-            hres = texconv.convert_file(hw, n, fig_dir, fig_prefix, ex_pages, week_hint=str(w))
+            hres = texconv.convert_file(hw, n, fig_dir, fig_prefix, ex_pages, week_hint=str(w), track=track)
             hw_html, hw_meta = hres.html, hres.meta
-            warnings += [f"level {n} week {w} homework: {x}" for x in hres.warnings]
+            warnings += [f"{tag} week {w} homework: {x}" for x in hres.warnings]
         html_dir = GEN / "html" / slug
         html_dir.mkdir(parents=True, exist_ok=True)
         (html_dir / f"week-{nn}.html").write_text(body, encoding="utf-8")
@@ -188,10 +202,12 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
     project = extmod.build_project(entry, manifest, GEN, fig_dir, warnings)
     extras = extmod.build_extras(entry, manifest, GEN, fig_dir, warnings)
     glossary = extras.pop("glossary")
+    glossary_title = extras.pop("glossary_title")
     write_json(GEN / "glossary" / f"{slug}.json", glossary)
     extra_dl = extmod.level_pdfs(d, slug, ["project-brief", "cheat-sheet", "glossary", "parent-notes", "progress-tracker"],
                                  args.skip_pdfs)
     return {
+        **ident, "glossary_title": glossary_title,
         "number": n, "slug": slug, "dir": d, "name": syl[n]["name"], "languages": syl[n]["languages"],
         "tools": syl[n]["tools"], "goals": syl[n]["goals"], "project_title": syl[n]["project_title"],
         "project_html": syl[n]["project_html"], "published": entry["published"], "weeks": weeks,
@@ -203,11 +219,13 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--levels", type=int, nargs="*", help="levels to convert (default: all published in manifest)")
+    ap.add_argument("--levels", nargs="*", help="level keys from curriculum.json to convert, e.g. 1 j1 "
+                    "(default: all published in manifest)")
     ap.add_argument("--skip-pdfs", action="store_true", help="do not build or copy PDF downloads")
     args = ap.parse_args(argv)
     manifest = load_manifest()
-    syl = syllabus.parse()
+    tracks = curriculum.load()
+    syls = {t.id: syllabus.parse(t.syllabus) for t in tracks}  # one syllabus per track
     if GEN.exists():
         shutil.rmtree(GEN)
     GEN.mkdir(parents=True)
@@ -215,26 +233,33 @@ def main(argv=None) -> int:
     warnings: list[str] = []
     levels = []
     for entry in manifest["levels"]:
-        if args.levels is not None and entry["number"] not in args.levels:
+        if args.levels is not None and level_identity(entry)["key"] not in args.levels:
             entry = dict(entry, published=False)
         elif args.levels is None and not entry["published"]:
             pass
+        syl = syls[level_identity(entry)["track"]]
         if entry["published"]:
             levels.append(build_level(entry, syl, manifest, args, warnings))
         else:
             n = entry["number"]
-            levels.append({"number": n, "slug": entry["slug"], "dir": entry["dir"], "name": syl[n]["name"],
+            levels.append({**level_identity(entry),
+                           "number": n, "slug": entry["slug"], "dir": entry["dir"], "name": syl[n]["name"],
                            "languages": syl[n]["languages"], "tools": syl[n]["tools"], "goals": syl[n]["goals"],
                            "project_title": syl[n]["project_title"], "project_html": syl[n]["project_html"],
                            "published": False, "weeks": [], "downloads": {},
                            "syllabus_weeks": [{"n": w["n"], "title": w["title"], "idea": w["idea"]}
                                               for w in syl[n]["weeks"]]})
-    videos = videomod.collect(warnings)
+    videos = videomod.collect(warnings, (videomod.MANIFEST, videomod.JUNIOR_MANIFEST))
     for level in levels:
+        vkey = int(level["key"]) if level["key"].isdigit() else level["key"]  # videos.json: "1-2", junior: "j1-2"
         for week in level["weeks"]:
-            if (level["number"], week["n"]) in videos:
-                week["video"] = videos[(level["number"], week["n"])]
+            if (vkey, week["n"]) in videos:
+                week["video"] = videos[(vkey, week["n"])]
     write_json(GEN / "levels.json", levels)
+    write_json(GEN / "tracks.json", [
+        {"id": t.id, "title": t.title, "grades": t.grades.replace("-", "\u2013"), "ages": t.ages.replace("-", "\u2013"),
+         "levels": [lv["slug"] for lv in levels if lv["track"] == t.id]}
+        for t in tracks if any(lv["track"] == t.id for lv in levels)])
     write_json(GEN / "resources.json", extmod.build_resources(manifest, GEN, warnings))
     parentsmod.build(manifest, GEN, PUB, warnings, skip_pdfs=args.skip_pdfs)
     info = git_info()
@@ -252,7 +277,7 @@ def main(argv=None) -> int:
     print(f"site data built: {sum(len(l['weeks']) for l in levels)} week pages, "
           f"{sum(1 for _ in (GEN / 'exercises').rglob('*.json'))} exercise pages")
     from collections import Counter
-    for msg, cnt in Counter(re.sub(r"^level \d week \d+( homework)?: ", "", w) for w in infos).items():
+    for msg, cnt in Counter(re.sub(r"^(?:junior )?level \d week \d+( homework)?: ", "", w) for w in infos).items():
         print(f"  note: {msg} (x{cnt})")
     for w in errors:
         print("  PROBLEM:", w)

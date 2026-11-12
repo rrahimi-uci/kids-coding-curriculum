@@ -23,7 +23,7 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
         │               exercises.py ► exercise pages (README + starter + hints)
         │               parents.py ──► research, slides, FAQ (from the parent deck, faq.tex + .bib)
         ├── pdfs.py ───► whole-level and per-week PDFs
-        └── videos.py ─► teaching videos from the `videos` release ──► site/public/videos/
+        └── videos.py ─► teaching videos from the `videos` release (videos.json, junior-videos.json) ──► site/public/videos/
                                                            checks: private content, content, HTML, links, a11y, Lighthouse
 ```
 
@@ -43,7 +43,7 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
 | Glossaries | Parsed structurally (`\gl`, `\term`) into one searchable A to Z page | The three sources use two macro styles; one page is easier to use than three PDFs. |
 | Progress trackers | PDF only | They are print-and-tick sheets; HTML adds nothing. |
 | Setup and troubleshooting | New short markdown guides in `resources/`; the Mac guide starts with a one-line command and shows the full `resources/install-mac.sh` (published at `downloads/install-mac.sh`, tested by `testing/test_install_script.py`) | The only existing source is the private teacher guide, so the facts were rewritten for children and parents (no self-check script, no answer material). |
-| Syllabus tables | Parsed from `docs/SYLLABUS.md` | Level pages, week titles, big ideas and goals stay in sync with the master syllabus. |
+| Syllabus tables | Parsed from `docs/SYLLABUS.md` (main track) and `docs/JUNIOR-SYLLABUS.md` (junior track), which share one layout | Level pages, week titles, big ideas and goals stay in sync with the master syllabus. |
 | Whole-level documents | The PDFs built by `tools/build.py`, standard and dyslexia-friendly editions | Offered as downloads; one PDF per week (chapter + homework) is compiled from a tiny wrapper that inputs the same source files. |
 
 Fallback rule: if something cannot be converted faithfully, the build reports it (a `PROBLEM:` line) and
@@ -63,6 +63,31 @@ fails rather than publishing something wrong.
   is harder for the component-style design; MkDocs Material is excellent for docs but a playful, card-based
   design would fight the theme.
 
+## Two tracks
+
+The course has a main track (Grades 4–5, `1-introduction` to `3-advanced`) and a junior track (Grades 2–3,
+`junior/1-little-robots` to `junior/3-bridge-to-python`). `curriculum.json` says which levels exist, their
+track and how many weeks each has (12 in the main track, 10 in the junior track); the manifest lists the
+published levels with their `track` and URL slug (`level-1` … `level-3`, `junior-1` … `junior-3`). The build
+is track-aware rather than copied: one level builder, one set of page templates. What differs:
+
+* **Names and labels.** Each level in `levels.json` carries `track`, `key` (`1`, `j1` …) and `label`
+  ("Level 1", "Junior Level 1"); `tracks.json` holds each track's grades and ages for the home, curriculum
+  and parent pages. Main-track pages, titles and addresses are unchanged.
+* **Converter.** The junior LaTeX environments become callouts like the others, each with an icon and a text
+  label: `ican` ("I can …", the week's goals, taken out as the objectives like the main track's list),
+  `grownup` ("For the grown-up") and `playathome` ("Play at home (5–10 minutes, with a grown-up)", the junior
+  homework, which has no Core / Challenge / Creative tiers). Figures and week PDFs are compiled with
+  `track=junior`. `showme` (the show-me checklist) is an assessment: it only appears in private files, and
+  the converter refuses any file that contains one.
+* **Pages.** Junior week pages call the homework "Play at home"; the junior Level 1 and 2 projects have no
+  starter files (they start in Scratch), Level 3 offers the Python postcard starter; the junior glossaries
+  ("Word Book") are separate sections of the glossary page, linked from each junior level page.
+* **Videos.** Junior videos (*Kids Coding Junior with Aiden and Pixi*) are on the same `videos` release but
+  listed in their own `junior-videos.json` (same shape as `videos.json`, keys like `j1-2`). Each list is
+  read on its own: if one is missing or unreachable, only its videos are left out and the pages are built
+  without the player.
+
 ## Public vs private (strict)
 
 [`site/manifest.yml`](../site/manifest.yml) is the single place that tags content. **Deny by default:** the
@@ -77,8 +102,9 @@ build when:
 1. a published file name or ZIP member contains a private path fragment (`answers/`, `solution`, `test_`, …);
 2. a private marker string (`TEACHER ONLY`, `Teacher script`, `Answer key`, …) appears in any text, ZIP member
    or PDF text;
-3. a distinctive line of a private source (solution code, answer keys, teacher lessons, assessments) appears
-   anywhere in the output. Lines that also occur in public sources (starter code, workbooks, READMEs) are
+3. a distinctive line of a private source (solution code, answer keys, teacher lessons, assessments,
+   certificates) appears anywhere in the output. The check runs over every level in the manifest, so the
+   junior folders (Scratch `solution.md` files, the grown-up's answers, show-me checklists) are covered. Lines that also occur in public sources (starter code, workbooks, READMEs) are
    ignored, so shared text is not a false alarm.
 
 `testing/test_site_private.py` proves the check works by injecting leaks into a fake site. Light edits made
@@ -91,12 +117,14 @@ No children's names, photos or personal data are used; the site has no analytics
 
 ## Site map
 
-* **Home**: value of the course, three levels at a glance, paths for parents and students.
+* **Home**: value of the course, the three levels of the main track and the three levels of the junior
+  track at a glance, paths for parents and students.
 * **For parents** (`/parents/`): weekly commitment, how to help, assessment, safety; **Research**
   (generated from the deck: slide, plain-language explanation, questions, sources, linked references);
   **Slides** (viewer, download, gallery); **FAQ**.
 * **Curriculum** (`/curriculum/`): three-level timeline (weeks 1–12 with the checkpoint, project and
-  showcase), what is learned, final projects, how progress is measured.
+  showcase), what is learned, final projects, how progress is measured; then the junior track with its own
+  10-week timeline (play day, project studio, showcase) and its three levels.
 * **Level pages** and **week pages**: objectives, the week's teaching video (always the first thing in the
   lesson, right below the header, with captions and a transcript), lesson content, exercises, new words, homework tiers
   (Core, Challenge, Creative), downloads (week PDF, starter-file ZIP), previous/next and a self-check list
@@ -116,8 +144,8 @@ phones and tablets (without JavaScript the menu is simply shown above the page).
 family meets the course:
 
 1. **Home** and **Curriculum and timeline** (orientation);
-2. **Levels**: each level is a disclosure that opens to *Overview*, *Weeks 1 to 12*, *Final project*, *Cheat
-   sheet* and *Notes for families*; the current level is open, the current page is highlighted
+2. **Levels**, then **Junior track**: each level is a disclosure that opens to *Overview*, its weeks,
+   *Final project*, *Cheat sheet* and *Notes for families*; the current level is open, the current page is highlighted
    (`aria-current="page"`) and an exercise page highlights its week (`aria-current="location"`);
 3. **For parents**: parent guide, research, slides, questions and answers;
 4. **Resources**: setup guide, troubleshooting, glossary, all resources, about.
