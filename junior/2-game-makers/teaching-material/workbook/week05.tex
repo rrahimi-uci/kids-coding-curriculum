@@ -1,0 +1,138 @@
+% Junior Level 2, Week 5 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{5}{Play Day and Show Me}{Practice everything, then show a grown-up what you can do.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can be the computer and keep the score.
+  \item I can find a bug in a game and fix it.
+  \item I can make a game and say how it works.
+\end{ican}
+
+\begin{exercise}[Be the Computer]
+You are the cat. Do the script one block at a time. Each 10 steps is one square. What is the score at the end?
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockrepeat{repeat \ovalnum{6}}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockif{if \boolsensing{touching \ovalsensing*{Apple} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+  }
+}
+\end{scratch}
+
+\medskip
+%% alt: A row of six numbered squares with the cat standing before square 1. Apples are on squares 1, 4, 5 and 6. A ghost is on square 2. Square 3 is empty. Next to the row is an empty box labeled Score.
+\begin{tikzpicture}[x=1cm,y=1cm,sq/.style={draw=kcblack,line width=0.8pt,minimum size=1.5cm}]
+  \node[font=\LARGE] at (0,0) {\faCat};
+  \node[font=\footnotesize\bfseries] at (0,-1.05) {start};
+  \foreach \i in {1,...,6} {
+    \node[sq] at (\i*1.6,0) {};
+    \node[font=\footnotesize\bfseries] at (\i*1.6,-1.05) {\i};
+  }
+  \foreach \i in {1,4,5,6} \node[font=\LARGE,text=kcvermillion] at (\i*1.6,0) {\faIcon{apple-alt}};
+  \node[font=\LARGE,text=kcgray!80!black] at (3.2,0) {\faGhost};
+  \node[draw=kcblack,line width=1pt,rounded corners=3pt,minimum width=1.6cm,minimum height=1.3cm] (box) at (12.0,0) {};
+  \node[font=\footnotesize\bfseries] at (12.0,-1.05) {Score};
+\end{tikzpicture}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Bug-Hunt Relay]
+Three games are broken. Build each one. Test it. Find the bug. Fix it. Get a sticker!
+
+\textbf{Leg 1: Stuck at the Edge.} The cat should walk back and forth forever.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockmove{if on edge, bounce}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+}
+\end{scratch}
+\end{center}
+
+\textbf{Leg 2: The Stuck Score.} Each click on the Ghost should add 1 to the score.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\end{scratch}
+\end{center}
+
+\textbf{Leg 3: The Apple That Won't Pop.} The cat follows the mouse. When it touches the Apple, the Apple should pop and jump away.
+\begin{center}
+\begin{minipage}[t]{0.4\linewidth}\centering
+\textbf{Cat's code}\par\smallskip
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockmove{go to \selectmenu{mouse-pointer}}
+}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.55\linewidth}\centering
+\textbf{Apple's code}\par\smallskip
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmove{go to \selectmenu{random position}}
+  }
+}
+\end{scratch}
+\end{minipage}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[My Best Game]
+Keep leg 3 open. Make it a real game!
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Make a variable called \enquote{score}.
+  \item In the Apple's code, set the score to 0 at the start.
+  \item Add 1 to the score each time the cat catches the Apple.
+  \item Add your own idea: a sound, a backdrop, a new sprite.
+\end{enumerate}
+Tell your grown-up how your game works.
+\end{exercise}
+
+\begin{grownup}[Show me]
+While your child plays, use the Week 5 show-me checklist in the Assessments booklet. It is not a test. \enquote{Not yet} is fine.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{practice}{Doing something again and again to get better at it.}
+  \vocabword{play day}{A day to try everything we know and show what we can do.}
+\end{vocab}
+
+\begin{reflection}
+Color one star for each relay leg you fixed.
+
+\begin{center}
+\Huge\faStar[regular]\qquad\faStar[regular]\qquad\faStar[regular]
+\end{center}
+
+What did you get better at? Circle one or more.
+
+\begin{center}
+\begin{tabular}{c@{\hspace{1.2cm}}c@{\hspace{1.2cm}}c@{\hspace{1.2cm}}c}
+{\Huge\faBug} & {\Huge\faInfinity} & {\Huge\faStar[regular]} & {\Huge\faUsers}\\
+fixing bugs & loops & scores & taking turns
+\end{tabular}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

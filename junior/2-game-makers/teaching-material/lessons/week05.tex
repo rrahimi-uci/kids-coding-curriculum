@@ -1,0 +1,149 @@
+% Junior Level 2, Week 5 -- Play Day and Show Me
+\lesson{5}{Play Day and Show Me}{Practice everything, then show a grown-up what you can do.}
+\lessoninfo{Concepts: forever, if touching, variables, random, debugging (R); show-me checklist}{Tools: Scratch 3 offline app, floor squares, the SCORE box, Assessments booklet}{CSTA: 1B-AP-10, 1B-AP-15, 1B-AP-16, 1B-AP-17}
+
+\begin{objectives}
+  \item The student can be the computer: act out a script with an if-touching check and a score, and say the score at the end. (J2.G2, J2.G3) [J2.W05.1]
+  \item The student can find and fix a bug in each of three broken games with \enquote{test, look, change one thing}. (J2.G5) [J2.W05.2]
+  \item The student can build a small game with a forever loop, an if-touching check, a score that starts at 0 and goes up by 1, and a random surprise. (J2.G1, J2.G2, J2.G3) [J2.W05.3]
+  \item The student can take turns as Driver and Helper, explain what their script does and say one thing they got better at. (J2.G6) [J2.W05.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 5 and play-at-home card 5 (one per child), and the Week 5 show-me checklist from the Assessments booklet (one row of boxes per child).
+  \item Unplugged: six sheets of paper in a row on the floor (the squares), three paper apples (draw them, or use real ones) on squares 2, 3 and 5, and the SCORE box and counters from week 3. Write the Be the Computer script from the workbook on a big sheet, one block per line.
+  \item On each computer: the Scratch app with a new project and a \textbf{mouse}. Turn the volume down a little.
+  \item Stickers or a stamp for the relay (three per child), and a sand timer or kitchen timer (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Be the computer: one child is the sprite, one reads the script, one keeps score. Then Exercise 5.1 on paper.}
+  \timeslot{10--20}{Show me}{Play day rules, the three detective steps, and a demo on one tiny bug (a score that counts by 10).}
+  \timeslot{20--33}{Make it}{Bug-hunt relay (Exercise 5.2): three broken games, swap Driver after each leg.}
+  \timeslot{33--35}{Wiggle break}{Forever freeze dance with an IF: \enquote{If I say apple, jump!}}
+  \timeslot{35--50}{Make it}{Exercise 5.3 My Best Game: keep the fixed leg 3 open and add a score. You watch and fill in the show-me checklist.}
+  \timeslot{50--60}{Share}{Each child plays their game for the others and says what it does. \enquote{What did I get better at?} Exit question, save, hand out play-at-home card 5.}
+\end{timeplan}
+
+\begin{teachernote}[The show-me checklist]
+Use the Week 5 show-me checklist in the Assessments booklet while children play. Do not announce a test: watch, ask \enquote{Can you show me\ldots?} and check off \emph{Not yet}, \emph{Getting there} or \emph{Got it}. It is never graded, and \emph{Not yet} is a normal answer in week 5. Where to see each row today:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt]
+  \item uses a forever loop to keep something moving (relay leg 1; the cat that follows the mouse in 5.3);
+  \item uses if-touching to make a sprite react (relay leg 3; Exercise 5.3);
+  \item makes a score variable that starts at 0 and goes up by 1 (relay leg 2; Exercise 5.3);
+  \item uses pick random for a surprise (\enquote{go to random position} in 5.3, or a pick random in the free play);
+  \item finds and fixes a bug with \enquote{test, look, change one thing} (the relay);
+  \item takes turns as Driver and Helper and explains their script (the whole Make it phase and Share).
+\end{enumerate}
+\end{teachernote}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Be the computer]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Show the big script sheet. \enquote{Today you are the computer. The computer does exactly what the blocks say, one block at a time, and it never guesses.}
+  \item Give out the jobs: the \textbf{sprite} stands before square 1; the \textbf{reader} reads one block at a time and points at it; the \textbf{scorekeeper} holds the SCORE box and the counters.
+  \item \enquote{set score to 0}: the scorekeeper empties the SCORE box. \enquote{repeat 6}: the reader holds up six fingers and folds one down each time round.
+  \item Each time round: the sprite steps onto the next square (\enquote{move 10 steps} is one square today). The reader asks, \enquote{Are you touching an apple?} Only if the answer is yes: the scorekeeper drops one counter into the SCORE box, and the sprite says \enquote{Yum!}. If no, nothing happens.
+  \item After six squares, count the counters: \enquote{What is the score?} (3.) \enquote{How did you know when to add one?} (Only when the if was true.)
+  \item Last 2 minutes: everyone does Exercise 5.1 on paper: same idea, a new row of squares.
+\end{enumerate}
+With 1 child: the child is the sprite and also says \enquote{Yum!}; you read and keep score, then swap so the child reads. With 2: one is the sprite and keeps score, the other reads; then swap. With 3: sprite, reader and scorekeeper. With 4: add a \enquote{checker} who watches that only true ifs change the score; move the apples and swap jobs for a second round.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Today is \textbf{Play Day}. We practice everything we know: forever, if touching, score and random. First a bug-hunt relay: three broken games, like three legs of a race. Fix one, get a sticker, swap Driver. Then you build your best game and show me how it works.}
+
+\enquote{Remember our detective steps? \textbf{Test}: click the flag and play. \textbf{Look}: what should happen, and what happened? \textbf{Change one thing}, then test again. Let me show you.}
+\end{teacherscript}
+
+\begin{analogy}[A referee watching the game]
+\enquote{A referee does not stop the game because of a feeling. They watch, they see exactly what went wrong, and they make one call. A bug detective watches the game, finds the one block that is wrong, and changes only that.}
+\end{analogy}
+
+\begin{workedexample}[The score that counts by 10]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Make a \enquote{score} variable (orange-red \menu{Variables}, \menu{Make a Variable}, \enquote{For all sprites}).
+  \item Build: yellow \menu{Events} \enquote{when this sprite clicked}, then orange-red \menu{Variables} \enquote{change score by 1}. Change the 1 to 10 on purpose. Say: \enquote{I want one point for each click.}
+  \item \textbf{Test:} click the cat three times. The score shows 30.
+  \item \textbf{Look:} \enquote{I clicked three times. I wanted 3. I got 30. The block that changes the score is the clue.}
+  \item \textbf{Change one thing:} change 10 back to 1. Click \enquote{set score to 0} once in the block list, so the score starts again at 0.
+  \item \textbf{Test again:} click three times. 3! \enquote{Bug fixed. That is how the relay works.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Relay roles]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the \enquote{should do} line on the relay card, points at the blocks in the picture and says the color circle, but never grabs the mouse. Swap at the end of every leg (about 4 minutes each). With 1 child: the child drives legs 1 and 3; you drive leg 2 and the child is your Helper. With 3: Driver, Helper and Tester (the only one who plays the game to test), and each leg everyone moves one job along. With 4: two pairs, each at its own computer, doing the legs in order; a pair that finishes a leg early plans the sound and sprite for 5.3.
+\end{pairroles}
+
+\begin{bughunt}[Bug-hunt relay: three broken games (Exercise 5.2)]
+Each relay card in the workbook says what the game \textbf{should do} and shows the blocks exactly as they were built, with the bug. Children start a new project for each leg, build it as shown, test, find the bug and fix it. Give a sticker for each leg that works.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Leg 1, Stuck at the Edge:} the cat should walk back and forth forever. \enquote{if on edge, bounce} is above the forever loop, so it runs once, at the start, and the cat walks to the edge and stays there. Fix: drag the forever away, put the bounce block into the forever under \enquote{move 10 steps}, and snap the forever back on. (\enquote{set rotation style left-right} from week 1 stays at the top, so the cat turns around the right way up.)
+  \item \textbf{Leg 2, The Stuck Score:} each click on the ghost should add 1 to the score. The click script says \enquote{set score to 1}, so the score is always 1. Fix: swap it for \enquote{change score by 1}.
+  \item \textbf{Leg 3, The Apple That Won't Pop:} the cat follows the mouse; when it touches the apple, the apple should pop and jump to a surprise place. The apple's if says \enquote{touching edge?}, so touching the cat does nothing. Fix: click the little arrow in the touching block and pick \enquote{Sprite1} (the cat's name in the sprite list).
+\end{itemize}
+If a team is stuck for 2 minutes, give one hint at a time: (1) \enquote{Read the should-do line again. What is different?} (2) Point at the block where the bug lives. (3) Ask a yes/no question: \enquote{Does this block run once, or again and again?}
+\end{bughunt}
+
+\section{Wiggle break (33--35 min)}
+Forever freeze dance with an IF: play music and everyone dances \enquote{forever}. Call out \enquote{If I say apple, jump!} and then mix words: \enquote{banana} (no jump), \enquote{apple} (jump!). When the music stops, everyone freezes like a stopped project. End with three slow breaths.
+
+\section{Make it (35--50 min)}
+\begin{freebuild}[My Best Game (Exercise 5.3)]
+Each child (or pair) keeps their fixed leg 3 open (or builds it again from the workbook) and turns it into a real game: make a \enquote{score} variable, add \enquote{set score to 0} under the apple's green flag block (above the forever), and \enquote{change score by 1} inside the if. Then it is their choice: a different sprite to catch, a new sound, a backdrop, a \enquote{say Yum!}, or a second thing to catch. Change Driver on the timer (6--7 minutes). While they build, sit with each child for a minute: \enquote{Show me where the forever is. What does the if check? Where does the score start?} Fill in their row of the show-me checklist.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[What did I get better at?]
+\enquote{Five weeks ago we had never made a game. Today you fixed three broken games by yourselves.} Ask each child: \enquote{What did you get better at?} and \enquote{What was hard at first and is easier now?} Collect answers out loud (fixing bugs, finding blocks, taking turns, being a good sport). \enquote{Getting better is not about being the fastest. It is about trying, fixing and trying again. We are kind about bugs, ours and our friends'.} Children color the things they got better at in the workbook.
+\end{safety}
+
+\begin{teacherscript}
+Each child plays their game for the others and says one sentence: \enquote{My game makes the cat \ldots. You score when \ldots.} Let a friend play it. Others give two stars and a wish (two things they like and one idea), as in week 2. Then everyone saves their game in the \enquote{Game Makers} folder: \menu{File} → \menu{Save to your computer}, nickname plus \enquote{best}.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} each child fixed the bug in at least one relay leg; their game has a forever, an if-touching inside it, a score that starts at 0 and goes up by 1, and a \enquote{go to random position}.
+
+\textbf{Ask:} show the Stuck Score card (\enquote{when this sprite clicked, set score to 1}). \enquote{I click the ghost four times. What does the score say?}
+\textbf{Answer:} 1. \enquote{set} puts the score to 1 every time; \enquote{change score by 1} would make it 4.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which bug was the trickiest?} and \enquote{What are you proud of today?} Children color one star for each relay leg they fixed, color what they got better at, and circle a smiley face in the workbook. Hand out play-at-home card 5.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Rebuilding instead of fixing.} A child deletes everything and starts again. Praise that it works, then show that changing one thing is enough.
+  \item \textbf{Moving a block drags the ones under it.} In leg 1, drag the forever away first, then move the bounce block.
+  \item \textbf{The cat walks upside down after bouncing.} \enquote{set rotation style left-right} (week 1) is missing. Snap it right under the green flag block and click \enquote{point in direction 90} once.
+  \item \textbf{In leg 3, the cat does not follow the mouse.} \enquote{go to mouse-pointer} must be inside a forever in the cat's code, not the apple's. Check which sprite has the blue frame in the sprite list.
+  \item \textbf{In leg 2, changing 1 to another number.} The block is the bug, not the number. Ask: \enquote{Which block adds one more?}
+  \item \textbf{Treating the checklist as a test.} Keep it out of sight. Watching while they play gives a truer picture than asking them to perform.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do the relay together, with you as the Driver and the child pointing at the bug, then the child drives the fix. Do legs 2 and 3 only. In 5.3, add the score together; a working game with a score is a full result.
+\extensionpath Make a broken game for a partner: build a small game, add one bug on purpose, and let the partner hunt for it. Or in 5.3 add a Ghost to dodge: it jumps to a random position every 2 seconds, and when the cat touches it, a \enquote{misses} variable (as in week 3) goes up by 1.
+\end{differentiation}
+
+\begin{stretchchallenge}[Be the computer, harder]
+Write a new script card for the floor game with two ifs: \enquote{if touching apple: change score by 1} and \enquote{if touching ghost: change score by 2}. Put paper ghosts on some squares. Can your partner act it out and say the score before you count it together?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+In the warm-up, act out the script once and leave Exercise 5.1 for home. Do relay legs 2 and 3, then 5.3 with only the score added. Never skip the wiggle break or the Share: the Share is where children say what their script does and what they got better at.
+\end{teachernote}

@@ -1,0 +1,155 @@
+% Junior Level 2, Week 9 -- Project Studio
+\lesson{9}{Project Studio}{Plan on a game card, build the core, then playtest.}
+\lessoninfo{Concepts: game plan card (I), playtesting (I), all concepts (R)}{Tools: the Project Brief with the game plan card, paper and scissors for a paper prototype, Scratch 3 offline app}{CSTA: 1B-AP-10, 1B-AP-13, 1B-AP-15, 1B-AP-16, 1B-IC-20}
+
+\begin{objectives}
+  \item The student can plan their arcade game on the game plan card with a partner: the player, what to catch or avoid, how to win and how to lose. (J2.G6) [J2.W09.1]
+  \item The student can build the core of their game one must-have at a time, testing each: a forever loop, an if-touching check, a score or misses variable, random and an ending. (J2.G1, J2.G2, J2.G3) [J2.W09.2]
+  \item The student can watch a Player playtest their game, write a playtest bug list and fix one bug the Player found. (J2.G5, J2.G6) [J2.W09.3]
+  \item The student can ask before sharing or showing someone else's game, and explain why our games stay with our family. (J2.G7) [J2.W09.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 9, play-at-home card 9 and the \textbf{Project Brief} (one each; the game plan card page is the one they draw on). Each child's rules from Exercise 8.3 and their drawing from play-at-home card 8.
+  \item \textbf{Before the lesson (core path, about 2 minutes per child):} set up the arcade template described in the Project Teacher Guide: a new project with a backdrop and a player sprite that already moves with the four arrow keys (\enquote{point in direction} 0, 90, 180 or 270, then \enquote{move 10 steps}, with \enquote{set rotation style left-right}). Save one copy per child in the \enquote{Game Makers} folder as \enquote{arcade-} plus the nickname. Keep each child's week 8 catch game too: it is a good place to look things up.
+  \item Paper prototype: a sheet of paper per child for the stage, scrap paper and scissors (or sticky notes) for the pieces, crayons.
+  \item Sticky notes and a pencil for the playtest bug list. A sand timer or kitchen timer (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\begin{teachernote}[The project in one look]
+\textbf{My First Arcade Game} is a catch game or a maze game, planned on the game plan card and playtested by someone else. Must-haves: a forever loop, an if-touching check, a score or misses variable, random, and a win or game-over ending. Milestones: \textbf{M1 Game plan card} (start of today), \textbf{M2 Game works} (end of today: every must-have works), \textbf{M3 Arcade showcase} (week 10). Core path: the arcade template, where the player already moves. Stretch path: a My Block, or a second level. Full details are in the Project Brief and the Project Teacher Guide.
+\end{teachernote}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Fill in the game plan card (M1). Then a partner plays the paper prototype: can you win? can you lose?}
+  \timeslot{10--20}{Show me}{Read a sample game plan card and build its first must-have together. One must-have at a time, then test.}
+  \timeslot{20--33}{Make it}{Driver and Helper on two games, swap on the timer. Exercise 9.2 Build My Game, must-have by must-have.}
+  \timeslot{33--35}{Wiggle break}{Act out your game: player, falling thing, win and game over.}
+  \timeslot{35--50}{Make it}{Keep building until every must-have works (M2). At minute 42: Exercise 9.3 Playtest (bug hunt) and fix one bug. Then the stretch path or free play.}
+  \timeslot{50--60}{Share}{Show one must-have that works. Ask-before-you-share talk, exit question, reflection, hand out play-at-home card 9.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Game plan card and paper prototype]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Hand out the Project Brief. \enquote{Today you make your own arcade game. Game makers plan before they build.} Children fill in the game plan card with their rules from last week (6 minutes): catch game or maze game; who the player is; what you catch or avoid; how you win; how you lose; one surprise (random). Write the words for them if they ask. Stick figures are perfect.
+  \item The paper prototype (4 minutes): on a sheet of paper, they draw the stage. On scrap paper, they draw and tear out the player and the thing that falls (or the maze walls and the goal). \enquote{A \textbf{prototype} is a quick test version, made before the real one.}
+  \item A partner plays it: the partner slides the player piece; the maker slides the falling thing down and says what happens (\enquote{You caught it, 1 point!} \enquote{You missed: 1 miss!}). Ask the partner: \enquote{Could you win? Could you lose? Was anything confusing?} The maker changes one thing on the card if needed.
+\end{enumerate}
+With 1 child: you are the partner who plays the paper prototype, then you plan a tiny game too and the child plays yours. With 2: each plays the other's prototype. With 3: rotate so everyone plays one other prototype. With 4: two pairs; each pair swaps prototypes.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Look at your game plan card: it has a list of must-haves. We do not build the whole game at once. We build \textbf{one must-have at a time}, test it, and check it off. If something goes wrong, we know where to look. You already know every block you need: they are all in your catch game from last week.}
+\end{teacherscript}
+
+\begin{analogy}[Building a house]
+\enquote{Builders make the floor and the walls first, and check they are strong. The paint and the pictures come last. The must-haves are the floor and walls of your game. Extras come when the must-haves work.}
+\end{analogy}
+
+\begin{workedexample}[Mei's Banana Drop: the first must-have]
+Read Mei's game plan card out loud: \enquote{Catch game. I am the Bowl. Bananas fall; I catch them. I win when I catch 10. I lose when I miss 3. Surprise: the bananas wait a random time at the top.} Open an arcade template (the Bowl already moves with the arrow keys). Build while the children watch:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item The Star marker from week 2: \menu{Choose a Sprite}, Star. Drag it near the top, a little below the edge. Give it \enquote{when green flag clicked, hide}.
+  \item \menu{Choose a Sprite}: Bananas. Yellow \menu{Events} \enquote{when green flag clicked}. Blue \menu{Motion} \enquote{set rotation style left-right}, \enquote{go to Star}, \enquote{point in direction 180}.
+  \item Orange \menu{Control} \enquote{forever}; inside it blue \menu{Motion} \enquote{move 5 steps}. Test: the bananas fall. \enquote{Forever: check!} Check it off on the card.
+  \item Inside the forever: \enquote{if touching Bowl? then} (light blue \menu{Sensing} in an orange \menu{Control} if), with \enquote{start sound Pop} and \enquote{go to Star} inside. Test with the arrow keys. \enquote{If touching: check!} Check it off.
+  \item Point at the rest of the card: \enquote{Next come the score and misses, the surprise and the ending. You built them all last week.} The surprise: \enquote{wait pick random 1 to 3 seconds} (green \menu{Operators} in a \enquote{wait}) right after each \enquote{go to Star}.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockmove{go to \selectmenu{Star}}
+\blockmove{point in direction \ovalnum{180}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{5} steps}
+  \blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmove{go to \selectmenu{Star}}
+    \blockcontrol{wait \ovaloperator{pick random \ovalnum{1} to \ovalnum{3}} seconds}
+  }
+  \blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{
+    \blockvariable{change \selectmenu{misses} by \ovalnum{1}}
+    \blockmove{go to \selectmenu{Star}}
+    \blockcontrol{wait \ovaloperator{pick random \ovalnum{1} to \ovalnum{3}} seconds}
+  }
+}
+\end{scratch}
+\end{center}
+Mei's finished Bananas script. The Bowl gets the referee script from week 8 (set score and misses to 0, say the goal, forever: if misses = 3 game over; if score = 10 you win).
+\end{workedexample}
+
+\begin{tip}[Maze games]
+A maze game uses the same must-haves. The player (a small Cat) starts on a hidden Star marker. Paint a \textbf{Walls} sprite with thick lines (\menu{Paint} under \menu{Choose a Sprite}). In the player's forever: \enquote{if touching Walls? then} change misses by 1 and go to Star; \enquote{if touching Apple? then} say You win! and stop all. The random surprise: a Ghost that goes to a random position every 2 seconds; touching it is a miss. The full reference is in \texttt{exercises/week09/ex-build-my-game/solution.md}.
+\end{tip}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper on two games]
+Each child has their own game. The \textbf{Driver} builds their own game. The \textbf{Helper} holds the Driver's game plan card, reads the next must-have, says the color circle and checks off each must-have that passes its test, but never grabs the mouse. Swap on the timer (6--7 minutes), so each child is Driver on their own game and Helper on the other. With 1 child: you are the Helper the whole time; let the child explain each must-have back to you. With 3: two Drivers and one Helper who moves between them on the timer. With 4: two pairs.
+\end{pairroles}
+
+Work through the workbook: \textbf{9.2} Build My Game. After each must-have: click the green flag, test, check it off on the card. Save often: \menu{File} → \menu{Save to your computer}, same name.
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up and acts out their own game: the player slides left and right, the bananas (or ghosts) fall from the ceiling, a catch is a jump, and \enquote{Game over!} is a slow-motion fall to the floor. Then stand up and stretch.
+
+\section{Make it (35--50 min)}
+Keep building until every must-have works (M2). At about minute 42, everyone stops for the playtest, even if a must-have is missing: a Player can still find bugs.
+
+\begin{bughunt}[Playtest (Exercise 9.3)]
+Swap seats. The \textbf{Player} plays the other child's game twice, with no help: once trying to win and once trying to lose. The maker watches, keeps their hands in their lap and says nothing (the hardest job!). The maker writes or draws each problem on the playtest bug list in the workbook, or tells you and you write it: \enquote{The bananas went through the bowl.} \enquote{I did not know how to win.} \enquote{It said Game over at the start.} Then the Player gives two stars and a wish. The maker picks one bug from the list and fixes it with test, look, change one thing, and the Player tries again. Common finds: the score does not reset; misses count at the start (the Star is too near an edge); an if outside the forever; no goal at the start; far too fast.
+\end{bughunt}
+
+\begin{freebuild}[Stretch path or extras]
+When every must-have works and one playtest bug is fixed: try the stretch path (a My Block such as \enquote{celebrate} for the win, or a second level: when the score is 10, switch the backdrop and make the bananas fall faster) or add extras: sounds, a backdrop, a start button with a message, credits.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child clicks the green flag and shows one must-have that works: \enquote{This is the if touching. When the bananas touch the bowl, I get a point.} Others give a thumbs up. Save every game.
+\end{teacherscript}
+
+\begin{safety}[Ask before you share a game]
+\enquote{Your game is yours. Zoe's game is Zoe's. If you want to show someone else's game to a friend, take a photo of it, or copy it onto another computer, you ask first: \enquote{May I show your game?} And we never change someone else's game without asking: we make a copy with a new name. Our games stay with our family. We do not put them on the internet or send them to people we do not know.} Ask: \enquote{Leo loves Priya's maze and wants to show it to his cousin. What should he do?} (Ask Priya first; if she says no, he does not show it.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a filled-in game plan card (M1); every must-have checked off after a test (M2): forever, if touching, score or misses, random, an ending; a playtest bug list with at least one bug and one fix.
+
+\textbf{Ask:} point at the child's game plan card. \enquote{Which must-have did you build first, and how did you test it?}
+\textbf{Answer:} any must-have named with a test, for example \enquote{The forever: I clicked the flag and the bananas kept falling.}
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What did your Player find?} and \enquote{Which must-have are you proudest of?} Children color the must-haves that work in the workbook and circle a smiley face. Hand out play-at-home card 9: they practice the showcase and make an arcade poster.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building everything before testing.} Stop after each must-have and click the flag. A bug is easier to find in one small part.
+  \item \textbf{A plan that is too big} (\enquote{ten levels and a dragon boss}). Keep the must-haves for today; extras go on the back of the card for later.
+  \item \textbf{The maker helps the Player.} During the playtest the maker watches and listens. Every \enquote{no, you have to\ldots} is a bug: the game did not explain itself.
+  \item \textbf{Misses at the start.} The Star marker is touching an edge. Click the Star in the sprite list, click the open eye next to \menu{Show}, drag it lower and away from the sides, then click the closed eye.
+  \item \textbf{The score jumps by many points.} The thing stays on the player. \enquote{go to Star} must come straight after \enquote{change score by 1}.
+  \item \textbf{No random yet.} Good places for it: \enquote{wait pick random 1 to 3 seconds} at the top, or a Ghost with \enquote{go to random position}.
+  \item \textbf{A real name in the game.} Use the nickname in say blocks and in the file name.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Core path with a catch game. Build the falling thing together (you drive, the child points), then let the child drive the score and the ending with you as Helper; copy the referee script from their week 8 game (drag it onto the new player sprite under the stage). Random can be one \enquote{wait pick random 1 to 3 seconds}.
+\extensionpath A maze game, or a catch game with a second level: at score 10 the referee broadcasts \enquote{level 2} instead of winning (the win moves to 20); the Stage switches backdrop when it receives it, and a \enquote{speed} variable goes from 5 to 8 (the falling thing uses \enquote{move speed steps}). Use a My Block for the win or for \enquote{get ready}.
+\end{differentiation}
+
+\begin{stretchchallenge}[Two things at once]
+Add a second falling thing: an Apple to catch and a Ghost to dodge (touching the Ghost is a miss). Use the Star marker for both, and give them different waits so they do not fall together. Different shapes, so everyone can tell them apart!
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Fill in the game plan card at home with play-at-home card 8 and skip the paper prototype (do it as a 2-minute talk). Use the core path for everyone. Keep the playtest, even if only for 3 minutes: it is this week's bug hunt and milestone. If M2 is not reached, use buffer B2 (Mini Game Jam, as extra studio time) or 15 minutes at the start of week 10.
+\end{teachernote}

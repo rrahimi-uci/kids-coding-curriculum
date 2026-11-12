@@ -1,0 +1,164 @@
+\documentclass[track=junior,level=2]{kidscode}
+%% outline stars to color in: \stars{n}
+\newcommand{\ostar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=0.8pt,fill=white,minimum size=0.75cm,inner sep=0pt]{};}
+\newcommand{\stars}[1]{\ifcase#1\or\ostar\or\ostar\,\ostar\or\ostar\,\ostar\,\ostar\fi}
+%% a box to write or draw in: \planbox{label}{height}
+\newcommand{\planbox}[2]{%
+%% alt: An empty box to write or draw in, labeled with a question from the game plan card.
+\begin{tikzpicture}
+  \draw[line width=1.2pt,rounded corners=6pt] (0,0) rectangle (\linewidth,-#2);
+  \node[anchor=north west,font=\bfseries,fill=white,draw=black,rounded corners=3pt] at (0.25,-0.2) {#1};
+\end{tikzpicture}}
+%% box heights: the dyslexia edition has bigger text, so the boxes are a little smaller
+\makeatletter\ifkc@dyslexia
+  \newcommand{\qheight}{1.8cm}\newcommand{\sketchheight}{3.6cm}
+\else
+  \newcommand{\qheight}{2.0cm}\newcommand{\sketchheight}{5.0cm}
+\fi\makeatother
+\begin{document}
+\kctitle{My First Arcade Game}{Project brief, game plan card and stars (weeks 9 and 10)}
+
+\begin{grownup}[How to use this brief]
+Read it together at the start of week 9. Your child fills in the game plan card before building.
+Writing a few words, drawing and circling all count.
+\end{grownup}
+
+\section{Your mission}
+Make your own arcade game in Scratch. Plan it first. Then build it.\par
+Someone else plays it and finds a bug. You fix it.\par
+In week 10, your family plays it at the arcade!
+
+\begin{safety}[Nicknames, credit and fair play]
+Put a nickname on your game, never a full name.
+Say where your sprites and sounds come from: \enquote{The apple is from the Scratch library.}
+Tell players the rules at the start, so the game is fair.
+\end{safety}
+
+\section{The must-haves}
+Your game needs all five. Check each box when it works.
+
+\begin{center}\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\linewidth}{@{}c>{\centering}m{1.0cm}>{\RaggedRight}X>{\centering\arraybackslash}m{5.4cm}@{}}
+\toprule
+{\Large\tickbox} & {\Large\faRedo} & A \textbf{forever} loop keeps the game going. &
+  \begin{scratch}[scale=0.58]\blockinfloop{forever}{\blockmove{move \ovalnum{5} steps}}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faHandPointRight} & An \textbf{if touching} check makes a sprite react. &
+  \begin{scratch}[scale=0.58]\blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{\blocksound{start sound \selectmenu{Pop}}}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faBoxOpen} & A \textbf{score} or \textbf{lives}: a variable that counts. &
+  \begin{scratch}[scale=0.58]\blockvariable{change \selectmenu{score} by \ovalnum{1}}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faDice} & Something \textbf{random}, so every game is a surprise. &
+  \begin{scratch}[scale=0.58]\blockmove{go to \selectmenu{random position}}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faTrophy} & A \textbf{win} or a \textbf{game over} ending. &
+  \begin{scratch}[scale=0.58]\blockif{if \booloperator{\ovalvariable{score} = \ovalnum{10}} then}{\blocklook{say \ovalnum{You win!} for \ovalnum{2} seconds}\blockstop{stop \selectmenu{all}}}\end{scratch}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Idea menu}
+Pick one, or think of your own!\par\vspace{-0.3cm}
+\begin{center}
+%% alt: Three game ideas, each in a box with a picture: an apple for a catch game where you catch falling apples in a bowl, a winding path for a maze game where the cat finds the star, and a ghost for a dodge game where you keep away from the ghost.
+\begin{tikzpicture}[idea/.style={draw=black,line width=1pt,rounded corners=6pt,minimum width=4.9cm,minimum height=3.5cm,align=center,text width=4.5cm}]
+  \node[idea] at (0,0) {{\fontsize{24}{28}\selectfont\faIcon{apple-alt}}\\[4pt]\textbf{Catch game}\\[2pt]\small Catch the falling apples in the bowl. Catch 10 to win!};
+  \node[idea] at (5.4,0) {{\fontsize{24}{28}\selectfont\faRoute}\\[4pt]\textbf{Maze game}\\[2pt]\small Steer the cat to the star. Do not touch the walls!};
+  \node[idea] at (10.8,0) {{\fontsize{24}{28}\selectfont\faGhost}\\[4pt]\textbf{Dodge game}\\[2pt]\small Keep away from the ghost. Get caught 3 times and it is game over!};
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+\section{My game plan card (Milestone 1)}
+\noindent\textbf{My game is called:} \rule{9cm}{0.4pt}\par\medskip
+
+\noindent\planbox{1 Who is the player? How does it move?}{\qheight}\par\medskip
+\noindent\planbox{2 How do you win?}{\qheight}\par\medskip
+\noindent\planbox{3 How do you lose?}{\qheight}\par\medskip
+
+\noindent\textbf{4 Which sprites?} Circle them.\par
+\noindent Cat \quad Ballerina \quad Balloon1 \quad Apple \quad Bananas \quad Ghost \quad Star \quad Bowl \quad I paint my own\par\medskip
+
+\noindent\planbox{5 Draw your game screen}{\sketchheight}\par\medskip
+
+\noindent\textbf{My must-haves} (check when they are in your plan):\par
+\noindent{\Large\tickbox}\,\faRedo\ forever\qquad{\Large\tickbox}\,\faHandPointRight\ if touching\qquad{\Large\tickbox}\,\faBoxOpen\ score or lives\par
+\noindent{\Large\tickbox}\,\faDice\ random\qquad{\Large\tickbox}\,\faTrophy\ a win or a game over
+
+\clearpage
+\section{Milestones}
+Build one part at a time. Play it after each change.
+
+\begin{center}\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}c>{\bfseries}p{4.2cm}X@{}}
+\toprule
+ & Milestone & Done when \ldots\\
+\midrule
+\tickbox & M1 Game plan card\newline{\normalfont\small week 9, start} & I filled in my game plan card. I know how to win and how to lose.\\ \midrule
+\tickbox & M2 Game works\newline{\normalfont\small week 9, end} & All five must-haves work. A Player tested my game. I fixed one thing. I saved it.\\ \midrule
+\tickbox & M3 Arcade showcase\newline{\normalfont\small week 10} & My family played my game. I said what one script does and why I made one choice.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{My Player found \ldots}
+\noindent Write or draw one thing your Player found. Then fix it!\par\smallskip
+\noindent\rule{\linewidth}{0.4pt}\par\bigskip
+\noindent\rule{\linewidth}{0.4pt}\par
+
+\section{Need a different path?}
+\begin{tip}[Core path: start from a template]
+\begin{minipage}[t]{0.52\linewidth}\RaggedRight
+A grown-up gives you a game to start from.\par\smallskip
+The player already moves with the arrow keys.\par\smallskip
+Add one must-have at a time. Play it after each one.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}\vspace{0pt}
+\begin{scratch}[scale=0.62]
+\blockinit{when \selectmenu{right arrow} key pressed}
+\blockmove{point in direction \ovalnum{90}}
+\blockmove{move \ovalnum{10} steps}
+\end{scratch}
+\end{minipage}
+\end{tip}
+
+\begin{stretchchallenge}[Stretch path: a My Block or a second level]
+\begin{minipage}[t]{0.5\linewidth}\RaggedRight
+\textbf{A My Block:} give a group of blocks a name. Use it in two places.\par\smallskip
+This block sends the apple back to the top. It hops right a surprise number of times.\par\smallskip
+\textbf{Or a second level:} when the score is 10, change the backdrop and make the apple faster!
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}\vspace{0pt}
+\begin{scratch}[scale=0.58]
+\initmoreblocks{define \namemoreblocks{new apple}}
+\blockmove{go to \selectmenu{Star}}
+\blockmove{point in direction \ovalnum{90}}
+\blockrepeat{repeat \ovaloperator{pick random \ovalnum{1} to \ovalnum{10}}}{
+  \blockmove{move \ovalnum{30} steps}
+}
+\blockmove{point in direction \ovalnum{180}}
+\end{scratch}
+\end{minipage}
+\end{stretchchallenge}
+
+\needspace{22\baselineskip}
+\section{How my game is checked}
+Color the stars you have now. Look again after the arcade showcase!
+
+\begin{rubric}[My stars]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.6cm}*{3}{>{\RaggedRight\arraybackslash}X}@{}}
+ & \stars{1} & \stars{2} & \stars{3}\\
+\midrule
+It works & It starts. & Most parts work. & It all works, every time.\\ \midrule
+It has every must-have & 1 or 2 & 3 or 4 & all 5\\ \midrule
+A player tested it and I fixed something & A player played it. & I listened to what they found. & I fixed something they found.\\ \midrule
+I can say what one script does & I can say what my game does. & I can point to a script and name its blocks. & I can say what each block in one script does.\\
+\end{tabularx}
+\end{rubric}
+
+\begin{reflection}[After the arcade showcase]
+Draw the part of your game you like best. How do you feel? Circle one.
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{2.6cm}
+\end{reflection}
+\end{document}

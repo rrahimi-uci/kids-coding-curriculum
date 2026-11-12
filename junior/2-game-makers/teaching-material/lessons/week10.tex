@@ -1,0 +1,135 @@
+% Junior Level 2, Week 10 -- Arcade Showcase
+\lesson{10}{Arcade Showcase}{Show, explain and celebrate.}
+\lessoninfo{Concepts: explaining design choices (R); show-me checklist}{Tools: Scratch 3 offline app, finished arcade games, stickers, certificates, the Week 10 show-me checklist}{CSTA: 1B-AP-11, 1B-AP-15, 1B-AP-16, 1B-AP-17, 1B-IC-21}
+
+\begin{objectives}
+  \item The student can present their arcade game in a one-minute demo and explain one design choice and why they made it, such as a change that came from a Player's wish. (J2.G6) [J2.W10.1]
+  \item The student can run a last-minute bug check (green flag twice, play to win, play to lose) and fix one bug calmly. (J2.G5) [J2.W10.2]
+  \item The student can show a message being sent and received, and a My Block being made and used, in their game or in a quick demo. (J2.G4) [J2.W10.3]
+  \item The student can give kind sticker feedback in the arcade gallery, give credit for sprites and ideas they did not make, and keep the showcase for family only with nicknames on screen. (J2.G7) [J2.W10.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 10, play-at-home card 10, the \textbf{Week 10 show-me checklist in the Assessments booklet} (one per child), one Game Makers certificate per child (fill in the nickname before the lesson), and the sticker feedback cards from the last page of the Project Teacher Guide (one per game).
+  \item Stickers (stars or smileys) or sticky notes with a drawn star. Each child's arcade poster from play-at-home card 9, if they made one.
+  \item On each computer: the child's arcade game open (\menu{File} → \menu{Load from your computer}). Check the sound is on. The full-screen button (top-right of the stage) makes the game big.
+  \item Invite the audience: family members at home only (a parent, a sibling, a grandparent). A timer. Optional: a toy microphone and a bell.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Last-minute bug check: green flag twice, play to win, play to lose. Fix one thing, save, stop.}
+  \timeslot{10--20}{Show me}{You model a one-minute demo with Mei's sample game, including a design choice. Everyone practices their sentences with a partner.}
+  \timeslot{20--33}{Make it}{Arcade showcase: each child gives a one-minute demo and a family member plays. You fill in the show-me checklist.}
+  \timeslot{33--35}{Wiggle break}{Arcade dance: act out every game in a row.}
+  \timeslot{35--50}{Make it}{Arcade gallery with sticker feedback. Show-me corner: each child shows you a message and a My Block. Free play: one more touch on a copy.}
+  \timeslot{50--60}{Share}{Certificates and a big clap. Showcase safety, exit question, reflection, hand out play-at-home card 10.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{bughunt}[Last-minute bug check (Exercise 10.1)]
+\enquote{Before an arcade opens, the owners check every machine.} Children open their game and follow the checklist in the workbook with a partner as Player:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the green flag. Do the score and misses start at 0? Does the game say its goal?
+  \item Play to win. Does it say You win! and stop?
+  \item Click the flag again and play to lose. Does it say Game over! and stop?
+  \item Is the sound on? Can you hear it?
+\end{enumerate}
+The most common last-minute bugs: the second game starts with the old score or says Game over at once (a \enquote{set \ldots{} to 0} is missing at the top of the referee script); a sprite that hid at the end stays hidden (add \enquote{show} under its green flag); the sound is off on the computer. Keep it calm: \enquote{Every arcade game has a bug sometimes. Fix one thing, then stop building.} Save.
+\end{bughunt}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Today is our arcade! At an arcade, people walk around and play games. We do three things: we show our game in one minute, we let someone play it, and we celebrate. In your minute you say what the game is, how to win and lose, and one \textbf{design choice}: something you decided on purpose, and why. Watch me first.}
+
+Open Mei's Banana Drop (the sample from week 9, or your own game). Give the one-minute demo below, then let a child play it.
+\end{teacherscript}
+
+\begin{analogy}[A shopkeeper at the arcade]
+\enquote{Imagine you run a game stand at a fair. When a visitor comes, you say what the game is, how to play and win, and one cool thing about it. Then you hand them the controls and cheer them on.}
+\end{analogy}
+
+\begin{workedexample}[A one-minute demo]
+Say it slowly, pointing at the stage and then at one script:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{What it is:} \enquote{My game is called Banana Drop. You are the Bowl. Use the arrow keys.}
+  \item \textbf{How to win and lose:} \enquote{Catch 10 bananas to win. Miss 3 and it is game over.}
+  \item \textbf{A design choice:} \enquote{I chose 3 misses, not 1, because my Player said 1 was too hard. That was a wish from the playtest.} Point at the referee script and read the if: \enquote{If misses = 3, then Game over, stop all.}
+  \item \textbf{Credit:} \enquote{The bananas and the bowl are from the Scratch library.}
+  \item \textbf{Hand over:} \enquote{Who wants to play?}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{3}} then}{
+  \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+  \blockstop{stop \selectmenu{all}}
+}
+\end{scratch}
+\end{center}
+Then each child says their own sentences once to a partner, using the frame in the workbook (Exercise 10.2). If a child cannot think of a design choice, ask: \enquote{Why did you pick that goal? Why that speed? Why that sprite?}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Presenter, Helper and Player]
+The presenter is the \textbf{Driver}: they hold the mouse, click the green flag and give the one-minute demo. The partner is the \textbf{Helper}: they point to the script on the screen while the presenter explains it, and start the clapping. A family member or another child is the \textbf{Player} and plays one round. Swap for the next game. With 1 child: you are the Helper, and a family member is the Player. With 3: presenter, Helper and Player, rotating. With 4: two pairs; each pair presents both games, and the other pair plays.
+\end{pairroles}
+
+\textbf{Arcade showcase (about 3 minutes per child).} Each child gives the one-minute demo (Exercise 10.2), then the Player plays one round. While they present, fill in the \textbf{Week 10 show-me checklist in the Assessments booklet} for that child (Not yet, Getting there, Got it): a start, a win and a game over; score or misses and random; the game plan card; the playtest fix; the design choice; credit and fairness. The two rows about messages and My Blocks can be filled in during the show-me corner after the break. It is observed, never graded: do not show the checklist to the child as a score.
+
+\section{Wiggle break (33--35 min)}
+Arcade dance: stand in a line and act out every game in turn: slide like a bowl, fall like a banana, sneak through a maze, freeze for \enquote{Game over!}, and jump for \enquote{You win!}
+
+\section{Make it (35--50 min)}
+\begin{unplugged}[Arcade gallery with sticker feedback (Exercise 10.3)]
+Each game sits on its computer (or take turns on one computer) with its sticker feedback card and the poster next to it. Visitors walk around like at an arcade. At each game, a visitor asks \enquote{May I play?}, plays one round, and puts a sticker on the card in the column of the part they liked best. Then they give two stars and a wish out loud: \enquote{I liked the pop sound and the ghost. I wish it was a bit slower.} Only kind words. Visitors never change someone else's game. With 1 child: family members are the visitors, and the child visits your sample game. With 2--4: every child visits every other game.
+\end{unplugged}
+
+\textbf{Show-me corner (during the gallery).} Invite each child to the corner for 2 minutes. \enquote{Show me a message.} \enquote{Show me a My Block.} If their game has them (a start button, a game-over message, a \enquote{celebrate} block), they point and explain. If not, they show it in a new project: \enquote{when this sprite clicked, broadcast hello} and a second sprite with \enquote{when I receive hello}; a My Block \enquote{jump} or \enquote{celebrate} used under a key. Fill in those two rows.
+
+\begin{freebuild}[One more touch]
+If time is left: save the game with a new name (so the showcase version stays safe) and add one extra from a wish: a sound, a new backdrop, a second level, a start button, or a \enquote{celebrate} My Block for the win.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Call each child up by nickname and hand over the certificate: \enquote{\ldots{} is now a Game Maker! You planned a game, built it, let a Player test it, fixed bugs and explained your choices.} Everyone claps. Read out one sticker from each game's card. Then ask the reflection questions.
+\end{teacherscript}
+
+\begin{safety}[Showcase safety]
+\enquote{Our arcade is for our family, here at home. On the screen we use nicknames, never our full names, our school or our address. We do not put our games on the internet or send them to people we do not know. We gave credit for the sprites and ideas we did not make. If you want to show your game to someone else, ask a grown-up first.} If you take a photo of the arcade for the family album, keep it in the family and ask each child first.
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for (also on the show-me checklist):} the game starts fresh at 0 on every green flag; it can be won and lost; the child names a design choice with a reason; the child shows a message and a My Block; kind feedback and credit.
+
+\textbf{Ask:} point at the child's referee script. \enquote{What would happen if you changed 3 to 5 here? Would that make the game easier or harder?}
+\textbf{Answer:} the game would end after 5 misses instead of 3, so it would be easier: you can miss more before it is game over.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What are you proudest of in your game?} and \enquote{What would you like to make next?} Children draw their favorite moment from the arcade in the workbook and circle a smiley face. Hand out play-at-home card 10.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building new things in the warm-up.} The bug check is a check, not a build. Fix one thing, save, stop.
+  \item \textbf{Stage fright.} Let the child play the game first and talk after, or whisper the sentences to you and you repeat them. Pointing at the script counts.
+  \item \textbf{No design choice.} Ask about one number: \enquote{Why 10? Why 3? Why 5 steps?} Any reason the child gives is a design choice.
+  \item \textbf{The presenter takes the mouse back from the Player.} Let the Player play to the end, even if they lose. Losing is part of a fair game.
+  \item \textbf{The game ends at once for the visitor.} Click the green flag again; if it still ends, it is the reset bug from the warm-up. Fix it between visitors.
+  \item \textbf{Unkind or vague feedback.} Model it: \enquote{I liked the surprise wait, because I never knew when the banana would drop.}
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Let the child show the game first, then ask one question at a time: \enquote{How do you win? Why did you choose that?} Their answers are their demo. Mark the checklist from what they show, not how much they say. In the show-me corner, do the message and the My Block together, with the child dragging.
+\extensionpath Explain two design choices and a bug the Player found and how it was fixed. Be the arcade host: welcome each visitor, say the rules and hand out stickers.
+\end{differentiation}
+
+\begin{stretchchallenge}[Tell the story of the bug]
+Tell the audience about the trickiest bug in your game: what you wanted, what happened, which block was the clue, and how you fixed it. Good game makers share their bugs.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Cut the warm-up to the green flag test and one win. Keep demos to one minute each and fill in the checklist from them. Do the gallery with one sticker per visitor, and do the show-me corner while the others play. Never skip the certificates and the clap: celebrating is the point of this week.
+\end{teachernote}

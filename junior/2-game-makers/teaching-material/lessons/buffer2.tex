@@ -1,0 +1,148 @@
+% Junior Level 2, Buffer session B2 -- Mini Game Jam
+\kcpart{B2}{Mini Game Jam}{A game jam is a fast, fun build: one small idea, made and played in one session.}
+\lessoninfo{Concepts: game idea in one sentence (I), forever, if-then, score and random (R), playtesting (R), giving credit (R)}{Tools: Scratch 3 offline app, jam idea cards, a sand timer}{CSTA: 1B-AP-10, 1B-AP-13, 1B-AP-14, 1B-AP-16}
+
+\begin{teachernote}[When to use B2]
+Use B2 any time after week 5: after a missed week, before a holiday, or between weeks 9 and 10 as extra time for the arcade games (then skip the jam idea and use the whole Make it time on the project). It needs no saved projects: everyone starts a new one. Prep: write the jam idea cards (about 5 minutes) and open Scratch on each computer.
+\end{teachernote}
+
+\begin{objectives}
+  \item The student can come up with a game idea in 90 seconds and say it in one sentence: who you are, what you do, how you win. (J2.G6) [J2.B2.1]
+  \item The student can build a small game in one session with a forever loop, an if-then check and a score. (J2.G1, J2.G2, J2.G3) [J2.B2.2]
+  \item The student can let a partner play their jam game, listen to two stars and a wish, and change one thing. (J2.G5, J2.G6) [J2.B2.3]
+  \item The student can tell players how to win at the start and give credit for an idea they borrowed. (J2.G7) [J2.B2.4]
+\end{objectives}
+
+\begin{materials}
+  \item \textbf{Jam idea cards} you write by hand (index cards, three piles). \textbf{Hero}: Cat, Ballerina, Bowl, Balloon1. \textbf{Thing}: Apple, Bananas, Star, Ghost. \textbf{Verb}: catch, dodge, click, collect. One blank \enquote{jam card} per child with three lines: \enquote{I am \ldots}, \enquote{I \ldots}, \enquote{I win when \ldots}.
+  \item On each computer: the Scratch app with a new project and a \textbf{mouse}. A sand timer (90 seconds if you have one, otherwise a kitchen timer) and a timer for swaps (6--7 minutes).
+  \item Optional: a small bell to start and stop the jam.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Draw a hero, a thing and a verb card. 90 seconds to say the game in one sentence and fill in the jam card.}
+  \timeslot{10--20}{Show me}{The jam recipe in four steps. Build a tiny jam game together (Balloon Pop) in 5 minutes.}
+  \timeslot{20--33}{Make it}{Jam! Steps 1 and 2 of the recipe: the hero and the thing move. Driver and Helper, swap on the timer.}
+  \timeslot{33--35}{Wiggle break}{Act out your jam game with your body.}
+  \timeslot{35--50}{Make it}{Steps 3 and 4: score and an ending. At minute 43, jam swap: a partner plays and gives two stars and a wish. Change one thing.}
+  \timeslot{50--60}{Share}{Jam arcade: everyone plays every game. Credit talk, exit question, reflection.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[A 90-second idea]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{Today is a \textbf{game jam}. Game makers hold jams where they make a whole small game very fast, for fun. The first rule: the idea must be small.}
+  \item Each child draws one card from each pile: a hero, a thing and a verb. For example: Bowl, Apple, catch. Or Cat, Ghost, dodge. A child may swap one card once.
+  \item Turn the sand timer: 90 seconds. Each child fills in the jam card, or says it while you write: \enquote{I am the Bowl. I catch apples. I win when I catch 10.}
+  \item Read the sentences out loud. Ask each one: \enquote{Who are you? What do you do? How do you win?} If a sentence has two games in it, pick one.
+\end{enumerate}
+With 1 child: you draw cards too and make a jam game next to the child. With 2: each child has their own idea, or they share one and make it together. With 3--4: everyone draws; two children may team up on one idea.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Here is the jam recipe. It works for almost every small game.} Write it on a big sheet: \textbf{1. The hero moves} (arrow keys, or follows the mouse). \textbf{2. The thing moves} (forever). \textbf{3. If touching or clicked: score} (if-then and a variable). \textbf{4. An ending} (if score = 10: you win). \enquote{Build one step, test it, then the next.}
+\end{teacherscript}
+
+\begin{analogy}[A sandwich, not a feast]
+\enquote{A jam game is a sandwich, not a feast. Bread, one filling, bread: done, and you can eat it today. You can always make a fancier one another day.}
+\end{analogy}
+
+\begin{workedexample}[Balloon Pop in 5 minutes]
+Do this on your computer while the children watch, fast and out loud. It mixes Pop the Balloon (week 3) and Ghost Pop (week 4), and adds an ending.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \enquote{I am the mouse pointer. I click balloons. I win when I pop 10.} Delete the cat (right-click, \menu{delete}). \menu{Choose a Sprite}: Balloon1.
+  \item Orange-red \menu{Variables}: \menu{Make a Variable}, \enquote{score}, \enquote{For all sprites}.
+  \item Recipe step 2, the thing moves: yellow \menu{Events} \enquote{when green flag clicked}; \enquote{set score to 0}; orange \menu{Control} \enquote{forever} with blue \menu{Motion} \enquote{go to random position} and \enquote{wait 1 seconds} inside. Test.
+  \item Recipe step 3, score: \enquote{when this sprite clicked}, \enquote{change score by 1}, pink \menu{Sound} \enquote{start sound Pop}, \enquote{go to random position}. Test: click it!
+  \item Recipe step 4, the ending: in the click script, under \enquote{change score by 1}, add \enquote{if then} (orange \menu{Control}) with green \menu{Operators} \enquote{\_\_ = 50}: drag \enquote{score} into the left side and type 10 on the right. Inside the if: purple \menu{Looks} \enquote{say You win! for 2 seconds}, then orange \menu{Control} \enquote{stop all}. \enquote{Right after the score goes up, we check: is it 10 yet?} Test until you win.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockinfloop{forever}{
+  \blockmove{go to \selectmenu{random position}}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\blockif{if \booloperator{\ovalvariable{score} = \ovalnum{10}} then}{
+  \blocklook{say \ovalnum{You win!} for \ovalnum{2} seconds}
+  \blockstop{stop \selectmenu{all}}
+}
+\blockmove{go to \selectmenu{random position}}
+\end{scratch}
+\end{center}
+\enquote{Is this a perfect game? No. Is it a game? Yes! That is a jam.}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper at the jam]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} holds the jam card and the recipe, says which step is next, and tests each step, but never grabs the mouse. Swap when the timer runs out (6--7 minutes). With one shared idea, the pair builds one game; with two ideas, they build the Helper's game after the swap, on the second computer or in a second project. With 1 child: you are the Helper, then swap so the child helps with your jam game. With 3: Driver, Helper and Tester (only plays). With 4: two pairs.
+\end{pairroles}
+
+Jam recipe steps 1 and 2. Arrow-key heroes use the moves from earlier weeks: \enquote{when right arrow key pressed}, \enquote{point in direction 90}, \enquote{move 10 steps} (and 270 for left, 0 for up, 180 for down). A falling thing points in direction 180 and moves inside a forever. A thing that wanders can \enquote{go to random position} or bounce. Test after each step.
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up and acts out their own jam game: catchers catch, dodgers dodge, poppers pop. When you say \enquote{game over!}, everyone freezes in a funny pose.
+
+\section{Make it (35--50 min)}
+Jam recipe steps 3 and 4: the if-then and the score, then the ending. Remind them: tell the player how to win at the start, with a say block under the green flag (\enquote{Catch 10 apples!}).
+
+\begin{bughunt}[Jam swap (minutes 43--47)]
+Partners swap seats and play each other's game for two minutes without help from the owner. The owner watches and keeps quiet (hard!). Then the player gives two stars and a wish: \enquote{I liked the pop sound and the ghost. I wish the score went back to 0.} Common finds: the score does not go back to 0 at the start; the if is outside the forever, so you never win; the player does not know how to win; the game is far too fast. The owner picks one thing, and fixes it with test, look, change one thing. With 1 child, you are the player.
+\end{bughunt}
+
+\begin{freebuild}[Polish one thing]
+Last 3 minutes: add one extra: a sound when you score, a backdrop, a second thing to catch, or a My Block called \enquote{celebrate} for the win. Save the game with a name like \enquote{jam-} plus the nickname.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Jam arcade: put every game on its computer with the stage made big (full-screen button). Everyone walks round and plays every game for one minute. The owner says the jam sentence first: \enquote{I am the Bowl. I catch apples. I win when I catch 10.} Players say one star.
+\end{teacherscript}
+
+\begin{safety}[Fair jams and credit]
+\enquote{A fair game tells you how to win before you start. And at a jam, ideas fly around the room. If your game uses someone else's idea, like Kai's ghost that chases you, you say so: \enquote{The ghost idea is from Kai.} That is called giving \textbf{credit}, and it makes the person who had the idea feel great.} Ask: \enquote{Mei loved Omar's falling bananas and put them in her game. What does she say at the arcade?} (\enquote{The bananas idea is from Omar.})
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a jam sentence with a hero, a verb and a way to win; a forever loop; an if-then or a click script that changes the score; the score set to 0 at the start; an ending (a win or game over) and one change made after the jam swap.
+
+\textbf{Ask:} show a green flag script with \enquote{set score to 0}, then \enquote{if score = 10 then say You win!}, and no forever. \enquote{I click the balloon 10 times. Will it say You win?}
+\textbf{Answer:} no. The check runs once, at the start, when the score is 0. Put the check where it runs again: right after the score changes (as in Balloon Pop), or inside a forever loop.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What was the best part of your jam game?} and \enquote{What would you add if you had another hour?} Children give a thumbs up, sideways or down for how the jam went, and write the \enquote{another hour} idea on the back of their jam card for later.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The idea is too big} (\enquote{a game with ten levels and a dragon}). Ask: \enquote{What is the very first level? Make only that.}
+  \item \textbf{Building everything before testing.} Test after every recipe step.
+  \item \textbf{No way to win or lose.} Without step 4 it is a toy, not a game. Add \enquote{if score = 10 then say You win! stop all} right after the score changes.
+  \item \textbf{The score does not reset.} \enquote{set score to 0} goes under the green flag, above the forever.
+  \item \textbf{The owner grabs the mouse during the jam swap.} The player plays alone; the owner watches and listens.
+  \item \textbf{Upside-down sprites after a bounce.} Add \enquote{set rotation style left-right} (blue Motion) above the forever, as in week 1.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build Balloon Pop with a new sprite (Apple, Star or Ghost) and a new sound: that is a jam game too. You are the Helper and read the recipe step by step. Skip the ending if time is short; add it together at the jam swap.
+\extensionpath Add a second thing that counts a miss (a Ghost to dodge), a timer with a \enquote{wait} and a message, or a second level: when the score is 10, switch the backdrop and make the thing faster.
+\end{differentiation}
+
+\begin{stretchchallenge}[Remix a jam]
+With permission, take a partner's jam game (on a copy with a new name) and add one twist. Put a credit line in a say block at the start: \enquote{Remix of Zoe's jam game}.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip the card draw: give everyone the same idea (\enquote{I am the mouse pointer. I click balloons. I win when I pop 10.}) and let them change the sprite and the sound. Keep the jam swap, even if it is one minute long, and keep the credit talk.
+\end{teachernote}

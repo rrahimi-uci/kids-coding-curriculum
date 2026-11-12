@@ -1,0 +1,139 @@
+% Junior Level 2, Week 4 -- Surprise! Random
+\lesson{4}{Surprise! Random}{Random picks a number nobody can guess.}
+\lessoninfo{Concepts: pick random 1 to 10 (I), go to random position (I), variables (R)}{Tools: Scratch 3 offline app, a die, a paper race track}{CSTA: 1B-AP-09, 1B-AP-10, 1B-AP-15, 1B-AP-16}
+
+\begin{objectives}
+  \item The student can use \enquote{pick random} to roll a number in a variable and make a sprite hop that many times. (J2.G3) [J2.W04.1]
+  \item The student can use \enquote{go to random position} and a score variable to make a game where a sprite pops up in surprise places. (J2.G3) [J2.W04.2]
+  \item The student can find and fix a random number that is picked only once, before the forever loop, so it never changes. (J2.G5) [J2.W04.3]
+  \item The student can say how to be a good sport when they win or lose a game. (J2.G7) [J2.W04.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 4 and play-at-home card 4 (one per child).
+  \item Unplugged: one ordinary die (1 to 6), a paper race track of 15 squares in a row (sheets of paper on the floor, or squares drawn on a long strip of paper), and one small toy per child as a racer. Draw a flag on the last square.
+  \item On each computer: the Scratch app with a new project and a \textbf{mouse}.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Dice race: roll, move that many squares, and say \enquote{good game} at the end.}
+  \timeslot{10--20}{Show me}{Random is a die inside the computer. Build the cat's half of Dice Race together.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 4.1 Dice Race: copy the script to the Ballerina and race.}
+  \timeslot{33--35}{Wiggle break}{Random jumps: roll the die and do that many jumps.}
+  \timeslot{35--50}{Make it}{Exercise 4.2 Ghost Pop, then Exercise 4.3 The Stuck Dice (bug hunt). Free play: more surprises.}
+  \timeslot{50--60}{Share}{Being a good sport. Each child shows one surprise. Exit question, reflection, save, hand out play-at-home card 4.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Dice race]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Put all the racers on the first square. Ask: \enquote{Who will win? Can you tell me now?} Let them guess. \enquote{We cannot know. The die decides.}
+  \item Take turns: roll the die, say the number out loud, and hop your racer that many squares, counting each hop.
+  \item Before each roll, ask the roller: \enquote{What number will you get?} Nobody can guess it every time. \enquote{That is called \textbf{random}.}
+  \item The first racer to reach the flag wins. Everyone says \enquote{good game} and shakes hands or does a high five, whoever won. Play a second race if there is time: a different racer may win.
+\end{enumerate}
+With 1 child: you race against each other. With 3: three racers; one child is also the \enquote{counter} who checks the hops out loud. With 4: two teams of two; one child rolls, the teammate hops the racer, then they swap.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Games are more fun when you cannot guess what comes next. Scratch has a die inside it: the green \textbf{pick random 1 to 10} block in \menu{Operators}. Each time it runs, it picks a number, and nobody knows which one. Today we race with it, and we make a ghost that pops up in surprise places. We keep the number in a variable, like the score box from last week.}
+\end{teacherscript}
+
+\begin{analogy}[A die inside the computer]
+\enquote{When you roll a die, you get a number from 1 to 6, but you cannot pick it. \enquote{pick random 1 to 6} is a die inside the computer. \enquote{pick random 1 to 10} is a die with ten sides. Every time the block runs, it rolls again.}
+\end{analogy}
+
+\begin{workedexample}[Dice Race, the cat's half (Exercise 4.1)]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Drag the cat to the left side of the stage. Leave a small gap before the edge.
+  \item Click the orange-red \menu{Variables} circle. Click \menu{Make a Variable}, type \enquote{roll}, keep \enquote{For all sprites} and click OK. \enquote{This box will hold the number we roll.}
+  \item Yellow \menu{Events}: drag in \enquote{when space key pressed}. Click the little arrow and pick \enquote{c}. \enquote{C for Cat.}
+  \item Orange-red \menu{Variables}: snap on \enquote{set roll to 0}. Green \menu{Operators}: drop \enquote{pick random 1 to 10} into the 0. Change 10 to 6: a die.
+  \item Purple \menu{Looks}: snap on \enquote{say Hello! for 2 seconds}. Drag the round \enquote{roll} block from orange-red \menu{Variables} into the word slot. Change 2 to 1.
+  \item Orange \menu{Control}: snap on \enquote{repeat 10}. Drag the round \enquote{roll} block into the 10. \enquote{The cat hops as many times as the die says.}
+  \item Inside the repeat: blue \menu{Motion} \enquote{move 10 steps} (change it to 20) and purple \menu{Looks} \enquote{next costume}.
+  \item Click the stage once, then press c three times. Before each press, ask: \enquote{How far will the cat go?} Nobody knows! Point at the roll box on the stage after each roll.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \selectmenu{c} key pressed}
+\blockvariable{set \selectmenu{roll} to \ovaloperator{pick random \ovalnum{1} to \ovalnum{6}}}
+\blocklook{say \ovalvariable{roll} for \ovalnum{1} seconds}
+\blockrepeat{repeat \ovalvariable{roll}}{
+  \blockmove{move \ovalnum{20} steps}
+  \blocklook{next costume}
+}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the steps in the workbook, says the color circle (\enquote{green Operators!}) and checks where the round blocks go, but never grabs the mouse. Swap when the timer runs out (6--7 minutes). In the race itself, the Driver presses c for the Cat and the Helper presses b for the Ballerina. With 1 child: you are the Helper, then swap; race each other at the end. With 3: Driver, Helper and Race Judge (says who reached the right side first and starts the \enquote{good game}). With 4: two pairs; at the end the pairs race each other's projects.
+\end{pairroles}
+
+Work through the workbook: \textbf{4.1} Dice Race. To give the Ballerina the same script, drag the cat's whole script onto the Ballerina in the sprite list under the stage (it copies, as in Level 1), then click the Ballerina and change c to b. Drag the Ballerina to the left side too. Race to the right side of the stage. When a racer gets there, drag both back and race again.
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up. Roll the die: everyone does that many jumps, counting out loud. Roll again: that many claps. Roll again: that many spins (slowly). End with a stretch up to the ceiling and three slow breaths.
+
+\section{Make it (35--50 min)}
+Each child (or pair) starts a new project for \textbf{4.2} Ghost Pop. They make a \enquote{score} variable (orange-red \menu{Variables}, \menu{Make a Variable}, \enquote{For all sprites}), as in week 3. Then they do \textbf{4.3} The Stuck Dice in another new project.
+
+\begin{bughunt}[The Stuck Dice (Exercise 4.3)]
+The workbook shows Omar's dice cat. It should say a new surprise number every 2 seconds. Children build it as printed (make a \enquote{roll} variable first if this is a new project) and click the flag. The cat says the same number again and again: 7, 7, 7\ldots{} Ask: \enquote{What should happen? What happened? Where does the die get rolled?} The \enquote{set roll to pick random} block is \textbf{above} the forever loop, so the die is rolled once, at the start, and never again. Fix: move the \enquote{set} block inside the forever loop, at the top. Because dragging a block also drags every block under it, do it in three moves: drag the forever block away from the set block; drag the set block into the top of the forever's mouth; snap the forever back under the hat block. Test: a new number every time. Link back to the warm-up: \enquote{It is like rolling the die once and then moving that number every turn, forever.}
+\end{bughunt}
+
+\begin{freebuild}[More surprises]
+Last 5 minutes: add one more surprise to any project. Ideas: the ghost waits a random time (\enquote{wait pick random 1 to 3 seconds}); the cat says a random number of meows (\enquote{repeat pick random 1 to 5} with \enquote{play sound Meow until done}); a random backdrop with \enquote{switch backdrop to} and a pick random inside it (add two or three backdrops first).
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[Being a good sport]
+\enquote{In Dice Race, the die decides who wins. Being fast or clever does not help. So when we win, we do not tease, and when we lose, we do not get angry at the computer or at our friend. A good sport says \enquote{good game}, has another go, and is happy for the winner.} Ask: \enquote{What can you say when you win? What can you say when you lose?} Collect answers: \enquote{Good game!}, \enquote{Want to play again?}, \enquote{Well done!}, \enquote{Next time, maybe me!}. Practice with one quick race on a computer, then a high five.
+\end{safety}
+
+\begin{teacherscript}
+Each child shows one surprise: \enquote{Watch: you cannot guess where the ghost goes next!} Let a friend play it. Others give two stars and a wish. Then save in the \enquote{Game Makers} folder (\menu{File} → \menu{Save to your computer}): nickname plus \enquote{dice} and nickname plus \enquote{ghost}.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a \enquote{pick random} block inside a \enquote{set} block or a \enquote{repeat}; \enquote{go to random position} inside the forever loop; the score starts at 0; the set block of the Stuck Dice inside the forever.
+
+\textbf{Ask:} show the Stuck Dice as printed (set above the forever). \enquote{How many different numbers will the cat say?}
+\textbf{Answer:} only one. The die is rolled once, before the loop. To get a new number each time, the set block goes inside the forever.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Where did you use random today?} and \enquote{How did you feel when you won, or lost, the race?} Children draw dots on the blank die in the workbook (any number they like) and circle a smiley face. Hand out play-at-home card 4.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing the word \enquote{roll} into the say block.} The cat then says the word \enquote{roll}. Drag the round orange-red \enquote{roll} block in instead.
+  \item \textbf{The pick random block will not drop in.} Drop it so its left end is over the white oval; the oval glows white when it fits.
+  \item \textbf{Keys do nothing.} Click the stage once, then press c or b.
+  \item \textbf{The Ballerina moves when c is pressed.} Her copy still says c. Click the Ballerina in the sprite list and pick b.
+  \item \textbf{The ghost cannot be clicked.} Clicking and holding drags it. Click quickly. If it moves too fast, change \enquote{wait 1 seconds} to 2.
+  \item \textbf{The score does not start at 0.} \enquote{set score to 0} must be under the green flag, above the forever (week 3's bug).
+  \item \textbf{Moving the set block in the Stuck Dice drags the forever too.} Take the forever away first (see the bug hunt).
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build Dice Race together, with you as the Driver and the child choosing the key and pressing it. Skip the Ballerina: the child races against the cat by rolling a real die on the table. In 4.2, leave out the score: the ghost only pops up in surprise places.
+\extensionpath In Dice Race, add a finish: inside the c script, under the repeat, add an \enquote{if touching edge? then say I win! for 2 seconds} (orange \menu{Control} and light blue \menu{Sensing}). In Ghost Pop, add a second ghost (right-click the ghost, \menu{duplicate}): both pop up in surprise places.
+\end{differentiation}
+
+\begin{stretchchallenge}[A fair die?]
+Press c ten times and make a tally mark on paper for each number the cat says. Did every number come up? Did one come up a lot? Roll the real die ten times and tally that too. Talk about it: random does not mean \enquote{every number takes turns}. It means nobody can guess the next one.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Play one dice race in the warm-up. In Make it, do 4.1 with the cat only and race against a real die, then do 4.3 (the bug hunt). Leave 4.2 Ghost Pop for free play or next week. Keep the good-sport talk: it fits in two minutes after one race.
+\end{teachernote}

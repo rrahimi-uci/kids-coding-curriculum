@@ -1,0 +1,140 @@
+% Junior Level 2, Week 3 -- Keep Score
+\lesson{3}{Keep Score}{A variable is a labeled box that remembers a number.}
+\lessoninfo{Concepts: variables (I), set and change by 1 (I), show variable (I)}{Tools: Scratch 3 offline app, two small boxes or cups, counters, a sock ball and a basket}{CSTA: 1B-AP-09, 1B-AP-10, 1B-AP-15, 1B-AP-16}
+
+\begin{objectives}
+  \item The student can make a variable called score \enquote{For all sprites} and show it on the stage. (J2.G3) [J2.W03.1]
+  \item The student can set the score to 0 when the green flag is clicked and change it by 1 each time the bowl catches an apple. (J2.G3, J2.G2) [J2.W03.2]
+  \item The student can find and fix a score that does not go back to 0 when the flag is clicked, and say how \enquote{set} and \enquote{change} differ. (J2.G5) [J2.W03.3]
+  \item The student can say the scoring rules of their game before a friend plays, so that everyone knows them. (J2.G7) [J2.W03.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 3 and play-at-home card 3 (one per child).
+  \item Unplugged: two small boxes, cups or bowls, labeled with big letters \enquote{SCORE} and \enquote{LIVES}; about 15 counters (buttons, dried beans or building bricks); a sock ball (a rolled-up pair of socks) and a basket or laundry bin.
+  \item On each computer: the Scratch app and each pair's saved \textbf{Catch the Apple} game from week 2 (in the \enquote{Game Makers} folder). If a game was lost, rebuild it from the Exercise 2.2 teacher reference before the session (about 10 minutes).
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{The Score and Lives boxes: a sock-ball game where counters go in and out of two labeled boxes.}
+  \timeslot{10--20}{Show me}{A variable is a labeled box for a number. Build Pop the Balloon together: make a variable, set it, change it.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 3.1 Pop the Balloon, then open last week's game for 3.2 Catch and Count.}
+  \timeslot{33--35}{Wiggle break}{Count-up jumps: everyone jumps and counts together, then \enquote{set to 0} and sit.}
+  \timeslot{35--50}{Make it}{Finish 3.2 and save. Exercise 3.3 The Sticky Score (bug hunt). Free play: count the misses.}
+  \timeslot{50--60}{Share}{Fair scoring: say your rules, then a friend plays. Exit question, hand out play-at-home card 3.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[The Score and Lives boxes]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Show the two boxes. \enquote{These boxes have labels. Each one remembers a number: we count the counters inside.}
+  \item \enquote{Start of the game. Set score to 0}: empty the SCORE box. \enquote{Set lives to 3}: put 3 counters in the LIVES box.
+  \item The player throws the sock ball at the basket from a few steps away. In the basket: \enquote{Change score by 1!} The player puts one counter into SCORE. A miss: take one counter out of LIVES.
+  \item When LIVES is empty, the game is over. Count the score together. \enquote{The box remembered the score for us, the whole game.}
+  \item Next player. Ask: \enquote{What do we do first?} (Set score to 0 and lives to 3.) Forget it on purpose once: \enquote{Oops, the score box still has 4 counters. Is that fair for the next player?} (No!) That is today's bug hunt.
+\end{enumerate}
+With 1 child: you play too, and the child is the scorekeeper for your turn. With 3 or 4: one thrower, one scorekeeper (SCORE box), one lives-keeper (LIVES box), and a rules-reader; swap after each game.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{In Scratch, a labeled box for a number is called a \textbf{variable}. Games use variables for the score, the lives, the time. We make one in the orange-red \menu{Variables} circle. Two blocks matter today: \textbf{set} empties the box and puts in a number, like setting the score to 0 at the start. \textbf{Change by 1} adds one more, like dropping one counter in. The score shows on the stage in a little window, so the player can see it.}
+\end{teacherscript}
+
+\begin{analogy}[A scoreboard]
+\enquote{At a soccer game, the scoreboard says 0 at the start of every game. Each goal adds 1. It does not forget the score halfway through. And before the next game, someone sets it back to 0. A variable is a scoreboard that a sprite can change.}
+\end{analogy}
+
+\begin{workedexample}[Pop the Balloon (Exercise 3.1)]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \menu{File} → \menu{New}. \menu{Choose a Sprite}: pick \textbf{Balloon1}. Click it in the sprite list.
+  \item Orange-red \menu{Variables}: click \menu{Make a Variable}. Type \enquote{score}. Keep \textbf{For all sprites} picked. Click \menu{OK}. A score window appears on the stage, showing 0. \enquote{The check mark next to score in the list shows the box on the stage.}
+  \item Yellow \menu{Events}: \enquote{when green flag clicked}. Orange-red \menu{Variables}: snap on \enquote{set score to 0} (pick score in the little menu) and \enquote{show variable score}.
+  \item Yellow \menu{Events}: a second script, \enquote{when this sprite clicked}. Orange-red \menu{Variables}: snap on \enquote{change score by 1}. Pink \menu{Sound}: \enquote{start sound Pop}. Purple \menu{Looks}: \enquote{next costume}.
+  \item Click the flag. Click the balloon five times: pop, pop, pop\ldots{} The score window counts 1, 2, 3, 4, 5, and the balloon changes color.
+  \item Click the flag again: the score is back to 0. \enquote{Set empties the box. Change adds one. Every new game starts at 0.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockvariable{show variable \selectmenu{score}}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\blocklook{next costume}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper, 6--7 minutes]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the step and is the \textbf{score checker}: after each test, the Helper says what the score should be, and checks the score window. Swap when the timer rings. With 1 child: you are the Helper, then swap. With 3: Driver, Helper and Player (plays each test round and says the score out loud). With 4: two pairs; each pair checks the other pair's score with a fresh game.
+\end{pairroles}
+
+Work through the workbook: \textbf{3.1} Pop the Balloon (children build what you showed), then open last week's game for \textbf{3.2} Catch and Count: \menu{File} → \menu{Load from your computer}, the \enquote{Game Makers} folder, nickname plus \enquote{catch}. Make the score variable in this game too: each project has its own variables.
+
+\section{Wiggle break (33--35 min)}
+Count-up jumps: everyone jumps and counts each jump out loud, \enquote{change score by 1!} After ten, call \enquote{Set score to 0!} and everyone sits down. Then once more, faster.
+
+\section{Make it (35--50 min)}
+Finish \textbf{3.2}: the score starts at 0 and goes up by 1 for each apple caught. Play a round, then save with the same name.
+
+\begin{bughunt}[The Sticky Score (Exercise 3.3)]
+Kai made a Bananas clicking game. Children build it in a new project (\menu{File} → \menu{New}, make the score variable, add Bananas). Click the flag, click the bananas three times: score 3. Click the flag again: the score is still 3, and the next click makes it 4. The score does not go back to 0. Kai used \enquote{change score by 0} in the flag script. Changing by 0 adds nothing, so the old score stays. Fix: replace it with \enquote{set score to 0}. Link back to the warm-up: the SCORE box that was not emptied for the next player.
+\end{bughunt}
+
+\begin{freebuild}[Count the misses]
+Last 3--5 minutes: in the catch game, make a second variable called \enquote{misses} (For all sprites). Set it to 0 at the flag. Put \enquote{change misses by 1} inside the apple's \enquote{if touching edge? then}. Or make the bowl say \enquote{Yum!} each time the score goes up.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[Fair scoring: everyone knows the rules]
+\enquote{A game is fair when everyone knows the rules before they play, and everyone gets the same rules. Before your friend plays your game, you say the rules out loud: how to move, how to get a point, and anything that loses a point. And every player starts at 0: Kai's sticky score was not fair, because the next player started with someone else's points.} Ask: \enquote{What would make a game unfair?} (secret rules, rules that change halfway, starting with points, a score that counts wrong).
+\end{safety}
+
+\begin{teacherscript}
+Each maker says their rules in one or two sentences: \enquote{Use the arrow keys. Catch an apple: 1 point.} Then a friend plays one round, and the maker reads out the final score. Save all games.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a score variable for all sprites; \enquote{set score to 0} under the green flag; \enquote{change score by 1} inside the if that checks for the bowl.
+
+\textbf{Ask:} \enquote{My score says 7. I click the flag for a new game. Which block makes it 0 again: set score to 0, or change score by 1?}
+\textbf{Answer:} set score to 0. Set puts in a new number; change adds to the number that is already there.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Where do you see scores in real life?} (a soccer scoreboard, points in a board game, stars on a chart). Children draw their score box in the workbook with their best score inside, and circle a smiley face. Hand out play-at-home card 3.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{The score goes up by a lot for one apple.} The change block is outside the if (inside the forever), so it counts all the time. Put it inside \enquote{if touching Bowl? then}.
+  \item \textbf{The score never goes up.} The change block is in the apple's \enquote{if touching edge? then} instead of the Bowl if, or the menu says a different variable (\enquote{my variable}). Pick score.
+  \item \textbf{The variable is \enquote{For this sprite only}.} Other sprites cannot use it. Delete it (right-click) and make it again with \enquote{For all sprites}.
+  \item \textbf{No score window on the stage.} The checkbox next to score in the Variables list is empty. Click it to check it, or use \enquote{show variable score}.
+  \item \textbf{Two score variables (\enquote{score} and \enquote{score2}).} The child made it twice. Keep one, delete the other, and check every menu says score.
+  \item \textbf{The old Catch the Apple game cannot be found.} Look in the \enquote{Game Makers} folder; if it is lost, use the copy you rebuilt before the session.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 3.1 together with you as Helper reading each block. In 3.2, add only two blocks with the child: \enquote{set score to 0} and \enquote{change score by 1}. Do 3.3 on your computer and let the child find the bug.
+\extensionpath Count the misses (see the free build). Then a stretch: when the score reaches 10, the bowl says \enquote{You win!} (an if inside a forever with the green \menu{Operators} \enquote{=} block: \enquote{if score = 10 then}). Talk about whether 10 is a fair goal: possible to reach, but not in five seconds.
+\end{differentiation}
+
+\begin{stretchchallenge}[A bonus apple]
+Add a second falling thing, the Bananas, with its own Star marker (a second Star sprite) in another spot. Catching the bananas gives 2 points: \enquote{change score by 2}. Tell your players about the bonus before they play, so the rules stay fair.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Play one round of the box game with only the SCORE box. Skip 3.1 as a build (the demo is enough) and go straight to 3.2 in the saved catch game. Do 3.3 together on your computer. Keep the fair-rules talk: it takes a minute and it sets up playtesting later in the level.
+\end{teachernote}

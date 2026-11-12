@@ -1,0 +1,147 @@
+% Junior Level 2, Week 2 -- workbook chapter (My Game Book)
+\chapterweek{2}{If Touching\ldots}{If-then lets a sprite check something and choose.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can make a sprite check \enquote{if touching}.
+  \item I can build a catch game.
+  \item I can move an if into a forever loop.
+\end{ican}
+
+\section{Ask and choose}
+An \textbf{if} asks a question. Yes? It does the blocks inside. No? It skips them. Put the if inside a forever loop. Then it asks again and again.
+
+\needspace{14\baselineskip}
+\begin{exercise}[Boo Ghost]
+Add the Ghost. Click the flag. Touch the ghost with the mouse!
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockif{if \boolsensing{touching \ovalsensing*{mouse-pointer} ?} then}{
+    \blocklook{say \ovalnum{Boo!} for \ovalnum{1} seconds}
+  }
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\section{The Star marker}
+The Star is a secret start spot. It hides, but the apple can still go to it.
+
+\begin{center}
+%% alt: A stage. Near the top, a dashed star labeled hidden Star, start spot. Below it an apple with an arrow pointing down, labeled falls. At the bottom, a bowl labeled bowl, moved with the arrow keys. The bottom line is labeled edge.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=3pt}]
+  \draw[line width=0.8pt,rounded corners=3pt] (0,0) rectangle (9,6);
+  \node[star,star points=5,draw=kcorange,dashed,line width=1pt,minimum size=1cm] at (4.5,5.1) {};
+  \node[lab,anchor=west] at (5.4,5.1) {hidden Star: start spot};
+  \fill[kcvermillion] (4.5,3.4) circle (0.4);
+  \draw[line width=1.5pt,kcblack] (4.5,3.75) -- (4.6,4.05);
+  \fill[kcgreen] (4.65,3.9) ellipse (0.18 and 0.08);
+  \draw[->,line width=1.2pt,kcblue] (4.5,2.9) -- (4.5,1.6);
+  \node[lab,anchor=west] at (5,2.3) {falls};
+  \draw[line width=1.5pt,kcblue,fill=kcsky] (3.7,0.9) arc (180:360:0.8 and 0.5) -- cycle;
+  \node[lab,anchor=west] at (5.6,0.7) {bowl: arrow keys};
+  \node[lab] at (1,0.4) {edge};
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Catch the Apple]
+Start a new project. Add the Star, the Bowl and the Apple.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Drag the Star near the top. Give it the hide script.
+  \item Drag the Bowl to the bottom. Build its three scripts.
+  \item Build the Apple's script. The two ifs go inside the forever.
+  \item Click the flag. Catch apples with the arrow keys!
+\end{enumerate}
+\begin{center}
+\begin{minipage}[t]{0.4\linewidth}
+\textbf{Star:}\par\smallskip
+\begin{scratch}[scale=0.7]
+\blockinit{when \greenflag clicked}
+\blocklook{hide}
+\end{scratch}
+
+\medskip
+\textbf{Bowl:}\par\smallskip
+\begin{scratch}[scale=0.7]
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\end{scratch}
+
+\smallskip
+\begin{scratch}[scale=0.7]
+\blockinit{when \selectmenu{right arrow} key pressed}
+\blockmove{point in direction \ovalnum{90}}
+\blockmove{move \ovalnum{10} steps}
+\end{scratch}
+
+\smallskip
+\begin{scratch}[scale=0.7]
+\blockinit{when \selectmenu{left arrow} key pressed}
+\blockmove{point in direction \ovalnum{270}}
+\blockmove{move \ovalnum{10} steps}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.56\linewidth}
+\textbf{Apple:}\par\smallskip
+\begin{scratch}[scale=0.7]
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockmove{go to \selectmenu{Star}}
+\blockmove{point in direction \ovalnum{180}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{5} steps}
+  \blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmove{go to \selectmenu{Star}}
+  }
+  \blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{
+    \blockmove{go to \selectmenu{Star}}
+  }
+}
+\end{scratch}
+\end{minipage}
+\end{center}
+\end{exercise}
+
+\begin{grownup}[Apple stuck at the top?]
+The Star is too close to the edge. Drag it a little lower.
+\end{grownup}
+
+\begin{exercise}[Ghost Tag]
+Kai's ghost should say \enquote{Got you!} when it touches the Ballerina. It flies right through her!
+\begin{center}
+\begin{scratch}[scale=0.75]
+\blockinit{when \greenflag clicked}
+\blockmove{point in direction \ovalnum{90}}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockif{if \boolsensing{touching \ovalsensing*{Ballerina} ?} then}{
+  \blocklook{say \ovalnum{Got you!} for \ovalnum{1} seconds}
+}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{5} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+\end{center}
+Circle the if that checks only once. Fix it on your computer.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{if}{A block that asks a question. It runs the blocks inside only when the answer is yes.}
+  \vocabword{touching}{A question block: is my sprite touching that thing?}
+\end{vocab}
+
+\needspace{14\baselineskip}
+\begin{reflection}
+Draw something your sprite touched today.
+\answerspace{3cm}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

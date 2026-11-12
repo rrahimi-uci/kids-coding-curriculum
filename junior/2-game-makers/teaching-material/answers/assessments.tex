@@ -1,0 +1,165 @@
+% Guidance for the Junior Level 2 show-me checklists and the week-1 warm-up
+% (input by answer-key.tex; the pages the parent fills in are in assessments.tex)
+\kcpart{A}{Assessments}{How to use the show-me checklists}
+
+\begin{teachernote}[Watching, not testing]
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Nothing here is a grade.} The checklists tell you what to practice next and let you
+        and your child see progress. Share them as \enquote{you can now\dots} and \enquote{next we will\dots}.
+  \item \textbf{Watch during normal play.} Most rows show up on their own during the play day (week 5)
+        or the project and arcade showcase (weeks 9--10). Keep the sheet on a clipboard and check boxes
+        as you see them.
+  \item \textbf{Ask, do not quiz.} If a row has not come up, ask near the end:
+        \enquote{Can you show me how your game keeps the score?} Never time it, and never ask in front
+        of a group if a child is shy: ask while you sit beside them.
+  \item \textbf{Count what they do, not how they say it.} Pointing, playing it and short answers all
+        count. A child who reads slowly can still check \enquote{Got it}.
+  \item \textbf{One box per row,} the best you saw that day. If you are unsure between two columns,
+        choose the lower one and look again next week.
+  \item \textbf{Games can hide what a child knows.} A game may work because a partner built that
+        part. Ask the child to point to the script and say what it does before you check \enquote{Got it}.
+\end{itemize}
+\end{teachernote}
+
+%% one row of guidance: \smguide{row}{not yet}{getting there}{got it}{what to do next}
+\newcommand{\smguide}[5]{%
+  \par\needspace{7\baselineskip}\noindent\textbf{\color{kcaccent}#1}\par
+  \begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+    \item[\faSeedling] \textbf{Not yet:} #2
+    \item[\faShoePrints] \textbf{Getting there:} #3
+    \item[\faCheckCircle] \textbf{Got it:} #4
+    \item[\faArrowRight] \textbf{If not yet:} #5
+  \end{itemize}\medskip}
+
+%% ---------------------------------------------------------------------
+\section{Week 1: \enquote{Show me what you remember} warm-up}
+There is no score. The five tasks check what carried over from Junior Level 1, so you know what to
+review in weeks 1 and 2. About one minute per task; stop a task kindly if it takes longer.
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Task 1, green flag:} the child drags \enquote{when green flag clicked} (yellow
+        \menu{Events}) and \enquote{say Hi! for 2 seconds} (purple \menu{Looks}), snaps them and clicks
+        the flag. \emph{Not today?} Week 1 starts with a green-flag script anyway: pair them as Helper first.
+  \item \textbf{Task 2, repeat:} a repeat (orange \menu{Control}) with \enquote{next costume} and
+        \enquote{wait 1 seconds} inside. Any number of repeats is fine. \emph{With a hint} if the
+        blocks end up under the repeat instead of inside it. This matters straight away: the forever
+        loop in week 1 has the same \enquote{mouth}.
+  \item \textbf{Task 3, a key:} \enquote{when space key pressed} (or any key) with a move or a sound.
+        Games in Level 2 use the arrow keys, so note who has to search for the key dropdown.
+  \item \textbf{Task 4, a bug:} before the warm-up, build this script: \enquote{when green flag clicked,
+        say Hi! for 2 seconds}, and put \enquote{move 10 steps} a little apart so it is \textbf{not snapped
+        on}. Ask: \enquote{The cat should say Hi and then move. Can you fix it?} Remembered it: they click
+        the flag, watch, and snap the loose block on. A second version for a confident child: put
+        \enquote{say Bye!} above \enquote{say Hi!} (wrong order).
+  \item \textbf{Task 5, saving:} \menu{File > Save to your computer}, into \texttt{Scratch Projects},
+        with a nickname in the file name. With a hint if they need the menu shown.
+  \item \textbf{The game pictures and the faces.} The circled games tell you which examples and
+        free-build ideas to offer: a maze fan can steer the cat through walls in week 2, a catch fan
+        will love week 3. \enquote{Worried} or \enquote{not sure}: start them as Helper with a calm
+        partner and praise effort out loud in weeks 1 and 2. \enquote{Super excited}: give them the
+        Player job early, so the excitement turns into looking closely.
+\end{itemize}
+Compare with the Level 1 week-10 checklist if you have it. Keep the page in your folder; it has no
+personal information beyond a nickname.
+
+%% ---------------------------------------------------------------------
+\section{Week 5 show-me checklist}
+
+\smguide{Uses a forever loop to keep something moving (J2.G1)}
+  {uses repeat with a big number, or clicks the flag again and again to move the sprite.}
+  {builds a forever loop when reminded where it is, or puts the move block under the forever instead of inside it.}
+  {puts \enquote{move 10 steps} and \enquote{if on edge, bounce} inside a forever loop and explains that it only stops with the stop sign.}
+  {Play the forever freeze dance from week 1 again: \enquote{keep moving until the music stops.} Then build a forever with one move block inside, and drag one block out and in again to see the difference.}
+
+\smguide{Uses if-touching to make a sprite react (J2.G2)}
+  {the if is missing, or it is outside the forever loop and only checks once.}
+  {puts the if inside the forever after a reminder, or forgets to pick the sprite in the touching dropdown.}
+  {builds \enquote{forever, if touching Bowl? then \ldots} so the sprite reacts every time, and picks the right sprite in the dropdown.}
+  {Play \enquote{Simon says IF} from week 2. Then show the week-2 bug side by side: the if outside the forever (checks once) and inside it (checks all the time).}
+
+\smguide{Makes a score variable that starts at 0 and goes up by 1 (J2.G3)}
+  {does not find \menu{Make a Variable}, or uses \enquote{say} to show a number.}
+  {makes the variable, but the score does not go back to 0 when the flag is clicked, or uses \enquote{set score to 1} instead of \enquote{change score by 1}.}
+  {makes \texttt{score} for all sprites, puts \enquote{set score to 0} under the green flag and \enquote{change score by 1} inside the if, and the score shows on the stage.}
+  {Use the paper Score box from week 3: \enquote{set} empties the box and puts a number in; \enquote{change} adds one more bean. Then build it again with you as Helper.}
+
+\smguide{Uses pick random for a surprise (J2.G3)}
+  {every game goes the same way; random is not used.}
+  {uses \enquote{go to random position}, but with pick random puts it before the loop so it picks only once.}
+  {uses \enquote{go to random position} or \enquote{pick random 1 to 10} inside the loop, and can say why the game is different every time.}
+  {Play the dice race from week 4. Ask: \enquote{If I roll only once at the start, does the race change?} Then move the random block into the loop together.}
+
+\smguide{Finds and fixes a bug with \enquote{test, look, change one thing} (J2.G5)}
+  {says \enquote{it's broken} and waits for you, or changes many blocks at once.}
+  {finds the bug when you ask \enquote{Which sprite is it in? Is it inside the forever?}, then fixes it.}
+  {plays the game, says what should happen and what happened, finds the block, changes one thing and plays again.}
+  {Use the steps on the cheat sheet out loud together. Put a working game beside the broken one to compare. Praise any step they do alone.}
+
+\smguide{Takes turns as Driver and Helper and explains their script (J2.G6)}
+  {holds on to the mouse at the swap, or cannot say what a script does yet.}
+  {swaps with a reminder; says what happens (\enquote{the apple falls}) but not which blocks do it.}
+  {swaps when the timer runs out and points to the blocks in order: \enquote{It goes forever: move, then if it touches the bowl, the score goes up.}}
+  {Make the swap a ritual. In Share, ask about one block at a time: \enquote{What does this one do?} Model it with your own script first.}
+
+%% ---------------------------------------------------------------------
+\section{Week 10 show-me checklist}
+
+\smguide{Sends and receives a message (J2.G4)}
+  {uses only the green flag to start everything, or a message is sent but nobody receives it.}
+  {makes a broadcast and a \enquote{when I receive}, with a reminder to pick the same name from the dropdown.}
+  {uses a message on purpose, for example \enquote{broadcast game over} so another sprite shows the ending, and can say who sends it and who listens.}
+  {Play the pass-the-note relay from week 6 again, then build one broadcast and one receiver together. Always choose the message name from the dropdown.}
+
+\smguide{Makes and uses a My Block (J2.G4)}
+  {has not made a My Block, or made one but never dragged it into a script.}
+  {makes a My Block with help and uses it once.}
+  {gives a group of blocks a clear name (such as \enquote{new apple}) and uses the block in two or more places.}
+  {Read a recipe card from week 7 (\enquote{make toast} is one step with small steps inside). Then find two places in their game where the same blocks appear and turn them into one My Block together.}
+
+\smguide{Makes a game with a start, a win and a game-over (J2.G1, J2.G2)}
+  {the game never ends, or it ends right at the start.}
+  {has a win or a game-over, but not both, or the numbers are reset in the wrong place.}
+  {the game sets everything up on the green flag, plays inside a forever, and ends with \enquote{stop all} when the player wins (for example score = 10) or loses (for example misses = 3).}
+  {Use the week-8 board-game rules: \enquote{How do you win? How do you lose?} Write both on a sticky note, then build one ending at a time.}
+
+\smguide{Uses score or lives and random (J2.G3)}
+  {the game has no variable, or nothing random happens.}
+  {has a score but it does not reset, or random is outside the loop.}
+  {a score (or a misses counter) starts at 0, goes up by 1, and something random makes each game different.}
+  {Go back to the must-have list on the project brief and add the missing one first, with you as Helper.}
+
+\smguide{Plans on a game plan card and builds it (J2.G6)}
+  {starts building without a plan, or the game does not match the card.}
+  {has a game plan card and builds part of it, with reminders to look at it.}
+  {fills in the player, how to win, how to lose and the sprites, then builds it and checks the must-haves on the card.}
+  {Fill in the card together, one line at a time, by asking the four questions out loud. Build only the player and one rule first.}
+
+\smguide{Playtests and fixes a bug a player found (J2.G5, J2.G6)}
+  {does not let anyone else play, or argues with what the Player says.}
+  {listens to the Player and fixes a bug with your help.}
+  {watches someone play without helping, writes or draws one thing on the playtest list, and fixes it.}
+  {Be the Player yourself and find one small thing (\enquote{It was too fast for me}). Fix it together by changing one number, then play again.}
+
+\smguide{Explains a design choice (J2.G6)}
+  {says what the game is (\enquote{It's a catch game}) but not why it is that way.}
+  {gives a reason when asked about one choice (\enquote{Why 3 misses?}).}
+  {explains a choice without being asked: \enquote{I made the apple slower because my sister could not catch it.}}
+  {Ask \enquote{why} questions in Share all through the project: \enquote{Why that sprite? Why 10 to win?} Accept any honest reason.}
+
+\smguide{Gives credit and keeps games fair and kind (J2.G7)}
+  {says they made a library sprite, or the game is very hard or unfair on purpose.}
+  {gives credit when asked, and changes an unfair rule when a Player says so.}
+  {says, without being asked, \enquote{The apple and the bowl are from the Scratch library}, uses a nickname, and keeps the rules clear and the game fair for a new player.}
+  {Talk about the week-6 (credit) and week-7 (games for everyone) safety boxes again. Add a credit line to the game together: a sprite that says where the pictures came from.}
+
+%% ---------------------------------------------------------------------
+\section{What to do with the results}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Week 5:} rows with \enquote{Not yet} for most children? Use buffer B1 (Secret Codes
+        Day) or B2 (Mini Game Jam) before week 6, or spend the next three warm-ups on those rows. One
+        child only? Use the support path in weeks 6--8 and pair them as Helper with a patient partner.
+  \item \textbf{Week 10:} keep the page with the certificate. Pass it on to the Junior Level 3 teacher
+        (or keep it for yourself) for the week-1 warm-up of Level 3.
+  \item \textbf{Celebrate growth:} put the week-5 and week-10 pages side by side with your child and
+        count the boxes that moved to the right.
+\end{itemize}

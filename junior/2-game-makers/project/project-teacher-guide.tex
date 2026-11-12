@@ -1,0 +1,407 @@
+\documentclass[track=junior,level=2,teacher]{kidscode}
+\newcommand{\ostar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=0.8pt,fill=white,minimum size=0.6cm,inner sep=0pt]{};}
+%% a script with a heading: \begin{refscript}{Sprite}{what it does} blocks \end{refscript}
+\newenvironment{refscript}[2]{\par\needspace{8\baselineskip}\noindent\textbf{\color{kcaccent}#1:} #2\par\smallskip\begin{center}\begin{scratch}[scale=0.8]}{\end{scratch}\end{center}}
+%% the same for a long script: smaller blocks, and the heading stays with the script
+\newenvironment{longrefscript}[2]{\par\clearpage\noindent\textbf{\color{kcaccent}#1:} #2\par\smallskip\begin{center}\begin{scratch}[scale=\longscale]}{\end{scratch}\end{center}}
+\makeatletter\ifkc@dyslexia\newcommand{\longscale}{0.52}\else\newcommand{\longscale}{0.62}\fi\makeatother
+\begin{document}
+\kctitle{Final Project Teacher Guide}{My First Arcade Game: milestones, stars, reference game and arcade showcase}
+\tableofcontents
+
+%% =====================================================================
+\section{The project in one page}
+Each child builds a small arcade game in Scratch: a catch game, a maze game, a dodge game or an
+idea of their own. They plan it first on a \textbf{game plan card} (who is the player, how do you
+win, how do you lose, which sprites, a sketch), build it as Driver and Helper, and then a
+\textbf{Player} (a partner, a sibling or you) tests it and finds something to fix. The game must use
+five things: \textbf{a forever loop, an if-touching check, a score or lives variable, something
+random, and a win or game-over ending}. In week 10 the family plays every game at an arcade
+showcase, each child explains one script and one design choice, and receives a certificate.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.0cm}>{\bfseries\RaggedRight}p{3.0cm}X@{}}
+\toprule
+When & Milestone & What the children do\\
+\midrule
+Week 9, Warm-up (10 min) & M1 Game plan card & Fill in the game plan card; a partner plays the paper prototype.\\
+Week 9, Show me and both Make it blocks (38 min) & M2 Game works & Watch the first must-have being built; build one must-have at a time; at minute 42 a Player playtests; fix one bug from the list; save.\\
+Week 9, Share & (check) & Each child shows one must-have that works and says which bug they fixed.\\
+Week 10 (the whole session) & M3 Arcade showcase & Last bug check, practice the 1-minute demo, demos and the arcade gallery with sticker feedback, certificates.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{materials}
+  \item Print one \textbf{Project Brief} per child (the game plan card page is the one they fill in).
+  \item Before week 9: build the reference game yourself (section \enquote{The reference game} below,
+        about 30 minutes) and save it as \texttt{Apple-Catch} in the \texttt{Game Makers} folder.
+  \item For the core path: an arcade template per child where the player already moves with the
+        four arrow keys, saved as \texttt{arcade-} plus the nickname (see below).
+  \item Paper, crayons and a few counters or coins for the paper prototype.
+  \item Week 10: the week-10 show-me checklist, the sticker feedback cards (last page), stickers,
+        one certificate per child (\texttt{extras/\allowbreak{}certificate}), and the progress trackers.
+\end{materials}
+
+\begin{teachernote}[Why this project]
+The arcade game pulls every Level 2 goal together: loops that keep a game running (J2.G1), if-then
+reactions (J2.G2), a score and random surprises (J2.G3), splitting a game into parts (J2.G4, in the
+stretch path and in messages), testing and fixing (J2.G5), planning and playtesting with feedback
+(J2.G6), and fair, kind games with credit (J2.G7). A game is made for other people to play, which
+gives children a real reason to test, listen and improve.
+\end{teachernote}
+
+%% =====================================================================
+\section{Milestone walkthrough}
+
+\subsection{M1 Game plan card (week 9 Warm-up, about 10 minutes)}
+\begin{teacherscript}
+\enquote{Today you start your own arcade game. Game makers plan before they build. Our plan is a game plan card, with four questions: who is the player, how do you
+win, how do you lose, and which sprites.}
+\end{teacherscript}
+\begin{enumerate}[itemsep=2pt]
+  \item Read the mission and the must-haves aloud together. If you have time (or in the week-8 Share),
+        let each child play the reference game for one minute and ask: \enquote{Where was the forever?
+        The if touching? The score? What was random? How did it end?}
+  \item Show the idea menu. Children choose a catch, maze or dodge game, or their own idea. Offer two
+        choices if a child cannot decide.
+  \item \textbf{Paper prototype (3--4 minutes):} each child draws the game screen on paper; a partner plays
+        it by sliding a coin as the player while the maker moves the \enquote{apple} or \enquote{ghost}
+        counter and keeps the score on paper. Ask the Player: \enquote{Did you know how to win?}
+  \item Children fill in the game plan card (they can use their rules from week 8): a name for the game, the player and how it moves, how to
+        win, how to lose, the sprites they circle, and a sketch. A few words and arrows are perfect.
+  \item Point at each must-have icon on the card and ask \enquote{Where is this in your game?} They check the boxes.
+\end{enumerate}
+\begin{formativecheck}[M1 is done when]
+The card has a player, a way to win, a way to lose, the sprites and a sketch, and the child can say
+where each must-have will be. Quick question: \enquote{How does someone lose your game?}
+\end{formativecheck}
+
+\subsection{M2 Game works (week 9 Show me and Make it, about 38 minutes)}
+In Show me, read a sample game plan card aloud (the lesson plan uses Mei's banana game) and build its
+first must-have on an arcade template while the children watch.
+Driver and Helper swap on the timer as usual. In a pair, they build one game together first (one
+child's card), then the other's, or each builds their own game on their own turn. With one child, you
+are the Helper and later the Player. Build in this order and play the game after each step:
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{The player:} sprite and arrow keys (core path: already there). Play: does it move both ways?
+  \item \textbf{The forever loop:} the falling, chasing or moving thing. Play.
+  \item \textbf{The if touching:} what happens when they meet. Play.
+  \item \textbf{The score (or lives or misses):} \enquote{set score to 0} under the green flag, a
+        \enquote{change} inside the if. Play: does it start at 0?
+  \item \textbf{Random:} a surprise start place or a surprise wait. Play twice: is it different?
+  \item \textbf{The ending:} \enquote{if score = 10 then \ldots{} stop all} and/or the game over. Play to the end.
+  \item \textbf{Save:} \menu{File > Save to your computer}, into \texttt{Game Makers}, named with the
+        nickname and the game, for example \texttt{Tiger-catch}.
+\end{enumerate}
+\textbf{Playtest (from minute 42, about 8 minutes).} Pairs swap Macs, or you become the Player.
+The Player plays without help while the maker watches with hands in lap and says nothing. The
+maker (or you) writes or draws each problem on the playtest bug list in the workbook (or on the
+\enquote{My Player found\ldots} lines of the brief).
+Then the maker fixes it: change one thing, play again.
+\begin{teacherscript}[Ask while you walk around]
+\enquote{Which must-have are you building now?} \enquote{Show me the script with the forever.}
+\enquote{What will happen when the ghost touches the cat? Let's play and see.} To a Player:
+\enquote{Tell the maker what happened, not how to fix it.}
+\end{teacherscript}
+\begin{formativecheck}[M2 is done when]
+All five must-haves work from a fresh green-flag click, a Player has played the game, one thing they
+found is fixed, and the game is saved. In Share, each child shows one must-have that works and says
+which bug they fixed.
+\end{formativecheck}
+
+\subsection{M3 Arcade showcase (week 10, the whole session)}
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Last bug check (Warm-up, 10 minutes):} open the game (\menu{File > Load from your
+        computer}), click the green flag twice, play once to win and once to lose. Fix one thing, save, stop.
+  \item \textbf{Practice (Show me, 10 minutes):} you model a 1-minute demo, including one design choice;
+        each child practices with a partner.
+  \item \textbf{Demos (first Make it, 13 minutes):} each child gives the demo and a family member plays one round.
+  \item \textbf{Arcade gallery (second Make it, 15 minutes):} visitors play every game and leave stickers;
+        in a \enquote{show-me corner} each child shows you a message and a My Block.
+  \item \textbf{Celebrate (Share, 10 minutes):} certificates, the stars, showcase safety.
+\end{enumerate}
+Fill in the week-10 show-me checklist while you watch: most rows show up during the polish, the demo
+and the visitors' questions.
+
+%% =====================================================================
+\section{Unblocking common problems}
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\RaggedRight}p{5.2cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-5.2cm-2\tabcolsep}@{}}
+\toprule
+\textbf{Problem} & \textbf{What to do}\\
+\midrule\endhead
+\bottomrule\endfoot
+Cannot choose an idea. & Offer two from the idea menu: \enquote{Catch or dodge?} Then: \enquote{Which sprite do you want to be?}\\
+The game plan is huge (ten levels, five enemies). & Circle one player, one thing to catch or dodge, one way to win and one way to lose. The rest goes on a \enquote{later} list.\\
+The player does not move. & Click the stage once so Scratch listens to the keys. Check the key in each \enquote{when key pressed} hat. Core path: open the arcade template again.\\
+The player or the apple is upside down. & Add \enquote{set rotation style left-right} (blue Motion) under the green flag.\\
+The apple falls only once. & The move is under the forever, or there is no forever. Drag \enquote{move 5 steps} inside the forever's mouth.\\
+The apple flickers at the top, or misses go up at the start. & The hidden Star marker is touching the top edge. Show the Star, drag it lower and away from the sides, play again.\\
+The score races up. & The apple stays touching the bowl. Send it back to the Star straight after \enquote{change score by 1}.\\
+The score does not start at 0. & \enquote{set score to 0} must be under the green flag, above the forever.\\
+The game ends right at the start. & The variables are reset after the check, or in another sprite. Put every \enquote{set} at the top of the same script, before the forever.\\
+The game never ends. & Check the number in \enquote{score = 10} or \enquote{misses = 3} can be reached, and \enquote{stop all} is inside the if.\\
+Random does nothing. & The random block is outside the loop, so it picks once. Move it to where the thing restarts.\\
+A message does nothing. & Pick the message name from the dropdown in both blocks; check the receiving sprite has the \enquote{when I receive} script.\\
+\enquote{It's too hard!} (from the Player) & Change one number: slower falling (move 3), a bigger bowl (costume), more misses before game over. Play again.\\
+A library sprite is claimed as their drawing. & Kindly add credit: \enquote{The apple is from the Scratch library.} Painting their own sprite is welcome too.\\
+\enquote{I want to add more!} & Great: first all five must-haves, a playtest and a save, then extras one at a time.\\
+The project is lost. & \menu{File > Load from your computer}, look in \texttt{Game Makers}, \texttt{Scratch Projects} and Downloads. Save before the wiggle break.\\
+Tears or frustration. & Wiggle break. Then play the game together and find one thing that works: \enquote{Look, your bowl already moves both ways!}\\
+\end{longtable}
+\end{center}
+
+%% =====================================================================
+\section{The stars and how to use them kindly}
+The brief has four rows, each with one to three stars. The stars are for the child, not a score to
+report: there is no total, and children are never compared.
+
+\begin{rubric}[My stars (adult version)]
+\small\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.4cm}*{3}{>{\RaggedRight\arraybackslash}X}@{}}
+ & \ostar & \ostar\,\ostar & \ostar\,\ostar\,\ostar\\
+\midrule
+It works & The game starts, but parts do not run. & Most of it works; one rule or the ending does not. & Every part works, every time, from a fresh green-flag click.\\ \midrule
+It has every must-have & 1 or 2 of the 5. & 3 or 4 of the 5. & All 5: forever, if touching, score or lives, random, a win or game over.\\ \midrule
+A player tested it and I fixed something & Someone played the game. & The child watched, listened and named what the Player found. & The child fixed something the Player found and played it again.\\ \midrule
+I can say what one script does & Says what the game is about. & Points to a script and names some blocks. & Picks one script and says what each block does, in order.\\
+\end{tabularx}
+\end{rubric}
+
+\begin{tip}[Using the stars kindly]
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{The child colors first.} Read each row aloud and let them choose; then say what you saw.
+        If you see more stars than they colored, say so. If you see fewer, ask \enquote{Can you show me?}
+  \item \textbf{Two moments:} once at the end of week 9 (\enquote{what is left to do?}) and once after
+        the showcase (\enquote{look how far you came}).
+  \item \textbf{One star is a start.} Pick the one row to work on next and help with it right away.
+  \item \textbf{Celebrate the playtest and the fix} as much as the working game: listening to a
+        player is a real game maker's skill.
+\end{itemize}
+\end{tip}
+
+%% =====================================================================
+\section{The reference game: \enquote{Apple Catch}}
+Build this yourself before week 9 so children can play it, then keep it on \textbf{your} Mac. It is
+one complete answer: children make their own game, not a copy. It follows the catch game from weeks 2
+and 3 and uses only Level 2 blocks and Grade 2--3 math: directions 0, 90, 180 and 270, whole numbers,
+random numbers from 1 to 10, sprites placed by dragging, and \textbf{no negative numbers}. That is why
+it counts \textbf{misses up} (game over at 3 misses) instead of taking lives away.
+
+\begin{teachernote}[Why misses and not lives?]
+Taking a life away with \enquote{change lives by} needs a negative number, which Grade 2--3 children
+have not met. Counting misses up keeps every number positive. A child who prefers lives can use
+\enquote{set lives to (lives $-$ 1)} with the green subtraction block and end the game at
+\enquote{lives = 0}; both are fine.
+\end{teachernote}
+
+\subsection{Setting it up (no blocks yet)}
+\begin{enumerate}[itemsep=2pt]
+  \item New project (\menu{File > New}). Right-click the Cat and delete it.
+  \item Sprites: click \menu{Choose a Sprite} and add the \textbf{Bowl}, the \textbf{Apple} and the
+        \textbf{Star}. Drag the Bowl to the bottom middle of the stage. Drag the Star to the
+        \textbf{top left}, a little below the top edge and away from the side (the Star marker).
+  \item Stage: \menu{Choose a Backdrop}, pick a backdrop you like.
+  \item Variables (orange-red \menu{Variables}, \menu{Make a Variable}, \textbf{For all sprites}):
+        \texttt{score} and \texttt{misses}. Keep both ticked so they show on the stage.
+  \item Save as \texttt{Apple-Catch} in \texttt{Game Makers}.
+\end{enumerate}
+
+\subsection{The scripts, block by block}
+\begin{refscript}{Star}{The secret start spot. When the flag is clicked, it hides; a hidden sprite is still a place to \enquote{go to}.}
+\blockinit{when \greenflag clicked}
+\blocklook{hide}
+\end{refscript}
+
+\begin{refscript}{Bowl, script 1}{Keeps the bowl the right way up when it turns left.}
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\end{refscript}
+
+\begin{refscript}{Bowl, scripts 2 and 3}{The player. Each arrow key points the bowl (90 is right, 270 is left), then moves it 10 steps. This is the part the core-path template already has.}
+\blockinit{when \selectmenu{right arrow} key pressed}
+\blockmove{point in direction \ovalnum{90}}
+\blockmove{move \ovalnum{10} steps}
+\end{refscript}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \selectmenu{left arrow} key pressed}
+\blockmove{point in direction \ovalnum{270}}
+\blockmove{move \ovalnum{10} steps}
+\end{scratch}
+\end{center}
+
+\begin{refscript}{Apple, My Block \enquote{new apple}}{Sends the apple back to the top with a surprise. It goes to the hidden Star, points right (90) and hops right a random number of times (pick random 1 to 10, each hop 30 steps), then points down (180), ready to fall. This is the random must-have.}
+\initmoreblocks{define \namemoreblocks{new apple}}
+\blockmove{go to \selectmenu{Star}}
+\blockmove{point in direction \ovalnum{90}}
+\blockrepeat{repeat \ovaloperator{pick random \ovalnum{1} to \ovalnum{10}}}{
+  \blockmove{move \ovalnum{30} steps}
+}
+\blockmove{point in direction \ovalnum{180}}
+\end{refscript}
+
+\begin{refscript}{Apple, the falling script}{Falls forever, as in weeks 2 and 3. Each turn of the loop it moves down 5 steps and asks two questions: caught? (score up, Pop, new apple) and missed? (misses up, new apple).}
+\blockinit{when \greenflag clicked}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockmoreblocks{new apple}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{5} steps}
+  \blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmoreblocks{new apple}
+  }
+  \blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{
+    \blockvariable{change \selectmenu{misses} by \ovalnum{1}}
+    \blockmoreblocks{new apple}
+  }
+}
+\end{refscript}
+
+\begin{longrefscript}{Bowl, the referee script}{The week-8 referee. It sets the score and misses to 0 \textbf{before} the forever (so the game cannot end at the start), tells the player the goal, then keeps checking: lost? (misses = 3) or won? (score = 10). Each ending says one line and stops everything.}
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockvariable{set \selectmenu{misses} to \ovalnum{0}}
+\blocklook{say \ovalnum{Catch 10 apples!} for \ovalnum{2} seconds}
+\blockinfloop{forever}{
+  \blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{3}} then}{
+    \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+  \blockif{if \booloperator{\ovalvariable{score} = \ovalnum{10}} then}{
+    \blocklook{say \ovalnum{You win!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+}
+\end{longrefscript}
+
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{4.6cm}X@{}}
+\toprule
+Must-have & Where it is in the reference game\\
+\midrule
+A forever loop & The Apple's falling script (and the Bowl's referee keeps checking forever).\\
+An if-touching check & \enquote{touching Bowl?} (a catch) and \enquote{touching edge?} (a miss).\\
+A score or lives variable & \texttt{score} goes up by 1 for each catch; \texttt{misses} goes up by 1 for each miss.\\
+Random & \enquote{pick random 1 to 10} hops in the \enquote{new apple} block: the apple falls from a different place each time.\\
+A win or game-over ending & The Bowl's referee: \enquote{score = 10} says You win!, \enquote{misses = 3} says Game over! Both end with \enquote{stop all}.\\
+Stretch: a My Block & \enquote{new apple}, used three times.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{tip}[Questions to ask about the reference game]
+\enquote{How do we make the game harder?} (Move 7 steps instead of 5, or win at 15.)
+\enquote{Why are the \enquote{set} blocks above the referee's forever?} (So the game starts at 0 before it checks for a win: the week-8 bug.)
+\enquote{What would happen without \enquote{new apple} after a catch?} (The score races up: the week-3 bug.)
+\enquote{Where is the surprise?} (The random hops.)
+\enquote{Why count misses instead of taking lives away?} (No numbers below zero.)
+\enquote{Whose pictures and sounds are these?} (The Scratch library: we say so at the showcase.)
+\end{tip}
+
+\subsection{Without the My Block (core version)}
+My Blocks are week 7 and the stretch path. A child who does not use one puts the same four blocks
+(\enquote{go to Star}, \enquote{point in direction 90}, the random repeat, \enquote{point in direction 180})
+in each place where the reference game says \enquote{new apple}: above the forever and inside both ifs.
+Another random surprise that needs no copies: \enquote{wait (pick random 1 to 10) seconds} after \enquote{go to Star},
+so the apple waits a surprise time at the top (Mei's idea in the week-9 lesson).
+Right-click \enquote{go to Star} and choose \menu{Duplicate} to copy the four blocks at once. This is a
+good moment to show the stretch: \enquote{Three copies of the same four blocks: what if we gave them a name?}
+
+\subsection{The core-path arcade template}
+Make it before week 9, about two minutes per child: a new project with a backdrop and one player sprite
+(the Bowl for a catch game, the Cat for a maze or dodge game) that already moves with the four arrow
+keys. Each key has its own script: \enquote{point in direction} 0 (up arrow), 90 (right arrow), 180
+(down arrow) or 270 (left arrow), then \enquote{move 10 steps}; a green-flag script sets the rotation
+style to left-right. Save one copy per child in \texttt{Game Makers} as \texttt{arcade-} plus the
+nickname, for example \texttt{arcade-Tiger}. In week 9 the child opens their copy and adds one
+must-have at a time; for a catch game they add the Star marker first.
+
+\subsection{The stretch path: a My Block or a second level}
+\textbf{A My Block:} the \enquote{new apple} block above, or \enquote{celebrate} (say, sound, next
+costume) used for every catch. Check it is used in two or more places. \textbf{A second level:} inside
+the \enquote{score = 10} if, instead of stopping, \enquote{broadcast level 2}; the Stage receives it and
+switches the backdrop, and the Apple receives it, sets the score back to 0 and moves faster from then on
+(for example a \texttt{speed} variable used in \enquote{move speed steps}, set to 5 at the start and 8
+for level 2). Keep \enquote{stop all} for the win at the end of level 2.
+
+%% =====================================================================
+\section{Showcase plan (week 10)}
+
+\subsection{The arcade gallery}
+The showcase is at home, for family only. Each game gets an \enquote{arcade machine}: a Mac with the
+game open and the stage in full screen (the button above the stage), the game plan card beside it,
+and a folded card with the game's name, the maker's \textbf{nickname} and \enquote{How to play} in one
+line (for example \enquote{Arrow keys. Catch 10 apples. 3 misses and it is over.}). Visitors move from
+machine to machine. Twenty to twenty-five minutes is plenty with four children.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.0cm}X@{}}
+\toprule
+Role & Job\\
+\midrule
+Game maker & Gives the 1-minute demo, clicks the flag for each visitor, answers one question.\\
+Helper & (A partner or a sibling.) Hands out feedback cards and stickers, reads the \enquote{How to play} card aloud.\\
+Visitors & Read the rules, play one game, ask one question (\enquote{Why did you choose\ldots?}), put stickers on a feedback card.\\
+Host (you) & Welcomes the family, keeps time, makes sure every machine gets visitors, reads the safety reminder, plays every game once.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{The 1-minute demo script}
+Write it on a sticky note for each child. Practice once before the family arrives.
+\begin{enumerate}[itemsep=2pt]
+  \item \enquote{Hi! My game is called \underline{\hspace{3cm}}.}
+  \item \enquote{You are the \underline{\hspace{2.5cm}}. You win when \underline{\hspace{3cm}}. You lose when \underline{\hspace{3cm}}.}
+  \item \enquote{Watch: I click the green flag.} (Play for about 20 seconds.)
+  \item Point to one script: \enquote{This script makes \underline{\hspace{3cm}}. It goes forever: first \underline{\hspace{2.5cm}}, then if \underline{\hspace{2.5cm}}.}
+  \item One design choice: \enquote{I chose \underline{\hspace{3cm}} because \underline{\hspace{3.5cm}}.}
+  \item \enquote{My Player found \underline{\hspace{3cm}} and I fixed it.}
+  \item \enquote{The sprites and sounds are from the Scratch library. Do you want to play?}
+\end{enumerate}
+
+\subsection{Certificates and closing}
+Read the feedback cards aloud to each child, then hand out the certificate (write the nickname or
+first name by hand). Close with a round of \enquote{one thing I am proud of, one game I want to make
+next}, and color the last stars on the progress tracker. Remind everyone: the arcade closes when the
+timer rings. Good games end.
+
+\begin{safety}[Showcase safety]
+\begin{itemize}[itemsep=1pt]
+  \item Family only, at home, on the screen. Nothing is uploaded, posted or emailed.
+  \item Nicknames or first names only on the screen and on the arcade cards.
+  \item Photos only if the child agrees, with no names on the screen, and kept in the family.
+  \item Credit: every game says the sprites and sounds come from the Scratch library.
+  \item Ask first: a child decides who may play their game, and nobody changes someone else's game.
+\end{itemize}
+\end{safety}
+
+\begin{teachernote}[Fitting it into the 60-minute session]
+0--10 last bug check and save (warm-up); 10--20 model and practice the 1-minute demo (show me);
+20--33 demos while the family plays, week-10 checklist (make it); 33--35 wiggle break (act out every
+game); 35--50 arcade gallery with sticker feedback and the show-me corner (make it); 50--60
+certificates, stars, showcase safety (share).
+\end{teachernote}
+
+\clearpage
+\section{Sticker feedback cards (print and cut)}
+Visitors put a sticker next to what they liked, and a grown-up can write one more idea.
+\newcommand{\feedbackcard}{%
+%% alt: A feedback card that says Your game! with five dashed sticker spots next to fun to play, the rules were clear, it was fair, the sounds and the surprise, and a line for one more idea.
+  \begin{tikzpicture}[spot/.style={circle,draw=kcgray,dashed,minimum size=0.8cm,inner sep=0pt}]
+    \draw[kcpurple,line width=1.2pt,rounded corners=6pt] (0,0) rectangle (8.2,8.0);
+    \node[anchor=north west,font=\bfseries] at (0.3,7.8) {\faGamepad\ Your game!};
+    \node[anchor=north west,font=\small] at (0.3,7.1) {Put a sticker by what you liked.};
+    \foreach \icon/\word [count=\i] in {\faSmile/fun to play,\faListOl/the rules were clear,\faBalanceScale/it was fair,\faVolumeUp/the sounds,\faDice/the surprise}
+      {\node[spot] at (0.9,6.7-\i*1.0) {};
+       \node[anchor=west] at (1.6,6.7-\i*1.0) {\icon\ \word};}
+    \node[anchor=north west,font=\small] at (0.3,1.05) {One more idea:};
+    \draw[kcgray!60] (0.3,0.3) -- (7.9,0.3);
+  \end{tikzpicture}}
+\begin{center}
+\feedbackcard\hfill\feedbackcard\par\bigskip
+\feedbackcard\hfill\feedbackcard
+\end{center}
+\end{document}
