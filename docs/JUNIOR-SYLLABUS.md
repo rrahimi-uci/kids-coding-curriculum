@@ -1,8 +1,7 @@
 # Junior track scope and sequence (Grades 2–3)
 
-> **Status:** Levels 1 and 3 are written (`active` in [`curriculum.json`](../curriculum.json)).
-> Level 2 is planned: it will arrive in its own pull request and switch from
-> `planned` to `active` when it is complete.
+> **Status:** All three levels are written (`active` in [`curriculum.json`](../curriculum.json)).
+> The junior track is not on the website yet, and the Aiden and Pixi videos are in progress.
 
 This is the single source of truth for **what the junior track teaches when**,
 in the same way that [SYLLABUS.md](SYLLABUS.md) is for the main

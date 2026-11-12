@@ -1,0 +1,122 @@
+% Junior Level 2, Week 1 -- workbook chapter (My Game Book)
+\chapterweek{1}{Forever and Bounce}{A forever loop keeps going until you press stop.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can make a sprite move forever.
+  \item I can make it bounce off the edge.
+  \item I can fix blocks that never run.
+\end{ican}
+
+\section{Welcome, Game Maker!}
+Games keep going. A \textbf{forever} loop runs the blocks inside it again and again. It stops only when you click the red stop sign.
+
+\begin{center}
+%% alt: A stage with a cat in the middle. Arrows point left and right to the two side edges, each labeled bounce. Below, a red stop sign labeled stop.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  lab/.style={font=\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=3pt}]
+  \draw[line width=0.8pt,rounded corners=3pt] (0,0) rectangle (10,4);
+  \node[font=\Huge] at (5,2) {\faCat};
+  \draw[->,line width=1.2pt,kcblue] (4,2) -- (0.3,2);
+  \draw[->,line width=1.2pt,kcblue] (6,2) -- (9.7,2);
+  \node[lab] at (1.4,3.2) {bounce};
+  \node[lab] at (8.6,3.2) {bounce};
+  \node[regular polygon,regular polygon sides=8,fill=kcvermillion,minimum size=0.9cm] at (12,2) {};
+  \node[lab] at (12,0.8) {stop};
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Bounce Cat]
+Make the cat run from side to side, forever.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Yellow \menu{Events}: the green flag block.
+  \item Blue \menu{Motion}: point in direction 90 and set rotation style.
+  \item Orange \menu{Control}: forever.
+  \item Blue \menu{Motion}: move and bounce go inside.
+  \item Click the flag. Then click the stop sign.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockmove{point in direction \ovalnum{90}}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\needspace{16\baselineskip}
+\begin{exercise}[Dance Forever]
+Add the Ballerina. Build both scripts.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Press space. Count her dance moves.
+  \item Click the flag. She dances and dances.
+  \item Click the stop sign. Which one stopped by itself?
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \selectmenu{space} key pressed}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Missing Hello]
+Kai's cat should say \enquote{Watch me!}, meow, then bounce. It bounces, but it never talks!
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+
+\vspace{0.3cm}
+\begin{scratch}[scale=0.8]
+\blocklook{say \ovalnum{Watch me!} for \ovalnum{2} seconds}
+\blocksound{start sound \selectmenu{Meow}}
+\end{scratch}
+\end{center}
+Circle the blocks that never run. Fix it on your computer.
+\end{exercise}
+
+\begin{grownup}[A hint for 1.3]
+Look at the bottom of the forever block. Can anything snap on there?
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{forever}{A loop that never stops by itself. You click stop.}
+  \vocabword{bounce}{Turn around at the edge and go back.}
+\end{vocab}
+
+\begin{reflection}
+Which loop did you use most today? Circle one.
+
+\begin{center}
+\begin{tabular}{c@{\hspace{2cm}}c}
+{\Huge\faRedo} & {\Huge\faInfinity}\\
+repeat & forever
+\end{tabular}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

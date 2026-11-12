@@ -1,0 +1,147 @@
+% Junior Level 2, Week 8 -- Start, Win and Lose
+\lesson{8}{Start, Win and Lose}{A game needs a start, a goal and an ending.}
+\lessoninfo{Concepts: game start / play / game over (I), lives counted as misses (R), stop all (I), if with a number (E), forever (E)}{Tools: Scratch 3 offline app, each child's catch game, a board game, rule cards}{CSTA: 1B-AP-10, 1B-AP-13, 1B-AP-15, 1B-IC-19}
+
+\begin{objectives}
+  \item The student can give their catch game a start that sets the score and misses to 0 and tells the player the goal, and a forever loop that keeps the game playing. (J2.G1, J2.G3) [J2.W08.1]
+  \item The student can end the game with \enquote{if score = 10 then} You win! and \enquote{if misses = 3 then} Game over!, each followed by \enquote{stop all}. (J2.G2, J2.G3) [J2.W08.2]
+  \item The student can find and fix a game that never ends or ends right at the start, by testing both endings. (J2.G5) [J2.W08.3]
+  \item The student can say why good games end and do not trick players into \enquote{just one more} go, and write fair start, win and lose rules for their own arcade game. (J2.G6, J2.G7) [J2.W08.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 8 and play-at-home card 8 (one per child).
+  \item Unplugged: a short game everyone knows (tic-tac-toe on paper is perfect; or a board game such as snakes and ladders). Four rule cards you write by hand, each with a picture: \enquote{START} (a flag), \enquote{PLAY} (a ball), \enquote{WIN} (a trophy), \enquote{LOSE} (a sad face). A soft ball.
+  \item On each computer: the Scratch app and each child's (or pair's) saved \textbf{catch game} from weeks 2--3 (Catch the Apple with the score, in the \enquote{Game Makers} folder). If a game was lost, rebuild it from the Exercise 3.2 teacher reference before the session (about 10 minutes).
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Board-game rules: play tic-tac-toe, sort the rule cards (start, play, win, lose), then try a game that never ends and one that ends right away.}
+  \timeslot{10--20}{Show me}{A game has a start, a play part and an ending. Build the Bowl's referee script together.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 8.1 Win and Lose: add misses, the referee, then test both endings.}
+  \timeslot{33--35}{Wiggle break}{Freeze-ball: pass the ball until you hear \enquote{Game over!}}
+  \timeslot{35--50}{Make it}{Exercise 8.2 Never or Right Away? (bug hunt), then Exercise 8.3 My Game Rules on paper. Free play: a game-over surprise.}
+  \timeslot{50--60}{Share}{Play each other's games to the end. No-tricks talk, exit question, reflection, hand out play-at-home card 8.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Board-game rules]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Play one quick round of tic-tac-toe (or a few turns of the board game).
+  \item Lay out the four rule cards. Ask, card by card: \enquote{How did the game \textbf{start}?} (An empty grid; X goes first.) \enquote{What do you do while you \textbf{play}?} (Take turns.) \enquote{How do you \textbf{win}?} (Three in a row.) \enquote{How does it end if nobody wins?} (The grid is full.) Write the answers on the cards.
+  \item Now play a game with no ending: pass the soft ball around. \enquote{How do you win?} There is no way! After 30 seconds: \enquote{Is it still fun? When does it stop?} \enquote{A game with no ending is not really a game.}
+  \item Then a game that ends right away: \enquote{New game. Rule: if you are wearing socks, you lose.} Everyone loses before it starts! \enquote{That ending came too soon. Both are today's bugs.}
+\end{enumerate}
+With 1 child: play tic-tac-toe against you. With 3: two play and one is the referee who says who won. With 4: two games side by side, then everyone sorts the cards together.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Our catch game is fun, but it goes on and on. Real games have three parts. A \textbf{start}: everything is set to 0 and the player learns the goal. The \textbf{play}: a forever loop keeps things moving. And an \textbf{ending}: you win, or it is game over. The block \enquote{stop all} in orange Control is the final whistle: it stops every script in the game.}
+
+\enquote{We also need a way to lose. Remember last week's misses box? We count \textbf{misses}: every apple that falls past the bowl is one miss. Three misses and the game is over.}
+\end{teacherscript}
+
+\begin{analogy}[The referee]
+\enquote{In soccer, a referee watches the whole game. The referee does not kick the ball. The referee keeps checking: is it over yet? When it is, the whistle blows and everybody stops. Today the Bowl gets a referee script that keeps checking the score and the misses.}
+\end{analogy}
+
+\begin{workedexample}[Win and Lose (Exercise 8.1)]
+Open your own catch game. Do this while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Orange-red \menu{Variables}: if there is no \enquote{misses} variable yet, click \menu{Make a Variable}, type \enquote{misses}, keep \enquote{For all sprites}, OK.
+  \item Click the Apple in the sprite list. Inside its \enquote{if touching edge? then}, snap \enquote{change misses by 1} above \enquote{go to Star}. \enquote{Each apple that falls past is one miss.}
+  \item Click the Bowl in the sprite list. Yellow \menu{Events}: drag in a new \enquote{when green flag clicked}. This is the referee script.
+  \item The start: orange-red \menu{Variables} \enquote{set score to 0} and \enquote{set misses to 0} (pick misses in the little menu). Purple \menu{Looks}: \enquote{say Catch 10 apples! for 2 seconds}. \enquote{The player knows the goal.}
+  \item The play: orange \menu{Control} \enquote{forever}.
+  \item The ending, part 1 (lose): put an \enquote{if then} inside the forever. Green \menu{Operators}: drop \enquote{\_\_ = 50} into its hole. Drag the round \enquote{misses} into the left side, type 3 on the right. Inside: \enquote{say Game over! for 2 seconds}, then \enquote{stop all} (orange \menu{Control}).
+  \item The ending, part 2 (win): a second \enquote{if then} under the first, still inside the forever: \enquote{score = 10}, \enquote{say You win! for 2 seconds}, \enquote{stop all}.
+  \item Test \textbf{both} endings. Play to win: catch 10. Then click the flag again and lose on purpose: miss 3. \enquote{A good game maker tests every ending.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockvariable{set \selectmenu{misses} to \ovalnum{0}}
+\blocklook{say \ovalnum{Catch 10 apples!} for \ovalnum{2} seconds}
+\blockinfloop{forever}{
+  \blockif{if \booloperator{\ovalvariable{misses} = \ovalnum{3}} then}{
+    \blocklook{say \ovalnum{Game over!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+  \blockif{if \booloperator{\ovalvariable{score} = \ovalnum{10}} then}{
+    \blocklook{say \ovalnum{You win!} for \ovalnum{2} seconds}
+    \blockstop{stop \selectmenu{all}}
+  }
+}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver, Helper and Player]
+The \textbf{Driver} holds the mouse and builds. The \textbf{Helper} reads the steps, says the color circle and checks each if is inside the forever, but never grabs the mouse. When the referee is built, the Helper becomes the \textbf{Player}: they play to win once and to lose once, and say what happened, while the Driver watches. Swap on the timer (6--7 minutes). With 1 child: you are the Helper and the Player. With 3: Driver, Helper and Player, rotating. With 4: two pairs; at the end of this block each pair plays the other pair's game to the end.
+\end{pairroles}
+
+Work through the workbook: \textbf{8.1} Win and Lose. Remind them: the referee goes on the Bowl; the \enquote{change misses by 1} goes on the Apple. Save when both endings work.
+
+\section{Wiggle break (33--35 min)}
+Freeze-ball: everyone stands in a circle and passes the soft ball (or an imaginary one). When you call \enquote{You win!}, everyone jumps and cheers. When you call \enquote{Game over!}, everyone freezes. Play three rounds, then stretch.
+
+\section{Make it (35--50 min)}
+\begin{bughunt}[Never or Right Away? (Exercise 8.2)]
+The workbook shows two referee scripts. Read them together first and let children predict. \textbf{Leo's game ends right at the start}: his game-over check says \enquote{if misses = 0}. Misses start at 0, so the referee blows the whistle at once. Fix: 3, not 0. \textbf{Zoe's game never ends}: her \enquote{if score = 10} sits \textbf{above} the forever loop, so it checks once, at the very start, when the score is 0, and never again (the bug from week 2). Fix: drag the if back into the forever, under the misses check. Then children save a copy of their own game with a new name (nickname plus \enquote{bugs}), make Leo's change in it, click the flag and watch it end at once; fix it; then make Zoe's change (drag the \enquote{if score = 10}, the lower if, out of the forever and snap it above the forever), catch 10 apples and watch nothing happen; fix it. Ask each time: \enquote{What should happen? What happened? Which block is the clue?}
+\end{bughunt}
+
+\textbf{8.3 My Game Rules (about 5 minutes).} On paper: each child chooses a catch game or a maze game for next week's arcade project and writes (or tells you) its start, win and lose rules. Keep it: it goes on the game plan card in week 9.
+
+\begin{freebuild}[A game-over surprise]
+Last minutes: make an ending special. Ideas: a sound before \enquote{stop all}; a \enquote{celebrate} My Block from last week for the win; or, with messages from week 6, \enquote{broadcast game over} before the stop, and a Ghost that shows itself and says \enquote{Boo! Game over} when it receives it (give the Ghost \enquote{when green flag clicked, hide} so it starts hidden).
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child lets a friend play their game all the way to an ending. The maker says the rules first: \enquote{Use the arrow keys. Catch 10 apples to win. Miss 3 and it is game over.} Others give two stars and a wish.
+\end{teacherscript}
+
+\begin{safety}[No tricks: good games end]
+\enquote{Our games end. You win, or it is game over, and then the game stops and you choose what to do next. Some games on phones and tablets are made so you never want to stop: \enquote{You almost won! Just one more go!}, prizes that come back every few minutes, or no ending at all. That is a trick, and it can eat up a whole afternoon. Our games tell the truth and they end. When a game says \enquote{just one more}, you can say \enquote{No thanks, I am done}, and stop when screen time is over.} Ask: \enquote{A game keeps saying \enquote{You were SO close, play again!} What can you do?} (Stop anyway; take a break; tell a grown-up if it is hard to stop.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} \enquote{set score to 0} and \enquote{set misses to 0} above the forever; both ifs inside the forever; \enquote{stop all} inside each if; both endings tested; \enquote{change misses by 1} in the apple's edge check.
+
+\textbf{Ask:} point at a referee script with \enquote{if misses = 3} above the forever loop. \enquote{I miss three apples. Will it say Game over?}
+\textbf{Answer:} no. The if checks only once, at the start, when misses is 0. It has to be inside the forever to keep checking.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What are the three parts of a game?} (start, play, ending) and \enquote{Is your game more fun with an ending? Why?} Children color the start, play and end boxes in the workbook if their game has them, and circle a smiley face. Hand out play-at-home card 8: it asks them to think about their arcade game idea.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing \enquote{score} as a word.} Drag the round orange-red \enquote{score} block into the left slot of the \enquote{=} and type 10 on the right. A typed word \enquote{score} is only a word and never equals 10.
+  \item \textbf{The if outside the forever.} It checks once at the start. Drag it in.
+  \item \textbf{\enquote{stop all} outside the if.} The game stops the moment the flag is clicked. \enquote{stop all} goes inside the if, under the say.
+  \item \textbf{Game over right away on the second game.} The misses were not set back to 0. Check \enquote{set misses to 0} is at the top of the referee script.
+  \item \textbf{The score jumps past 10.} The apple stays on the bowl and scores again and again. Check \enquote{go to Star} comes right after \enquote{change score by 1} in the apple's script.
+  \item \textbf{Misses count up too fast.} The Star marker is too close to an edge, so the apple touches the edge at the start. Drag the Star a little lower and away from the sides.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build the win ending only (score = 10) together, with you as the Driver and the child pointing to the next block. Add the misses and the game over in the next session's warm-up. For 8.2, only look at Leo's script on paper and fix it in words.
+\extensionpath Use messages to make the ending a scene: \enquote{broadcast you win} and \enquote{broadcast game over}, and give the Stage two backdrops (\enquote{switch backdrop to} when it receives each message). Or let the player choose a harder game: the goal is 15 and the apple moves 7 steps.
+\end{differentiation}
+
+\begin{stretchchallenge}[Is it fair?]
+Ask a Player to play your game three times. Did they win at least once? Did they lose at least once? If they always win, make it a little harder (a bigger goal or a faster apple). If they always lose, make it easier. A fair game is possible to win and possible to lose.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do the warm-up with tic-tac-toe and the sorting only. Build the referee with the win ending first, then the game over if there is time. Do 8.2 on paper together (predict and fix in words) and send 8.3 home with the play-at-home card. Keep the no-tricks talk: it is short and it matters.
+\end{teachernote}

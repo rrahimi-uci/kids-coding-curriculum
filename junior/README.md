@@ -4,9 +4,8 @@ A gentler first track for children aged 7–9: unplugged games and Scratch first
 then a short, friendly first look at Python. It leads into the main
 (Grades 4–5) track's Level 1.
 
-> **Status:** Levels 1 and 3 are written and ready to teach. Level 2 is planned: its scope and
-> sequence is in [docs/JUNIOR-SYLLABUS.md](../docs/JUNIOR-SYLLABUS.md), and its lessons arrive
-> in a later pull request.
+> **Status:** All three levels are written and ready to teach. The scope and
+> sequence is in [docs/JUNIOR-SYLLABUS.md](../docs/JUNIOR-SYLLABUS.md).
 
 | Level | Folder | Weeks | You will build | Final project |
 |---|---|---|---|---|

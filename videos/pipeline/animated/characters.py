@@ -5,6 +5,10 @@ part, falling just past the shoulders; a light-blue headband; a purple long-slee
 stripes across the top of the shirt and the upper sleeves (the lower part stays plain).
 Pixi: a palm-sized hovering helper robot with an LED face.
 Both blink, bob gently while idle, and change expression; Rose's mouth follows the voice.
+
+Rose is deliberately built from bold, rounded shapes rather than tiny details.  That keeps her
+face recognisable in a 1280x720 video, in a small contact-sheet thumbnail, and when a child sees
+her beside a code example.
 """
 
 from __future__ import annotations
@@ -152,11 +156,12 @@ def _hair_back(ctx, hx, hy, sway):
 
 
 def _face_shape(ctx, hx, hy):
+    # A slightly wider, softer face reads more clearly at the small scale used in lesson scenes.
     _path(ctx, [(hx, hy - 86),
-                (hx + 54, hy - 86, hx + 80, hy - 48, hx + 80, hy + 2),
-                (hx + 80, hy + 54, hx + 44, hy + 90, hx, hy + 92),
-                (hx - 44, hy + 90, hx - 80, hy + 54, hx - 80, hy + 2),
-                (hx - 80, hy - 48, hx - 54, hy - 86, hx, hy - 86)])
+                (hx + 58, hy - 86, hx + 84, hy - 48, hx + 84, hy + 2),
+                (hx + 84, hy + 56, hx + 46, hy + 94, hx, hy + 96),
+                (hx - 46, hy + 94, hx - 84, hy + 56, hx - 84, hy + 2),
+                (hx - 84, hy - 48, hx - 58, hy - 86, hx, hy - 86)])
     _fill(ctx, ROSE["skin"])
 
 
@@ -203,6 +208,10 @@ def _headband(ctx, hx, hy):
     set_color(ctx, ROSE["band_dark"], 0.6)
     ctx.set_line_width(3)
     ctx.stroke()
+    # Two small end tabs make the headband legible in profile and give the character a
+    # distinctive, friendly silhouette without adding a texture-heavy accessory.
+    for side in (-1, 1):
+        fill_rounded(ctx, hx + side * 91 - 7, hy + 12, 14, 23, 6, ROSE["band_dark"])
 
 
 def _face(ctx, hx, hy, t, mood, talk, look):
@@ -212,20 +221,20 @@ def _face(ctx, hx, hy, t, mood, talk, look):
     eye_y = hy + 6
     for side in (-1, 1):
         ex = hx + side * 32
-        eh = 18 * open_amount + (3 if mood == "surprised" else 0)
+        eh = 20 * open_amount + (4 if mood == "surprised" else 0)
         if open_amount > 0.25:
-            ellipse(ctx, ex, eye_y, 16, max(eh, 1.5), C["white"])
+            ellipse(ctx, ex, eye_y, 18, max(eh, 1.5), C["white"])
             ix = ex + look * 5
-            circle(ctx, ix, eye_y + 1, 12, ROSE["eye"])
-            circle(ctx, ix, eye_y + 1, 6, "#1A0E08")
-            circle(ctx, ix + 4, eye_y - 4, 3.6, C["white"])
-            circle(ctx, ix - 4, eye_y + 5, 1.6, C["white"], 0.8)
+            circle(ctx, ix, eye_y + 1, 13, ROSE["eye"])
+            circle(ctx, ix, eye_y + 1, 6.5, "#1A0E08")
+            circle(ctx, ix + 4.5, eye_y - 4.5, 4, C["white"])
+            circle(ctx, ix - 4, eye_y + 5, 1.8, C["white"], 0.8)
             # upper lash line with a little flick at the outer corner
             ctx.new_path()
             ctx.move_to(ex - 17, eye_y - 2)
             ctx.curve_to(ex - 10, eye_y - eh - 2, ex + 10, eye_y - eh - 2, ex + 17, eye_y - 2)
             set_color(ctx, ROSE["brow"])
-            ctx.set_line_width(4)
+            ctx.set_line_width(4.5)
             ctx.set_line_cap(cairo.LINE_CAP_ROUND)
             ctx.stroke()
             line(ctx, ex + side * 16, eye_y - 4, ex + side * 22, eye_y - 9, ROSE["brow"], 4)
@@ -255,8 +264,8 @@ def _face(ctx, hx, hy, t, mood, talk, look):
     ctx.set_line_width(4)
     ctx.stroke()
     # cheeks
-    circle(ctx, hx - 50, hy + 36, 13, "#F28CA0", 0.35)
-    circle(ctx, hx + 50, hy + 36, 13, "#F28CA0", 0.35)
+    circle(ctx, hx - 54, hy + 36, 15, "#F28CA0", 0.38)
+    circle(ctx, hx + 54, hy + 36, 15, "#F28CA0", 0.38)
     # mouth
     my = hy + 56
     if talk > 0.05:

@@ -12,6 +12,15 @@ Junior Level 3, *Bridge to Python*, is written: ten 60-minute sessions plus two 
 - The full kit in both editions, 17 exercise folders (8 in Python), a tested Python postcard starter and reference, and a junior graduation certificate.
 - Build it with `make pdf LEVEL=j3`. The junior track is not on the website yet.
 
+## 1.13.0 - 2026-11-13
+
+Junior Level 2, *Game Makers*, is written: ten 60-minute Scratch sessions plus two optional buffer sessions, for children who finished Junior Level 1.
+
+- Forever loops and bouncing, if-touching, keeping score, random surprises, a play day with a show-me checklist, messages between sprites, My Blocks, and games with a start, a win and a game over. The final project is *My First Arcade Game*, planned on a game plan card and playtested by someone else.
+- Games stay inside Grade 2–3 math: sprites move with the four directions 0, 90, 180 and 270, falling things restart at a hidden Star marker instead of typed positions, and games count misses up instead of lives down.
+- The full kit: Teacher Guide, Lesson Plans, *My Game Book*, Play-at-Home Cards, answers for the grown-up, show-me checklists, cheat sheet, word book, progress tracker, notes for families, certificate, project brief and project teacher guide, in both editions, plus 22 Scratch exercise folders.
+- Build it with `make pdf LEVEL=j2`. The junior track is not on the website yet.
+
 ## 1.12.0 - 2026-11-12
 
 Junior Level 1, *Little Robots*, is written: the first level of the new junior track for children in Grades 2–3 (ages 7–9).

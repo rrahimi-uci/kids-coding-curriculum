@@ -1,0 +1,148 @@
+% Junior Level 2, Week 6 -- Messages
+\lesson{6}{Messages}{One sprite can tell the others when to start.}
+\lessoninfo{Concepts: broadcast and when I receive (I), events (R)}{Tools: Scratch 3 offline app, folded paper notes and listening cards}{CSTA: 1B-AP-10, 1B-AP-11, 1B-AP-14, 1B-AP-15}
+
+\begin{objectives}
+  \item The student can make a start button that sends a message with \enquote{broadcast}, so that other sprites start with \enquote{when I receive}. (J2.G4) [J2.W06.1]
+  \item The student can pass a message along a chain of three sprites so they take turns without counting seconds. (J2.G4) [J2.W06.2]
+  \item The student can find and fix a message that nobody listens for and a \enquote{when I receive} with the wrong message name. (J2.G5) [J2.W06.3]
+  \item The student can give credit in a game for sprites and sounds they did not make. (J2.G7) [J2.W06.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 6 and play-at-home card 6 (one per child).
+  \item Unplugged: four paper notes, folded once, with one word written inside in big letters: JUMP, TWIRL, CLAP and SPIN. Four \enquote{listening cards} you write by hand, one per child, each with a little drawing: \enquote{When I receive JUMP: jump, then pass TWIRL}, \enquote{When I receive TWIRL: twirl, then pass CLAP}, \enquote{When I receive CLAP: clap three times, then pass the note back to the grown-up}, and a spare \enquote{When I receive HOP: hop}.
+  \item On each computer: the Scratch app with a new project and a \textbf{mouse}.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6--7 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Pass-the-note relay: everyone waits until they receive their note, acts, and passes the next one.}
+  \timeslot{10--20}{Show me}{Broadcast sends a message; \enquote{when I receive} listens for it. Build the Start Button together.}
+  \timeslot{20--33}{Make it}{Driver and Helper, swap on the timer. Exercise 6.1 Start Button, then 6.2 Pass the Message.}
+  \timeslot{33--35}{Wiggle break}{\enquote{When I receive}: move only when your word is called.}
+  \timeslot{35--50}{Make it}{Exercise 6.3 Nobody Is Listening (bug hunt). Credits talk, then free build: a credits message.}
+  \timeslot{50--60}{Share}{Each child presses their start button for the others. Exit question, reflection, save, hand out play-at-home card 6.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Pass-the-note relay]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Children sit in a row. Give each one a listening card and read it with them. \enquote{You do nothing until you receive your note. Then you do your action and pass the next note.}
+  \item You start: hand the JUMP note to the first child. They open it, jump, then hand the TWIRL note along, and so on. The last child passes a note back to you. \enquote{Nobody counted seconds. Each one waited for a message.}
+  \item Play it again faster. Then swap cards so everyone gets a new action.
+  \item Bug 1, \textbf{nobody is listening}: hand over a note that says HOP when nobody holds the HOP card. Nothing happens. \enquote{The message was sent, but nobody was listening for it.}
+  \item Bug 2, \textbf{wrong name}: start again, but this time the TWIRL note says SPIN. The child with the TWIRL card waits and waits. \enquote{The names must match exactly.} Remember both bugs for the bug hunt.
+\end{enumerate}
+With 1 child: the chain is you and the child plus a teddy bear; the child acts for the teddy too, then you swap cards. With 2: a chain of three with you in the middle. With 3: the three cards in a row. With 4: add the HOP card to the chain (\enquote{When I receive HOP: hop, then pass the note back}) and change the CLAP card to \enquote{then pass HOP}.
+\end{unplugged}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Sprites can send notes to each other too. In Scratch a note is called a \textbf{message}. One sprite \textbf{broadcasts} a message: that means it sends it to every sprite at once. A script that starts with \textbf{when I receive} that message runs when the message arrives. Both blocks are in the yellow \menu{Events} circle. Today we make a start button: click it, and the whole game starts.}
+\end{teacherscript}
+
+\begin{analogy}[The school bell]
+\enquote{When the school bell rings, the whole school hears it, and everyone who is listening for it goes out to play. The bell does not have to tell each child one by one. Broadcast is the bell. \enquote{When I receive} is a child listening for it.}
+\end{analogy}
+
+\begin{workedexample}[Start Button (Exercise 6.1)]
+Do this on your computer while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Add the Star from \enquote{Choose a Sprite}. Drag it to the middle of the stage: it is the start button. Drag the cat to one side.
+  \item With the Star selected, yellow \menu{Events}: drag in \enquote{when this sprite clicked}. Snap on pink \menu{Sound} \enquote{start sound Pop}.
+  \item Yellow \menu{Events}: snap on \enquote{broadcast message1}. Click the little arrow, choose \menu{New message}, type \enquote{start} and click OK.
+  \item Purple \menu{Looks}: snap on \enquote{hide}. \enquote{The button goes away once the game starts.} Add a second script: \enquote{when green flag clicked} with \enquote{show}, so the button comes back.
+  \item Click the cat in the sprite list. Yellow \menu{Events}: drag in \enquote{when I receive}. Click its little arrow and pick \enquote{start}. Snap on blue \menu{Motion} \enquote{set rotation style left-right} (from week 1), then \enquote{say Hello! for 2 seconds} (change it to \enquote{Let's play!}), then orange \menu{Control} \enquote{forever} with blue \menu{Motion} \enquote{move 10 steps} and \enquote{if on edge, bounce} inside.
+  \item Click the flag: nothing moves, the Star waits. Click the Star: pop, the Star hides, and the cat starts. \enquote{The Star sent the message. The cat was listening.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{start sound \selectmenu{Pop}}
+\blockevent{broadcast \selectmenu{start}}
+\blocklook{hide}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when I receive \selectmenu{start}}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blocklook{say \ovalnum{Let's play!} for \ovalnum{2} seconds}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the steps, says the color circle and checks that the message names match (\enquote{Does it say start in both places?}), but never grabs the mouse. Swap when the timer runs out (6--7 minutes). With 1 child: you are the Helper, then swap so the child helps you. With 3: Driver, Helper and Message Checker (points at every broadcast and every \enquote{when I receive} and reads the names out loud). With 4: two pairs; at the end each pair presses the other pair's start button.
+\end{pairroles}
+
+Work through the workbook: \textbf{6.1} Start Button (children add the Ballerina, who dances when she receives \enquote{start}: one message, two listeners), then \textbf{6.2} Pass the Message in a new project. In 6.2 the messages are a chain: the cat sends \enquote{ghost}, the ghost listens for \enquote{ghost} and sends \enquote{dance}, the Ballerina listens for \enquote{dance}. Link to Level 1: \enquote{Remember making two sprites talk with wait blocks? With messages, nobody counts seconds.}
+
+\section{Wiggle break (33--35 min)}
+Everyone stands up. Give each child a secret word (\enquote{apple}, \enquote{rocket}, \enquote{banana}, \enquote{star}) and a move. Call out words: only the child whose word it is does their move. Call \enquote{everyone}: all move at once, like a broadcast to every sprite. End with three slow breaths.
+
+\section{Make it (35--50 min)}
+\begin{bughunt}[Nobody Is Listening (Exercise 6.3)]
+The workbook shows Kai's game: click the Star, the Balloon floats up and the Ghost says \enquote{Boo!}. Children add the Star, Balloon1 and the Ghost, drag the Balloon to the bottom of the stage, and build the scripts as printed. Build the Balloon's script first, before anyone makes the \enquote{go} message, so its hat block still says \enquote{message1}. Click the flag: the Ghost says \enquote{Boo!} straight away. Click the Star: nothing happens. Ask: \enquote{What should happen? What happened? Who is listening for go?} Two bugs, the same two as in the warm-up:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Nobody is listening.} The Ghost's script starts with \enquote{when green flag clicked}, not \enquote{when I receive go}, so the message goes nowhere and the Ghost talks at the wrong time. Fix: drag the say block off the flag block and snap it under a new \enquote{when I receive} hat set to \enquote{go}; delete the empty flag block.
+  \item \textbf{Wrong message name.} The Balloon listens for \enquote{message1}, a name Scratch puts in new blocks. Fix: click the little arrow and pick \enquote{go}.
+\end{itemize}
+Tip for every project: always pick message names from the dropdown; never make a second message with a similar name.
+\end{bughunt}
+
+\begin{safety}[Credit for sprites and sounds we did not make]
+\enquote{Who drew the cat, the Ghost and the Star? Not us! Artists who work on Scratch drew them, and someone recorded the Pop sound. When we use something someone else made, we \textbf{give credit}: we say who made it. That is fair, and it is how we would like others to treat our drawings too.} Show how: a sprite in the game can say \enquote{Sprites and sounds from the Scratch library}. If a friend draws a sprite for your game, ask first, and write their nickname in the credits. Never say \enquote{I made it} about something you did not make. Ask: \enquote{What in your game did you make yourself? What came from the library?}
+\end{safety}
+
+\begin{freebuild}[Roll the credits]
+Last 6 minutes: add credits to the Start Button game with a message. Click the Star, add \enquote{when c key pressed} with \enquote{broadcast credits} (a new message). In each sprite, add \enquote{when I receive credits} and a say block: the library sprites say \enquote{Scratch artists drew me!}, a sprite the child painted says \enquote{Mei drew me!} (a nickname). Or invent another message: \enquote{party} makes every sprite spin and pop.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{teacherscript}
+Each child presses their start button for the others and says one sentence: \enquote{When I click the Star, it sends start, and the cat and the Ballerina start.} Then they press c for the credits. Others give two stars and a wish. Save the game in the \enquote{Game Makers} folder (\menu{File} → \menu{Save to your computer}) as nickname plus \enquote{start}.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a broadcast with a message name, and at least one \enquote{when I receive} with the same name in another sprite; the start button hides; the chain in 6.2 runs in order; both bugs in 6.3 fixed.
+
+\textbf{Ask:} \enquote{The Star broadcasts go. The Balloon's script starts with \enquote{when I receive start}. I click the Star. What does the Balloon do?}
+\textbf{Answer:} nothing. It listens for a different message. Pick \enquote{go} in its dropdown so the names match.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What does broadcast do?} (sends a message to every sprite) and \enquote{Who made the sprites in your game?} Children draw a line from each message to the sprite that listens for it in the workbook and circle a smiley face. Hand out play-at-home card 6.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{\enquote{when I receive} shows the wrong name.} A new block from the list shows whatever message Scratch picks (often message1). Always click the arrow and pick the name you mean.
+  \item \textbf{Two messages with nearly the same name}, such as \enquote{start} and \enquote{start game}, after choosing New message twice. Pick one and use it in both places; a message nobody uses disappears from the list later on its own.
+  \item \textbf{The \enquote{when I receive} script is in the wrong sprite.} Check which sprite has the blue frame in the sprite list before building.
+  \item \textbf{The Star does not come back.} It hid itself. The \enquote{when green flag clicked, show} script brings it back.
+  \item \textbf{Clicking the flag and expecting the cat to start.} Only the message starts the cat. Click the Star.
+  \item \textbf{The cat is upside down after bouncing.} \enquote{set rotation style left-right} is missing. Snap it under the \enquote{when I receive start} block, and click \enquote{point in direction 90} once.
+  \item \textbf{Keys do nothing in the free build.} Click the stage once, then press c.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build 6.1 together with the cat only, with you as the Driver and the child choosing the message name and clicking the Star. Skip 6.2, or build it with two sprites (cat and Ghost). For 6.3, build Kai's game before the session and let the child find the two bugs.
+\extensionpath Make 6.2 a loop: the Ballerina broadcasts \enquote{cat} at the end, and the cat says \enquote{Again!} when it receives it and starts the chain again. Or give the start button a \enquote{game over} partner: when the cat touches the Ghost, it broadcasts \enquote{game over} and every sprite says \enquote{Bye!}.
+\end{differentiation}
+
+\begin{stretchchallenge}[One message, many listeners]
+Add three more sprites to the Start Button game, each with its own \enquote{when I receive start} script that does something different: a pop, a color change (purple \menu{Looks}, \enquote{change color effect by 25}) or a spin. One click, five sprites start. Draw it on paper: the Star in the middle, an arrow to every listener.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Play the note relay with the two bugs only once. In Make it, do 6.1 with the cat only, then 6.3 (the bug hunt). Leave 6.2 Pass the Message for free play or next week. Keep the credits talk: it fits in two minutes, and the credits message can wait.
+\end{teachernote}

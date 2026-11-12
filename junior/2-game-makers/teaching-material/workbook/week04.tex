@@ -1,0 +1,102 @@
+% Junior Level 2, Week 4 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{4}{Surprise! Random}{Random picks a number nobody can guess.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can roll a die inside the computer with \enquote{pick random}.
+  \item I can make a sprite pop up in a surprise place.
+  \item I can fix a die that only rolls once.
+\end{ican}
+
+\section{A die inside the computer}
+The green \enquote{pick random} block is like a die. Every time it runs, it picks a number. Nobody can guess it!
+
+\begin{exercise}[Dice Race]
+Race the Cat against the Ballerina.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Orange-red \menu{Variables}: make a variable called \enquote{roll}.
+  \item Build the cat's script. The die is green \menu{Operators}.
+  \item Drag the script onto the Ballerina. Change c to b.
+  \item Drag both racers to the left side.
+  \item Press c, then b, then c\ldots{} Who gets to the right side first?
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \selectmenu{c} key pressed}
+\blockvariable{set \selectmenu{roll} to \ovaloperator{pick random \ovalnum{1} to \ovalnum{6}}}
+\blocklook{say \ovalvariable{roll} for \ovalnum{1} seconds}
+\blockrepeat{repeat \ovalvariable{roll}}{
+  \blockmove{move \ovalnum{20} steps}
+  \blocklook{next costume}
+}
+\end{scratch}
+\end{center}
+Say \enquote{good game} at the end!
+\end{exercise}
+
+\begin{exercise}[Ghost Pop]
+The ghost pops up in surprise places. Click it to score!
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Add the Ghost. Make a variable called \enquote{score}.
+  \item Build both scripts. \enquote{go to random position} is blue \menu{Motion}.
+  \item Click the flag. Catch the ghost!
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockinfloop{forever}{
+  \blockmove{go to \selectmenu{random position}}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\blockmove{go to \selectmenu{random position}}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Stuck Dice]
+Omar's cat should say a new number every 2 seconds. It says the same number again and again! Build it and test it.
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{roll} to \ovaloperator{pick random \ovalnum{1} to \ovalnum{10}}}
+\blockinfloop{forever}{
+  \blocklook{say \ovalvariable{roll} for \ovalnum{1} seconds}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{center}
+Circle the block that rolls the die. How many times does it run? Fix it on your computer.
+\end{exercise}
+
+\begin{grownup}[Moving one block]
+Dragging a block also drags every block under it. To move one block from the middle of a script, drag the blocks under it away first.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{random}{A surprise: nobody can guess what comes next, like a die.}
+  \vocabword{good sport}{Someone who says \enquote{good game} when they win and when they lose.}
+\end{vocab}
+
+\begin{reflection}
+Roll a pretend die! Draw the dots on it.
+
+\begin{center}
+%% alt: An empty square with rounded corners, like a die with no dots, for the child to draw dots on.
+\begin{tikzpicture}
+  \draw[kcblack,line width=1.2pt,rounded corners=6pt] (0,0) rectangle (2.4,2.4);
+\end{tikzpicture}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

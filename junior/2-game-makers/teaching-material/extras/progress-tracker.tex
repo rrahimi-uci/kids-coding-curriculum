@@ -1,0 +1,74 @@
+\documentclass[track=junior,level=2]{kidscode}
+%% a big outline star to color in
+\newcommand{\colorstar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=1pt,fill=white,minimum size=1.35cm,inner sep=0pt]{};}
+%% \wkrow{week}{icon}{I can ...}
+\newcommand{\wkrow}[3]{\textbf{\Large #1} & {\Large #2} & #3 & \colorstar\\ \midrule}
+\makeatletter\ifkc@dyslexia\newcommand{\wkstretch}{1.25}\else\newcommand{\wkstretch}{1.6}\fi\makeatother
+\newenvironment{weektable}{\par\noindent\renewcommand{\arraystretch}{\wkstretch}%
+  \longtable{@{}>{\centering}p{1.3cm}>{\centering}p{1.1cm}>{\RaggedRight}m{\dimexpr\linewidth-5.2cm-6\tabcolsep}>{\centering\arraybackslash}m{2.8cm}@{}}
+  \toprule
+  \textbf{Week} & & \textbf{I can \ldots} & \textbf{Color it!}\\ \midrule\endhead}
+  {\endlongtable\par}
+%% badge to color: \badge{shape}{icon}{name}{how to earn it}
+\newcommand{\badge}[4]{%
+%% alt: A badge outline to color in, with an icon, the badge name and how to earn it underneath.
+  \begin{tikzpicture}
+    \node[#1,draw=black,line width=1.4pt,fill=white,minimum size=2.7cm,inner sep=1pt,
+          align=center,font=\small\bfseries,text width=2.3cm] (b) {{\LARGE #2}\\[3pt] #3};
+    \node[below=3pt of b,text width=3.7cm,align=center,font=\footnotesize] {#4};
+  \end{tikzpicture}}
+\begin{document}
+\kctitle{My Progress Tracker}{One copy per child: what I can do, week by week}
+
+\begin{grownup}[How the tracker works]
+At the end of each session (2 minutes, in the Share part), read the week's \enquote{I can} line
+aloud, or let your child read it. When your child feels ready, they color the star. A new idea can
+wait: the same ideas come back in later weeks, so a star can be colored any time. Keep the tracker
+in a folder and bring it out at the arcade showcase.
+\end{grownup}
+
+\noindent\textbf{Nickname:} \rule{6cm}{0.4pt}
+
+\section{My stars, week by week}
+\begin{weektable}
+\wkrow{1}{\faRedo}{I can make a sprite move forever and bounce.}
+\wkrow{2}{\faHandPointRight}{I can make a sprite react with \enquote{if touching}.}
+\wkrow{3}{\faBoxOpen}{I can keep score with a variable.}
+\wkrow{4}{\faDice}{I can use random for a surprise.}
+\wkrow{5}{\faEye}{I can show a grown-up what I can do.}
+\wkrow{6}{\faEnvelope}{I can send a message from one sprite to another.}
+\wkrow{7}{\faCubes}{I can make my own block and use it.}
+\wkrow{8}{\faTrophy}{I can make a game with a start, a win and a game over.}
+\wkrow{9}{\faClipboardList}{I can plan my game on a game plan card.}
+\wkrow{10}{\faGamepad}{I can show my game and say why I made it this way.}
+\end{weektable}
+
+\section{My arcade game}
+\begin{center}\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.6cm}X>{\centering\arraybackslash}m{2.8cm}@{}}
+\toprule
+Milestone & Done when \ldots & \textbf{Color it!}\\
+\midrule
+M1 Game plan card\newline{\normalfont\small week 9, start} & I said who the player is, how to win and how to lose, and drew my game. & \colorstar\\ \midrule
+M2 Game works\newline{\normalfont\small week 9, end} & My game has every must-have. A Player tested it. & \colorstar\\ \midrule
+M3 Arcade showcase\newline{\normalfont\small week 10} & My family played my game. I said what one script does. & \colorstar\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{My badges}
+A grown-up says when you have earned a badge. Then color it in! Anyone can earn every badge, at any time.
+\begin{center}
+\badge{circle}{\faRedo}{Loop Keeper}{Made something move forever.}\hfill
+\badge{diamond}{\faBug}{Bug Catcher}{Found and fixed 3 bugs.}\hfill
+\badge{rectangle}{\faBoxOpen}{Score Keeper}{Made a score that starts at 0.}
+\par\medskip
+\badge{rectangle}{\faHandsHelping}{Kind Player}{Played a game and gave two stars and a wish.}\hfill
+\badge{circle}{\faCubes}{Block Builder}{Made and used my own block.}\hfill
+\badge{diamond}{\faBalanceScale}{Fair Play}{Kept the rules fair and said \enquote{good game}.}
+\par\medskip
+\badge{diamond}{\faThumbsUp}{Credit Giver}{Said who made the sprites and sounds.}\hfill
+\badge{rectangle}{\faKey}{Code Cracker}{Cracked a secret code (B1).}\hfill
+\badge{circle}{\faGamepad}{Game Maker}{Showed my arcade game.}
+\end{center}
+\end{document}

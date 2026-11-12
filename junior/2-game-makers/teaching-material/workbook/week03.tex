@@ -1,0 +1,119 @@
+% Junior Level 2, Week 3 -- workbook chapter (My Game Book)
+\chapterweek{3}{Keep Score}{A variable is a labeled box that remembers a number.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can make a score variable.
+  \item I can set the score to 0 and change it by 1.
+  \item I can fix a score that does not go back to 0.
+\end{ican}
+
+\section{A box for a number}
+A \textbf{variable} is a box with a label. It remembers a number. Variable blocks are orange-red.
+
+\begin{center}
+%% alt: A box labeled score with the number 3 inside. An arrow labeled set score to 0 points to an empty box. An arrow labeled change score by 1 points to a box with 4 inside.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  box/.style={draw=kcvermillion,line width=1.2pt,fill=kcorange!15,minimum width=1.8cm,minimum height=1.4cm,font=\Huge\bfseries},
+  lab/.style={font=\bfseries,fill=white,draw=kcblack,rounded corners=2pt,inner sep=3pt}]
+  \node[box] (now) at (0,0) {3};
+  \node[font=\bfseries,above=1pt of now] {score};
+  \node[box] (zero) at (8,1.5) {0};
+  \node[font=\bfseries,above=1pt of zero] {score};
+  \node[box] (four) at (8,-1.5) {4};
+  \node[font=\bfseries,below=1pt of four] {score};
+  \draw[->,line width=1.2pt,kcblue] (now.east) -- (zero.west);
+  \draw[->,line width=1.2pt,kcblue] (now.east) -- (four.west);
+  \node[lab] at (3.8,1.6) {set score to 0};
+  \node[lab] at (3.8,-1.6) {change score by 1};
+\end{tikzpicture}
+\end{center}
+
+\begin{exercise}[Pop the Balloon]
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Add Balloon1.
+  \item Orange-red \menu{Variables}: Make a Variable. Type \enquote{score}. Pick For all sprites.
+  \item Build both scripts.
+  \item Click the flag. Pop the balloon five times. Look at the score.
+  \item Click the flag again. What happens to the score?
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockvariable{show variable \selectmenu{score}}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\blocklook{next costume}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\needspace{30\baselineskip}
+\begin{exercise}[Catch and Count]
+Open your catch game from last week.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Make a score variable, for all sprites.
+  \item Click the Apple. Add the two orange-red blocks.
+  \item Play! Each catch is 1 point.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.7]
+\blockinit{when \greenflag clicked}
+\blockvariable{set \selectmenu{score} to \ovalnum{0}}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blockmove{go to \selectmenu{Star}}
+\blockmove{point in direction \ovalnum{180}}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{5} steps}
+  \blockif{if \boolsensing{touching \ovalsensing*{Bowl} ?} then}{
+    \blockvariable{change \selectmenu{score} by \ovalnum{1}}
+    \blocksound{start sound \selectmenu{Pop}}
+    \blockmove{go to \selectmenu{Star}}
+  }
+  \blockif{if \boolsensing{touching \ovalsensing*{edge} ?} then}{
+    \blockmove{go to \selectmenu{Star}}
+  }
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Sticky Score]
+Kai's game: click the bananas to get points. Kai clicks the flag for a new game, but the old score stays!
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{0}}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockvariable{change \selectmenu{score} by \ovalnum{1}}
+\blocksound{start sound \selectmenu{Pop}}
+\end{scratch}
+\end{center}
+Circle the wrong block. Fix it on your computer.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{variable}{A box with a label that remembers a number, like score.}
+  \vocabword{set}{Put a new number in the box.}
+  \vocabword{change}{Add to the number that is already in the box.}
+\end{vocab}
+
+\needspace{14\baselineskip}
+\begin{reflection}
+Draw your score box. Write your best score inside.
+\answerspace{3cm}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

@@ -1,0 +1,130 @@
+% Junior Level 2, Week 6 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{6}{Messages}{One sprite can tell the others when to start.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can send a message with \enquote{broadcast}.
+  \item I can start a script with \enquote{when I receive}.
+  \item I can fix a message that nobody hears.
+\end{ican}
+
+\section{Sending a note}
+A \textbf{message} is like a note. \enquote{broadcast} sends it to every sprite. A script with \enquote{when I receive} waits for it. Both blocks are yellow \menu{Events}.
+
+\begin{exercise}[Start Button]
+Click the Star to start the game.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Add the Star. Drag it to the middle.
+  \item Build the Star's script. In \enquote{broadcast}, pick \menu{New message}. Type \enquote{start}.
+  \item Build the cat's script.
+  \item Add the Ballerina. Give her \enquote{when I receive start} and a dance.
+  \item Click the Star!
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{start sound \selectmenu{Pop}}
+\blockevent{broadcast \selectmenu{start}}
+\blocklook{hide}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when I receive \selectmenu{start}}
+\blockmove{set rotation style \selectmenu{left-right}}
+\blocklook{say \ovalnum{Let's play!} for \ovalnum{2} seconds}
+\blockinfloop{forever}{
+  \blockmove{move \ovalnum{10} steps}
+  \blockmove{if on edge, bounce}
+}
+\end{scratch}
+\end{center}
+Add \enquote{when green flag clicked} and \enquote{show} to the Star, so it comes back.
+\end{exercise}
+
+\begin{exercise}[Pass the Message]
+Three sprites take turns, like the note relay.
+\begin{center}
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi, Ghost!} for \ovalnum{2} seconds}
+\blockevent{broadcast \selectmenu{ghost}}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when I receive \selectmenu{ghost}}
+\blocklook{say \ovalnum{Boo!} for \ovalnum{2} seconds}
+\blockevent{broadcast \selectmenu{dance}}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.8]
+\blockinit{when I receive \selectmenu{dance}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{center}
+Cat, then Ghost, then Ballerina. Nobody counts seconds!
+\end{exercise}
+
+\begin{exercise}[Nobody Is Listening]
+Kai's game: click the Star. The Balloon floats up. The Ghost says Boo! Nothing works! Build the Balloon first.
+\begin{center}
+\begin{minipage}[t]{0.48\linewidth}\centering
+\textbf{Star}\par\smallskip
+\begin{scratch}[scale=0.8]
+\blockinit{when this sprite clicked}
+\blockevent{broadcast \selectmenu{go}}
+\end{scratch}
+
+\bigskip
+\textbf{Ghost}\par\smallskip
+\begin{scratch}[scale=0.8]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Boo!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\centering
+\textbf{Balloon}\par\smallskip
+\begin{scratch}[scale=0.8]
+\blockinit{when I receive \selectmenu{message1}}
+\blockmove{point in direction \ovalnum{0}}
+\blockrepeat{repeat \ovalnum{10}}{
+  \blockmove{move \ovalnum{10} steps}
+}
+\end{scratch}
+\end{minipage}
+\end{center}
+Who is listening for \enquote{go}? Circle the two bugs. Fix them on your computer.
+\end{exercise}
+
+\begin{vocab}
+  \vocabword{message}{A note one sprite sends to the others.}
+  \vocabword{broadcast}{Send a message to every sprite at once.}
+  \vocabword{credit}{Saying who made something, like the Scratch artists who drew the cat.}
+\end{vocab}
+
+\begin{reflection}
+Draw a line from each message to the sprite that listens for it.
+
+\begin{center}
+%% alt: Two rows. Top row: three message notes labeled start, ghost and dance. Bottom row: three sprite icons labeled Ballerina, Cat and Ghost, in mixed order, for the child to connect with lines.
+\begin{tikzpicture}[x=1cm,y=1cm,note/.style={draw=kcblack,line width=0.8pt,rounded corners=2pt,minimum width=2.2cm,minimum height=0.9cm,font=\bfseries}]
+  \node[note] at (0,2) {start};
+  \node[note] at (3.5,2) {ghost};
+  \node[note] at (7,2) {dance};
+  \node[font=\LARGE] at (0,0) {\faUser};
+  \node[font=\footnotesize\bfseries] at (0,-0.7) {Ballerina};
+  \node[font=\LARGE] at (3.5,0) {\faCat};
+  \node[font=\footnotesize\bfseries] at (3.5,-0.7) {Cat};
+  \node[font=\LARGE] at (7,0) {\faGhost};
+  \node[font=\footnotesize\bfseries] at (7,-0.7) {Ghost};
+\end{tikzpicture}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

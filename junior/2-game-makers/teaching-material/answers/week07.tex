@@ -1,0 +1,43 @@
+% Junior Level 2, Week 7 -- answer key
+\answersweek{7}{My Own Blocks}{Answers for workbook chapter 7 and play-at-home card 7.}
+
+\section{Lesson questions}
+\begin{answer}[Exit question]
+No. The \enquote{define celebrate} script is the recipe, but the \enquote{celebrate} block is not used under any hat block, so nothing ever runs it. Fix: drag \enquote{celebrate} from pink-red My Blocks under \enquote{when this sprite clicked} (or another hat block).
+\end{answer}
+
+\begin{answer}[Reflection]
+Any My Block name with a matching description is right (\enquote{My block is called sneeze. The cat says ah-choo and wobbles. I use it when you press s.}). For \enquote{what helps everyone play}, look for at least one of: big text or a large score, things that differ by shape and not only by color, a sound and a word together, bigger sprites. Any drawing of a named move and any honest smiley is right.
+\end{answer}
+
+\begin{answer}[Games for everyone (safety talk)]
+Good answers: a large readout for the score; a round apple and a ghost instead of a red apple and a green apple; \enquote{set size to} so the important sprites are big; words as well as sounds, so a player with the sound off still knows they scored.
+\end{answer}
+
+\section{Workbook exercises}
+\begin{answer}[Exercise 7.1: Celebrate Block]
+\textbf{What you should see and hear:} clicking the cat, or pressing space, plays a pop, makes the cat spin once all the way round, then the cat says \enquote{Hooray!} for 1 second. Clicking the green flag does nothing (there is no flag script). Changing the sound in the define script changes it for both the click and the space key.
+
+\textbf{What to look for:} \tickbox{} one \enquote{define celebrate} script with the blocks under it \quad \tickbox{} the turn is inside the repeat \quad \tickbox{} the \enquote{celebrate} block is used under two different yellow hat blocks. Full reference: \texttt{exercises/week07/ex-celebrate-block/solution.md}.
+\end{answer}
+
+\begin{answer}[Exercise 7.2: The Lost Block]
+\textbf{Circle:} the \enquote{define get ready} script. The block is made but never used, so the score never goes back to 0 and the cat never says \enquote{Go!}.
+
+\textbf{Fix:} drag \enquote{get ready} (pink-red My Blocks) under \enquote{when green flag clicked}, above the forever loop. It cannot go under the forever loop: the forever never finishes, so nothing below it would run.
+
+\textbf{What you should see after the fix:} each green flag click sets the score to 0, the cat says \enquote{Go!} for 1 second, then it runs and bounces. Each click on the cat adds 1 to the score. Full reference: \texttt{exercises/week07/ex-lost-block/solution.md}.
+\end{answer}
+
+\begin{answer}[Exercise 7.3: A Game for Everyone]
+Circle \textbf{B}. Why: \enquote{both}. B has a big score that is easy to read, and the thing to catch (an apple) and the thing to dodge (a ghost) have different shapes, so a player who sees red and green as the same color can still play. \enquote{Big words} or \enquote{shapes and colors} alone is also right; ask about the other one.
+\end{answer}
+
+\section{Play-at-home card}
+\begin{answer}[My named routine]
+Any routine with two or more steps in the right order and a name on the envelope is right. Look for: the child does every step inside when the name is called, in order, and says that the name stands for all the steps (that is a My Block).
+\end{answer}
+
+\begin{answer}[Shape detectives]
+Any honest find is right. Good examples: playing cards have shapes (hearts, spades) as well as colors; game pieces with different shapes or letters; a board where only colors tell spaces apart \enquote{could be better} with shapes or words added.
+\end{answer}
