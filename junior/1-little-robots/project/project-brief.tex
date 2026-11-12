@@ -1,0 +1,140 @@
+\documentclass[track=junior,level=1]{kidscode}
+%% outline stars to color in: \stars{n}
+\newcommand{\ostar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=0.8pt,fill=white,minimum size=0.75cm,inner sep=0pt]{};}
+\newcommand{\stars}[1]{\ifcase#1\or\ostar\or\ostar\,\ostar\or\ostar\,\ostar\,\ostar\fi}
+%% a big storyboard box: \storybox{label} (all three fit on one page in both editions)
+\makeatletter\ifkc@dyslexia\newcommand{\storyheight}{3.4cm}\else\newcommand{\storyheight}{4.3cm}\fi\makeatother
+\newcommand{\storybox}[1]{%
+%% alt: A big empty box to draw in, labeled with the storyboard step.
+\begin{tikzpicture}
+  \draw[line width=1.2pt,rounded corners=6pt] (0,0) rectangle (\linewidth,-\storyheight);
+  \node[anchor=north west,font=\Large\bfseries,fill=white,draw=black,rounded corners=3pt] at (0.25,-0.25) {#1};
+\end{tikzpicture}}
+\begin{document}
+\kctitle{My Animated Greeting Card}{Project brief, storyboard and stars (weeks 9 and 10)}
+
+\begin{grownup}[How to use this brief]
+Read it aloud together at the start of week 9. Your child draws on the storyboard page
+before building. Saying, pointing and drawing all count: no writing is needed.
+\end{grownup}
+
+\section{Your mission}
+Make a Scratch card for someone special.\par
+It moves. It talks. It makes a sound.\par
+In week 10, you show it to your family!
+
+\begin{safety}[Nicknames and credit]
+Write a first name or a nickname on your card, never a full name.
+The sprites and sounds come from the Scratch library. Say so at the showcase!
+\end{safety}
+
+\section{The must-haves}
+Your card needs all five. Check each box when it works.
+
+\begin{center}\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}c>{\centering}m{1.1cm}>{\RaggedRight}X>{\centering\arraybackslash}m{7.0cm}@{}}
+\toprule
+{\Large\tickbox} & {\Large\faFlag} & It starts with the \textbf{green flag}. &
+  \begin{scratch}[scale=0.7]\blockinit{when \greenflag clicked}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faRedo} & At least one \textbf{repeat}: an animation or a dance. &
+  \begin{scratch}[scale=0.7]\blockrepeat{repeat \ovalnum{4}}{\blocklook{next costume}\blockcontrol{wait \ovalnum{1} seconds}}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faMousePointer} & One \textbf{click} or \textbf{key}. &
+  \begin{scratch}[scale=0.7]\blockinit{when this sprite clicked}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faVolumeUp} & A \textbf{sound}. &
+  \begin{scratch}[scale=0.7]\blocksound{start sound \selectmenu{Pop}}\end{scratch}\\ \midrule
+{\Large\tickbox} & {\Large\faUsers} & \textbf{Two sprites}, or a \textbf{backdrop change}. &
+  \begin{scratch}[scale=0.7]\blocklook{switch backdrop to \selectmenu{Party}}\end{scratch}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Idea menu}
+Pick one, or think of your own!
+\begin{center}
+%% alt: Five card ideas, each with a picture: a cake for a birthday card, a heart for a thank-you card, a snowflake for a holiday card, a bandage for a get-well card, and a paw for a welcome-new-pet card.
+\begin{tikzpicture}[idea/.style={draw=black,line width=1pt,rounded corners=6pt,minimum width=2.9cm,minimum height=3.0cm,align=center,text width=2.6cm}]
+  \foreach \icon/\word [count=\i] in {\faBirthdayCake/Happy birthday!,\faHeart/Thank you!,\faSnowflake/Happy holidays!,\faBandAid/Get well soon!,\faPaw/{Welcome, new pet!}}
+    \node[idea] at (\i*3.3,0) {{\fontsize{30}{34}\selectfont\icon}\\[6pt]\textbf{\word}};
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+\section{My storyboard (Milestone 1)}
+\noindent\textbf{Who is it for?} (first name or nickname) \rule{6.5cm}{0.4pt}\par\medskip
+Draw your card. What happens first, next and last?\par\medskip
+
+\noindent\storybox{1 Start}\par\medskip
+\noindent\storybox{2 Middle}\par\medskip
+\noindent\storybox{3 End}\par\medskip
+
+\noindent\textbf{My must-haves} (check when they are in your plan):\par
+\noindent{\Large\tickbox}\,\faFlag\ green flag\qquad{\Large\tickbox}\,\faRedo\ repeat\qquad{\Large\tickbox}\,\faMousePointer\ click or key\par
+\noindent{\Large\tickbox}\,\faVolumeUp\ sound\qquad{\Large\tickbox}\,\faUsers\ two sprites or a backdrop change
+
+\clearpage
+\section{Milestones}
+Build one box at a time. Click the flag after each change.
+
+\begin{center}\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}c>{\bfseries}p{4.0cm}X@{}}
+\toprule
+ & Milestone & Done when \ldots\\
+\midrule
+\tickbox & M1 Storyboard\newline{\normalfont\small week 9, start} & I drew Start, Middle and End. I said who my card is for.\\ \midrule
+\tickbox & M2 Card works\newline{\normalfont\small week 9, end} & My card starts with the green flag. It has all five must-haves. I saved it.\\ \midrule
+\tickbox & M3 Showcase\newline{\normalfont\small week 10} & I showed my card to my family. I said what one script does.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Need a different path?}
+\begin{tip}[Core path: start from a card]
+A grown-up sets up the card for you. The backdrop and the first sprite are already there.
+Add one must-have at a time, and click the flag after each one.
+\end{tip}
+
+\begin{stretchchallenge}[Stretch path: draw a frame]
+\begin{minipage}[t]{0.5\linewidth}\RaggedRight
+Add a sprite such as the Star. Drag it near a corner of the stage.\par\smallskip
+Add the green \menu{Pen} blocks with \menu{Add Extension}.\par\smallskip
+It stamps a star at each corner of a square!
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}\vspace{0pt}
+\begin{scratch}[scale=0.62]
+\blockinit{when \greenflag clicked}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockpen{stamp}
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{minipage}
+\end{stretchchallenge}
+
+\needspace{22\baselineskip}
+\section{How my card is checked}
+Color the stars you have now. Look again after the showcase!
+
+\begin{rubric}[My stars]
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.6cm}*{3}{>{\RaggedRight\arraybackslash}X}@{}}
+ & \stars{1} & \stars{2} & \stars{3}\\
+\midrule
+It works & It starts. & Most parts work. & It all works, every time.\\ \midrule
+It has every must-have & 1 or 2 & 3 or 4 & all 5\\ \midrule
+I can say what one script does & I can say what my card does. & I can point to a script and name its blocks. & I can say what each block in one script does.\\ \midrule
+I planned it on my storyboard & I drew a plan. & My card has some of my plan. & My card matches my Start, Middle and End.\\
+\end{tabularx}
+\end{rubric}
+
+\begin{reflection}[After the showcase]
+Draw the part of your card you like best. How do you feel? Circle one.
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{2.6cm}
+\end{reflection}
+\end{document}

@@ -97,7 +97,9 @@ def build(level: curriculum.Level) -> str:
     out.append("\\bottomrule\\end{longtable}}")
     out.append("")
     out.append("\\subsection{All lesson objectives (generated)}")
-    out.append("\\begin{longtable}{@{}p{1.1cm}p{0.78\\linewidth}p{1.6cm}@{}}")
+    # Junior documents use 14pt type, so the week column needs more room for its header.
+    cols = "p{1.5cm}p{0.72\\linewidth}p{1.6cm}" if level.track == "junior" else "p{1.1cm}p{0.78\\linewidth}p{1.6cm}"
+    out.append("\\begin{longtable}{@{}" + cols + "@{}}")
     out.append("\\toprule Week & Objective & Goals\\\\ \\midrule\\endhead")
     for name, title, objs in lessons:
         out.append(f"\\multicolumn{{3}}{{@{{}}l}}{{\\textbf{{{label(name)}: {title}}}}}\\\\")

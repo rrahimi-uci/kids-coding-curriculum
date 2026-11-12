@@ -1,0 +1,152 @@
+% Junior Level 1, Week 5 -- Play Day and Show Me
+\lesson{5}{Play Day and Show Me}{Practice everything, then show a grown-up what you can do.}
+\lessoninfo{Concepts: sequence, repeat, debugging (R); show-me checklist}{Tools: floor grid, arrow cards, Scratch 3 offline app, Assessments booklet}{CSTA: 1A-AP-08, 1A-AP-10, 1A-AP-14, 1A-AP-15}
+
+\begin{objectives}
+  \item The student can put arrow cards in order so a robot reaches the goal on an arrow maze. (J1.G1) [J1.W05.1]
+  \item The student can build a green-flag script with a repeat loop that does something again. (J1.G2) [J1.W05.2]
+  \item The student can find and fix a block that is not snapped on, in the wrong order or repeated the wrong number of times. (J1.G4) [J1.W05.3]
+  \item The student can take turns as Driver and Helper and say what their script does. (J1.G6) [J1.W05.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 5 and play-at-home card 5 (one per child), and the Week 5 show-me checklist from the Assessments booklet (one row of boxes per child).
+  \item Unplugged: the masking-tape floor grid and arrow cards from week 1, a toy for the goal, and three \enquote{arrow maze} challenge cards you draw by hand: a small grid with a robot (start, with an arrow showing which way it faces), a star (goal) and one or two trees (squares the robot may not walk on).
+  \item On each Mac: the Scratch app with a new project and a \textbf{mouse}. Turn the volume down a little: one bug today is a lot of meowing.
+  \item Stickers or a stamp for the relay (three per child), and a sand timer or kitchen timer (5 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Arrow maze: children solve challenge cards on the floor grid, then Exercise 5.1 on paper.}
+  \timeslot{10--16}{Show me}{Play day rules, the three detective steps from week 3, and a demo on one tiny bug (the wrong sound).}
+  \timeslot{16--36}{Make it}{Bug-hunt relay (Exercise 5.2, three legs, swap Driver each leg), then Exercise 5.3 My Best Show and free play. You watch and fill in the show-me checklist.}
+  \timeslot{36--38}{Wiggle break}{Robot freeze dance: walk like a robot, freeze when you hear \enquote{bug!}.}
+  \timeslot{38--45}{Share}{Talk about what makes a project fun for everyone. Each child shows their best show and says what it does. Exit question, hand out play-at-home card 5.}
+\end{timeplan}
+
+\begin{teachernote}[The show-me checklist]
+Use the Week 5 show-me checklist in the Assessments booklet while children play. Do not announce a test: watch, ask \enquote{Can you show me\ldots?} and check off \emph{Not yet}, \emph{Getting there} or \emph{Got it}. It is never graded, and \emph{Not yet} is a normal answer in week 5. Watch for these six things:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt]
+  \item puts arrow cards in order to reach a goal (warm-up, Exercise 5.1);
+  \item snaps a green-flag script together (Exercise 5.3);
+  \item uses repeat to do something again (Exercise 5.3);
+  \item finds and fixes a block that is not snapped on or in the wrong order (relay legs 1 and 2);
+  \item takes turns as Driver and Helper (the whole Make it phase);
+  \item says what their script does (Share).
+\end{enumerate}
+\end{teachernote}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Arrow maze challenge cards]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Copy challenge card 1 onto the floor grid: a child stands on the start square as the robot, facing the way the card shows, the toy goes on the goal square, and cushions mark the trees.
+  \item The other child lays the week 1 cards in a row: FORWARD is one square ahead, TURN LEFT and TURN RIGHT are a quarter turn on the spot.
+  \item The robot walks the cards in order, one card at a time. Did the robot reach the goal without stepping on a tree?
+  \item If not, find the wrong card and change only that one. Swap jobs for card 2, then card 3.
+  \item Last 3 minutes: everyone draws the cards for the maze in Exercise 5.1.
+\end{enumerate}
+With 1 child: you are the robot first, then the child is the robot and you lay the cards. With 3: robot, card layer and checker (counts the steps out loud). With 4: two teams, each with its own challenge card, then swap cards.
+\end{unplugged}
+
+\section{Show me (10--16 min)}
+\begin{teacherscript}
+\enquote{Today is \textbf{Play Day}. We practice everything we know: steps in order, repeat, and fixing bugs. First we do a bug-hunt relay. There are three broken projects, like three legs of a race. Fix one, get a sticker, then swap Driver. Then you build your very best show and tell me what it does.}
+
+\enquote{Remember our detective steps from week 3? \textbf{Test}: click the flag and watch. \textbf{Look}: what did we want, and what happened? \textbf{Change one thing}, then test again. Let me show you.}
+\end{teacherscript}
+
+\begin{analogy}[A doctor's check-up]
+\enquote{A doctor does not guess. They look, they listen, they try one thing, and they check again. Bug detectives do the same with a script: test, look, change one thing, then test again.}
+\end{analogy}
+
+\begin{workedexample}[The wrong sound]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Build: yellow \menu{Events} \enquote{when green flag clicked}, then pink \menu{Sound} \enquote{play sound Meow until done}. In the dropdown, pick \enquote{Pop} on purpose. Say: \enquote{I want my cat to meow.}
+  \item \textbf{Test:} click the green flag. It pops.
+  \item \textbf{Look:} \enquote{I wanted a meow. I heard a pop. The sound block is the clue.}
+  \item \textbf{Change one thing:} click the little arrow in the sound block and pick Meow.
+  \item \textbf{Test again:} click the flag. Meow! \enquote{Bug fixed. That is how the relay works.}
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocksound{play sound \selectmenu{Meow} until done}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{pairroles}[Relay roles]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the \enquote{should do} line on the relay card and points at the picture, but never grabs the mouse. Swap at the end of every leg, and use the timer (5 minutes) during Exercise 5.3. With 1 child: the child drives legs 1 and 3; you drive leg 2 and the child is your Helper. With 3: Driver, Helper and Checker (checks the blocks against the picture), and each leg everyone moves one job along, so each child does each job once. With 4: two pairs; one pair starts at leg 1 and the other at leg 3.
+\end{pairroles}
+
+Work through the workbook: \textbf{5.2} the bug-hunt relay (about 12 minutes), then \textbf{5.3} My Best Show (about 8 minutes). Give a sticker for each leg that works. While they build 5.3, sit with each child for a minute and fill in their row of the show-me checklist.
+
+\begin{bughunt}[Bug-hunt relay: three broken projects (Exercise 5.2)]
+Each relay card in the workbook says what the project \textbf{should do} and shows the blocks exactly as they were built, with the bug. Children build it as shown, test, find the bug and fix it.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Leg 1, The Quiet Cat:} the sound block is not snapped on. Fix: drag it until it clicks on.
+  \item \textbf{Leg 2, Bye Before Hi:} the two say blocks are in the wrong order. Fix: drag \enquote{say Hi!} up until it clicks in right under the green flag block.
+  \item \textbf{Leg 3, Too Many Meows:} the repeat says 10, but the card says three meows. Fix: change 10 to 3. The red stop sign stops the meowing.
+\end{itemize}
+If a team is stuck for 2 minutes, give one hint at a time: (1) \enquote{Read the should-do line again. What is different?} (2) Point at the block where the bug lives. (3) Ask a yes/no question: \enquote{Is every block touching?}
+\end{bughunt}
+
+\begin{freebuild}[My Best Show (Exercise 5.3)]
+Last 8 minutes: each child builds their own show. It needs the green flag and a repeat. Everything else is their choice: the words (a nickname, never a real name), the sound, the number in the repeat (1 to 10). Ask each child, \enquote{Tell me what your script does,} and check the last row of the show-me checklist.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Robot freeze dance: everyone walks like a stiff robot around the room. When you say \enquote{bug!}, everyone freezes. When you say \enquote{fixed!}, they walk again. Finish by looking far out of a window and counting to 20.
+
+\section{Share (38--45 min)}
+\begin{safety}[What makes a project fun for everyone?]
+Before the shows, ask: \enquote{What makes a project fun for everyone who sees it?} Collect ideas, then agree on four:
+\begin{itemize}[leftmargin=1.2em,itemsep=0pt]
+  \item \textbf{Kind words} in the speech bubbles.
+  \item \textbf{Sounds that are not too loud or too long.} Remember Too Many Meows!
+  \item \textbf{Everyone gets a turn} to click the flag.
+  \item \textbf{Nicknames only}, so everyone stays safe.
+\end{itemize}
+\end{safety}
+
+\begin{teacherscript}
+Each child clicks the green flag to show their best show and says one sentence: \enquote{My script makes the cat \ldots} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} each child can find the bug in at least one relay leg, and their best show uses a repeat.
+
+\textbf{Ask:} show the Too Many Meows card after the fix (repeat 3, play sound Meow until done). \enquote{How many times will the cat meow?}
+\textbf{Answer:} three times, because the repeat says 3.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which bug was the trickiest?} and \enquote{What are you proud of today?} Children color one star for each relay leg they finished and circle a smiley face in the workbook. Hand out play-at-home card 5.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Rebuilding instead of fixing.} A child deletes everything and starts again. Praise that it works, then show that changing one thing is enough.
+  \item \textbf{Moving a block drags the ones under it.} In Scratch, dragging a block also drags every block below it. For leg 2, drag the bottom block, not the top one.
+  \item \textbf{Changing the wrong number.} In leg 3 a child changes the wait or the sound instead of the repeat. Ask: \enquote{Which number says how many times?}
+  \item \textbf{TURN means stepping sideways.} A child expects TURN RIGHT to move the robot one square to the right. Turn on the spot: the feet stay in the square (as in week 1).
+  \item \textbf{Treating the checklist as a test.} Keep it out of sight. Watching while they play gives a truer picture than asking them to perform.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do the relay together, with you as the Driver and the child pointing at the bug. Then the child drives the fix. Do two legs only, and skip Exercise 5.3's extra blocks: a green flag and one repeat is a full show.
+\extensionpath Make a broken project for a partner: build a script, add one bug on purpose, and let the partner hunt for it. Or add a \enquote{wait 1 seconds} (orange \menu{Control}) inside the repeat so the dance is slower and easier to see.
+\end{differentiation}
+
+\begin{stretchchallenge}[Design your own maze]
+Draw a new arrow maze on squared paper with a start, a goal and three trees. Draw the cards on a strip of paper. Can a partner follow your cards to the goal? Is there a path with fewer cards?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Use one challenge card in the warm-up and skip Exercise 5.1 (it can be done at home). Do legs 1 and 3 of the relay and let Exercise 5.3 be the free play. Never skip the wiggle break or the Share: the Share is where children say what their script does.
+\end{teachernote}

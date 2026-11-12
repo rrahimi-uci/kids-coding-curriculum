@@ -1,0 +1,142 @@
+% Junior Level 1, Week 9 -- Project Studio
+\lesson{9}{Project Studio}{Plan on a storyboard, then build one box at a time.}
+\lessoninfo{Concepts: storyboard planning (I), all concepts (R)}{Tools: storyboard plan sheet, crayons, Scratch 3 offline app}{CSTA: 1A-AP-10, 1A-AP-12, 1A-AP-13, 1A-AP-14}
+
+\begin{objectives}
+  \item The student can plan their greeting card on a three-box storyboard: start, middle and end. (J1.G5) [J1.W09.1]
+  \item The student can build their card one storyboard box at a time, with the green flag, a repeat, a click or key event and a sound. (J1.G2, J1.G3, J1.G5) [J1.W09.2]
+  \item The student can check a partner's card against the storyboard as Helper, and say what one of their own scripts does. (J1.G4, J1.G6) [J1.W09.3]
+  \item The student can ask before showing someone else's work to other people. (J1.G7) [J1.W09.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 9, play-at-home card 9, and the storyboard plan sheet from the project brief (one each). Crayons. Each child's card idea from play-at-home card 8.
+  \item \textbf{Before the lesson (core path, about 2 minutes per child):} on each Mac open a new project, click \menu{Choose a Backdrop} and pick a backdrop you like, keep the cat (or add one sprite the child asked for), then \menu{File} → \menu{Save to your computer} as \enquote{card-} plus the child's nickname. This is the starting card.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (6 minutes).
+  \item Sticky notes and a pencil for the partner check.
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\begin{teachernote}[The project in one look]
+\textbf{My Animated Greeting Card} is a Scratch card for someone special. It must use: the green flag to start, at least one repeat (an animation or dance), one click or key event, a sound, and two sprites or a backdrop change. Milestones: \textbf{M1 Storyboard} (start of today), \textbf{M2 Card works} (end of today: every must-have works), \textbf{M3 Showcase} (week 10). Stretch path: a pen-drawn border or pattern from week 8. Full details are in the project brief.
+\end{teachernote}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Draw a three-box storyboard: start, middle, end (M1). Each box gets a picture and a few words.}
+  \timeslot{10--16}{Show me}{Read a sample storyboard and build box 1 of a sample card together.}
+  \timeslot{16--36}{Make it}{Driver and Helper, swap on the timer. Exercise 9.2 Build My Card, box by box. At minute 30: Exercise 9.3 Partner Check (bug hunt). Then free play.}
+  \timeslot{36--38}{Wiggle break}{Act out your storyboard: three boxes, three poses.}
+  \timeslot{38--45}{Share}{Show one box that works. Ask-before-you-show talk. Exit question, hand out play-at-home card 9.}
+\end{timeplan}
+
+\section{Warm-up (0--10 min)}
+\begin{unplugged}[Draw a three-box storyboard]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Hold up a picture book or a comic. \enquote{Stories have a start, a middle and an end. A \textbf{storyboard} is a plan in boxes. Movie makers draw one before they film.}
+  \item Hand out the plan sheet. Box 1, \textbf{Start}: what happens when you click the green flag? (Someone says hello and there is a sound.) Box 2, \textbf{Middle}: what dances or moves again and again? (A repeat.) Box 3, \textbf{End}: what happens when you click a sprite or press a key? (A surprise: a second sprite talks, or the backdrop changes.)
+  \item Children draw a quick picture in each box and you write two or three words under it as they tell you (\enquote{cat says hi}, \enquote{balloon pops}).
+  \item Under each box, they draw the event icon: a green flag for box 1, a hand or a key for box 3.
+\end{enumerate}
+With 1 child: you draw your own storyboard next to them and talk about both. With 2--4: everyone draws their own; when done, they tell the person next to them their three boxes in three sentences. Keep it to 10 minutes: stick figures are perfect.
+\end{unplugged}
+
+\section{Show me (10--16 min)}
+\begin{teacherscript}
+\enquote{We do not build the whole card at once. We build \textbf{one box at a time}, and we test each box before we start the next. That way, if something goes wrong, we know where to look.}
+\end{teacherscript}
+
+\begin{analogy}[Building with blocks, floor by floor]
+\enquote{A storyboard is like the picture on the front of a LEGO box. You look at the picture, build one part, check it looks right, then build the next part.}
+\end{analogy}
+
+\begin{workedexample}[Mei's card for Grandpa, box 1]
+Show this sample storyboard: box 1 \enquote{cat says Happy birthday, meows}; box 2 \enquote{cat dances}; box 3 \enquote{click the balloon: pop, Surprise!}. Open a starting card on your Mac and build box 1 while the children watch.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the cat in the sprite list. Click the yellow \menu{Events} circle. Drag in \enquote{when green flag clicked}.
+  \item Click the purple \menu{Looks} circle. Snap on \enquote{say Hello! for 2 seconds}. Type \enquote{Happy birthday!}.
+  \item Click the pink \menu{Sound} circle. Snap on \enquote{play sound Meow until done}.
+  \item Click the green flag. \enquote{Box 1 works. Let us check it off on the storyboard!} Make a check mark on the sample.
+  \item Point at box 2: \enquote{Next, the dance. Which block makes something happen again and again?} (Repeat.) Leave box 2 for the children.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Happy birthday!} for \ovalnum{2} seconds}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\quad
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{play sound \selectmenu{Pop} until done}
+\blocklook{say \ovalnum{Surprise!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+The finished sample: the cat's script (boxes 1 and 2) on the left; the Balloon1 sprite's script (box 3) on the right. Add Balloon1 with \menu{Choose a Sprite} (bottom-right).
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{pairroles}[Driver and Helper on two cards]
+Each child has their own card. The \textbf{Driver} builds their own card. The \textbf{Helper} holds the Driver's storyboard, reads the next box out loud and points to the color circle, but never grabs the mouse. Swap on the timer (6 minutes), so each child is Driver on their own card and Helper on the other card. With 1 child: you are the Helper the whole time and read the storyboard; let the child explain each box back to you. With 3: two Drivers on two Macs and one Helper who moves between them on the timer. With 4: two pairs.
+\end{pairroles}
+
+Work through the workbook: \textbf{9.2} Build My Card, one box at a time. After each box: click the green flag, test it, and make a check mark on the storyboard. Then \textbf{9.3} Partner Check. Save often: \menu{File} → \menu{Save to your computer}, same name.
+
+\begin{bughunt}[Partner Check (Exercise 9.3)]
+At about minute 30, swap seats. The partner holds the storyboard and the must-have list in the workbook, clicks the green flag and tries the click or key. For each box they say \enquote{matches} or \enquote{not yet}. Then they find one thing that does not match yet and the owner fixes it. Common finds: the new script has no hat block on top, so it never starts; the click script is under the cat but the storyboard says click the balloon; the dance happens once because there is no repeat; the sound block is missing.
+\end{bughunt}
+
+\begin{freebuild}[Make it yours]
+When every must-have works (M2): add one extra. Change the dance, pick a different sound, or try the stretch path: a pen-drawn square frame or a stamp pattern from week 8 on a new sprite. Remember to add the Pen extension first.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up and acts out their own storyboard: a pose for the start, a little dance for the middle (repeat it four times!) and a big surprise jump for the end.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child clicks the green flag and shows one box that works. \enquote{Which box is this? Which script makes it happen?} Others give a thumbs up.
+\end{teacherscript}
+
+\begin{safety}[Ask before you show]
+\enquote{Your card is yours. Leo's card is Leo's. If you want to show someone else's card to Grandma, or take a photo of it, you ask first: \enquote{May I show your card?} And we never change someone else's project without asking.} Ask: \enquote{Priya loves Kai's card and wants to show her big sister. What should she do?} (Ask Kai first.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a storyboard with three boxes; a green flag script; a repeat; a click or key script; a sound; two sprites or a backdrop change (M2); the child tests after each box.
+
+\textbf{Ask:} point at the child's box 3 script. \enquote{What do you have to do to make this part happen?}
+\textbf{Answer:} click the sprite (or press the key) named in the hat block, for example \enquote{click the balloon}.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which box was the hardest to build? Which one are you proudest of?} Children color in the boxes they finished in the workbook and circle a smiley face. Hand out play-at-home card 9.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building everything before testing anything.} Stop after each box and click the flag. Bugs are easier to find in a small box.
+  \item \textbf{A new script without a hat block.} Blocks without \enquote{when green flag clicked}, \enquote{when this sprite clicked} or \enquote{when key pressed} on top never start.
+  \item \textbf{The script is under the wrong sprite.} Click the sprite in the sprite list first, then build its script.
+  \item \textbf{The dance is too fast to see.} Add \enquote{wait 1 seconds} inside the repeat.
+  \item \textbf{The storyboard is too big.} Three boxes with one idea each is plenty. Extra ideas go on the back of the sheet for later.
+  \item \textbf{A real name on the card.} Use \enquote{Grandpa}, \enquote{my friend} or a nickname, never a full name.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use the core path: the backdrop and first sprite are ready. Build box 1 together, then let the child build box 2 with you as Helper. For box 3, give one choice: \enquote{click the cat and it says something}. Two sprites can be replaced by a backdrop change (\enquote{switch backdrop to}, purple Looks).
+\extensionpath Add the stretch path: a sprite that draws a square frame with the pen or stamps a ring. Or add a second event: a key that plays a different sound.
+\end{differentiation}
+
+\begin{stretchchallenge}[A card that resets]
+Click the green flag twice. Does the card start the same way both times? If the balloon was hidden or the backdrop changed, add \enquote{show} or \enquote{switch backdrop to} at the top of a green flag script so every show starts fresh.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the storyboard to 8 minutes and skip the sample storyboard: build box 1 straight away. If a card is not finished (M2 not reached), use buffer B2 or 15 minutes at the start of week 10 as extra studio time. Keep the partner check, even if it is short: it is this week's bug hunt.
+\end{teachernote}

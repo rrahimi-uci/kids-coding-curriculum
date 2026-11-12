@@ -1,0 +1,147 @@
+% Junior Level 1, Week 8 -- Draw With the Pen
+\lesson{8}{Draw With the Pen}{The cat can draw: a square is repeat 4 of move and a quarter turn.}
+\lessoninfo{Concepts: pen down / pen up (I), quarter turn = 90 (I), stamp (I), repeat (R)}{Tools: Scratch 3 offline app with the Pen extension, floor grid, turn card}{CSTA: 1A-AP-10, 1A-AP-11, 1A-AP-14, 1A-NI-04}
+
+\begin{objectives}
+  \item The student can walk a square on the floor and then make the cat draw it with pen down and repeat 4 of \enquote{move} and a quarter turn (90). (J1.G1, J1.G2) [J1.W08.1]
+  \item The student can find and fix a turn that sits outside the repeat, so the cat draws all four sides. (J1.G4) [J1.W08.2]
+  \item The student can say that a password is secret, like a toothbrush, and is never shared with friends. (J1.G7) [J1.W08.3]
+  \item The student can choose who their greeting card will be for and draw one idea for it. (J1.G5) [J1.W08.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 8 and play-at-home card 8 (one per child). Write a \textbf{turn card} on an index card: \enquote{Square: 90 (quarter turn). Triangle: 120. Hexagon (6 sides): 60.}
+  \item Unplugged: the masking-tape floor grid from week 1, a small cup of buttons or LEGO bricks (the \enquote{crayon}), and four cards you write by hand: \enquote{3 STEPS}, \enquote{QUARTER TURN}, \enquote{PEN DOWN}, \enquote{REPEAT 4} (make the repeat card big, like a folder the other cards fit inside).
+  \item On each Mac: the Scratch app open with a new project, and a \textbf{mouse} plugged in. Try adding the Pen extension once yourself before the lesson (see Show me).
+  \item A sand timer or kitchen timer for Driver/Helper swaps (5 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Walk a square on the floor grid: 3 steps, then a quarter turn, four times. Buttons dropped on each square show the drawing.}
+  \timeslot{8--16}{Show me}{Add the Pen extension. Build the square script together: erase all, pen down, repeat 4 of move 100 and turn 90.}
+  \timeslot{16--36}{Make it}{Driver and Helper, swap on the timer. Exercise 8.1 Draw a Square, Exercise 8.2 The One-Side Square (bug hunt), Exercise 8.3 Stamp a Ring, then free play with pen colors.}
+  \timeslot{36--38}{Wiggle break}{Walk a square around the room: four steps, quarter turn, four times.}
+  \timeslot{38--45}{Share}{Show the drawings. Password talk. Exit question. Kick off the greeting card project and hand out play-at-home card 8.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Walk a square]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Put the \enquote{3 STEPS} and \enquote{QUARTER TURN} cards inside the big \enquote{REPEAT 4} card. Put \enquote{PEN DOWN} on top. \enquote{This is a program for a robot that draws.}
+  \item One child is the robot and holds the cup of buttons. \enquote{Pen down} means: drop one button on every square you step on.
+  \item The other child reads the cards. The robot walks 3 steps, then makes a quarter turn to the right (show it: like the big hand of a clock going from 12 to 3). Repeat four times.
+  \item Look at the buttons together. \enquote{What shape did the robot draw?} (A square.) \enquote{And where did the robot finish?} (Back where it started.)
+  \item Now take the \enquote{QUARTER TURN} card out of the repeat and put it after it. Walk it again: 3 steps four times is 12 steps in a straight line, then one turn. \enquote{That is not a square!} Keep this in mind for the bug hunt.
+\end{enumerate}
+With 1 child: the child is the reader first and you are the robot, then swap. With 3: robot, reader and a \enquote{checker} who points at the card being done. With 4: two robots walk at the same time on two grids (or one after the other), with two readers.
+\end{unplugged}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{Today the cat gets a crayon. In Scratch it is called the \textbf{pen}. When the pen is down, the cat draws a line everywhere it walks. When the pen is up, it walks without drawing. The pen blocks are hiding, so we have to add them first.}
+
+Click the \menu{Add Extension} button at the very bottom-left of the Scratch window (a blue button with blocks and a plus sign). Click \menu{Pen}. A new green \menu{Pen} circle appears under the others. \enquote{We do this once in every new project.}
+
+\enquote{To draw a square we need a turn. A \textbf{quarter turn} is 90 in Scratch. Two quarter turns make a half turn, and that is 180.}
+\end{teacherscript}
+
+\begin{analogy}[A crayon on the cat's tail]
+\enquote{Imagine a crayon tied to the cat. Pen down puts the crayon on the paper. Pen up lifts it off. Erase all is a big eraser that cleans the whole stage.}
+\end{analogy}
+
+\begin{workedexample}[Draw a Square (Exercise 8.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the yellow \menu{Events} circle. Drag \enquote{when green flag clicked} into the middle.
+  \item Click the purple \menu{Looks} circle. Snap on \enquote{set size to 100 \%}. Change 100 to 40. A small cat leaves room to draw.
+  \item Click the green \menu{Pen} circle. Snap on \enquote{erase all}, then \enquote{pen down}.
+  \item Click the orange \menu{Control} circle. Snap on \enquote{repeat 10}. Change 10 to 4.
+  \item Click the blue \menu{Motion} circle. Drag \enquote{move 10 steps} \textbf{inside} the repeat. Change 10 to 100.
+  \item Drag \enquote{turn 15 degrees} (the one whose arrow goes the same way as a clock) inside the repeat, under the move. Change 15 to 90: a quarter turn.
+  \item From the green \menu{Pen} circle, snap \enquote{pen up} under the repeat (outside it).
+  \item Drag the cat on the stage to a place with room to draw. Click the green flag. The cat draws a square and comes home.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{set size to \ovalnum{40} \%}
+\blockpen{erase all}
+\blockpen{pen down}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{move \ovalnum{100} steps}
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+}
+\blockpen{pen up}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} points at the script in the book and reads the numbers out loud (\enquote{4}, \enquote{100}, \enquote{90}), but never grabs the mouse. Swap when the timer runs out (5 minutes). With 1 child: you are the Helper, and swap once so the child helps you. With 3: Driver, Helper and Checker (counts the sides as the cat draws them). With 4: two pairs, then visit each other's drawings.
+\end{pairroles}
+
+Work through the workbook: \textbf{8.1} Draw a Square, \textbf{8.2} The One-Side Square, then \textbf{8.3} Stamp a Ring. Each new project needs the Pen extension again; if the green Pen circle is missing, add it.
+
+\begin{bughunt}[The One-Side Square (Exercise 8.2)]
+The workbook shows Omar's script: only \enquote{move 100 steps} is inside the repeat; the turn sits under the repeat. Children build it and click the flag. The cat draws one long straight line (it walks 100 steps four times, and stops at the edge of the stage), then turns once at the end. Ask: \enquote{How many times did the cat turn?} (Once.) \enquote{Where should the turn be?} (Inside the repeat, under the move.) Fix: drag the turn up into the repeat. Link back to the warm-up, when the quarter-turn card was outside the repeat card.
+\end{bughunt}
+
+\begin{tip}[Stamp a Ring (Exercise 8.3)]
+\enquote{Stamp} leaves a picture of the cat on the stage, like a rubber stamp. Repeat 6 of stamp, move 60 and turn 60 makes a ring of six cats. The 60 comes from the turn card (hexagon). Do not explain where 60 comes from: we read it off the card.
+\end{tip}
+
+\begin{freebuild}[Make it yours]
+Last 5 minutes: snap \enquote{set pen color to} or \enquote{set pen size to} (green Pen) above \enquote{pen down}, and pick a color or a bigger number like 5. Try a triangle with the turn card: repeat 3, move 100, turn 120. Or make a bigger or smaller square. Then show your partner.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up and walks a square around the room: four steps, a quarter turn, four times. Say \enquote{pen down!} and draw the square in the air with one finger as you go.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child clicks the green flag to show their square or ring. \enquote{Where is the repeat? What is inside it?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{safety}[Passwords are like a toothbrush]
+\enquote{Some apps and games use a \textbf{password}: a secret word that keeps your things safe. A password is like your toothbrush. You use it, but you never share it, not even with your best friend. Only the grown-ups who look after you may know it. If a game or a friend asks for your password, say no and tell a grown-up.} Our Scratch app has no password and no account, and that is on purpose. Ask: \enquote{Your friend says, \enquote{Tell me your password, I won't tell.} What do you do?} (Say no, and tell a grown-up.)
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the move and the turn are both inside the repeat; \enquote{pen down} comes before the repeat; the child changes the numbers by clicking in the white ovals.
+
+\textbf{Ask:} point at the square script. \enquote{If I take the turn out of the repeat, what will the cat draw?}
+\textbf{Answer:} one long straight line, then the cat turns once.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What did your cat draw?} and \enquote{What does pen down do?} Children draw their favorite drawing in the workbook box and circle a smiley face.
+
+\textbf{Project kickoff:} \enquote{In two weeks we have a showcase. You will make an animated greeting card in Scratch for someone special. Who could it be for?} Hand out play-at-home card 8: they draw one idea for the card at home.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{No green Pen circle.} The Pen extension is added per project. Click \menu{Add Extension} (bottom-left) and choose \menu{Pen}.
+  \item \textbf{The turn is outside the repeat.} The cat draws one long line. Drag the turn up into the repeat until the gray shadow appears inside the mouth of the repeat.
+  \item \textbf{Nothing is drawn.} \enquote{pen down} is missing, or it is under the repeat instead of above it.
+  \item \textbf{Old lines stay on the stage.} \enquote{erase all} is missing at the top. If lines appear when you drag the cat, the pen is still down: click \enquote{pen up} in the Pen list, then \enquote{erase all}.
+  \item \textbf{The square is cut off at the edge.} Drag the cat to a place with more room, or change 100 to a smaller number.
+  \item \textbf{The cat faces a new way after the bug hunt.} The square still works. To face right again, snap \enquote{point in direction 90} (blue Motion) under the green flag.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build the square together, with you as the Driver and the child pointing to the next block in the book. Let the child change the numbers 4, 100 and 90 in the white ovals. Skip 8.3 and stamp one cat by clicking the \enquote{stamp} block in the Pen list.
+\extensionpath Use the turn card to draw a triangle (repeat 3, turn 120) and a hexagon (repeat 6, turn 60). Change the pen color inside the repeat with \enquote{set pen color to}, so each side is different.
+\end{differentiation}
+
+\begin{stretchchallenge}[A square of stamps]
+Make a square of cats: repeat 4 of stamp, move 100 and turn 90. Then try pen down and stamp in the same repeat: a square with a cat on every corner.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Walk the square once in the warm-up and skip the moved-card part (do it at the bug hunt instead). Do 8.1 and 8.2 and save 8.3 Stamp a Ring for free play next week or for buffer B2. Keep the password talk and the project kickoff: the card idea is needed for week 9.
+\end{teachernote}

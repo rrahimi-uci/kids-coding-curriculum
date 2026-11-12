@@ -1,0 +1,102 @@
+% Junior Level 1, Week 6 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{6}{When I Click\ldots}{Events start code: the flag, a click or a key.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can make the cat act when I click it.
+  \item I can make the cat move when I press a key.
+  \item I can fix a script that waits for the wrong thing.
+\end{ican}
+
+\section{Three ways to start}
+An \textbf{event} is something that happens. Events start scripts. Event blocks are yellow and have a round top, like a hat.
+
+\begin{exercise}[Click the Cat]
+Make the cat talk when you click it.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Yellow \menu{Events}: drag in \enquote{when this sprite clicked}.
+  \item Pink \menu{Sound}: snap on \enquote{play sound Meow until done}.
+  \item Purple \menu{Looks}: snap on a say block. Type \enquote{That tickles!}.
+  \item Do not click the flag. Click the cat!
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when this sprite clicked}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blocklook{say \ovalnum{That tickles!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[Keyboard Cat]
+Make the cat walk and spin with the keyboard.
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Build the two scripts. The event blocks are yellow.
+  \item Press the right arrow key. The cat walks.
+  \item Press the space bar. The cat spins.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \selectmenu{right arrow} key pressed}
+\blockmove{move \ovalnum{10} steps}
+\blocklook{next costume}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.85]
+\blockinit{when \selectmenu{space} key pressed}
+\blockrepeat{repeat \ovalnum{24}}{
+  \blockmove{turn \turnright{} \ovalnum{15} degrees}
+}
+\end{scratch}
+\end{center}
+\end{exercise}
+
+\begin{exercise}[The Mixed-Up Ballerina]
+Kai's plan: click the Ballerina and she says hi. Press space and she dances. Nothing works! Find two bugs.
+
+\textbf{Cat's code:}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+
+\textbf{Ballerina's code:}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \selectmenu{a} key pressed}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{center}
+Circle the script in the wrong sprite. Circle the wrong key. Then fix them on your Mac.
+\end{exercise}
+
+\begin{grownup}[Keys do nothing?]
+Click once on the stage, then press the key again.
+\end{grownup}
+
+\begin{vocab}
+  \vocabword{event}{Something that happens, like a click or a key press. An event can start a script.}
+  \vocabword{key}{A button on the keyboard, like the space bar or an arrow.}
+\end{vocab}
+
+\begin{reflection}
+Which event do you like best? Circle one.
+
+\begin{center}
+\begin{tabular}{c@{\hspace{1.5cm}}c@{\hspace{1.5cm}}c}
+{\Huge\faFlag[regular]} & {\Huge\faMousePointer} & {\Huge\faKeyboard[regular]}\\
+flag & click & key
+\end{tabular}
+\end{center}
+
+How do you feel today? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\end{reflection}

@@ -4,9 +4,9 @@ A gentler first track for children aged 7–9: unplugged games and Scratch first
 then a short, friendly first look at Python. It leads into the main
 (Grades 4–5) track's Level 1.
 
-> **Status: planned.** The scope and sequence is agreed and lives in
-> [docs/JUNIOR-SYLLABUS.md](../docs/JUNIOR-SYLLABUS.md). Lessons, workbooks and
-> exercises arrive level by level in later pull requests.
+> **Status:** Level 1 is written and ready to teach. Levels 2 and 3 are planned:
+> their scope and sequence is in [docs/JUNIOR-SYLLABUS.md](../docs/JUNIOR-SYLLABUS.md),
+> and their lessons arrive in later pull requests.
 
 | Level | Folder | Weeks | You will build | Final project |
 |---|---|---|---|---|
@@ -18,7 +18,8 @@ Sessions are 45 minutes in Level 1 and 45–60 minutes in Levels 2–3, once a w
 taught at home by a parent. Student pages are picture-first and read aloud by
 the parent; there are no quizzes, only show-me checklists.
 
-Each level folder will follow the same layout as the main track
-(`exercises/`, `project/`, `teaching-material/`). Which levels exist, and
+Each level folder follows the same layout as the main track
+(`exercises/`, `project/`, `teaching-material/`); see
+[1-little-robots/README.md](1-little-robots/README.md) to start. Which levels exist, and
 whether they are `planned` or `active`, is set in
 [curriculum.json](../curriculum.json).

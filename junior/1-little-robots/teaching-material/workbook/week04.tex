@@ -1,0 +1,113 @@
+% Junior Level 1, Week 4 -- workbook chapter (read aloud by a grown-up)
+\chapterweek{4}{Repeat It!}{A repeat loop does the same steps again, so we don't have to.}
+
+\section{What you will learn}
+\begin{ican}
+  \item I can use a repeat block.
+  \item I can make a sprite dance with next costume.
+  \item I can fix a repeat with too many or too few.
+\end{ican}
+
+\section{Dance loops}
+Remember our dance? A loop goes around the cards. The repeat card says how many times to do them.
+
+\begin{center}
+%% alt: A dance written with a repeat card. A card says REPEAT 3. Under it, a loop of string goes around three cards: STOMP, STOMP, CLAP.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  card/.style={draw=kcblack,line width=0.8pt,rounded corners=3pt,fill=white,minimum width=2.4cm,minimum height=1.4cm,font=\bfseries}]
+  \node[card,fill=kcorange!25,minimum width=3.4cm] at (4.6,3.1) {REPEAT 3};
+  \draw[kcpurple,line width=2.5pt,rounded corners=18pt] (0,-0.2) rectangle (9.2,2.2);
+  \node[card] at (1.5,1) {STOMP};
+  \node[card] at (4.6,1) {STOMP};
+  \node[card] at (7.7,1) {CLAP};
+\end{tikzpicture}
+\end{center}
+
+\section{Repeat it!}
+Scratch has a \textbf{repeat} block. It is shaped like a big C. The blocks inside it run again and again. The number says how many times. These two scripts do the same thing. Which one is shorter?
+
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}\centering
+\textbf{The long way}\par\medskip
+\begin{scratch}[scale=0.65]
+\blockinit{when \greenflag clicked}
+\blocklook{next costume}
+\blockcontrol{wait \ovalnum{1} seconds}
+\blocklook{next costume}
+\blockcontrol{wait \ovalnum{1} seconds}
+\blocklook{next costume}
+\blockcontrol{wait \ovalnum{1} seconds}
+\blocklook{next costume}
+\blockcontrol{wait \ovalnum{1} seconds}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}\centering
+\textbf{The repeat way}\par\medskip
+\begin{scratch}[scale=0.65]
+\blockinit{when \greenflag clicked}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{minipage}
+\end{center}
+
+\begin{exercise}[Dance, Ballerina!]
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Click Choose a Sprite. It is the cat button under the stage. Pick Ballerina.
+  \item Click the Costumes tab. She has 4 dance moves! Click the Code tab.
+  \item Build the repeat way. The repeat block is in orange Control.
+  \item Click the green flag. Count her moves.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Noisy Cat]
+Leo wants his cat to meow 3 times. Click the cat first. Build Leo's script.
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when \greenflag clicked}
+\blockrepeat{repeat \ovalnum{10}}{
+  \blocksound{play sound \selectmenu{Meow} until done}
+}
+\end{scratch}
+\end{center}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item Click the green flag. Count the meows.
+  \item Too noisy? Click the red stop sign.
+  \item Fix the number. Test again.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Too Many or Too Few?]
+Mei's ballerina should do all 4 moves. Here is her script.
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{when \greenflag clicked}
+\blockrepeat{repeat \ovalnum{2}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{center}
+Circle one: \qquad \textbf{too many} \qquad \textbf{too few} \qquad \textbf{right}
+\end{exercise}
+
+\begin{tip}[Fair turns]
+When the timer runs out, the Driver lets go of the mouse and says: \enquote{Your turn!}
+\end{tip}
+
+\begin{vocab}
+  \vocabword{repeat}{A block that runs the blocks inside it again and again.}
+  \vocabword{costume}{A picture of a sprite. Changing costumes makes it look like it moves.}
+\end{vocab}
+
+\needspace{12\baselineskip}
+\begin{reflection}
+Draw your favorite dance move. How do you feel about repeat? Circle one.
+
+\begin{center}
+\Huge\faSmile[regular]\qquad\faMeh[regular]\qquad\faFrown[regular]
+\end{center}
+\answerspace{3.5cm}
+\end{reflection}

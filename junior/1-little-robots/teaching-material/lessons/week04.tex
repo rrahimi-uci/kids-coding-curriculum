@@ -1,0 +1,132 @@
+% Junior Level 1, Week 4 -- Repeat It!
+\lesson{4}{Repeat It!}{A repeat loop does the same steps again, so we don't have to.}
+\lessoninfo{Concepts: repeat (I), costumes and animation (I), sequence (R)}{Tools: Scratch 3 offline app, dance cards, a scarf or a loop of string}{CSTA: 1A-AP-10, 1A-AP-14, 1A-AP-15, 1A-IC-17}
+
+\begin{objectives}
+  \item The student can build a repeat loop that runs the same blocks again, instead of snapping on the same blocks many times. (J1.G2) [J1.W04.1]
+  \item The student can make a sprite dance or walk with \enquote{next costume} inside a repeat. (J1.G2) [J1.W04.2]
+  \item The student can count how many times a loop runs and fix a repeat with too many or too few. (J1.G4) [J1.W04.3]
+  \item The student can swap Driver and Helper when the timer runs out, and say what their loop does. (J1.G6, J1.G7) [J1.W04.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 4 and play-at-home card 4 (one per child).
+  \item Unplugged: dance cards you write by hand on paper: \enquote{STOMP}, \enquote{STOMP}, \enquote{CLAP}, \enquote{JUMP}, \enquote{WIGGLE}, and two \enquote{REPEAT} cards with a space to write a number. A scarf or a loop of string to lay around the cards inside the repeat.
+  \item On each Mac: the Scratch app open with a new project, and a mouse plugged in.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (5 minutes). Put it where everyone can see it.
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Dance loops: perform a dance written the long way, then with a repeat card. Too many and too few repeats.}
+  \timeslot{8--16}{Show me}{The repeat block, and costumes. Build Dance, Ballerina! together: the long way first, then with repeat.}
+  \timeslot{16--36}{Make it}{Fair turns with the timer. Driver and Helper. Exercise 4.1 Dance, Ballerina!, Exercise 4.2 The Noisy Cat (bug hunt), Exercise 4.3 Too Many or Too Few?, then free play: a walking cat.}
+  \timeslot{36--38}{Wiggle break}{Repeat dance: everyone does the class dance loop three times.}
+  \timeslot{38--45}{Share}{Each child shows their dance and says how many times it repeats. Exit question, hand out play-at-home card 4.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Dance loops]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Lay out the long way: STOMP, STOMP, CLAP, STOMP, STOMP, CLAP, STOMP, STOMP, CLAP (write extra cards, or point and say it). Everyone does the dance. \enquote{Phew, that was a lot of cards!}
+  \item \enquote{Do you see a part that happens again and again?} (stomp, stomp, clap.) Put one STOMP, STOMP, CLAP in a row, lay the scarf in a loop around them, and put a REPEAT card with \enquote{3} at the top. \enquote{This says: do the steps inside the loop 3 times.} Do the dance again: it is the same dance with fewer cards.
+  \item \textbf{Bug round:} change the number to 10. Dance until everyone is giggling and tired. \enquote{Too many!} Change it to 1. \enquote{Too few, the dance is over before it starts!} Change it back to 3.
+  \item The children make their own loop: they choose two or three cards for inside, and a number from 2 to 5. Everyone dances it.
+\end{enumerate}
+With 1 child: the child writes the number and you both dance; then you make a loop for the child to dance. With 3 or 4: each child chooses one card or the number, and the group dances it together.
+\end{unplugged}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{In the dance, the repeat card saved us lots of cards. Scratch has a \textbf{repeat} block too. It looks like a big letter C, like our scarf. The blocks inside it run again and again. The number says how many times.}
+
+Then show costumes: \enquote{Sprites have \textbf{costumes}. A costume is a different picture of the same sprite, like a different pose. If we change the costume again and again, the sprite looks like it is moving. That is called \textbf{animation}, like a cartoon.}
+\end{teacherscript}
+
+\begin{analogy}[Brushing your teeth]
+\enquote{When a grown-up tells you to brush your teeth, they do not say: brush, brush, brush, brush, brush, brush, brush, brush, brush, brush. They say: brush ten times. That is a repeat! Same step, with a number for how many times.}
+\end{analogy}
+
+\begin{workedexample}[Dance, Ballerina! (Exercise 4.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the \menu{Choose a Sprite} button (the round button with a cat face, bottom right, under the stage). Click \enquote{Ballerina}. She appears on the stage and is selected in the sprite list.
+  \item Click the \menu{Costumes} tab (top left). \enquote{Look: she has 4 costumes. Four dance moves!} Click the \menu{Code} tab to go back.
+  \item Click the yellow \menu{Events} circle. Drag in \enquote{when green flag clicked}.
+  \item \textbf{The long way:} click the purple \menu{Looks} circle and snap on \enquote{next costume}. Click the orange \menu{Control} circle and snap on \enquote{wait 1 seconds}. Do it once more. Click the flag: two moves. \enquote{For four moves we would need eight blocks. There is a shorter way!}
+  \item Drag the four blocks back to the block area on the left: that deletes them.
+  \item \textbf{The repeat way:} in orange \menu{Control}, drag \enquote{repeat 10} under the green flag block. Drag \enquote{next costume} into the mouth of the C, then \enquote{wait 1 seconds} under it, still inside. Change 10 to 4.
+  \item Click the green flag. Count her moves together: one, two, three, four. She ends in the pose where she started.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{safety}[Sharing the mouse fairly]
+\enquote{The timer decides whose turn it is, not who is bigger, older or faster. When the timer runs out, the Driver lets go of the mouse and says: your turn! The Helper says: thanks! Helpers keep their hands in their lap and point with a finger. Nobody grabs.} Practice one swap with the timer before anyone starts. With siblings of different ages, both get the same turns.
+\end{safety}
+
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} reads the workbook and counts out loud every time the loop runs. Swap when the timer runs out (5 minutes). With 1 child: you are the Helper, and swap once so the child counts while you drive. With 3: Driver, Helper and Timekeeper (turns the timer and calls \enquote{swap!}); rotate all three jobs. With 4: two pairs; each pair counts the other pair's dance moves.
+\end{pairroles}
+
+Work through the workbook: \textbf{4.1} Dance, Ballerina! (their own copy of the demo), \textbf{4.2} The Noisy Cat and \textbf{4.3} Too Many or Too Few? (paper). For 4.2, children must click the cat in the sprite list first, so the new script goes on the cat.
+
+\begin{bughunt}[The Noisy Cat (Exercise 4.2) and Too Many or Too Few? (Exercise 4.3)]
+Leo wants his cat to meow 3 times, but his script says \enquote{repeat 10} around \enquote{play sound Meow until done}. Children build it, click the flag and count the meows out loud. At ten meows it is very clear: \enquote{Too many!} (The red stop sign stops it early.) Fix: change 10 to 3 and test again. Then Exercise 4.3 on paper: Mei's ballerina should show all 4 moves, but her repeat says 2. Too many or too few? (Too few: she only does 2 moves.) Link back to the dance that went on and on with 10.
+\end{bughunt}
+
+\begin{freebuild}[Make it yours]
+Last 5 minutes: click the cat and make it walk: \enquote{repeat 10} around \enquote{move 10 steps} and \enquote{next costume}. Or make the ballerina dance two full rounds (what number do you need?), or add a sound inside her loop (pick any sound from the dropdown).
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up. Hold up the class dance loop from the warm-up and do it three times. Then the children choose a new number and dance again.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child clicks the green flag and shows their dance or walk. \enquote{How many times does your loop repeat? What is inside it?} Others count the moves out loud and give a thumbs up.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} the blocks sit inside the C of the repeat, not under it; the child changes the number on purpose; Driver and Helper swap on the timer without grabbing.
+
+\textbf{Ask:} show \enquote{repeat 3} around \enquote{play sound Meow until done}. \enquote{How many meows will we hear? I want 5 meows. What do I change?}
+\textbf{Answer:} 3 meows. Change the 3 to 5.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What does a repeat block do?} (does the blocks inside it again, as many times as the number says) and \enquote{How did we make sure everyone had a fair turn?} (the timer). Children draw their favorite dance move in the workbook and circle a smiley face. Hand out play-at-home card 4.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Blocks under the repeat, not inside it.} They run only once, after the loop. Look for the C hugging the blocks; drag them up into its mouth.
+  \item \textbf{The number stays at 10.} The repeat block arrives with 10. Read the number out loud together before testing.
+  \item \textbf{Code on the wrong sprite.} The script goes on whichever sprite is selected (highlighted in blue in the sprite list). If the cat dances instead of the ballerina, drag the script onto the ballerina in the sprite list to copy it, then delete it from the cat.
+  \item \textbf{No wait in the dance.} Without \enquote{wait 1 seconds} the costumes flash by too fast to see. Link to week 3: the computer is very fast.
+  \item \textbf{Grabbing the mouse.} Pause, point at the timer, and restart the swap with the words: \enquote{your turn} and \enquote{thanks}.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath You are the Driver for 4.1 while the child says where each block goes and counts the moves. Start with \enquote{repeat 2}, then change it to 4. Skip 4.3 or do it out loud.
+\extensionpath Make the cat walk across the stage with a repeat (how many repeats until it reaches the edge?). Add a sound inside the ballerina's loop. Try \enquote{change size by 10} inside a repeat to make the Balloon1 sprite grow.
+\end{differentiation}
+
+\begin{stretchchallenge}[A dance in two parts]
+Snap two repeats one under the other: the ballerina does her 4 moves, then the cat meows 3 times. Read the script from top to bottom first and predict what will happen.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+In the warm-up, skip the children's own loop (step 4). Do Exercise 4.3 out loud during Share. Skip the free play. Never skip the timer swap practice or the wiggle break.
+\end{teachernote}

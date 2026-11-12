@@ -1,0 +1,131 @@
+% Junior Level 1, Week 2 -- Meet Scratch
+\lesson{2}{Meet Scratch}{Blocks snap together to make a sprite act.}
+\lessoninfo{Concepts: sprite, stage, green flag (I), say / move / sound blocks (I), sequence (R)}{Tools: Scratch 3 offline app, puppet or soft toy}{CSTA: 1A-AP-10, 1A-AP-15, 1A-CS-01}
+
+\begin{objectives}
+  \item The student can point to the sprite, the stage, the blocks and the green flag in Scratch. (J1.G2) [J1.W02.1]
+  \item The student can snap a \enquote{when green flag clicked} script of three or four blocks so the cat talks, moves and makes a sound in order. (J1.G2) [J1.W02.2]
+  \item The student can find a block that is not snapped on and fix it. (J1.G4) [J1.W02.3]
+  \item The student can sit, hold the mouse and take screen breaks in a way that looks after their body and the Mac. (J1.G7) [J1.W02.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 2 and play-at-home card 2 (one per child).
+  \item Unplugged: a puppet or soft toy, and three big script cards you write by hand: \enquote{SAY hello}, \enquote{MOVE 3 steps}, \enquote{MAKE a sound}. Plus one green paper flag.
+  \item On each Mac: the Scratch app open with a new project, and a \textbf{mouse} plugged in (a trackpad is hard for small hands when dragging blocks).
+  \item A sand timer or kitchen timer for Driver/Helper swaps (5 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Puppet show: one child is the sprite, one reads the script cards, the green flag starts the show.}
+  \timeslot{8--16}{Show me}{Tour of Scratch (sprite, stage, blocks, green flag), then build Hello Cat together while the children watch and point.}
+  \timeslot{16--36}{Make it}{Driver and Helper, swap on the timer. Exercise 2.1 Hello Cat, Exercise 2.2 The Stuck Cat (bug hunt), then free play: change the words and the sound.}
+  \timeslot{36--38}{Wiggle break}{Stand up, shake out hands, look out of a window for 20 seconds.}
+  \timeslot{38--45}{Share}{Each child clicks the green flag and shows their cat. Thumbs up for one thing they like. Exit question, hand out play-at-home card 2.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Puppet show]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Lay the three script cards on the table in a line, under the green paper flag. \enquote{This is a script. It is a list of things to do, in order, from top to bottom.}
+  \item One child holds the puppet: the puppet is the \textbf{sprite}, the table is the \textbf{stage}. The other child is the reader.
+  \item The reader waves the green flag and reads the cards one at a time. The puppet does each one: says hello, moves 3 steps, makes a sound.
+  \item Now push one card a little away from the line. \enquote{This card is not joined on. Does the puppet do it?} Agree: in Scratch, a block that is not snapped on does not run. Swap jobs and play once more.
+\end{enumerate}
+With 1 child: the child is the reader and you are the puppet, then swap.
+\end{unplugged}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{This is Scratch. The cat is called a \textbf{sprite}: a sprite is a character that can act. The white space is the \textbf{stage}: that is where the show happens. On the left are the \textbf{blocks}. They are like the cards in our puppet show. We drag them into the middle and snap them together to make a \textbf{script}. The \textbf{green flag} starts the script, like our paper flag.}
+
+Point at each part on the screen and let the children point too: \enquote{Where is the sprite? Where is the green flag? Where is the red stop sign?}
+\end{teacherscript}
+
+\begin{analogy}[Puzzle pieces]
+\enquote{Scratch blocks are like puzzle pieces or toy bricks. They have a bump on the bottom and a dent on top, so they click together. When they click, they become one script and run one after the other, top to bottom.}
+\end{analogy}
+
+\begin{workedexample}[Hello Cat (Exercise 2.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the yellow \menu{Events} circle. Drag \enquote{when green flag clicked} into the middle.
+  \item Click the purple \menu{Looks} circle. Drag \enquote{say Hello! for 2 seconds} under it. Watch for the gray shadow: let go when you see it, and the block clicks on.
+  \item Click in the white oval that says \enquote{Hello!} and type \enquote{Hi!}.
+  \item Click the pink \menu{Sound} circle. Snap on \enquote{play sound Meow until done}.
+  \item Click the blue \menu{Motion} circle. Snap on \enquote{move 10 steps}. Change 10 to 50.
+  \item Click the green flag. The cat says Hi!, meows, then moves.
+  \item Click the flag again: the cat moves a little further every time. \enquote{To bring it back, we drag the cat on the stage with the mouse.} Show it.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi!} for \ovalnum{2} seconds}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blockmove{move \ovalnum{50} steps}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} points at the picture in the book and says which color circle to click next, but never grabs the mouse. Swap when the timer runs out (5 minutes). With 1 child: you are the Helper, and you swap once so the child helps you. With 3: Driver, Helper and Checker (checks each block against the picture). With 4: two pairs, then visit each other's cat.
+\end{pairroles}
+
+Work through the workbook: \textbf{2.1} Hello Cat (their own copy of the demo), then \textbf{2.2} The Stuck Cat. Help with dragging: many children let go too early. \enquote{Wait for the gray shadow, then let go.}
+
+\begin{bughunt}[The Stuck Cat (Exercise 2.2)]
+The workbook shows Kai's script: the \enquote{move 50 steps} block sits a little way below the others, not touching. Children build it the same way and click the flag. The cat talks and meows but never moves. Ask: \enquote{Which block did not run? Why?} (It is not snapped on, so it is not part of the script.) Fix: drag it up until it clicks on. Link back to the card that was pushed out of the puppet show.
+\end{bughunt}
+
+\begin{freebuild}[Make it yours]
+Last 5 minutes: change the words the cat says (a nickname, never a real name), pick a different sound from the dropdown, or change 50 to a bigger or smaller number. Then show your partner.
+\end{freebuild}
+
+\begin{safety}[Looking after our bodies and the Mac]
+Before the wiggle break: \enquote{We sit with our back against the chair and our feet on the floor. We hold the mouse gently, like a baby bird. Hands are clean and drinks stay away from the Mac. Every little while we look far away out of the window to rest our eyes.} Then do the wiggle break together.
+\end{safety}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up. Shake your hands like wet paintbrushes, roll your shoulders, and look out of a window at something far away while you count to 20 together.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Each child clicks the green flag to show their cat. \enquote{What does your cat say? What sound did you pick?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a script that starts with \enquote{when green flag clicked}; all blocks clicked together; the child clicks the green flag (not a block) to start.
+
+\textbf{Ask:} point at a block lying on its own in the code area. \enquote{Will this block run when I click the green flag?}
+\textbf{Answer:} no, because it is not snapped on to the script.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Which block was your favorite?} and \enquote{What is a sprite?} Children draw their sprite in the workbook box and circle a smiley face. Hand out play-at-home card 2.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Letting go too early.} The block lands near the script but not on it. Show the gray shadow, and practice one drag together.
+  \item \textbf{Clicking a block instead of the flag.} Clicking a block runs only that block (or its script). It is fine to explore, but the show starts with the green flag.
+  \item \textbf{The cat walks off the stage.} Each flag click moves it further. Drag the cat back to the middle; it can never really get lost.
+  \item \textbf{Typing a real name.} Remind: nicknames only in our projects.
+  \item \textbf{Trackpad trouble.} Dragging on a trackpad is hard at this age. Use a mouse if you can.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build Hello Cat together, with you as the Driver and the child pointing to the next block in the book. Then swap for the last block only. Skip 2.2 if time is short and do it at the start of week 3.
+\extensionpath Add \enquote{wait 1 seconds} (orange \menu{Control}) and a second \enquote{say} block, so the cat says two different things. Or add \enquote{next costume} (Looks) between two moves and watch the cat walk.
+\end{differentiation}
+
+\begin{stretchchallenge}[A longer show]
+Make a script of six or more blocks that tells a tiny story: the cat says hello, moves, says something else, meows and moves again. Read it out loud from top to bottom before you click the flag. Does the cat do what you predicted?
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the puppet show to steps 1--3 and do the pushed-out card during the bug hunt instead. Skip the free play. Never skip the wiggle break: it is what makes the Share part work.
+\end{teachernote}

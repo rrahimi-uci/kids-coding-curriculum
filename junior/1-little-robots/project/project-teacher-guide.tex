@@ -1,0 +1,319 @@
+\documentclass[track=junior,level=1,teacher]{kidscode}
+\newcommand{\ostar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=0.8pt,fill=white,minimum size=0.6cm,inner sep=0pt]{};}
+%% a script with a heading: \begin{refscript}{Sprite}{what it does} blocks \end{refscript}
+\newenvironment{refscript}[2]{\par\needspace{8\baselineskip}\noindent\textbf{\color{kcaccent}#1:} #2\par\smallskip\begin{center}\begin{scratch}[scale=0.8]}{\end{scratch}\end{center}}
+\begin{document}
+\kctitle{Final Project Teacher Guide}{My Animated Greeting Card: milestones, stars, reference card and showcase}
+\tableofcontents
+
+%% =====================================================================
+\section{The project in one page}
+Each child builds an animated greeting card in Scratch for someone special, planned first on a
+three-box storyboard (Start, Middle, End). The card must use five things: \textbf{the green flag to
+start, at least one repeat (an animation or a dance), one click or key event, a sound, and two
+sprites or a backdrop change}. In week 10 each child shows the card to the family, says what one
+script does, and receives a certificate.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.0cm}>{\bfseries\RaggedRight}p{3.0cm}X@{}}
+\toprule
+When & Milestone & What the children do\\
+\midrule
+Week 9, warm-up (about 10 min) & M1 Storyboard & Watch your reference card, choose who the card is for, draw Start, Middle and End, check the must-haves on the plan.\\
+Week 9, Make it (about 20 min) & M2 Card works & Build one storyboard box at a time as Driver and Helper; save with a nickname file name.\\
+Week 9, Share & (check) & A partner checks the card against the storyboard.\\
+Week 10 (about 30 min) & M3 Showcase & Polish, practice the 1-minute show-and-tell, family gallery, sticker feedback, certificates.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{materials}
+  \item Print one \textbf{Project Brief} per child (the storyboard page is the one they draw on).
+  \item Before week 9: build the reference card yourself (section \enquote{The reference card} below,
+        about 20 minutes) and save it as \texttt{Happy-Birthday-card} in \texttt{Scratch Projects}.
+  \item For the core path: a \texttt{card-start} project with the backdrop and the first sprite already in place (see below).
+  \item Week 10: the week-10 show-me checklist, the sticker feedback cards (last page), stickers,
+        one certificate per child (\texttt{extras/\allowbreak{}certificate}), and the progress trackers.
+\end{materials}
+
+\begin{teachernote}[Why this project]
+The card pulls every Level 1 goal together: exact steps in order (J1.G1), sequences and repeat
+(J1.G2), events (J1.G3), fixing bugs (J1.G4), a storyboard (J1.G5), Driver and Helper and explaining
+(J1.G6), and nicknames and credit (J1.G7). A card has no \enquote{losing}, every child can finish
+something they are proud of, and it is made for a real person, which is a powerful reason to finish.
+\end{teachernote}
+
+%% =====================================================================
+\section{Milestone walkthrough}
+
+\subsection{M1 Storyboard (week 9 warm-up, about 10 minutes)}
+\begin{teacherscript}
+\enquote{Today you start your own project: a greeting card that moves and talks, made in Scratch for
+someone special. Let me show you mine.} (Click the green flag on the reference card, then click the
+balloon, then press the space bar.) \enquote{What did you see first? What happened when I clicked?
+Before we build, we draw a plan, called a storyboard: what happens at the start, in the middle and at the end.}
+\end{teacherscript}
+\begin{enumerate}[itemsep=2pt]
+  \item Read the mission and the must-haves aloud together. Ask: \enquote{Where was the repeat in my
+        card? Where was the click?} (The cat's dance; the balloon.)
+  \item Show the idea menu. Children choose who the card is for (first name or nickname only) and
+        what kind of card. Offer two choices if a child cannot decide.
+  \item They draw the three boxes: \textbf{Start} (what you see when the flag is clicked),
+        \textbf{Middle} (the dance or animation), \textbf{End} (the click or key surprise).
+        Stick figures and a few words are perfect.
+  \item Point at each must-have icon on the page and ask \enquote{Where is this in your plan?}
+        They check the boxes.
+\end{enumerate}
+\begin{formativecheck}[M1 is done when]
+Three boxes have a drawing, the card has a name for who it is for, and the child can point to where
+the repeat, the click or key and the sound will be. Quick question: \enquote{What happens when someone
+clicks your card?}
+\end{formativecheck}
+
+\subsection{M2 Card works (week 9 Make it, about 20 minutes)}
+Driver and Helper swap on the timer as usual: in a pair, they build one card together first (one
+child's storyboard), then the other's, or each makes their own card on their own turn. With one child,
+you are the Helper. Build in this order and click the flag after each step:
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Start box:} backdrop and first sprite (core path: already there), a green-flag script
+        with a \enquote{say} block. Click the flag.
+  \item \textbf{Middle box:} the repeat with \enquote{next costume} and a wait. Click the flag.
+  \item \textbf{End box:} a second sprite with \enquote{when this sprite clicked} or \enquote{when space key pressed}, and a sound.
+  \item \textbf{Save:} \menu{File > Save to your computer}, into \texttt{Scratch Projects}, named with
+        the nickname and \enquote{card}, for example \texttt{Tiger-card}.
+\end{enumerate}
+\begin{teacherscript}[Ask while you walk around]
+\enquote{Which box of your storyboard are you building now?} \enquote{Show me the script that starts
+the dance.} \enquote{What will happen when I click this sprite? Let's test it.}
+\end{teacherscript}
+\begin{formativecheck}[M2 is done when]
+The card starts with the green flag, has all five must-haves, matches the storyboard (more or less),
+and is saved. In Share, a partner checks the card against the storyboard: \enquote{Is the Start box there?
+The Middle? The End?}
+\end{formativecheck}
+
+\subsection{M3 Showcase (week 10, about 30 minutes)}
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Polish (8 minutes):} open the card (\menu{File > Load from your computer}). One small
+        change only: a different word, a new sound, or a color. Save.
+  \item \textbf{Practice (5 minutes):} each child practices the 1-minute show-and-tell with you or a partner.
+  \item \textbf{Gallery (15 minutes):} see the showcase plan below.
+  \item \textbf{Celebrate:} sticker feedback cards, the stars, the certificate.
+\end{enumerate}
+Fill in the week-10 show-me checklist while you watch: most rows show up during the polish and the
+show-and-tell.
+
+%% =====================================================================
+\section{Unblocking common problems}
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{@{}>{\RaggedRight}p{5.2cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-5.2cm-2\tabcolsep}@{}}
+\toprule
+\textbf{Problem} & \textbf{What to do}\\
+\midrule\endhead
+\bottomrule\endfoot
+Cannot choose an idea. & Offer two from the idea menu. \enquote{Birthday or thank-you?} The person comes first: \enquote{Who would love a card?}\\
+The storyboard is huge. & Circle one thing in each box to build first. The rest is for later, if there is time.\\
+The dance is too fast to see. & Put \enquote{wait 1 seconds} inside the repeat (the week-3 bug).\\
+The dance happens only once. & \enquote{next costume} is under the repeat, not inside it. Drag it in until the orange mouth closes around it.\\
+The balloon pops but never comes back. & Add \enquote{when green flag clicked} and \enquote{show} to the balloon. Hidden sprites stay hidden until something shows them.\\
+Clicking the sprite does nothing. & The script is under another sprite. Click the sprite below the stage and check its code area.\\
+The key does nothing. & Check the key in the dropdown. Click once on the stage so Scratch is listening, then press the key.\\
+Two sprites talk at the same time. & Add a wait before the second sprite talks (the week-7 bug).\\
+The backdrop does not change. & Check the new backdrop is in the \menu{Backdrops} tab (\menu{Choose a Backdrop}, bottom right) and its name matches the dropdown.\\
+No sound. & Check the sprite has the sound in its \menu{Sounds} tab, and the Mac volume. See the Teacher Guide troubleshooting.\\
+A real name is on the card. & Change it together to a nickname or a first name only. Explain why kindly.\\
+\enquote{I want to add more!} & Great: first all five must-haves and a save, then extras one at a time.\\
+The project is lost. & \menu{File > Load from your computer}, look in \texttt{Scratch Projects} and Downloads. Save every 10 minutes.\\
+Tears or frustration. & Wiggle break. Then click the flag and find one thing that works: \enquote{Look, your cat already says Happy Birthday!}\\
+\end{longtable}
+\end{center}
+
+%% =====================================================================
+\section{The stars and how to use them kindly}
+The brief has four rows, each with one to three stars. The stars are for the child, not a score to
+report: there is no total, and children are never compared.
+
+\begin{rubric}[My stars (adult version)]
+\small\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\RaggedRight}p{3.4cm}*{3}{>{\RaggedRight\arraybackslash}X}@{}}
+ & \ostar & \ostar\,\ostar & \ostar\,\ostar\,\ostar\\
+\midrule
+It works & The card starts, but parts do not run. & Most scripts run when the flag, click or key is used. & Every script runs, every time, from a fresh green-flag click.\\ \midrule
+It has every must-have & 1 or 2 of the 5. & 3 or 4 of the 5. & All 5: green flag, repeat, click or key, sound, two sprites or a backdrop change.\\ \midrule
+I can say what one script does & Says what the card does overall. & Points to a script and names some blocks. & Picks one script and says what each block does, in order.\\ \midrule
+I planned it on my storyboard & Drew a storyboard. & The card has some of the plan. & The card follows Start, Middle and End (changes along the way are fine).\\
+\end{tabularx}
+\end{rubric}
+
+\begin{tip}[Using the stars kindly]
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{The child colors first.} Read each row aloud and let them choose; then say what you saw.
+        If you see more stars than they colored, say so. If you see fewer, ask \enquote{Can you show me?}
+  \item \textbf{Two moments:} once at the end of week 9 (\enquote{what is left to do?}) and once after
+        the showcase (\enquote{look how far you came}).
+  \item \textbf{One star is a start.} Pick the one row to work on next and help with it right away.
+  \item \textbf{Celebrate the plan and the explaining} as much as the working card.
+\end{itemize}
+\end{tip}
+
+%% =====================================================================
+\section{The reference card: \enquote{Happy Birthday!}}
+Build this yourself before week 9 so you can show it, then keep it on \textbf{your} Mac. It is one
+complete answer: children make their own card, not a copy. It uses only Level 1 blocks, whole
+numbers, named turns and sprites dragged into place.
+
+\subsection{Setting it up (no blocks yet)}
+\begin{enumerate}[itemsep=2pt]
+  \item New project (\menu{File > New}). The Cat is already there.
+  \item Stage: click \menu{Choose a Backdrop} (bottom right) and pick \textbf{Party}. Keep the white
+        \textbf{backdrop1} too: the card starts on it.
+  \item Sprites: click \menu{Choose a Sprite} and add \textbf{Balloon1} and \textbf{Ballerina}.
+        Drag the Cat to the left, the Ballerina to the right and the balloon to the top of the stage.
+  \item Save as \texttt{Happy-Birthday-card} in \texttt{Scratch Projects}.
+\end{enumerate}
+
+\subsection{The scripts, block by block}
+\begin{refscript}{Stage}{When the flag is clicked, the stage is plain for 1 second, then the party lights come on (the backdrop change).}
+\blockinit{when \greenflag clicked}
+\blocklook{switch backdrop to \selectmenu{backdrop1}}
+\blockcontrol{wait \ovalnum{1} seconds}
+\blocklook{switch backdrop to \selectmenu{Party}}
+\end{refscript}
+
+\begin{refscript}{Cat}{The cat says Happy Birthday!, meows, then dances: the repeat changes its costume 4 times, with a wait so we can see each step.}
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Happy Birthday!} for \ovalnum{2} seconds}
+\blocksound{start sound \selectmenu{Meow}}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{refscript}
+
+\begin{refscript}{Balloon1, script 1}{When the flag is clicked, the balloon shows (so it comes back after it pops).}
+\blockinit{when \greenflag clicked}
+\blocklook{show}
+\end{refscript}
+
+\begin{refscript}{Balloon1, script 2}{When someone clicks the balloon, it pops: the Pop sound plays and the balloon hides (the click event and the sound).}
+\blockinit{when this sprite clicked}
+\blocksound{start sound \selectmenu{Pop}}
+\blocklook{hide}
+\end{refscript}
+
+\begin{refscript}{Ballerina}{When the space key is pressed, the Ballerina spins: four quarter turns make a whole spin, with a new costume each time.}
+\blockinit{when \selectmenu{space} key pressed}
+\blockrepeat{repeat \ovalnum{4}}{
+  \blockmove{turn \turnright{} \ovalnum{90} degrees}
+  \blocklook{next costume}
+  \blockcontrol{wait \ovalnum{1} seconds}
+}
+\end{refscript}
+
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{4.6cm}X@{}}
+\toprule
+Must-have & Where it is in the reference card\\
+\midrule
+Green flag start & The Stage, the Cat and the balloon all start on the green flag.\\
+A repeat & The Cat's dance (and the Ballerina's spin).\\
+A click or key event & Click the balloon; press the space bar for the Ballerina.\\
+A sound & Meow from the Cat, Pop from the balloon.\\
+Two sprites or a backdrop change & Three sprites, and the backdrop changes from backdrop1 to Party.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{tip}[Questions to ask about the reference card]
+\enquote{How do we make the cat dance for longer?} (Change 4 to a bigger number.)
+\enquote{What if we take the wait out of the dance?} (Too fast to see: try it!)
+\enquote{Why does the balloon need a show block?} (Without it, once popped it stays hidden.)
+\enquote{How many quarter turns make the Ballerina spin all the way round?} (Four.)
+\enquote{Whose pictures and sounds are these?} (The Scratch library: we say so at the showcase.)
+\end{tip}
+
+\subsection{The core-path starting card}
+For a child who needs the core path, make a \texttt{card-start} project before week 9: a new project,
+choose the backdrop the child picked on the storyboard (or \textbf{Party}), keep the Cat, and save it
+as \texttt{card-start} in \texttt{Scratch Projects}. In week 9 the child opens it and saves it straight
+away with their own name, such as \texttt{Tiger-card}. They then add one must-have at a time.
+
+\subsection{The stretch path: a pen frame}
+The brief shows a Star sprite that draws a square frame with the pen and stamps itself at each
+corner: pen down, then repeat 4 of stamp, move 100 steps and a quarter turn. Children drag the Star
+to a corner of the stage first. Because a square ends where it started, the frame draws in the same
+place every time the flag is clicked; \enquote{erase all} clears the old one.
+
+%% =====================================================================
+\section{Showcase plan (week 10)}
+
+\subsection{The family gallery}
+The showcase is at home, for family only. Each card gets a \enquote{stand}: a Mac with the card open and the stage in full screen (the button above the stage), the
+storyboard beside it, and a folded card with the project name and the maker's \textbf{nickname}.
+Ten to fifteen minutes is plenty with four children.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.0cm}X@{}}
+\toprule
+Role & Job\\
+\midrule
+Card maker & Clicks the flag for each visitor and gives the 1-minute show-and-tell.\\
+Helper & (A partner or a sibling.) Hands out feedback cards and stickers, and says \enquote{Click the balloon!}\\
+Visitors & Watch, try the click or key, ask one question, put stickers on a feedback card.\\
+Host (you) & Welcomes the family, keeps time, makes sure every child gets the same attention, reads the safety reminder.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{The 1-minute show-and-tell script}
+Write it on a sticky note for each child. Practice once before the family arrives. Children who do not
+read yet can point to pictures you draw next to each line.
+\begin{enumerate}[itemsep=2pt]
+  \item \enquote{Hi! My card is for \underline{\hspace{3cm}}.}
+  \item \enquote{Watch: I click the green flag.} (Click.)
+  \item \enquote{Now you click \underline{\hspace{2.5cm}}} or \enquote{press \underline{\hspace{2cm}}.}
+  \item Point to one script: \enquote{This script makes \underline{\hspace{3cm}}. First it \underline{\hspace{2.5cm}}, then it \underline{\hspace{2.5cm}}.}
+  \item \enquote{The pictures and sounds are from the Scratch library.}
+  \item \enquote{Do you have a question for me?}
+\end{enumerate}
+
+\subsection{Certificates and closing}
+Read the feedback cards aloud to each child, then hand out the certificate (write the nickname or
+first name by hand). Close with a round of \enquote{one thing I am proud of, one thing I want to make
+next}, and color the last stars on the progress tracker.
+
+\begin{safety}[Showcase safety]
+\begin{itemize}[itemsep=1pt]
+  \item Family only, at home, on the screen. Nothing is uploaded, posted or emailed.
+  \item Nicknames or first names only on the screen and on the stand cards.
+  \item Photos only if the child agrees, with no names on the screen, and kept in the family.
+  \item Credit: every card says the pictures and sounds come from the Scratch library.
+\end{itemize}
+\end{safety}
+
+\begin{teachernote}[Fitting it into the 45-minute session]
+0--10 polish and save (warm-up); 10--15 practice the show-and-tell (show me); 15--33 gallery and
+show-and-tell, week-10 checklist (make it); 33--35 wiggle break; 35--45 feedback cards, stars,
+certificates (share).
+\end{teachernote}
+
+\clearpage
+\section{Sticker feedback cards (print and cut)}
+Visitors put a sticker next to what they liked, and a grown-up can write one more idea.
+\newcommand{\feedbackcard}{%
+%% alt: A feedback card that says Your card! with five dashed sticker spots next to the dance, the sound, the surprise, the story and the colors, and a line for one more idea.
+  \begin{tikzpicture}[spot/.style={circle,draw=kcgray,dashed,minimum size=0.8cm,inner sep=0pt}]
+    \draw[kcpurple,line width=1.2pt,rounded corners=6pt] (0,0) rectangle (8.2,8.0);
+    \node[anchor=north west,font=\bfseries] at (0.3,7.8) {\faGift\ Your card!};
+    \node[anchor=north west,font=\small] at (0.3,7.1) {Put a sticker by what you liked.};
+    \foreach \icon/\word [count=\i] in {\faRedo/the dance,\faVolumeUp/the sound,\faMousePointer/the surprise,\faBookOpen/the story,\faPalette/the colors}
+      {\node[spot] at (0.9,6.7-\i*1.0) {};
+       \node[anchor=west] at (1.6,6.7-\i*1.0) {\icon\ \word};}
+    \node[anchor=north west,font=\small] at (0.3,1.05) {One more idea:};
+    \draw[kcgray!60] (0.3,0.3) -- (7.9,0.3);
+  \end{tikzpicture}}
+\begin{center}
+\feedbackcard\hfill\feedbackcard\par\bigskip
+\feedbackcard\hfill\feedbackcard
+\end{center}
+\end{document}

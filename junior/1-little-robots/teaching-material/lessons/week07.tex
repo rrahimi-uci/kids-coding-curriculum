@@ -1,0 +1,133 @@
+% Junior Level 1, Week 7 -- Two Sprites Talk
+\lesson{7}{Two Sprites Talk}{Each sprite has its own script; wait makes them take turns.}
+\lessoninfo{Concepts: several sprites (I), backdrops (I), wait and timing (R)}{Tools: Scratch 3 offline app, timing cards}{CSTA: 1A-AP-10, 1A-AP-12, 1A-AP-13, 1A-IC-18}
+
+\begin{objectives}
+  \item The student can add a second sprite from the library and pick a backdrop. (J1.G2) [J1.W07.1]
+  \item The student can give each sprite its own green-flag script and use wait so the two sprites take turns talking. (J1.G2, J1.G3) [J1.W07.2]
+  \item The student can plan a tiny two-line conversation in two picture boxes and then build it. (J1.G5) [J1.W07.3]
+  \item The student can say who made the sprites and backdrop they used and give them credit. (J1.G7) [J1.W07.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 7 and play-at-home card 7 (one per child).
+  \item Unplugged: timing cards you write by hand. Two \enquote{SAY} cards with a speech bubble: \enquote{SAY: Hi, Ballerina!} and \enquote{SAY: Hi, Cat!}. Two \enquote{WAIT 2} cards with a clock. A green paper flag (from week 2). Optional: cat ears and a tutu, or any two hats.
+  \item On each Mac: the Scratch app with a new project and a \textbf{mouse}.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (5 minutes), and pencils or crayons for the story plan.
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Act out a two-person conversation with timing cards: first without wait (chaos), then with wait (turns).}
+  \timeslot{8--16}{Show me}{Add the Ballerina and a backdrop. Give each sprite its own script. Wait makes them take turns.}
+  \timeslot{16--36}{Make it}{Driver and Helper, one sprite each. Exercise 7.1 Hello, Ballerina!, 7.2 Boo at Once (bug hunt), 7.3 My Two-Line Story: plan, then build.}
+  \timeslot{36--38}{Wiggle break}{Mirror game: one child moves slowly, the partner copies, then swap.}
+  \timeslot{38--45}{Share}{Perform the stories and give credit out loud. Exit question, hand out play-at-home card 7.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Talking in turns]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Two children are two sprites: the Cat and the Ballerina. Give each one their SAY card. \enquote{When I wave the green flag, do your card.}
+  \item Wave the flag. Both talk at the same time! \enquote{Could you hear them both? What went wrong?}
+  \item Give the Ballerina a WAIT 2 card to put on top of her SAY card. \enquote{Wait means: count two slow seconds before the next card.} Practice counting together: \enquote{one banana, two banana}.
+  \item Wave the flag again. The Cat talks, the Ballerina counts in her head, then answers. \enquote{Now they take turns!}
+  \item Swap sprites and play once more. If there is time, add a second line each, with a WAIT 2 card in front of every line after the first.
+\end{enumerate}
+With 1 child: you are one sprite and the child is the other, then swap. With 3: two sprites and a director who waves the flag and checks the waits. With 4: two pairs perform for each other.
+\end{unplugged}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{In Scratch, a project can have many sprites. Each sprite has its own scripts, like each of you had your own cards. When we click the green flag, every green-flag script starts at the same time. So if we want the sprites to take turns, the second sprite needs a \textbf{wait} block first. The picture behind the sprites is called a \textbf{backdrop}.}
+\end{teacherscript}
+
+\begin{analogy}[A play on a stage]
+\enquote{A Scratch project is like a school play. The backdrop is the painted scenery at the back. Each actor has their own lines. When the curtain opens (the green flag), everyone starts at once, so an actor waits for their turn before they speak.}
+\end{analogy}
+
+\begin{workedexample}[Hello, Ballerina! (Exercise 7.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the \enquote{Choose a Sprite} button (the cat face, under the stage, on the right). Click Ballerina. Drag her on the stage to a spot you like.
+  \item Click the \enquote{Choose a Backdrop} button (bottom right corner of the screen). Pick a backdrop you like.
+  \item Click the cat in the sprite list under the stage. Yellow \menu{Events}: \enquote{when green flag clicked}. Purple \menu{Looks}: \enquote{say Hello! for 2 seconds}. Type \enquote{Hi, Ballerina!}.
+  \item Click the Ballerina in the sprite list. The code area is empty: \enquote{She has her own code.} Yellow \menu{Events}: \enquote{when green flag clicked}. Purple \menu{Looks}: a say block. Type \enquote{Hi, Cat!}.
+  \item Click the green flag. Both talk at once! \enquote{Like in our warm-up. What is missing?}
+  \item In the Ballerina's code, orange \menu{Control}: put \enquote{wait 1 seconds} right under her green flag block. Change 1 to 2. Click the flag: they take turns.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blocklook{say \ovalnum{Hi, Ballerina!} for \ovalnum{2} seconds}
+\end{scratch}
+\qquad
+\begin{scratch}[scale=0.85]
+\blockinit{when \greenflag clicked}
+\blockcontrol{wait \ovalnum{2} seconds}
+\blocklook{say \ovalnum{Hi, Cat!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{pairroles}[One sprite each]
+The \textbf{Driver} holds the mouse. The \textbf{Helper} points at the picture and checks that the right sprite is selected in the sprite list before building. Swap Driver when you switch sprites: one child builds the Cat's script, the other builds the Ballerina's. Use the timer (5 minutes) during 7.3. With 1 child: you are the Helper; the child drives both sprites and you read the lines in a funny voice. With 3: Driver, Helper and Director (reads the plan and counts the waits out loud). With 4: two pairs, then each pair watches the other pair's story.
+\end{pairroles}
+
+Work through the workbook: \textbf{7.1} Hello, Ballerina! (their own copy of the demo), \textbf{7.2} Boo at Once, then \textbf{7.3} My Two-Line Story. For 7.3, children draw or tell their plan in the two boxes first (2 minutes, you write the words if they want), then build it.
+
+\begin{bughunt}[Boo at Once (Exercise 7.2)]
+The workbook shows Omar's joke: the cat says \enquote{Who is there?} and the Ghost says \enquote{Boo!}. Children start a new project, add the Ghost, and build both scripts as printed. When they click the flag, both bubbles appear at the same time and the joke is spoiled. Ask: \enquote{Who should talk first? What does the second sprite need?} Fix: in the Ghost's code, put \enquote{wait 2 seconds} under the green flag block. Link back to the warm-up: the Ballerina needed her WAIT 2 card.
+\end{bughunt}
+
+\begin{freebuild}[Make the story yours]
+Last 5 minutes of 7.3: pick a different backdrop, drag the sprites to new places, add a sound (pink \menu{Sound}) or make the second sprite dance with a repeat of \enquote{next costume} after it talks.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Mirror game: stand face to face. One child moves very slowly, the partner copies like a mirror. After one minute, swap. Finish by looking far out of a window and counting to 20.
+
+\section{Share (38--45 min)}
+\begin{safety}[Giving credit: who made this?]
+\enquote{We wrote the story ourselves. But who made the pictures of the cat, the ballerina and the backdrop? The people who made Scratch: the Scratch team. When we use something someone else made, we say who made it. That is called giving \textbf{credit}. It is like saying \enquote{Grandma baked this cake} at a party.} Each child starts their show with one sentence: \enquote{The sprites and backdrop were made by the Scratch team. The story is by me.} Optional: help them add a comment to the code (right-click the code area, \enquote{Add Comment}) and type it for them: \enquote{Sprites: Scratch team. Story: Zoe.} Nicknames only.
+\end{safety}
+
+\begin{teacherscript}
+Each child gives credit, then clicks the green flag to show their story. \enquote{Who talks first? How did you make the other sprite wait?} Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} two sprites, each with its own green-flag script; a wait at the top of the second sprite's script; a backdrop.
+
+\textbf{Ask:} show Omar's buggy Boo at Once scripts. \enquote{Both sprites talk at the same time. Which block do we add, and to whose script?}
+\textbf{Answer:} a \enquote{wait 2 seconds} block at the top of the Ghost's script (the sprite that talks second).
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{Who made the cat picture?} (the Scratch team) and \enquote{What does wait do?} Children draw their two sprites talking in the workbook box and circle a smiley face. Hand out play-at-home card 7.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building in the wrong sprite.} Both scripts end up in the cat's code, so only the cat talks (twice). Check which sprite has the blue frame in the sprite list.
+  \item \textbf{Wait in the wrong script.} The wait is put in the first speaker's script, so the second speaker talks first. Ask: \enquote{Who should wait?}
+  \item \textbf{A wait that is too short.} \enquote{wait 1 seconds} with a 2-second bubble makes the lines overlap. The wait should be as long as the first line (2).
+  \item \textbf{Sprites on top of each other.} The new sprite appears in the middle of the stage. Drag it to its own spot.
+  \item \textbf{Changing the backdrop instead of the sprite.} The stage is selected on the right. Click a sprite in the sprite list to see its code again.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Build 7.1 together, with you as Driver for the cat and the child for the Ballerina. Skip 7.2 and use your 7.1 project as the bug: take the wait out, click the flag, put it back. For 7.3, change only the words in 7.1.
+\extensionpath Make the story four lines long: each sprite says two things. The cat needs \enquote{say, wait 2, say}; the Ballerina needs \enquote{wait 2, say, wait 2, say}. Or switch the backdrop in the middle of the story (purple \menu{Looks}, \enquote{switch backdrop to}).
+\end{differentiation}
+
+\begin{stretchchallenge}[A knock-knock joke]
+Build a five-line knock-knock joke with two sprites: \enquote{Knock, knock!} / \enquote{Who is there?} / \enquote{Boo.} / \enquote{Boo who?} / \enquote{Do not cry, it is only a joke!} Plan who says each line, then add a wait every time a sprite has to let the other one talk.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do only rounds 1 and 2 of the warm-up. In Make it, do 7.1 and 7.3, and skip 7.2 (the exit question covers the same bug). Never skip the credit sentence in the Share: it is this week's citizenship thread.
+\end{teachernote}

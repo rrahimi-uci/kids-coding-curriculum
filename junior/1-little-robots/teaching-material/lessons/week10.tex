@@ -1,0 +1,121 @@
+% Junior Level 1, Week 10 -- Showcase and Certificate
+\lesson{10}{Showcase and Certificate}{Show, explain and celebrate.}
+\lessoninfo{Concepts: explaining my code (R); show-me checklist}{Tools: Scratch 3 offline app, finished greeting cards, stickers, certificates}{CSTA: 1A-AP-14, 1A-AP-15, 1A-IC-18}
+
+\begin{objectives}
+  \item The student can show their greeting card and say what one script does, from the hat block down. (J1.G5, J1.G6) [J1.W10.1]
+  \item The student can test their card with the green flag and with its click or key event, and fix a last-minute bug. (J1.G3, J1.G4) [J1.W10.2]
+  \item The student can give kind sticker feedback on a friend's card and say which part they liked. (J1.G6, J1.G7) [J1.W10.3]
+  \item The student can keep a showcase safe: family only, nicknames on screen. (J1.G7) [J1.W10.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 10, play-at-home card 10, the \textbf{Week 10 show-me checklist in the Assessments booklet} (one per child) and one Little Robots certificate per child (fill in the nickname before the lesson).
+  \item Stickers (stars or smileys) or sticky notes with a drawn star. One \enquote{sticker sheet} per card: a sheet of paper with three columns, \enquote{I liked the dance}, \enquote{I liked the sound}, \enquote{I liked the surprise}.
+  \item On each Mac: the child's card open (\menu{File} → \menu{Load from your computer}) and the stage made big with the full-screen button (top-right of the stage).
+  \item Invite the audience: family members at home only (a parent, a sibling, a grandparent). A sand timer. Optional: a toy microphone.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Last-minute bug check: green flag twice, click or key, sound on. Fix one thing.}
+  \timeslot{8--14}{Show me}{You model a showcase with a sample card: show it, then say what one script does. Practice the showcase sentence.}
+  \timeslot{14--36}{Make it}{Showcase: each child shows their card (about 3 minutes each) while you fill in the show-me checklist. Then the gallery walk with stickers, then free play.}
+  \timeslot{36--38}{Wiggle break}{Celebration dance: everyone does the dance from their card, four times.}
+  \timeslot{38--45}{Share}{Certificates, a big clap, reflection and exit question. Hand out play-at-home card 10.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{bughunt}[Last-minute bug check (Exercise 10.1)]
+Before a show, performers check their props. Children open their card and follow the checklist in the workbook with a partner:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the green flag. Does the card start? Click it a \textbf{second} time. Does it start the same way?
+  \item Click the sprite or press the key for box 3. Does the surprise happen?
+  \item Is the sound on? Can you hear it?
+\end{enumerate}
+The most common last-minute bug: the card looks different on the second run, because a sprite stayed hidden or the backdrop stayed changed. Fix: put \enquote{show} or \enquote{switch backdrop to} (purple Looks) at the top of a green flag script. Fix one thing only, then stop building. Save.
+\end{bughunt}
+
+\section{Show me (8--14 min)}
+\begin{teacherscript}
+\enquote{Today is our showcase. A \textbf{showcase} is a little show where we share what we made. We do three things: we show our card, we say what one script does, and we celebrate. Watch me first.}
+
+Open Mei's sample card from week 9 (or your own). Click the green flag, then click the balloon. Then point at one script on the screen and say the showcase sentence slowly.
+\end{teacherscript}
+
+\begin{analogy}[A chef explains a recipe]
+\enquote{When a chef on TV makes a cake, they show the cake, and they tell us one step of the recipe. You are the chef. Your card is the cake. Your script is the recipe.}
+\end{analogy}
+
+\begin{workedexample}[The showcase sentence]
+Point at the balloon's script and read it from the top, one block at a time:
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{play sound \selectmenu{Pop} until done}
+\blocklook{say \ovalnum{Surprise!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\enquote{My card is for Grandpa. \textbf{When you click} the balloon, \textbf{it} pops and says Surprise.} Then let each child say their own sentence once to the person next to them, using the frame in the workbook: \enquote{My card is for \ldots{} When you \ldots, it \ldots}. If a child freezes, point at the hat block and ask: \enquote{What starts this script?}
+\end{workedexample}
+
+\section{Make it (14--36 min)}
+\begin{pairroles}[Presenter and Helper]
+The presenter is the \textbf{Driver}: they hold the mouse, click the green flag and the surprise. The partner is the \textbf{Helper}: they point to the script on the screen while the presenter explains it, and they start the clapping. Swap for the next card. With 1 child: you are the Helper, and a family member is the audience. With 3: presenter, Helper and a \enquote{sticker keeper} who hands out stickers, rotating each card. With 4: two pairs; each pair presents both cards.
+\end{pairroles}
+
+\textbf{Showcase (about 3 minutes per child).} Each child does Exercise 10.2: show the card, then say the showcase sentence. While they present, fill in the \textbf{Week 10 show-me checklist in the Assessments booklet} for that child (Not yet, Getting there, Got it). It is observed, never graded: do not show the checklist to the child as a score.
+
+\begin{unplugged}[Gallery walk with sticker feedback (Exercise 10.3)]
+Put each card on its Mac (or take turns on one Mac) with its sticker sheet next to it. Everyone walks around like visitors in a museum, hands behind their back. At each card, a visitor clicks the green flag (with the owner's permission), watches, and puts one sticker in the column of the part they liked best. Then they say it out loud: \enquote{I liked the surprise!} Only kind words; a visitor who did not like something says nothing about it. With 1 child: family members are the visitors, and the child visits your sample card. With 2--4: every child visits every other card. Visitors never change someone else's card.
+\end{unplugged}
+
+\begin{freebuild}[One more touch]
+If time is left: add one extra to your own card. A new sound, a different backdrop, or the stretch path: a pen-drawn frame or a stamp ring from week 8. Save it with a new name, so the showcase version stays safe.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Celebration dance: everyone stands up and does the dance from their own card, four times, like a repeat. Then one big clap together.
+
+\section{Share (38--45 min)}
+\begin{teacherscript}
+Call each child up by nickname and hand over the certificate: \enquote{\ldots{} is now a Little Robots coder! You planned a card, built it box by box and explained your code.} Everyone claps. Then ask the reflection questions.
+\end{teacherscript}
+
+\begin{safety}[Showcase safety]
+\enquote{Our showcase is for our family, here at home. On the screen we use nicknames, never our full names, our school or our address. We do not put our cards on the internet or send them to people we do not know. If you want to show your card to someone else, ask a grown-up first.} If you take a photo of the showcase for the family album, keep it in the family and ask each child first.
+\end{safety}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for (also on the show-me checklist):} the card starts with the green flag; the child clicks or presses the key for the surprise; the child points at a script and says what it does in their own words.
+
+\textbf{Ask:} point at any hat block on the child's card. \enquote{What do you do to start this script?}
+\textbf{Answer:} the action in the hat block: click the green flag, click this sprite, or press the named key.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What are you proudest of in your card?} and \enquote{What would you like to make next?} Children draw their favorite moment from the card in the workbook and circle a smiley face. Hand out play-at-home card 10.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building new things in the warm-up.} The bug check is a check, not a build. Fix one thing, save, and stop.
+  \item \textbf{Stage fright.} Let the child show the card first and say the sentence after, or whisper it to you and you repeat it. Pointing at the script counts.
+  \item \textbf{Reading every block of every script.} One script is enough. Pick the shortest one together.
+  \item \textbf{Sound is off.} Check the Mac volume before the showcase.
+  \item \textbf{Unkind or vague feedback.} Model it: \enquote{I liked the surprise, because the balloon popped.} Only kind words at a showcase.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Let the child show the card while you point at the script and ask one question at a time: \enquote{What starts it? Then what happens?} Their two answers are their showcase sentence. Mark the checklist from what they show, not how much they say.
+\extensionpath Explain two scripts and say why a block is there: \enquote{The wait makes the dance slow enough to see.} Or explain how the card was built box by box, holding up the storyboard.
+\end{differentiation}
+
+\begin{stretchchallenge}[Tell the story of the bug]
+Tell the audience about one bug you found while making your card and how you fixed it. Bugs are clues, and good coders share them.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Cut the warm-up to the green flag test only. Keep presentations to 2 minutes each and fill in the show-me checklist from them. Do the gallery walk with one sticker per visitor. Never skip the certificates and the clap: celebrating is the point of this week.
+\end{teachernote}

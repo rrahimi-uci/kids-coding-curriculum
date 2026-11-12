@@ -63,8 +63,9 @@ How to check your work
 4. [PASS] means that part works. [TRY AGAIN] comes with a hint.
    Fix one thing, save, and run check_my_work.py again.
 
-Scratch exercises (Level 1, weeks 1 to 6) have no check_my_work.py.
-Use the "Expected behavior" and "Checklist" in their README.md instead.
+Scratch exercises (Level 1, weeks 1 to 6, and every exercise in the junior/
+folder) have no check_my_work.py. Use the "Expected behavior" and "Checklist"
+in their README.md instead. Junior exercises are read with a grown-up.
 
 check_my_work.py needs a helper called pytest. If it says so, ask a grown-up
 to install it once: in Thonny choose Tools > Manage packages..., search for

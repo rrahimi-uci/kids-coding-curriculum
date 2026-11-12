@@ -1,0 +1,133 @@
+% Junior Level 1, Week 6 -- When I Click...
+\lesson{6}{When I Click\ldots}{Events start code: the flag, a click or a key.}
+\lessoninfo{Concepts: when this sprite clicked (I), when key pressed (I), events (R), repeat (R)}{Tools: Scratch 3 offline app, event cards}{CSTA: 1A-AP-10, 1B-AP-10, 1A-AP-14, 1A-IC-18}
+
+\begin{objectives}
+  \item The student can make a sprite act when it is clicked, using \enquote{when this sprite clicked}. (J1.G3) [J1.W06.1]
+  \item The student can make a sprite walk and spin when a key is pressed, using \enquote{when key pressed} blocks. (J1.G3) [J1.W06.2]
+  \item The student can find and fix a script that is under the wrong sprite or listens for the wrong key. (J1.G4) [J1.W06.3]
+  \item The student can explain why our projects show nicknames and never real names or photos. (J1.G7) [J1.W06.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 6 and play-at-home card 6 (one per child).
+  \item Unplugged: four big event cards you draw by hand, each with a picture and words: \enquote{When I CLAP: jump}, \enquote{When I STOMP: spin}, \enquote{When I say PIZZA: sit down}, \enquote{When I KNOCK: freeze}.
+  \item On each Mac: the Scratch app with a new project and a \textbf{mouse}.
+  \item A sand timer or kitchen timer for Driver/Helper swaps (5 minutes).
+  \item Optional: the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{\enquote{When I clap, you jump}: children act only when their event happens.}
+  \timeslot{8--16}{Show me}{Events start scripts. Build Click the Cat together, then show one key script.}
+  \timeslot{16--36}{Make it}{Driver and Helper, swap on the timer. Exercise 6.1 Click the Cat, 6.2 Keyboard Cat, 6.3 The Mixed-Up Ballerina (bug hunt), then free play: a nickname for the cat.}
+  \timeslot{36--38}{Wiggle break}{One more round of the clap game, standing up.}
+  \timeslot{38--45}{Share}{Talk about nicknames and photos. Each child shows one click and one key. Exit question, hand out play-at-home card 6.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[When I clap, you jump]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Show the first card. \enquote{This card is a little script. The top part says WHEN. The robot waits until that thing happens.} Clap: everyone jumps. Wait a moment, then clap again.
+  \item Add the stomp card. Mix clapping and stomping. Children must listen and do the right action. Then add PIZZA and KNOCK.
+  \item Now give each child their own card. \enquote{Ada only listens for the clap. Sam only listens for the stomp.} Clap: only the child with the clap card jumps. \enquote{Each robot has its own scripts.}
+  \item Last: say \enquote{banana}. Nobody moves. \enquote{No card listens for banana, so nothing happens.} That is the \enquote{wrong key} bug from today's bug hunt.
+\end{enumerate}
+With 1 child: you each hold two cards and take turns making the events. With 3 or 4: one child is the event-maker each round, the others hold cards.
+\end{unplugged}
+
+\section{Show me (8--16 min)}
+\begin{teacherscript}
+\enquote{In our game, the clap was an \textbf{event}: something that happens. In Scratch, events start scripts. We already know one: the green flag. Today we learn two more: clicking on a sprite, and pressing a key on the keyboard. All the event blocks are in the yellow \menu{Events} circle, and they all have a round top like a hat.}
+\end{teacherscript}
+
+\begin{analogy}[The doorbell]
+\enquote{When the doorbell rings, someone goes to the door. Nobody goes to the door when the phone rings. An event block is like that: its script waits, and it only runs when its own event happens.}
+\end{analogy}
+
+\begin{workedexample}[Click the Cat (Exercise 6.1)]
+Do this on your Mac while the children watch. Say each step out loud.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Click the yellow \menu{Events} circle. Drag \enquote{when this sprite clicked} into the middle.
+  \item Click the pink \menu{Sound} circle. Snap on \enquote{play sound Meow until done}.
+  \item Click the purple \menu{Looks} circle. Snap on \enquote{say Hello! for 2 seconds}. Type \enquote{That tickles!}.
+  \item Do not click the green flag. Click the cat on the stage. It meows and says \enquote{That tickles!}.
+  \item \enquote{The script waited for its event: a click on the cat. Click quickly: if you hold the mouse down and move, you drag the cat instead.}
+  \item Show one key script: yellow \menu{Events} \enquote{when space key pressed}, then purple \menu{Looks} \enquote{next costume}. Press the space bar a few times: the cat changes costume.
+\end{enumerate}
+\begin{center}
+\begin{scratch}[scale=0.85]
+\blockinit{when this sprite clicked}
+\blocksound{play sound \selectmenu{Meow} until done}
+\blocklook{say \ovalnum{That tickles!} for \ovalnum{2} seconds}
+\end{scratch}
+\end{center}
+\end{workedexample}
+
+\section{Make it (16--36 min)}
+\begin{pairroles}[Driver and Helper]
+The \textbf{Driver} holds the mouse and presses the keys. The \textbf{Helper} points at the picture in the book, says which color circle comes next, and is the first to test: the Helper clicks the cat or presses the key while the Driver watches. The Helper never grabs the mouse while building. Swap when the timer runs out (5 minutes). With 1 child: you are the Helper, then swap once. With 3: Driver, Helper and Tester (only presses the keys to test). With 4: two pairs, then each pair tries the other pair's keys.
+\end{pairroles}
+
+Work through the workbook: \textbf{6.1} Click the Cat, \textbf{6.2} Keyboard Cat, then \textbf{6.3} The Mixed-Up Ballerina. If keys do nothing, click once on the stage and try again: the keyboard goes to whatever was clicked last.
+
+\begin{bughunt}[The Mixed-Up Ballerina (Exercise 6.3)]
+Kai's plan says: \enquote{Click the Ballerina: she says Hi! Press space: she dances.} Children add the Ballerina (the \enquote{Choose a Sprite} button under the stage) and build Kai's scripts as printed. Clicking the Ballerina does nothing, and space does nothing. Two bugs:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Script under the wrong sprite.} The click script is in the cat's code, so clicking the cat makes the cat talk. Show: click a sprite in the sprite list under the stage, and the code area shows only that sprite's scripts. Fix: drag the script from the cat's code area onto the Ballerina in the sprite list (it copies), then delete the cat's copy by dragging it back onto the blocks on the left.
+  \item \textbf{Wrong key.} The Ballerina's dance says \enquote{when a key pressed}. Fix: click the little arrow and pick space.
+\end{itemize}
+Link back to the warm-up: the clap card was in the wrong hands, and nobody listened for banana.
+\end{bughunt}
+
+\begin{freebuild}[A nickname for the cat]
+Last 5 minutes: make the cat say a made-up nickname when it is clicked (\enquote{Hi, I am Captain Fluff!}), or pick a new key and a new action: a different sound, next costume or a spin.
+\end{freebuild}
+
+\section{Wiggle break (36--38 min)}
+Everyone stands up. Play two minutes of the clap game: clap to jump, stomp to spin, knock to freeze. End with a slow stretch up to the ceiling and a look out of a window.
+
+\section{Share (38--45 min)}
+\begin{safety}[Nicknames, never real names or photos]
+\enquote{Our sprites say nicknames, like Captain Fluff or Zoom. Our projects never show our real names, where we live, or photos of us. Scratch can take photos with the camera and can upload pictures: we do not use those buttons. If you want a picture of you in a project, draw a sprite or pick one from the library. If an app ever asks for your name or a photo, stop and ask a grown-up.} Ask: \enquote{What nickname would your sprite like?}
+\end{safety}
+
+\begin{teacherscript}
+Each child shows one click and one key: \enquote{Click my cat! Now press the right arrow!} Let a friend do the clicking and pressing. Others give a thumbs up and say one thing they like.
+\end{teacherscript}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for:} a script that starts with \enquote{when this sprite clicked} and runs without the flag; a key script that reacts to the key named in its hat block.
+
+\textbf{Ask:} point at a script in the cat's code: \enquote{when this sprite clicked, say Hi! for 2 seconds}. \enquote{If I click the Ballerina, will this script run?}
+\textbf{Answer:} no, because it belongs to the cat. Only a click on the cat starts it.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What are three ways to start a script?} (green flag, click, key) and \enquote{Which key did you use?} Children circle the event they liked best in the workbook and a smiley face. Hand out play-at-home card 6.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Clicking the green flag and waiting.} A click or key script does not need the flag. Ask: \enquote{What does this hat block wait for?}
+  \item \textbf{Dragging instead of clicking.} Holding the mouse down on the cat moves it. A quick click runs the script.
+  \item \textbf{Keys do nothing.} The keyboard is busy with something else. Click once on the stage, then press the key.
+  \item \textbf{Building in the wrong sprite.} Check which sprite has the blue frame in the sprite list before you build.
+  \item \textbf{The cat walks off the stage with the right arrow.} Drag it back with the mouse.
+  \item \textbf{A real name or a photo.} Change it to a nickname or a drawn sprite (see the safety talk).
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 6.1 together, then only the right-arrow script in 6.2. For 6.3, build Kai's project yourself before the session and let the child find and fix the bugs.
+\extensionpath Add a script for another key: \enquote{when up arrow key pressed} plays a sound, or \enquote{when a key pressed} changes the size (purple \menu{Looks}, \enquote{change size by 10}). Can a partner guess which key does what?
+\end{differentiation}
+
+\begin{stretchchallenge}[A keyboard band]
+Make a keyboard band: each of four keys plays a different sound (pink \menu{Sound}, \enquote{start sound}, pick any sound from the dropdown). Play a short tune and teach it to your partner.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Play the clap game with only two cards. In Make it, do 6.1 and 6.3, and leave 6.2 for the free play. Never skip the safety talk about nicknames and photos: keep it to two sentences if you must.
+\end{teachernote}

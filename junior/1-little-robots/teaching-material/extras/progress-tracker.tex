@@ -1,0 +1,74 @@
+\documentclass[track=junior,level=1]{kidscode}
+%% a big outline star to color in
+\newcommand{\colorstar}{\tikz[baseline=-0.6ex]\node[star,star points=5,star point ratio=2.3,draw=black,line width=1pt,fill=white,minimum size=1.35cm,inner sep=0pt]{};}
+%% \wkrow{week}{icon}{I can ...}
+\newcommand{\wkrow}[3]{\textbf{\Large #1} & {\Large #2} & #3 & \colorstar\\ \midrule}
+\makeatletter\ifkc@dyslexia\newcommand{\wkstretch}{1.25}\else\newcommand{\wkstretch}{1.6}\fi\makeatother
+\newenvironment{weektable}{\par\noindent\renewcommand{\arraystretch}{\wkstretch}%
+  \longtable{@{}>{\centering}p{1.3cm}>{\centering}p{1.1cm}>{\RaggedRight}m{\dimexpr\linewidth-5.2cm-6\tabcolsep}>{\centering\arraybackslash}m{2.8cm}@{}}
+  \toprule
+  \textbf{Week} & & \textbf{I can \ldots} & \textbf{Color it!}\\ \midrule\endhead}
+  {\endlongtable\par}
+%% badge to color: \badge{shape}{icon}{name}{how to earn it}
+\newcommand{\badge}[4]{%
+%% alt: A badge outline to color in, with an icon, the badge name and how to earn it underneath.
+  \begin{tikzpicture}
+    \node[#1,draw=black,line width=1.4pt,fill=white,minimum size=2.7cm,inner sep=1pt,
+          align=center,font=\small\bfseries,text width=2.3cm] (b) {{\LARGE #2}\\[3pt] #3};
+    \node[below=3pt of b,text width=3.7cm,align=center,font=\footnotesize] {#4};
+  \end{tikzpicture}}
+\begin{document}
+\kctitle{My Progress Tracker}{One copy per child: what I can do, week by week}
+
+\begin{grownup}[How the tracker works]
+At the end of each session (2 minutes, in the Share part), read the week's \enquote{I can} line
+aloud. When your child feels ready, they color the star. A new idea can wait: the same ideas come
+back in later weeks, so a star can be colored any time. Keep the tracker in a folder and bring it
+out at the showcase.
+\end{grownup}
+
+\noindent\textbf{Nickname:} \rule{6cm}{0.4pt}
+
+\section{My stars, week by week}
+\begin{weektable}
+\wkrow{1}{\faRobot}{I can give a robot exact steps, in order.}
+\wkrow{2}{\faCat}{I can snap blocks to make the cat talk and move.}
+\wkrow{3}{\faBug}{I can find a bug and change one thing to fix it.}
+\wkrow{4}{\faRedo}{I can use repeat to make a sprite dance.}
+\wkrow{5}{\faEye}{I can show a grown-up what I can do.}
+\wkrow{6}{\faMousePointer}{I can start code with a click or a key.}
+\wkrow{7}{\faComments}{I can make two sprites take turns to talk.}
+\wkrow{8}{\faPen}{I can draw a square with the pen.}
+\wkrow{9}{\faPencilRuler}{I can plan my card on a storyboard.}
+\wkrow{10}{\faStar}{I can show my card and say what a script does.}
+\end{weektable}
+
+\section{My greeting card}
+\begin{center}\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.6cm}X>{\centering\arraybackslash}m{2.8cm}@{}}
+\toprule
+Milestone & Done when \ldots & \textbf{Color it!}\\
+\midrule
+M1 Storyboard\newline{\normalfont\small week 9, start} & I drew Start, Middle and End, and said who my card is for. & \colorstar\\ \midrule
+M2 Card works\newline{\normalfont\small week 9, end} & My card starts with the green flag and has every must-have. & \colorstar\\ \midrule
+M3 Showcase\newline{\normalfont\small week 10} & I showed my card to my family and said what one script does. & \colorstar\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{My badges}
+A grown-up says when you have earned a badge. Then color it in! Anyone can earn every badge, at any time.
+\begin{center}
+\badge{circle}{\faRobot}{Robot Boss}{Gave a robot steps to reach the goal.}\hfill
+\badge{diamond}{\faBug}{Bug Catcher}{Found and fixed 3 bugs.}\hfill
+\badge{rectangle}{\faRedo}{Loop Dancer}{Made a dance with repeat.}
+\par\medskip
+\badge{rectangle}{\faHandsHelping}{Kind Helper}{Pointed and used words as Helper.}\hfill
+\badge{circle}{\faPen}{Pen Artist}{Drew a shape with the pen.}\hfill
+\badge{diamond}{\faShield*}{Safety Star}{Used a nickname and asked a grown-up.}
+\par\medskip
+\badge{diamond}{\faThumbsUp}{Credit Giver}{Said who made a picture or sound.}\hfill
+\badge{rectangle}{\faTh}{Pixel Painter}{Colored a pixel grid (B1).}\hfill
+\badge{circle}{\faGift}{Card Maker}{Showed my greeting card.}
+\end{center}
+\end{document}
