@@ -129,7 +129,10 @@ python -m videos.pipeline.cli junior-animate --level 1 --week 2  # videos/output
 python -m videos.pipeline.cli junior-animate                     # every junior episode
 ```
 
-The junior videos are not on the website yet; publishing them is a separate step.
+Publishing: `python -m videos.pipeline.cli junior-publish --upload` makes 720p web copies
+(`junior1-week02.mp4`, `.jpg`, `.vtt`) and uploads them with their own list, `junior-videos.json`, to the
+same `videos` release. The main list `videos.json` is never touched, so the main site is unaffected; the
+website's junior pages read `junior-videos.json`.
 
 ## On the website
 

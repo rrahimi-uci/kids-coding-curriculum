@@ -427,6 +427,27 @@ def command_publish_videos(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_junior_publish(args: argparse.Namespace) -> int:
+    """Junior web copies and (with --upload) junior-videos.json on the `videos` release."""
+    from . import publish
+
+    rendered = publish.junior_rendered_videos()
+    wanted = {key for key in rendered
+              if (not args.junior_level or key[0] == args.junior_level) and (not args.week or key[1] in args.week)}
+    if not wanted:
+        print("No rendered junior video matches; run `junior-animate` first.", file=sys.stderr)
+        return 2
+    try:
+        manifest = publish.build_junior_web_copies(wanted)
+        print(f"Junior web copies are in {publish.WEB.relative_to(REPO_ROOT)}/")
+        if args.upload:
+            publish.upload_junior(manifest, wanted)
+    except RuntimeError as exc:
+        print(f"junior-publish: {exc}", file=sys.stderr)
+        return 1
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     from .media import VISUAL_PROVIDERS, VOICE_PROVIDERS
 
@@ -528,6 +549,13 @@ def build_parser() -> argparse.ArgumentParser:
         if name == "junior-sheet":
             sub.add_argument("--per-scene", type=int, default=4)
         sub.set_defaults(handler=junior, junior_handler=handler)
+
+    jpub = subcommands.add_parser("junior-publish",
+                                  help="junior web copies; --upload puts them and junior-videos.json on the release")
+    jpub.add_argument("--level", dest="junior_level", type=int, choices=(1, 2, 3))
+    jpub.add_argument("--week", type=int, choices=range(1, 11), action="append")
+    jpub.add_argument("--upload", action="store_true")
+    jpub.set_defaults(handler=command_junior_publish)
 
     fetch = subcommands.add_parser("fetch-voice", help="download the local neural voice model once")
     fetch.set_defaults(handler=command_fetch_voice)
