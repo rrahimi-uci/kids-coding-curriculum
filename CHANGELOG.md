@@ -3,6 +3,14 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.15.0 - 2026-11-13
+
+Teaching videos for the junior track: *Kids Coding Junior with Aiden and Pixi*.
+
+- 30 animated episodes, one for every week of Junior Levels 1–3, each 5–6 minutes and paced for 7–9-year-olds: one idea at a time, big Scratch blocks, long thinking pauses, a quick quiz, the week's bug hunt, a movement break and a "say it with me" recap.
+- A new host, **Aiden**, an eight-year-old coder in a red hoodie with a young voice, alongside Pixi.
+- The episodes follow the junior lessons and never show exercise answers. They are not on the website yet.
+
 ## 1.14.0 - 2026-11-13
 
 Junior Level 3, *Bridge to Python*, is written: ten 60-minute sessions plus two optional buffer sessions that end the junior track and lead into main-track Level 1.
