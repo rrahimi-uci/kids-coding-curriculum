@@ -20,14 +20,14 @@ from dataclasses import dataclass, field
 import re
 from typing import Any
 
-from .timeline import NARRATOR, ROSE, PIXI, Beat, SceneScript, SceneTiming
+from .timeline import AIDEN, NARRATOR, ROSE, PIXI, Beat, SceneScript, SceneTiming
 
 B = Beat  # short alias for episode files
-__all__ = ["A", "B", "Beat", "Episode", "Scene", "NARRATOR", "ROSE", "PIXI", "resolve_time", "ACTION_TYPES"]
+__all__ = ["A", "B", "Beat", "Episode", "Scene", "NARRATOR", "ROSE", "PIXI", "AIDEN", "resolve_time", "ACTION_TYPES"]
 
 ACTION_TYPES = {
     # characters and props
-    "rose", "pixi", "cat", "grownup", "key", "door", "chair", "laptop", "pointer", "magnifier",
+    "rose", "aiden", "pixi", "cat", "grownup", "key", "door", "chair", "laptop", "pointer", "magnifier",
     # text and callouts
     "banner", "chip", "bigtext", "bubble", "thought", "panel", "cards", "icons", "arrow",
     # coding views

@@ -13,6 +13,14 @@ The junior track is on the website: Junior Levels 1 to 3 (*Little Robots*, *Game
 - Junior week pages show that week's *Kids Coding Junior with Aiden and Pixi* video in the same place and player as the main track (captions, poster, transcript), as soon as it is on the `videos` release; the list is read from its own `junior-videos.json`.
 - The private-content check now also covers the junior folders, including the show-me checklists, the grown-up's answers and the certificates, which are never published.
 
+## 1.15.0 - 2026-11-13
+
+Teaching videos for the junior track: *Kids Coding Junior with Aiden and Pixi*.
+
+- 30 animated episodes, one for every week of Junior Levels 1–3, each 5–6 minutes and paced for 7–9-year-olds: one idea at a time, big Scratch blocks, long thinking pauses, a quick quiz, the week's bug hunt, a movement break and a "say it with me" recap.
+- A new host, **Aiden**, an eight-year-old coder in a red hoodie with a young voice, alongside Pixi.
+- The episodes follow the junior lessons and never show exercise answers. They are not on the website yet.
+
 ## 1.14.0 - 2026-11-13
 
 Junior Level 3, *Bridge to Python*, is written: ten 60-minute sessions plus two optional buffer sessions that end the junior track and lead into main-track Level 1.

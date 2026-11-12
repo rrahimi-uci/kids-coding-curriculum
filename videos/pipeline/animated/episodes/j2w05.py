@@ -1,0 +1,288 @@
+"""Junior Level 2 Week 5: Play Day and Show Me (kit episode, Aiden and Pixi, Grades 2-3).
+
+Follows junior/2-game-makers/teaching-material/lessons/week05.tex: Be the computer (the warm-up row
+with apples on squares 2, 3 and 5, not the workbook's Exercise 5.1 row), the detective steps test,
+look, change one thing (the referee), the worked example "the score that counts by 10" as the bug
+hunt, a review quiz, the Bug-Hunt Relay introduced by its should-do lines only (no fixes are shown:
+the children solve the three legs themselves), the forever freeze dance with an IF, My Best Game and
+the show-me checklist, and "what did I get better at?".
+"""
+
+from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+
+FLAG = ("event", "when {flag} clicked")
+CLICKED = ("event", "when this sprite clicked")
+SET0 = ("variables", "set [score] to [0]")
+CHANGE1 = ("variables", "change [score] by [1]")
+BE_THE_COMPUTER = [FLAG, SET0, ("control", "repeat [6]", [
+    ("motion", "move [10] steps"),
+    ("control", "if <touching [Apple] ?> then", [CHANGE1, ("looks", "say [Yum!] for [1] seconds")])])]
+BIG = 1.25  # block scale: big enough for young eyes
+SPRITE = 1.0  # sprite size on the stage
+
+
+EPISODE = Episode(level="j2", week=5, scenes=(
+    # 1. hook ---------------------------------------------------------------------------------------
+    Scene("j2-w05-s01", setting="workshop", lead_in=0.3, beats=(
+        B("Hi! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Beep boop! Hello, game makers!", speaker=PIXI, cue="hello", pause=0.5),
+        B("Today is Play Day!", speaker=AIDEN, cue="play", pause=0.4),
+        B("We practice everything we know: forever, if touching, score, and random.", speaker=AIDEN,
+          cue="practice", pause=0.6),
+        B("Then you show a grown-up what you can do. Ready? Let's go!", speaker=AIDEN, cue="show", pause=1.0),
+    ), actions=(
+        A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("show@0.6", "end")],
+          moods={"start": "happy", "play": "proud"}),
+        A("pixi", x=640, y=760, drop=True),
+        A("banner", "MISSION: Play Day!", at="play"),
+        A("cards", items=["forever", "if touching", "score", "random"], x=1060, y=280, w=520, gap=120,
+          reveal=["practice@0.25", "practice@0.45", "practice@0.65", "practice@0.85"], at="practice",
+          color="orange"),
+        A("chip", "Show me what you can do!", at="show", x=1320, y=820, color="green", size=44),
+    )),
+    # 2. be the computer: the jobs ---------------------------------------------------------------------
+    Scene("j2-w05-s02", setting="workshop", beats=(
+        B("Let's warm up. Today, you are the computer!", speaker=AIDEN, cue="computer", pause=0.4),
+        B("The computer does exactly what the blocks say, one block at a time. It never guesses.",
+          speaker=AIDEN, cue="exactly", pause=0.6),
+        B("Here are the jobs. Pixi is the sprite. I am the reader: I read one block at a time, and point at it. And the SCORE box keeps the score.",
+          speaker=AIDEN, cue="jobs", pause=0.6),
+        B("Six squares on the floor. Moving ten steps is one square today.", speaker=AIDEN, cue="squares",
+          pause=0.5),
+        B("Apples sit on squares two, three, and five.", speaker=AIDEN, cue="apples", pause=0.8),
+    ), actions=(
+        A("aiden", x=240, y=1000, s=0.7, moods={"start": "happy", "jobs": "proud"}, label="reader",
+          point=("jobs@0.3", "jobs@0.6")),
+        A("chip", "one block at a time, never guess", at="exactly", until="jobs", x=1150, y=460, color="yellow",
+          size=42),
+        A("grid", rows=[".RR.R."], x=600, y=440, cell=150, at="squares",
+          marks=[("squares", 0, 0, "1"), ("squares", 0, 1, "2"), ("squares", 0, 2, "3"), ("squares", 0, 3, "4"),
+                 ("squares", 0, 4, "5"), ("squares", 0, 5, "6")],
+          walker=[("squares", -0.8, 0)]),
+        A("chip", "red square = apple", at="apples", x=1050, y=680, color="red", size=42),
+        A("pixi", x=640, y=790, s=0.6, ground=950, at="jobs", until="squares", label="sprite"),
+        A("box", "SCORE", at="jobs@0.6", x=1500, y=830, w=300, h=190, size=70, values=[("jobs@0.6", "")]),
+    )),
+    # 3. act it out ---------------------------------------------------------------------------------------
+    Scene("j2-w05-s03", setting="sky", beats=(
+        B("Set score to zero: the box is empty. Repeat six times.", speaker=AIDEN, cue="set", pause=0.5),
+        B("Move. Are you touching an apple? No. Nothing happens.", speaker=AIDEN, cue="s1", pause=0.5),
+        B("Move. Touching an apple? Yes! Change score by one.", speaker=AIDEN, cue="s2", pause=0.2),
+        B("Yum!", speaker=PIXI, cue="yum2", pause=0.4),
+        B("Keep going, square by square. What will the score be at the end?", speaker=AIDEN, cue="predict",
+          pause=3.0),
+        B("Three! Three apples, three points.", speaker=AIDEN, cue="three", pause=0.5),
+        B("We added one only when the if was true.", speaker=AIDEN, cue="true", pause=0.8),
+    ), actions=(
+        A("scratch", "The script", blocks=BE_THE_COMPUTER, x=100, y=250, w=830, h=760, scale=1.0,
+          highlight=[(1, "set", "set@0.5"), (2, "set@0.5", "set$"), (3, "s1", "s1@0.2"), (4, "s1@0.3", "s1$"),
+                     (3, "s2", "s2@0.2"), (4, "s2@0.3", "s2@0.6"), (5, "s2@0.6", "yum2$"),
+                     (6, "yum2", "yum2$")]),
+        A("grid", rows=[".RR.R."], x=1000, y=330, cell=130,
+          marks=[("start", 0, 0, "1"), ("start", 0, 1, "2"), ("start", 0, 2, "3"), ("start", 0, 3, "4"),
+                 ("start", 0, 4, "5"), ("start", 0, 5, "6")],
+          walker=[("start", -0.8, 0), ("s1@0.2", 0, 0), ("s2@0.2", 1, 0), ("predict@0.3", 2, 0),
+                  ("predict$+0.6", 3, 0), ("predict$+1.4", 4, 0), ("predict$+2.2", 5, 0)]),
+        A("box", "SCORE", x=1390, y=720, w=300, h=190, size=70,
+          values=[("start", ""), ("set@0.3", 0), ("s2@0.7", 1), ("predict@0.4", 2), ("three", 3)]),
+        A("thought", "What score?", at="predict$+0.2", until="three", x=1700, y=620),
+        A("chip", "only when the if is true", at="true", x=1390, y=920, color="green", size=42),
+    )),
+    # 4. the detective steps -----------------------------------------------------------------------------
+    Scene("j2-w05-s04", setting="lavender", beats=(
+        B("Now, our detective steps for bugs.", speaker=AIDEN, cue="steps", pause=0.4),
+        B("Test: click the flag and play.", speaker=AIDEN, cue="test", pause=0.5),
+        B("Look: what should happen, and what happened?", speaker=AIDEN, cue="look", pause=0.5),
+        B("Change one thing, then test again.", speaker=AIDEN, cue="change", pause=0.6),
+        B("A detective is like a referee. A referee watches, sees exactly what went wrong, and makes one call.",
+          speaker=AIDEN, cue="referee", pause=0.5),
+        B("A bug detective finds the one block that is wrong, and changes only that.", speaker=AIDEN,
+          cue="one", pause=0.8),
+    ), actions=(
+        A("banner", "Detective steps", at="steps", color="blue"),
+        A("cards", items=["Test", "Look", "Change one thing"], x=260, y=320, w=620, gap=150,
+          reveal=["test", "look", "change"], active=[("test", "look"), ("look", "change"), ("change", "referee")]),
+        A("icons", items=[("magnifier", "Watch closely", "referee@0.3"), ("check", "One call", "one")],
+          at="referee", x=1400, y=420, gap=320),
+        A("chip", "Change only that one block", at="one@0.4", x=1400, y=760, color="yellow", size=44),
+    )),
+    # 5. bug hunt: the score that counts by 10 (the lesson's worked example) --------------------------
+    Scene("j2-w05-s05", setting="mint", beats=(
+        B("Watch me hunt a tiny bug.", speaker=AIDEN, cue="watch", pause=0.4),
+        B("I want one point for each click on the cat.", speaker=AIDEN, cue="want", pause=0.5),
+        B("Test! I click the cat three times.", speaker=AIDEN, cue="test", pause=2.0),
+        B("Look! I wanted three. I got thirty!", speaker=AIDEN, cue="look", pause=0.6),
+        B("Which block is the clue?", speaker=AIDEN, cue="clue", pause=3.0),
+        B("The block that changes the score. It says change score by ten!", speaker=AIDEN, cue="found",
+          pause=0.5),
+        B("Change one thing: ten back to one. Then click set score to zero once, so the score starts again.",
+          speaker=AIDEN, cue="fix", pause=0.6),
+        B("Test again: one, two, three. Three! Bug fixed.", speaker=AIDEN, cue="again", pause=0.5),
+        B("That is how the relay works!", speaker=PIXI, cue="pixi", pause=0.8),
+    ), actions=(
+        A("banner", "BUG HUNT! The score that counts by 10", at="watch", color="navy"),
+        A("scratch", "Cat", blocks=[CLICKED, ("variables", "change [score] by [10]")], x=150, y=280, w=860,
+          h=300, scale=BIG, edits=[("fix@0.3", 1, "change [score] by [1]")],
+          highlight=[(1, "found", "fix@0.5")]),
+        A("scratch", blocks=[SET0], x=190, y=700, w=700, h=120, panel=False, scale=BIG, at="fix@0.5",
+          highlight=[(0, "fix@0.75", "fix$+0.4")]),
+        A("chip", "click it once", at="fix@0.7", until="again", x=560, y=880, color="orange", size=40),
+        A("stage", x=1120, y=250, w=700, h=480, flag=False, sprite_scale=SPRITE,
+          monitors=[("score", [("start", 0), ("test$+0.3", 10), ("test$+0.9", 20), ("test$+1.5", 30),
+                               ("fix@0.8", 0), ("again@0.2", 1), ("again@0.4", 2), ("again@0.6", 3)])]),
+        A("pointer", x=1490, y=520, at="test$", until="test$+2.0"),
+        A("pointer", x=1490, y=520, at="again", until="again$"),
+        A("sfx", "pop", at="test$+0.3"),
+        A("sfx", "pop", at="test$+1.5"),
+        A("box", "score", at="test$", x=1470, y=880, w=280, h=150, size=60,
+          values=[("test$", 0), ("test$+0.3", 10), ("test$+0.9", 20), ("test$+1.5", 30), ("fix@0.8", 0),
+                  ("again@0.2", 1), ("again@0.4", 2), ("again@0.6", 3)]),
+        A("badge", ok=False, at="look", until="again@0.6", x=1750, y=290),
+        A("thought", "Which block?", at="clue$+0.2", until="found", x=560, y=720),
+        A("badge", ok=True, at="again@0.6", x=1750, y=290),
+        A("confetti", at="again@0.6", x=1470, y=480),
+    )),
+    # 6. quick quiz: name the block ---------------------------------------------------------------------
+    Scene("j2-w05-s06", setting="peach", beats=(
+        B("Quick quiz! Name the block.", speaker=AIDEN, cue="quiz", pause=0.4),
+        B("Which block keeps a game going, again and again?", speaker=AIDEN, cue="q1", pause=2.8),
+        B("Forever! It keeps going until you press stop.", speaker=AIDEN, cue="a1", pause=0.6),
+        B("Which block makes the score start at zero?", speaker=AIDEN, cue="q2", pause=2.8),
+        B("Set score to zero, right under the green flag!", speaker=AIDEN, cue="a2", pause=0.6),
+        B("Which block picks a number nobody can guess?", speaker=AIDEN, cue="q3", pause=2.8),
+        B("Pick random, the die inside the computer! You know so much!", speaker=AIDEN, cue="a3", pause=0.8),
+    ), actions=(
+        A("banner", "QUICK QUIZ", at="quiz", color="purple"),
+        A("thought", "Again and again?", at="q1$+0.2", until="a1", x=1400, y=480),
+        A("scratch", blocks=[("control", "forever", [("motion", "move [10] steps")])], x=220, y=250, w=700,
+          h=300, panel=False, scale=BIG, at="a1"),
+        A("thought", "Start at zero?", at="q2$+0.2", until="a2", x=1400, y=480),
+        A("scratch", blocks=[SET0], x=220, y=600, w=700, h=120, panel=False, scale=BIG, at="a2"),
+        A("thought", "Nobody can guess?", at="q3$+0.2", until="a3", x=1400, y=480),
+        A("scratch", blocks=[("operators", "pick random [1] to [10]")], x=220, y=800, w=700, h=120, panel=False,
+          scale=BIG, at="a3"),
+        A("aiden", x=1500, y=1080, s=0.5, moods={"q1": "thinking", "a1": "happy", "a3": "proud"}),
+    )),
+    # 7. the Bug-Hunt Relay (no fixes shown) ------------------------------------------------------------
+    Scene("j2-w05-s07", setting="sky", beats=(
+        B("Now, the Bug-Hunt Relay: three broken games, like three legs of a race.", speaker=AIDEN,
+          cue="relay", pause=0.5),
+        B("Leg one: Stuck at the Edge. The cat should walk back and forth forever.", speaker=AIDEN, cue="leg1",
+          pause=0.5),
+        B("Leg two: The Stuck Score. Each click on the ghost should add one.", speaker=AIDEN, cue="leg2",
+          pause=0.5),
+        B("Leg three: The Apple That Won't Pop. It should pop when the cat touches it.", speaker=AIDEN,
+          cue="leg3", pause=0.6),
+        B("Build each one, test it, and find the bug yourself. Fix one leg, get a sticker, and swap Driver!",
+          speaker=AIDEN, cue="sticker", pause=0.5),
+        B("Stuck? Read the should-do line again. What is different?", speaker=AIDEN, cue="hint", pause=0.6),
+        B("Still stuck? Ask: does this block run once, or again and again?", speaker=AIDEN, cue="hint2", pause=0.8),
+    ), actions=(
+        A("banner", "Bug-Hunt Relay", at="relay", color="navy"),
+        A("cards", items=["Stuck at the Edge", "The Stuck Score", "The Apple That Won't Pop"], x=200, y=300,
+          w=760, gap=150, reveal=["leg1", "leg2", "leg3"],
+          active=[("leg1", "leg2"), ("leg2", "leg3"), ("leg3", "sticker")]),
+        A("chip", "should do: walk back and forth", at="leg1@0.4", until="leg2", x=1420, y=380, color="white",
+          size=40),
+        A("chip", "should do: each click adds 1", at="leg2@0.4", until="leg3", x=1420, y=380, color="white",
+          size=40),
+        A("chip", "should do: pop when the cat touches it", at="leg3@0.4", until="sticker", x=1420, y=380,
+          color="white", size=36),
+        A("icons", items=[("star", "Sticker!", "sticker@0.5"), ("person", "Swap Driver", "sticker@0.8")],
+          at="sticker", x=1420, y=420, gap=300),
+        A("chip", "Once, or again and again?", at="hint2", x=960, y=870, color="yellow", size=42),
+        A("chip", "Hint: read the should-do line again", at="hint", until="hint2", x=960, y=870, color="yellow", size=42),
+    )),
+    # 8. wiggle break: forever freeze dance with an IF -------------------------------------------------------
+    Scene("j2-w05-s08", setting="workshop", beats=(
+        B("Wiggle break! Dance forever, but listen: if I say apple, jump!", speaker=AIDEN, cue="dance",
+          pause=0.8),
+        B("Banana!", speaker=AIDEN, cue="banana", pause=1.4),
+        B("No jump! Apple!", speaker=AIDEN, cue="apple", pause=1.4),
+        B("Jump! And now the music stops. Freeze, like a stopped project!", speaker=AIDEN, cue="freeze",
+          pause=2.0),
+        B("Beep! I am frozen!", speaker=PIXI, cue="pixi", pause=0.8),
+    ), actions=(
+        A("aiden", x=300, y=960, wave=[("dance", "banana"), ("apple", "freeze")],
+          moods={"start": "happy", "freeze": "surprised", "pixi": "happy"},
+          path=[("apple$", 300, 960), ("apple$+0.3", 300, 890), ("apple$+0.6", 300, 960)]),
+        A("pixi", x=620, y=760, beep=("dance", "freeze"), moods={"freeze": "surprised", "pixi": "happy"}),
+        A("chip", "If I say apple, jump!", at="dance@0.4", until="freeze", x=1300, y=320, color="orange",
+          size=46),
+        A("bigtext", "Banana!", at="banana", until="apple", x=1300, y=560, size=90, color="orange"),
+        A("bigtext", "Apple!", at="apple", until="freeze", x=1300, y=560, size=90, color="red"),
+        A("sfx", "boing", at="apple$+0.2"),
+        A("bigtext", "Freeze!", at="freeze@0.5", x=1300, y=560, size=90, color="blue"),
+    )),
+    # 9. My Best Game and the show-me checklist ---------------------------------------------------------
+    Scene("j2-w05-s09", setting="mint", beats=(
+        B("After the relay, keep your fixed leg three open, and turn it into My Best Game.", speaker=AIDEN,
+          cue="best", pause=0.5),
+        B("Make a score variable. Snap set score to zero under the green flag, above the forever.",
+          speaker=AIDEN, cue="set", pause=0.6),
+        B("Put change score by one inside the if.", speaker=AIDEN, cue="change", pause=0.6),
+        B("Then add your own idea: a new sound, a backdrop, or a different sprite to catch.", speaker=AIDEN,
+          cue="idea", pause=0.6),
+        B("Swap Driver and Helper when the timer rings.", speaker=AIDEN, cue="swap", pause=0.6),
+        B("Your grown-up may ask: show me where the forever is. Where does the score start?", speaker=AIDEN,
+          cue="showme", pause=0.6),
+        B("Not yet is a fine answer too. We are all still learning.", speaker=AIDEN, cue="notyet", pause=0.8),
+    ), actions=(
+        A("banner", "Exercise 5.3: My Best Game", at="best", color="green"),
+        A("scratch", "Two new blocks", blocks=[SET0, CHANGE1], x=150, y=320, w=860, h=330, scale=BIG,
+          at="set", reveal=["set@0.2", "change@0.2"], highlight=[(0, "set@0.4", "set$"), (1, "change@0.4", "change$")]),
+        A("chip", "under the green flag", at="set@0.6", until="idea", x=560, y=740, color="orange", size=42),
+        A("chip", "inside the if", at="change@0.4", until="idea", x=560, y=850, color="orange", size=42),
+        A("icons", items=[("music", "New sound", "idea@0.3"), ("game", "Backdrop", "idea@0.5"),
+                          ("star", "New sprite", "idea@0.7")], at="idea", until="showme", x=1400, y=420, gap=240),
+        A("grownup", x=1500, y=980, s=1.6, at="showme"),
+        A("bubble", "Show me!", x=1500, y=420, at="showme@0.2", until="notyet"),
+        A("chip", "Not yet  •  Getting there  •  Got it", at="notyet", x=1160, y=300, color="white", size=38),
+    )),
+    # 10. what did I get better at? -----------------------------------------------------------------
+    Scene("j2-w05-s10", setting="workshop", beats=(
+        B("Five weeks ago, we had never made a game. Today, you fix broken games by yourself!", speaker=AIDEN,
+          cue="five", pause=0.6),
+        B("What did you get better at?", speaker=AIDEN, cue="better", pause=3.0),
+        B("Maybe fixing bugs, finding blocks, taking turns, or being a good sport.", speaker=AIDEN, cue="maybe",
+          pause=0.6),
+        B("Getting better is not about being the fastest. It is about trying, fixing, and trying again.",
+          speaker=AIDEN, cue="trying", pause=0.5),
+        B("And we are kind about bugs: ours, and our friends'.", speaker=AIDEN, cue="kind", pause=0.6),
+        B("I got better at beeping!", speaker=PIXI, cue="pixi", pause=0.8),
+    ), actions=(
+        A("aiden", x=280, y=980, s=0.85, moods={"start": "proud", "better": "thinking", "maybe": "happy"},
+          chin=("better$", "maybe")),
+        A("pixi", x=560, y=800, s=0.7, ground=960, moods={"pixi": "proud"}),
+        A("thought", "I got better at...", at="better$+0.2", until="maybe", x=1260, y=420),
+        A("icons", at="maybe", x=1260, y=460, gap=260,
+          items=[("magnifier", "Fixing bugs", "maybe"), ("game", "Finding blocks", "maybe@0.3"),
+                 ("person", "Taking turns", "maybe@0.55"), ("heart", "Good sport", "maybe@0.8")]),
+        A("chip", "Try, fix, try again", at="trying@0.5", x=1260, y=750, color="green", size=46),
+        A("chip", "Be kind about bugs", at="kind", x=1260, y=865, color="pink", size=44),
+    )),
+    # 11. recap and next ---------------------------------------------------------------------------------
+    Scene("j2-w05-s11", setting="workshop", tail=0.8, beats=(
+        B("Say the detective steps with me!", speaker=AIDEN, cue="sayit", pause=0.4),
+        B("Test!", speaker=AIDEN, cue="w1", pause=1.2),
+        B("Look!", speaker=AIDEN, cue="w2", pause=1.2),
+        B("Change one thing!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
+        B("Be the computer on paper, run the Bug-Hunt Relay, then build My Best Game.", speaker=AIDEN,
+          cue="next", pause=0.6),
+        B("Then play your game for your grown-up, and say how it works.", speaker=AIDEN, cue="share", pause=0.5),
+        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
+    ), actions=(
+        A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),
+        A("pixi", x=480, y=860, s=0.62, ground=1000, moods={"start": "proud"}, beep="bye2"),
+        A("bigtext", "Test!", at="w1", until="w1>", y=560, size=90, color="blue"),
+        A("bigtext", "Look!", at="w2", until="w2>", y=560, size=90, color="purple"),
+        A("bigtext", "Change one thing!", at="w3", until="w3>", y=560, size=90, color="green"),
+        A("banner", "NEXT: Be the Computer, Bug-Hunt Relay, My Best Game", at="turn", color="green", size=46),
+        A("cards", items=["Be the Computer", "Bug-Hunt Relay", "My Best Game"], x=1000, y=300, w=640,
+          gap=120, reveal=["next@0.1", "next@0.45", "next@0.8"], at="next"),
+        A("chip", "Say how your game works", at="share", x=1320, y=760, color="sky", size=44),
+        A("confetti", at="bye", x=1200, y=420),
+    )),
+))

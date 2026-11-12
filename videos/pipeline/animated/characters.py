@@ -17,7 +17,7 @@ import math
 
 import cairo
 
-from .engine import C, blink, safe_scale, circle, clamp, ellipse, fill_rounded, glow, line, rounded_rect, set_color, shadow
+from .engine import C, blink, vertical_gradient, safe_scale, circle, clamp, ellipse, fill_rounded, glow, line, rounded_rect, set_color, shadow
 
 # Moods: "happy", "talk", "surprised", "confused", "proud", "thinking", "worried"
 
@@ -429,4 +429,234 @@ def draw_grown_up(ctx: cairo.Context, x: float, y: float, s: float, t: float) ->
     ctx.restore()
 
 
-__all__ = ["draw_rose", "draw_pixi", "draw_cat", "draw_grown_up", "rounded_rect"]
+
+# ---------------------------------------------------------------------------------------------
+# Aiden: the host of the junior videos (Grades 2-3), an eight-year-old coder, drawn from the
+# approved character sheet: a round friendly face, short brown hair with a soft dome, a short spiky
+# fringe and a shine on top, big brown eyes, light-brown brows, a little hook nose, pink cheeks, an
+# open smile, and a red hoodie (hood behind the neck, white drawstrings, a front pocket, ribbed cuffs).
+AIDEN = {
+    "skin": "#F4C69F",
+    "skin_shade": "#E6AD84",
+    "ear": "#EDB68C",
+    "ear_in": "#CC8E64",
+    "hair": "#865529",
+    "hair_dark": "#6E4320",
+    "hair_shine": "#B9875A",
+    "shirt": "#D8352F",
+    "shirt_dark": "#B32A27",
+    "collar": "#9E2322",
+    "string": "#F5EDE6",
+    "pants": "#3B4254",
+    "iris": "#7A4A26",
+    "pupil": "#24140A",
+    "lid": "#2A1A10",
+    "brow": "#8B5A36",
+    "nose": "#C98A62",
+    "cheek": "#F2A08C",
+    "mouth": "#8E3B32",
+    "tongue": "#E7837A",
+}
+AIDEN_LIFT, AIDEN_TORSO = 18, 6
+# Speech bubbles sit AIDEN_HEAD_TOP above his feet (s=1).
+AIDEN_HEAD_TOP = 520
+
+
+def draw_aiden(ctx: cairo.Context, x: float, y: float, s: float, t: float, mood: str = "happy",
+               talk: float = 0.0, wave: float = 0.0, point: float = 0.0, look: float = 0.0,
+               hand_on_chin: float = 0.0) -> None:
+    """Aiden standing with feet at (x, y). s=1 is about 480 px tall. Same poses as draw_rose."""
+    bob = math.sin(t * 2.4) * 3
+    ctx.save()
+    ctx.translate(x, y)
+    safe_scale(ctx, s, s)
+    shadow(ctx, 0, 0, 90, 15)
+    for side in (-1, 1):  # legs and sneakers
+        fill_rounded(ctx, side * 25 - 17, -116 - AIDEN_LIFT, 34, 108 + AIDEN_LIFT, 15, AIDEN["pants"])
+        fill_rounded(ctx, side * 29 - 29, -20, 58, 24, 12, C["white"], stroke=C["navy"], width=4)
+        line(ctx, side * 29 - 20, -12, side * 29 + 20, -12, AIDEN["shirt"], 4)
+    ctx.translate(0, bob - AIDEN_LIFT)
+    hx, hy = look * 5, -370
+    # the hood lies behind the neck and shoulders
+    _path(ctx, [(-70, -262), (-78, -312, -40, -330, 0, -330), (40, -330, 78, -312, 70, -262)])
+    _fill(ctx, AIDEN["collar"])
+    _path(ctx, [(-58, -264), (-62, -304, -32, -318, 0, -318), (32, -318, 62, -304, 58, -264)])
+    _fill(ctx, AIDEN["shirt_dark"])
+    # hoodie body: rounded shoulders, a little darker toward the ribbed hem, two soft fold lines
+    fill_rounded(ctx, -82, -266, 164, 160 + AIDEN_TORSO, 52, AIDEN["shirt"])
+    ctx.save()
+    rounded_rect(ctx, -82, -266, 164, 160 + AIDEN_TORSO, 52)
+    ctx.clip()
+    vertical_gradient(ctx, -84, -230, 168, 140, AIDEN["shirt"], AIDEN["shirt_dark"])
+    ctx.restore()
+    for side in (-1, 1):
+        line(ctx, side * 50, -236, side * 54, -150, AIDEN["shirt_dark"], 3, 0.7)
+    # front pocket and the ribbed hem band
+    fill_rounded(ctx, -46, -176, 92, 52, 16, AIDEN["shirt_dark"])
+    line(ctx, -44, -176, 44, -176, AIDEN["collar"], 3, 0.6)
+    ctx.save()
+    rounded_rect(ctx, -82, -266, 164, 160 + AIDEN_TORSO, 52)
+    ctx.clip()
+    ctx.rectangle(-84, -122 + AIDEN_TORSO, 168, 22)
+    _fill(ctx, AIDEN["collar"])
+    ctx.restore()
+    # neck and the hood's crossover neckline
+    fill_rounded(ctx, hx - 22, hy + 70, 44, 50, 14, AIDEN["skin_shade"])
+    ctx.new_path()
+    ctx.move_to(hx * 0.4 - 34, -272)
+    ctx.curve_to(hx * 0.4 - 26, -240, hx * 0.4 + 26, -240, hx * 0.4 + 34, -272)
+    set_color(ctx, AIDEN["collar"])
+    ctx.set_line_width(12)
+    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    ctx.stroke()
+    # two drawstrings with little tips
+    for side in (-1, 1):
+        sx = hx * 0.4 + side * 14
+        line(ctx, sx, -250, sx + side * 2, -204, AIDEN["string"], 4)
+        fill_rounded(ctx, sx + side * 2 - 3, -206, 6, 10, 3, AIDEN["string"])
+    # ears
+    for side in (-1, 1):
+        ellipse(ctx, hx + side * 80, hy + 12, 13, 18, AIDEN["ear"])
+        ellipse(ctx, hx + side * 81, hy + 12, 6, 10, AIDEN["ear_in"], 0.55)
+    # face: wide forehead, round cheeks and chin
+    _path(ctx, [(hx, hy - 78),
+                (hx + 58, hy - 78, hx + 82, hy - 40, hx + 80, hy + 10),
+                (hx + 78, hy + 58, hx + 46, hy + 92, hx, hy + 94),
+                (hx - 46, hy + 92, hx - 78, hy + 58, hx - 80, hy + 10),
+                (hx - 82, hy - 40, hx - 58, hy - 78, hx, hy - 78)])
+    _fill(ctx, AIDEN["skin"])
+    _aiden_hair(ctx, hx, hy)
+    _aiden_face(ctx, hx, hy, t, mood, talk, look)
+    # arms: short blue sleeves, then bare forearms
+    _aiden_arm(ctx, -72, -246, angle=_lerp(100, -14, hand_on_chin), bend=hand_on_chin)
+    if point > 0:
+        angle = _lerp(80, -12 + 3 * math.sin(t * 3), point)
+    else:
+        angle = _lerp(80, -55 + 22 * math.sin(t * 10), wave)
+    _aiden_arm(ctx, 72, -246, angle=angle, bend=0.0)
+    ctx.restore()
+
+
+def _aiden_arm(ctx, sx, sy, angle, bend):
+    rad = math.radians(angle)
+    length = 124 - 72 * bend
+    dx, dy = math.cos(rad), math.sin(rad)
+    ex, ey = sx + length * dx, sy + length * dy
+    line(ctx, sx, sy, ex, ey, AIDEN["shirt"], 36)  # long hoodie sleeve
+    line(ctx, sx + 0.86 * length * dx, sy + 0.86 * length * dy, ex, ey, AIDEN["collar"], 36,
+         cap=cairo.LINE_CAP_BUTT)  # ribbed cuff
+    circle(ctx, ex + 9 * dx, ey + 9 * dy, 18, AIDEN["skin"])
+
+
+def _aiden_hair(ctx, hx, hy):
+    """A soft dome over the top of the head, sides down to just above the ears, a short spiky
+    fringe across the forehead, and a light shine near the top."""
+    top = hy - 122
+    fringe = [(-76, -38), (-62, -50), (-48, -36), (-32, -49), (-16, -37), (0, -50), (16, -37),
+              (32, -49), (48, -36), (62, -50), (76, -38)]
+    pts = [(hx - 100, hy + 6), (hx - 114, hy - 42, hx - 100, top + 4, hx, top),
+           (hx + 100, top + 4, hx + 114, hy - 42, hx + 100, hy + 6),
+           (hx + 86, hy + 2), (hx + 80, hy - 30)]
+    for fx, fy in reversed(fringe):
+        pts.append((hx + fx, hy + fy))
+    pts.append((hx - 80, hy - 30))
+    pts.append((hx - 86, hy + 2))
+    _path(ctx, pts)
+    _fill(ctx, AIDEN["hair"])
+    # soft strokes into the fringe tufts, and the shine
+    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    for fx, fy in fringe[1::2]:
+        line(ctx, hx + fx * 0.9, hy - 74, hx + fx, hy + fy + 6, AIDEN["hair_dark"], 3, 0.5)
+    ctx.new_path()
+    ctx.move_to(hx - 46, top + 22)
+    ctx.curve_to(hx - 20, top + 12, hx + 22, top + 12, hx + 46, top + 22)
+    set_color(ctx, AIDEN["hair_shine"], 0.9)
+    ctx.set_line_width(7)
+    ctx.stroke()
+
+
+def _aiden_face(ctx, hx, hy, t, mood, talk, look):
+    open_amount = blink(t, seed=0.7)
+    if mood == "surprised":
+        open_amount = 1.0
+    eye_y = hy + 6
+    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    for side in (-1, 1):
+        ex = hx + side * 30
+        if open_amount > 0.25:
+            eh = 14 * open_amount + (2 if mood == "surprised" else 0)
+            ellipse(ctx, ex, eye_y, 15, max(eh, 1.5), C["white"])
+            ix = ex + look * 4
+            circle(ctx, ix, eye_y + 1, 10, AIDEN["iris"])
+            circle(ctx, ix, eye_y + 1, 5, AIDEN["pupil"])
+            circle(ctx, ix + 3.5, eye_y - 3, 3, C["white"])
+            # thick upper lid with a little flick at the outer corner
+            ctx.new_path()
+            ctx.move_to(ex - 16, eye_y + 1)
+            ctx.curve_to(ex - 9, eye_y - eh - 3, ex + 9, eye_y - eh - 3, ex + 16, eye_y + 1)
+            set_color(ctx, AIDEN["lid"])
+            ctx.set_line_width(4)
+            ctx.stroke()
+        else:
+            ctx.new_path()
+            ctx.move_to(ex - 15, eye_y)
+            ctx.curve_to(ex - 6, eye_y + 6, ex + 6, eye_y + 6, ex + 15, eye_y)
+            set_color(ctx, AIDEN["lid"])
+            ctx.set_line_width(4)
+            ctx.stroke()
+        lift = {"surprised": -8, "worried": -3, "confused": -7 if side > 0 else 0, "thinking": -5}.get(mood, 0)
+        tilt = {"worried": 5 * side, "confused": -5 * side if side > 0 else 0}.get(mood, 0)
+        by = eye_y - 26 + lift
+        ctx.new_path()
+        ctx.move_to(ex - 16, by + 4 + tilt)
+        ctx.curve_to(ex - 6, by - 4, ex + 6, by - 4, ex + 17, by + 2 - tilt)
+        set_color(ctx, AIDEN["brow"])
+        ctx.set_line_width(6)
+        ctx.stroke()
+    # a little hook nose
+    nx = hx + look * 4
+    ctx.new_path()
+    ctx.move_to(nx - 2, hy + 18)
+    ctx.curve_to(nx - 6, hy + 30, nx - 6, hy + 38, nx + 2, hy + 38)
+    ctx.curve_to(nx + 6, hy + 38, nx + 6, hy + 34, nx + 4, hy + 32)
+    set_color(ctx, AIDEN["nose"])
+    ctx.set_line_width(3.5)
+    ctx.stroke()
+    ellipse(ctx, hx - 48, hy + 36, 15, 10, AIDEN["cheek"], 0.6)
+    ellipse(ctx, hx + 48, hy + 36, 15, 10, AIDEN["cheek"], 0.6)
+    my = hy + 52
+    if talk > 0.05:
+        ellipse(ctx, hx, my + 4, 16 + 4 * talk, 5 + 13 * talk, AIDEN["mouth"])
+        ellipse(ctx, hx, my + 8 + 7 * talk, 9, 3 + 3 * talk, AIDEN["tongue"])
+        fill_rounded(ctx, hx - 11, my - 1 - 8 * talk, 22, 5, 2, C["white"])
+    elif mood == "surprised":
+        ellipse(ctx, hx, my + 4, 10, 12, AIDEN["mouth"])
+    elif mood in ("confused", "worried", "thinking"):
+        ctx.new_path()
+        ctx.move_to(hx - 14, my + 4)
+        ctx.curve_to(hx - 5, my - 1, hx + 5, my + 7, hx + 14, my + 2)
+        set_color(ctx, AIDEN["mouth"])
+        ctx.set_line_width(4.5)
+        ctx.stroke()
+    else:  # the open smile from the character sheet: a crescent with a row of teeth
+        w = 24 if mood == "proud" else 21
+        ctx.new_path()
+        ctx.move_to(hx - w, my)
+        ctx.curve_to(hx - w / 2, my + 14, hx + w / 2, my + 14, hx + w, my)
+        ctx.curve_to(hx + w / 2, my + 5, hx - w / 2, my + 5, hx - w, my)
+        _fill(ctx, C["white"])
+        ctx.new_path()
+        ctx.move_to(hx - w - 3, my - 3)
+        ctx.curve_to(hx - w / 2, my + 15, hx + w / 2, my + 15, hx + w + 3, my - 3)
+        set_color(ctx, AIDEN["mouth"])
+        ctx.set_line_width(3.5)
+        ctx.stroke()
+        ctx.new_path()
+        ctx.move_to(hx - w + 2, my + 1)
+        ctx.curve_to(hx - w / 2, my + 6, hx + w / 2, my + 6, hx + w - 2, my + 1)
+        set_color(ctx, AIDEN["mouth"], 0.6)
+        ctx.set_line_width(1.5)
+        ctx.stroke()
+
+
+__all__ = ["draw_rose", "draw_aiden", "draw_pixi", "draw_cat", "draw_grown_up", "rounded_rect"]

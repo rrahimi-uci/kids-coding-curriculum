@@ -402,6 +402,13 @@ def green_flag_button(ctx, x, y, r, pressed: float = 0.0) -> None:
 SITE_URL = "https://rrahimi-uci.github.io/kids-coding-curriculum/"
 SERIES = "Kids Coding"
 SUBTITLE = "with Rose and Pixi"
+BRANDS = {"main": ("Kids Coding", "with Rose and Pixi"), "junior": ("Kids Coding Junior", "with Aiden and Pixi")}
+
+
+def set_brand(track: str) -> None:
+    """Switch the logo and footer between the main series and the junior series."""
+    global SERIES, SUBTITLE
+    SERIES, SUBTITLE = BRANDS[track]
 
 
 def logo_mark(ctx, x, y, size, t: float = 9.0, start: float = 0.0) -> None:
@@ -439,7 +446,11 @@ def logo(ctx, x, y, s, t, start) -> None:
     fill_rounded(ctx, -490, -150, 1000, 300, 70, "#000000", 0.14)
     fill_rounded(ctx, -500, -160, 1000, 300, 70, C["white"])
     logo_mark(ctx, -455, -110, 200, t, start + 0.2)
-    text(ctx, SERIES, -215, -38, 118, C["ink"], bold=True, anchor="left")
+    size = 118
+    width, _ = text_size(SERIES, size, bold=True)
+    if width > 670:  # "Kids Coding Junior" is longer: shrink it to fit the white card
+        size = int(size * 670 / width)
+    text(ctx, SERIES, -215, -38, size, C["ink"], bold=True, anchor="left")
     text(ctx, SUBTITLE, -212, 66, 48, "#0072B2", bold=True, anchor="left")
     ctx.restore()
 
@@ -450,7 +461,7 @@ def footer(ctx, width: int, height: int, band: int) -> None:
     set_color(ctx, C["white"])
     ctx.fill()
     size = 26
-    label = f"{SERIES} with Rose and Pixi  •  {SITE_URL}"
+    label = f"{SERIES} {SUBTITLE}  •  {SITE_URL}"
     tw, _ = text_size(label, size, bold=False)
     mark = 30
     total = mark + 14 + tw
