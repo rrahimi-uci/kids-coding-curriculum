@@ -2,7 +2,7 @@
 """Build every curriculum PDF (standard + dyslexia-friendly editions).
 
     python3 tools/build.py                 # everything, both variants
-    python3 tools/build.py --level 1       # one level
+    python3 tools/build.py --level 1       # one level (keys are in curriculum.json)
     python3 tools/build.py --variant standard --only lesson-plans
     python3 tools/build.py --jobs 6
 
@@ -24,7 +24,10 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = {"1": "1-introduction", "2": "2-intermediate", "3": "3-advanced"}
+sys.path.insert(0, str(ROOT / "tools"))
+import curriculum  # noqa: E402  (tools/curriculum.py)
+
+LEVELS = {lv.key: lv.dir for lv in curriculum.levels()}  # active levels only
 VARIANTS = ("standard", "dyslexia")
 OVERFULL_PT = 5.0  # report lines wider than the text block by more than this (about 2 mm)
 
@@ -40,7 +43,7 @@ def find_documents(levels, only):
 
 
 def compile_one(tex: Path, variant: str, tag: str) -> tuple[Path, str, bool, str]:
-    level = next(p for p in tex.relative_to(ROOT).parts)
+    level = curriculum.level_of(tex).dir  # e.g. "1-introduction" or "junior/1-little-robots"
     base = ROOT / "build" / tag if tag else ROOT / "build"
     out_dir = base / "pdf" / variant / level
     aux_dir = base / "aux" / variant / level / tex.parent.relative_to(ROOT / level)

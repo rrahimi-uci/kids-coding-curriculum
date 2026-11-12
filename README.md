@@ -45,6 +45,12 @@ One calm, creative 60-minute session a week for children in Grades 4–5
 | [**2 · Intermediate**](2-intermediate/) | Games and small data-powered programs | Functions, lists, dictionaries, files, testing, and game design | **Arcade Game or Art Studio** · reference: *Star Catcher* |
 | [**3 · Advanced**](3-advanced/) | Larger programs that are easier to change | Classes, algorithms, Git, data, and simple AI | **Build Something Big** · reference: *Maze Muncher* |
 
+> **Younger children (Grades 2–3, ages 7–9):** a gentler **junior track** is
+> planned: three 10-week levels (*Little Robots*, *Game Makers*, *Bridge to
+> Python*) of unplugged games and Scratch, ending with a first look at Python
+> and leading into Level 1 above. See [junior/](junior/) and the
+> [junior syllabus](docs/JUNIOR-SYLLABUS.md). Its lessons are not written yet.
+
 <div align="center">
 
 **Create → explain → test → improve → share**
@@ -104,6 +110,8 @@ expected-behavior and checklist sections.
 1-introduction/        Level 1: Scratch, then Python turtle
 2-intermediate/        Level 2: functions, data, files, testing, and games
 3-advanced/            Level 3: OOP, algorithms, Git, data, and simple AI
+junior/                junior track for Grades 2-3 (planned; three 10-week levels)
+curriculum.json        which tracks and levels exist, their folders and week counts
 docs/                  syllabus, design decisions, standards, and authoring guide
 parents/               parent information evening deck, notes, and handout
 shared/                LaTeX class, color palette, and document helpers
@@ -194,11 +202,14 @@ make -C parents                    # parent deck, notes, and handout
 ```
 
 `make help` prints the complete command list. `LEVEL=1|2|3` narrows PDF and
-student-bundle commands; omit it to include all levels.
+student-bundle commands; omit it to include all levels. Level keys, folders
+and week counts come from [`curriculum.json`](curriculum.json); a level marked
+`planned` there is skipped by every command until its content exists.
 
 ## Documentation guide
 
 * [Syllabus](docs/SYLLABUS.md) — scope, sequence, goals, and spiral map
+* [Junior syllabus](docs/JUNIOR-SYLLABUS.md) — the planned Grades 2–3 track: levels, weeks, goals, and junior rules
 * [Design decisions](docs/DESIGN.md) — the language path and teaching choices
 * [Standards alignment](docs/STANDARDS.md) — CSTA and AI4K12 connections
 * [Authoring guide](docs/AUTHORING.md) — how to write lessons, exercises, and tests

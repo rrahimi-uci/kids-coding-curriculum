@@ -12,7 +12,7 @@ Guide includes. It contains:
     python3 tools/coverage.py          # regenerate all levels
     python3 tools/coverage.py --check  # exit 1 if a generated file is stale
 
-The goal list and descriptions come from docs/SYLLABUS.md.
+The goal list and descriptions come from each track's syllabus (see curriculum.json).
 """
 
 from __future__ import annotations
@@ -23,18 +23,26 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = {1: "1-introduction", 2: "2-intermediate", 3: "3-advanced"}
-ORDER = [f"week{n:02d}" for n in range(1, 13)] + ["buffer1", "buffer2"]
-LABEL = {**{f"week{n:02d}": str(n) for n in range(1, 13)}, "buffer1": "B1", "buffer2": "B2"}
+sys.path.insert(0, str(ROOT / "tools"))
+import curriculum  # noqa: E402  (tools/curriculum.py)
+
+LEVELS = curriculum.levels()  # active levels of every track
+# First letters of every goal prefix ("L" for L1.G2, "J" for J1.G2), as a regex class.
+P = "[" + "".join(sorted({lv.goal_prefix[0] for lv in curriculum.levels(include_planned=True)})) + "]"
+
+
+def label(name: str) -> str:
+    """week03 -> 3, buffer1 -> B1."""
+    return "B" + name[len("buffer"):] if name.startswith("buffer") else str(int(name[len("week"):]))
 
 
 def strip_comments(tex: str) -> str:
     return re.sub(r"(?<!\\)%.*", "", tex)
 
 
-def syllabus_goals(level: int) -> list[tuple[str, str, str]]:
-    text = (ROOT / "docs" / "SYLLABUS.md").read_text(encoding="utf-8")
-    rows = re.findall(rf"^\| (L{level}\.G\d) \| (.+?) \| (.+?) \|\s*$", text, re.M)
+def syllabus_goals(level: curriculum.Level) -> list[tuple[str, str, str]]:
+    text = (ROOT / level.syllabus).read_text(encoding="utf-8")
+    rows = re.findall(rf"^\| ({level.goal_prefix}\.G\d) \| (.+?) \| (.+?) \|\s*$", text, re.M)
     return rows
 
 
@@ -51,20 +59,20 @@ def objectives(tex: str) -> list[tuple[str, list[str]]]:
         for item in re.split(r"\\item\b", block)[1:]:
             text = " ".join(item.split())
             # expand ranges such as "L3.G1--L3.G9" (or an en dash) to every goal
-            for lv, a, b in re.findall(r"L(\d)\.G(\d)\s*(?:--|\u2013)\s*L\d\.G(\d)", text):
-                text = text.replace(f"L{lv}.G{a}", ", ".join(f"L{lv}.G{n}" for n in range(int(a), int(b))) + f", L{lv}.G{a}", 1)
-            goals = sorted(set(re.findall(r"L\d\.G\d", text)), key=lambda g: int(g[-1]))
-            text = re.sub(r"\s*\[L\d\.[^\]]*\]\s*\.?\s*$", "", text)
-            clean = re.sub(r"\s*\([^()]*L\d\.G\d[^()]*\)\s*\.?\s*$", "", text).strip()
+            for lv, a, b in re.findall(rf"({P}\d)\.G(\d)\s*(?:--|\u2013)\s*{P}\d\.G(\d)", text):
+                text = text.replace(f"{lv}.G{a}", ", ".join(f"{lv}.G{n}" for n in range(int(a), int(b))) + f", {lv}.G{a}", 1)
+            goals = sorted(set(re.findall(rf"{P}\d\.G\d", text)), key=lambda g: int(g[-1]))
+            text = re.sub(rf"\s*\[{P}\d\.[^\]]*\]\s*\.?\s*$", "", text)
+            clean = re.sub(rf"\s*\([^()]*{P}\d\.G\d[^()]*\)\s*\.?\s*$", "", text).strip()
             found.append((clean, goals))
     return found
 
 
-def build(level: int) -> str:
-    folder = ROOT / LEVELS[level] / "teaching-material" / "lessons"
+def build(level: curriculum.Level) -> str:
+    folder = level.path / "teaching-material" / "lessons"
     goals = syllabus_goals(level)
     lessons = []
-    for name in ORDER:
+    for name in level.session_names:
         path = folder / f"{name}.tex"
         if path.exists():
             tex = strip_comments(path.read_text(encoding="utf-8"))
@@ -79,7 +87,7 @@ def build(level: int) -> str:
     out.append("{\\small\\setlength{\\tabcolsep}{3pt}")
     out.append("\\begin{longtable}{@{}l" + "c" * cols + "@{}}")
     out.append("\\toprule")
-    out.append("Goal & " + " & ".join(LABEL[n] for n, _, _ in lessons) + "\\\\ \\midrule\\endhead")
+    out.append("Goal & " + " & ".join(label(n) for n, _, _ in lessons) + "\\\\ \\midrule\\endhead")
     for code, _desc, _std in goals:
         cells = []
         for _name, _title, objs in lessons:
@@ -92,9 +100,9 @@ def build(level: int) -> str:
     out.append("\\begin{longtable}{@{}p{1.1cm}p{0.78\\linewidth}p{1.6cm}@{}}")
     out.append("\\toprule Week & Objective & Goals\\\\ \\midrule\\endhead")
     for name, title, objs in lessons:
-        out.append(f"\\multicolumn{{3}}{{@{{}}l}}{{\\textbf{{{LABEL[name]}: {title}}}}}\\\\")
+        out.append(f"\\multicolumn{{3}}{{@{{}}l}}{{\\textbf{{{label(name)}: {title}}}}}\\\\")
         for i, (text, g) in enumerate(objs, 1):
-            out.append(f"{LABEL[name]}.{i} & {text} & {', '.join(g)}\\\\")
+            out.append(f"{label(name)}.{i} & {text} & {', '.join(g)}\\\\")
         out.append("\\midrule")
     out.append("\\bottomrule\\end{longtable}")
     return "\n".join(out) + "\n"
@@ -105,8 +113,8 @@ def main() -> int:
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     stale = []
-    for level, folder in LEVELS.items():
-        target = ROOT / folder / "teaching-material" / "generated" / "coverage.tex"
+    for level in LEVELS:
+        target = level.path / "teaching-material" / "generated" / "coverage.tex"
         content = build(level)
         if args.check:
             if not target.exists() or target.read_text(encoding="utf-8") != content:

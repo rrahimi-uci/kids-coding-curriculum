@@ -11,7 +11,10 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = ["1-introduction", "2-intermediate", "3-advanced"]
+sys.path.insert(0, str(ROOT / "tools"))
+import curriculum  # noqa: E402  (tools/curriculum.py)
+
+LEVELS = [lv.dir for lv in curriculum.levels()]
 
 
 def turtle_programs():

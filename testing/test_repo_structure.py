@@ -8,14 +8,26 @@ before a student or parent would notice.
 
 import py_compile
 import re
+import sys
 from pathlib import Path
 
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = ["1-introduction", "2-intermediate", "3-advanced"]
-WEEKS = [f"week{n:02d}" for n in range(1, 13)]
-BUFFERS = ["buffer1", "buffer2"]
+sys.path.insert(0, str(ROOT / "tools"))
+import curriculum  # noqa: E402  (tools/curriculum.py)
+
+# Active levels only (curriculum.json); a planned level has no content to check yet.
+LEVEL_INFO = {lv.dir: lv for lv in curriculum.levels()}
+LEVELS = list(LEVEL_INFO)
+
+
+def weeks(level: str) -> list[str]:
+    return LEVEL_INFO[level].week_names
+
+
+def buffers(level: str) -> list[str]:
+    return LEVEL_INFO[level].buffer_names
 
 LESSON_ENVS = ["objectives", "materials", "timeplan", "teacherscript", "analogy",
                "workedexample", "commonmistakes", "differentiation", "stretchchallenge",
@@ -49,8 +61,9 @@ def test_level_documents_exist(level):
     missing = [f for f in TEACHING if not (tm / f).is_file()]
     missing += [f"extras/{f}" for f in EXTRAS if not (tm / "extras" / f).is_file()]
     missing += [f"project/{f}" for f in PROJECT if not (ROOT / level / "project" / f).is_file()]
-    for folder, names in [("lessons", WEEKS + BUFFERS), ("workbook", WEEKS),
-                          ("homework", WEEKS), ("answers", WEEKS + ["assessments"])]:
+    w, b = weeks(level), buffers(level)
+    for folder, names in [("lessons", w + b), ("workbook", w),
+                          ("homework", w), ("answers", w + ["assessments"])]:
         missing += [f"{folder}/{n}.tex" for n in names if not (tm / folder / f"{n}.tex").is_file()]
     assert not missing, f"{level} is missing: {missing}"
 
@@ -58,7 +71,7 @@ def test_level_documents_exist(level):
 @pytest.mark.parametrize("level", LEVELS)
 def test_lessons_follow_the_template(level):
     problems = []
-    for name in WEEKS + BUFFERS:
+    for name in weeks(level) + buffers(level):
         path = ROOT / level / "teaching-material" / "lessons" / f"{name}.tex"
         if not path.exists():
             continue
@@ -89,7 +102,7 @@ def test_level_threads_are_present(level):
 def test_workbook_and_homework_shape(level):
     tm = ROOT / level / "teaching-material"
     problems = []
-    for week in WEEKS:
+    for week in weeks(level):
         wb, hw = tm / "workbook" / f"{week}.tex", tm / "homework" / f"{week}.tex"
         if wb.exists():
             tex = strip_comments(read(wb))

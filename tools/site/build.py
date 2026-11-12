@@ -30,6 +30,7 @@ from . import extras as extmod
 from . import parents as parentsmod
 from . import pdfs, syllabus, texconv
 from . import videos as videomod
+from tools import curriculum
 
 ROOT = Path(__file__).resolve().parents[2]
 GEN = ROOT / "site" / "src" / "generated"
@@ -113,7 +114,7 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
     # --- weeks
     weeks = []
     syl_weeks = {w["n"]: w for w in syl[n]["weeks"]}
-    for w in range(1, 13):
+    for w in range(1, curriculum.by_dir(d).weeks + 1):
         nn = f"{w:02d}"
         wb = ROOT / pub["workbook"].format(dir=d).replace("week[0-9][0-9]", f"week{nn}")
         hw = ROOT / pub["homework"].format(dir=d).replace("week[0-9][0-9]", f"week{nn}")

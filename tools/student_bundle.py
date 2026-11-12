@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Make a solution-free copy of the course for a child's Mac.
 
-    python3 tools/student_bundle.py                # all three levels
+    python3 tools/student_bundle.py                # every active level
     python3 tools/student_bundle.py --level 1      # one level
     python3 tools/student_bundle.py --out somewhere/
 
@@ -30,7 +30,11 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LEVELS = {"1": "1-introduction", "2": "2-intermediate", "3": "3-advanced"}
+sys.path.insert(0, str(ROOT / "tools"))
+import curriculum  # noqa: E402  (tools/curriculum.py)
+
+# Active levels only: a planned level has no exercises to copy yet.
+LEVELS = {lv.key: lv.dir for lv in curriculum.levels()}
 
 # Never copied, anywhere in the bundle.
 PRIVATE_NAMES = {"solution.py", "solution.md"}
