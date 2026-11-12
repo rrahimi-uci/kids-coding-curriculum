@@ -1,0 +1,1185 @@
+{
+ "schema_version": 1,
+ "track": "junior",
+ "level": 1,
+ "audience": "Grades 2-3 (ages 7-9), watched with a grown-up",
+ "series_title": "Kids Coding Junior with Aiden and Pixi",
+ "videos": [
+  {
+   "week": 1,
+   "slug": "robots-need-instructions",
+   "title": "Robots Need Instructions",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week01.tex",
+    "junior/1-little-robots/teaching-material/workbook/week01.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w01-s01",
+     "narration": "Hi! I'm Aiden. I'm eight years old, and I love making things. And this is my robot friend, Pixi! Beep boop! Hello, coders! I'm so happy to meet you! Welcome to Kids Coding! In this club, you will make your own animations and games. But first, I want to know about you. What do you like to make? Drawings? Songs? Stories? Those are all great ideas! Every answer is a good answer. Today, we start without a computer. We start with a robot!",
+     "on_screen_text": [
+      "MISSION: Help the robot reach the star",
+      "No computer today!"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s02",
+     "narration": "Every coder in our club has a nickname. A nickname is a pretend name. We use it instead of our real name. My coding nickname is Rocket Fox. And mine is Captain Bolt! Beep! What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda? Ask your grown-up to help you write it on a sticky note. That is your coding badge!",
+     "on_screen_text": [
+      "nickname = a pretend name",
+      "Rocket Fox",
+      "Captain Bolt",
+      "Nicknames only",
+      "My badge: Pixel Panda"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s03",
+     "narration": "Here is our second rule. Sometimes an app asks for things. Let's play a game! If an app asks for anything, put your hands on your head and shout: ask a grown-up! The app says: What is your name? Ask a grown-up! The app says: Can I take a photo? Ask a grown-up! Tap OK to buy gems! Ask a grown-up! Where do you live? Ask a grown-up! Beep! Great job! Those are our two rules: nicknames only, and when an app asks for anything, we stop and ask a grown-up.",
+     "on_screen_text": [
+      "Ask a grown-up!",
+      "Ask a grown-up!",
+      "Ask a grown-up!",
+      "Ask a grown-up!"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s04",
+     "narration": "A robot is a machine that follows instructions. Robots are very fast, but they cannot guess what we mean. Watch this. Pixi, go to the star! Does not compute. I need cards! See? A robot is like a friend wearing a blindfold. If we say: over there, it does not help. We have to give exact steps, one at a time, in the right order.",
+     "on_screen_text": [
+      "robot = a machine that follows instructions",
+      "Robots cannot guess",
+      "Over there? It does not help.",
+      "exact steps, in order"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s05",
+     "narration": "So here are our robot cards. FORWARD means: move one square ahead. TURN LEFT and TURN RIGHT mean: turn a quarter turn, on the spot. The robot's feet stay in the same square. A turn is not a step! Can you do it? Stand up. Turn right, a quarter turn, on the spot! Now turn left, back again. Great turning! Beep! Good robots!",
+     "on_screen_text": [
+      "FORWARD = one square ahead",
+      "TURN = a quarter turn, on the spot",
+      "Stand up and turn right!"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s06",
+     "narration": "When we put cards in a row, we make a program. A program is a list of exact steps, in order. Planning the steps to get a job done is called an algorithm. Let's plan one! The robot starts here, facing the far side. The star is two squares ahead, and one square to the right. Here is our plan: FORWARD, FORWARD, TURN RIGHT, FORWARD.",
+     "on_screen_text": [
+      "program = steps in order",
+      "algorithm = a plan of steps"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s07",
+     "narration": "Now let's read the cards together, one at a time. Say them with me! Forward! Forward! Turn right! Forward! The robot is on the star! Our program worked! Beep boop! I found the star! The robot did the cards one at a time, in order.",
+     "on_screen_text": [
+      "one at a time, in order"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s08",
+     "narration": "Quick quiz! What if we put TURN RIGHT first? Same cards, new order. Will the robot still reach the star? Let's test it! No! The robot ended up somewhere else. The same cards in a different order make a different path. The order matters!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "The order matters!"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s09",
+     "narration": "Uh oh. Time for a bug hunt! Ada wants the robot to reach the star in the far corner. Here are her cards. Let's test them. Beep! Off the grid! A bug is a mistake in a program. One card is in the wrong place. Which card is in the wrong place? TURN RIGHT! The robot turned too early. It should come after the second FORWARD. Let's move that one card, and test again. The robot reached the star! We found the bug, and we fixed it! Bug fixed! Beep boop!",
+     "on_screen_text": [
+      "BUG HUNT! The Wrong Card",
+      "A bug is a mistake in a program",
+      "TURN RIGHT: too early!",
+      "Bug found and fixed!"
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s10",
+     "narration": "Robot dance time! Stand up and be a robot. Do each card I call out. Ready? FORWARD! Stomp! TURN LEFT! TURN RIGHT! FORWARD! Stomp! Now power down. Slowly, slowly, all the way to sitting. Powering down. Beep... boop.",
+     "on_screen_text": [
+      "FORWARD!",
+      "TURN LEFT!",
+      "TURN RIGHT!",
+      "FORWARD!",
+      "Power down..."
+     ]
+    },
+    {
+     "scene_id": "j1-w01-s11",
+     "narration": "Say the new words with me! Program! Algorithm! Bug! A program is exact steps, in order. An algorithm is the plan. A bug is a mistake we can fix. Now it's your turn, with a grown-up. Your grown-up is the robot! Play Parent Robot, fix The Wrong Card, then plan your own path to the star. And remember our rules: nicknames only, and ask a grown-up. Next week, we meet Scratch. See you then. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Program!",
+      "Algorithm!",
+      "Bug!",
+      "program = exact steps, in order",
+      "algorithm = the plan",
+      "bug = a mistake we can fix",
+      "NEXT: Parent Robot"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 2,
+   "slug": "meet-scratch",
+   "title": "Meet Scratch",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week02.tex",
+    "junior/1-little-robots/teaching-material/workbook/week02.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w02-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, we were robots. We followed exact steps, one card at a time. Today, we give steps to a computer instead. We will use an app called Scratch, and we will make a cat talk, meow and move! Are you ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Make the cat talk"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s02",
+     "narration": "Let's warm up with a puppet show. Here are three cards: say hello, move three steps, make a sound. Pixi reads the cards from top to bottom, and the cat does each one. Say hello! Move three steps! Make a sound! Now watch. I push one card away, so it is not in the line. Does the cat still do it? No! A card that is not in the line is not part of the show. Remember that. It will help us later.",
+     "on_screen_text": [
+      "card not in the line = not in the show"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s03",
+     "narration": "This is Scratch. The cat is called a sprite. A sprite is a character that can act. The white space is the stage. That is where the show happens. On the left are the blocks. Each color is a different kind of block. Up here is the green flag. When we click it, the show starts! And the red stop sign stops the show. Can you point to the sprite on your screen? Yes! The cat is the sprite.",
+     "on_screen_text": [
+      "sprite = a character",
+      "stage = where the show happens",
+      "blocks",
+      "green flag = start",
+      "stop sign = stop",
+      "the cat is the sprite!"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s04",
+     "narration": "Scratch blocks are like puzzle pieces. They have a bump on the bottom and a dent on top, so they click together. When blocks click together, they make a script. A script runs from top to bottom, one block after another, like the puppet show cards. Here is a top tip. Drag a block slowly. When you see a gray shadow, let go. Click! It snaps on. Click, click, click!",
+     "on_screen_text": [
+      "bump + dent = click!",
+      "script = blocks that click together",
+      "top to bottom",
+      "Wait for the gray shadow"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s05",
+     "narration": "Quick quiz! Look at this script. What will the cat do first? It says Hi first, because the say block is at the top. Then it meows. Then it moves. Top to bottom, every time!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "1. say Hi!",
+      "2. meow",
+      "3. move"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s06",
+     "narration": "Let's build our first script together. It is called Hello Cat. First, click the yellow Events circle, and drag in: when green flag clicked. Next, click the purple Looks circle. Snap on: say Hello for two seconds. Then type: Hi! Then the pink Sound circle. Snap on: play sound Meow until done. Last, the blue Motion circle. Snap on: move ten steps, and change ten to fifty. Now, click the green flag! Our script works! The cat talks, meows and moves. Beep! Hooray!",
+     "on_screen_text": [
+      "Exercise 2.1: Hello Cat",
+      "Events: yellow",
+      "Looks: purple",
+      "Sound: pink",
+      "Motion: blue"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s07",
+     "narration": "What do you think happens if we click the green flag again? The cat says Hi, meows, and moves fifty more steps. Every click moves it a little further. If the cat walks to the edge, that is OK. Drag the cat back to the middle with your mouse. It can never really get lost.",
+     "on_screen_text": [
+      "Every click: a little further",
+      "Drag the cat back"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s08",
+     "narration": "Uh oh. Time for a bug hunt! Kai built this script. The cat says Hi and meows, but it does not move. A bug is not a problem. A bug is a clue! Let's be detectives. Look closely at the blocks. Is every block snapped on? Look! The move block is not touching the others. It is like the card we pushed out of the puppet show. It is not part of the script, so it never runs. Let's drag it up until it clicks on. Now we test it again. It moves! We fixed the bug! Detective Aiden!",
+     "on_screen_text": [
+      "BUG HUNT! The Stuck Cat",
+      "A bug is a clue!",
+      "Is every block snapped on?",
+      "Not snapped on = never runs"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s09",
+     "narration": "Now make it yours! Click the white oval in the say block, and type new words. Use a nickname, like Pixel Panda, never your real name. You can click the little arrow on the sound block and pick a different sound. Or change fifty to a bigger number. What do you think will happen? The cat moves further in one go!",
+     "on_screen_text": [
+      "Nicknames only"
+     ]
+    },
+    {
+     "scene_id": "j1-w02-s10",
+     "narration": "While you code, look after your body. Sit up tall, hold the mouse gently, and keep drinks away from the computer. Every little while, look far away, out of a window, to rest your eyes. Let's do a wiggle break together! Stand up, shake your hands, and roll your shoulders. Wiggle, wiggle, beep!",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j1-w02-s11",
+     "narration": "Say the new words with me! Sprite! Stage! Script! The sprite is the character. The stage is where it acts. Blocks click together into a script, and the green flag starts it. Now it's your turn, with a grown-up. Build Hello Cat, then fix the Stuck Cat, then show your partner. Remember: wait for the gray shadow, then let go. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Sprite!",
+      "Stage!",
+      "Script!",
+      "sprite • stage • script",
+      "green flag = start",
+      "NEXT: Hello Cat and The Stuck Cat",
+      "Wait for the gray shadow"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 3,
+   "slug": "bugs-are-clues",
+   "title": "Bugs Are Clues",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week03.tex",
+    "junior/1-little-robots/teaching-material/workbook/week03.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w03-s01",
+     "narration": "Hi, coders! It's me, Aiden, and my robot friend, Pixi. Beep boop! Hello again! Last week, we made the cat talk, meow and move in Scratch. Today, we become bug detectives! A bug is a mistake in a program. And here is a secret: a bug is not bad news. A bug is a clue! Grab your magnifying glass. Let's go!",
+     "on_screen_text": [
+      "MISSION: Be a bug detective",
+      "bug = a mistake in a program",
+      "A bug is a clue!"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s02",
+     "narration": "Let's warm up. Here is Pixi's plan for getting dressed. Uh oh. Somebody swapped two cards! Watch closely. Does Pixi do the plan? Shoes on! Now socks... over my shoes? Beep? Ha ha! What was different from the plan? The shoes came before the socks! That was a bug: steps in the wrong order. We swap the two cards back. Socks first, then shoes!",
+     "on_screen_text": [
+      "Bug: steps in the wrong order"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s03",
+     "narration": "Now Pixi does the plan super fast! Socks, shoes, hat, bye! Did you see Pixi put on the hat? Not really! It was too fast to see. So we put a WAIT card between the steps. WAIT means: stop, and count to one. Count with me! Socks, one. Shoes, one. Hat, one. Wave! Now we can see every step. Today, Scratch has a wait block too.",
+     "on_screen_text": [
+      "WAIT = stop and count to one",
+      "Now we see every step!"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s04",
+     "narration": "Every coder finds bugs, every day. Even grown-up coders! When we find a bug, we do three things. Count them on your fingers! One: test. Click the green flag and watch. Two: look. What happened? What did we want to happen? Three: change one thing. Then test again. Finding and fixing bugs is called debugging. Test, look, change one thing! Beep!",
+     "on_screen_text": [
+      "Every coder finds bugs",
+      "debugging = finding and fixing bugs"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s05",
+     "narration": "Let's build a script called Ready, Set, Go! First, the yellow Events circle. Drag in: when green flag clicked. Next, the purple Looks circle. Find the plain say block, the one with no seconds. Snap it on, and type: Ready. Snap on two more plain say blocks. Type: Set. And: Go! Last, the blue Motion circle. Snap on: glide one second to random position. The cat should say Ready, then Set, then Go!",
+     "on_screen_text": [
+      "Exercise 3.1: Ready, Set, Go!",
+      "Events: yellow",
+      "Looks: purple",
+      "Use the plain say block",
+      "Motion: blue",
+      "Ready, then Set, then Go!"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s06",
+     "narration": "Step one: test. Click the green flag, and watch closely! Step two: look. Did you see Ready? Did you see Set? No! The cat only said Go! The computer is so fast that it said all three words in a blink. It is like a flip book. If you flip it really fast, you only see the last page. That is our clue!",
+     "on_screen_text": [
+      "Too fast to see!",
+      "Clue: the computer is very fast"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s07",
+     "narration": "Step three: change one thing. Click the orange Control circle. Drag wait one seconds in between say Ready and say Set. Test again! Now we see Ready, then Go! Better! But Set is still too fast. Another clue! So we snap another wait between say Set and say Go! Test! Ready, set, go! The cat dashes off! Woo-hoo! Beep!",
+     "on_screen_text": [
+      "Control: orange",
+      "Set is still too fast",
+      "wait = see every step"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s08",
+     "narration": "Quick quiz! This script says Hi, and then Bye. There is no wait. What will we see when we click the green flag? Only Bye! The computer is too fast to show Hi. A wait block between them fixes it.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "Only Bye!",
+      "Put a wait in between"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s09",
+     "narration": "Time for a bug hunt! Sam's cat should sleep, then wake up, then walk. Here is Sam's script. Test! Look: the cat said good morning, walked, and then fell asleep! Which step is in the wrong place? The think Zzz block! The cat should sleep first. Change one thing: drag the bottom block up, and drop it right under the green flag block. Test again! Zzz, good morning, and off it goes! Like Pixi's socks and shoes: the order matters. Detective Aiden!",
+     "on_screen_text": [
+      "BUG HUNT! The Sleepy Cat",
+      "Asleep at the end?",
+      "Sleep first!",
+      "The order matters"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s10",
+     "narration": "Bug detectives use kind words. When you find a bug in your partner's work, you say: I think I found a clue! When your partner finds a bug in your work, you say: Thanks! Let's test it. We never laugh at a bug. Bugs happen to everyone. Say it with me: I think I found a clue! Thanks! Let's test it!",
+     "on_screen_text": [
+      "I think I found a clue!",
+      "Thanks! Let's test it!"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s11",
+     "narration": "Wiggle break! Let's be slow-motion robots. Stand up! When I say move, wiggle like a robot. When I say wait, freeze! Move! Wait! Move! Wait! One long wait. Freeze, two, three, four, five. Great freezing! You can sit down. Beep! Unfreeze!",
+     "on_screen_text": [
+      "MOVE!",
+      "WAIT!",
+      "MOVE!",
+      "WAIT!"
+     ]
+    },
+    {
+     "scene_id": "j1-w03-s12",
+     "narration": "Say the detective steps with me! Test! Look! Change one thing! A bug is a clue. And a wait block helps us see every step. Now it's your turn, with a grown-up. Build Ready, Set, Go! Then fix The Sleepy Cat. Then make the cat tell a joke, with a wait in the middle. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Test!",
+      "Look!",
+      "Change one thing!",
+      "A bug is a clue",
+      "wait = see every step",
+      "NEXT: Ready, Set, Go! and The Sleepy Cat"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 4,
+   "slug": "repeat-it",
+   "title": "Repeat It!",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week04.tex",
+    "junior/1-little-robots/teaching-material/workbook/week04.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w04-s01",
+     "narration": "Hi, coders! It's Aiden and Pixi again! Beep boop! Hello! Last week, we were bug detectives: test, look, change one thing. Today, we learn a coding superpower. It is called repeat! And we will make a ballerina dance. Are you ready to dance?",
+     "on_screen_text": [
+      "test • look • change one thing",
+      "repeat",
+      "MISSION: Make the ballerina dance"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s02",
+     "narration": "Let's warm up with a dance. Stand up! Here are our dance cards, the long way. Dance with me! Stomp, stomp, clap! Stomp, stomp, clap! Stomp, stomp, clap! Phew! That was a lot of cards! Do you see a part that happens again and again? Yes! Stomp, stomp, clap. Three times!",
+     "on_screen_text": [
+      "9 cards!",
+      "stomp, stomp, clap: 3 times"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s03",
+     "narration": "So we put stomp, stomp, clap inside a loop, with a REPEAT card on top. REPEAT 3 says: do the steps inside the loop three times. It is the same dance, with fewer cards! Now, what if the number is ten? Stomp, stomp, clap, on and on and on! Too many! And what if it is one? The dance is over before it starts. Too few! Three is the right number. Beep!",
+     "on_screen_text": [
+      "3 cards, not 9!",
+      "Too many!",
+      "Too few!",
+      "Right number!"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s04",
+     "narration": "Scratch has a repeat block too. It is in the orange Control circle. It looks like a big letter C, like a hug. Can you make a C with your hand? The blocks inside the C run again and again. The number says how many times. It's like brushing your teeth. A grown-up does not say: brush, brush, brush, brush, brush. They say: brush ten times! That is a repeat.",
+     "on_screen_text": [
+      "a big letter C",
+      "inside = again and again",
+      "the number = how many times",
+      "brush, brush, brush, brush...",
+      "brush 10 times!"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s05",
+     "narration": "Here is one more new word: costume. Sprites have costumes. A costume is a different picture of the same sprite, like a different pose. Watch Pixi change poses, again and again. It looks like Pixi is moving! That is called animation, like a cartoon. Beep! I'm a cartoon!",
+     "on_screen_text": [
+      "costume = a different picture of the same sprite",
+      "1",
+      "2",
+      "3",
+      "4",
+      "animation = changing costumes again and again"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s06",
+     "narration": "Let's build Dance, Ballerina! First, click Choose a Sprite, the round cat button under the stage, and pick Ballerina. Click the Costumes tab. Look: she has four costumes. Four dance moves! Then click the Code tab. Now, the yellow Events circle: when green flag clicked. Let's try the long way. Purple Looks: next costume. Orange Control: wait one seconds. And again. Pixi will be our ballerina. Click the flag! Two moves. For four moves, we would need eight blocks! There is a shorter way. Drag these blocks back to the left. That deletes them.",
+     "on_screen_text": [
+      "Exercise 4.1: Dance, Ballerina!",
+      "Choose a Sprite: Ballerina",
+      "4 costumes = 4 dance moves",
+      "Ballerina",
+      "8 blocks? Too many!"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s07",
+     "narration": "Here is the repeat way. From orange Control, drag repeat ten under the green flag block. Drag next costume into the mouth of the C. Then wait one seconds under it, still inside. Now change ten to four, for four moves. Click the green flag, and count her moves with me! One, two, three, four! Four moves, with only three blocks! She ends in the pose where she started. Beep! I love to dance!",
+     "on_screen_text": [
+      "Control: orange",
+      "inside the C",
+      "10 → 4",
+      "Ballerina",
+      "1",
+      "2",
+      "3",
+      "4"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s08",
+     "narration": "Quick quiz! This repeat says three, around play sound Meow. How many meows will we hear? Three meows! The repeat says three. Now I want five meows. What do I change? Change the three to five! Meow, meow, meow, meow, meow!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "3 meows",
+      "3 → 5"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s09",
+     "narration": "Bug hunt time! Leo wants his cat to meow three times. Here is Leo's script. Click the cat first, so the script goes on the cat. Test! Count the meows with me! Ten meows! Too many! The red stop sign can stop it early. Which number do we change? The number in the repeat! Change ten to three. Test again! One, two, three meows. Bug fixed! Like our dance with ten: too many. Ahh, nice and quiet. Beep!",
+     "on_screen_text": [
+      "BUG HUNT! The Noisy Cat",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "Too many!",
+      "10 → 3",
+      "1",
+      "2",
+      "3",
+      "3 meows!"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s10",
+     "narration": "When you code with a partner, the timer decides whose turn it is. Not who is bigger, older or faster. The timer! When the timer runs out, the Driver lets go of the mouse and says: your turn! And the Helper says: thanks! Helpers keep their hands in their lap, and point with a finger. Nobody grabs. Let's practice. Say it with me: your turn! Thanks!",
+     "on_screen_text": [
+      "Nobody grabs",
+      "Your turn! Thanks!"
+     ]
+    },
+    {
+     "scene_id": "j1-w04-s11",
+     "narration": "Say the new words with me! Repeat! Costume! Animation! A repeat does the blocks inside it again, as many times as the number says. Now it's your turn, with a grown-up. Make the ballerina dance, fix the Noisy Cat, then check Mei's ballerina: too many, or too few? See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Repeat!",
+      "Costume!",
+      "Animation!",
+      "repeat = again, as many times as the number",
+      "NEXT: Dance, Ballerina! and The Noisy Cat",
+      "Swap on the timer"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 5,
+   "slug": "play-day-and-show-me",
+   "title": "Play Day and Show Me",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week05.tex",
+    "junior/1-little-robots/teaching-material/workbook/week05.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w05-s01",
+     "narration": "Hi, coders! Guess what? Today is Play Day! Play Day! Beep beep, hooray! Today, we practice everything we know: steps in order, repeat, and fixing bugs. Then you make your very best show, and show a grown-up what you can do. It is not a test. It is play! Let's go!",
+     "on_screen_text": [
+      "MISSION: Play Day!",
+      "Not a test. It is play!"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s02",
+     "narration": "First, an arrow maze! Remember our robot cards from week one? FORWARD is one square ahead. TURN LEFT and TURN RIGHT are a quarter turn, on the spot. Here is a challenge card. Pixi starts here, facing up. There is the star. And this is a tree. Robots cannot walk on trees! Which cards will take Pixi to the star?",
+     "on_screen_text": [
+      "a quarter turn, on the spot",
+      "tree: no walking here!"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s03",
+     "narration": "Let's try: TURN RIGHT, FORWARD, TURN LEFT, FORWARD, FORWARD. Pixi walks the cards, one at a time. Pixi is on the star, and did not step on the tree! Beep! Star reached! If your robot misses, find the wrong card, and change only that one.",
+     "on_screen_text": [
+      "Change only the wrong card"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s04",
+     "narration": "Quick quiz! Pixi is facing up. The next card says TURN RIGHT. Will Pixi move to a new square? No! Pixi turns a quarter turn, on the spot. The feet stay in the same square. Only FORWARD moves to a new square.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "A turn is on the spot"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s05",
+     "narration": "Next, bugs! Remember our detective steps? Test: click the flag and watch. Look: what did we want, and what happened? Change one thing, then test again. It's like a doctor's check-up. A doctor does not guess. They look, they listen, they try one thing, and they check again. Bug detectives do the same!",
+     "on_screen_text": [
+      "A doctor does not guess"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s06",
+     "narration": "Watch me fix a tiny bug. I want my cat to meow. Yellow Events: when green flag clicked. Pink Sound: play sound Meow until done. But I pick Pop in the list, on purpose. Test! Look: I wanted a meow. I heard a pop! The sound block is the clue. Change one thing: click the little arrow in the sound block, and pick Meow. Test again! Meow! Bug fixed. That is how the relay works.",
+     "on_screen_text": [
+      "Sound: pink",
+      "wanted: meow • heard: pop",
+      "Bug fixed!"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s07",
+     "narration": "Now, the bug-hunt relay! There are three broken projects, like three legs of a race. Each card says what the project should do. You build it exactly as you see it, then test, look, and change one thing. Fix one leg, get a sticker, then swap Driver! Let's do Leg one together.",
+     "on_screen_text": [
+      "BUG HUNT! The relay"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s08",
+     "narration": "Leg one: The Quiet Cat. It should say hi and meow. Test! Look: the cat says hi, but there is no meow. Is every block touching? No! The sound block is not snapped on. Let's drag it until it clicks. Test again! Hi, and meow! One sticker for us! Beep! Swap Driver!",
+     "on_screen_text": [
+      "Leg 1: The Quiet Cat",
+      "Not snapped on"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s09",
+     "narration": "Legs two and three are for you and your partner to fix! Stuck? Read the should-do line again. What is different? Then, build your very best show. It needs the green flag, and a repeat. Here is one idea. Watch! Now tell your grown-up what your script does. My script makes the cat say watch me, walk four little steps, and say ta-da!",
+     "on_screen_text": [
+      "Legs 2 and 3: your turn!",
+      "Read the should-do line again",
+      "Exercise 5.3: My Best Show",
+      "green flag + repeat",
+      "My script makes the cat..."
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s10",
+     "narration": "What makes a project fun for everyone who sees it? Kind words in the speech bubbles. Sounds that are not too loud or too long. Remember Too Many Meows! Everyone gets a turn to click the flag. And nicknames only, so everyone stays safe. Do you agree? Show me a big thumbs up!",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j1-w05-s11",
+     "narration": "Wiggle break! Robot freeze dance. Stand up! Walk like a stiff robot. When you hear bug, freeze! When you hear fixed, walk again. Robot walk! Bug! Fixed! Bug! Fixed! Now look far out of a window, and count to five. Rest your eyes.",
+     "on_screen_text": [
+      "Robot walk!",
+      "BUG! Freeze!",
+      "Fixed!",
+      "BUG! Freeze!"
+     ]
+    },
+    {
+     "scene_id": "j1-w05-s12",
+     "narration": "Say what we practiced with me! Steps in order! Repeat! Fix the bug! Now it's your turn, with a grown-up. Solve the arrow maze, run the bug-hunt relay, then build your best show and say what it does. Color one star for each relay leg you fix. Not yet is OK. Every coder keeps practicing. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Steps in order!",
+      "Repeat!",
+      "Fix the bug!",
+      "NEXT: Arrow Maze, Relay and My Best Show",
+      "Not yet is OK!"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 6,
+   "slug": "when-i-click",
+   "title": "When I Click…",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week06.tex",
+    "junior/1-little-robots/teaching-material/workbook/week06.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w06-s01",
+     "narration": "Hi, coders! It's Aiden and Pixi! Beep boop! Hello! So far, every script we made starts with the green flag. Today, we learn two new ways to start a script: a click on a sprite, and a key on the keyboard! Click the cat, and it talks. Press a key, and it moves. Let's go!",
+     "on_screen_text": [
+      "MISSION: Make the cat listen"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s02",
+     "narration": "Let's warm up with a game. Stand up! This card is a little script. The top part says WHEN. The robot waits until that thing happens. When I clap, you jump. When I stomp, you spin. Ready? Clap! Stomp! Clap! You listened, and did the right action. Great robots!",
+     "on_screen_text": [
+      "CLAP!",
+      "STOMP!",
+      "CLAP!"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s03",
+     "narration": "Now each robot gets its own card. Ada only listens for the clap. Sam only listens for the stomp. Clap! Only Ada jumps. Each robot has its own scripts. Last one. Banana! What happens? Nothing! No card listens for banana, so nothing happens. Remember that!",
+     "on_screen_text": [
+      "Ada jumps!",
+      "Sam waits",
+      "BANANA!",
+      "No card for banana: nothing happens"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s04",
+     "narration": "In our game, the clap was an event. An event is something that happens. In Scratch, events start scripts. We already know one: the green flag. Today, we learn two more: when this sprite clicked, and when space key pressed. They are all in the yellow Events circle, and they all have a round top, like a hat. It's like a doorbell. When the doorbell rings, someone goes to the door. Nobody goes when the phone rings. An event block waits, and runs only when its own event happens.",
+     "on_screen_text": [
+      "event = something that happens",
+      "Events: yellow, round top like a hat",
+      "It waits for its own event"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s05",
+     "narration": "Let's build Click the Cat. Click the yellow Events circle. Drag in: when this sprite clicked. Then the pink Sound circle. Snap on: play sound Meow until done. Then the purple Looks circle. Snap on: say Hello for two seconds, and type: That tickles! Look: no green flag block this time!",
+     "on_screen_text": [
+      "Exercise 6.1: Click the Cat",
+      "Events: yellow",
+      "Sound: pink",
+      "Looks: purple",
+      "No green flag!"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s06",
+     "narration": "Now, do not click the green flag. Click the cat on the stage! Meow! That tickles! The script waited for its event: a click on the cat. Click quickly. If you hold the mouse down and move, you drag the cat instead. Hee hee! Beep!",
+     "on_screen_text": [
+      "Click the cat!",
+      "It waited for a click",
+      "Click quickly, don't drag"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s07",
+     "narration": "Quick quiz! If we click the green flag, will the cat say: That tickles? Let's test it. No! This script does not wait for the flag. It waits for a click on the cat. Every hat block waits for its own event.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "Nothing happens!",
+      "Each hat waits for its own event"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s08",
+     "narration": "Now a key! From yellow Events, drag in: when space key pressed. From purple Looks, snap on: next costume. Click the stage once, then press the space bar, a few times. Every press, the cat changes its costume, like a new pose! If a key does nothing, click once on the stage and try again.",
+     "on_screen_text": [
+      "space",
+      "space",
+      "space",
+      "next costume = a new pose",
+      "Click the stage, then press"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s09",
+     "narration": "Bug hunt! Kai's plan: click the Ballerina, and she says Hi. Press space, and she dances. Pixi is our Ballerina again. Test! Click the Ballerina. Nothing. Press space. Nothing again! Two clues. Let's be detectives. When we click a sprite in the sprite list, we see only that sprite's scripts. Let's click the cat. Look! The click script is in the cat's code. So which sprite talks when we click it? The cat! The script is under the wrong sprite. Fix: drag the script onto the Ballerina in the sprite list, so it copies. Then drag the cat's copy back to the blocks, to delete it.",
+     "on_screen_text": [
+      "BUG HUNT! The Mixed-Up Ballerina",
+      "Selected: Ballerina",
+      "Selected: Cat",
+      "Selected: Ballerina",
+      "space",
+      "Wrong sprite!",
+      "Bug 1 fixed"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s10",
+     "narration": "Now the Ballerina's dance. It says: when a key pressed. We pressed space. Does any script listen for space? No! It is like banana in our game. Nobody listens for it. Fix: click the little arrow, and pick space. Test again! Click the Ballerina. Press space! She says Hi, and she dances! Two bugs fixed. I'm a dancing detective! Beep!",
+     "on_screen_text": [
+      "Selected: Ballerina",
+      "a is not space!",
+      "space",
+      "Two bugs fixed!"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s11",
+     "narration": "Our sprites say nicknames, like Captain Fluff, or Zoom. Our projects never show our real names, where we live, or photos of us. Scratch can take photos with the camera, and upload pictures. We do not use those buttons. Want a sprite that looks like you? Draw one, or pick one from the library. And if an app asks for your name or a photo, stop and ask a grown-up. What nickname would your sprite like?",
+     "on_screen_text": [
+      "Captain Fluff"
+     ]
+    },
+    {
+     "scene_id": "j1-w06-s12",
+     "narration": "Three ways to start a script. Say them with me! Green flag! Click! Key! Each hat block waits for its own event, on its own sprite. Now it's your turn, with a grown-up. Build Click the Cat, then Keyboard Cat, then fix The Mixed-Up Ballerina. Then give your cat a nickname! See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Green flag!",
+      "Click!",
+      "Key!",
+      "Each hat waits for its own event",
+      "NEXT: Click the Cat and Keyboard Cat",
+      "Nicknames only"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 7,
+   "slug": "two-sprites-talk",
+   "title": "Two Sprites Talk",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week07.tex",
+    "junior/1-little-robots/teaching-material/workbook/week07.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w07-s01",
+     "narration": "Hi, coders! It's me, Aiden, and my robot friend, Pixi. Beep boop! Hello again! Last week, a click or a key could start our code. Today, we put two sprites on the stage, and they talk to each other. But they must take turns, like good friends do. Are you ready? Let's go!",
+     "on_screen_text": [
+      "flag • click • key",
+      "MISSION: Two sprites take turns to talk",
+      "take turns"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s02",
+     "narration": "Let's warm up with a little play. I am the Cat, and Pixi is the Ballerina. We each have a SAY card. When the green flag waves, we both do our card. Ready? Go! Hi, Ballerina! Hi, Cat! Oops! We talked at the same time. Could you hear us both? Not really! Let's give Pixi a WAIT 2 card, on top of her SAY card. Wait 2 means: count two slow seconds. Count with me! One banana, two banana. Go again! Hi, Ballerina! Hi, Cat! Now we take turns!",
+     "on_screen_text": [
+      "one banana, two banana",
+      "WAIT = take turns"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s03",
+     "narration": "In Scratch, a project can have many sprites. Each sprite has its own scripts, like each of us had our own cards. The picture behind the sprites is called a backdrop. It is like a school play. The backdrop is the painted scenery at the back. When the curtain opens, that is the green flag, every actor starts at once. So an actor who speaks second must wait for a turn.",
+     "on_screen_text": [
+      "many sprites",
+      "each sprite: its own script",
+      "backdrop = the picture at the back",
+      "green flag = curtain opens",
+      "all start at once!",
+      "speak second? wait first"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s04",
+     "narration": "Let's build Hello, Ballerina! together. Click Choose a Sprite, the cat face under the stage, and pick the Ballerina. Then click Choose a Backdrop, in the bottom corner, and pick one you like. Now click the cat in the sprite list. From the yellow Events circle: when green flag clicked. From the purple Looks circle: say Hello for two seconds. Type: Hi, Ballerina!",
+     "on_screen_text": [
+      "Exercise 7.1: Hello, Ballerina!",
+      "Sprite list: Cat",
+      "Events: yellow",
+      "Looks: purple"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s05",
+     "narration": "Now click the Ballerina in the sprite list. Look! Her code area is empty. She has her own code. Events: when green flag clicked. Looks: a say block. Type: Hi, Cat! Let's click the green flag. Oh no! They both talk at once, just like in our warm-up. What is missing? Have a think.",
+     "on_screen_text": [
+      "Sprite list: Ballerina",
+      "her own code"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s06",
+     "narration": "The Ballerina needs a wait, like Pixi's WAIT 2 card. In her code, open the orange Control circle. Put wait one seconds right under her green flag block. Change one to two. Click the flag again! They take turns! The cat talks, then the Ballerina answers. Beep! Perfect timing!",
+     "on_screen_text": [
+      "Control: orange",
+      "first the cat, then the Ballerina"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s07",
+     "narration": "Quick quiz! The cat talks for two seconds. What if the Ballerina waits only one second? She starts too soon! The two lines bump into each other. The wait should be as long as the first line. Two and two! Two and two, beep boop!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "wait 1: lines bump!",
+      "say for 2 → wait 2"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s08",
+     "narration": "Uh oh. Time for a bug hunt! Omar made a joke. The cat asks: Who is there? Then the Ghost says: Boo! But look what happens when he clicks the flag. They talk at the same time, and the joke is spoiled. Who should talk first? And what does the second sprite need? The cat talks first. So the Ghost needs a wait! In the Ghost's code, put wait two seconds under the green flag block. Test it again. Who is there? Boo! The joke works! Ha ha! Boo-tiful!",
+     "on_screen_text": [
+      "BUG HUNT! Boo at Once",
+      "second sprite: wait first"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s09",
+     "narration": "Now you can make your own story, called My Two-Line Story. Plan first! Draw two boxes. In box one, who talks first? In box two, who answers? A grown-up can write the words for you. Then build it, one sprite each with your partner. Remember: the second sprite waits. Let's play the mirror game! Stand face to face. One of you moves very slowly. The other copies, like a mirror. Now swap! Copy me, copy me, beep!",
+     "on_screen_text": [
+      "Exercise 7.3: My Two-Line Story",
+      "One sprite each",
+      "Mirror game!",
+      "move slowly • copy • swap"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s10",
+     "narration": "We wrote the story ourselves. But who made the pictures of the cat, the Ballerina and the backdrop? The Scratch team made them. When we use something someone else made, we say who made it. That is called giving credit. It is like saying: Grandma baked this cake! Start your show like this: The sprites and backdrop were made by the Scratch team. The story is by me.",
+     "on_screen_text": [
+      "Giving credit: who made this?",
+      "Sprites: Scratch team. Story: me!"
+     ]
+    },
+    {
+     "scene_id": "j1-w07-s11",
+     "narration": "Say the new words with me! Backdrop! Wait! Credit! Each sprite has its own script. The green flag starts them all at once. A wait makes the second sprite take its turn. Now it's your turn, with a grown-up. Build Hello, Ballerina! Fix Boo at Once. Then plan and build your Two-Line Story. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Backdrop!",
+      "Wait!",
+      "Credit!",
+      "each sprite: its own script",
+      "second sprite: wait first",
+      "NEXT: Two sprites take turns"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 8,
+   "slug": "draw-with-the-pen",
+   "title": "Draw With the Pen",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week08.tex",
+    "junior/1-little-robots/teaching-material/workbook/week08.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w08-s01",
+     "narration": "Hi, coders! It's Aiden and Pixi again. Beep boop! Hello, artists! Last week, two sprites took turns to talk. Today, the cat gets a crayon, and it draws a square for us! Are you ready? Let's go!",
+     "on_screen_text": [
+      "two sprites take turns",
+      "MISSION: Make the cat draw a square"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s02",
+     "narration": "Let's warm up. Pixi is a robot that draws. Here is the program. Pen down. Then repeat four: three steps, and a quarter turn. Pen down means: drop a button on every square you step on. A quarter turn is like the big hand of a clock, going from twelve to three. Go, Pixi! Three steps, quarter turn. Three steps, quarter turn. Three steps, quarter turn. Three steps, quarter turn. What shape did Pixi draw? A square! And Pixi ended back where it started.",
+     "on_screen_text": [
+      "quarter turn: 12 to 3",
+      "a square! back home"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s03",
+     "narration": "In Scratch, the crayon is called the pen. The pen blocks are hiding, so we add them first. Click Add Extension, the blue button at the very bottom left. Then click Pen. A green Pen circle appears. We do this once in every new project. Imagine a crayon tied to the cat's tail. Pen down puts the crayon on the paper, so the cat draws when it walks. Pen up lifts it off, so the cat walks without drawing. And erase all is a big eraser that cleans the whole stage.",
+     "on_screen_text": [
+      "Pen: green, in every new project",
+      "pen down = draw",
+      "pen up = stop drawing",
+      "erase all = big eraser"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s04",
+     "narration": "To draw a square, the cat must turn. In Scratch, a quarter turn is ninety. Two quarter turns make a half turn. That is one hundred eighty. Let's do it! Stand up. Make a quarter turn with me. Ninety! One more quarter turn. Ninety! Now we made a half turn. Say it with me: a quarter turn is ninety! Ninety, ninety, beep!",
+     "on_screen_text": [
+      "quarter turn = 90",
+      "half turn = 180",
+      "a quarter turn is 90!"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s05",
+     "narration": "Let's build Draw a Square together. From the yellow Events circle: when green flag clicked. From the purple Looks circle: set size to one hundred percent. Change it to forty. A small cat leaves room to draw. From the green Pen circle: erase all, then pen down. Now the crayon is on the paper!",
+     "on_screen_text": [
+      "Exercise 8.1: Draw a Square",
+      "Events: yellow",
+      "Looks: purple",
+      "Pen: green"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s06",
+     "narration": "From the orange Control circle: repeat ten. Change ten to four. From the blue Motion circle: put move ten steps inside the repeat. Change it to one hundred. Then turn fifteen degrees, the arrow that goes like a clock. Put it inside, under the move. Change it to ninety. Last, pen up, under the repeat. How many sides will the cat draw? Let's click the green flag and count! One, two, three, four! A square! And the cat came home. Beep! Beautiful!",
+     "on_screen_text": [
+      "Control: orange",
+      "Motion: blue",
+      "Pen: green",
+      "4 sides: a square!"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s07",
+     "narration": "Quick quiz! Leo's cat walks, but no line appears. Which block is missing? Pen down! Without pen down, the crayon never touches the paper. Pen down goes before the repeat.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "pen down: before the repeat"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s08",
+     "narration": "Here is one more pen block: stamp. Stamp leaves a picture of the cat on the stage, like a rubber stamp. Click stamp, and the cat walks away. The picture stays! In Stamp a Ring, you make a ring of six cats. The turn comes from the turn card. Square: ninety. Triangle: one hundred twenty. Six sides: sixty. We read the number off the card. That's all!",
+     "on_screen_text": [
+      "stamp = a picture that stays",
+      "Exercise 8.3: Stamp a Ring",
+      "read it off the card!"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s09",
+     "narration": "Uh oh. Time for a bug hunt! Omar wants a square. Watch what his cat draws. One long line! How many times did the cat turn? Only once, at the end. Look closely. The turn is under the repeat, not inside it. Like in our warm-up, when the quarter turn card was outside the repeat card. Let's drag the turn up, inside the repeat, under the move. Test it again. Four sides! We fixed the bug! Square-tastic!",
+     "on_screen_text": [
+      "BUG HUNT! The One-Side Square",
+      "turned once",
+      "turn: inside the repeat",
+      "4 sides!"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s10",
+     "narration": "Some apps and games use a password. A password is a secret word that keeps your things safe. A password is like your toothbrush. You use it, but you never share it, not even with your best friend. Only the grown-ups who look after you may know it. Your friend says: Tell me your password, I won't tell. What do you do? Say no, and tell a grown-up! Our Scratch app has no password and no account, and that is on purpose.",
+     "on_screen_text": [
+      "Passwords are like a toothbrush",
+      "Say no. Tell a grown-up!",
+      "Scratch here: no password, no account"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s11",
+     "narration": "Wiggle break! Stand up and walk a square around the room. Pen down! Draw in the air with one finger as you go. Four steps, quarter turn. Four steps, quarter turn. Four steps, quarter turn. Four steps, quarter turn. You are back home! Beep beep!",
+     "on_screen_text": [
+      "Walk a square!"
+     ]
+    },
+    {
+     "scene_id": "j1-w08-s12",
+     "narration": "Say the new words with me! Pen down! Quarter turn! Stamp! A square is repeat four of move and a quarter turn. Both go inside the repeat. Now it's your turn, with a grown-up. Draw a Square, fix the One-Side Square, then Stamp a Ring. And in two weeks, we have a showcase! You will make a greeting card for someone special. Who could it be for? See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Pen down!",
+      "Quarter turn!",
+      "Stamp!",
+      "square = repeat 4: move + quarter turn",
+      "NEXT: Draw with the pen"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 9,
+   "slug": "project-studio",
+   "title": "Project Studio",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week09.tex",
+    "junior/1-little-robots/teaching-material/workbook/week09.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w09-s01",
+     "narration": "Hi, coders! Aiden and Pixi here. Beep boop! Welcome to the studio! Last week, the cat drew a square with the pen. Today is Project Studio. We make a big project: an animated greeting card for someone special. First we plan it. Then we build it, one piece at a time. Let's go!",
+     "on_screen_text": [
+      "pen down • quarter turn",
+      "MISSION: My Animated Greeting Card"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s02",
+     "narration": "Stories have a start, a middle and an end. A storyboard is a plan in boxes. Movie makers draw one before they film. Box one is the start. What happens when you click the green flag? Box two is the middle. What dances or moves again and again? Box three is the end. What surprise happens when you click a sprite or press a key? Draw a quick picture in each box. Stick figures are perfect! A grown-up can write the words.",
+     "on_screen_text": [
+      "storyboard = a plan in boxes",
+      "stick figures are perfect!"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s03",
+     "narration": "Every greeting card needs five things. The green flag to start it. A repeat, for a dance or an animation. A click or a key that does something. A sound. And two sprites, or a backdrop that changes. Count them on your fingers with me. One, two, three, four, five! Five things, high five!",
+     "on_screen_text": [
+      "My card must have:",
+      "5 things!"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s04",
+     "narration": "Here is a sample storyboard. Mei made a card for Grandpa. Box one: the cat says Happy birthday, and meows. Box two: the cat dances. Box three: click the balloon. Pop! Surprise! Three boxes, one idea each. That is plenty!",
+     "on_screen_text": [
+      "Mei's card for Grandpa",
+      "one idea in each box"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s05",
+     "narration": "We do not build the whole card at once. We build one box at a time, and we test each box before we start the next. Then, if something goes wrong, we know where to look. It is like the picture on a LEGO box. Build one part, check that it looks right, then build the next part.",
+     "on_screen_text": [
+      "one box at a time"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s06",
+     "narration": "Let's build Mei's box one together. Click the cat in the sprite list. From the yellow Events circle: when green flag clicked. From the purple Looks circle: say Hello for two seconds. Type: Happy birthday! From the pink Sound circle: play sound Meow until done. Now we test. Click the green flag! Box one works! Let's check it off on the storyboard. Check!",
+     "on_screen_text": [
+      "Box 1: Start",
+      "Events: yellow",
+      "Looks: purple",
+      "Sound: pink",
+      "Box 1: check!"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s07",
+     "narration": "Next is box two: the cat dances. Which block makes something happen again and again? Repeat! Mei put next costume and wait one seconds inside a repeat four. The wait makes the dance slow enough to see. Test it, then check off box two. Dance, dance, beep!",
+     "on_screen_text": [
+      "Box 2: Middle",
+      "wait = slow enough to see",
+      "Box 2: check!"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s08",
+     "narration": "Box three is the surprise. Mei adds the balloon with Choose a Sprite. She clicks the balloon in the sprite list. Its code is its own. From Events: when this sprite clicked. Then play sound Pop, and say Surprise! To test it, we click the balloon. Surprise! Box three works. Check!",
+     "on_screen_text": [
+      "Box 3: End",
+      "Choose a Sprite: Balloon",
+      "its own code",
+      "Box 3: check!"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s09",
+     "narration": "Time for a bug hunt! It is called Partner Check. Swap seats. Your partner holds your storyboard, clicks the flag and tries the click. For each box, they say: matches, or not yet. Sam checks Leo's card. Box three says: click the balloon. Sam clicks it, and nothing happens. Not yet! Look at the balloon's script. What is missing on top? A hat block! Without when this sprite clicked, the script never starts. Leo snaps it on top. Sam clicks the balloon again. Surprise! It matches the storyboard now! Good teamwork!",
+     "on_screen_text": [
+      "BUG HUNT! Partner Check",
+      "no hat block = never starts",
+      "matches!"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s10",
+     "narration": "Your card is yours. Leo's card is Leo's. If you want to show someone else's card, or take a photo of it, ask first: May I show your card? And we never change someone else's project without asking. Priya loves Kai's card. She wants to show her big sister. What should she do? Ask Kai first! And on your card, write Grandpa or a nickname, never a full name.",
+     "on_screen_text": [
+      "Ask before you show",
+      "Ask Kai first!",
+      "Grandpa or a nickname"
+     ]
+    },
+    {
+     "scene_id": "j1-w09-s11",
+     "narration": "Wiggle break! Stand up and act out your storyboard. Box one: strike a pose for the start! Box two: a little dance, four times. One, two, three, four! Box three: a big surprise jump! Surprise! Beep boop!",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j1-w09-s12",
+     "narration": "Say it with me! Storyboard! Start, middle, end! One box at a time! Now it's your turn, with a grown-up. Draw your storyboard. Build your card, one box at a time, and test each box. Then do a partner check. Save often: File, then Save to your computer. Next week is the showcase! Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Storyboard!",
+      "Start, middle, end!",
+      "One box at a time!",
+      "NEXT: Build my greeting card",
+      "Save often!"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 10,
+   "slug": "showcase-and-certificate",
+   "title": "Showcase and Certificate",
+   "source_files": [
+    "junior/1-little-robots/teaching-material/lessons/week10.tex",
+    "junior/1-little-robots/teaching-material/workbook/week10.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j1-w10-s01",
+     "narration": "Hi, coders! It's Aiden and Pixi, and today is a very special day. Beep boop! Party time! You worked so hard on your greeting cards. Today is our showcase. A showcase is a little show where we share what we made. You will show your greeting card, say what one script does, and then we celebrate! Are you ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Show, explain and celebrate"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s02",
+     "narration": "Before a show, performers check their props. So we do a last-minute bug check. One: click the green flag. Does the card start? Two: click the flag a second time. Does it start the same way? Three: click the sprite or press the key. Does the surprise happen? Four: is the sound on? Can you hear it? Check, check, check, check!",
+     "on_screen_text": [
+      "Exercise 10.1: Last-Minute Bug Check"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s03",
+     "narration": "Here is the most common last-minute bug. Zoe clicks her balloon. Pop! The balloon hides. That is her surprise. Now she clicks the green flag a second time. Watch the balloon. Where is the balloon? Why did it not come back? It stayed hidden! Nothing tells it to show again. The fix: put show, from purple Looks, at the top of a green flag script. Click the flag again. The balloon is back! Every show starts fresh. Fix one thing, then stop building, and save. Now Zoe's card is ready for the show!",
+     "on_screen_text": [
+      "BUG HUNT! The Hidden Balloon",
+      "show at the top: fresh start",
+      "Fix one thing. Save."
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s04",
+     "narration": "At a showcase, you are like a chef on TV. A chef shows the cake, and tells us one step of the recipe. You are the chef. Your card is the cake. Your script is the recipe. So first you show your card. Then you point at one script and tell us what it does. Yum! Code cake!",
+     "on_screen_text": [
+      "show it, then explain it"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s05",
+     "narration": "Watch me do it with Mei's card for Grandpa. First, I show it. I click the balloon. Now I point at the balloon's script, and read it from the top, one block at a time. When this sprite clicked. Play sound Pop. Say Surprise! So here is my showcase sentence: My card is for Grandpa. When you click the balloon, it pops and says Surprise! Did you see? First I showed it. Then I explained it.",
+     "on_screen_text": [
+      "The showcase sentence",
+      "My card is for Grandpa.",
+      "When you click the balloon, it pops!"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s06",
+     "narration": "Now you! Say your sentence to the person next to you. My card is for... When you..., it... If you get stuck, look at the hat block on top. Quick quiz! Look at this hat block. What do you do to start this script? You press the space key! The hat block tells you what starts the script.",
+     "on_screen_text": [
+      "My card is for ...",
+      "When you ..., it ...",
+      "QUICK QUIZ",
+      "press the space key!",
+      "hat block = what starts it"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s07",
+     "narration": "Next comes the gallery walk, like visitors in a museum. Put your hands behind your back. Ask before you click someone's card. Watch the card, then put a sticker on the part you liked best: the dance, the sound or the surprise. Say it out loud: I liked the surprise! Walk slowly from card to card. Look with your eyes, and wait until the owner says yes. Only kind words at a showcase. And we never change someone else's card. I liked the dance! Beep!",
+     "on_screen_text": [
+      "Exercise 10.3: Sticker Feedback",
+      "Only kind words",
+      "Never change someone's card"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s08",
+     "narration": "Now, showcase safety. Our showcase is for our family, here at home. On the screen, we use nicknames. Never our full names, our school or our address. Should we put our card on the internet, for people we do not know? No! If you want to show your card to someone else, ask a grown-up first. And if a grown-up takes a photo of the showcase for the family album, it stays in the family, and they ask you first.",
+     "on_screen_text": [
+      "Showcase safety: family only",
+      "Ask a grown-up first",
+      "Photos stay in the family"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s09",
+     "narration": "Time to celebrate! Stand up and do the dance from your card. Do it four times, like a repeat. One, two, three, four! Again! One, two, three, four! And now, one big clap together! Clap, clap, beep!",
+     "on_screen_text": [
+      "Dance x 4!",
+      "CLAP!"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s10",
+     "narration": "And now, the certificates! You are now a Little Robots coder! You planned a card, built it box by box, and explained your code. Hold your certificate up high! Everyone claps for you! What are you proudest of in your card? And what would you like to make next? Hooray for you!",
+     "on_screen_text": [
+      "Little Robots coder!",
+      "planned • built • explained"
+     ]
+    },
+    {
+     "scene_id": "j1-w10-s11",
+     "narration": "Say it with me! Show! Explain! Celebrate! Now it's your turn, with your family. Do the bug check. Show your card and say what one script does. Then give kind sticker feedback. Put your certificate where you can see it. You did it! Happy coding! Beep boop, bye, coders!",
+     "on_screen_text": [
+      "Show!",
+      "Explain!",
+      "Celebrate!",
+      "NEXT: Showcase at home"
+     ]
+    }
+   ]
+  }
+ ]
+}

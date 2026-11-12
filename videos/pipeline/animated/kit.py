@@ -15,7 +15,7 @@ from types import SimpleNamespace
 
 from . import props as P
 from . import pyrun
-from .characters import ROSE_HEAD_TOP, draw_cat, draw_grown_up, draw_rose, draw_pixi
+from .characters import AIDEN_HEAD_TOP, ROSE_HEAD_TOP, draw_aiden, draw_cat, draw_grown_up, draw_rose, draw_pixi
 from .engine import (
     safe_scale,
     C, FPS, H, W, appear, check_mark, circle, clamp, cross_mark, ease_in_out, ease_out, ellipse, fade,
@@ -23,7 +23,7 @@ from .engine import (
     vertical_gradient,
 )
 from .kit_dsl import A, Episode, resolve_time
-from .timeline import ROSE, PIXI, SceneTiming
+from .timeline import AIDEN, ROSE, PIXI, SceneTiming
 
 COLORS = {"blue": C["blue"], "sky": C["sky_light"], "orange": C["orange_light"], "green": C["green_light"],
           "yellow": C["yellow"], "white": C["white"], "navy": C["navy"], "pink": "#FBD3E2", "purple": "#E3D8FB",
@@ -138,6 +138,22 @@ def c_rose(d: D, a: A, t0: float) -> None:
         P.chip(d.ctx, x, y + 70 * a.get("s", 1.0), a.get("label"), d.t, t0 + 0.3, color=C["white"], size=34)
 
 
+def c_aiden(d: D, a: A, t0: float) -> None:
+    """Aiden, the junior host: the same poses and options as Rose."""
+    x, y = d.path(a.get("path"), (a.get("x", 300), a.get("y", 960)))
+    enter = a.get("enter")
+    if enter:
+        k = ease_out(progress(d.t, t0, 0.9))
+        x = lerp(-250 if enter == "left" else W + 250, x, k)
+    talk = d.sc.speaking(AIDEN, d.t, FPS)
+    mood = d.keyed(a.get("moods"), "happy")
+    draw_aiden(d.ctx, x, y, a.get("s", 1.0), d.gt, mood="talk" if talk > 0.05 else mood, talk=talk,
+               wave=d.within(a.get("wave")), point=d.within(a.get("point")),
+               look=float(d.keyed(a.get("look"), 0.2)), hand_on_chin=d.within(a.get("chin")))
+    if a.get("label"):
+        P.chip(d.ctx, x, y + 70 * a.get("s", 1.0), a.get("label"), d.t, t0 + 0.3, color=C["white"], size=34)
+
+
 def c_pixi(d: D, a: A, t0: float) -> None:
     x, y = d.path(a.get("path"), (a.get("x", 700), a.get("y", 820)))
     if a.get("drop", False):
@@ -223,7 +239,8 @@ def c_bigtext(d: D, a: A, t0: float) -> None:
 
 def c_bubble(d: D, a: A, t0: float) -> None:
     t1 = d.T(a.until)
-    anchors = {"rose": (a.get("x", 300) + 70, a.get("y", 960) - ROSE_HEAD_TOP), "pixi": (a.get("x", 700), a.get("y", 820) - 250),
+    anchors = {"rose": (a.get("x", 300) + 70, a.get("y", 960) - ROSE_HEAD_TOP),
+               "aiden": (a.get("x", 300) + 70, a.get("y", 960) - AIDEN_HEAD_TOP * a.get("s", 1.0)), "pixi": (a.get("x", 700), a.get("y", 820) - 250),
                "cat": (a.get("x", 1500) + 20, a.get("y", 960) - 230)}
     x, y = anchors.get(a.get("who"), (a.get("x", 960), a.get("y", 500)))
     P.speech_bubble(d.ctx, x, y, a.text, d.t, t0, t1 - 0.25, size=a.get("size", 38), tail=a.get("tail", "down-left"),
@@ -665,6 +682,27 @@ def _sprite(name):
         SPRITES[name] = fn
         return fn
     return register
+
+
+@_sprite("banana")
+def _s_banana(ctx, x, y, s, gt, talking):
+    """A banana (Mei's Banana Drop game in Junior Level 2)."""
+    ctx.save()
+    ctx.translate(x, y - 45 * s)
+    safe_scale(ctx, s, s)
+    ctx.move_to(-58, -26)
+    ctx.curve_to(-46, 38, 46, 38, 58, -26)
+    ctx.curve_to(30, 8, -30, 8, -58, -26)
+    ctx.close_path()
+    set_color(ctx, "#F7D038")
+    ctx.fill_preserve()
+    set_color(ctx, "#B88A12")
+    ctx.set_line_width(4)
+    ctx.stroke()
+    ctx.rectangle(54, -38, 10, 16)
+    set_color(ctx, "#7A5A1E")
+    ctx.fill()
+    ctx.restore()
 
 
 @_sprite("cat")
@@ -1603,7 +1641,17 @@ def setting(ctx, name: str, gt: float) -> None:
         vertical_gradient(ctx, 0, 0, W, H, top, bottom)
 
 
-def make_intro(level: int, week: int, title: str):
+def is_junior(level) -> bool:
+    return isinstance(level, str) and level.startswith("j")
+
+
+def level_label(level) -> str:
+    return f"Junior Level {level[1:]}" if is_junior(level) else f"Level {level}"
+
+
+def make_intro(level, week: int, title: str):
+    host = draw_aiden if is_junior(level) else draw_rose
+
     def intro(ctx, t, gt):
         vertical_gradient(ctx, 0, 0, W, H, "#18324B", "#25507A")
         for i in range(40):
@@ -1612,25 +1660,28 @@ def make_intro(level: int, week: int, title: str):
         P.logo(ctx, W / 2, H / 2 - 80, 1.0, t, 0.2)
         sub = fade(t, 1.6, 0.5)
         if sub > 0:
-            label = f"Level {level} • Week {week}: {title}"
+            label = f"{level_label(level)} • Week {week}: {title}"
             tw, _ = text_size(label, 50, bold=True)
             fill_rounded(ctx, W / 2 - tw / 2 - 50, H / 2 + 150, tw + 100, 110, 55, C["white"], sub)
             text(ctx, label, W / 2, H / 2 + 205, 50, C["navy"], bold=True, alpha=sub)
         draw_pixi(ctx, 260, 980 + 40 * (1 - ease_out(progress(t, 0.6, 0.8))), 0.6, gt, mood="happy", ground=1040)
-        draw_rose(ctx, 1660, 1110 - 120 * ease_out(progress(t, 0.9, 0.8)), 0.6, gt, mood="happy", wave=1.0)
+        host(ctx, 1660, 1110 - 120 * ease_out(progress(t, 0.9, 0.8)), 0.6, gt, mood="happy", wave=1.0)
     return intro
 
 
-def make_outro(level: int):
+def make_outro(level):
+    host = draw_aiden if is_junior(level) else draw_rose
+    grades = "Grades 2–3" if is_junior(level) else "Grades 4–5"
+
     def outro(ctx, t, gt):
         vertical_gradient(ctx, 0, 0, W, H, "#18324B", "#25507A")
         P.logo(ctx, W / 2, 360, 0.75, t, 0.0)
         a = fade(t, 0.4)
         text(ctx, "See you next time!", W / 2, 640, 56, C["white"], bold=True, alpha=a)
         text(ctx, "Narration uses AI-generated voices.", W / 2, 790, 38, C["led"], bold=True, alpha=a)
-        text(ctx, f"Kids Coding • Level {level} • Grades 4–5", W / 2, 860, 32, "#C9D6E3", alpha=a)
+        text(ctx, f"Kids Coding • {level_label(level)} • {grades}", W / 2, 860, 32, "#C9D6E3", alpha=a)
         draw_pixi(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)
-        draw_rose(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
+        host(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
     return outro
 
 
@@ -1698,7 +1749,7 @@ def compile_episode(episode: Episode, title: str):
                 if action.kind == "timeline":
                     for when, _ in action.get("commits", []):
                         events.append((sc.start + resolve(when), "snap"))
-                if action.kind == "rose" and action.get("enter"):
+                if action.kind in ("rose", "aiden") and action.get("enter"):
                     events.append((start, "whoosh"))
                 if action.kind == "pixi" and action.get("drop"):
                     events.append((start + 0.5, "boing"))

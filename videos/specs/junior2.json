@@ -1,0 +1,1204 @@
+{
+ "schema_version": 1,
+ "track": "junior",
+ "level": 2,
+ "audience": "Grades 2-3 (ages 7-9), watched with a grown-up",
+ "series_title": "Kids Coding Junior with Aiden and Pixi",
+ "videos": [
+  {
+   "week": 1,
+   "slug": "forever-and-bounce",
+   "title": "Forever and Bounce",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week01.tex",
+    "junior/2-game-makers/teaching-material/workbook/week01.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w01-s01",
+     "narration": "Welcome back, coders! It's me, Aiden, and my robot friend, Pixi. Beep boop! We missed you! In Level one, you were Little Robots. You made animations and greeting cards. Now, in Level two, you are Game Makers! By week ten, you will make your own arcade game and let other people play it. Today, we make a cat that bounces, and bounces, and bounces. Let's go!",
+     "on_screen_text": [
+      "Level 1: Little Robots",
+      "Game Makers!",
+      "MISSION: Make the cat bounce forever"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s02",
+     "narration": "Let's warm up with a freeze dance. Stand up! When the music plays, you dance. You keep dancing and dancing, until the music stops. Pixi has the pause button. Music, please! Freeze! Who decided when we stopped? Us, or Pixi? Pixi did, with the pause button! That was a forever dance. It did not stop after four moves, like a repeat four. It kept going until someone pressed stop.",
+     "on_screen_text": [
+      "music on = dance",
+      "FREEZE!",
+      "the pause button stops it",
+      "a forever dance",
+      "stops only when someone presses stop"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s03",
+     "narration": "Games keep going. The apple keeps falling. The ghost keeps flying. In Level one we had repeat. It does the steps a number of times, then it stops. Today we meet forever. A forever loop does the steps inside it again and again, and never stops by itself. It is like a merry-go-round. It does not count the turns. It keeps going until someone presses stop. In Scratch, the red stop sign is our pause button. Forever is in the orange Control circle, next to repeat.",
+     "on_screen_text": [
+      "4 times, then stop",
+      "again and again",
+      "merry-go-round!",
+      "red stop sign = pause button",
+      "Control: orange"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s04",
+     "narration": "Let's build Bounce Cat together. Yellow Events: when green flag clicked. Blue Motion: point in direction ninety. Ninety means facing right, like in Level one. Orange Control: forever. Look at its flat bottom. No bump! Nothing can go after forever. Blue Motion: put move ten steps inside the forever. Click the flag! The cat runs to the edge and gets stuck there, running on the spot. Click the red stop sign.",
+     "on_screen_text": [
+      "Exercise 1.1: Bounce Cat",
+      "no bump at the bottom",
+      "Motion: blue",
+      "stuck at the edge!",
+      "STOP"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s05",
+     "narration": "Blue Motion again: put if on edge, bounce inside the forever, under the move. A bounce is like a ball hitting a wall. It turns around and comes back. Click the flag! It bounces from side to side! But wait. Look at the cat when it walks left. It is upside down! Ha ha! A topsy-turvy cat!",
+     "on_screen_text": [
+      "bounce = turn around at the edge",
+      "upside down!"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s06",
+     "narration": "Let's fix it. Blue Motion: snap set rotation style left-right above the forever. Click point in direction ninety once, to turn the cat the right way up. Then click the flag. Now the cat turns to face the way it walks! Click the red stop sign. Who stopped the cat? We did! Forever only stops when we press stop. Bouncy, bouncy, beep!",
+     "on_screen_text": [
+      "rotation style: left-right",
+      "STOP",
+      "We are the stop sign!"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s07",
+     "narration": "Quick quiz! I want the Ballerina to dance until I press stop. Do I use repeat four, or forever? Forever! A repeat four stops by itself after four times. Forever keeps going until someone presses stop.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "repeat 4: stops by itself",
+      "forever: until you press stop"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s08",
+     "narration": "Wiggle break! Let's do a bounce walk. Stand at one side of the room. Walk forward slowly. You are moving ten steps, forever. When you touch a wall, bounce! Turn around and walk back. Stop! Pixi was our stop sign!",
+     "on_screen_text": [
+      "Bounce walk!",
+      "touch a wall: bounce!",
+      "STOP!"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s09",
+     "narration": "Uh oh. Time for a bug hunt! Kai wants the cat to say Watch me, meow, and then bounce forever. He clicks the flag. The cat bounces, but it never talks, and it never meows. Look at where Kai put the say and sound blocks. Why do they never run? They are under the forever loop. Forever has a flat bottom, so they cannot snap on. And the loop never ends, so their turn never comes. It is like: dance until the music stops, and then eat a cookie. But the music never stops. No cookie! The fix: drag them up, between when green flag clicked and the forever. Test it again. Watch me! Meow! Then it bounces. We fixed the bug! Bug squashed!",
+     "on_screen_text": [
+      "BUG HUNT! The Missing Hello",
+      "under forever = never runs",
+      "No cookie!"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s10",
+     "narration": "A forever loop never stops by itself. Lots of games and videos are made like that too. They keep going and going. So it is up to us to press stop. You are the stop sign! When the timer rings, we finish our sentence, save, and stand up. What is your stop plan at home? When the timer rings, I will... Press stop, save, and go and play outside. Great plan!",
+     "on_screen_text": [
+      "My stop plan",
+      "You are the stop sign!",
+      "stop, save, play outside!"
+     ]
+    },
+    {
+     "scene_id": "j2-w01-s11",
+     "narration": "Say the new words with me! Forever! Bounce! Stop! A repeat stops by itself. A forever loop keeps going until you press stop. Now it's your turn, with a grown-up. Build Bounce Cat, then Dance Forever, then fix the Missing Hello. Save your game in the Game Makers folder, with your nickname. See you next week, Game Makers. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Forever!",
+      "Bounce!",
+      "Stop!",
+      "repeat stops • forever keeps going",
+      "NEXT: Forever and Bounce",
+      "Save: Game Makers folder"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 2,
+   "slug": "if-touching",
+   "title": "If Touching…",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week02.tex",
+    "junior/2-game-makers/teaching-material/workbook/week02.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w02-s01",
+     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, game makers! Last week, our sprites moved forever. Today, they learn to check something, and choose. We will make a ghost that says Boo, and a game where you catch a falling apple! Are you ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Catch the apple!"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s02",
+     "narration": "Let's warm up with a game called Simon says IF. I say IF and a rule. True for you? Do it. Not true? Stay still. If you have a sock on, jump! I have no socks. I stay still! If you had breakfast, touch your nose! Same rule, but each of us checked, and chose. That is an if!",
+     "on_screen_text": [
+      "True? Do it!",
+      "Not true? Stay still.",
+      "If you have a sock on, jump!",
+      "If you had breakfast, touch your nose!",
+      "IF"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s03",
+     "narration": "Now a rule that keeps checking. Again and again: if I hold up the star, clap! Star up! Clap, clap! Star down. Stay still. Now Pixi is a once-only robot. Pixi looks once, at the start, then closes its eyes. Go! Now I lift the star. Huh? I did not see anything. Pixi checked only once. Our clappers kept checking, like a forever loop. Remember the once-only robot for the bug hunt!",
+     "on_screen_text": [
+      "Again and again: star up? Clap!",
+      "Clap!",
+      "Star down: stay still",
+      "Once-only robot: looks once",
+      "Checks once = misses it",
+      "Keeps checking = forever"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s04",
+     "narration": "Games ask questions. The if-then block asks one. Yes? It runs the blocks inside. No? It skips them. If-then is in the orange Control circle. The question goes in the pointy hole. Questions like touching are in the light blue Sensing circle. Think of a lifeguard. She looks and looks, all the time. That is the forever. Each time, she asks: is someone in trouble? That is the if. A lifeguard who looked only once would not help much!",
+     "on_screen_text": [
+      "Yes? Do it. No? Skip it.",
+      "if-then: orange Control",
+      "touching: light blue Sensing",
+      "forever = keep looking",
+      "if = is someone in trouble?"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s05",
+     "narration": "Let's build Boo Ghost together. Choose a Sprite: pick the Ghost. Yellow Events: when green flag clicked. Orange Control: snap on forever. Put if then inside the forever. Light blue Sensing: drag touching mouse-pointer into the pointy hole. Purple Looks: put a say block inside the if. Type Boo, and change two to one. Click the flag, and move the mouse onto the ghost. Boo! Now move the mouse away. Nothing. The forever keeps asking. The if says Boo only when the answer is yes.",
+     "on_screen_text": [
+      "Exercise 2.1: Boo Ghost",
+      "Events: yellow",
+      "Control: orange",
+      "Sensing: light blue",
+      "Looks: purple",
+      "Touching? Yes: Boo!",
+      "Yes: do it. No: skip it."
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s06",
+     "narration": "Quick quiz! The mouse is far away from the ghost. Will the ghost say Boo? No! The answer to touching is no, so the if skips the say block. Now the mouse touches the ghost. What happens? Boo! The answer is yes, so the if runs the block inside. Yes: do it. No: skip it!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "No: skip it",
+      "Yes: do it!"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s07",
+     "narration": "Now the catch game! First, a secret trick: the Star marker. Add the Star. Drag it near the top, a little below the edge. Its script: when green flag clicked, hide. Add the Apple. Give it: when green flag clicked, go to Star, from blue Motion. Drag the apple down, and click the flag! The Star hides, and the apple jumps to the Star's spot! The Star is our secret start spot.",
+     "on_screen_text": [
+      "The Star marker",
+      "near the top, not touching the edge",
+      "Star = secret start spot"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s08",
+     "narration": "Next, the Bowl. Drag it to the bottom of the stage. Give it: set rotation style left-right, so it stays the right way up. When right arrow key pressed: point in direction ninety, move ten steps. Ninety points right. The left arrow script is the same, with two hundred seventy. Two hundred seventy points left. Test the bowl first. Do both keys move it? Yes! Right, right, left, left.",
+     "on_screen_text": [
+      "keeps the bowl the right way up",
+      "90 = right",
+      "270 = left",
+      "Test the bowl first!"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s09",
+     "narration": "Now the Apple: when green flag clicked, set rotation style left-right, go to Star, point in direction one hundred eighty. One hundred eighty points down. Then forever: move five steps, so it falls. Then two ifs, both inside the forever. If touching Bowl: start sound Pop, and go to Star. If touching edge: we missed it, so go to Star. Click the flag, and catch! Caught it! Pop! This one, missed! Back to the Star.",
+     "on_screen_text": [
+      "180 = down",
+      "Caught: Pop! Go to Star.",
+      "Missed: go to Star."
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s10",
+     "narration": "Uh oh. Time for a bug hunt! Kai's ghost should say Got you when it touches the Ballerina. Pixi plays the Ballerina. Twirl, twirl! Watch. The ghost flies right through and says nothing! A bug is a clue. Where is the if? Above the forever! It checks only once, at the start, when the ghost is far away. Like our once-only robot! Drag the if into the forever, under bounce. Now we test again. Got you! Now it checks again and again. Fixed! Bug squashed! Beep!",
+     "on_screen_text": [
+      "BUG HUNT! Ghost Tag",
+      "A bug is a clue!",
+      "Outside the forever = checks once",
+      "Inside the forever = checks again and again"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s11",
+     "narration": "When we play someone's game, we give two stars and a wish. A star is something you liked: I liked the pop sound! A wish is one idea: I wish the apple was a bit slower. Stars and wishes are about the game, never about the person. The maker says thank you, and decides. It is their game. Can you think of a star for Pixi's twirl? Thank you! Beep!",
+     "on_screen_text": [
+      "I liked the pop sound!",
+      "I wish the apple was a bit slower.",
+      "About the game, never the person",
+      "The maker says thank you"
+     ]
+    },
+    {
+     "scene_id": "j2-w02-s12",
+     "narration": "Say the new words with me! If! Touching! Forever! An if asks a question. Yes? Do it. No? Skip it. Put it inside the forever, to check again and again. Now it's your turn, with a grown-up. Build Boo Ghost, then Catch the Apple, then fix Ghost Tag. Save your catch game. Next week, we add a score to it! See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "If!",
+      "Touching!",
+      "Forever!",
+      "Yes: do it. No: skip it.",
+      "the if goes inside the forever",
+      "NEXT: Boo Ghost, Catch the Apple, Ghost Tag",
+      "Save your catch game!"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 3,
+   "slug": "keep-score",
+   "title": "Keep Score",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week03.tex",
+    "junior/2-game-makers/teaching-material/workbook/week03.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w03-s01",
+     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Last week, we built a catch game. But how many apples did we catch? Nobody knows! The game does not remember. Today, we teach our games to keep score! Let's go!",
+     "on_screen_text": [
+      "MISSION: Keep score"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s02",
+     "narration": "Let's warm up with two boxes. One says SCORE. One says LIVES. Each box remembers a number. We count the counters inside. Start of the game! Set score to zero: empty the box. Set lives to three: put in three counters. Pixi throws a sock ball at the basket. In! Change score by one: one counter goes in. Oops, missed! One counter comes out of LIVES. The boxes remember the numbers for the whole game.",
+     "on_screen_text": [
+      "set score to 0",
+      "set lives to 3",
+      "change score by 1",
+      "one out of LIVES",
+      "A box remembers a number"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s03",
+     "narration": "In Scratch, a labeled box for a number is called a variable. Games use variables for the score, the lives, and the time. We make one in the orange-red Variables circle. Two blocks matter today. Set puts in a new number, like setting the score to zero at the start. Change by one adds one more, like dropping in one counter. Think of a scoreboard. It says zero at the start of every game. Each goal adds one. A variable is a scoreboard that a sprite can change.",
+     "on_screen_text": [
+      "variable = a labeled box for a number",
+      "Variables: orange-red",
+      "set = put in a new number",
+      "change by 1 = add one more",
+      "Every game starts at 0",
+      "Each goal adds 1"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s04",
+     "narration": "Let's build Exercise 3.1, Pop the Balloon. Choose a Sprite: pick Balloon1. Orange-red Variables: click Make a Variable. Type score, keep For all sprites, and click OK. A score window appears on the stage, showing zero. Yellow Events: when green flag clicked. Snap on set score to zero, and show variable score. Now a second script: when this sprite clicked. Snap on change score by one, start sound Pop, and next costume.",
+     "on_screen_text": [
+      "Exercise 3.1: Pop the Balloon",
+      "Make a Variable: score",
+      "For all sprites",
+      "the score window"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s05",
+     "narration": "Click the flag. Now click the balloon five times. Pop, pop, pop, pop, pop! The score counts: one, two, three, four, five. Now click the flag again. What will the score say? Zero! Set empties the box. Change adds one. Every new game starts at zero.",
+     "on_screen_text": [
+      "set = empty the box",
+      "change = add one"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s06",
+     "narration": "Quick quiz! My score says seven. I click the flag for a new game. Which block makes it zero again: set score to zero, or change score by one? Set score to zero! Set puts in a new number. Change adds to the number that is already there. Set at the start, change when you score!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "set: a new number",
+      "change: adds to it"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s07",
+     "narration": "Now open your catch game from last week, for Exercise 3.2. Make a score variable in this game too. Each project has its own variables. Click the Apple. Snap set score to zero right under when green flag clicked. Then put change score by one inside if touching Bowl, at the top. Click the flag, and play! Caught one! The score goes up. Missed one! No point. The apple goes back to the Star. Bonus idea: a second box called misses can count the apples you miss.",
+     "on_screen_text": [
+      "Exercise 3.2: Catch and Count",
+      "File, then Load from your computer",
+      "Make a variable: score",
+      "each project has its own",
+      "NEW: set score to 0",
+      "NEW: change score by 1",
+      "Catch: +1. Miss: no point.",
+      "Bonus: count the misses"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s08",
+     "narration": "Uh oh. Time for a bug hunt! Kai made a game: click the Bananas to get points. Every new game should start at zero. Kai clicks the flag, then clicks the bananas three times. Score: three. Now Kai clicks the flag again. The score still says three! The next click makes it four. A bug is a clue. Which block runs when the flag is clicked? Change score by zero! Changing by zero adds nothing, so the old score stays. Let's swap it for set score to zero. Test again. Click the flag. Zero! Every new game starts at zero. We fixed the bug! Like emptying the score box!",
+     "on_screen_text": [
+      "BUG HUNT! The Sticky Score",
+      "Flag again: still 3!",
+      "A bug is a clue!",
+      "change by 0 adds nothing",
+      "set score to 0 = a fresh start"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s09",
+     "narration": "Wiggle break! Stand up. Every jump is change score by one. Count with me! One, two, three, four, five, six, seven, eight, nine, ten! Set score to zero! Sit down. Beep! That was fun!",
+     "on_screen_text": [
+      "change score by 1",
+      "set score to 0"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s10",
+     "narration": "A game is fair when everyone knows the rules before they play, and everyone gets the same rules. So before a friend plays your game, say the rules out loud. Use the arrow keys. Catch an apple: one point. And every player starts at zero. Kai's sticky score was not fair: the next player started with someone else's points! What would make a game unfair? Secret rules, rules that change halfway, or starting with points.",
+     "on_screen_text": [
+      "Arrow keys. Catch an apple: 1 point.",
+      "No secret rules",
+      "No head start"
+     ]
+    },
+    {
+     "scene_id": "j2-w03-s11",
+     "narration": "Say the new words with me! Variable! Set! Change! A variable is a labeled box that remembers a number. Set puts in a new number. Change by one adds one more. Now it's your turn, with a grown-up. Build Pop the Balloon, add a score to your catch game, then fix the Sticky Score. And say your rules before a friend plays! See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Variable!",
+      "Set!",
+      "Change!",
+      "variable = a box that remembers a number",
+      "set: new number. change: one more.",
+      "NEXT: Pop the Balloon, Catch and Count, The Sticky Score",
+      "Say your rules first!"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 4,
+   "slug": "surprise-random",
+   "title": "Surprise! Random",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week04.tex",
+    "junior/2-game-makers/teaching-material/workbook/week04.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w04-s01",
+     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Here is a race. Who will win? Can you tell me now? We cannot know! The die decides. Today, we make games full of surprises, with random numbers! Let's go!",
+     "on_screen_text": [
+      "?",
+      "MISSION: Surprise!",
+      "4",
+      "1",
+      "6"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s02",
+     "narration": "Let's warm up with a dice race! Pixi is our racer. Roll the die, say the number, and hop that many squares. What number will we get? Four! Hop, hop, hop, hop. Roll again. What will it be this time? Two! Hop, hop. Nobody can guess the number every time. That is called random. And at the end, everyone says good game, whoever won!",
+     "on_screen_text": [
+      "roll, then hop that many",
+      "4",
+      "2",
+      "random = nobody can guess it",
+      "Good game!"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s03",
+     "narration": "Games are more fun when you cannot guess what comes next. Scratch has a die inside it: the green pick random block, in the Operators circle. A real die gives a number from one to six, but you cannot pick it. Pick random one to six is a die inside the computer. Pick random one to ten is a die with ten sides. Every time the block runs, it rolls again. Roll, roll, roll!",
+     "on_screen_text": [
+      "?",
+      "Operators: green",
+      "1 to 6: a die",
+      "1 to 10: a die with ten sides",
+      "Every run: a new roll"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s04",
+     "narration": "Let's build the cat's half of Dice Race. Drag the cat to the left side. Orange-red Variables: make a variable called roll. This box holds the number we roll. Yellow Events: when space key pressed. Click the little arrow and pick c. C for Cat! Snap on set roll to zero. Drop the green pick random block into the zero, and change ten to six. Purple Looks: a say block. Drag the round roll block into it, and change two to one. Orange Control: repeat. Drag roll into the ten, so the cat hops as many times as the die says. Inside the repeat: move twenty steps, and next costume.",
+     "on_screen_text": [
+      "Exercise 4.1: Dice Race",
+      "Variables: orange-red",
+      "Events: yellow",
+      "Operators: green",
+      "Looks: purple",
+      "Control: orange",
+      "Motion: blue"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s05",
+     "narration": "Click the stage once, then press c. How far will the cat go? Three! Hop, hop, hop. Press c again. How far this time? Five! Nobody knows until the die rolls. Surprise!",
+     "on_screen_text": [
+      "3 hops",
+      "5 hops"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s06",
+     "narration": "Quick quiz! The block says pick random one to six. Could the cat say nine? No! Only one, two, three, four, five or six. Could it say the same number two times in a row? Yes! That is still random. Random means nobody can guess the next one.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "1  2  3  4  5  6",
+      "4  4: still random!",
+      "Nobody can guess the next one"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s07",
+     "narration": "Wiggle break! Stand up. I roll the die, and we do that many jumps. Three! Jump, jump, jump! Roll again. Two! Clap, clap! Now stretch up high, and take three slow breaths. Beep! I feel great!",
+     "on_screen_text": [
+      "3 jumps!",
+      "2 claps!"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s08",
+     "narration": "Random can pick a place too. The blue Motion block, go to random position, sends a sprite to a surprise spot. In Exercise 4.2, Ghost Pop, the ghost pops up somewhere new every second. Click it, and you get a point! Where will it go next? Nobody knows. Surprise!",
+     "on_screen_text": [
+      "Motion: blue",
+      "Exercise 4.2: Ghost Pop",
+      "Surprise!"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s09",
+     "narration": "Uh oh. Time for a bug hunt! Omar's cat should say a new surprise number every two seconds. But it says seven, seven, seven, again and again! Detectives, where does the die get rolled? Above the forever! The die rolls once, at the start, and never again. Like rolling a die once, and then moving that number every turn, forever. Fix: drag the forever away, put the set block in the top of the forever, then snap the forever back. Test again. A new number every time! We fixed the bug! Roll, roll, roll!",
+     "on_screen_text": [
+      "BUG HUNT! The Stuck Dice",
+      "7, 7, 7...",
+      "Rolled once, before the loop",
+      "Inside the forever: a new roll each time"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s10",
+     "narration": "In Dice Race, the die decides who wins. Being fast or clever does not help. So when we win, we do not tease. When we lose, we do not get angry at the computer or at a friend. A good sport says good game, has another go, and is happy for the winner. What can you say when you lose? Good game! Want to play again? Next time, maybe me! High five!",
+     "on_screen_text": [
+      "Good game!",
+      "Want to play again?",
+      "Next time, maybe me!"
+     ]
+    },
+    {
+     "scene_id": "j2-w04-s11",
+     "narration": "Say the new words with me! Random! Pick random! Surprise! Random picks a number nobody can guess. Every time the block runs, it rolls again. For a new number every time, the roll goes inside the loop. Now it's your turn, with a grown-up. Build Dice Race, make Ghost Pop, then fix the Stuck Dice. Tip: drag the cat's script onto the Ballerina, and change c to b. Then race! See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Random!",
+      "Pick random!",
+      "Surprise!",
+      "random = nobody can guess it",
+      "roll inside the loop = new every time",
+      "NEXT: Dice Race, Ghost Pop, The Stuck Dice",
+      "Ballerina: change c to b"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 5,
+   "slug": "play-day-and-show-me",
+   "title": "Play Day and Show Me",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week05.tex",
+    "junior/2-game-makers/teaching-material/workbook/week05.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w05-s01",
+     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Today is Play Day! We practice everything we know: forever, if touching, score, and random. Then you show a grown-up what you can do. Ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Play Day!",
+      "Show me what you can do!"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s02",
+     "narration": "Let's warm up. Today, you are the computer! The computer does exactly what the blocks say, one block at a time. It never guesses. Here are the jobs. Pixi is the sprite. I am the reader: I read one block at a time, and point at it. And the SCORE box keeps the score. Six squares on the floor. Moving ten steps is one square today. Apples sit on squares two, three, and five.",
+     "on_screen_text": [
+      "one block at a time, never guess",
+      "red square = apple"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s03",
+     "narration": "Set score to zero: the box is empty. Repeat six times. Move. Are you touching an apple? No. Nothing happens. Move. Touching an apple? Yes! Change score by one. Yum! Keep going, square by square. What will the score be at the end? Three! Three apples, three points. We added one only when the if was true.",
+     "on_screen_text": [
+      "only when the if is true"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s04",
+     "narration": "Now, our detective steps for bugs. Test: click the flag and play. Look: what should happen, and what happened? Change one thing, then test again. A detective is like a referee. A referee watches, sees exactly what went wrong, and makes one call. A bug detective finds the one block that is wrong, and changes only that.",
+     "on_screen_text": [
+      "Detective steps",
+      "Change only that one block"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s05",
+     "narration": "Watch me hunt a tiny bug. I want one point for each click on the cat. Test! I click the cat three times. Look! I wanted three. I got thirty! Which block is the clue? The block that changes the score. It says change score by ten! Change one thing: ten back to one. Then click set score to zero once, so the score starts again. Test again: one, two, three. Three! Bug fixed. That is how the relay works!",
+     "on_screen_text": [
+      "BUG HUNT! The score that counts by 10",
+      "click it once"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s06",
+     "narration": "Quick quiz! Name the block. Which block keeps a game going, again and again? Forever! It keeps going until you press stop. Which block makes the score start at zero? Set score to zero, right under the green flag! Which block picks a number nobody can guess? Pick random, the die inside the computer! You know so much!",
+     "on_screen_text": [
+      "QUICK QUIZ"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s07",
+     "narration": "Now, the Bug-Hunt Relay: three broken games, like three legs of a race. Leg one: Stuck at the Edge. The cat should walk back and forth forever. Leg two: The Stuck Score. Each click on the ghost should add one. Leg three: The Apple That Won't Pop. It should pop when the cat touches it. Build each one, test it, and find the bug yourself. Fix one leg, get a sticker, and swap Driver! Stuck? Read the should-do line again. What is different? Still stuck? Ask: does this block run once, or again and again?",
+     "on_screen_text": [
+      "Bug-Hunt Relay",
+      "should do: walk back and forth",
+      "should do: each click adds 1",
+      "should do: pop when the cat touches it",
+      "Once, or again and again?",
+      "Hint: read the should-do line again"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s08",
+     "narration": "Wiggle break! Dance forever, but listen: if I say apple, jump! Banana! No jump! Apple! Jump! And now the music stops. Freeze, like a stopped project! Beep! I am frozen!",
+     "on_screen_text": [
+      "If I say apple, jump!",
+      "Banana!",
+      "Apple!",
+      "Freeze!"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s09",
+     "narration": "After the relay, keep your fixed leg three open, and turn it into My Best Game. Make a score variable. Snap set score to zero under the green flag, above the forever. Put change score by one inside the if. Then add your own idea: a new sound, a backdrop, or a different sprite to catch. Swap Driver and Helper when the timer rings. Your grown-up may ask: show me where the forever is. Where does the score start? Not yet is a fine answer too. We are all still learning.",
+     "on_screen_text": [
+      "Exercise 5.3: My Best Game",
+      "under the green flag",
+      "inside the if",
+      "Not yet  •  Getting there  •  Got it"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s10",
+     "narration": "Five weeks ago, we had never made a game. Today, you fix broken games by yourself! What did you get better at? Maybe fixing bugs, finding blocks, taking turns, or being a good sport. Getting better is not about being the fastest. It is about trying, fixing, and trying again. And we are kind about bugs: ours, and our friends'. I got better at beeping!",
+     "on_screen_text": [
+      "Try, fix, try again",
+      "Be kind about bugs"
+     ]
+    },
+    {
+     "scene_id": "j2-w05-s11",
+     "narration": "Say the detective steps with me! Test! Look! Change one thing! Now it's your turn, with a grown-up. Be the computer on paper, run the Bug-Hunt Relay, then build My Best Game. Then play your game for your grown-up, and say how it works. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Test!",
+      "Look!",
+      "Change one thing!",
+      "NEXT: Be the Computer, Bug-Hunt Relay, My Best Game",
+      "Say how your game works"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 6,
+   "slug": "messages",
+   "title": "Messages",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week06.tex",
+    "junior/2-game-makers/teaching-material/workbook/week06.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w06-s01",
+     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Our games have lots of sprites now. How can one sprite tell the others when to start? It sends a message! Today, we make a start button. Click it, and the whole game starts! Let's go!",
+     "on_screen_text": [
+      "Message!",
+      "MISSION: Make a start button"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s02",
+     "narration": "Let's warm up with a pass-the-note relay. Each player has a listening card. You do nothing until you receive your note. Then you do your action, and pass the next note. I hand Pixi the JUMP note. Jump! Now I pass TWIRL. The cat twirls, and passes CLAP back to me. Clap, clap, clap! Jump with Pixi! Twirl like the cat! Clap with me! Nobody counted seconds. Each one waited for a message.",
+     "on_screen_text": [
+      "Wait for your message"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s03",
+     "narration": "Now two bugs. I pass a note that says HOP. Hmm. Nobody has a HOP card. Nothing happens! The message was sent, but nobody was listening for it. Next, the note should say TWIRL, but it says SPIN. Will the cat twirl? No! The cat listens for TWIRL, so it waits and waits. The names must match exactly. Remember both bugs for the bug hunt!",
+     "on_screen_text": [
+      "Note: HOP",
+      "Nobody listening = nothing happens",
+      "Note: SPIN",
+      "Cat listens for: TWIRL",
+      "Names must match!"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s04",
+     "narration": "In Scratch, a note is called a message. One sprite broadcasts a message. That means it sends it to every sprite at once. A script that starts with when I receive that message runs when the message arrives. Both blocks are in the yellow Events circle. It is like the school bell. The whole school hears it, and everyone listening for it goes out to play. Broadcast is the bell. When I receive is a child listening for it.",
+     "on_screen_text": [
+      "Events: yellow"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s05",
+     "narration": "Let's build Exercise 6.1, Start Button. Add the Star, and drag it to the middle. It is our start button. Drag the cat to one side. Star: yellow Events, when this sprite clicked. Then pink Sound, start sound Pop. Yellow Events: broadcast message1. Click the little arrow, choose New message, and type start. Purple Looks: hide. The button goes away once the game starts. And a second script: when green flag clicked, show. So the button comes back.",
+     "on_screen_text": [
+      "Exercise 6.1: Start Button",
+      "New message: start",
+      "hide: the button goes away",
+      "show: it comes back"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s06",
+     "narration": "Now click the cat. Yellow Events: when I receive. Pick start in its little arrow. Snap on set rotation style left-right, say Let's play, and a forever with move ten steps, and if on edge, bounce. I click the green flag. Does the cat move? No! The Star waits. Only the message starts the cat. Now I click the Star. Pop! The Star sent the message, and the cat was listening! Let's play!",
+     "on_screen_text": [
+      "Only the message starts the cat",
+      "Star sends. Cat listens."
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s07",
+     "narration": "Quick quiz! The Star broadcasts start. The cat and the ghost both have when I receive start. I click the Star. Who starts? Both of them! One message can have many listeners. Like the whole school hearing the bell!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "One message, many listeners"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s08",
+     "narration": "Uh oh. Time for a bug hunt! Kai's game: click the Star, the balloon floats up, and the ghost says Boo. Kai clicks the flag. The ghost says Boo straight away! Kai clicks the Star. Nothing happens! The Star broadcasts go. Who is listening for go? Nobody! The ghost starts on the green flag, and the balloon listens for message1.",
+     "on_screen_text": [
+      "BUG HUNT! Nobody Is Listening",
+      "Star: broadcast go",
+      "Nobody is listening!"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s09",
+     "narration": "Bug one: the ghost is not listening. Give its say block a new hat: when I receive go. Bug two: the wrong name. Click the little arrow in the balloon's hat, and pick go. Now test again. Click the flag, then the Star. The balloon floats up, and the ghost says Boo, at the same time. Both bugs fixed! Tip: always pick message names from the little arrow. Names match! Beep!",
+     "on_screen_text": [
+      "BUG HUNT! Nobody Is Listening",
+      "Bug 1: the ghost listens for go",
+      "Bug 2: the balloon listens for go",
+      "Pick names from the little arrow"
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s10",
+     "narration": "Who drew the cat, the ghost and the Star? Not us! Artists who work on Scratch drew them. And someone recorded the Pop sound. When we use something someone else made, we give credit: we say who made it. A sprite in your game can say: sprites and sounds from the Scratch library. If a friend draws a sprite for you, ask first, and put their nickname in the credits. What in your game did you make yourself? Scratch artists drew me!",
+     "on_screen_text": [
+      "Sprites and sounds from the Scratch library",
+      "Ask first. Use their nickname."
+     ]
+    },
+    {
+     "scene_id": "j2-w06-s11",
+     "narration": "Wiggle break! When I say everyone, everybody moves, like a broadcast to every sprite. Everyone! Now say the new words with me! Broadcast! When I receive! Names match! Now it's your turn, with a grown-up. Build the Start Button, pass the message from the cat to the ghost to the Ballerina, then fix Nobody Is Listening. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Everyone!",
+      "Broadcast!",
+      "When I receive!",
+      "Names match!",
+      "NEXT: Start Button, Pass the Message, Nobody Is Listening",
+      "cat, then ghost, then Ballerina"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 7,
+   "slug": "my-own-blocks",
+   "title": "My Own Blocks",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week07.tex",
+    "junior/2-game-makers/teaching-material/workbook/week07.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w07-s01",
+     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Hello again! Last week, our sprites sent messages to each other. Today, we make our very own blocks, with names that we choose! Our cat will learn a new block called celebrate. Are you ready? Let's go!",
+     "on_screen_text": [
+      "broadcast and when I receive",
+      "MISSION: Make my own block"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s02",
+     "narration": "Let's warm up with recipe cards. Here is how to make toast: get the bread, put it in the toaster, push the lever, wait, take it out, and spread the butter. Six cards for one slice of toast. That is a lot of cards! So we put all six cards in an envelope, and we write a name on it: MAKE TOAST. Now the envelope is one step with a name. When I say MAKE TOAST, you do all six cards inside. Here is a breakfast plan: MAKE TOAST, pour juice, MAKE TOAST. Toast! Juice! Toast! Two slices, and we did not write the six cards twice!",
+     "on_screen_text": [
+      "MAKE TOAST",
+      "one name = six steps",
+      "2 slices!"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s03",
+     "narration": "I made a second envelope too. It says WASH HANDS. Inside are three cards: turn on the tap, soap and rub, rinse and dry. Pixi, do the breakfast plan again, please. Toast! Juice! Toast! Done! Hmm. Did anyone wash their hands? No! The WASH HANDS envelope is not in the plan. Making a named step is not enough. We have to use it. So we put it at the start of the plan. Now we wash our hands first! Remember this envelope. It will help us in the bug hunt.",
+     "on_screen_text": [
+      "WASH HANDS",
+      "made, but not used",
+      "We have to use it!"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s04",
+     "narration": "Scratch lets us make our own envelope. It is called a My Block. A My Block puts a group of blocks under one name. Then one block does all of them. It is like a dance move with a name. When the music teacher says, do the twirl, you know it means: arms up, turn around, bow. The name stands for the steps. Let's make our own move, called celebrate: jump, spin, and shout Hooray! Stand up! Ready? Celebrate! Hooray! Beep!",
+     "on_screen_text": [
+      "My Block = a group of blocks with a name",
+      "the twirl",
+      "The name stands for the steps",
+      "celebrate"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s05",
+     "narration": "Let's build the celebrate block together. Click the pink-red My Blocks circle, at the very bottom. Then click Make a Block. Type celebrate, and click OK. Look! A define celebrate block appears. Define means: here is what my block does. Under it, snap start sound Pop, from the pink Sound circle. Then a repeat from orange Control. Change ten to twenty-four, and put turn fifteen degrees inside, from blue Motion. Last, purple Looks: say Hello for two seconds. Type Hooray, and change two to one. Pop, spin, Hooray!",
+     "on_screen_text": [
+      "Exercise 7.1: Celebrate Block",
+      "My Blocks: pink-red",
+      "Make a Block",
+      "celebrate  →  OK",
+      "define = what my block does",
+      "Sound: pink",
+      "Control: orange",
+      "Motion: blue",
+      "Looks: purple"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s06",
+     "narration": "The define script is the recipe in the envelope. What do you think happens if we click the green flag now? Nothing happens! The define script does nothing on its own. We have to use our block. From yellow Events, drag in: when this sprite clicked. Then snap our celebrate block under it. Click the cat! Pop, spin, Hooray! It works! Now drag in: when space key pressed, and snap another celebrate under it. Press space! One recipe, used twice! Beep! Celebrate!",
+     "on_screen_text": [
+      "Nothing happens!",
+      "Events: yellow",
+      "space",
+      "One recipe, used twice!"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s07",
+     "narration": "Here is the best part. I want a different sound, so I change it once, in the define script. Pop becomes Meow. Now I click the cat. I press space. Both scripts meow! Change it once, and both uses change.",
+     "on_screen_text": [
+      "Meow!",
+      "space  →  Meow!",
+      "Change it once!"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s08",
+     "narration": "Uh oh. Time for a bug hunt! This is Sam's game. The cat runs around the stage, and you click it to score. Sam made a My Block called get ready. It sets the score to zero and says Go. Let's test. Click the flag. Click the cat: one, two, three! Now click the flag again. What should happen? What happened? The score should go back to zero, and the cat should say Go. But the score stays at three, and the cat never says Go!",
+     "on_screen_text": [
+      "BUG HUNT! The Lost Block",
+      "score  →  0",
+      "say Go!",
+      "should: 0 and Go!",
+      "happened: still 3, no Go!"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s09",
+     "narration": "Detective question: is get ready used anywhere? No! The define script sits all alone, like the WASH HANDS envelope. Made, but never used. Let's drag get ready from My Blocks, and snap it under when green flag clicked. It goes above the forever loop, because a block under a forever loop never runs. Test again: flag, click, flag. Go! The score is back to zero. We fixed the bug! Lost block, found!",
+     "on_screen_text": [
+      "BUG HUNT! The Lost Block",
+      "Made, but never used",
+      "above the forever"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s10",
+     "narration": "Good game makers make games for everyone. Some people see red and green as the same color. So make good things and bad things look different by shape and color, like a red apple to catch and a ghost to dodge. Some people need big words. Right-click the score on the stage, and choose large readout. Some people play with the sound off. So when you score, play a sound and show a word. What else could make a game easier for everyone? Bigger sprites help too!",
+     "on_screen_text": [
+      "Score 3",
+      "Bigger sprites!"
+     ]
+    },
+    {
+     "scene_id": "j2-w07-s11",
+     "narration": "Say the new words with me! My Block! Define! Use it! A My Block is a group of blocks with a name. Make it once, then use it again and again. A block that is made but never used does nothing. Now it's your turn, with a grown-up. Build the Celebrate Block, fix the Lost Block, then make the score big. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "My Block!",
+      "Define!",
+      "Use it!",
+      "Make it once, use it again",
+      "Made but never used = does nothing",
+      "NEXT: Celebrate Block and The Lost Block"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 8,
+   "slug": "start-win-and-lose",
+   "title": "Start, Win and Lose",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week08.tex",
+    "junior/2-game-makers/teaching-material/workbook/week08.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w08-s01",
+     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Let's play! Our catch game is fun. But it goes on, and on, and on. Real games have an ending. You win, or it is game over! Today, we give our catch game a start, a goal and an ending. Ready? Let's go!",
+     "on_screen_text": [
+      "on and on and on...",
+      "MISSION: Give my game an ending",
+      "start • goal • ending"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s02",
+     "narration": "Let's warm up with a game everyone knows: tic-tac-toe. Every game has rules. Let's sort them on four cards. Start: the grid is empty, and X goes first. Play: we take turns. Win: three in a row! Lose: if nobody wins, the game ends when the grid is full.",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j2-w08-s03",
+     "narration": "Now a game with no ending. We pass a ball around, and around, and around. How do you win? You can't! There is no way to win, and it never stops. That is not really a game. Next game. The rule is: if you are wearing socks, you lose! Oh no! I lose before the game even starts! That ending came too soon. A game that never ends, and a game that ends right away: those are today's bugs!",
+     "on_screen_text": [
+      "No way to win. It never ends!",
+      "Socks? You lose!",
+      "Ends too soon!",
+      "today's bugs!"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s04",
+     "narration": "Real games have three parts. A start: everything is set to zero, and the player learns the goal. The play: a forever loop keeps things moving. And an ending: you win, or it is game over. In soccer, a referee watches the whole game, and keeps checking: is it over yet? When it is, the whistle blows, and everybody stops. In Scratch, the whistle is the block stop all, from orange Control. Today, the Bowl gets a referee script!",
+     "on_screen_text": [
+      "Is it over yet?",
+      "stop all = the final whistle"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s05",
+     "narration": "To lose, we count misses. Click orange-red Variables, then Make a Variable. Type misses, and click OK. Every apple that falls past the bowl is one miss. Click the Apple. Inside its if touching edge, snap change misses by one, above go to Star. The apple goes back to the hidden Star marker at the top, and falls again. Watch the misses count up: one, two, three!",
+     "on_screen_text": [
+      "Variables: orange-red",
+      "Make a Variable: misses",
+      "one miss",
+      "hidden Star marker",
+      "misses count up"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s06",
+     "narration": "Now click the Bowl. From yellow Events, drag in a new when green flag clicked. This is the referee script. First, the start. From Variables, snap set score to zero, and set misses to zero. Then purple Looks: say Catch ten apples, for two seconds. Now the player knows the goal! Next, the play: an orange forever loop.",
+     "on_screen_text": [
+      "Exercise 8.1: Win and Lose",
+      "Events: yellow",
+      "Variables: orange-red",
+      "Looks: purple",
+      "Control: orange"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s07",
+     "narration": "Now the ending. Inside the forever, put an if then. From green Operators, drop in an equals block. Drag the round misses into the left side, and type three on the right. Inside the if: say Game over for two seconds, then stop all. Under it, a second if: score equals ten. Inside: say You win for two seconds, then stop all. The forever loop keeps checking, again and again, like a referee. Is it over yet? Is it over yet?",
+     "on_screen_text": [
+      "Operators: green",
+      "misses = 3",
+      "stop all = the final whistle",
+      "score = 10",
+      "forever = keeps checking"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s08",
+     "narration": "A good game maker tests every ending. Let's play to win! When you hear You win, jump and cheer! Now click the flag again, and lose on purpose. When you hear Game over, freeze! What will the Bowl say when misses gets to three? Game over! Freeze! Both endings work. Beep! I'm frozen!",
+     "on_screen_text": [
+      "Jump and cheer!",
+      "Freeze!"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s09",
+     "narration": "Uh oh. Time for a bug hunt! Leo's game ends right at the start. He clicks the flag, and it says Game over at once! Look at his if. Which block is the clue? Misses equals zero! Misses start at zero, so the referee blows the whistle right away. The fix: three, not zero. Now the game waits for three misses. It works!",
+     "on_screen_text": [
+      "BUG HUNT! Never or Right Away?",
+      "misses start at 0",
+      "3, not 0"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s10",
+     "narration": "Zoe catches ten apples, but her game never ends! Look where her if score equals ten is. It sits above the forever loop. So it checks only once, at the very start, when the score is zero. The fix: drag the if back inside the forever, under the misses check. Test again. Catch ten apples! You win! We fixed both bugs! Bug hunters, beep!",
+     "on_screen_text": [
+      "BUG HUNT! Never or Right Away?",
+      "score 10... still going!",
+      "checks only once"
+     ]
+    },
+    {
+     "scene_id": "j2-w08-s11",
+     "narration": "Our games end. You win, or it is game over, and then you choose what to do next. Some games on phones and tablets are made so you never want to stop. They say: You almost won! One more go! That is a trick. A game keeps saying: You were so close, play again! What can you do? Stop anyway! Say: No thanks, I am done. Take a break, and tell a grown-up if it is hard to stop.",
+     "on_screen_text": []
+    },
+    {
+     "scene_id": "j2-w08-s12",
+     "narration": "Say the three parts of a game with me! Start! Play! Ending! The start sets everything to zero. The forever keeps checking. Stop all is the final whistle. Now it's your turn, with a grown-up. Add misses and the referee, test both endings, then write your game rules for next week. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Start!",
+      "Play!",
+      "Ending!",
+      "start • play • ending",
+      "stop all = the final whistle",
+      "NEXT: Win and Lose"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 9,
+   "slug": "project-studio",
+   "title": "Project Studio",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week09.tex",
+    "junior/2-game-makers/teaching-material/workbook/week09.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w09-s01",
+     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Today is a big day! Today, you start your very own arcade game! It can be a catch game, or a maze game. You choose! Game makers plan before they build. So let's plan first!",
+     "on_screen_text": [
+      "MISSION: My First Arcade Game",
+      "catch game",
+      "maze game",
+      "Plan first, then build!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s02",
+     "narration": "This is a game plan card. It asks: Is it a catch game or a maze game? Who is the player? What do you catch or avoid? How do you win? How do you lose? And what is one surprise? Here is Mei's card. Mei planned a catch game called Banana Drop. I am the Bowl. Bananas fall, and I catch them. I win when I catch ten. I lose when I miss three. Surprise: the bananas wait a random time at the top. Your card will be different!",
+     "on_screen_text": [
+      "Your card: your own game!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s03",
+     "narration": "Next, make a paper prototype. A prototype is a quick test version, made before the real one. Draw the stage on paper. Draw and tear out the player and the thing that falls. A partner slides the player. You slide the falling thing down, and say what happens. You caught it! One point! You missed. One miss! Then ask your partner: Could you win? Could you lose? Was anything confusing? If you need to, change one thing on your card.",
+     "on_screen_text": [
+      "prototype = a quick test version",
+      "1 point!",
+      "1 miss!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s04",
+     "narration": "Every arcade game needs five must-haves. A forever loop keeps it going. An if touching makes something happen. A score or misses variable counts. Random gives a surprise. And you can win, or it is game over. We build one must-have at a time. Then we test it, and check it off. It is like building a house. Builders make the floor and the walls first, and check they are strong. The paint comes last. Must-haves first. Extras later! Floor! Walls! Paint!",
+     "on_screen_text": [
+      "Must-haves first. Extras later!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s05",
+     "narration": "Let's build the first must-have of Mei's game together. The Bowl already moves with the arrow keys. First, the Star marker. Choose the Star sprite, drag it near the top, and give it: when green flag clicked, hide. Now choose the Bananas sprite. From yellow Events: when green flag clicked. From blue Motion: set rotation style left-right, go to Star, and point in direction one hundred eighty. That points down. Then an orange forever, with move five steps inside. Click the flag. Test! The bananas fall. Forever: check!",
+     "on_screen_text": [
+      "Mei's Banana Drop: the first must-have",
+      "Looks: purple",
+      "direction 180 = down",
+      "Forever: check!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s06",
+     "narration": "Quick quiz! Before Mei builds the next must-have, what should she do? Test it, and check it off! If something goes wrong, we know where to look. Next must-have: if touching. Inside the forever, put an if then from orange Control, with touching Bowl from light blue Sensing. Inside the if: start sound Pop, and go to Star. Test with the arrow keys. Catch a banana! Pop! The banana goes back to the top. If touching: check!",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "Control: orange",
+      "Sensing: light blue",
+      "If touching: check!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s07",
+     "narration": "Look at the rest of Mei's card. Next come the score and misses, the surprise and the ending. You built them all in your catch game! Mei's surprise is a wait with pick random one to three, right after each go to Star. Nobody knows when the next banana will drop! And the Bowl gets the referee script from last week.",
+     "on_screen_text": [
+      "Look in your catch game!",
+      "Operators: green",
+      "referee script from week 8",
+      "if misses = 3 • if score = 10"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s08",
+     "narration": "Wiggle break! Stand up and act out your game. Slide left and right, like the player. Now you are a banana. Fall from the ceiling! Catch! Jump up high! Game over! Fall to the floor, in slow motion. Now stand up, and stretch. Beep! Stretch!",
+     "on_screen_text": [
+      "Slide!",
+      "Fall!",
+      "Jump!",
+      "Game over...",
+      "Stretch!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s09",
+     "narration": "Now the playtest. It is our bug hunt! Swap seats. The Player plays your game twice: once to win, and once to lose. You watch. Keep your hands in your lap, and say nothing. That is the hardest job! Write or draw each problem on your bug list. The bananas went through the bowl. I did not know how to win. It said Game over at the start. Then the Player gives two stars and a wish.",
+     "on_screen_text": [
+      "BUG HUNT! Playtest",
+      "Say nothing!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s10",
+     "narration": "Now pick one bug, and fix it: test, look, change one thing. Mei's Player found this one. Click the flag, and the misses count up right away. Game over! Why? Look at the Star marker. The Star is touching the edge! So the banana touches the edge right at the start. Mei drags the Star a little lower, away from the edge. Test again! Misses start at zero. Fixed! Bug squashed!",
+     "on_screen_text": [
+      "BUG HUNT! Playtest",
+      "Star touching the edge",
+      "Star lower: away from the edge"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s11",
+     "narration": "Your game is yours. Zoe's game is Zoe's. To show someone else's game, take a photo, or copy it, ask first: May I show your game? And never change someone else's game without asking. Make a copy with a new name. Our games stay with our family. We do not put them on the internet. Leo loves Priya's maze. He wants to show it to his cousin. What should he do? Ask Priya first! If she says no, he does not show it.",
+     "on_screen_text": [
+      "Ask Priya first!"
+     ]
+    },
+    {
+     "scene_id": "j2-w09-s12",
+     "narration": "Say it with me! Plan! Build! Playtest! Plan, then build one must-have at a time. Then a Player helps you find bugs. Now it's your turn, with a grown-up. Fill in your game plan card, build your must-haves, then playtest and fix one bug. See you next week. Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Plan!",
+      "Build!",
+      "Playtest!",
+      "one must-have at a time",
+      "NEXT: My First Arcade Game"
+     ]
+    }
+   ]
+  },
+  {
+   "week": 10,
+   "slug": "arcade-showcase",
+   "title": "Arcade Showcase",
+   "source_files": [
+    "junior/2-game-makers/teaching-material/lessons/week10.tex",
+    "junior/2-game-makers/teaching-material/workbook/week10.tex"
+   ],
+   "scenes": [
+    {
+     "scene_id": "j2-w10-s01",
+     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Welcome to the arcade! Today, our home is an arcade! At an arcade, people walk around and play games. We do three things. We show our game in one minute, we let someone play it, and we celebrate! Ready? Let's go!",
+     "on_screen_text": [
+      "MISSION: Arcade Showcase"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s02",
+     "narration": "Before an arcade opens, the owners check every machine. Let's do a last-minute bug check. One: click the flag. Do the score and misses start at zero? Does the game say its goal? Two: play to win. Does it say You win, and stop? Three: click the flag again, and play to lose. Game over? Four: is the sound on? Can you hear it? Found a bug? Fix one thing, then save your game.",
+     "on_screen_text": [
+      "Exercise 10.1: Last-Minute Bug Check"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s03",
+     "narration": "Bug hunt! Here is a common last-minute bug. The first game works. But on the second game, it says Game over right away! Look at the top of the referee script. What is missing? Set misses to zero! The misses were still three from the last game. Snap set misses to zero at the top, and test again. Now every game starts fresh at zero. Fixed! Every arcade game has a bug sometimes. Fix one thing, save, then stop building.",
+     "on_screen_text": [
+      "BUG HUNT! The Second Game",
+      "misses still 3!",
+      "starts fresh at 0",
+      "Fix one thing. Save. Stop."
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s04",
+     "narration": "In your one minute, say what your game is, how to win and lose, and one design choice. A design choice is something you decided on purpose, and why. Imagine you run a game stand at a fair. A visitor comes. You say what the game is, how to play and win, and one cool thing about it. Then you hand them the controls, and cheer them on! Go, go, go!",
+     "on_screen_text": [
+      "design choice = decided on purpose, and why",
+      "Hand over the controls!"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s05",
+     "narration": "Watch me show Mei's game, Banana Drop. What it is: My game is called Banana Drop. You are the Bowl. Use the arrow keys. How to win and lose: Catch ten bananas to win. Miss three, and it is game over.",
+     "on_screen_text": [
+      "A one-minute demo",
+      "Banana Drop",
+      "Catch 10 • Miss 3"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s06",
+     "narration": "A design choice: I chose three misses, not one, because my Player said one was too hard. That was a wish from the playtest. Then point at the script, and read the if: If misses equals three, then Game over, stop all. Credit: The bananas and the bowl are from the Scratch library. Hand over: Who wants to play? Me! Me! Beep!",
+     "on_screen_text": [
+      "A one-minute demo",
+      "3 misses, not 1",
+      "a wish from the playtest",
+      "from the Scratch library"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s07",
+     "narration": "Quick quiz! What would happen if Mei changed three to five? Would the game be easier, or harder? Easier! The game ends after five misses, not three. You can miss more before it is game over.",
+     "on_screen_text": [
+      "QUICK QUIZ",
+      "Easier!",
+      "5 misses before game over"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s08",
+     "narration": "Now practice your own demo with a partner. Use these sentences. Say the name of your game, and who the player is. Say how you win. Then say one choice: I chose this, because of that. No design choice yet? Ask: Why that goal? Why that speed? Why that sprite? Any reason you give is a design choice! Your grown-up may also say: Show me a message. Show me a My Block.",
+     "on_screen_text": [
+      "Exercise 10.2: My One-Minute Demo",
+      "Why 10? Why 3? Why that sprite?",
+      "Any reason = a design choice!",
+      "Show-me corner"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s09",
+     "narration": "Now the arcade gallery! Visitors walk around and play each game. At each game, ask: May I play? Then play one round. Put a sticker on the part you liked best: fun to play, cool sounds, or great surprise. Then say two stars and a wish, with kind words: I liked the pop sound and the ghost. I wish it was a bit slower. And visitors never change someone else's game. I liked the surprise wait! Beep!",
+     "on_screen_text": [
+      "two stars and a wish",
+      "Never change someone else's game"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s10",
+     "narration": "Wiggle break! Let's do the arcade dance. Slide like a bowl. Fall like a banana. Sneak through a maze. Freeze for Game over! And jump for You win! Beep! Arcade dance!",
+     "on_screen_text": [
+      "Slide!",
+      "Fall!",
+      "Sneak!",
+      "Freeze!",
+      "Jump!"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s11",
+     "narration": "Our arcade is for our family, here at home. On the screen, we use nicknames, never our full names, our school or our address. We do not put our games on the internet, or send them to people we do not know. We give credit for the sprites and ideas we did not make. Want to show your game to someone else? Ask a grown-up first. Quick check: on the screen, do we use our full name, or a nickname? A nickname!",
+     "on_screen_text": [
+      "A nickname!"
+     ]
+    },
+    {
+     "scene_id": "j2-w10-s12",
+     "narration": "You planned a game, built it, let a Player test it, fixed bugs, and explained your choices. You are now a Game Maker! Let's give a big clap for every game maker. Clap, clap, clap! Say it with me! Show! Explain! Celebrate! Now it's your turn, with your family. Check your game, give your one-minute demo, then visit the arcade gallery. Congratulations, Game Makers! Happy coding! Beep boop, bye!",
+     "on_screen_text": [
+      "Game Maker!",
+      "Show!",
+      "Explain!",
+      "Celebrate!",
+      "NEXT: Arcade Showcase"
+     ]
+    }
+   ]
+  }
+ ]
+}

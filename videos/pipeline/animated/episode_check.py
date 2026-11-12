@@ -22,16 +22,22 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 EPISODES = Path(__file__).parent / "episodes"
 
 
-def kit_episodes() -> list[tuple[int, int]]:
-    return sorted((int(p.stem[1]), int(p.stem[3:5])) for p in EPISODES.glob("l[1-3]w[0-9][0-9].py"))
+def kit_episodes() -> list[tuple]:
+    found = [(int(p.stem[1]), int(p.stem[3:5])) for p in EPISODES.glob("l[1-3]w[0-9][0-9].py")]
+    found += [(p.stem[:2], int(p.stem[3:5])) for p in EPISODES.glob("j[1-3]w[0-9][0-9].py")]  # junior
+    return sorted(found, key=lambda e: (str(e[0]), e[1]))
 
 
 def load(level: int, week: int) -> Episode:
-    return importlib.import_module(f"videos.pipeline.animated.episodes.l{level}w{week:02d}").EPISODE
+    from .render import module_name
+
+    return importlib.import_module(f"videos.pipeline.animated.episodes.{module_name(level, week)}").EPISODE
 
 
 def spec_video(level: int, week: int) -> dict:
-    spec = json.loads((REPO_ROOT / "videos" / "specs" / f"level{level}.json").read_text(encoding="utf-8"))
+    from .render import spec_path
+
+    spec = json.loads(spec_path(level).read_text(encoding="utf-8"))
     return next(v for v in spec["videos"] if v["week"] == week)
 
 

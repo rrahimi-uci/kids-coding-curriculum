@@ -1,7 +1,8 @@
 # Junior track scope and sequence (Grades 2–3)
 
 > **Status:** All three levels are written (`active` in [`curriculum.json`](../curriculum.json)).
-> The junior track is not on the website yet, and the Aiden and Pixi videos are in progress.
+> Each week has a 5–6 minute video, *Kids Coding Junior with Aiden and Pixi* (`videos/README.md`).
+> The junior track and its videos are not on the website yet.
 
 This is the single source of truth for **what the junior track teaches when**,
 in the same way that [SYLLABUS.md](SYLLABUS.md) is for the main
