@@ -17,6 +17,9 @@ Dates are in ISO format.
   degradation and synthesized transient peak overshoot.
 - The website's Display block and Easy-read font toggle were removed from the sidebar. The dark-mode
   toggle is now a single accessible control fixed at the top-right corner.
+- Junior Scratch directions now use named quarter turns or the printed turn card instead of exposing
+  Scratch's unexplained 15-degree default. The matching workbooks, read-aloud lesson steps, exercise
+  references, video scripts, captions and generated specs stay synchronized.
 
 ## 2.0.0 - 2026-11-13
 

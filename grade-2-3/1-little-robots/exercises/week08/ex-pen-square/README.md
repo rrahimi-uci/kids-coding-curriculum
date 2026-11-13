@@ -11,7 +11,7 @@
 4. Click **Pen** (green). Snap on **erase all**, then **pen down**.
 5. Click **Control** (orange). Snap on **repeat 10**. Change 10 to `4`.
 6. Click **Motion** (blue). Put **move 10 steps** inside the repeat. Change 10 to `100`.
-7. Put **turn ↻ 15 degrees** inside the repeat, under the move. Change 15 to `90`.
+7. Put **turn ↻ 90 degrees** (a quarter turn) inside the repeat, under the move.
 8. Click **Pen** (green). Snap **pen up** under the repeat.
 9. Drag the cat to a place with room. Click the green flag.
 

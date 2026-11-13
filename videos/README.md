@@ -122,7 +122,8 @@ watch with a grown-up.
 - **Junior rules** (checked by `testing/test_junior_videos.py`): every episode is narrator-led, opens
   by presenting Aiden as a scientist and builder alongside Pixi, and has no Aiden dialogue. Every
   episode has about 650–850 spoken words, runs 300–430 seconds, and nothing seen or heard uses
-  negative numbers, x/y positions or "360 divided by sides".
+  negative numbers, x/y positions, an unexplained 15-degree turn, or "360 divided by sides". Turns
+  use named quarter/half-turn language or the printed turn card.
 
 ```bash
 python -m videos.pipeline.cli junior-spec --level 1              # rewrite specs/junior1.json from the episodes

@@ -53,7 +53,7 @@ Do this on your computer while the children watch. Say each step out loud.
 \begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
   \item Click the pink-red \menu{My Blocks} circle. Click the \menu{Make a Block} button. A window opens with a pink-red block in it.
   \item Type \enquote{celebrate} in the block. Click \menu{OK}. A hat block \enquote{define celebrate} appears in the code area, and a new \enquote{celebrate} block appears in the list.
-  \item Under \enquote{define celebrate}, snap: \enquote{start sound Pop} (pink \menu{Sound}); \enquote{repeat 10} (orange \menu{Control}), changed to 24, with \enquote{turn 15 degrees} (blue \menu{Motion}) inside; \enquote{say Hello! for 2 seconds} (purple \menu{Looks}), changed to \enquote{Hooray!} for 1 second.
+  \item Under \enquote{define celebrate}, snap: \enquote{start sound Pop} (pink \menu{Sound}); \enquote{repeat 10} (orange \menu{Control}), changed to 4, with a quarter turn, \enquote{turn 90 degrees} (blue \menu{Motion}), inside; \enquote{say Hello! for 2 seconds} (purple \menu{Looks}), changed to \enquote{Hooray!} for 1 second.
   \item \enquote{The define script is the recipe in the envelope. It does nothing on its own. Watch.} Click the green flag: nothing happens.
   \item Yellow \menu{Events}: drag in \enquote{when this sprite clicked}. From pink-red \menu{My Blocks}, drag the \enquote{celebrate} block under it. Click the cat: it pops, spins and says Hooray!
   \item Drag in \enquote{when space key pressed} and snap another \enquote{celebrate} under it. Press space. \enquote{One recipe, used twice. If I want a different sound, I change it once, in the define script, and both scripts change.} Show this: pick a different sound in the define script, then click the cat and press space.
@@ -62,8 +62,8 @@ Do this on your computer while the children watch. Say each step out loud.
 \begin{scratch}[scale=0.85]
 \initmoreblocks{define \namemoreblocks{celebrate}}
 \blocksound{start sound \selectmenu{Pop}}
-\blockrepeat{repeat \ovalnum{24}}{
-  \blockmove{turn \turnright{} \ovalnum{15} degrees}
+  \blockrepeat{repeat \ovalnum{4}}{
+    \blockmove{turn \turnright{} \ovalnum{90} degrees}
 }
 \blocklook{say \ovalnum{Hooray!} for \ovalnum{1} seconds}
 \end{scratch}

@@ -16,7 +16,7 @@ CAT = 1.0  # sprite size on the stage
 
 DEFINE = ("myblocks", "define [celebrate]")
 POP = ("sound", "start sound [Pop]")
-SPIN = ("control", "repeat [24]", [("motion", "turn ↻ [15] degrees")])
+SPIN = ("control", "repeat [4]", [("motion", "turn ↻ [90] degrees")])
 HOORAY = ("looks", "say [Hooray!] for [1] seconds")
 CELEBRATE = ("myblocks", "celebrate")
 CLICKED = ("event", "when this sprite clicked")
@@ -149,18 +149,18 @@ EPISODE = Episode(level="j2", week=7, scenes=(
         B("Look! A define celebrate block appears. Define means: here is what my block does.", speaker=NARRATOR,
           cue="define", pause=0.6),
         B("Under it, snap start sound Pop, from the pink Sound circle.", speaker=NARRATOR, cue="sound", pause=0.7),
-        B("Then a repeat from orange Control. Change ten to twenty-four, and put turn fifteen degrees inside, "
-          "from blue Motion.", speaker=NARRATOR, cue="repeat", pause=0.7),
+        B("Then a repeat from orange Control. Change ten to four, and put a quarter turn, ninety degrees, "
+          "inside from blue Motion.", speaker=NARRATOR, cue="repeat", pause=0.7),
         B("Last, purple Looks: say Hello for two seconds. Type Hooray, and change two to one.", speaker=NARRATOR,
           cue="looks", pause=0.7),
         B("Pop, spin, Hooray!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "Exercise 7.1: Celebrate Block", at="build", color="green"),
         A("scratch", "define celebrate", blocks=[DEFINE, POP, ("control", "repeat [10]",
-                                                               [("motion", "turn ↻ [15] degrees")]),
+                                                               [("motion", "turn ↻ [90] degrees")]),
                                                  ("looks", "say [Hello!] for [2] seconds")],
           x=130, y=260, w=860, h=640, scale=BIG, reveal=["define", "sound", "repeat", "repeat@0.6", "looks"],
-          edits=[("repeat@0.4", 2, "repeat [24]"), ("looks@0.75", 4, "say [Hooray!] for [1] seconds")],
+          edits=[("repeat@0.4", 2, "repeat [4]"), ("looks@0.75", 4, "say [Hooray!] for [1] seconds")],
           highlight=[(0, "define@0.4", "define$")]),
         A("chip", "My Blocks: pink-red", at="click", until="define", x=1460, y=300, color="pink", size=46),
         A("chip", "Make a Block", at="click@0.7", until="define", x=1460, y=420, color="white", size=44),

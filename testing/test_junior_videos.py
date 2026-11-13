@@ -59,6 +59,8 @@ MATH = [
     (re.compile(r"\b[xy]:\s*-?\d"), "an x/y position"),
     (re.compile(r"360\s*(?:÷|/|divided)", re.I), "360 divided by sides"),
     (re.compile(r"\bminus\b|\bnegative\b", re.I), "a negative number in speech"),
+    (re.compile(r"\b15\s*degrees?\b|\[15\]\s*degrees?\b", re.I),
+     "an unexplained 15-degree turn"),
 ]
 
 

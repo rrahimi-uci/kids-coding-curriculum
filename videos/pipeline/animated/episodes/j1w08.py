@@ -144,8 +144,8 @@ EPISODE = Episode(level="j1", week=8, scenes=(
           pause=0.6),
         B("From the blue Motion circle: put move ten steps inside the repeat. Change it to one hundred.",
           speaker=NARRATOR, cue="move", pause=0.6),
-        B("Then turn fifteen degrees, the arrow that goes like a clock. Put it inside, under the move. Change "
-          "it to ninety.", speaker=NARRATOR, cue="turn", pause=0.6),
+        B("Then turn a quarter turn, ninety degrees. Put it inside, under the move.", speaker=NARRATOR,
+          cue="turn", pause=0.6),
         B("Last, pen up, under the repeat.", speaker=NARRATOR, cue="up", pause=0.5),
         B("How many sides will the cat draw?", speaker=NARRATOR, cue="predict", pause=3.0),
         B("Let's click the green flag and count!", speaker=NARRATOR, cue="flag", pause=0.2),
@@ -155,7 +155,7 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     ), actions=(
         A("scratch", "Draw a Square", blocks=[FLAG, SIZE, ERASE, DOWN,
                                               ("control", "repeat [10]", [("motion", "move [10] steps"),
-                                                                          ("motion", "turn ↻ [15] degrees")]),
+                                                                          ("motion", "turn ↻ [90] degrees")]),
                                               UP],
           x=140, y=230, w=860, h=800, scale=1.0, reveal=["start", "start", "start", "start", "repeat", "move",
                                                           "turn", "up"],
