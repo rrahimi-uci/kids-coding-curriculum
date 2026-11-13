@@ -1,7 +1,7 @@
 # Design decisions
 
 This document explains *why* the curriculum and the repository look the way
-they do. The *what* (weeks, goals, concepts) is in [SYLLABUS.md](SYLLABUS.md);
+they do. The *what* (weeks, goals, concepts) is in [grade-4-6/SYLLABUS.md](../grade-4-6/SYLLABUS.md);
 the conventions for writing new material are in [AUTHORING.md](AUTHORING.md);
 everything that was unspecified and had to be decided is in
 [ASSUMPTIONS.md](ASSUMPTIONS.md).
@@ -12,7 +12,7 @@ The suggested path is kept unchanged:
 
 | Level | Language & tools | Why |
 |---|---|---|
-| 1 Introduction | Scratch 3 (weeks 1–6) → Python + `turtle` in Thonny (weeks 7–12) | Block coding removes syntax errors so 9–11-year-olds can focus on sequence, loops, events and variables, and it is excellent for games and art. Six weeks is enough for those ideas to stick; `turtle` then gives an immediate visual payoff for the first text code, and every Scratch concept is re-taught in Python (spiral). |
+| 1 Introductory | Scratch 3 (weeks 1–6) → Python + `turtle` in Thonny (weeks 7–12) | Block coding removes syntax errors so 9–11-year-olds can focus on sequence, loops, events and variables, and it is excellent for games and art. Six weeks is enough for those ideas to stick; `turtle` then gives an immediate visual payoff for the first text code, and every Scratch concept is re-taught in Python (spiral). |
 | 2 Intermediate | Python (Thonny, standard library) | Functions, lists, dicts, files, testing and event-driven turtle games cover the intermediate goals without installing anything else. |
 | 3 Advanced | Python projects + local git | OOP, algorithms, grids/recursion, data and simple AI are all teachable with the standard library; git is the industry “save game”. |
 
@@ -59,7 +59,7 @@ Teacher Guide).
 ## 4. Spiral curriculum
 
 Big ideas are introduced, revisited and extended across lessons and levels
-(see the spiral map at the end of [SYLLABUS.md](SYLLABUS.md)). Examples:
+(see the spiral map at the end of [grade-4-6/SYLLABUS.md](../grade-4-6/SYLLABUS.md)). Examples:
 loops appear as Scratch `repeat` (L1 W2), Python `for` (L1 W8), `while` and
 nested loops (L2 W4), game loops (L2 W9), search loops (L3 W4) and recursion
 (L3 W7). Custom blocks (L1 W5) → `def` (L1 W10) → `return` (L2 W2) →
@@ -134,15 +134,17 @@ hand, and showcases happen on screen at home with nothing uploaded.
 
 ## 10. Tracks and `curriculum.json`
 
-The repository holds more than one **track**: the main track (Grades 4–5,
-three 12-week levels) and the planned **junior track** (Grades 2–3, three
-10-week levels, see [JUNIOR-SYLLABUS.md](JUNIOR-SYLLABUS.md)). Both share the
+The repository holds two **tracks**, one per grade band: the **junior track**
+(Grades 2–3, three 10-week levels, in `grade-2-3/`, see [grade-2-3/SYLLABUS.md](../grade-2-3/SYLLABUS.md)).  and the main track (Grades 4–6, three 12-week levels:
+Introductory, Intermediate and Advanced, in `grade-4-6/`, see
+[grade-4-6/SYLLABUS.md](../grade-4-6/SYLLABUS.md)). Both share the
 LaTeX class, palette, website pipeline, student copy, privacy checks and video
 kit, which is why the junior track lives here rather than in a second
 repository.
 
 [`curriculum.json`](../curriculum.json) is the single list of tracks and
-levels: each level's key (`1`, `j1`, ...), folder, goal-code prefix (`L1`,
+levels: each track's band folder (`grade-2-3`, which is also its path on the
+website) and syllabus, and each level's key (`1`, `j1`, ...), folder, goal-code prefix (`L1`,
 `J1`), number of core weeks and buffers, and status. `tools/curriculum.py`
 reads it, and the PDF build, coverage tables, student copy, website build and
 quality gate all ask it instead of hard-coding level folders or twelve weeks
@@ -150,6 +152,8 @@ quality gate all ask it instead of hard-coding level folders or twelve weeks
 
 A level is `planned` (declared, with a README in its folder, skipped by every
 build and check) or `active` (fully written and checked like any other
-level). Main-track folders stay at the repository root so existing links,
-website URLs and build paths do not change; junior levels live under
-`junior/`.
+level). Every level folder lives inside its track's band folder (the loader
+rejects one that does not), so a band is self-contained: its syllabus, README
+and levels. Level keys stay short and unique across bands (`1`, `j1`) because
+both bands have a Level 1, 2 and 3; on the website and in download names a
+level is always qualified by its band (`grade-4-6/level-1/`).

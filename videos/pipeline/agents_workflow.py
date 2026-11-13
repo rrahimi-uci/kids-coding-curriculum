@@ -63,7 +63,7 @@ class ReviewResult(BaseModel):
     evidence_notes: list[str]
 
 
-AUDIENCE = "children in Grades 4-5 (ages 9-11) who are complete beginners"
+AUDIENCE = "children in Grades 4-6 (ages 9-12) who are complete beginners"
 COURSE_RULES = """
 Course rules that every script must follow:
 - Write at a Grade 4-5 reading level in US English: short sentences, every new word explained.

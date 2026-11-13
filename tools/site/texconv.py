@@ -256,6 +256,9 @@ def extract_figures(s: str, figs: list[Figure], file_label: str) -> str:
             alt = pending or ""
         figs.append(Figure(token, "tikz" if env == "tikzpicture" else env, src, alt))
         pending = None
+        # after a control word (\par\begin{scratch}...) the token needs a space, or it joins the word
+        if out and re.search(r"\\[A-Za-z]+$", out[-1]):
+            out.append(" ")
         out.append(token)
     out.append(s[pos:])
     return "".join(out)
@@ -296,6 +299,12 @@ def expand_sheet_macros(s: str, cat_args: int = 4) -> str:
     s = replace_cmd(s, "pyin", 1, lambda a: "\\texttt{~~~~" + a + "}\\par ")
     for head in ("cshead", "cmdhead", "sheethead"):
         s = replace_cmd(s, head, 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
+    # Junior project briefs: outline stars to color in (rubric columns), and big boxes to draw or write in;
+    # on the web the box is its question and room to answer.
+    s = replace_cmd(s, "stars", 1, lambda n: "\u2606" * int(n) if n.strip().isdigit() else "")
+    s = re.sub(r"\\ostar(?![A-Za-z])", "\u2606", s)
+    s = replace_cmd(s, "storybox", 1, lambda a: "\n\n\\textbf{" + a + "}\n\nLINESTOKEN3X\n\n")
+    s = replace_cmd(s, "planbox", 2, lambda a, _h: "\n\n\\textbf{" + a + "}\n\nLINESTOKEN3X\n\n")
     if cat_args == 5:
         s = replace_cmd(s, "cat", 5, lambda c, icon, name, word, blocks:
                         "\n\n\\subsection{" + name + "}\n\n\\swatch{" + c + "} " + word + "\n\n" + blocks + "\n\n")
@@ -717,14 +726,16 @@ def cleanup_selfcheck_sentences(body) -> None:
 
 
 def preamble_colors(tex: str) -> str:
-    """The \\definecolor lines of a standalone document's preamble (its figures may use those colors)."""
+    """The \\definecolor and \\colorlet lines of a standalone document's preamble (its figures may use those colors)."""
     pre = tex.split("\\begin{document}", 1)[0] if "\\begin{document}" in tex else ""
-    return "".join(m.group(0) + "\n" for m in re.finditer(r"\\definecolor\{[^}]*\}\{[^}]*\}\{[^}]*\}", pre))
+    return "".join(m.group(0) + "\n" for m in re.finditer(
+        r"\\(?:definecolor\{[^}]*\}\{[^}]*\}\{[^}]*\}|colorlet\{[^}]*\}\{[^}]*\})", pre))
 
 
-def convert_file(path, level: int, fig_dir, fig_url_prefix: str, exercise_pages: dict[str, str] | None = None,
-                 week_hint: str = "", track: str = "main") -> Result:
-    """Convert one .tex file; `track` ("main" or "junior") selects the class options used for its figures."""
+def convert_file(path, classopts: str, fig_dir, fig_url_prefix: str, exercise_pages: dict[str, str] | None = None,
+                 week_hint: str = "") -> Result:
+    """Convert one .tex file; `classopts` are the level's kidscode options ("track=junior,level=1"), which its
+    figures are compiled with so they look like the PDF."""
     from pathlib import Path
 
     from . import figures
@@ -734,8 +745,7 @@ def convert_file(path, level: int, fig_dir, fig_url_prefix: str, exercise_pages:
     for f in res.figures:
         if f.kind == "tikz" and not f.alt:
             res.warnings.append(f"{Path(path).name}: TikZ figure without `%% alt:` text ({f.token})")
-    fig_urls = figures.render(res.figures, level, Path(fig_dir), fig_url_prefix, track=track,
-                              extra_preamble=preamble_colors(tex))
+    fig_urls = figures.render(res.figures, classopts, Path(fig_dir), fig_url_prefix, preamble_colors(tex))
     raw = run_pandoc(prepared)
     res.html = post_process(raw, res, fig_urls, exercise_pages or {})
     return res

@@ -4,8 +4,8 @@
 
 ### A playful, print-ready path from Scratch to Python, Git, data, and simple AI.
 
-One calm, creative 60-minute session a week for children in Grades 4–5
-(ages 9–11), taught at home by a parent on a Mac.
+One calm, creative session a week for children in Grades 2–6
+(ages 7–12), taught at home by a parent on a Mac.
 
 <p>
   <a href="https://rrahimi-uci.github.io/kids-coding-curriculum/">Open the website</a>
@@ -30,28 +30,40 @@ One calm, creative 60-minute session a week for children in Grades 4–5
 
 | | Course promise |
 |---|---|
-| **Audience** | Grades 4–5 · ages 9–11 · up to four children |
-| **Rhythm** | One 60-minute session per week, with optional buffer sessions |
-| **Shape** | Three levels, each about 10–12 weeks, plus a final project |
+| **Audience** | Grades 2–3 (ages 7–9) and Grades 4–6 (ages 9–12) · up to four children |
+| **Rhythm** | One session per week (45–60 minutes in Grades 2–3, 60 in Grades 4–6), with optional buffer sessions |
+| **Shape** | Two grade bands with three levels each, about 10–12 weeks per level, each ending with a final project |
 | **Teaching style** | Make games and visual art, then explain, test, and improve the code |
 | **Home setup** | Mac, Scratch, Thonny, Python, and pytest; no student accounts required |
 | **Print design** | Standard and dyslexia-friendly editions using the Okabe–Ito color-blind-safe palette |
 
 ## Choose your path
 
+The course has two grade bands. Each band has its own folder with its
+syllabus and three levels.
+
+### [Grades 2–3](grade-2-3/) · Kids Coding Junior (ages 7–9)
+
+Unplugged robot games and picture-first Scratch, read aloud by a grown-up,
+ending with a first look at Python. See the [Grades 2–3 syllabus](grade-2-3/SYLLABUS.md).
+
 | Level | You will build | Main ideas | Capstone |
 |---|---|---|---|
-| [**1 · Introduction**](1-introduction/) | Scratch creations, turtle drawings, and interactive art | Events, loops, decisions, variables, and Python basics | **My Interactive Art Show** · reference: *Night Sky Postcard* |
-| [**2 · Intermediate**](2-intermediate/) | Games and small data-powered programs | Functions, lists, dictionaries, files, testing, and game design | **Arcade Game or Art Studio** · reference: *Star Catcher* |
-| [**3 · Advanced**](3-advanced/) | Larger programs that are easier to change | Classes, algorithms, Git, data, and simple AI | **Build Something Big** · reference: *Maze Muncher* |
+| [**1 · Little Robots**](grade-2-3/1-little-robots/) | Robot games on the floor and Scratch animations | Exact steps, repeat loops, events, fixing bugs | **My Animated Greeting Card** |
+| [**2 · Game Makers**](grade-2-3/2-game-makers/) | Scratch games with a score, surprises and a way to win | Forever loops, if-touching, variables, random, messages | **My First Arcade Game** |
+| [**3 · Bridge to Python**](grade-2-3/3-bridge-to-python/) | Pattern art, data and AI unplugged, first Python turtle | Nested repeats, planning, data, blocks to words | **My Big Build** |
 
-> **Younger children (Grades 2–3, ages 7–9):** a gentler **junior track** of
-> three 10-week levels (*Little Robots*, *Game Makers*, *Bridge to Python*) of
-> unplugged games and Scratch, ending with a first look at Python and leading
-> into Level 1 above. **All three junior levels are ready to teach** (`make pdf LEVEL=j1`,
-> `LEVEL=j2`, `LEVEL=j3`). See [junior/](junior/) and the
-> [junior syllabus](docs/JUNIOR-SYLLABUS.md). The junior track is also
-> [on the website](https://rrahimi-uci.github.io/kids-coding-curriculum/curriculum/#junior).
+### [Grades 4–6](grade-4-6/) · Kids Coding (ages 9–12)
+
+Scratch first, then Python, Git, data and simple AI. See the
+[Grades 4–6 syllabus](grade-4-6/SYLLABUS.md). Children who finish Grades 2–3
+continue here at Level 1.
+
+| Level | You will build | Main ideas | Capstone |
+|---|---|---|---|
+| [**1 · Introductory**](grade-4-6/1-introductory/) | Scratch creations, turtle drawings, and interactive art | Events, loops, decisions, variables, and Python basics | **My Interactive Art Show** · reference: *Night Sky Postcard* |
+| [**2 · Intermediate**](grade-4-6/2-intermediate/) | Games and small data-powered programs | Functions, lists, dictionaries, files, testing, and game design | **Arcade Game or Art Studio** · reference: *Star Catcher* |
+| [**3 · Advanced**](grade-4-6/3-advanced/) | Larger programs that are easier to change | Classes, algorithms, Git, data, and simple AI | **Build Something Big** · reference: *Maze Muncher* |
 
 <div align="center">
 
@@ -65,17 +77,19 @@ One calm, creative 60-minute session a week for children in Grades 4–5
 
 1. **[Open the course website](https://rrahimi-uci.github.io/kids-coding-curriculum/)** to browse the curriculum and printable student resources.
 2. **[Set up each Mac](https://rrahimi-uci.github.io/kids-coding-curriculum/resources/setup-mac/)** with the current Scratch, Thonny, Python, pytest, and Git instructions.
-3. Read the level’s **Teacher Guide** and print the Student Workbook and Homework for each child.
+3. Pick the grade band ([Grades 2–3](https://rrahimi-uci.github.io/kids-coding-curriculum/grade-2-3/) or [Grades 4–6](https://rrahimi-uci.github.io/kids-coding-curriculum/grade-4-6/)), read the level’s **Teacher Guide** and print the Student Workbook and Homework for each child.
 4. Start with Level 1, Week 1. Each week has a lesson plan, student practice, homework, and a clear definition of “done.”
 
 For an offline student copy, build a solution-free bundle:
 
 ```bash
-make student-bundle          # all three levels
-make student-bundle LEVEL=1  # Level 1 only
+make student-bundle           # every level of both grade bands
+make student-bundle LEVEL=1   # Grades 4–6 Level 1 only
+make student-bundle LEVEL=j1  # Grades 2–3 Level 1 only
 ```
 
-The output is `build/student-bundle/kids-coding/` and a matching ZIP file. Copy
+The output is `build/student-bundle/kids-coding/` (with the same `grade-2-3/` and
+`grade-4-6/` folders as the repository) and a matching ZIP file. Copy
 the folder or unzip it into the child’s Documents folder. It contains the
 exercise instructions, hints, starter files, tests, and self-check helpers —
 but not solutions, answer keys, or teacher material.
@@ -109,11 +123,15 @@ expected-behavior and checklist sections.
 ## Repository map
 
 ```text
-1-introduction/        Level 1: Scratch, then Python turtle
-2-intermediate/        Level 2: functions, data, files, testing, and games
-3-advanced/            Level 3: OOP, algorithms, Git, data, and simple AI
-junior/                junior track for Grades 2-3 (all three levels written)
-curriculum.json        which tracks and levels exist, their folders and week counts
+grade-2-3/             Grades 2–3 (Kids Coding Junior): SYLLABUS.md and three levels
+  1-little-robots/       Level 1: robot games and Scratch
+  2-game-makers/         Level 2: Scratch games
+  3-bridge-to-python/    Level 3: Scratch, then a first look at Python turtle
+grade-4-6/             Grades 4–6: SYLLABUS.md and three levels
+  1-introductory/        Level 1: Scratch, then Python turtle
+  2-intermediate/        Level 2: functions, data, files, testing, and games
+  3-advanced/            Level 3: OOP, algorithms, Git, data, and simple AI
+curriculum.json        which bands and levels exist, their folders and week counts
 docs/                  syllabus, design decisions, standards, and authoring guide
 parents/               parent information evening deck, notes, and handout
 shared/                LaTeX class, color palette, and document helpers
@@ -126,7 +144,7 @@ site/                  Astro website, public/private manifest, and browser QA
 An exercise folder normally looks like this:
 
 ```text
-<level>/exercises/weekNN/<exercise>/
+<band>/<level>/exercises/weekNN/<exercise>/
 ├── README.md           the kid-friendly task and success checklist
 ├── starter.py          the file the child changes
 ├── hints.md            three progressive hints
@@ -141,19 +159,19 @@ but are excluded from the public website.
 ## The website
 
 The [public course website](https://rrahimi-uci.github.io/kids-coding-curriculum/)
-is generated from the same source files as the printable curriculum. The build
+is generated from the same source files as the printable curriculum. It follows
+the same structure: a page per grade band (`/grade-2-3/`, `/grade-4-6/`) and
+every level beneath it (`/grade-4-6/level-1/week-07/`). Addresses from before
+version 2.0.0 (`/levels/level-N/...`) redirect to the Grades 4–6 pages. The build
 converts workbooks, exercise folders, figures, and selected parent materials;
 it does not copy pages by hand. A private-content check prevents answer keys,
 solutions, lesson plans, teacher guides, and tests from being published.
 
-The junior track (Grades 2–3) has its own level pages next to the main track,
-at `levels/junior-1/` to `levels/junior-3/`.
-
-Every week page also shows that week's animated teaching video, *Kids Coding
-with Rose and Pixi* (junior weeks: *Kids Coding Junior with Aiden and Pixi*), in
-the same place, right below the page header, with captions and a transcript.
-The videos are kept on the repository's `videos` release, not in Git
-(`videos.json` and `junior-videos.json` list them); the build copies them in. See [videos/README.md](videos/README.md#on-the-website)
+Every week page also shows that week's animated teaching video (*Kids Coding
+with Rose and Pixi* in Grades 4–6, *Kids Coding Junior with Aiden and Pixi* in
+Grades 2–3) in the same place, right below the page header, with captions
+and a transcript. The videos are kept on the repository's `videos` release, not
+in Git; the build copies them in. See [videos/README.md](videos/README.md#on-the-website)
 for how to replace one.
 
 ### Build and preview locally
@@ -193,7 +211,7 @@ make setup          # .venv with Python 3.10 and pytest
 make test           # all exercise tests + repository quality gate
 make smoke          # open every turtle program in a real Mac window
 make pdf            # all PDFs, standard + dyslexia-friendly
-make pdf LEVEL=2    # build one level
+make pdf LEVEL=2    # build one level (Grades 4–6 Level 2; j1–j3 are Grades 2–3)
 make check          # test + PDF build
 make student-bundle # solution-free copy for a child's Mac
 ```
@@ -207,15 +225,15 @@ make pdf-dyslexia                  # dyslexia-friendly edition only
 make -C parents                    # parent deck, notes, and handout
 ```
 
-`make help` prints the complete command list. `LEVEL=1|2|3|j1|j2|j3` narrows PDF and
+`make help` prints the complete command list. `LEVEL=1|2|3` (Grades 4–6) or `LEVEL=j1|j2|j3` (Grades 2–3) narrows PDF and
 student-bundle commands; omit it to include all levels. Level keys, folders
 and week counts come from [`curriculum.json`](curriculum.json); a level marked
 `planned` there is skipped by every command until its content exists.
 
 ## Documentation guide
 
-* [Syllabus](docs/SYLLABUS.md) — scope, sequence, goals, and spiral map
-* [Junior syllabus](docs/JUNIOR-SYLLABUS.md) — the planned Grades 2–3 track: levels, weeks, goals, and junior rules
+* [Grades 2–3 syllabus](grade-2-3/SYLLABUS.md) — the junior track: levels, weeks, goals, and junior rules
+* [Grades 4–6 syllabus](grade-4-6/SYLLABUS.md) — scope, sequence, goals, and spiral map
 * [Design decisions](docs/DESIGN.md) — the language path and teaching choices
 * [Standards alignment](docs/STANDARDS.md) — CSTA and AI4K12 connections
 * [Authoring guide](docs/AUTHORING.md) — how to write lessons, exercises, and tests

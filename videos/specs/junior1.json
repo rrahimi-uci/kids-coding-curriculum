@@ -10,8 +10,8 @@
    "slug": "robots-need-instructions",
    "title": "Robots Need Instructions",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week01.tex",
-    "junior/1-little-robots/teaching-material/workbook/week01.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week01.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week01.tex"
    ],
    "scenes": [
     {
@@ -126,8 +126,8 @@
    "slug": "meet-scratch",
    "title": "Meet Scratch",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week02.tex",
-    "junior/1-little-robots/teaching-material/workbook/week02.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week02.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week02.tex"
    ],
    "scenes": [
     {
@@ -237,8 +237,8 @@
    "slug": "bugs-are-clues",
    "title": "Bugs Are Clues",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week03.tex",
-    "junior/1-little-robots/teaching-material/workbook/week03.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week03.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week03.tex"
    ],
    "scenes": [
     {
@@ -358,8 +358,8 @@
    "slug": "repeat-it",
    "title": "Repeat It!",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week04.tex",
-    "junior/1-little-robots/teaching-material/workbook/week04.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week04.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week04.tex"
    ],
    "scenes": [
     {
@@ -496,8 +496,8 @@
    "slug": "play-day-and-show-me",
    "title": "Play Day and Show Me",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week05.tex",
-    "junior/1-little-robots/teaching-material/workbook/week05.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week05.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week05.tex"
    ],
    "scenes": [
     {
@@ -606,8 +606,8 @@
    "slug": "when-i-click",
    "title": "When I Click…",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week06.tex",
-    "junior/1-little-robots/teaching-material/workbook/week06.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week06.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week06.tex"
    ],
    "scenes": [
     {
@@ -734,8 +734,8 @@
    "slug": "two-sprites-talk",
    "title": "Two Sprites Talk",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week07.tex",
-    "junior/1-little-robots/teaching-material/workbook/week07.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week07.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week07.tex"
    ],
    "scenes": [
     {
@@ -847,8 +847,8 @@
    "slug": "draw-with-the-pen",
    "title": "Draw With the Pen",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week08.tex",
-    "junior/1-little-robots/teaching-material/workbook/week08.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week08.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week08.tex"
    ],
    "scenes": [
     {
@@ -967,8 +967,8 @@
    "slug": "project-studio",
    "title": "Project Studio",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week09.tex",
-    "junior/1-little-robots/teaching-material/workbook/week09.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week09.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week09.tex"
    ],
    "scenes": [
     {
@@ -1081,8 +1081,8 @@
    "slug": "showcase-and-certificate",
    "title": "Showcase and Certificate",
    "source_files": [
-    "junior/1-little-robots/teaching-material/lessons/week10.tex",
-    "junior/1-little-robots/teaching-material/workbook/week10.tex"
+    "grade-2-3/1-little-robots/teaching-material/lessons/week10.tex",
+    "grade-2-3/1-little-robots/teaching-material/workbook/week10.tex"
    ],
    "scenes": [
     {

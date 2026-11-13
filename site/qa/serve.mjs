@@ -28,7 +28,9 @@ export function pagesIn(dist) {
   const walk = (d) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) {
     const f = path.join(d, e.name);
     if (e.isDirectory()) { if (e.name !== 'pagefind' && e.name !== '_astro' && e.name !== 'downloads' && e.name !== 'generated') walk(f); }
-    else if (e.name === 'index.html' || e.name === '404.html') out.push('/' + path.relative(dist, f).replace(/index\.html$/, '').replace(/\\/g, '/'));
+    // Pages that only forward the browser to a moved page (meta refresh) are left out: the target is checked.
+    else if ((e.name === 'index.html' || e.name === '404.html') && !/http-equiv="refresh"/.test(fs.readFileSync(f, 'utf8')))
+      out.push('/' + path.relative(dist, f).replace(/index\.html$/, '').replace(/\\/g, '/'));
   } };
   walk(dist);
   return out.sort();

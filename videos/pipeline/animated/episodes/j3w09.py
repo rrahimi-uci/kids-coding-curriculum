@@ -1,6 +1,6 @@
 """Junior Level 3 Week 9: Project Studio, My Big Build (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week09.tex and project/project-brief.tex:
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week09.tex and project/project-brief.tex:
 choose path A (Scratch game or art app) or path B (Python postcard), the must-haves, the plan card
 (Omar's planning example: house, roof, sun), the snowman analogy (one part at a time), the worked
 example of Omar changing the starter postcard one line at a time (blue house, gold roof, sides of 120),

@@ -1,0 +1,153 @@
+% Level 3, Week 1 -- Save Points: Git Basics
+\lesson{1}{Save Points: Git Basics}{Git is a save-game system for code: every commit is a save point you can go back to.}
+\lessoninfo{Concepts: git init/add/commit/log/diff/restore, Terminal basics, functions \& lists (review)}{Tools: Terminal, Thonny, git}{CSTA: 3A-AP-22, 2-AP-19}
+
+\begin{objectives}
+  \item The student can turn a folder into a git repository and save a commit with a helpful message using \texttt{git init}, \texttt{git add} and \texttt{git commit}. (L3.G4)
+  \item The student can use \texttt{git log}, \texttt{git diff} and \texttt{git restore} to look back in time, spot a change and undo a mistake. (L3.G4)
+  \item The student can explain why real names, passwords and other secrets never go into a commit history. (L3.G9)
+  \item The student can write functions that loop over lists and return results, as a review of Level 2. (L3.G3)
+\end{objectives}
+
+\begin{materials}
+  \item \textbf{One-time setup, a day or more before (about 15 minutes, mostly waiting):} on each Mac press \keys{Cmd}+\keys{Space}, type \texttt{Terminal}, press \keys{Return}. Type \texttt{git --version} and press \keys{Return}. If a window offers to install the \enquote{command line developer tools}, click \menu{Install}, then \menu{Agree}. It is free from Apple and needs no Apple ID and no GitHub account. When it finishes, \texttt{git --version} prints a version number.
+  \item Print: the \textbf{Placement quiz} from the Assessments booklet, workbook chapter 1 and homework 1 (one per student).
+  \item 6 index cards (\enquote{save points}), a long paper strip or string (the timeline), tape, a marker.
+  \item On each Mac: open Thonny and Terminal; in Finder open \texttt{kids-coding/grade-4-6/3-advanced/exercises/week01}. Type commands by hand: quotes copied from a PDF break them.
+  \item Check pytest (installed in Level 2): open \texttt{ex-commit-coach/check\_my\_work.py} in Thonny and press Run. \enquote{TRY AGAIN} lines are correct before the work is done.
+\end{materials}
+
+\begin{teachernote}[Two-minute background for you]
+\textbf{Git} is a program that takes snapshots of a folder. Each snapshot is called a \textbf{commit} and has a label (the message) and a code name (the \emph{commit id}, like \texttt{3f9a2c1}). You can list the snapshots, compare them and bring files back from them. Git keeps everything in a hidden folder called \texttt{.git} inside the project folder. Nothing goes on the internet: GitHub is a separate website that we are \textbf{not} using. You cannot break the Mac with these commands.
+\end{teachernote}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--17}{Warm-up}{Welcome back (2 min). Placement quiz (15 min, Assessments booklet). Early finishers read workbook chapter 1.}
+  \timeslot{17--25}{Concept}{Unplugged \enquote{Save-point timeline}: commits are snapshots on a timeline. The camera analogy for add and commit.}
+  \timeslot{25--34}{Guided demo}{You drive one Mac, everyone watches: Git Quest levels 1--4 (make a folder, set a nickname, \texttt{git init}, first commit, \texttt{git log}).}
+  \timeslot{34--53}{Hands-on build}{Pairs: Git Quest levels 5--7, then Exercise 1.2 Commit Coach (Level 2 review). Swap driver every 8 minutes. Last 4 minutes: badge free-build.}
+  \timeslot{53--60}{Wrap-up}{Show-and-tell of each \texttt{git log}, reflection, exit ticket, hand out homework.}
+\end{timeplan}
+
+\section{Warm-up (0--17 min)}
+Say: \enquote{Welcome to Level 3! We will build bigger things: games with many characters, algorithm art, even a tiny AI. First, a short quiz. It is \textbf{not} pass or fail: it tells me what you remember from Level 2. If you do not know an answer, write \enquote{not sure} and move on.} Set a 15-minute timer; do not help with answers. Score the quizzes later with the answer key. Students who struggle with functions or lists get a gentle review in Exercise 1.2 and homework 1.
+
+\section{Concept (17--25 min)}
+\begin{unplugged}[Save-point timeline]
+Tape the paper strip along the table: this is \enquote{time}. Write on the first card \enquote{Start game} and tape it at the left. Ask a student to describe a tiny change to an imaginary game (\enquote{add a hero}) and write it on the next card. Do this for 4--5 cards. Then:
+\begin{enumerate}[itemsep=1pt]
+  \item Ask: \enquote{The game is broken after card 5. Where can we jump back to?} (Any card.)
+  \item Write a bad label like \enquote{stuff} on a card. Ask: \enquote{In a month, will you know what this save point was?}
+  \item Point out that every card has a short code name in the corner: write \texttt{a1b2c3d} on one. That is the commit id.
+\end{enumerate}
+\end{unplugged}
+
+\begin{teacherscript}
+\enquote{In a video game, a save point lets you try something risky. If it goes wrong, you load the save and try again. Git gives your code save points. Each one is called a \textbf{commit}. Making a commit has two moves: first you \textbf{add} the files you want to save, then you \textbf{commit} them with a message that says what changed.}
+\end{teacherscript}
+
+\begin{analogy}[Taking a class photo]
+\texttt{git add} is calling people into the photo: \enquote{You, and you, stand here.} \texttt{git commit} is pressing the camera button: the photo is taken and gets a caption (the message). \texttt{git log} is the photo album. \texttt{git diff} is a spot-the-difference puzzle between now and the last photo. \texttt{git restore} puts everything back the way it was in the last photo.
+\end{analogy}
+
+\section{Guided demo (25--34 min)}
+Everyone gathers around one Mac (or you share the screen on a TV). You type; students read each command aloud before you press \keys{Return}. Follow the student README \texttt{week01/ex-git-quest/README.md}, levels 1--4.
+
+\begin{workedexample}[Git Quest levels 1--4]
+\textbf{1. Terminal basics and a nickname.} Say: \enquote{Terminal is a chat window with the computer. You type a command, press Return, and it answers.} Explain each line as you type it (the notes after \texttt{\#} are not typed).
+\begin{shellcode}
+pwd                # where am I?
+cd ~/Documents     # change directory to Documents
+mkdir git-quest    # make a new folder
+cd git-quest
+git config --global user.name "PixelFox"
+git config --global user.email "pixelfox@example.com"
+git config user.name     # check: it prints PixelFox
+\end{shellcode}
+If macOS asks whether Terminal may access the Documents folder, click \menu{Allow}. In Finder, hold \keys{Option} and drag \texttt{hero\_badge.py} from \texttt{week01/ex-git-quest} into \texttt{Documents/git-quest} (\keys{Option} makes a copy; a plain drag would move the original out of the exercise folder), then type \texttt{ls} (list): it shows \texttt{hero\_badge.py}. Say: \enquote{Git writes the name into every save point, forever. So we use a nickname and a pretend email: \texttt{example.com} is a made-up address that is safe to use.}
+
+\textbf{2. Start the save system and make the first save point.}
+\begin{shellcode}
+git init                 # start a save system in this folder
+git status               # hero_badge.py is "untracked": seen, not saved
+git add hero_badge.py    # call it into the photo
+git commit -m "Add hero badge drawing"
+git log --oneline        # the photo album
+\end{shellcode}
+\begin{outputcode}
+7c41e0a (HEAD -> master) Add hero badge drawing
+\end{outputcode}
+Every commit gets its own id, so yours will differ (and \texttt{master} may say \texttt{main}; both are fine). \texttt{git init} also prints a few yellow \texttt{hint:} lines about the name \texttt{master}: say \enquote{git is chatty; we can ignore those}. Run \texttt{hero\_badge.py} in Thonny to show the badge.
+\end{workedexample}
+
+\section{Hands-on build (34--53 min)}
+\begin{pairroles}[Driver, navigator, historian]
+\textbf{Driver} types the commands. \textbf{Navigator} reads the next step of the README aloud and checks the command letter by letter \emph{before} the driver presses \keys{Return}. Swap at the 8-minute timer (each pair works in one \texttt{git-quest} folder on one Mac, so they share one history).
+With \textbf{1 student}: you are the navigator. With \textbf{3}: add a \textbf{historian} who writes every commit id and message on a save-point card and tapes it on the timeline; rotate all three roles. With \textbf{4}: two pairs on two Macs.
+\end{pairroles}
+
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Git Quest levels 5--7} (about 9 minutes): change the color and hero name, look at \texttt{git diff}, commit; delete \texttt{draw\_star} on purpose, then rescue it with \texttt{git restore hero\_badge.py}; make one more commit of their own. Students check off the checklist in the README.
+  \item \textbf{Exercise 1.2 Commit Coach} (about 6 minutes, then the 4-minute free-build below): open \texttt{ex-commit-coach/starter.py}, finish the \texttt{TODO}s, check with \texttt{check\_my\_work.py}. This revisits Level 2 functions, lists and loops.
+  \item Pairs who finish go on to \textbf{Exercise 1.3 Log Reader}.
+\end{enumerate}
+
+\begin{bughunt}[The messy history]
+Write this \enquote{history} on the board or a piece of paper and ask: \enquote{What went wrong in this project? Find 3 problems.}
+\begin{outputcode}
+e5f6a7b asdf
+c3d4e5f Add passwords.txt, level 2
+a1b2c3d stuff
+\end{outputcode}
+Answers: (1) \enquote{asdf} and \enquote{stuff} do not say what changed. (2) A passwords file was committed: secrets stay in the history even after the file is deleted. (3) One commit mixes two things; one change per commit is easier to undo. Prevention: run \texttt{git status} before every commit; \texttt{git restore --staged passwords.txt} un-adds a file that is not committed yet.
+\end{bughunt}
+
+\begin{freebuild}[Badge remix with save points]
+Last 4 minutes: each pair changes \texttt{hero\_badge.py} in any way they like (bigger star, new colors from the palette in the file comment, a second ring). After \textbf{every} change: \texttt{git diff}, \texttt{git add}, \texttt{git commit -m "..."}. Goal: 2 more commits with helpful messages.
+\end{freebuild}
+
+\section{Wrap-up (53--60 min)}
+Each pair shows \texttt{git log --oneline} and reads out their best message. Celebrate restore rescues: \enquote{Who broke their code and got it back?}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} each pair has 3 or more commits; messages say \emph{what} changed; \texttt{user.name} is a nickname.\\
+\textbf{Ask each student:} \enquote{Put these in the right order: \texttt{git commit}, edit the file, \texttt{git add}.}\\
+\textbf{Answer:} edit the file, then \texttt{git add}, then \texttt{git commit}.
+\end{formativecheck}
+
+\begin{reflection}[Talk or write]
+\begin{itemize}[itemsep=1pt]
+  \item When did you last wish for a save point in a game, or in real life?
+  \item Read your commit messages. Would a friend understand your project's story from them?
+\end{itemize}
+\end{reflection}
+
+\begin{safety}[History is public-ish: never commit secrets]
+A commit history is like writing in pen: it remembers everything, even things you delete later. If a project is ever shared (for example on a website when they are older), everyone can read every old commit. Rules for our class: commit with a \textbf{nickname} and an \texttt{@example.com} email; \textbf{never} put passwords, real names, addresses, school names or photos of people in a repository. If a secret ever gets committed, tell a grown-up and change that password: deleting the file is not enough.
+\end{safety}
+
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing \texttt{git commit} without \texttt{-m}.} Git opens a strange full-screen editor (Vim). Calmly press \keys{Esc}, type \texttt{:q!} and press \keys{Return}. Then repeat the commit with \texttt{-m "message"}.
+  \item \textbf{\texttt{git init} in the wrong folder} (for example the home folder): \texttt{git status} then lists hundreds of files. Do not commit. In Finder, open that folder, press \keys{Cmd}+\keys{Shift}+\keys{.} to show hidden files, and drag the \texttt{.git} folder to the Trash. Then \texttt{cd} into \texttt{git-quest} and start again.
+  \item \textbf{The two \texttt{git config} lines were skipped.} On most Macs git does \emph{not} stop with \enquote{Please tell me who you are}: it quietly takes the Mac account's full name (often a real name) and prints \enquote{Your name and email address were configured automatically}. Type the two \texttt{git config} lines, check with \texttt{git config user.name}, then fix the commit with \texttt{git commit --amend --reset-author --no-edit}. (If git does print \enquote{Please tell me who you are}, type the two lines and commit again.)
+  \item \textbf{\texttt{git diff} shows nothing} (file not saved: \keys{Cmd}+\keys{S}) or \textbf{\enquote{nothing added to commit}} (\texttt{git add} forgotten).
+  \item \textbf{After \texttt{git restore}, Thonny still shows the broken code.} If Thonny asks to reload the file, click \menu{Yes}; otherwise close the tab and open the file again. Warn the pair not to press Run or Save first: Thonny saves before it runs and would write the broken code back (if it happens, type \texttt{git restore hero\_badge.py} again).
+  \item \textbf{A screen with \texttt{:} or \texttt{(END)} at the bottom} after \texttt{git log} or \texttt{git diff}: that is a pager for long output. Press \keys{q}.
+  \item \textbf{\texttt{git status} lists \texttt{.DS\_Store}}: a hidden file Finder makes. Harmless; never \texttt{git add} it.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Keep the student on the Git Quest only, with the command table at the end of the README beside them. You type the long \texttt{git config} lines together. The Commit Coach can move to homework.
+\extensionpath Finish Exercise 1.3 Log Reader and paste their real \texttt{git log --oneline} into it. Then try \texttt{git show} followed by a commit id, and \texttt{git log --stat}.
+\end{differentiation}
+
+\begin{stretchchallenge}[Teach git to ignore secrets]
+Make \texttt{secrets.txt} (a pretend password) in \texttt{git-quest}, then a file \texttt{.gitignore} containing the line \texttt{secrets.txt}. The quickest way to make it is in Terminal: \texttt{echo secrets.txt > .gitignore} (Finder hides files whose names start with a dot). Now \texttt{git status} no longer lists the secrets file. Commit \texttt{.gitignore} and explain why this protects you.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the quiz, the timeline cards and Git Quest levels 1--6: they are the core. Move Exercise 1.2 to homework (it is short) and skip 1.3. The free-build can be the first thing next week (\enquote{make one commit before we start}).
+\end{teachernote}

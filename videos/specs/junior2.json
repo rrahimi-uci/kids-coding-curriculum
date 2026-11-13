@@ -10,8 +10,8 @@
    "slug": "forever-and-bounce",
    "title": "Forever and Bounce",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week01.tex",
-    "junior/2-game-makers/teaching-material/workbook/week01.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week01.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week01.tex"
    ],
    "scenes": [
     {
@@ -128,8 +128,8 @@
    "slug": "if-touching",
    "title": "If Touching…",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week02.tex",
-    "junior/2-game-makers/teaching-material/workbook/week02.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week02.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week02.tex"
    ],
    "scenes": [
     {
@@ -263,8 +263,8 @@
    "slug": "keep-score",
    "title": "Keep Score",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week03.tex",
-    "junior/2-game-makers/teaching-material/workbook/week03.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week03.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week03.tex"
    ],
    "scenes": [
     {
@@ -386,8 +386,8 @@
    "slug": "surprise-random",
    "title": "Surprise! Random",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week04.tex",
-    "junior/2-game-makers/teaching-material/workbook/week04.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week04.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week04.tex"
    ],
    "scenes": [
     {
@@ -510,8 +510,8 @@
    "slug": "play-day-and-show-me",
    "title": "Play Day and Show Me",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week05.tex",
-    "junior/2-game-makers/teaching-material/workbook/week05.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week05.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week05.tex"
    ],
    "scenes": [
     {
@@ -618,8 +618,8 @@
    "slug": "messages",
    "title": "Messages",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week06.tex",
-    "junior/2-game-makers/teaching-material/workbook/week06.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week06.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week06.tex"
    ],
    "scenes": [
     {
@@ -727,8 +727,8 @@
    "slug": "my-own-blocks",
    "title": "My Own Blocks",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week07.tex",
-    "junior/2-game-makers/teaching-material/workbook/week07.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week07.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week07.tex"
    ],
    "scenes": [
     {
@@ -848,8 +848,8 @@
    "slug": "start-win-and-lose",
    "title": "Start, Win and Lose",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week08.tex",
-    "junior/2-game-makers/teaching-material/workbook/week08.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week08.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week08.tex"
    ],
    "scenes": [
     {
@@ -967,8 +967,8 @@
    "slug": "project-studio",
    "title": "Project Studio",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week09.tex",
-    "junior/2-game-makers/teaching-material/workbook/week09.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week09.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week09.tex"
    ],
    "scenes": [
     {
@@ -1087,8 +1087,8 @@
    "slug": "arcade-showcase",
    "title": "Arcade Showcase",
    "source_files": [
-    "junior/2-game-makers/teaching-material/lessons/week10.tex",
-    "junior/2-game-makers/teaching-material/workbook/week10.tex"
+    "grade-2-3/2-game-makers/teaching-material/lessons/week10.tex",
+    "grade-2-3/2-game-makers/teaching-material/workbook/week10.tex"
    ],
    "scenes": [
     {

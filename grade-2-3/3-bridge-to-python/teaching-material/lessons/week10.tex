@@ -1,0 +1,151 @@
+% Junior Level 3, Week 10 -- Graduation Showcase
+\lesson{10}{Graduation Showcase}{Show, explain, celebrate and choose what is next.}
+\lessoninfo{Concepts: explaining my code (R); show-me checklist}{Tools: Scratch 3 offline app, Thonny in simple mode, finished Big Builds and plan cards, stickers, certificates}{CSTA: 1B-AP-12, 1B-AP-14, 1B-AP-15, 1B-NI-05}
+
+\begin{objectives}
+  \item The student can show their Big Build, say how it matches their plan card, and explain what one part of their code does in their own words. (J3.G2, J3.G5) [J3.W10.1]
+  \item The student can run a Python program in Thonny, fix a typo by reading the red error message, and change a number and a color to make it their own. (J3.G5, J3.G6) [J3.W10.2]
+  \item The student can test their project in a last-minute bug check and fix one thing without breaking the rest. (J3.G6) [J3.W10.3]
+  \item The student can say what to do if a website asks for their name, and give kind feedback and credit at the gallery walk. (J3.G7) [J3.W10.4]
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 10, play-at-home card 10, the \textbf{Week 10 show-me checklist in the Assessments booklet} (one per child), and one \textbf{Junior Graduation Certificate} per child from the extras (\texttt{certificate.tex}; fill in the nickname before the lesson).
+  \item \textbf{Before the lesson (about 5 minutes):} on each Mac, open the child's Big Build and their plan card next to it. Then make a \textbf{typo rescue} file for each child: in Finder, copy \texttt{project/starter/postcard.py} into the child's \texttt{my-python} folder and rename the copy \texttt{typo\_rescue.py}. In Thonny, click \menu{Load}, open it and make \textbf{one} typo on purpose. Pick one per child: \texttt{t.forward(100)} becomes \texttt{t.forwad(100)}; \texttt{t.color("purple")} loses its last quote mark; or \texttt{for i in range(4):} loses its colon. Click \menu{Save} and do not run it.
+  \item Stickers (stars or smileys) and one sticker sheet per project: a sheet of paper with three columns, \enquote{I liked the colors}, \enquote{I liked the pattern}, \enquote{I liked the surprise}.
+  \item Invite the audience: family members at home only. A kitchen timer. Optional: a toy microphone and the Rose and Pixi video for this week.
+\end{materials}
+
+\needspace{16\baselineskip}
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{Last-minute bug check (Exercise 10.1): run your project twice, check the plan card, fix one thing, save. Then the Python typo rescue.}
+  \timeslot{10--20}{Show me}{You model a showcase: show the project, say how it matches the plan, explain one part of the code. Everyone practices the showcase sentences.}
+  \timeslot{20--33}{Make it}{Showcase (Exercise 10.2): each child presents for about 3 minutes while you fill in the show-me checklist.}
+  \timeslot{33--35}{Wiggle break}{Turtle parade: walk a square, a triangle and a hexagon.}
+  \timeslot{35--50}{Make it}{Gallery walk with sticker feedback (Exercise 10.3), then show-me catch-up at Thonny and free play: one more touch.}
+  \timeslot{50--60}{Share}{What to do if a site asks for your name. What is next. Certificates and a big clap. Exit question, hand out play-at-home card 10.}
+\end{timeplan}
+
+\begin{teachernote}[The Week 10 show-me checklist]
+Fill in the \textbf{Week 10 show-me checklist in the Assessments booklet} while children check, present and play. It is observed, never graded: do not show it to the child as a score. Where to watch for each row:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt]
+  \item runs a Python program in Thonny (typo rescue, or the Python Big Build);
+  \item changes numbers and colors in Python to make it their own (the Python Big Build, or the typo rescue's last step);
+  \item uses a \texttt{for} loop with an indent (the Python Big Build, or pointing at the loop in the typo rescue file);
+  \item fixes a typo error in Python (typo rescue);
+  \item plans on a plan card and builds it (showcase);
+  \item explains one part of their code (showcase);
+  \item keeps personal information private and gives credit (showcase credit line, gallery walk, the Share talk).
+\end{enumerate}
+Children on the Scratch path show rows 1 to 4 in the typo rescue and the show-me catch-up; their Big Build covers rows 5 to 7.
+\end{teachernote}
+
+\section{Warm-up (0--10 min)}
+\begin{bughunt}[Last-minute bug check (Exercise 10.1)]
+\enquote{Before a show, performers check their props. Coders check their code.} Children work in pairs with the checklist in the workbook.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{My project (about 5 minutes).} Start it with the green flag or Run. Start it a \textbf{second} time: does it start the same way? Check each must-have on the plan card. Can everyone see it (the squint test from week 9)? \textbf{Fix one thing only, then stop building and save.} The most common last-minute bugs: a counter that does not go back to 0, a sprite that stays hidden after the first run (put \enquote{show} under the green flag), or a red message after a last change in Python (undo it with \keys{Cmd}+\keys{Z}).
+  \item \textbf{Typo rescue (about 4 minutes).} Each child opens \texttt{typo\_rescue.py} and presses Run. \enquote{Something is wrong. Python left us a clue.} Read the last line of the red message together and find the line number. The child fixes the typo and presses Run until the house and roof appear. Then: change one color and one number, and Run again.
+\end{enumerate}
+This is a gentle check, not a test: if a fix takes more than 2 minutes, help. Watch rows 1, 2 and 4 of the show-me checklist here.
+\end{bughunt}
+
+\section{Show me (10--20 min)}
+\begin{teacherscript}
+\enquote{Today is our graduation showcase. A \textbf{showcase} is a little show where we share what we made. You will show your Big Build, say how it matches your plan card, and explain one part of your code. Then we celebrate: you are Bridge to Python graduates!}
+\end{teacherscript}
+
+\begin{analogy}[A museum guide]
+\enquote{A museum guide does not explain every painting. They stop at one, point, and tell you something special about it. You are the guide of your own project: pick one part, point at the code, and tell us about it.}
+\end{analogy}
+
+\begin{workedexample}[A showcase in three sentences]
+Use Omar's postcard from week 9 (or your own project). Run it, then point at the roof's loop on the screen and say each sentence slowly:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{My plan:} \enquote{My plan card said: a house, a roof and a sun. All three parts work.}
+  \item \textbf{One part of my code:} \enquote{This \texttt{for} loop draws the roof. It goes round three times, because a triangle has three sides. The two lines that move in are inside the loop: forward, then turn 120.}
+  \item \textbf{What I changed, and credit:} \enquote{I made the house blue and bigger. The house and roof came from the starter program.}
+\end{enumerate}
+Then each child says their three sentences once to the person next to them, using the frames in the workbook. If a child freezes, point at one script or one loop and ask: \enquote{What does this part do?}
+\end{workedexample}
+\begin{pycode}[The roof loop from the starter]
+t.color("purple")
+for i in range(3):
+    t.forward(100)
+    t.left(120)
+\end{pycode}
+
+\section{Make it (20--33 min)}
+\begin{pairroles}[Presenter and Helper]
+The presenter is the \textbf{Driver}: they run the project and point with the mouse. The partner is the \textbf{Helper}: they hold up the presenter's plan card for the audience while the presenter explains, and they start the clapping. Swap for the next project. With 1 child: you are the Helper, and a family member is the audience. With 3: presenter, Helper and a \enquote{sticker keeper} who gets the gallery sheets ready, rotating each project. With 4: two pairs; each pair presents both projects.
+\end{pairroles}
+
+\textbf{Showcase (about 3 minutes per child).} Each child does Exercise 10.2: run the project, then say the three showcase sentences. Fill in that child's row of the show-me checklist (rows 5, 6 and 7; for Python projects also rows 2 and 3).
+
+\section{Wiggle break (33--35 min)}
+Turtle parade: everyone is a turtle. Walk a square (four sides, a quarter turn after each), then a triangle (three sides, a big turn), then a hexagon (six small sides). End with a graduation bow.
+
+\section{Make it (35--50 min)}
+\begin{unplugged}[Gallery walk with sticker feedback (Exercise 10.3)]
+Put each project on its Mac (or take turns on one Mac) with its sticker sheet next to it. Everyone walks around like visitors in a museum, hands behind their back. At each project, a visitor asks the owner, \enquote{May I try it?}, runs it, and puts one sticker in the column they liked best. Then they say it out loud with a reason: \enquote{I liked the colors, because the gold roof stands out.} Only kind words; a visitor who did not like something says nothing about it. Visitors never change someone else's project. With 1 child: family members are the visitors, and the child visits your sample postcard. With 2--4: every child visits every other project. About 7 minutes.
+\end{unplugged}
+
+\textbf{Show-me catch-up (about 8 minutes).} Sit at Thonny with any child whose Python rows are still empty (often children on the Scratch path). Open their typo rescue file. \enquote{Show me how you run it. Change the roof color. Point at the \texttt{for} loop: which lines are inside it?}
+
+\begin{freebuild}[One more touch]
+Everyone else: add one extra to their project, or start something new in Scratch or Python. Keep the showcase version safe first: in Scratch, save with a new name (for example add \enquote{-v2}); for Python, you copy the file in Finder and the child works on the copy.
+\end{freebuild}
+
+\section{Share (50--60 min)}
+\begin{safety}[Next steps safely: what if a site asks for your name?]
+\enquote{After today you might find coding websites, games and apps. Some ask for things. Let us practice.} Read out: \enquote{A game says: Type your name, your age and your school to save your score!} Ask: \enquote{What do you do?} Agree on three steps and practice them together:
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt]
+  \item \textbf{Stop.} Hands off the keyboard.
+  \item \textbf{Do not type it.} Not your full name, age, school, address, photo or password.
+  \item \textbf{Get a grown-up.} The grown-up decides. If the site is OK, we use a nickname, and a grown-up sets up any account.
+\end{enumerate}
+Then ask: \enquote{What about a chatbot that asks where you live?} (Same three steps: stop, do not type it, get a grown-up.) \enquote{And when you share a project, give credit: say whose idea you used.}
+\end{safety}
+
+\begin{teacherscript}[What is next]
+\enquote{You started with blocks and now you can read and change real Python. Next comes the \textbf{main-track Level 1}, the course for Grades 4 to 6. Lots of it will feel familiar: Scratch, loops, events and Python.} Then call each child up by nickname and hand over the certificate: \enquote{\ldots{} is now a Bridge to Python graduate! You planned a Big Build, built it part by part and explained your code.} Everyone claps.
+\end{teacherscript}
+
+\begin{teachernote}[After graduation: main-track Level 1]
+A child who finishes this level is ready for main-track Level 1. Use its weeks 1--5 as a quick review (two weeks per session, or as homework) and teach weeks 6--12 in full. Main-track pages assume Grade 4--5 reading and math, so a child still in Grade 3 may need you to read aloud and help with angles in the \enquote{Math helper} boxes. Until then, the Scratch app and Thonny stay on the Mac for free play: offline, no accounts.
+\end{teachernote}
+
+\begin{formativecheck}[Exit question]
+\textbf{Look for (also on the show-me checklist):} the project runs; the child says how it matches the plan card; the child points at one part of the code and says what it does; the typo was fixed from the red message.
+
+\textbf{Ask:} \enquote{A website asks for your name and school. What do you do?}
+\textbf{Answer:} stop, do not type it, and get a grown-up.
+\end{formativecheck}
+
+\begin{reflection}
+Ask: \enquote{What are you proudest of in your Big Build?} and \enquote{What do you want to make next?} Children draw their next idea in the workbook and circle a smiley face. Write their ideas down: they help you plan what comes next. Hand out play-at-home card 10.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Building new things in the warm-up.} The bug check is a check, not a build. Fix one thing, save and stop.
+  \item \textbf{Fixing the typo on the wrong line.} The red error text names a line number; count down to that line together. Sometimes the mistake is on the line just above, such as a missing \texttt{)} or colon.
+  \item \textbf{Reading every line of code.} One part is enough. Pick the shortest loop or script together.
+  \item \textbf{Stage fright.} Let the child run the project first and explain after, or whisper it to you and you repeat it. Pointing at the right code counts.
+  \item \textbf{Vague feedback.} Model it: \enquote{I liked the pattern, because the squares make a flower.}
+  \item \textbf{Typing a real name on the screen} during the showcase. Use nicknames only.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Ask one question at a time while you point: \enquote{What does this loop draw? How many times does it go round?} The child's two answers are the explanation. In the typo rescue, point at the line number in the red message and let the child find the typo on that line. Mark the checklist from what they show, not how much they say.
+\extensionpath Explain two parts and say why a number is there: \enquote{120 is from the turn card, because it is a triangle.} Or tell the story of a bug found while building and how it was fixed. In the typo rescue, make a typo for a partner to find.
+\end{differentiation}
+
+\begin{stretchchallenge}[Blocks and words side by side]
+Children on the Scratch path: pick one script and say its Python word twin, line by line, with the cards from week 5. Children on the Python path: say which Scratch blocks would build the same picture.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip the typo rescue in the warm-up and do it in the show-me catch-up instead. Keep presentations to 2 minutes each and fill in the checklist from them. Do the gallery walk with one sticker per visitor. Never skip the safety talk, the certificates or the clap: celebrating is the point of this week.
+\end{teachernote}

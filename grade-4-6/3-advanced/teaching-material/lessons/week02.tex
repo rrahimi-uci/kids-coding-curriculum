@@ -1,0 +1,141 @@
+% Level 3, Week 2 -- Objects: Blueprints and Things
+\lesson{2}{Objects: Blueprints and Things}{A class is a blueprint; objects are the things you build from it, and each one keeps its own data.}
+\lessoninfo{Concepts: class, \_\_init\_\_, attributes, methods, self, dicts (review)}{Tools: Thonny, turtle, git}{CSTA: 3A-AP-17, 3A-AP-14}
+
+\begin{objectives}
+  \item The student can write a class with \texttt{\_\_init\_\_}, attributes and methods, and make several objects from it. (L3.G1)
+  \item The student can explain what \texttt{self} means and fix a method that forgets it. (L3.G8)
+  \item The student can use a list of objects to make turtle art in which every object keeps its own position, size and color. (L3.G3)
+  \item The student can name game mechanics that are unkind to players and design a virtual pet without them. (L3.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 2 and homework 2 (one per student).
+  \item For the unplugged warm-up: 1 sheet of card, scissors, colored pencils, 4--6 sheets of plain paper.
+  \item Before the session, cut a simple cookie shape (a star or gingerbread person) out of the card: that is your \enquote{cookie cutter}.
+  \item On each Mac: Thonny with \texttt{grade-4-6/3-advanced/exercises/week02} open; Terminal in \texttt{Documents/git-quest} (\texttt{cd \textasciitilde/Documents/git-quest}).
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Cookie-cutter classes}: one cutter (class), many different cookies (objects).}
+  \timeslot{8--18}{Concept}{From a dictionary to a class: attributes, methods, \texttt{\_\_init\_\_} and \texttt{self}.}
+  \timeslot{18--28}{Guided demo}{Read the \texttt{Pet} class together, make two pets, and finish \texttt{play()} live.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 2.1 Pet Class, then 2.2 Bubble Art. Swap driver every 8 minutes. Bug hunt \enquote{Forgot self} on the way. Last 6 minutes: bubble free-build and a git commit.}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell of bubble pictures, kind-pet discussion, exit ticket, homework.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Cookie-cutter classes]
+Show the card cutter. Each student traces it twice on paper and cuts out two \enquote{cookies}. Then each student decorates their cookies differently (sprinkles, color, a face). On the back of each cookie they write three facts: \texttt{flavor}, \texttt{sprinkles} (a number) and \texttt{bites\_left = 3}.
+Now play: \enquote{Ada's chocolate cookie, take a bite!} Only that cookie changes its \texttt{bites\_left} to 2. Ask:
+\begin{itemize}[itemsep=1pt]
+  \item \enquote{How many cutters do we have? How many cookies?} (One cutter, many cookies.)
+  \item \enquote{When one cookie loses a bite, do the others change?} (No: each cookie has its own facts.)
+\end{itemize}
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{In Level 2 you stored a game character in a dictionary:}
+\begin{pycode}
+pip = {"name": "Pip", "hunger": 5}
+pip["hunger"] = pip["hunger"] - 3
+\end{pycode}
+\enquote{That works, but the actions, like feeding, live somewhere else in the program. A \textbf{class} keeps the data \emph{and} the actions together. The class is the cookie cutter. Each \textbf{object} is a cookie. The facts each object remembers are \textbf{attributes}. The actions it can do are \textbf{methods}: functions that live inside the class.}
+\end{teacherscript}
+Write this on paper or the board and point at each part as you explain it:
+\begin{pycode}
+class Pet:                          # the blueprint (cookie cutter)
+    def __init__(self, name):       # runs once, when a pet is made
+        self.name = name            # attribute: this pet's name
+        self.hunger = 5             # attribute: this pet's hunger
+
+    def feed(self):                 # method: an action
+        self.hunger = self.hunger - 3
+
+pip = Pet("Pip")                    # make an object (a cookie)
+pip.feed()                          # Python runs feed with self = pip
+\end{pycode}
+
+\begin{analogy}[self means \enquote{my}]
+When Pip runs \texttt{feed}, \texttt{self.hunger} means \enquote{\emph{my} hunger}. When Bo runs \texttt{feed}, the same code means Bo's hunger. \texttt{self} is how one blueprint can work for every object. Every method gets \texttt{self} as its first parameter, and Python fills it in for you: \texttt{pip.feed()} is really \texttt{Pet.feed(pip)}.
+\end{analogy}
+\texttt{\_\_init\_\_} has two underscores on each side (say \enquote{dunder init}). It is the setup method: it runs automatically when you write \texttt{Pet("Pip")}.
+
+\section{Guided demo (18--28 min)}
+Open \texttt{week02/ex-pet-class/starter.py} on your Mac with everyone watching.
+\begin{workedexample}[The Pet class]
+\begin{enumerate}[itemsep=2pt]
+  \item Read \texttt{\_\_init\_\_} aloud. Ask: \enquote{Which four facts does every pet remember?} (name, species, hunger, happiness).
+  \item Read \texttt{feed}. Ask: \enquote{Why do we check \texttt{if self.hunger < 0}?} (So the number never goes below 0.)
+  \item Press Run and type \texttt{q} to quit the menu. Thonny remembers the class, so in the Shell (bottom of Thonny) try: \texttt{pip = Pet("Pip", "dragon")}, \texttt{pip.hunger}, \texttt{pip.feed()}, \texttt{pip.hunger}. Students predict each answer first.
+  \item Live-code \texttt{play()} together, asking the students what to type at each line. Press Run, type \texttt{p}, and check that Pip's numbers change. The finished method (the full class is in the answer key):
+\end{enumerate}
+\pyfile[firstline=32,lastline=41]{../exercises/week02/ex-pet-class/solution.py}
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver and navigator]
+The \textbf{driver} types. The \textbf{navigator} reads the README and the \texttt{TODO} comment aloud, and checks that every method has \texttt{self} as its first parameter. Swap at the 8-minute timer.
+With \textbf{1 student}: you are the navigator and ask \enquote{whose hunger is that?} each time they type an attribute. With \textbf{3}: a \textbf{tester} runs \texttt{check\_my\_work.py} after each \texttt{TODO} and reads the hints; rotate roles. With \textbf{4}: two pairs.
+\end{pairroles}
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Exercise 2.1 Pet Class} (about 10 minutes): finish \texttt{play}, \texttt{mood} and \texttt{describe}. Run it and play with Pip; notice Bo never changes.
+  \item \textbf{Exercise 2.2 Bubble Art} (about 10 minutes): finish the \texttt{Bubble} class and \texttt{make\_bubbles}. Forty bubble objects, each with its own \texttt{x}, \texttt{y}, \texttt{size} and \texttt{color}, fill the window.
+\end{enumerate}
+
+\begin{bughunt}[Forgot self]
+Show this method and ask: \enquote{Find the two missing words.}
+\begin{pycode}
+    def play():
+        happiness = happiness + 2
+\end{pycode}
+Python complains with \texttt{TypeError: Pet.play() takes 0 positional arguments but 1 was given}. That means \enquote{I tried to hand you the pet, but you have no \texttt{self} to catch it.} Fix: \texttt{def play(self):}. Then the next error, \texttt{UnboundLocalError}, means \texttt{happiness} is not the pet's: write \texttt{self.happiness = self.happiness + 2}.
+\end{bughunt}
+
+\begin{freebuild}[Bubble remix]
+Last 6 minutes: change Bubble Art any way you like: more bubbles, a different background, bubbles that grow towards the top, or a new method such as \texttt{shine(t)} that adds a second highlight. Then commit it: \menu{File > Save as...} into \texttt{git-quest} with a new name such as \texttt{bubble\_art.py} (every week's file needs its own name, or it replaces the last one), then \texttt{git add bubble\_art.py} and \texttt{git commit -m "Add bubble art"}.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+Show-and-tell: each pair shows one bubble picture and names one attribute and one method.
+
+\begin{safety}[Designing virtual pets kindly]
+Ask: \enquote{Some pet apps say \enquote{Your pet is sad, you forgot it!} or let the pet get sick unless you pay or log in every day. How does that make players feel?} Talk about fair design: our pets never die, never blame the player, and never need money or daily streaks. Point to the comment at the top of \texttt{starter.py}: \enquote{Kind design: our pets never get sick, run away or make you feel guilty.} Programmers choose how their games treat people.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} methods with \texttt{self} as the first parameter; attributes written as \texttt{self.something}.\\
+\textbf{Ask:} \enquote{\texttt{pip = Pet("Pip", "dragon")}, \texttt{bo = Pet("Bo", "cat")}, then \texttt{pip.feed()}. What is \texttt{bo.hunger}? Why?}\\
+\textbf{Answer:} 5. Feeding Pip changes only Pip's attributes; Bo is a different object.
+\end{formativecheck}
+
+\begin{reflection}[Talk or write]
+\begin{itemize}[itemsep=1pt]
+  \item What is the difference between a class and an object? Use your own example (not cookies!).
+  \item Which object in a game you love could be a class? What attributes and methods would it have?
+\end{itemize}
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Forgetting \texttt{self}} as the first parameter, or writing \texttt{hunger} instead of \texttt{self.hunger}. Ask \enquote{whose hunger?}
+  \item \textbf{Typing \texttt{\_\_int\_\_} or \texttt{\_init\_}} instead of \texttt{\_\_init\_\_}. The error is \texttt{TypeError: Pet() takes no arguments}. Count the underscores: two on each side.
+  \item \textbf{Calling a method without parentheses}: \texttt{pip.feed} does nothing. It must be \texttt{pip.feed()}.
+  \item \textbf{Methods not indented} under the class, so they become ordinary functions. All methods line up 4 spaces in.
+  \item \textbf{Thinking \texttt{Pet} is the pet.} \texttt{Pet} is the blueprint; \texttt{pip} is the pet.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do Exercise 2.1 only, one \texttt{TODO} at a time, running \texttt{check\_my\_work.py} after each. Keep the labeled class picture from the workbook beside the keyboard.
+\extensionpath Add a \texttt{nap()} method and a third pet, or give \texttt{Bubble} a method \texttt{is\_touching(other)} that returns \texttt{True} when two bubbles overlap (distance between centers less than the sum of their radii).
+\end{differentiation}
+
+\begin{stretchchallenge}[Floating bubbles]
+Use \texttt{screen.ontimer} (Level 2) to animate the bubbles: every 50 milliseconds, call \texttt{move(0, 2)} on each bubble, clear the pen, and draw them all again. Bubbles that float off the top start again at the bottom.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the cookie warm-up short (one cookie each). Do the Pet class fully; Bubble Art can be finished at home or next week. The bug hunt can be done in the Shell in 2 minutes during the Pet exercise.
+\end{teachernote}

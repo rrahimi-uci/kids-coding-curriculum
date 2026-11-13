@@ -653,7 +653,7 @@ def outro(ctx, t: float, gt: float) -> None:
     a = fade(t, 0.4)
     text(ctx, "See you next time!", W / 2, 640, 56, C["white"], bold=True, alpha=a)
     text(ctx, "Narration uses AI-generated voices.", W / 2, 790, 38, C["led"], bold=True, alpha=a)
-    text(ctx, "Kids Coding • Level 1 • Grades 4–5", W / 2, 860, 32, "#C9D6E3", alpha=a)
+    text(ctx, "Kids Coding • Level 1 • Grades 4–6", W / 2, 860, 32, "#C9D6E3", alpha=a)
     draw_pixi(ctx, 300, 980, 0.55, gt, mood="proud", ground=1040)
     draw_rose(ctx, 1640, 1080, 0.55, gt, mood="happy", wave=1.0)
 

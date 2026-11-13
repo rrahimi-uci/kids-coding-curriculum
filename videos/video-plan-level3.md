@@ -52,7 +52,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** git, repository (repo), commit, commit message, commit id, diff, Terminal
 - **Misconception to prevent:** git add alone makes a save point, or deleting a committed file later also removes it from the history.
 - **Digital citizenship:** History is public-ish: never commit secrets. Commit with a nickname and an @example.com email; never put passwords, real names, addresses, school names or photos of people in a repository. If a secret ever gets committed, tell a grown-up and change that password: deleting the file is not enough.
-- **Practice activity:** `3-advanced/exercises/week01/ex-git-quest`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week01/ex-git-quest`
 
 ### Instructional objectives
 
@@ -75,22 +75,22 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week01.tex`
-- `3-advanced/teaching-material/workbook/week01.tex`
-- `3-advanced/teaching-material/homework/week01.tex`
-- `3-advanced/exercises/week01/ex-commit-coach/README.md`
-- `3-advanced/exercises/week01/ex-commit-coach/hints.md`
-- `3-advanced/exercises/week01/ex-commit-coach/starter.py`
-- `3-advanced/exercises/week01/ex-git-quest/README.md`
-- `3-advanced/exercises/week01/ex-git-quest/hints.md`
-- `3-advanced/exercises/week01/ex-log-reader/README.md`
-- `3-advanced/exercises/week01/ex-log-reader/hints.md`
-- `3-advanced/exercises/week01/ex-log-reader/starter.py`
-- `3-advanced/exercises/week01/hw-inventory-review/README.md`
-- `3-advanced/exercises/week01/hw-inventory-review/hints.md`
-- `3-advanced/exercises/week01/hw-inventory-review/starter.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week01.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week01.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week01.tex`
+- `grade-4-6/3-advanced/exercises/week01/ex-commit-coach/README.md`
+- `grade-4-6/3-advanced/exercises/week01/ex-commit-coach/hints.md`
+- `grade-4-6/3-advanced/exercises/week01/ex-commit-coach/starter.py`
+- `grade-4-6/3-advanced/exercises/week01/ex-git-quest/README.md`
+- `grade-4-6/3-advanced/exercises/week01/ex-git-quest/hints.md`
+- `grade-4-6/3-advanced/exercises/week01/ex-log-reader/README.md`
+- `grade-4-6/3-advanced/exercises/week01/ex-log-reader/hints.md`
+- `grade-4-6/3-advanced/exercises/week01/ex-log-reader/starter.py`
+- `grade-4-6/3-advanced/exercises/week01/hw-inventory-review/README.md`
+- `grade-4-6/3-advanced/exercises/week01/hw-inventory-review/hints.md`
+- `grade-4-6/3-advanced/exercises/week01/hw-inventory-review/starter.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 2: Blueprints and Objects
 
@@ -99,7 +99,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** class, object, attribute, method, __init__, self
 - **Misconception to prevent:** Changing one object changes every object made from the same class, or the class itself is the object.
 - **Digital citizenship:** Designing virtual pets kindly: our pets never get sick, run away or make you feel guilty, and never need money or daily streaks. Good games are fun because you want to play, not because they make you feel guilty. Ask: is this fair and kind to the player? Programmers choose how their games treat people.
-- **Practice activity:** `3-advanced/exercises/week02/ex-pet-class`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week02/ex-pet-class`
 
 ### Instructional objectives
 
@@ -121,20 +121,20 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week02.tex`
-- `3-advanced/teaching-material/workbook/week02.tex`
-- `3-advanced/teaching-material/homework/week02.tex`
-- `3-advanced/exercises/week02/ex-bubble-art/README.md`
-- `3-advanced/exercises/week02/ex-bubble-art/hints.md`
-- `3-advanced/exercises/week02/ex-bubble-art/starter.py`
-- `3-advanced/exercises/week02/ex-pet-class/README.md`
-- `3-advanced/exercises/week02/ex-pet-class/hints.md`
-- `3-advanced/exercises/week02/ex-pet-class/starter.py`
-- `3-advanced/exercises/week02/hw-coin-purse/README.md`
-- `3-advanced/exercises/week02/hw-coin-purse/hints.md`
-- `3-advanced/exercises/week02/hw-coin-purse/starter.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week02.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week02.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week02.tex`
+- `grade-4-6/3-advanced/exercises/week02/ex-bubble-art/README.md`
+- `grade-4-6/3-advanced/exercises/week02/ex-bubble-art/hints.md`
+- `grade-4-6/3-advanced/exercises/week02/ex-bubble-art/starter.py`
+- `grade-4-6/3-advanced/exercises/week02/ex-pet-class/README.md`
+- `grade-4-6/3-advanced/exercises/week02/ex-pet-class/hints.md`
+- `grade-4-6/3-advanced/exercises/week02/ex-pet-class/starter.py`
+- `grade-4-6/3-advanced/exercises/week02/hw-coin-purse/README.md`
+- `grade-4-6/3-advanced/exercises/week02/hw-coin-purse/hints.md`
+- `grade-4-6/3-advanced/exercises/week02/hw-coin-purse/starter.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 3: Families of Objects
 
@@ -143,7 +143,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** inheritance, parent class, child class, override, super(), polymorphism, composition
 - **Misconception to prevent:** A child class must copy all of its parent's code, or a misspelled method name still replaces the parent's method.
 - **Digital citizenship:** Representation: who gets to be the hero? Designing a character family is a chance to include many kinds of people: different names, skin tones, ages and abilities. Avoid making one group always the villain or always the helper.
-- **Practice activity:** `3-advanced/exercises/week03/ex-enemy-family`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week03/ex-enemy-family`
 
 ### Instructional objectives
 
@@ -166,23 +166,23 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week03.tex`
-- `3-advanced/teaching-material/workbook/week03.tex`
-- `3-advanced/teaching-material/homework/week03.tex`
-- `3-advanced/exercises/week03/ex-enemy-family/README.md`
-- `3-advanced/exercises/week03/ex-enemy-family/hints.md`
-- `3-advanced/exercises/week03/ex-enemy-family/starter.py`
-- `3-advanced/exercises/week03/ex-game-roster/README.md`
-- `3-advanced/exercises/week03/ex-game-roster/hints.md`
-- `3-advanced/exercises/week03/ex-game-roster/starter.py`
-- `3-advanced/exercises/week03/ex-shape-family/README.md`
-- `3-advanced/exercises/week03/ex-shape-family/hints.md`
-- `3-advanced/exercises/week03/ex-shape-family/starter.py`
-- `3-advanced/exercises/week03/hw-hero-party/README.md`
-- `3-advanced/exercises/week03/hw-hero-party/hints.md`
-- `3-advanced/exercises/week03/hw-hero-party/starter.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week03.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week03.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week03.tex`
+- `grade-4-6/3-advanced/exercises/week03/ex-enemy-family/README.md`
+- `grade-4-6/3-advanced/exercises/week03/ex-enemy-family/hints.md`
+- `grade-4-6/3-advanced/exercises/week03/ex-enemy-family/starter.py`
+- `grade-4-6/3-advanced/exercises/week03/ex-game-roster/README.md`
+- `grade-4-6/3-advanced/exercises/week03/ex-game-roster/hints.md`
+- `grade-4-6/3-advanced/exercises/week03/ex-game-roster/starter.py`
+- `grade-4-6/3-advanced/exercises/week03/ex-shape-family/README.md`
+- `grade-4-6/3-advanced/exercises/week03/ex-shape-family/hints.md`
+- `grade-4-6/3-advanced/exercises/week03/ex-shape-family/starter.py`
+- `grade-4-6/3-advanced/exercises/week03/hw-hero-party/README.md`
+- `grade-4-6/3-advanced/exercises/week03/hw-hero-party/hints.md`
+- `grade-4-6/3-advanced/exercises/week03/hw-hero-party/starter.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 4: Searching: How Fast Is Fast?
 
@@ -191,7 +191,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** algorithm, linear search, binary search, sorted, worst case, off-by-one error
 - **Misconception to prevent:** Binary search works on any list, or a list ten times bigger needs ten times more binary search steps.
 - **Digital citizenship:** Search engines and filter bubbles: a search engine ranks results, putting first what it thinks you want based on what you clicked before, so two people can search the same words and see different answers. To get out of a bubble, use different search words, look at several sources, ask a grown-up or a librarian, and notice when something is an ad.
-- **Practice activity:** `3-advanced/exercises/week04/ex-search-race`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week04/ex-search-race`
 
 ### Instructional objectives
 
@@ -214,20 +214,20 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week04.tex`
-- `3-advanced/teaching-material/workbook/week04.tex`
-- `3-advanced/teaching-material/homework/week04.tex`
-- `3-advanced/exercises/week04/ex-guess-bot/README.md`
-- `3-advanced/exercises/week04/ex-guess-bot/hints.md`
-- `3-advanced/exercises/week04/ex-guess-bot/starter.py`
-- `3-advanced/exercises/week04/ex-search-race/README.md`
-- `3-advanced/exercises/week04/ex-search-race/hints.md`
-- `3-advanced/exercises/week04/ex-search-race/starter.py`
-- `3-advanced/exercises/week04/hw-growth-table/README.md`
-- `3-advanced/exercises/week04/hw-growth-table/hints.md`
-- `3-advanced/exercises/week04/hw-growth-table/starter.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week04.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week04.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week04.tex`
+- `grade-4-6/3-advanced/exercises/week04/ex-guess-bot/README.md`
+- `grade-4-6/3-advanced/exercises/week04/ex-guess-bot/hints.md`
+- `grade-4-6/3-advanced/exercises/week04/ex-guess-bot/starter.py`
+- `grade-4-6/3-advanced/exercises/week04/ex-search-race/README.md`
+- `grade-4-6/3-advanced/exercises/week04/ex-search-race/hints.md`
+- `grade-4-6/3-advanced/exercises/week04/ex-search-race/starter.py`
+- `grade-4-6/3-advanced/exercises/week04/hw-growth-table/README.md`
+- `grade-4-6/3-advanced/exercises/week04/hw-growth-table/hints.md`
+- `grade-4-6/3-advanced/exercises/week04/hw-growth-table/starter.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 5: Sorting, Stacks and Queues
 
@@ -236,7 +236,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** sort, swap, key function, stack, queue, deque
 - **Misconception to prevent:** Writing a = b and then b = a swaps two values, or two sorts do the same amount of work because they give the same answer.
 - **Digital citizenship:** Leaderboards: fair and kind. Show nicknames only, never real names; give ties the same place; show personal bests and most improved, not only the winners; let players choose not to appear. A leaderboard should make people want to play again, not feel bad.
-- **Practice activity:** `3-advanced/exercises/week05/ex-sort-race`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week05/ex-sort-race`
 
 ### Instructional objectives
 
@@ -259,23 +259,23 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week05.tex`
-- `3-advanced/teaching-material/workbook/week05.tex`
-- `3-advanced/teaching-material/homework/week05.tex`
-- `3-advanced/exercises/week05/ex-leaderboard/README.md`
-- `3-advanced/exercises/week05/ex-leaderboard/hints.md`
-- `3-advanced/exercises/week05/ex-leaderboard/starter.py`
-- `3-advanced/exercises/week05/ex-sort-race/README.md`
-- `3-advanced/exercises/week05/ex-sort-race/hints.md`
-- `3-advanced/exercises/week05/ex-sort-race/starter.py`
-- `3-advanced/exercises/week05/ex-undo-paint/README.md`
-- `3-advanced/exercises/week05/ex-undo-paint/hints.md`
-- `3-advanced/exercises/week05/ex-undo-paint/starter.py`
-- `3-advanced/exercises/week05/hw-turn-queue/README.md`
-- `3-advanced/exercises/week05/hw-turn-queue/hints.md`
-- `3-advanced/exercises/week05/hw-turn-queue/starter.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week05.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week05.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week05.tex`
+- `grade-4-6/3-advanced/exercises/week05/ex-leaderboard/README.md`
+- `grade-4-6/3-advanced/exercises/week05/ex-leaderboard/hints.md`
+- `grade-4-6/3-advanced/exercises/week05/ex-leaderboard/starter.py`
+- `grade-4-6/3-advanced/exercises/week05/ex-sort-race/README.md`
+- `grade-4-6/3-advanced/exercises/week05/ex-sort-race/hints.md`
+- `grade-4-6/3-advanced/exercises/week05/ex-sort-race/starter.py`
+- `grade-4-6/3-advanced/exercises/week05/ex-undo-paint/README.md`
+- `grade-4-6/3-advanced/exercises/week05/ex-undo-paint/hints.md`
+- `grade-4-6/3-advanced/exercises/week05/ex-undo-paint/starter.py`
+- `grade-4-6/3-advanced/exercises/week05/hw-turn-queue/README.md`
+- `grade-4-6/3-advanced/exercises/week05/hw-turn-queue/hints.md`
+- `grade-4-6/3-advanced/exercises/week05/hw-turn-queue/starter.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 6: Slow-Motion Debugging
 
@@ -284,7 +284,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** debugger, step over, step into, breakpoint, traceback, trace table
 - **Misconception to prevent:** Pressing Run shows what happens inside the code, or changing several lines at once is the fastest way to fix a bug.
 - **Digital citizenship:** Growth mindset: bugs are how we learn. Every programmer meets bugs every day; celebrate effort and strategy, not speed. Asking for help with a clear description (what I expected, what happened, what I tried) is a skill, not a weakness, and being kind when a partner's code is broken is part of being a good teammate.
-- **Practice activity:** `3-advanced/exercises/week06/ex-bug-missing-self`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week06/ex-bug-missing-self`
 
 ### Instructional objectives
 
@@ -307,26 +307,26 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week06.tex`
-- `3-advanced/teaching-material/workbook/week06.tex`
-- `3-advanced/teaching-material/homework/week06.tex`
-- `3-advanced/exercises/week06/ex-bug-binary-search/README.md`
-- `3-advanced/exercises/week06/ex-bug-binary-search/hints.md`
-- `3-advanced/exercises/week06/ex-bug-binary-search/starter.py`
-- `3-advanced/exercises/week06/ex-bug-lost-items/README.md`
-- `3-advanced/exercises/week06/ex-bug-lost-items/hints.md`
-- `3-advanced/exercises/week06/ex-bug-lost-items/starter.py`
-- `3-advanced/exercises/week06/ex-bug-missing-self/README.md`
-- `3-advanced/exercises/week06/ex-bug-missing-self/hints.md`
-- `3-advanced/exercises/week06/ex-bug-missing-self/starter.py`
-- `3-advanced/exercises/week06/ex-bug-shape-party/README.md`
-- `3-advanced/exercises/week06/ex-bug-shape-party/hints.md`
-- `3-advanced/exercises/week06/ex-bug-shape-party/starter.py`
-- `3-advanced/exercises/week06/hw-bug-bank/README.md`
-- `3-advanced/exercises/week06/hw-bug-bank/hints.md`
-- `3-advanced/exercises/week06/hw-bug-bank/starter.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week06.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week06.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week06.tex`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-binary-search/README.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-binary-search/hints.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-binary-search/starter.py`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-lost-items/README.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-lost-items/hints.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-lost-items/starter.py`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-missing-self/README.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-missing-self/hints.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-missing-self/starter.py`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-shape-party/README.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-shape-party/hints.md`
+- `grade-4-6/3-advanced/exercises/week06/ex-bug-shape-party/starter.py`
+- `grade-4-6/3-advanced/exercises/week06/hw-bug-bank/README.md`
+- `grade-4-6/3-advanced/exercises/week06/hw-bug-bank/hints.md`
+- `grade-4-6/3-advanced/exercises/week06/hw-bug-bank/starter.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 7: Grids, Recursion and Fractal Art
 
@@ -335,7 +335,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** recursion, base case, recursive case, RecursionError, fractal, grid (2D list), flood fill, negative number
 - **Misconception to prevent:** A function that calls itself will somehow know when to stop on its own, or grid[row][col] works like turtle's (x, y) with across first.
 - **Digital citizenship:** Credit for generative art and algorithms: the fractal tree and the Koch snowflake (Helge von Koch, 1904) are famous ideas. When you show generative art, say where the idea came from: ‘Fractal tree, based on a classic recursive algorithm; my colors and angles.’ Your code is yours; the idea has a history; giving credit is what real artists and programmers do. Add a comment line # Based on: ... at the top of your fractal file.
-- **Practice activity:** `3-advanced/exercises/week07/ex-fractal-tree`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week07/ex-fractal-tree`
 
 ### Instructional objectives
 
@@ -358,17 +358,17 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week07.tex`
-- `3-advanced/teaching-material/workbook/week07.tex`
-- `3-advanced/teaching-material/homework/week07.tex`
-- `3-advanced/exercises/week07/ex-countdown-sum/README.md`
-- `3-advanced/exercises/week07/ex-countdown-sum/starter.py`
-- `3-advanced/exercises/week07/ex-countdown-sum/hints.md`
-- `3-advanced/exercises/week07/ex-fractal-tree/README.md`
-- `3-advanced/exercises/week07/ex-fractal-tree/starter.py`
-- `3-advanced/exercises/week07/ex-paint-bucket/README.md`
-- `3-advanced/exercises/week07/ex-paint-bucket/starter.py`
-- `docs/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/lessons/week07.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week07.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week07.tex`
+- `grade-4-6/3-advanced/exercises/week07/ex-countdown-sum/README.md`
+- `grade-4-6/3-advanced/exercises/week07/ex-countdown-sum/starter.py`
+- `grade-4-6/3-advanced/exercises/week07/ex-countdown-sum/hints.md`
+- `grade-4-6/3-advanced/exercises/week07/ex-fractal-tree/README.md`
+- `grade-4-6/3-advanced/exercises/week07/ex-fractal-tree/starter.py`
+- `grade-4-6/3-advanced/exercises/week07/ex-paint-bucket/README.md`
+- `grade-4-6/3-advanced/exercises/week07/ex-paint-bucket/starter.py`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 8: Data Detectives: Clean, Count, Chart
 
@@ -377,7 +377,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** CSV, header, data cleaning, average (mean), sample, consent, anonymize
 - **Misconception to prevent:** Numbers read from a CSV file are already numbers, or a blank answer should count as 0 in an average.
 - **Digital citizenship:** Consent and anonymizing survey data: our survey asked first, let people pass, and had no names. That is consent and anonymity. Even without names, some answers together can point to one person (the only 13-year-old in the chess club). Before sharing data: keep only the columns you need, replace names with IDs like R1, R2, and never collect addresses, schools, birthdays or photos.
-- **Practice activity:** `3-advanced/exercises/week08/ex-survey-cleaner`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week08/ex-survey-cleaner`
 
 ### Instructional objectives
 
@@ -400,17 +400,17 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week08.tex`
-- `3-advanced/teaching-material/workbook/week08.tex`
-- `3-advanced/teaching-material/homework/week08.tex`
-- `3-advanced/exercises/week08/ex-survey-cleaner/README.md`
-- `3-advanced/exercises/week08/ex-survey-cleaner/starter.py`
-- `3-advanced/exercises/week08/ex-survey-cleaner/hints.md`
-- `3-advanced/exercises/week08/ex-survey-stats/README.md`
-- `3-advanced/exercises/week08/ex-survey-stats/starter.py`
-- `3-advanced/exercises/week08/ex-bar-chart/README.md`
-- `3-advanced/exercises/week08/ex-bar-chart/starter.py`
-- `docs/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/lessons/week08.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week08.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week08.tex`
+- `grade-4-6/3-advanced/exercises/week08/ex-survey-cleaner/README.md`
+- `grade-4-6/3-advanced/exercises/week08/ex-survey-cleaner/starter.py`
+- `grade-4-6/3-advanced/exercises/week08/ex-survey-cleaner/hints.md`
+- `grade-4-6/3-advanced/exercises/week08/ex-survey-stats/README.md`
+- `grade-4-6/3-advanced/exercises/week08/ex-survey-stats/starter.py`
+- `grade-4-6/3-advanced/exercises/week08/ex-bar-chart/README.md`
+- `grade-4-6/3-advanced/exercises/week08/ex-bar-chart/starter.py`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 9: How Do Machines Learn?
 
@@ -419,7 +419,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** feature, label, training data, test data, steps distance, accuracy, classifier, bias, Markov chain, deepfake
 - **Misconception to prevent:** An AI understands what it says and is always fair, so when its guesses are wrong the bug must be in the code.
 - **Digital citizenship:** AI ethics: AI can be wrong, even when it sounds sure, so check important facts with a trusted source or adult. Never type your real name, address, school, passwords, photos or secrets into a chatbot; what you type may be stored. Deepfakes are fake pictures, voices or videos made by AI: ask ‘Who made this, and why?’ before you believe or share, and never make fakes of real people. Bias: AI is only as fair as its examples. Final project kickoff: Build Something Big starts with your pitch (M1).
-- **Practice activity:** `3-advanced/exercises/week09/ex-monster-sorter`
+- **Practice activity:** `grade-4-6/3-advanced/exercises/week09/ex-monster-sorter`
 
 ### Instructional objectives
 
@@ -442,17 +442,17 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week09.tex`
-- `3-advanced/teaching-material/workbook/week09.tex`
-- `3-advanced/teaching-material/homework/week09.tex`
-- `3-advanced/exercises/week09/ex-monster-sorter/README.md`
-- `3-advanced/exercises/week09/ex-monster-sorter/starter.py`
-- `3-advanced/exercises/week09/ex-monster-sorter/hints.md`
-- `3-advanced/exercises/week09/ex-fair-or-biased/README.md`
-- `3-advanced/exercises/week09/ex-fair-or-biased/starter.py`
-- `3-advanced/exercises/week09/ex-markov-story/README.md`
-- `3-advanced/exercises/week09/ex-markov-story/starter.py`
-- `docs/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/lessons/week09.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week09.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week09.tex`
+- `grade-4-6/3-advanced/exercises/week09/ex-monster-sorter/README.md`
+- `grade-4-6/3-advanced/exercises/week09/ex-monster-sorter/starter.py`
+- `grade-4-6/3-advanced/exercises/week09/ex-monster-sorter/hints.md`
+- `grade-4-6/3-advanced/exercises/week09/ex-fair-or-biased/README.md`
+- `grade-4-6/3-advanced/exercises/week09/ex-fair-or-biased/starter.py`
+- `grade-4-6/3-advanced/exercises/week09/ex-markov-story/README.md`
+- `grade-4-6/3-advanced/exercises/week09/ex-markov-story/starter.py`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 10: Project Studio 1: Design First
 
@@ -461,7 +461,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** CRC card, class diagram, inheritance, composition, milestone, repository, commit, license
 - **Misconception to prevent:** Real programmers start typing right away and save everything in one big commit at the end, or inheritance fits every link between two classes.
 - **Digital citizenship:** Licenses: may I use this? Everything in your project must be yours or allowed. The Python standard library is free to use, and your own drawings and sounds are yours. For someone else's picture or sound, look for its license: CC0 means free for anyone; CC BY means free if you give credit; ‘All rights reserved’ or no license means no. Never download anything without your parent, and write every borrowed thing in the Credits section of your README. Easiest choice: draw everything with turtle.
-- **Practice activity:** `3-advanced/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/3-advanced/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -484,15 +484,15 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week10.tex`
-- `3-advanced/teaching-material/workbook/week10.tex`
-- `3-advanced/teaching-material/homework/week10.tex`
-- `3-advanced/project/project-brief.tex`
-- `3-advanced/project/project-teacher-guide.tex`
-- `3-advanced/project/starter/README.md`
-- `3-advanced/project/starter/grid_game_template.py`
-- `docs/SYLLABUS.md`
-- `3-advanced/teaching-material/teacher-guide.tex`
+- `grade-4-6/3-advanced/teaching-material/lessons/week10.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week10.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week10.tex`
+- `grade-4-6/3-advanced/project/project-brief.tex`
+- `grade-4-6/3-advanced/project/project-teacher-guide.tex`
+- `grade-4-6/3-advanced/project/starter/README.md`
+- `grade-4-6/3-advanced/project/starter/grid_game_template.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/teacher-guide.tex`
 
 ## Week 11: Project Studio 2: Test and Polish
 
@@ -501,7 +501,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** test, edge case, playtest, triage, README, usability, accessibility
 - **Misconception to prevent:** If the program works when I play it, it has no bugs, or a test that passes must be checking something.
 - **Digital citizenship:** Accessibility and usability review: colors from the Okabe–Ito palette and never color alone (add shapes, letters or text); text large enough to read from a chair; controls written on screen; no fast flashing; usability: a new player knows what to do within 10 seconds. Credits: every borrowed image or sound is listed with its license (or there are none).
-- **Practice activity:** `3-advanced/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/3-advanced/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -524,14 +524,14 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week11.tex`
-- `3-advanced/teaching-material/workbook/week11.tex`
-- `3-advanced/teaching-material/homework/week11.tex`
-- `3-advanced/project/project-brief.tex`
-- `3-advanced/project/project-teacher-guide.tex`
-- `3-advanced/project/starter/README.md`
-- `3-advanced/project/starter/test_my_project.py`
-- `docs/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/lessons/week11.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week11.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week11.tex`
+- `grade-4-6/3-advanced/project/project-brief.tex`
+- `grade-4-6/3-advanced/project/project-teacher-guide.tex`
+- `grade-4-6/3-advanced/project/starter/README.md`
+- `grade-4-6/3-advanced/project/starter/test_my_project.py`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 12: Showcase and Graduation
 
@@ -540,7 +540,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** design decision, showcase, feedback, code of conduct, version 2
 - **Misconception to prevent:** A showcase talk should list every feature, and a crash during the demo ruins it.
 - **Digital citizenship:** Showcase safety and next steps online: show your nickname, never your real name, on screen; projects stay on our computers and are not uploaded; photos or videos only if everyone agrees. If you share your work later: share with family, or post only with a parent, never with your real name, school, face or location. Choose any coding community together with a parent: look for clear rules, moderators and a code of conduct, and use a nickname. Never move to private chats with strangers, never send photos, and tell an adult if anything feels wrong.
-- **Practice activity:** `3-advanced/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/3-advanced/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -563,12 +563,12 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `3-advanced/teaching-material/lessons/week12.tex`
-- `3-advanced/teaching-material/workbook/week12.tex`
-- `3-advanced/teaching-material/homework/week12.tex`
-- `3-advanced/project/project-brief.tex`
-- `3-advanced/project/project-teacher-guide.tex`
-- `docs/SYLLABUS.md`
+- `grade-4-6/3-advanced/teaching-material/lessons/week12.tex`
+- `grade-4-6/3-advanced/teaching-material/workbook/week12.tex`
+- `grade-4-6/3-advanced/teaching-material/homework/week12.tex`
+- `grade-4-6/3-advanced/project/project-brief.tex`
+- `grade-4-6/3-advanced/project/project-teacher-guide.tex`
+- `grade-4-6/SYLLABUS.md`
 
 ## 4. Automated, adaptable regeneration pipeline
 

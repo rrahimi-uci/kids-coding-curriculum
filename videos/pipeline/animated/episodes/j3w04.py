@@ -1,6 +1,6 @@
 """Junior Level 3 Week 4: How Do Computers Learn? (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week04.tex (an unplugged week): Guess my
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week04.tex (an unplugged week): Guess my
 rule (has wheels), examples, features and predictions (machine learning, the learning-what-a-dog-is
 analogy), the demo round of Teach the Robot (rule HAS FOUR LEGS; cat, fish, horse, dove, frog, spider;
 then dog, hippo, crow) with Pixi as the Robot and a tally of right and wrong guesses, the robot-sort

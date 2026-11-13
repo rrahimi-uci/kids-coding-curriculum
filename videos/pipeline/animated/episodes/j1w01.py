@@ -1,6 +1,6 @@
 """Junior Level 1 Week 1: Robots Need Instructions (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week01.tex: the first episode of the junior
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week01.tex: the first episode of the junior
 series. Aiden and Pixi say hello, the "what do you like to make?" chat, our two rules (nicknames only,
 and the "ask a grown-up!" game), a robot follows instructions and cannot guess (the blindfold friend),
 the three arrow cards (FORWARD, TURN LEFT, TURN RIGHT: a quarter turn on the spot), a program and an

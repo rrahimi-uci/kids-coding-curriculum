@@ -1,6 +1,6 @@
 """Junior Level 2 Week 7: My Own Blocks (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week07.tex: the recipe-card warm-up (MAKE TOAST
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week07.tex: the recipe-card warm-up (MAKE TOAST
 as one named envelope, used twice; the WASH HANDS envelope that is made but not in the plan), My Blocks
 as a dance move with a name, the worked example Exercise 7.1 Celebrate Block (define celebrate, used
 under "when this sprite clicked" and "when space key pressed", changed once in the define script),

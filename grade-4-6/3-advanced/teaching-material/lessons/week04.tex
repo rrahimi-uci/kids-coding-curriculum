@@ -1,0 +1,143 @@
+% Level 3, Week 4 -- Searching and How Fast Is Fast?
+\lesson{4}{Searching and How Fast Is Fast?}{Smart algorithms do less work: halving beats checking one by one.}
+\lessoninfo{Concepts: linear search, binary search, counting steps, growth, while loops (review)}{Tools: Thonny, git}{CSTA: 3A-AP-15, 3A-AP-14}
+
+\begin{objectives}
+  \item The student can explain and code linear search and binary search, and say why binary search needs sorted data. (L3.G2)
+  \item The student can count the steps an algorithm takes and compare how the count grows for 10, 100 and 1000 items. (L3.G2)
+  \item The student can use a \texttt{while} loop with \texttt{low} and \texttt{high} to make a guessing bot that never needs more than 7 guesses for 1 to 100. (L3.G2)
+  \item The student can explain how a search engine can show different people different results (a filter bubble). (L3.G9)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 4 and homework 4 (one per student).
+  \item Unplugged: 16 index cards. Write these numbers on them, one per card, then lay them face down \textbf{in this order}: 3, 8, 11, 15, 21, 26, 29, 33, 37, 41, 44, 48, 52, 57, 63, 70. A pencil and scrap paper for tallies.
+  \item On each Mac: Thonny with \texttt{grade-4-6/3-advanced/exercises/week04} open; Terminal in \texttt{Documents/git-quest}.
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged guess-the-number and card flip: who finds the number with fewer flips?}
+  \timeslot{8--18}{Concept}{Linear vs binary search; counting steps; how the steps grow (10, 100, 1000 items).}
+  \timeslot{18--28}{Guided demo}{Trace table for binary search on paper, then read the code together.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 4.1 Search Race (write binary search), then 4.2 Guess-the-Number Bot. Bug hunt: the off-by-one. Swap driver every 8 minutes. Last 5 minutes: free-build.}
+  \timeslot{52--60}{Wrap-up}{Race results, filter-bubble talk, exit ticket, homework.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Halving games]
+\textbf{Round 1 (2 minutes):} \enquote{I am thinking of a number from 1 to 100. Guess it! I will say higher or lower.} Think of 73. Tally the guesses on paper.
+\textbf{Round 2 (5 minutes):} show the 16 face-down cards: \enquote{They are sorted from smallest to largest. Find 44. Each flip costs one point.} One student flips from the left, one card at a time (linear): 11 flips. Turn the cards back. A second student may flip any card: hint \enquote{try the middle first}. With halving it takes 4 flips or fewer.
+Ask: \enquote{Why could the second searcher jump around?} (Because the cards are sorted: if the middle card is too small, everything to its left is too small too.)
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{You have used two \textbf{search algorithms}. \textbf{Linear search} checks items one by one from the start. It works on any list, but it can be slow. \textbf{Binary search} looks at the middle and throws away the half that cannot contain the answer. It is much faster, but only works if the list is \textbf{sorted}.
+
+To compare algorithms, programmers count \textbf{steps}: how many items do we look at? The question is not \enquote{how long does it take on my computer?} but \enquote{how does the work \emph{grow} when the list grows?}}
+\end{teacherscript}
+Draw this table and fill it in together (ask the students to guess the binary column first):
+\begin{center}
+\begin{tabular}{@{}rrr@{}}
+\toprule
+\textbf{Items} & \textbf{Linear: worst case} & \textbf{Binary: worst case} \\ \midrule
+10 & 10 & 4 \\
+100 & 100 & 7 \\
+1000 & 1000 & 10 \\
+1\,000\,000 & 1\,000\,000 & 20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{analogy}[Finding a word in a dictionary]
+Nobody reads a dictionary from page 1 to find \enquote{mango}. You open it in the middle, see \enquote{K}, and know \enquote{mango} is in the right half. Every look throws away half of what is left. Doubling the size of the dictionary only adds \emph{one} more look. (Grown-up words, not needed: linear search is \enquote{O(n)}, binary search \enquote{O(log n)}.)
+\end{analogy}
+
+\begin{teachernote}[Keep the math at Grade 4--5 level]
+Logarithms and powers of 2 are beyond Grade 5. Never say \enquote{log}; ask \enquote{how many times can you cut it in half?} On the board, build the \textbf{halving ladder} from the workbook's math helper: 100, 50, 25, 12, 6, 3, 1 (round down each time) is 7 numbers, so 7 steps. Let the students halve 1000 themselves (10 numbers). The second table in the math helper (each extra step handles a list about twice as big: 1, 3, 7, 15, 31, 63, 127\ldots) is optional; use it with students who like patterns.
+\end{teachernote}
+
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Binary search with a trace table]
+On paper, write the sorted list \texttt{[3, 8, 15, 21, 29, 37, 44, 52]} with the indexes 0--7 under it. Search for \texttt{44}. The students say each step while you fill in the table:
+\begin{center}
+\begin{tabular}{@{}cccccl@{}}
+\toprule
+\textbf{step} & \textbf{low} & \textbf{high} & \textbf{mid} & \textbf{items[mid]} & \textbf{so\ldots} \\ \midrule
+1 & 0 & 7 & 3 & 21 & too small: \texttt{low = mid + 1} \\
+2 & 4 & 7 & 5 & 37 & too small: \texttt{low = mid + 1} \\
+3 & 6 & 7 & 6 & 44 & found it at index 6! \\
+\bottomrule
+\end{tabular}
+\end{center}
+Now open \texttt{week04/ex-search-race/solution.py} on your Mac (or the answer key) and read it with the students. Point to each line that matches a column of the table:
+\pyfile[firstline=28,lastline=47]{../exercises/week04/ex-search-race/solution.py}
+Ask: \enquote{What happens when \texttt{low} becomes bigger than \texttt{high}?} (Nothing is left: the item is not in the list, so return $-1$.) Point out \texttt{return mid, steps}: a function can hand back two values at once as a \textbf{tuple}, and \texttt{index, steps = binary\_search(items, 44)} catches both.
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator, tracer]
+\textbf{Driver} types; \textbf{navigator} keeps the trace table from the demo in front of them and checks each line of code against it. Swap at the 8-minute timer.
+With \textbf{1 student}: you are the navigator. With \textbf{3}: a \textbf{tracer} fills in a new trace table on paper for the driver's search and compares it with the program's step count. With \textbf{4}: two pairs, and the pairs race each other on the 4.2 bot.
+\end{pairroles}
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Exercise 4.1 Search Race} (about 10 minutes): write \texttt{binary\_search} in \texttt{starter.py}. Run it to see the race table: 10000 items take 10000 linear steps but only 14 binary steps.
+  \item \textbf{Exercise 4.2 Guess-the-Number Bot} (about 10 minutes): run the slow bot first (it guesses 1, 2, 3\ldots; press the red \menu{Stop} button to end it). Then make \texttt{next\_guess} smart and finish \texttt{check}. Play against it: it always wins in 7 guesses or fewer.
+\end{enumerate}
+
+\begin{bughunt}[The off-by-one]
+Show this loop and ask: \enquote{Search for 7 in the list \texttt{[7]}. What happens?}
+\begin{pycode}
+    low = 0
+    high = len(items) - 1
+    while low < high:          # bug!
+\end{pycode}
+\texttt{low} and \texttt{high} are both 0, so \texttt{0 < 0} is \texttt{False} and the loop never runs: the search says $-1$ (not found). When \texttt{low} equals \texttt{high} there is still \textbf{one} item left to check. Fix: \texttt{while low <= high:}. Off-by-one bugs are the most common bugs in the world, even for professionals.
+\end{bughunt}
+
+\begin{freebuild}[Make the bot yours]
+Last 5 minutes: change the bot's range to 1--1000 and predict its worst case first; give the bot a personality (\enquote{Hmm, my circuits say\ldots}); or add a \enquote{reverse mode} where the computer picks a secret and the human guesses. Commit the result in \texttt{git-quest}.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+
+\begin{safety}[Search engines and filter bubbles]
+Say: \enquote{A web search engine looks through billions of pages in less than a second, because it keeps a sorted index, a bit like the index at the back of a book. But it also \emph{ranks} the results: it puts first what it thinks \emph{you} want, based on what you clicked before. Two people can search the same words and see different answers. If you only ever see things like what you already clicked, you are in a \textbf{filter bubble}.} Ask: \enquote{How could you get out of a bubble?} (Use different search words; look at several sources; ask a grown-up or a librarian; notice when something is an advert.)
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} \texttt{while low <= high}, \texttt{mid = (low + high) // 2} (two slashes), and \texttt{mid + 1} / \texttt{mid - 1} updates.\\
+\textbf{Ask:} \enquote{The bot plays 1 to 1000. What is the largest number of guesses it can need? Why?}\\
+\textbf{Answer:} 10, because 1000 can be halved 10 times before nothing is left (1000, 500, 250, 125, 62, 31, 15, 7, 3, 1).
+\end{formativecheck}
+
+\begin{reflection}[Talk or write]
+\begin{itemize}[itemsep=1pt]
+  \item Where in real life do you use a halving search without noticing?
+  \item Why is binary search useless on an unsorted list?
+\end{itemize}
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{\texttt{mid = (low + high) / 2}} with one slash gives a decimal, then \texttt{TypeError: list indices must be integers}. Use \texttt{//}.
+  \item \textbf{\texttt{low = mid}} instead of \texttt{low = mid + 1}: the loop can run forever. Press the red \menu{Stop} button in Thonny, then fix it.
+  \item \textbf{\texttt{while low < high}} (off-by-one) or \textbf{\texttt{high = len(items)}}: some items are never found, or an \texttt{IndexError}.
+  \item \textbf{Counting steps in the wrong place}: \texttt{steps = steps + 1} must be the first line \emph{inside} the loop.
+  \item \textbf{Searching an unsorted list} with binary search: it gives wrong answers without any error.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Use the unplugged cards again: one student is \enquote{the computer} and moves pointer cards labeled \texttt{low}, \texttt{high} and \texttt{mid} while the other types each line. Do Exercise 4.1 only.
+\extensionpath After 4.2, search a sorted list of words with the same function (strings compare alphabetically), or count how many guesses the bot needs for 1 to 1\,000\,000.
+\end{differentiation}
+
+\begin{stretchchallenge}[Twenty questions]
+With binary search you can find one item among 1\,000\,000 in 20 questions. How many items could you search with 30 questions? With 40? (About a billion; about a trillion.) Write a short program that doubles a number 30 times to check.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Do round 2 of the warm-up only. Skip the code reading in the demo (the trace table is the key part). Exercise 4.2 can become homework; the growth-table homework still works without it.
+\end{teachernote}

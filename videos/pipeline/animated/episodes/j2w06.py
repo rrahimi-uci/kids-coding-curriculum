@@ -1,6 +1,6 @@
 """Junior Level 2 Week 6: Messages (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week06.tex: the pass-the-note relay and its two
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week06.tex: the pass-the-note relay and its two
 bugs (nobody is listening, the wrong name), broadcast and when I receive (the school bell), Exercise
 6.1 Start Button (the Star broadcasts start and hides; the cat starts when it receives start), one
 message with many listeners, Exercise 6.3 Nobody Is Listening (the Ghost starts on the green flag;

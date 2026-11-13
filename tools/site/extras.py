@@ -28,20 +28,16 @@ BASE = "%BASE%"
 _FMT = HtmlFormatter(nowrap=True, classprefix="tok-")
 
 
-def track_tag(track: str) -> str:
-    """'level' or 'junior level', for build messages."""
-    return "level" if track == "main" else f"{track} level"
-
-
 # ------------------------------------------------------------------------------------ pdf helpers
-def level_pdfs(d: str, slug: str, stems: list[str], skip: bool) -> dict:
+def level_pdfs(entry: dict, stems: list[str], skip: bool) -> dict:
+    """Copy whole-level PDFs to downloads/<band>/<level>/<id>-<stem>.pdf, e.g. grade-2-3-level-1-glossary.pdf."""
     out: dict[str, dict] = {}
     if skip:
         return out
-    pdf_map = pdfs.ensure_level_pdfs(d, stems)
+    pdf_map = pdfs.ensure_level_pdfs(entry["dir"], stems)
     for stem, variants in pdf_map.items():
         for variant, src in variants.items():
-            rel = f"downloads/{slug}/{slug}-{stem}{'-dyslexia' if variant == 'dyslexia' else ''}.pdf"
+            rel = f"downloads/{entry['path']}/{entry['id']}-{stem}{'-dyslexia' if variant == 'dyslexia' else ''}.pdf"
             dst = ROOT / "site" / "public" / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
@@ -72,13 +68,13 @@ def _inline(tex_list: list[str]) -> list[str]:
 
 def parse_glossary(tex_path: Path) -> list[dict]:
     s = tex_path.read_text(encoding="utf-8")
-    # \gl has four arguments (term, where, meaning, example) in Level 1 and Junior Level 1, three in the
-    # other junior word books (no example)
+    # \gl has four arguments (term, where, meaning, example) in Grades 4-6 Level 1 and Grades 2-3 Level 1,
+    # three in the other Grades 2-3 word books (no example)
     arity = re.search(r"\\newcommand\{\\gl\}\[(\d)\]", s)
     gl_args = int(arity.group(1)) if arity else 4
     s = s.split("\\begin{document}", 1)[1]
     items: list[tuple[str, str, str, str]] = []  # term, where, meaning, example (all LaTeX)
-    # Level 1: \gl{term}{where}{meaning}{example}
+    # \gl{term}{where}{meaning}{example}
     for m in re.finditer(r"\\gl(?![A-Za-z])", s):
         a, _ = read_args(s, m.end(), gl_args)
         if len(a) == gl_args:
@@ -114,26 +110,25 @@ def _highlight(code: str) -> str:
 
 def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings: list[str]) -> dict | None:
     pub = manifest["public"]
-    d, slug, n = entry["dir"], entry["slug"], entry["number"]
-    track = entry.get("track", "main")
+    d, path, ident, label = entry["dir"], entry["path"], entry["id"], entry["label"]
     brief = ROOT / pub["project_brief"].format(dir=d)
     if not brief.exists():
         return None
-    res = texconv.convert_file(brief, n, fig_dir, f"{BASE}generated/fig/{slug}", {}, track=track)
-    warnings += [f"{track_tag(track)} {n} project brief: {w}" for w in res.warnings]
-    html_dir = gen / "html" / slug
+    res = texconv.convert_file(brief, entry["classopts"], fig_dir, f"{BASE}generated/fig/{ident}", {})
+    warnings += [f"{label} project brief: {w}" for w in res.warnings]
+    html_dir = gen / "html" / path
     html_dir.mkdir(parents=True, exist_ok=True)
     (html_dir / "project.html").write_text(res.html, encoding="utf-8")
-    # starter folder (templates only); Junior Levels 1 and 2 have none (their projects start in Scratch)
+    toc = [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc]
+    # starter folder (templates only); some levels (Scratch projects) have none
     sdir = ROOT / pub["project_starter_dir"].format(dir=d)
-    files, readme_html = [], ""
-    dest = ROOT / "site" / "public" / "downloads" / slug / "project-starter"
+    dest = ROOT / "site" / "public" / "downloads" / path / "project-starter"
     if dest.exists():
         shutil.rmtree(dest)
-    if not sdir.is_dir() or not any(f.is_file() for f in sdir.rglob("*")):
-        return {"title": texconv_title(res), "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc],
-                "starter_readme": "", "starter_files": [], "zip": None}
-    zpath = ROOT / "site" / "public" / "downloads" / slug / f"{slug}-project-starter-files.zip"
+    if not sdir.is_dir():
+        return {"title": texconv_title(res), "toc": toc, "starter_readme": "", "starter_files": [], "zip": None}
+    files, readme_html = [], ""
+    zpath = ROOT / "site" / "public" / "downloads" / path / f"{ident}-project-starter-files.zip"
     zpath.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(sdir.rglob("*")):
@@ -148,9 +143,9 @@ def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warning
                 continue
             if f.suffix == ".py":
                 code = f.read_text(encoding="utf-8")
-                files.append({"name": rel, "html": _highlight(code), "url": f"{BASE}downloads/{slug}/project-starter/{rel}"})
+                files.append({"name": rel, "html": _highlight(code), "url": f"{BASE}downloads/{path}/project-starter/{rel}"})
             else:
-                files.append({"name": rel, "html": "", "url": f"{BASE}downloads/{slug}/project-starter/{rel}"})
+                files.append({"name": rel, "html": "", "url": f"{BASE}downloads/{path}/project-starter/{rel}"})
     # the README's own level-1 heading becomes the page section title
     soup = BeautifulSoup(readme_html, "html.parser")
     for h in soup.find_all(["h1", "h2", "h3"]):
@@ -167,9 +162,9 @@ def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warning
                     label.append(ch.extract())
                 li.append(label)
     return {
-        "title": texconv_title(res), "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc],
+        "title": texconv_title(res), "toc": toc,
         "starter_readme": str(soup), "starter_files": files,
-        "zip": {"url": f"{BASE}downloads/{slug}/{slug}-project-starter-files.zip", "kb": max(1, zpath.stat().st_size // 1024)},
+        "zip": {"url": f"{BASE}downloads/{path}/{ident}-project-starter-files.zip", "kb": max(1, zpath.stat().st_size // 1024)},
     }
 
 
@@ -180,22 +175,21 @@ def texconv_title(res) -> str:
 # ------------------------------------------------------------------------------------ extras
 def build_extras(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings: list[str]) -> dict:
     pub = manifest["public"]
-    d, slug, n = entry["dir"], entry["slug"], entry["number"]
-    track = entry.get("track", "main")
+    d, ident, label = entry["dir"], entry["id"], entry["label"]
     out: dict = {}
-    html_dir = gen / "html" / slug
+    html_dir = gen / "html" / entry["path"]
     html_dir.mkdir(parents=True, exist_ok=True)
     for key, name in (("cheat_sheet", "cheat-sheet"), ("parent_notes", "parent-notes")):
         path = ROOT / pub[key].format(dir=d)
-        res = texconv.convert_file(path, n, fig_dir, f"{BASE}generated/fig/{slug}", {}, track=track)
-        warnings += [f"{track_tag(track)} {n} {name}: {w}" for w in res.warnings]
+        res = texconv.convert_file(path, entry["classopts"], fig_dir, f"{BASE}generated/fig/{ident}", {})
+        warnings += [f"{label} {name}: {w}" for w in res.warnings]
         (html_dir / f"{name}.html").write_text(res.html, encoding="utf-8")
         out[key] = {"title": res.meta.get("title", name), "subtitle": res.meta.get("subtitle", ""),
                     "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc if lv == 2 or key == "cheat_sheet"]}
     gpath = ROOT / pub["glossary"].format(dir=d)
     out["glossary"] = parse_glossary(gpath)
     gtitle = re.search(r"\\kctitle\{([^}]*)\}", gpath.read_text(encoding="utf-8"))
-    out["glossary_title"] = gtitle.group(1).strip() if gtitle else "Glossary"  # the junior word books: "Word Book"
+    out["glossary_title"] = gtitle.group(1).strip() if gtitle else "Glossary"  # the Grades 2-3 word books: "Word Book"
     return out
 
 

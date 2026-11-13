@@ -1,6 +1,6 @@
-# Teaching videos (Levels 1–3)
+# Teaching videos (Grades 4–6 and Grades 2–3)
 
-This folder holds 36 short, animated teaching videos, one for each week of all three levels, and the pipeline that keeps them in line with the lessons. The videos are for children in Grades 4–5 (ages 9–11). No episode may be longer than five minutes. Each video launches the week's hands-on activity; it never replaces it.
+This folder holds 36 short, animated teaching videos, one for each week of the three Grades 4–6 levels (`grade-4-6/`), and the pipeline that keeps them in line with the lessons; the Grades 2–3 series is described [below](#junior-videos-aiden-and-pixi-grades-23). The Grades 4–6 videos were made when that track was for Grades 4–5 (ages 9–11), and their intro cards still say so; a re-rendered episode says Grades 4–6. No episode may be longer than five minutes. Each video launches the week's hands-on activity; it never replaces it.
 
 ## What is tracked
 
@@ -104,7 +104,7 @@ The voice is AI-generated. The end card and the file metadata say so, and a publ
 
 ## Junior videos (Aiden and Pixi, Grades 2–3)
 
-The junior track (`junior/`) has its own series, **Kids Coding Junior with Aiden and Pixi**: one
+The junior track (`grade-2-3/`) has its own series, **Kids Coding Junior with Aiden and Pixi**: one
 episode per week of Junior Levels 1–3 (30 in all), 5–7 minutes each, paced for 7–9-year-olds who
 watch with a grown-up.
 
@@ -131,8 +131,9 @@ python -m videos.pipeline.cli junior-animate                     # every junior 
 
 Publishing: `python -m videos.pipeline.cli junior-publish --upload` makes 720p web copies
 (`junior1-week02.mp4`, `.jpg`, `.vtt`) and uploads them with their own list, `junior-videos.json`, to the
-same `videos` release. The main list `videos.json` is never touched, so the main site is unaffected; the
-website's junior pages read `junior-videos.json`.
+same `videos` release. The main list `videos.json` is never touched; the website build reads both lists and
+shows each junior video on its `grade-2-3/level-N/week-WW/` page (if `junior-videos.json` cannot be read, only
+the Grades 2–3 pages are built without videos).
 
 ## On the website
 

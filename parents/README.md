@@ -1,7 +1,7 @@
 # Parent information deck
 
-A 20–30 minute talk for families of Grade 4–5 children deciding whether to
-join the course: why coding matters, what the research does and does not
+A 20–30 minute talk for families of Grade 4–6 children deciding whether to
+join the Grades 4–6 course (`grade-4-6/`): why coding matters, what the research does and does not
 show, how the course works, and how parents can help.
 
 | Output | File (after `make`) |
@@ -89,4 +89,4 @@ In `content/faq.tex`, `\faqtopic{Name}` starts a topic and `\qa{...}{...}` adds 
 Macros from `content/shared.tex`, `\textcite`/`\parencite` (linked to the research page) and
 `\sitelink{path/}{text}` (a link within the website) work in both. The topic order is set by
 `TOPIC_ORDER` in `site/src/pages/parents/faq.astro`. Keep course facts in line with
-`docs/SYLLABUS.md` and `docs/ASSUMPTIONS.md`, and research claims in line with [NOTES.md](NOTES.md).
+`grade-4-6/SYLLABUS.md` and `docs/ASSUMPTIONS.md`, and research claims in line with [NOTES.md](NOTES.md).

@@ -1,6 +1,6 @@
 """Junior Level 2 Week 3: Keep Score (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week03.tex: the SCORE and LIVES boxes, a
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week03.tex: the SCORE and LIVES boxes, a
 variable as a labeled box (the scoreboard), Exercise 3.1 Pop the Balloon (make a variable, set it,
 change it, show it), set versus change, Exercise 3.2 Catch and Count (the score in last week's catch
 game, set to 0 on the green flag; misses can count up in a second box), Exercise 3.3 The Sticky

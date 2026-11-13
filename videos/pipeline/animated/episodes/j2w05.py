@@ -1,6 +1,6 @@
 """Junior Level 2 Week 5: Play Day and Show Me (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week05.tex: Be the computer (the warm-up row
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week05.tex: Be the computer (the warm-up row
 with apples on squares 2, 3 and 5, not the workbook's Exercise 5.1 row), the detective steps test,
 look, change one thing (the referee), the worked example "the score that counts by 10" as the bug
 hunt, a review quiz, the Bug-Hunt Relay introduced by its should-do lines only (no fixes are shown:

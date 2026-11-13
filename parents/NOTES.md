@@ -79,7 +79,7 @@ and on the deck's References slides.
    (30–36 weeks for all three); holiday weeks without a session do not count.
    The 12-week plan teaches the 12 core sessions; the 10-week plan merges two
    pairs of weeks; the 2 buffer sessions are optional. This matches
-   docs/SYLLABUS.md, docs/DESIGN.md and the Teacher Guides' pacing sections,
+   grade-4-6/SYLLABUS.md, docs/DESIGN.md and the Teacher Guides' pacing sections,
    which were updated in the same branch. The deck states lengths in weeks
    only; `\StartDate` (January 2027) follows the sample calendar.
 2. **Who runs it.** A small home course, led by a parent or volunteer
@@ -103,7 +103,7 @@ Added November 2026. The extra questions were chosen from the questions that
 recur in parent FAQs of children's coding programs and in parent guides
 (the official Scratch parent pages, the Raspberry Pi Foundation's
 "learn at home" guide for parents, and course-provider FAQs), and then
-answered from this course's own documents (`docs/SYLLABUS.md`,
+answered from this course's own documents (`grade-4-6/SYLLABUS.md`,
 `docs/DESIGN.md`, `docs/ASSUMPTIONS.md`, `resources/`). Provider FAQs were
 used only to choose questions, never as evidence.
 
@@ -115,7 +115,7 @@ or the bibliography:
   iPad app) and Thonny on Windows: from scratch.mit.edu/download and
   thonny.org, checked November 2026.
 * The 20-20-20 eye rule is the course's own screen-break routine
-  (`docs/SYLLABUS.md`, Level 1 week 2), not a research claim.
+  (`grade-4-6/SYLLABUS.md`, Level 1 week 2), not a research claim.
 
 ## Double-check before presenting
 

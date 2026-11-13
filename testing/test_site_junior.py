@@ -1,4 +1,4 @@
-"""The junior track (Grades 2-3) on the website: manifest, syllabus, converter, videos and private check.
+"""The Grades 2-3 (junior) track on the website: manifest, syllabus, converter, videos and private check.
 
 The converter tests need the site packages (BeautifulSoup, Pygments) and Pandoc, so they are skipped in
 the plain test environment; `make site` runs the real conversion of every junior file.
@@ -32,19 +32,23 @@ needs_pandoc = pytest.mark.skipif(shutil.which("pandoc") is None, reason="needs 
 # --------------------------------------------------------------------------- manifest
 
 
-def test_every_active_level_is_in_the_site_manifest_with_its_track() -> None:
+def test_every_active_level_is_in_the_site_manifest_with_its_key_and_folder() -> None:
     yaml = pytest.importorskip("yaml")
     manifest = yaml.safe_load((ROOT / "site" / "manifest.yml").read_text(encoding="utf-8"))
-    entries = {e["dir"]: e for e in manifest["levels"]}
+    entries = {str(e["key"]): e for e in manifest["levels"]}
+    assert len(entries) == len(manifest["levels"]), "level keys must be unique"
     for level in curriculum.levels():
-        entry = entries.get(level.dir)
+        entry = entries.get(level.key)
         assert entry is not None, f"{level.dir} is active in curriculum.json but not in site/manifest.yml"
-        assert entry.get("track", "main") == level.track
-        assert entry["number"] == level.number
-    slugs = [e["slug"] for e in manifest["levels"]]
-    assert len(slugs) == len(set(slugs)), "level slugs must be unique (they are URLs)"
-    juniors = [e["slug"] for e in manifest["levels"] if e.get("track") == "junior"]
-    assert juniors == ["junior-1", "junior-2", "junior-3"]
+        assert entry["dir"] == level.dir
+    assert [k for k, e in entries.items() if e["dir"].startswith("grade-2-3/")] == ["j1", "j2", "j3"]
+
+
+def test_every_level_has_its_own_page_address() -> None:
+    """Both bands have a Level 1-3, so a level's address is band + level (grade-2-3/level-1)."""
+    paths = [f"{lv.band}/{lv.slug}" for lv in curriculum.levels(include_planned=True)]
+    assert len(paths) == len(set(paths))
+    assert "grade-2-3/level-1" in paths and "grade-4-6/level-1" in paths
 
 
 def test_junior_private_sources_are_fingerprinted() -> None:
@@ -65,15 +69,15 @@ def test_junior_private_sources_are_fingerprinted() -> None:
 @needs_pandoc
 def test_the_junior_syllabus_is_parsed_like_the_main_one() -> None:
     syllabus = _load("syllabus")
-    junior = syllabus.parse("docs/JUNIOR-SYLLABUS.md")
+    junior = syllabus.parse("grade-2-3/SYLLABUS.md")
     assert [junior[n]["name"] for n in (1, 2, 3)] == ["Little Robots", "Game Makers", "Bridge to Python"]
     for level in curriculum.levels("junior"):
         data = junior[level.number]
         assert [w["n"] for w in data["weeks"]] == list(range(1, level.weeks + 1))
         assert data["goals"] and all(g["code"].startswith(level.goal_prefix + ".G") for g in data["goals"])
         assert data["project_title"] and data["tools"]
-    main = syllabus.parse()
-    assert [main[n]["name"] for n in (1, 2, 3)] == ["Introduction", "Intermediate", "Advanced"]
+    main = syllabus.parse("grade-4-6/SYLLABUS.md")
+    assert [main[n]["name"] for n in (1, 2, 3)] == ["Introductory", "Intermediate", "Advanced"]
 
 
 # --------------------------------------------------------------------------- converter
@@ -194,9 +198,9 @@ def test_junior_videos_come_from_their_own_list(sv) -> None:
     (folder / "videos.json").write_text(json.dumps(_listing(folder, "1-2", "level1-week02")), encoding="utf-8")
     (folder / "junior-videos.json").write_text(json.dumps(_listing(folder, "j1-2", "junior1-week02")), encoding="utf-8")
     warnings: list[str] = []
-    found = module.collect(warnings, (module.MANIFEST, module.JUNIOR_MANIFEST))
+    found = module.collect(warnings)
     assert warnings == []
-    assert set(found) == {(1, 2), ("j1", 2)}
+    assert set(found) == {("1", 2), ("j1", 2)}
     assert found[("j1", 2)]["src"] == "%BASE%videos/junior1-week02.mp4"
     assert found[("j1", 2)]["transcript"] == ["Hi, I am Aiden!"]
 
@@ -205,8 +209,8 @@ def test_a_missing_junior_list_leaves_the_main_videos_in_place(sv) -> None:
     module, folder = sv
     (folder / "videos.json").write_text(json.dumps(_listing(folder, "1-2", "level1-week02")), encoding="utf-8")
     warnings: list[str] = []
-    found = module.collect(warnings, (module.MANIFEST, module.JUNIOR_MANIFEST))
-    assert set(found) == {(1, 2)}
+    found = module.collect(warnings)
+    assert set(found) == {("1", 2)}
     assert len(warnings) == 1 and "junior-videos.json" in warnings[0]
 
 
@@ -216,7 +220,7 @@ def test_a_missing_junior_list_leaves_the_main_videos_in_place(sv) -> None:
 def test_a_junior_scratch_solution_leak_is_caught(tmp_path) -> None:
     cp = _load("check_private")
     repo = tmp_path / "repo"
-    ex = repo / "junior" / "1-robots" / "exercises" / "week02" / "ex-a"
+    ex = repo / "grade-2-3" / "1-robots" / "exercises" / "week02" / "ex-a"
     ex.mkdir(parents=True)
     (ex / "README.md").write_text("# Exercise 2.1 - A\nMake the cat say hi.\n")
     (ex / "solution.md").write_text("The finished script snaps when green flag clicked, then say Hello for two seconds, then move ten steps.\n")
@@ -224,7 +228,7 @@ def test_a_junior_scratch_solution_leak_is_caught(tmp_path) -> None:
     for name in ("main.tex", "shared.tex"):
         (repo / "parents" / name).write_text("x")
     manifest = {
-        "levels": [{"number": 1, "dir": "junior/1-robots", "slug": "junior-1", "track": "junior", "published": True}],
+        "levels": [{"dir": "grade-2-3/1-robots", "key": "j1", "published": True}],
         "public": {"exercise_dirs": "{dir}/exercises/week[0-9][0-9]/*/",
                    "parents": {"source": "parents/main.tex", "shared": "parents/shared.tex"}},
         "private": {"paths": ["solution"], "strings": ["TEACHER ONLY"],
@@ -243,7 +247,7 @@ def test_a_junior_scratch_solution_leak_is_caught(tmp_path) -> None:
 def test_a_lesson_line_in_video_captions_is_still_flagged(tmp_path) -> None:
     cp = _load("check_private")
     repo = tmp_path / "repo"
-    lessons = repo / "junior" / "2-games" / "teaching-material" / "lessons"
+    lessons = repo / "grade-2-3" / "2-games" / "teaching-material" / "lessons"
     lessons.mkdir(parents=True)
     line = "My game is called Banana Drop. You are the Bowl. Use the arrow keys to catch ten bananas."
     (lessons / "week10.tex").write_text(f"\\item {line}\n")
@@ -251,7 +255,7 @@ def test_a_lesson_line_in_video_captions_is_still_flagged(tmp_path) -> None:
     for name in ("main.tex", "shared.tex"):
         (repo / "parents" / name).write_text("x")
     manifest = {
-        "levels": [{"number": 2, "dir": "junior/2-games", "slug": "junior-2", "track": "junior", "published": True}],
+        "levels": [{"dir": "grade-2-3/2-games", "key": "j2", "published": True}],
         "public": {"exercise_dirs": "{dir}/exercises/week[0-9][0-9]/*/",
                    "parents": {"source": "parents/main.tex", "shared": "parents/shared.tex"}},
         "private": {"paths": ["solution"], "strings": ["TEACHER ONLY"],

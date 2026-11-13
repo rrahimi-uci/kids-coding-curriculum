@@ -1,6 +1,6 @@
 """Junior Level 2 Week 4: Surprise! Random (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week04.tex: the dice race warm-up, pick
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week04.tex: the dice race warm-up, pick
 random as a die inside the computer, Exercise 4.1 Dice Race (the cat's half: a roll variable, pick
 random 1 to 6, repeat roll), random jumps, go to random position for Exercise 4.2 Ghost Pop (only
 the one block, not the whole script), Exercise 4.3 The Stuck Dice (the roll is picked once, above

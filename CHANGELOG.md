@@ -3,6 +3,17 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 2.0.0 - 2026-11-13
+
+The course is now organized in two grade bands, in the repository and on the website.
+
+- **Grades 2–3 (Kids Coding Junior)** and **Grades 4–6** each have their own folder (`grade-2-3/`, `grade-4-6/`) with their syllabus and their three levels. The Grades 4–6 levels are **Level 1 — Introductory**, **Level 2 — Intermediate** and **Level 3 — Advanced**; Level 1 was called *Introduction* before.
+- The main course is now described as being for Grades 4–6 (ages 9–12). Its materials keep their Grade 4–5 reading level, so they still suit the youngest children in the band.
+- The Grades 2–3 track, put on the website in 1.16.0, now has its own section of the site (`/grade-2-3/`) instead of living among the Grades 4–6 levels.
+- New website structure: a page for each grade band (`/grade-2-3/`, `/grade-4-6/`), levels underneath (`/grade-4-6/level-1/week-07/`), and a menu grouped by grade band. The curriculum page shows both bands with their own timelines.
+- Old addresses send you to the new pages: `/levels/level-N/...` and `/parents/notes/level-N/` to Grades 4–6, `/levels/junior-N/...` and `/parents/notes/junior-N/` to Grades 2–3. Download files now have the grade band in their names, so old PDF and ZIP links do not work any more.
+- The student copy (`make student-bundle`) now has `grade-2-3/` and `grade-4-6/` folders inside `kids-coding/`. Copy the new folder to each child's Mac; the lesson plans name the new folder paths.
+
 ## 1.16.0 - 2026-11-13
 
 The junior track is on the website: Junior Levels 1 to 3 (*Little Robots*, *Game Makers* and *Bridge to Python*) for Grades 2–3 now have their own pages next to the main track.

@@ -1671,7 +1671,7 @@ def make_intro(level, week: int, title: str):
 
 def make_outro(level):
     host = draw_aiden if is_junior(level) else draw_rose
-    grades = "Grades 2–3" if is_junior(level) else "Grades 4–5"
+    grades = "Grades 2–3" if is_junior(level) else "Grades 4–6"
 
     def outro(ctx, t, gt):
         vertical_gradient(ctx, 0, 0, W, H, "#18324B", "#25507A")

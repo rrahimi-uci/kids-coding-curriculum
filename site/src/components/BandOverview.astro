@@ -1,0 +1,47 @@
+---
+// One grade band: its week-by-week timeline and a card for each level. Used on the band page
+// (/grade-4-6/) and, for both bands, on the curriculum page. `h` is the heading level of the band's
+// own sections, so the outline stays correct on either page.
+import { u, fix, bandLevels, BAND_INFO, type Band } from '../lib/data';
+interface Props { band: Band; h?: 2 | 3 }
+const { band, h = 2 } = Astro.props;
+const L = bandLevels(band.id);
+const info = BAND_INFO[band.id];
+const weeks = Math.max(...L.map((l) => l.weeks_planned));
+const marked = Object.entries(info.milestones);
+const H = `h${h}` as 'h2' | 'h3';
+const Hsub = `h${h + 1}` as 'h3' | 'h4';
+const ids = { timeline: `${band.id}-timeline`, levels: `${band.id}-levels` };
+---
+<section aria-labelledby={ids.timeline} style="margin-top:2rem">
+  <H id={ids.timeline}>The timeline<span class="visually-hidden"> for {band.band_title}</span></H>
+  <div class="timeline">
+    {L.map((l) => (
+      <div class={`tl-row l${l.number}`} role="group" aria-labelledby={`tl-label-${l.id}`}>
+        <div class="tl-label" id={`tl-label-${l.id}`}>Level {l.number}: {l.name}</div>
+        <ol class="tl-track" style={`--tl-weeks:${weeks}`}>
+          {Array.from({ length: l.weeks_planned }, (_, i) => i + 1).map((w) => <li class={`tl-week${w in info.milestones ? ' milestone' : ''}`}><span class="visually-hidden">Week </span>{w}</li>)}
+        </ol>
+      </div>
+    ))}
+  </div>
+  <p class="tl-key">{marked.filter(([, text]) => text).map(([, text]) => <span>{text}</span>)}</p>
+  <p class="muted measure">{info.rhythm}</p>
+</section>
+
+<section aria-labelledby={ids.levels} style="margin-top:2.5rem">
+  <H id={ids.levels}>The levels<span class="visually-hidden"> for {band.band_title}</span></H>
+  <div class="stack">
+    {L.map((l) => (
+      <div class={`card accent l${l.number}`}>
+        <p class="eyebrow accent-text">{band.band_title} · Level {l.number}</p>
+        <Hsub>{l.name}</Hsub>
+        <p class="muted"><span set:html={fix(l.tools)} /></p>
+        <p><strong>What students learn:</strong></p>
+        <ul>{l.goals.map((g) => <li><span set:html={fix(g.text)} /></li>)}</ul>
+        <p><strong>Final project: {l.project_title}.</strong> <span set:html={fix(l.project_html.replace(/^<strong>.*?<\/strong>\s*/, ''))} /></p>
+        <p><a class="btn" href={u(`${l.path}/`)}>Open {band.band_title}, Level {l.number}</a></p>
+      </div>
+    ))}
+  </div>
+</section>

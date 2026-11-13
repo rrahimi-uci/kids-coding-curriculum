@@ -1,6 +1,6 @@
 """Junior Level 2 Week 2: If Touching... (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week02.tex: Simon says IF and the once-only
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week02.tex: Simon says IF and the once-only
 robot, if-then and the lifeguard, Exercise 2.1 Boo Ghost, the hidden Star marker, Exercise 2.2 Catch
 the Apple (the Bowl with its arrow keys, the falling Apple with two ifs inside its forever), Exercise
 2.3 Ghost Tag (an if above the forever checks only once) and kind feedback: two stars and a wish.

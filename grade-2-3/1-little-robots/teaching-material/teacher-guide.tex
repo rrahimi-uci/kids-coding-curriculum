@@ -1,0 +1,553 @@
+\documentclass[track=junior,level=1,teacher]{kidscode}
+%% small helpers for this guide
+\newenvironment{guidetable}[1]{\par\noindent\small\renewcommand{\arraystretch}{1.3}%
+  \longtable{#1}}{\endlongtable\par}
+%% \fitwidth{wide content}: shrink only if it is wider than the line (dyslexia edition)
+\newsavebox{\fitbox}
+\newcommand{\fitwidth}[1]{\sbox{\fitbox}{#1}\ifdim\wd\fitbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\fitbox}}\else\usebox{\fitbox}\fi}
+\begin{document}
+\kctitle{Teacher Guide}{Junior Level 1: Little Robots. Everything you need before, during and between sessions}
+\tableofcontents
+
+%% =====================================================================
+\section{Welcome}
+Thank you for teaching this course. You do not need to be a programmer or a trained teacher to run
+it well. Every session is written out for you: what to print, what to set up, what to say, what to do
+when things go wrong, and what to cut if time runs short. If you can read a lesson plan for ten
+minutes the day before, you are ready.
+
+Junior Level 1 is for complete beginners aged about 7--9 (US Grades 2--3). In ten weekly
+45-minute sessions, children learn that a computer follows exact steps in order. They start by
+being robots themselves on a floor grid, then snap colored blocks together in \textbf{Scratch} to
+make a cat talk, dance, react to clicks and keys, and draw with a pen. The level ends with a project,
+\enquote{My Animated Greeting Card}, which each child shows to the family in week 10.
+
+\begin{teachernote}[Three things that matter most]
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Bugs are normal.} Celebrate them. Say \enquote{Great, a bug! Let's catch it} and mean it.
+        Your calm when things break is the most important thing you teach.
+  \item \textbf{Hands off the mouse.} Point, ask and suggest; let the child drag and click.
+        (\enquote{What did you want the cat to do? What did it do instead?})
+  \item \textbf{Short and lively beats long and complete.} Children of this age focus for about
+        10 minutes at a time. Follow the timer, change activity often, and stop on a good note.
+\end{enumerate}
+\end{teachernote}
+
+\begin{teachernote}[The math this level uses]
+Everything stays inside Grade 2--3 math. Numbers are whole numbers up to 100. Turns are
+\textbf{named}, not worked out: a \textbf{quarter turn is 90} and a \textbf{half turn is 180}. For other shapes
+children read the number from a turn card (triangle 120, square 90, hexagon 60). Sprites are put
+in place by \textbf{dragging} them on the stage, so there are no x and y positions and no negative
+numbers anywhere in this level.
+\end{teachernote}
+
+\subsection{How the junior track works}
+The junior track has three levels of \textbf{10 core weekly sessions}, plus two optional buffer
+sessions per level: Junior Level 1 (Little Robots), Junior Level 2 (Game Makers) and Junior Level 3
+(Bridge to Python). After that a child moves on to the main track's Level 1. Inside each level the
+rhythm is the same: weeks 1--4 new ideas, \textbf{week 5 play day and show-me checklist}, weeks 6--8
+new ideas, \textbf{week 9 project studio}, \textbf{week 10 showcase and certificate}. Big ideas come
+back again and again (the \enquote{spiral}, see the last section): each one is first
+\textbf{I}ntroduced, later \textbf{R}evisited and then \textbf{E}xtended.
+
+What makes it junior:
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Pages are read aloud by you.} Student pages are picture-first, with about 250 words
+        a week and one short sentence per step. Every Scratch step shows the block.
+  \item \textbf{Rose and Pixi videos} (2--3 minutes, one idea each) can open the session, so children
+        hear the idea before they need to read anything.
+  \item \textbf{Very little typing:} short words in \enquote{say} blocks and nicknames only.
+  \item \textbf{No quizzes and no grades.} You watch and check off what you see (show-me checklists).
+  \item \textbf{Homework is a play-at-home card:} an optional 5--10 minute game with a grown-up.
+\end{itemize}
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{4.2cm}>{\RaggedRight}p{2.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-6.6cm-4\tabcolsep}@{}}
+\toprule
+Document & Who & What it is for\\
+\midrule\endhead
+\bottomrule\endfoot
+Teacher Guide (this) & You & Setup, how sessions run, assessment, troubleshooting, pacing.\\
+Lesson Plans & You & One 45-minute plan per week (and B1, B2), with words to read aloud.\\
+My Robot Book & Children & One short picture chapter per week, read aloud by you.\\
+Play-at-Home Cards & Families & One optional 5--10 minute game a week.\\
+Answer Key & You only & What each activity should look and sound like; how to use the show-me checklists.\\
+Show-Me Checklists & You, per child & Week-1 chat, week-5 and week-10 checklists, child self-rating.\\
+Project Brief / Project Teacher Guide & Children / you & The greeting card project with storyboard and stars / how to run it, reference card, showcase.\\
+Extras & Everyone & Cheat sheet, glossary, progress tracker, notes for families, certificate.\\
+\end{guidetable}
+
+\textbf{The exercise folders.} Each Scratch exercise lives in
+\texttt{grade-2-3/\allowbreak{}1-little-robots/\allowbreak{}exercises/\allowbreak{}weekNN/\allowbreak{}ex-name/}. It has a
+\texttt{README.md} (what to build, with the blocks and a checklist), a \texttt{hints.md} with three
+hints, and a \texttt{solution.md} for you. Unplugged games have no folder: they live in the lesson
+plan and the workbook. Every PDF also comes in a \textbf{dyslexia-friendly edition} (clearer font,
+more spacing, cream paper color).
+
+\subsection{Level 1 goals}
+By the end of Junior Level 1 the student can\dots{} (CSTA = CSTA K--12 Computer Science Standards,
+revised 2017; band 1A is grades K--2 and band 1B is grades 3--5. The wording is abridged.)
+
+\begin{guidetable}{@{}>{\bfseries}p{1.6cm}>{\RaggedRight}p{\dimexpr\linewidth-6.2cm-4\tabcolsep}>{\RaggedRight\arraybackslash}p{4.6cm}@{}}
+\toprule
+Code & Goal & CSTA\\
+\midrule\endhead
+\bottomrule\endfoot
+J1.G1 & give and follow exact step-by-step instructions in the right order & 1A-AP-08, 1A-AP-11\\
+J1.G2 & build Scratch programs with sequences and repeat loops & 1A-AP-10\\
+J1.G3 & start code with simple events: green flag, click and key press & 1A-AP-10, 1B-AP-10\\
+J1.G4 & find and fix bugs in the order of steps and in loops & 1A-AP-14, 1A-CS-03\\
+J1.G5 & plan a short animated story on a storyboard and build it & 1A-AP-12\\
+J1.G6 & take turns as Driver and Helper and say what their code does & 1A-AP-15, 1B-AP-16\\
+J1.G7 & use a computer safely, kindly and fairly: nicknames, ask a grown-up, give credit, take breaks & 1A-IC-17, 1A-IC-18, 1A-NI-04, 1A-AP-13\\
+\end{guidetable}
+
+\subsection{The 10-week roadmap}
+\begin{guidetable}{@{}>{\bfseries}p{0.9cm}>{\RaggedRight}p{3.4cm}>{\RaggedRight}p{\dimexpr\linewidth-9.9cm-6\tabcolsep}>{\RaggedRight\arraybackslash}p{5.6cm}@{}}
+\toprule
+Wk & Title & Big idea & Highlights\\
+\midrule\endhead
+\bottomrule\endfoot
+1 & Robots Need Instructions & A program is a list of exact steps, in order. & \enquote{Parent robot} on the floor grid with arrow cards; our rules; \enquote{what do you like to make?} chat.\\
+2 & Meet Scratch & Blocks snap together to make a sprite act. & Puppet show; Hello Cat; a block that is not snapped on.\\
+3 & Bugs Are Clues & A bug is a clue: test, look, change one thing. & Spot the difference; steps in the wrong order; the wait block.\\
+4 & Repeat It! & A repeat loop does the same steps again. & Dance loops; costumes and animation; too many or too few repeats.\\
+5 & Play Day and Show Me & Practice everything, then show a grown-up. & Arrow maze cards; bug-hunt relay; \textbf{show-me checklist}.\\
+6 & When I Click\dots & Events start code: the flag, a click or a key. & \enquote{When I clap, you jump}; click and key events.\\
+7 & Two Sprites Talk & Each sprite has its own script; wait makes them take turns. & Timing cards; backdrops; giving credit.\\
+8 & Draw With the Pen & A square is repeat 4 of move and a quarter turn. & Walk a square on the floor; pen down, stamp; the turn card.\\
+9 & Project Studio & Plan on a storyboard, then build one box at a time. & \textbf{Project: M1 storyboard, M2 card works.}\\
+10 & Showcase and Certificate & Show, explain and celebrate. & \textbf{M3 family showcase}; \textbf{show-me checklist}; certificates.\\
+B1 & Unplugged Games Day & (optional, any time after week 5) & Arrow mazes, color-by-number pixel grids, debugging detective cards.\\
+B2 & Remix Studio & (optional, any time after week 5) & Pick a past project, change it and share it.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Before you start: setup checklist}
+Allow about an hour, once, a week or more before session 1. You need the internet only to install
+Scratch; after that everything works offline.
+
+\subsection{1. Install Scratch (offline app) on every Mac}
+\begin{checklist}
+  \item Open the \textbf{App Store} on the Mac and search for \textbf{Scratch 3}. Check that the
+        maker is the Scratch Foundation, then click \menu{Get}. It is free.
+  \item The App Store uses your own Apple ID. Children never need a Scratch account, an email address or a sign-in.
+  \item Open Scratch once from \textbf{Applications} or Launchpad. If it asks to send usage data, click \menu{No}.
+  \item Test it offline: turn Wi-Fi off, open Scratch, click the blue \menu{Motion} circle, drag
+        \enquote{move 10 steps} into the middle and click it. The cat moves.
+  \item Make a folder called \texttt{Scratch Projects} in \textbf{Documents} on each Mac. Saving:
+        \menu{File > Save to your computer}. Opening: \menu{File > Load from your computer}.
+  \item Optional: if you have an iPad, ScratchJr is a nice extra for play at home. It is never needed.
+\end{checklist}
+
+\subsection{2. A mouse for every Mac}
+Plug in a \textbf{mouse} (wired or wireless). Dragging blocks on a trackpad is hard for small hands,
+and a mouse makes the Driver and Helper roles clearer: whoever holds the mouse is the Driver.
+A small or child-size mouse is a bonus. For a left-handed child, move the mouse to the left and,
+if they like, swap the buttons in \menu{System Settings > Mouse}.
+
+\subsection{3. Print}
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{3.3cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-3.3cm-2\tabcolsep}@{}}
+\toprule
+When & What to print\\
+\midrule\endhead
+\bottomrule\endfoot
+Before week 1 & One per child: My Robot Book (or each chapter the week before), the Cheat Sheet (laminate it if you can), the Progress Tracker, and the Show-Me Checklists (week-1 chat page now, the rest later). One per family: Notes for Families. For you: this guide and the Lesson Plans (keep the Answer Key in your folder).\\
+Every week & The lesson plan, the workbook chapter, the play-at-home card, and any cards listed under \enquote{Materials} in the plan (arrow cards, script cards, timing cards).\\
+Week 5 & The week-5 show-me checklist, one per child.\\
+Week 9 & The Project Brief, one per child (the storyboard page is the one they draw on). The Project Teacher Guide for you.\\
+Week 10 & The week-10 show-me checklist, the sticker feedback cards (last page of the Project Teacher Guide) and one certificate per child (write the nickname or first name by hand).\\
+\end{guidetable}
+Choose the standard or the dyslexia-friendly edition per child. Both have the same pages, so
+children can use different editions side by side.
+
+\subsection{4. Room setup}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{A floor grid for the robot games.} With masking tape, make a grid of about
+        \textbf{8 by 8 squares} on the floor, each square about one big child step (12 inches).
+        Weeks 1, 5 and 8 and buffer B1 use it, so leave it down if you can. A rug or a hallway works;
+        a big sheet of paper with a grid on the table works for a toy robot.
+  \item \textbf{Arrow cards.} Cut about 20 cards: forward arrows, \enquote{quarter turn left} and
+        \enquote{quarter turn right} arrows, and a few blank cards. Keep them in a box with the other
+        cards you make during the level.
+  \item \textbf{One Mac per pair}, two chairs side by side, the mouse in the middle. Four children
+        need two Macs. A third Mac for your demonstrations is useful but not needed: children can
+        gather round one.
+  \item \textbf{A sand timer or kitchen timer} (5 minutes) for Driver and Helper swaps.
+  \item A clear table for unplugged games, away from the computers. Drinks away from the Macs.
+  \item Crayons, pencils, stickers, sticky notes, scissors.
+  \item Space to stand up and move for the wiggle break.
+\end{itemize}
+
+\subsection{5. Accessibility settings}
+\begin{itemize}[itemsep=3pt]
+  \item \textbf{Dyslexia-friendly PDFs:} every document has a second edition with the Lexend font,
+        extra spacing and a cream background. Offer it to any child; no diagnosis needed.
+  \item \textbf{Bigger blocks in Scratch:} use the round \enquote{+} zoom button at the bottom right of
+        the code area. The full-screen button above the stage makes the stage bigger for watching.
+  \item \textbf{A bigger pointer:} \menu{System Settings > Accessibility > Display > Pointer size}.
+        Also there: \menu{Color Filters} for children who see colors differently. All course materials
+        use color-blind-safe colors and always add a word or an icon to a color.
+  \item \textbf{Slower double-click and tracking:} \menu{System Settings > Mouse} lets you slow the
+        pointer down for children who are still learning to drag.
+  \item \textbf{Reading support:} read every student page aloud as a habit, and accept spoken,
+        pointed or drawn answers everywhere.
+\end{itemize}
+
+%% =====================================================================
+\section{The 45-minute session}
+Every session, including the buffers, has the same five parts. Children quickly learn the rhythm,
+which makes the session calmer and easier to run. The activity changes at least every 10 minutes.
+
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{The Rose and Pixi video or an unplugged game (floor grid, cards, acting). Wakes up bodies and brains and plays the new idea before anyone touches a mouse.}
+  \timeslot{10--18}{Show me}{The one new idea in kid language, with an analogy, then you build the example on the Mac while the children watch, point and predict (\enquote{What will the cat do when I click?}).}
+  \timeslot{18--38}{Make it}{Driver and Helper at the Mac, swapping when the timer runs out (every 5--7 minutes). Workbook exercises, a bug hunt, and the last few minutes free play.}
+  \timeslot{38--40}{Wiggle break}{Two minutes away from the screen: stand up, stretch, shake hands, look far away.}
+  \timeslot{40--45}{Share}{Each child shows one thing, others give a thumbs up and say what they like. Exit question, reflection (circle a face), hand out the play-at-home card.}
+\end{timeplan}
+
+\begin{guidetable}{@{}>{\bfseries}p{2.6cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-2.6cm-2\tabcolsep}@{}}
+\toprule
+Part & What it is for\\
+\midrule\endhead
+\bottomrule\endfoot
+Warm-up & Moving and playing first. The unplugged game makes the idea physical (a loop becomes a dance), and children who are not yet sure with the mouse can shine.\\
+Show me & One idea only. You model thinking out loud and making a mistake calmly. Children watch with their hands free.\\
+Make it & Hands on, in pairs. This is where most learning happens; your job is to ask, not to fix.\\
+Wiggle break & Resets attention for the last part and teaches healthy screen habits. Never skip it.\\
+Share & Ends on success. Saying what their code does out loud is a level goal (J1.G6), and it gives you the best picture of what each child understands.\\
+\end{guidetable}
+
+\begin{tip}[Making the 45 minutes work]
+\begin{itemize}[itemsep=1pt]
+  \item Turn on the Macs and open Scratch \textbf{before} the children arrive.
+  \item Protect the Share part. If Make it runs over, cut free play first, never the Share.
+  \item Every plan ends with \enquote{If you are short on time}: what to cut without losing the idea.
+  \item A tired or wobbly group? Do the wiggle break early. It is never wasted time.
+\end{itemize}
+\end{tip}
+
+%% =====================================================================
+\section{Driver and Helper}
+Children work in pairs at one Mac. This doubles the thinking, halves the frustration and builds
+the habit of explaining.
+
+\begin{pairroles}[The two roles]
+\textbf{Driver:} holds the mouse, drags and clicks, and says out loud what they are doing.\\
+\textbf{Helper:} points at the picture in the book, reads or says which color circle to click next,
+and spots bugs. The Helper never grabs the mouse: they point and use words.\\
+\textbf{Swap} when the sand timer runs out (every 5--7 minutes), even in the middle of something.
+Saying \enquote{Swap!} and changing chairs makes it a game.
+\end{pairroles}
+
+\begin{guidetable}{@{}>{\bfseries}p{2.6cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-2.6cm-2\tabcolsep}@{}}
+\toprule
+Children & How to run it\\
+\midrule\endhead
+\bottomrule\endfoot
+1 child & You are the Helper. Resist taking the mouse. Once a session, swap: the child helps while you drive, and you make a small mistake for them to catch.\\
+2 children & One pair. Seat them so both see the screen equally.\\
+3 children & Driver, Helper and \textbf{Checker} (checks each block against the picture in the book). Rotate all three jobs on the timer.\\
+4 children & Two pairs on two Macs. Visit each other's projects at the end. Change partners every few weeks.\\
+Siblings of different ages & They swap on the timer, \textbf{not by age}. The younger child drives as long as the older one does. Ask the older child to help with words only: \enquote{Tell your sister which circle, don't show her.}\\
+\end{guidetable}
+
+\begin{tip}[Phrases worth teaching]
+Helper: \enquote{Next is the yellow circle}, \enquote{Wait for the shadow}, \enquote{Can we click the flag to check?}
+Driver: \enquote{I'm going to\dots}, \enquote{What do you think?}
+Both: \enquote{Let's try your idea first, then mine.}
+\end{tip}
+
+%% =====================================================================
+\section{The threads}
+Five kinds of activity run through the level. Each has its own labeled box in the lesson plans.
+
+\begin{unplugged}[No computer]
+Floor grids, arrow cards, puppets, dances and acting. Unplugged games make the idea physical, give
+eyes a rest and let everyone take part. Keep them short (5--10 minutes), give everyone a job,
+and end with \enquote{Where will we see this in Scratch today?} Buffer B1 is a whole unplugged day.
+\end{unplugged}
+
+\begin{bughunt}[Every week]
+Children get something that \emph{almost} works: an arrow card in the wrong place, a block that is
+not snapped on, a turn outside the repeat. The four steps are on the cheat sheet:
+\textbf{watch} what happens, \textbf{find} the block that does it, \textbf{change one thing},
+\textbf{test} again. Celebrate every catch (\enquote{Bug caught!}).
+\end{bughunt}
+
+\begin{freebuild}[Free play]
+The last few minutes of Make it are open: change the words, the sound, the costume, the numbers.
+One rule: change one thing, then click the flag. Free play is where children make the project
+their own, and it keeps motivation high, so even a pair that is behind gets 3 minutes.
+\end{freebuild}
+
+\begin{reflection}[Closing the loop]
+Every Share part ends with a short question (\enquote{Which block was your favorite?}) and a
+drawing or a smiley face to circle in the workbook. No writing is needed. Model it yourself:
+\enquote{Today I found a bug by watching the cat very closely.}
+\end{reflection}
+
+\begin{safety}[Safety and kindness]
+A 2--3 minute talk every week about nicknames, asking a grown-up, kind words, sharing the mouse,
+credit and passwords. Make it a conversation, not a lecture. The week-by-week list is in the
+Digital citizenship thread section below.
+\end{safety}
+
+%% =====================================================================
+\section{Assessment plan}
+Assessment in the junior track is \textbf{watching, not testing}. There are no quizzes, no
+placement tests and no grades. You notice what each child can do while they play, and you use it
+to choose what to practice next.
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{3.6cm}>{\RaggedRight}p{2.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-6.0cm-4\tabcolsep}@{}}
+\toprule
+What & When & How to use it\\
+\midrule\endhead
+\bottomrule\endfoot
+\enquote{What do you like to make?} chat & Week 1, 5 min & Not graded. Circle the pictures together; learn what they love (animals, games, stories, music, drawing) and how they feel about computers. Use it to pick examples and the first pairs.\\
+Exit question & Every session & In the Share part. One quick question from the lesson plan; listen to the answers.\\
+Progress tracker & Every session, 2 min & The child colors the star next to the week's \enquote{I can} statement when they feel ready.\\
+Show-me checklist & Week 5 & Six rows. Watch during the play day and check \emph{Not yet}, \emph{Getting there} or \emph{Got it}. Use the results to plan weeks 6--8 (and B1 if many rows say Not yet).\\
+Project stars & Weeks 9--10 & Four rows with 1--3 stars (it works, every must-have, explain one script, planned on the storyboard). See the Project Teacher Guide.\\
+Show-me checklist & Week 10 & Eight rows, watched during the showcase. Compare with week 5 and pass it on to Junior Level 2.\\
+Certificate & Week 10 & Every child who finishes the level gets one. It celebrates taking part, not a score.\\
+\end{guidetable}
+
+\textbf{The three columns} used on every show-me checklist:
+\textbf{Not yet} (needs you to show it, or does not try yet),
+\textbf{Getting there} (does it with a hint or a reminder),
+\textbf{Got it} (does it alone). The Answer Key (\enquote{How to use the show-me checklists})
+describes what each looks like for every row and what to do next for \enquote{Not yet}.
+
+\begin{tip}[Valuing the right things]
+Praise strategies and effort, not speed: \enquote{You watched the cat closely and found the bug!}
+When a child shows you a project, ask \enquote{What does this block do?} before you say
+\enquote{Well done}. A child who can explain a short script is further along than one who copied a long one.
+\end{tip}
+
+%% =====================================================================
+\section{Differentiation}
+Every lesson plan has a support path (needs more time) and an extension path (finished early).
+General moves:
+
+\begin{differentiation}
+\supportpath Be the Driver yourself while the child points at the next block in the book, then
+swap for the last block only. Start from a script that is half built. Use fewer blocks (the first
+exercise is always the core one). Repeat the unplugged game. Zoom the code area. Skip the second
+exercise and come back to it in the next warm-up.
+\extensionpath Ask \enquote{Can you add a wait? A second sprite? A sound? A key?} Let them make
+a bug for a partner to find. Use the stretch challenge in the plan. Let them become the
+\enquote{bug-hunt helper} who asks questions but never touches another child's mouse.
+\end{differentiation}
+
+\begin{guidetable}{@{}>{\bfseries}p{0.9cm}>{\RaggedRight}p{\dimexpr(\linewidth-0.9cm-4\tabcolsep)/2}>{\RaggedRight\arraybackslash}p{\dimexpr(\linewidth-0.9cm-4\tabcolsep)/2}@{}}
+\toprule
+Wk & \faArrowDown\ Support path & \faArrowUp\ Extension path\\
+\midrule\endhead
+\bottomrule\endfoot
+1 & Two kinds of arrow card only (forward, quarter turn right); a short path of 3--4 squares. & Add a \enquote{repeat} idea: \enquote{forward 3 times}; plan a path round an obstacle.\\
+2 & Build Hello Cat together; the child adds the last block. & Add a wait and a second say block; add next costume between two moves.\\
+3 & One bug at a time, with the right script beside it to compare. & Make a bug on purpose for a partner to find.\\
+4 & Start from a repeat that is already built; change only the number. & A dance with two costumes and a sound inside the repeat.\\
+5 & Play day with help cards; show-me rows watched one at a time. & Be the bug-hunt helper in the relay; make a new arrow maze.\\
+6 & One event (click) only; the green flag script is already there. & A key for each of two sprites; a click that plays a sound and hides.\\
+7 & Two sprites with one say block each, with a wait. & Three sprites, a backdrop change and a longer conversation.\\
+8 & Draw a line, then a square with blocks already in the repeat. & A triangle or hexagon from the turn card; stamp a pattern.\\
+9 & Core path: start from a card with the backdrop and first sprite set up; one must-have at a time. & Stretch path: a pen-drawn frame or stamped pattern on the card.\\
+10 & Practice the show-and-tell with you first; point and say one sentence. & Tell the story of a bug they fixed; help another child set up.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Digital citizenship thread}
+Every week has a short safety, kindness or wellbeing moment (a \enquote{Digital citizenship \&
+safety} box in the lesson plan). Keep it to 2--3 minutes and make it a conversation.
+
+\begin{guidetable}{@{}>{\bfseries}p{0.9cm}>{\RaggedRight}p{4.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-5.3cm-4\tabcolsep}@{}}
+\toprule
+Wk & Theme & The key message\\
+\midrule\endhead
+\bottomrule\endfoot
+1 & Our rules & Nicknames only. When an app asks for anything (a name, a sign-in, a photo), stop and ask a grown-up.\\
+2 & Looking after the Mac and our bodies & Sit up, hold the mouse gently, clean hands, drinks away, screen breaks.\\
+3 & Kind words & When a friend finds a bug, we say \enquote{Good catch!}, never \enquote{You got it wrong.}\\
+4 & Sharing the mouse fairly & Swap when the timer runs out, even in the middle of something.\\
+5 & Fun for everyone & What makes a project fun for everyone who plays with it?\\
+6 & Nicknames on projects & Projects show nicknames, never real names or photos.\\
+7 & Giving credit & Who made this picture or sound? We say so.\\
+8 & Passwords & Passwords are secret, like a toothbrush: never share them (except with your grown-up).\\
+9 & Asking first & Ask before you show someone else's work.\\
+10 & Showcase safety & Family only, on the screen, nicknames on screen, nothing uploaded.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Troubleshooting}
+\begin{guidetable}{@{}>{\RaggedRight}p{5.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-5.4cm-2\tabcolsep}@{}}
+\toprule
+\textbf{Problem} & \textbf{What to do}\\
+\midrule\endhead
+\bottomrule\endfoot
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Scratch blocks}}\\ \midrule
+A block will not snap on. & Drag it by its left end and move it slowly under the last block. Wait for the gray shadow, then let go. If it still jumps away, the block has the wrong shape there: a hat block (round top) only goes at the top.\\
+Nothing happens when the green flag is clicked. & The script needs \enquote{when green flag clicked} on top, and every block must be snapped on. Drag the hat block: if the whole stack moves, it is joined. Check the script is under the right sprite (click the sprite below the stage).\\
+A block runs on its own when clicked. & That is normal: clicking a block runs it. The show starts with the green flag.\\
+The pen blocks are missing. & Click \menu{Add Extension} (bottom left), then \textbf{Pen}. Each new project needs it again.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Sprites and the stage}}\\ \midrule
+The cat is lost off the stage. & Scratch always leaves a small piece of the sprite showing at the edge. Find it and drag it back to the middle with the mouse.\\
+A sprite has vanished completely. & It may be hidden: click the sprite below the stage and click the open eye next to \enquote{Show}. Or add a \enquote{show} block at the start of its green flag script.\\
+The cat is upside down or facing the wrong way. & A turn block ran more than planned. Click the sprite, then in \enquote{Direction} drag the arrow back to point right. Or start the green flag script with \enquote{point in direction 90}.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Sound}}\\ \midrule
+No sound plays. & Check the Mac volume and that it is not muted. Check headphones are not plugged in. In the \menu{Sounds} tab, check the sprite has the sound. \enquote{play sound until done} waits; \enquote{start sound} does not.\\
+Sounds play over each other. & Use \enquote{play sound until done}, or put a wait after \enquote{start sound}.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Saving and opening}}\\ \midrule
+Where do I save? & \menu{File > Save to your computer}, then choose the \texttt{Scratch Projects} folder in Documents. Use the child's nickname and the project in the file name, for example \texttt{Tiger-dance} or \texttt{Rocket-card}. Never a real full name.\\
+I cannot find a project. & \menu{File > Load from your computer}, then look in \texttt{Scratch Projects}. Also check Downloads. Save at the end of every session, before Share.\\
+Saving a second time made a new file. & That is fine. Keep the newest one, or save with the same name and click \menu{Replace}.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}The Mac}}\\ \midrule
+Scratch asks to use the microphone or camera. & Click \menu{Don't Allow}; we do not need them. You can change it later in \menu{System Settings > Privacy \& Security}.\\
+Scratch asks for permission to the Documents folder. & Click \menu{Allow}, so it can save projects there.\\
+Screen Time blocks Scratch. & Add Scratch to \enquote{Always Allowed} in \menu{System Settings > Screen Time}, or schedule sessions outside downtime.\\
+Dragging is very hard. & Use a mouse, not a trackpad. Slow the pointer in \menu{System Settings > Mouse}.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Pacing, buffers and holidays}
+Junior Level 1 has \textbf{10 core sessions}, one a week. Weeks with no session (holidays, illness)
+do not count. The buffers \textbf{B1} (Unplugged Games Day) and \textbf{B2} (Remix Studio) are
+\textbf{optional} and can go anywhere after week 5: use B1 when a group needs more unplugged practice
+or after a long break, and B2 when children want more free building before the project.
+
+\begin{tip}[Rules of thumb]
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Never skip weeks 5 and 10.} They hold the show-me checklists, and week 10 is the
+        showcase every child has been working towards.
+  \item \textbf{Lose a session?} Drop a buffer if you planned one. Otherwise do the warm-up of the
+        missed week as the next warm-up and move on: the ideas come back later.
+  \item \textbf{One child missed a session?} Read the workbook chapter together for 5 minutes and pair
+        them as Helper first next time.
+  \item \textbf{Before a holiday} end with free play and no new card. After a long break, start with a
+        10-minute floor-grid game.
+\end{itemize}
+\end{tip}
+
+\subsection{One school year or two}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{One school year:} all three junior levels (30--36 sessions at one a week), using the
+        buffers for holidays and \enquote{we need another week} moments.
+  \item \textbf{Two school years} (recommended when a child starts in early Grade 2):
+        Grade 2 = Junior Levels 1 and 2 with both buffers; Grade 3 = Junior Level 3, then main-track Level 1.
+\end{itemize}
+
+\subsection{Sample calendar for 2027}
+The example uses \textbf{Saturday mornings}, starting on 9 January 2027. It skips Presidents' Day
+weekend (Feb 13) and a spring-break Saturday (Mar 27, the day before Easter). The first column is the
+10-week plan; the second adds both buffers. If you meet on a weekday, shift each date to your day and
+skip the holidays that fall on it. Spring break dates differ by school district: move the skipped
+week to match yours.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\fitwidth{\begin{tabular}{@{}>{\bfseries}l l l@{}}
+\toprule
+Saturday & 10-week plan & With B1 and B2 (12 sessions)\\
+\midrule
+Jan 9 & W1 Robots Need Instructions & W1\\
+Jan 16 & W2 Meet Scratch & W2\\
+Jan 23 & W3 Bugs Are Clues & W3\\
+Jan 30 & W4 Repeat It! & W4\\
+Feb 6 & W5 Play Day and Show Me & W5\\
+Feb 13 & \emph{skip: Presidents' Day weekend} & \emph{skip: Presidents' Day weekend}\\
+Feb 20 & W6 When I Click\dots & B1 Unplugged Games Day\\
+Feb 27 & W7 Two Sprites Talk & W6\\
+Mar 6 & W8 Draw With the Pen & W7\\
+Mar 13 & W9 Project Studio & W8\\
+Mar 20 & W10 Showcase and Certificate & B2 Remix Studio\\
+Mar 27 & \emph{skip: spring break} & \emph{skip: spring break}\\
+Apr 3 & (Junior Level 2 can start) & W9 Project Studio\\
+Apr 10 & & W10 Showcase and Certificate\\
+\bottomrule
+\end{tabular}}
+\end{center}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{10-week plan:} 10 sessions from Jan 9 to Mar 20. MLK Day (Mon Jan 18) and Presidents'
+        Day (Mon Feb 15) do not fall on a Saturday; the Feb 13 skip is for families who travel that weekend.
+  \item \textbf{With both buffers:} 12 sessions from Jan 9 to Apr 10. B2 right before the project gives
+        children a free build to warm up their ideas.
+\end{itemize}
+
+%% =====================================================================
+\section{Coverage: what is taught when}
+
+\subsection{(a) Goals across the weeks}
+\cvI\ = introduced,\quad \cvR\ = revisited,\quad \cvE\ = extended. Every goal is introduced,
+practiced and then extended before the week-10 showcase.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.35}
+\fitwidth{\begin{tabular}{@{}>{\bfseries}l*{10}{c}@{}}
+\toprule
+Goal & W1 & W2 & W3 & W4 & W5 & W6 & W7 & W8 & W9 & W10\\
+\midrule
+G1 Exact steps in order & \cvI & \cvR & \cvR &  & \cvR &  & \cvR & \cvE & \cvR & \\
+G2 Sequence and repeat &  & \cvI & \cvR & \cvE & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR\\
+G3 Events &  & \cvI &  &  & \cvR & \cvE & \cvR &  & \cvR & \cvR\\
+G4 Find and fix bugs & \cvI & \cvR & \cvE & \cvR & \cvE & \cvR & \cvR & \cvR & \cvR & \cvR\\
+G5 Storyboard a story &  &  &  &  &  &  & \cvI &  & \cvE & \cvR\\
+G6 Driver, Helper, explain & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE\\
+G7 Safe, kind, fair & \cvI & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvE & \cvR & \cvR\\
+\bottomrule
+\end{tabular}}
+\end{center}
+{\small Notes: G1 is extended in week 8, when a square becomes \enquote{move and a quarter turn,
+four times}. G3 starts with the green flag in week 2 and is extended with clicks and keys in
+week 6. G4 is met in the week-1 and week-2 bug hunts, named as a strategy in week 3 and extended
+in the week-5 relay. G5 starts with the two-sprite conversation in week 7; the storyboard itself
+arrives in week 9. G7 is extended in week 6 (nicknames on projects) and week 8 (passwords).\par}
+
+\subsection{(b) Objectives and where they are taught}
+The table below is generated automatically from the lesson plans (every \enquote{The student
+can\dots} objective with its goal code and week).
+
+\kcinput{generated/coverage}
+
+\subsection{(c) The spiral map: how big ideas come back}
+Junior Level 1 lays the foundation; Junior Levels 2 and 3 and the main track revisit and extend
+each idea.
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{2.8cm}>{\RaggedRight}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}>{\RaggedRight}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}>{\RaggedRight}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}>{\RaggedRight\arraybackslash}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}@{}}
+\toprule
+Big idea & Junior L1 & Junior L2 & Junior L3 & Main track\\
+\midrule\endhead
+\bottomrule\endfoot
+Sequence and algorithms & W1 \cvI\ (unplugged), W2 \cvR & W8 \cvR\ (game states) & W2 \cvE\ (planning in parts) & L1 W1, L2 W10\\
+Loops & W4 \cvI\ (repeat), W8 \cvR\ (pen) & W1 \cvE\ (forever) & W1 \cvE\ (nested), W7 \cvR\ (for) & L1 W2, L1 W8\\
+Events & W2 \cvI\ (green flag), W6 \cvE\ (click, key) & W6 \cvE\ (messages) & W6--8 \cvR\ (Run) & L1 W3\\
+Conditionals & --- & W2 \cvI\ (if touching), W8 \cvR & W4 \cvR\ (sorting rules) & L1 W3, L1 W9\\
+Variables and data & B1 (numbers stand for colors) & W3 \cvI\ (score), W4 \cvI\ (random) & W3 \cvE\ (survey data) & L1 W4, L2 W3\\
+Abstraction & W9 storyboard & W7 \cvI\ (My Blocks) & W1 \cvR, W8 def (stretch) & L1 W5, L1 W10\\
+Debugging & every week, W3 \cvI & W5 relay, playtesting & W6 \cvE\ (typos in text) & every week\\
+AI & --- & --- & W4 \cvI\ (unplugged) & L3 W9\\
+Citizenship & nicknames, breaks, credit, passwords & fairness, kindness, credit, accessibility & privacy, data, AI safety, credit & every week\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Next steps: into Junior Level 2}
+Junior Level 2, \textbf{Game Makers}, builds games in the same Scratch app. Children add
+\textbf{forever} loops, \textbf{if touching} checks, a \textbf{score} variable, \textbf{random}
+surprises, messages and My Blocks, and finish with \enquote{My First Arcade Game}. All block
+categories open up, but positions stay dragged or random: still no typed x and y.
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Keep the week-10 show-me checklists.} Week 1 of Level 2 starts with a short
+        \enquote{show me} warm-up to see what carried over. Rows marked \enquote{Not yet} tell you
+        what to practice first.
+  \item \textbf{Sessions grow a little} (45--60 minutes), with the same five parts. Add the extra time
+        to Make it, not to Show me.
+  \item \textbf{Keep the projects.} The \texttt{Scratch Projects} folder comes along, so children can
+        open and remix their greeting cards in free play.
+  \item \textbf{A long break first?} Start Level 2 with buffer B1 of Level 1, or a floor-grid game,
+        before the first new idea.
+\end{itemize}
+
+\end{document}

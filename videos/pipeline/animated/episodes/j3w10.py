@@ -1,6 +1,6 @@
 """Junior Level 3 Week 10: Graduation Showcase (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week10.tex: a look back over the whole junior
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week10.tex: a look back over the whole junior
 track, the last-minute bug check and the typo rescue (steps only; the hidden typo is never shown), the
 museum-guide analogy and a showcase in three sentences (Omar's roof loop from week 9), practicing the
 sentence frames, the turtle-parade wiggle break, the gallery walk with sticker feedback, what to do if a

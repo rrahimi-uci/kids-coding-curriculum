@@ -1,6 +1,6 @@
 """Junior Level 3 Week 1: Patterns in Patterns (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week01.tex: Aiden welcomes the children
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week01.tex: Aiden welcomes the children
 back and opens Level 3, the clap-pattern warm-up (REPEAT 3 of clap, clap, stomp inside REPEAT 2 with a
 jump), the nested repeat and the nesting-dolls analogy, Exercise 1.1 The Window built step by step,
 the "square" My Block and the Square Flower with the turn from the turn card, a prediction quiz,

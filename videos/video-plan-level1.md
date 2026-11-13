@@ -52,7 +52,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** algorithm, sequence, program, bug, sprite, stage, script, green flag
 - **Misconception to prevent:** Computers can guess the missing parts of a vague instruction or quietly fix steps placed in the wrong order.
 - **Digital citizenship:** Use your coding nickname in projects—never your real full name, address, school, birthday or photos. Scratch stays offline with no account; if anything asks for your name or a password, stop and get a grown-up.
-- **Practice activity:** `1-introduction/exercises/week01/ex-hello-cat`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week01/ex-hello-cat`
 
 ### Instructional objectives
 
@@ -74,11 +74,11 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week01.tex`
-- `1-introduction/teaching-material/workbook/week01.tex`
-- `1-introduction/teaching-material/homework/week01.tex`
-- `1-introduction/exercises/week01/ex-hello-cat/README.md`
-- `1-introduction/exercises/week01/ex-mixed-up-jump/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week01.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week01.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week01.tex`
+- `grade-4-6/1-introductory/exercises/week01/ex-hello-cat/README.md`
+- `grade-4-6/1-introductory/exercises/week01/ex-mixed-up-jump/README.md`
 
 ## Week 2: Loop-de-Loop
 
@@ -87,7 +87,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** loop, repeat, forever, costume, Pen extension, degrees
 - **Misconception to prevent:** The turn equals the inside corner angle (so a triangle needs 60°), or repeat and forever are interchangeable.
 - **Digital citizenship:** Follow the 20-20-20 eye rule—every 20 minutes, look 20 feet away for 20 seconds—and take a stretch break.
-- **Practice activity:** `1-introduction/exercises/week02/ex-polygon-party`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week02/ex-polygon-party`
 
 ### Instructional objectives
 
@@ -109,11 +109,11 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week02.tex`
-- `1-introduction/teaching-material/workbook/week02.tex`
-- `1-introduction/teaching-material/homework/week02.tex`
-- `1-introduction/exercises/week02/ex-polygon-party/README.md`
-- `1-introduction/exercises/week02/ex-walking-cat/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week02.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week02.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week02.tex`
+- `grade-4-6/1-introductory/exercises/week02/ex-polygon-party/README.md`
+- `grade-4-6/1-introductory/exercises/week02/ex-walking-cat/README.md`
 
 ## Week 3: When This Happens…
 
@@ -122,7 +122,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** event, condition, if, if-else, sensing, feedback
 - **Misconception to prevent:** An if block keeps checking forever by itself, even when it runs only once.
 - **Digital citizenship:** Give kind, specific feedback with ‘two stars and a wish’: two things you like and one kind idea, about the project, not the person; say thank you when you receive feedback.
-- **Practice activity:** `1-introduction/exercises/week03/ex-tickle-ghost`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week03/ex-tickle-ghost`
 
 ### Instructional objectives
 
@@ -144,11 +144,11 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week03.tex`
-- `1-introduction/teaching-material/workbook/week03.tex`
-- `1-introduction/teaching-material/homework/week03.tex`
-- `1-introduction/exercises/week03/ex-tickle-ghost/README.md`
-- `1-introduction/exercises/week03/ex-arrow-explorer/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week03.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week03.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week03.tex`
+- `grade-4-6/1-introductory/exercises/week03/ex-tickle-ghost/README.md`
+- `grade-4-6/1-introductory/exercises/week03/ex-arrow-explorer/README.md`
 
 ## Week 4: Keeping Score with Variables
 
@@ -157,7 +157,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** variable, value, set, change, random, credit, remix
 - **Misconception to prevent:** ‘set score to 1’ and ‘change score by 1’ do the same job, or a catch is counted only once by itself, even while the apple stays touching the bowl.
 - **Digital citizenship:** Give credit for the art, sounds and ideas you use: add a credits comment for Scratch library sprites, and when you remix a friend's project, say whose project you started from.
-- **Practice activity:** `1-introduction/exercises/week04/ex-apple-catch`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week04/ex-apple-catch`
 
 ### Instructional objectives
 
@@ -179,11 +179,11 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week04.tex`
-- `1-introduction/teaching-material/workbook/week04.tex`
-- `1-introduction/teaching-material/homework/week04.tex`
-- `1-introduction/exercises/week04/ex-apple-catch/README.md`
-- `1-introduction/exercises/week04/ex-pop-balloon/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week04.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week04.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week04.tex`
+- `grade-4-6/1-introductory/exercises/week04/ex-apple-catch/README.md`
+- `grade-4-6/1-introductory/exercises/week04/ex-pop-balloon/README.md`
 
 ## Week 5: Messages and My Blocks
 
@@ -192,7 +192,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** decomposition, My Block, define, input, broadcast, when I receive
 - **Misconception to prevent:** A broadcast reaches only the selected sprite, or message names that look similar will automatically match.
 - **Digital citizenship:** Design for everyone: use color-blind-safe colors, add a word, shape, or pattern so color is never the only clue, and keep text big enough to read.
-- **Practice activity:** `1-introduction/exercises/week05/ex-shape-machine`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week05/ex-shape-machine`
 
 ### Instructional objectives
 
@@ -214,11 +214,11 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week05.tex`
-- `1-introduction/teaching-material/workbook/week05.tex`
-- `1-introduction/teaching-material/homework/week05.tex`
-- `1-introduction/exercises/week05/ex-shape-machine/README.md`
-- `1-introduction/exercises/week05/ex-show-time/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week05.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week05.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week05.tex`
+- `grade-4-6/1-introductory/exercises/week05/ex-shape-machine/README.md`
+- `grade-4-6/1-introductory/exercises/week05/ex-show-time/README.md`
 
 ## Week 6: Scratch Detective Checkpoint
 
@@ -227,7 +227,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** sequence, loop, event, conditional, variable, My Block, debugging
 - **Misconception to prevent:** Debugging means guessing many changes at once or that a working project needs no explanation.
 - **Digital citizenship:** Fun and fair for everyone: the same rules for all, no tricks, everyone can see and read it, credit is given, and no pressure to keep playing forever.
-- **Practice activity:** `1-introduction/exercises/week06/ex-relay-wonky-hexagon`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week06/ex-relay-wonky-hexagon`
 
 ### Instructional objectives
 
@@ -249,12 +249,12 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week06.tex`
-- `1-introduction/teaching-material/workbook/week06.tex`
-- `1-introduction/teaching-material/homework/week06.tex`
-- `1-introduction/exercises/week06/ex-relay-broken-catch/README.md`
-- `1-introduction/exercises/week06/ex-relay-silent-party/README.md`
-- `1-introduction/exercises/week06/ex-relay-wonky-hexagon/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week06.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week06.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week06.tex`
+- `grade-4-6/1-introductory/exercises/week06/ex-relay-broken-catch/README.md`
+- `grade-4-6/1-introductory/exercises/week06/ex-relay-silent-party/README.md`
+- `grade-4-6/1-introductory/exercises/week06/ex-relay-wonky-hexagon/README.md`
 
 ## Week 7: Hello, Python!
 
@@ -263,7 +263,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** Python, Editor, Shell, Run, comment, turtle
 - **Misconception to prevent:** Python guesses misspellings or ignores punctuation and capitalization the way a person might.
 - **Digital citizenship:** Save files safely: keep work in one place (exercises in their own folder with Cmd+S, new programs in Documents/my-python), use sensible names with small letters and underscores like flag_drawing.py, never name a file turtle.py, and keep real names and addresses out of programs.
-- **Practice activity:** `1-introduction/exercises/week07/ex-hello-python`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week07/ex-hello-python`
 
 ### Instructional objectives
 
@@ -285,12 +285,12 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week07.tex`
-- `1-introduction/teaching-material/workbook/week07.tex`
-- `1-introduction/teaching-material/homework/week07.tex`
-- `1-introduction/exercises/week07/ex-hello-python/README.md`
-- `1-introduction/exercises/week07/ex-first-square/README.md`
-- `1-introduction/exercises/week07/ex-typo-hunt/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week07.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week07.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week07.tex`
+- `grade-4-6/1-introductory/exercises/week07/ex-hello-python/README.md`
+- `grade-4-6/1-introductory/exercises/week07/ex-first-square/README.md`
+- `grade-4-6/1-introductory/exercises/week07/ex-typo-hunt/README.md`
 
 ## Week 8: Loops in Python
 
@@ -299,7 +299,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** for loop, range, indentation, off-by-one bug, nested loop, list
 - **Misconception to prevent:** Indentation is just decoration, or range(4) counts 1 to 4 (or 0 to 4) and so repeats a different number of times.
 - **Digital citizenship:** Ask for help well: first try three before me (red message, workbook, partner), then use the help sentence: I expected …, but … happened. I tried ….
-- **Practice activity:** `1-introduction/exercises/week08/ex-loop-square`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week08/ex-loop-square`
 
 ### Instructional objectives
 
@@ -321,12 +321,12 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week08.tex`
-- `1-introduction/teaching-material/workbook/week08.tex`
-- `1-introduction/teaching-material/homework/week08.tex`
-- `1-introduction/exercises/week08/ex-loop-square/README.md`
-- `1-introduction/exercises/week08/ex-polygon-party/README.md`
-- `1-introduction/exercises/week08/hw-loop-fixer/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week08.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week08.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week08.tex`
+- `grade-4-6/1-introductory/exercises/week08/ex-loop-square/README.md`
+- `grade-4-6/1-introductory/exercises/week08/ex-polygon-party/README.md`
+- `grade-4-6/1-introductory/exercises/week08/hw-loop-fixer/README.md`
 
 ## Week 9: Variables, Input, and Choices
 
@@ -335,7 +335,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** variable, input, string, int, comparison, if, elif, else
 - **Misconception to prevent:** Input automatically becomes a number, or Python checks every branch after an earlier condition is already true.
 - **Digital citizenship:** Questions a program should NOT ask: ask about choices (colors, sizes, numbers), never about who you are. No full name, home address, school, birthday, password or photo. If an app or game asks for personal details, stop and ask a grown-up.
-- **Practice activity:** `1-introduction/exercises/week09/ex-size-it`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week09/ex-size-it`
 
 ### Instructional objectives
 
@@ -357,13 +357,13 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week09.tex`
-- `1-introduction/teaching-material/workbook/week09.tex`
-- `1-introduction/teaching-material/homework/week09.tex`
-- `1-introduction/exercises/week09/ex-color-choice/README.md`
-- `1-introduction/exercises/week09/ex-size-it/README.md`
-- `1-introduction/exercises/week09/ex-star-row/README.md`
-- `1-introduction/exercises/week09/hw-math-quiz/README.md`
+- `grade-4-6/1-introductory/teaching-material/lessons/week09.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week09.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week09.tex`
+- `grade-4-6/1-introductory/exercises/week09/ex-color-choice/README.md`
+- `grade-4-6/1-introductory/exercises/week09/ex-size-it/README.md`
+- `grade-4-6/1-introductory/exercises/week09/ex-star-row/README.md`
+- `grade-4-6/1-introductory/exercises/week09/hw-math-quiz/README.md`
 
 ## Week 10: Random Art and Our Own Commands
 
@@ -372,7 +372,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** function, define, call, parameter, random, randint, remix
 - **Misconception to prevent:** Defining a function makes it run immediately, or random means the program can choose anything without limits.
 - **Digital citizenship:** Being an original artist: borrowing an idea is fine when you make it your own and give credit in a comment (# Flower idea remixed from Exercise 10.1). Copying a whole program and calling it yours is not fair. Our art is drawn by code, so no internet pictures are needed.
-- **Practice activity:** `1-introduction/exercises/week10/ex-flower-stamp`
+- **Practice activity:** `grade-4-6/1-introductory/exercises/week10/ex-flower-stamp`
 
 ### Instructional objectives
 
@@ -394,12 +394,12 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week10.tex`
-- `1-introduction/teaching-material/workbook/week10.tex`
-- `1-introduction/teaching-material/homework/week10.tex`
-- `1-introduction/exercises/week10/ex-flower-stamp/README.md`
-- `1-introduction/exercises/week10/ex-random-art/README.md`
-- `1-introduction/project/project-brief.tex`
+- `grade-4-6/1-introductory/teaching-material/lessons/week10.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week10.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week10.tex`
+- `grade-4-6/1-introductory/exercises/week10/ex-flower-stamp/README.md`
+- `grade-4-6/1-introductory/exercises/week10/ex-random-art/README.md`
+- `grade-4-6/1-introductory/project/project-brief.tex`
 
 ## Week 11: Project Studio: Build, Run, Check
 
@@ -408,7 +408,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** milestone, iterate, playtest, version, feedback
 - **Misconception to prevent:** The fastest way to finish is to type the whole project before running it, or every suggestion must be added.
 - **Digital citizenship:** Giving and receiving helpful feedback: be kind, specific and helpful, and make wishes about the program, never the person. When receiving, say thank you, then you decide what to change. Online, if a comment is unkind, don't reply; tell a grown-up.
-- **Practice activity:** `1-introduction/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/1-introductory/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -430,12 +430,12 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week11.tex`
-- `1-introduction/teaching-material/workbook/week11.tex`
-- `1-introduction/teaching-material/homework/week11.tex`
-- `1-introduction/project/project-brief.tex`
-- `1-introduction/project/project-teacher-guide.tex`
-- `1-introduction/project/starter/my_art_show.py`
+- `grade-4-6/1-introductory/teaching-material/lessons/week11.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week11.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week11.tex`
+- `grade-4-6/1-introductory/project/project-brief.tex`
+- `grade-4-6/1-introductory/project/project-teacher-guide.tex`
+- `grade-4-6/1-introductory/project/starter/my_art_show.py`
 
 ## Week 12: Showcase and Celebration
 
@@ -444,7 +444,7 @@ In November 2026 every script was checked line by line against its week's lesson
 - **Vocabulary:** showcase, demo, audience, explain, reflection, feedback
 - **Misconception to prevent:** A showcase is only entertainment, or a bug encountered during development should be hidden.
 - **Digital citizenship:** Showcase safety: projects are shown on the screen only, and nothing is uploaded, posted or emailed. Screens and name cards show nicknames only. Photos of the artwork only if the artist agrees, with no faces or names, and they stay in the family. Say so if you borrowed an idea.
-- **Practice activity:** `1-introduction/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/1-introductory/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -466,12 +466,12 @@ In November 2026 every script was checked line by line against its week's lesson
 
 **Curriculum evidence:**
 
-- `1-introduction/teaching-material/lessons/week12.tex`
-- `1-introduction/teaching-material/workbook/week12.tex`
-- `1-introduction/teaching-material/homework/week12.tex`
-- `1-introduction/project/project-brief.tex`
-- `1-introduction/project/project-teacher-guide.tex`
-- `1-introduction/project/starter/my_art_show.py`
+- `grade-4-6/1-introductory/teaching-material/lessons/week12.tex`
+- `grade-4-6/1-introductory/teaching-material/workbook/week12.tex`
+- `grade-4-6/1-introductory/teaching-material/homework/week12.tex`
+- `grade-4-6/1-introductory/project/project-brief.tex`
+- `grade-4-6/1-introductory/project/project-teacher-guide.tex`
+- `grade-4-6/1-introductory/project/starter/my_art_show.py`
 
 ## 4. Automated, adaptable regeneration pipeline
 

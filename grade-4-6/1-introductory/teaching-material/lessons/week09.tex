@@ -1,0 +1,141 @@
+% Level 1, Week 9 -- Variables, Input and Choices   (input by lesson-plans.tex)
+\lesson{9}{Variables, Input and Choices}{Programs can ask questions, remember the answers and decide what to do.}
+\lessoninfo{Concepts: variables (R, now in text), input + int (I), if/elif/else (R, now in text), comparisons (I), color palette (I)}{Tools: Thonny + turtle}{CSTA: 1B-AP-09, 1B-AP-10, 1B-NI-05}
+
+\begin{objectives}
+  \item The student can store a value in a variable and use it later in the program (L1.G4; L1.W09.1)
+  \item The student can ask a question with \texttt{input} and turn the answer into a number with \texttt{int} (L1.G4, L1.G9; L1.W09.2)
+  \item The student can use \texttt{if}, \texttt{elif} and \texttt{else} with comparisons (\texttt{==}, \texttt{<}, \texttt{>}) to choose what happens (L1.G3; L1.W09.3)
+  \item The student can explain which questions a program should never ask (L1.G8; L1.W09.4)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 9 and homework 9 (one per student).
+  \item For the floor maze: 3 sheets of paper labeled \textbf{if}, \textbf{elif}, \textbf{else}, and 15 sticky notes numbered 1 to 15 (folded, in a cup).
+  \item 8 sticky notes or slips for the \enquote{OK to ask?} sort (written in the safety box below).
+  \item On each Mac: Thonny open; Finder at \texttt{kids-coding/grade-4-6/1-introductory/exercises/week09/}. Prep time: about 10 minutes.
+\end{materials}
+
+\needspace{20\baselineskip}
+\section{At a glance}
+Times are a guide: if the group is deep in a good build, let it run and shorten the demo.
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Choose your path} floor maze.}
+  \timeslot{8--18}{Concept}{Variables as labeled boxes; \texttt{input} and \texttt{int}; \texttt{=} versus \texttt{==}; comparisons.}
+  \timeslot{18--28}{Guided demo}{Exercise 9.1: a square of any size, including the \enquote{text, not a number} bug.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 9.1 (5 min), 9.2 Pick a Color (10 min), 9.3 How Many Stars? (if time). Swap every 8 minutes; last 3 minutes free-build.}
+  \timeslot{52--60}{Wrap-up}{\enquote{OK to ask?} sort, show-and-tell, exit ticket, hand out homework 9.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Choose your path]
+Put the three papers on the floor in a row (or on a table, with a toy as the walker): \textbf{if} near the window, \textbf{elif} near the door, \textbf{else} by the sofa. Read this rule out loud and leave it on view:
+\begin{pycode}
+if number > 10:
+    go to the window
+elif number > 5:
+    go to the door
+else:
+    sit on the sofa
+\end{pycode}
+Each student draws a number from the cup and walks the path. Ask after each walk: \enquote{Which line did you check first? Did you check the others?} Try 12, 7, 3 and then 10 (tricky: 10 is not bigger than 10, so it goes to the door).
+\end{unplugged}
+\begin{teacherscript}
+\enquote{Only \textbf{one} path happens. Python checks from the top. The first rule that is true wins, and it skips the rest. \texttt{else} catches everything left over.}
+\end{teacherscript}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{In Scratch we made a \texttt{score} variable --- a labeled box that remembers a number. In Python we make one by writing its name, an equals sign and a value: \texttt{size = 100}. Now \texttt{t.forward(size)} goes 100 steps.}
+\end{teacherscript}
+\begin{analogy}[Labeled boxes and a question at the door]
+A variable is a box with a label on it. \texttt{size = 100} means \enquote{put 100 in the box labeled size}. \texttt{input} is like knocking on the user's door with a question: whatever they say goes into a box. But it always comes back as \textbf{words on paper}, even if they said a number --- so we use \texttt{int} to turn the paper \enquote{120} into the real number 120.
+\end{analogy}
+Show in the Shell, one line at a time:
+\begin{pycode}
+answer = input("Pick a number: ")
+answer + 1
+int(answer) + 1
+\end{pycode}
+Type 5 when asked. The second line gives a red \texttt{TypeError} (you cannot add a number to text). The third gives 6. Then write the comparison signs on paper and read them aloud:
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\texttt{==} same as & \texttt{!=} not the same & \texttt{<} less than & \texttt{>} more than \\
+\bottomrule
+\end{tabular}
+\end{center}
+Say: \enquote{One equals sign \textbf{puts} something in a box. Two equals signs \textbf{asks} a question: are these the same?}
+Last, point at a color code such as \texttt{"\#E69F00"} in Exercise 9.2 and at the \texttt{PALETTE} list from last week's Square Flower: \enquote{Each color has a code. In the list, \texttt{PALETTE[0]} is the first color: Python counts from 0, like \texttt{range}.} (The workbook box \enquote{Colors in Python} says the same; week 10 uses \texttt{PALETTE[0]}.)
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[A square of any size]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item Open \texttt{week09/ex-size-it/starter.py} and press Run. The question appears in the Shell. Click in the Shell, type \texttt{120}, press \keys{Return}.
+  \item Red error: \texttt{TypeError}. Read the last line together. Ask: \enquote{What is in the box called \texttt{answer}?} (The text \enquote{120}.) \enquote{Can a turtle walk text?}
+  \item Change \texttt{size = answer} to \texttt{size = int(answer)}. Run again with 120, then 50, then 250. Celebrate: one program, any size.
+  \item Point out the \texttt{print} line: it uses the variable to tell the user what it is doing. \enquote{Good programs talk to their users.}
+\end{enumerate}
+\end{workedexample}
+\pyfile{../exercises/week09/ex-size-it/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator and the user]
+Driver types; navigator reads the README; when the program asks a question, the \textbf{navigator} is the user and types the answer. Swap at the 8-minute timer.
+With 1 student: you are the navigator and the user (try silly answers like \texttt{pizza}). With 3: add a \enquote{tester} who chooses tricky answers (0, 25, \texttt{Blue}). With 4: two pairs.
+\end{pairroles}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item \textbf{Exercise 9.1 Square of Any Size} (\texttt{week09/ex-size-it}): repeat the fix on their own Mac and run the checker.
+  \item \textbf{Exercise 9.2 Pick a Color} (\texttt{week09/ex-color-choice}): add an \texttt{elif} for green and an \texttt{else}.
+  \item \textbf{Exercise 9.3 How Many Stars?} (\texttt{week09/ex-star-row}): keep the number between 1 and 10 with \texttt{if}/\texttt{elif}/\texttt{else}.
+\end{enumerate}
+\begin{bughunt}[input gives text, not a number]
+Exercise 9.1 starts with this bug on purpose. If a pair is stuck, ask: \enquote{Type \texttt{answer} in the Shell after the program stops. What do you see?} Thonny shows \texttt{'120'} with quote marks: text! A second bug they may meet in 9.2: typing \texttt{Blue} with a capital B goes to \texttt{else}. That is not a crash, it is Python being picky (week 7!): \texttt{"Blue"} and \texttt{"blue"} are different.
+\end{bughunt}
+\begin{freebuild}[Ask me anything (last 3 minutes)]
+Add a new question to any of today's programs: \enquote{How thick is the pen? (1 to 10)} for \texttt{t.pensize(...)}, or \enquote{How many sides?} for a polygon (turn \texttt{360 / sides}).
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Questions a program should NOT ask]
+Lay out the slips: \textbf{favorite color, how many stars, a hero name, favorite animal, full name, home address, school name, birthday, a password, a photo of you}. Students sort them into \enquote{OK for our programs} and \enquote{Never ask}. Talk about why: personal information can be copied, saved or passed on, and you cannot take it back. Rule for our programs: ask about \textbf{choices} (colors, sizes, numbers), never about \textbf{who you are}. Rule for apps and games: if one asks for personal details, stop and ask a grown-up.
+\end{safety}
+\begin{formativecheck}[Exit ticket]
+\enquote{What does this print if you type 12? And 7?}
+\begin{pycode}
+n = int(input("Number? "))
+if n > 10:
+    print("big")
+elif n > 5:
+    print("medium")
+else:
+    print("small")
+\end{pycode}
+Answer: 12 → \texttt{big} only (not \texttt{medium} too: the first true rule wins); 7 → \texttt{medium}. Look for students who say \enquote{big and medium}: walk the floor maze with them again.
+\end{formativecheck}
+\begin{reflection}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item Where in a game you know does a program ask a question and then decide something?
+  \item Why does \texttt{input} need \texttt{int} for sizes but not for color names?
+\end{itemize}
+Hand out homework 9 (Mini Math Quiz).
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing the answer in the Editor} instead of the Shell. Fix: \enquote{Questions appear at the bottom; answer at the bottom.}
+  \item \textbf{\texttt{=} instead of \texttt{==}} in an \texttt{if}: Thonny shows a \texttt{SyntaxError}. Fix: \enquote{Are we putting or asking?}
+  \item \textbf{Missing colon} after \texttt{if}/\texttt{elif}/\texttt{else}, or \texttt{else} with a condition (\texttt{else n < 1:}). \texttt{else} never has a condition.
+  \item \textbf{\texttt{int("ten")}} gives \texttt{ValueError}: the user must type digits. That is fine for now; mention it as a \enquote{real-world bug}.
+  \item \textbf{The turtle window hides} after typing an answer: click its icon in the Dock.
+\end{commonmistakes}
+\begin{differentiation}
+\supportpath Do 9.1 and 9.2 only. In 9.2, copy the \texttt{elif "blue"} block and change two things (the word and the color code) --- point at both. Use the if/elif/else flowchart in the workbook.
+\extensionpath In 9.2 add more colors (sky blue \texttt{\#56B4E9}, vermillion \texttt{\#D55E00}, purple \texttt{\#CC79A7}). In 9.3 ask \enquote{Big or small stars?} and choose the star size with \texttt{if}.
+\end{differentiation}
+\begin{stretchchallenge}[Make it forgiving]
+Make 9.2 accept \texttt{Blue}, \texttt{BLUE} and \texttt{blue}: add \texttt{.lower()} to the end of the \texttt{input(...)} line. What does \texttt{.lower()} do? Try \texttt{"HeLLo".lower()} in the Shell.
+\end{stretchchallenge}
+\begin{teachernote}[If you are short on time]
+Walk the floor maze with two numbers only (4 minutes). Skip Exercise 9.3 (it fits well in Buffer B2 or as an extra at home). Keep the \enquote{OK to ask?} sort: it is short and it matters.
+\end{teachernote}

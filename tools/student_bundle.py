@@ -11,7 +11,8 @@ way to get those onto a Mac was to copy the whole repository, which also
 contains every solution, answer key and teacher guide. This script copies only
 what a child should have:
 
-* each level's ``exercises/`` folders WITHOUT ``solution.py`` / ``solution.md``
+* each level's ``exercises/`` folders, under the same grade-band folders as in
+  the repository (``grade-2-3/...``, ``grade-4-6/...``), WITHOUT ``solution.py`` / ``solution.md``
   (README, hints, starter, tests, check_my_work.py and data files stay);
 * each level's ``project/starter/`` (never ``project/reference/``);
 * ``testing/kidtest/``, ``conftest.py`` and ``pytest.ini`` so the self-check runs;
@@ -44,9 +45,10 @@ SKIP_SUFFIXES = {".pyc", ".tmp"}
 START_HERE = """KIDS CODING - YOUR COURSE FOLDER
 ================================
 
-Every exercise has its own folder, for example:
+There is one folder for each age group: grade-2-3 (Kids Coding Junior)
+and grade-4-6. Every exercise has its own folder inside them, for example:
 
-    1-introduction/exercises/week07/ex-first-square/
+    grade-4-6/1-introductory/exercises/week07/ex-first-square/
 
 Inside you will find:
 
@@ -63,8 +65,8 @@ How to check your work
 4. [PASS] means that part works. [TRY AGAIN] comes with a hint.
    Fix one thing, save, and run check_my_work.py again.
 
-Scratch exercises (Level 1, weeks 1 to 6, and every exercise in the junior/
-folder) have no check_my_work.py. Use the "Expected behavior" and "Checklist"
+Scratch exercises (Grades 4-6 Level 1, weeks 1 to 6, and every exercise in
+the grade-2-3 folder) have no check_my_work.py. Use the "Expected behavior" and "Checklist"
 in their README.md instead. Junior exercises are read with a grown-up.
 
 check_my_work.py needs a helper called pytest. If it says so, ask a grown-up

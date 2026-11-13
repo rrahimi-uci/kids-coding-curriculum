@@ -52,7 +52,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** type, int, float, str (string), bool, f-string, TypeError, personal information
 - **Misconception to prevent:** A number typed into input() is already a number, so text like "6" can be added to 5.
 - **Digital citizenship:** Hero names, not real names: made-up names, colors and favorites are fine; real names, schools, addresses and birthdays are personal information, which we keep private. All our programs ask for a hero name or nickname instead. If any app or website asks for personal information, check with your teacher first.
-- **Practice activity:** `2-intermediate/exercises/week01/ex-hero-card`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week01/ex-hero-card`
 
 ### Instructional objectives
 
@@ -75,16 +75,16 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week01.tex`
-- `2-intermediate/teaching-material/workbook/week01.tex`
-- `2-intermediate/teaching-material/homework/week01.tex`
-- `2-intermediate/exercises/week01/ex-hero-card/README.md`
-- `2-intermediate/exercises/week01/ex-hero-card/starter.py`
-- `2-intermediate/exercises/week01/ex-hero-card/hints.md`
-- `2-intermediate/exercises/week01/ex-mood-meter/README.md`
-- `2-intermediate/exercises/week01/ex-mood-meter/starter.py`
-- `2-intermediate/exercises/week01/ex-mood-meter/hints.md`
-- `docs/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week01.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week01.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week01.tex`
+- `grade-4-6/2-intermediate/exercises/week01/ex-hero-card/README.md`
+- `grade-4-6/2-intermediate/exercises/week01/ex-hero-card/starter.py`
+- `grade-4-6/2-intermediate/exercises/week01/ex-hero-card/hints.md`
+- `grade-4-6/2-intermediate/exercises/week01/ex-mood-meter/README.md`
+- `grade-4-6/2-intermediate/exercises/week01/ex-mood-meter/starter.py`
+- `grade-4-6/2-intermediate/exercises/week01/ex-mood-meter/hints.md`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 2: Functions That Give Back
 
@@ -93,7 +93,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** parameter, argument, return, None, docstring, scope
 - **Misconception to prevent:** If a function prints the right number, it has handed that number back, so the program can store it or do math with it.
 - **Digital citizenship:** Comments for future-you and friends: comments explain why, they are always kind (no jokes about people), and they never contain personal information. If an idea came from a friend or a book, a comment can say so: that is giving credit.
-- **Practice activity:** `2-intermediate/exercises/week02/ex-game-math`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week02/ex-game-math`
 
 ### Instructional objectives
 
@@ -116,16 +116,16 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week02.tex`
-- `2-intermediate/teaching-material/workbook/week02.tex`
-- `2-intermediate/teaching-material/homework/week02.tex`
-- `2-intermediate/exercises/week02/ex-game-math/README.md`
-- `2-intermediate/exercises/week02/ex-game-math/starter.py`
-- `2-intermediate/exercises/week02/ex-game-math/hints.md`
-- `2-intermediate/exercises/week02/ex-flower-garden/README.md`
-- `2-intermediate/exercises/week02/ex-flower-garden/starter.py`
-- `2-intermediate/exercises/week02/ex-flower-garden/hints.md`
-- `docs/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week02.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week02.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week02.tex`
+- `grade-4-6/2-intermediate/exercises/week02/ex-game-math/README.md`
+- `grade-4-6/2-intermediate/exercises/week02/ex-game-math/starter.py`
+- `grade-4-6/2-intermediate/exercises/week02/ex-game-math/hints.md`
+- `grade-4-6/2-intermediate/exercises/week02/ex-flower-garden/README.md`
+- `grade-4-6/2-intermediate/exercises/week02/ex-flower-garden/starter.py`
+- `grade-4-6/2-intermediate/exercises/week02/ex-flower-garden/hints.md`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 3: Lists: Collections of Things
 
@@ -134,7 +134,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** list, item, index, append, len, IndexError, off-by-one, accessible
 - **Misconception to prevent:** The first item in a list is number 1, so a list of three items has an item at index 3.
 - **Digital citizenship:** Color-blind-safe palettes, designing for everyone: use the Okabe-Ito colors and add a label, number, shape or pattern, so color is never the only clue.
-- **Practice activity:** `2-intermediate/exercises/week03/ex-palette-stripes`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week03/ex-palette-stripes`
 
 ### Instructional objectives
 
@@ -157,19 +157,19 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week03.tex`
-- `2-intermediate/teaching-material/workbook/week03.tex`
-- `2-intermediate/teaching-material/homework/week03.tex`
-- `2-intermediate/exercises/week03/ex-palette-stripes/README.md`
-- `2-intermediate/exercises/week03/ex-palette-stripes/starter.py`
-- `2-intermediate/exercises/week03/ex-palette-stripes/hints.md`
-- `2-intermediate/exercises/week03/ex-inventory/README.md`
-- `2-intermediate/exercises/week03/ex-inventory/starter.py`
-- `2-intermediate/exercises/week03/ex-inventory/hints.md`
-- `2-intermediate/exercises/week03/ex-high-scores/README.md`
-- `2-intermediate/exercises/week03/ex-high-scores/starter.py`
-- `2-intermediate/exercises/week03/ex-high-scores/hints.md`
-- `docs/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week03.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week03.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week03.tex`
+- `grade-4-6/2-intermediate/exercises/week03/ex-palette-stripes/README.md`
+- `grade-4-6/2-intermediate/exercises/week03/ex-palette-stripes/starter.py`
+- `grade-4-6/2-intermediate/exercises/week03/ex-palette-stripes/hints.md`
+- `grade-4-6/2-intermediate/exercises/week03/ex-inventory/README.md`
+- `grade-4-6/2-intermediate/exercises/week03/ex-inventory/starter.py`
+- `grade-4-6/2-intermediate/exercises/week03/ex-inventory/hints.md`
+- `grade-4-6/2-intermediate/exercises/week03/ex-high-scores/README.md`
+- `grade-4-6/2-intermediate/exercises/week03/ex-high-scores/starter.py`
+- `grade-4-6/2-intermediate/exercises/week03/ex-high-scores/hints.md`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 4: While Loops and Game Loops
 
@@ -178,7 +178,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** while loop, condition, infinite loop, break, input validation, game loop
 - **Misconception to prevent:** A while loop stops by itself after a while, even if nothing inside it changes the condition.
 - **Digital citizenship:** Fair play: the rules are honest, the player can stop any time, and nobody is pressured. No timers that pressure you to buy, no untrue 'only 1 left!' messages, no rewards that make you feel you must come back every day, and no nagging to spend money.
-- **Practice activity:** `2-intermediate/exercises/week04/ex-guess-number`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week04/ex-guess-number`
 
 ### Instructional objectives
 
@@ -201,16 +201,16 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week04.tex`
-- `2-intermediate/teaching-material/workbook/week04.tex`
-- `2-intermediate/teaching-material/homework/week04.tex`
-- `2-intermediate/exercises/week04/ex-guess-number/README.md`
-- `2-intermediate/exercises/week04/ex-guess-number/starter.py`
-- `2-intermediate/exercises/week04/ex-guess-number/hints.md`
-- `2-intermediate/exercises/week04/ex-pixel-art/README.md`
-- `2-intermediate/exercises/week04/ex-pixel-art/starter.py`
-- `2-intermediate/exercises/week04/ex-pixel-art/hints.md`
-- `docs/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week04.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week04.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week04.tex`
+- `grade-4-6/2-intermediate/exercises/week04/ex-guess-number/README.md`
+- `grade-4-6/2-intermediate/exercises/week04/ex-guess-number/starter.py`
+- `grade-4-6/2-intermediate/exercises/week04/ex-guess-number/hints.md`
+- `grade-4-6/2-intermediate/exercises/week04/ex-pixel-art/README.md`
+- `grade-4-6/2-intermediate/exercises/week04/ex-pixel-art/starter.py`
+- `grade-4-6/2-intermediate/exercises/week04/ex-pixel-art/hints.md`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 5: Dictionaries and Secret Codes
 
@@ -219,7 +219,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** dictionary, key, value, .items(), KeyError, cipher, encode / decode, encryption
 - **Misconception to prevent:** A dictionary finds a key even when the spelling or capital letters are a little different, so "Crew" and "crew" are the same key.
 - **Digital citizenship:** Encryption and passwords: a real password is only for you and your parent or caregiver, not for friends, games or chat; never type a real password into a program you or a friend wrote, we only use made-up game passwords; long is strong; and if a website or message asks for your password, ask a grown-up first.
-- **Practice activity:** `2-intermediate/exercises/week05/ex-monster-stats`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week05/ex-monster-stats`
 
 ### Instructional objectives
 
@@ -242,16 +242,16 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week05.tex`
-- `2-intermediate/teaching-material/workbook/week05.tex`
-- `2-intermediate/teaching-material/homework/week05.tex`
-- `2-intermediate/exercises/week05/ex-monster-stats/README.md`
-- `2-intermediate/exercises/week05/ex-monster-stats/starter.py`
-- `2-intermediate/exercises/week05/ex-monster-stats/hints.md`
-- `2-intermediate/exercises/week05/ex-caesar-cipher/README.md`
-- `2-intermediate/exercises/week05/ex-caesar-cipher/starter.py`
-- `2-intermediate/exercises/week05/ex-caesar-cipher/hints.md`
-- `docs/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week05.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week05.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week05.tex`
+- `grade-4-6/2-intermediate/exercises/week05/ex-monster-stats/README.md`
+- `grade-4-6/2-intermediate/exercises/week05/ex-monster-stats/starter.py`
+- `grade-4-6/2-intermediate/exercises/week05/ex-monster-stats/hints.md`
+- `grade-4-6/2-intermediate/exercises/week05/ex-caesar-cipher/README.md`
+- `grade-4-6/2-intermediate/exercises/week05/ex-caesar-cipher/starter.py`
+- `grade-4-6/2-intermediate/exercises/week05/ex-caesar-cipher/hints.md`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 6: Debug Like a Detective
 
@@ -260,7 +260,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** bug, debugging, traceback, print-debugging, rubber duck debugging, trace table, bug report
 - **Misconception to prevent:** No red text means no bugs, and changing lots of things at once is the fastest way to fix a program.
 - **Digital citizenship:** Growth mindset reflection: finish the sentence "Six weeks ago I could not … and now I can …", and use the word yet: "I can't fix this yet." Being kind to yourself and to others when code breaks is part of being a good digital citizen: we never laugh at someone's bug.
-- **Practice activity:** `2-intermediate/exercises/week06/ex-bug-high-scores`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week06/ex-bug-high-scores`
 
 ### Instructional objectives
 
@@ -283,22 +283,22 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week06.tex`
-- `2-intermediate/teaching-material/workbook/week06.tex`
-- `2-intermediate/teaching-material/homework/week06.tex`
-- `2-intermediate/exercises/week06/ex-bug-hero-card/README.md`
-- `2-intermediate/exercises/week06/ex-bug-hero-card/starter.py`
-- `2-intermediate/exercises/week06/ex-bug-hero-card/hints.md`
-- `2-intermediate/exercises/week06/ex-bug-high-scores/README.md`
-- `2-intermediate/exercises/week06/ex-bug-high-scores/starter.py`
-- `2-intermediate/exercises/week06/ex-bug-high-scores/hints.md`
-- `2-intermediate/exercises/week06/ex-bug-countdown/README.md`
-- `2-intermediate/exercises/week06/ex-bug-countdown/starter.py`
-- `2-intermediate/exercises/week06/ex-bug-countdown/hints.md`
-- `2-intermediate/exercises/week06/ex-bug-loot-shop/README.md`
-- `2-intermediate/exercises/week06/ex-bug-loot-shop/starter.py`
-- `2-intermediate/exercises/week06/ex-bug-loot-shop/hints.md`
-- `docs/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week06.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week06.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week06.tex`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-hero-card/README.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-hero-card/starter.py`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-hero-card/hints.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-high-scores/README.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-high-scores/starter.py`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-high-scores/hints.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-countdown/README.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-countdown/starter.py`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-countdown/hints.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-loot-shop/README.md`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-loot-shop/starter.py`
+- `grade-4-6/2-intermediate/exercises/week06/ex-bug-loot-shop/hints.md`
+- `grade-4-6/SYLLABUS.md`
 
 ## Week 7: Files: Saving Your Stuff
 
@@ -307,7 +307,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** file, open / with, read / write / append, strip(), split(","), FileNotFoundError, data privacy
 - **Misconception to prevent:** A program still remembers its variables the next time it runs, or opening a file with "w" adds to it instead of wiping everything that was there.
 - **Digital citizenship:** What should (not) be saved? Save only what the program needs, and never personal information: a nickname, a high score and a favorite color are fine; a home address and a password never. A file stays on the computer after the game closes, and anyone who uses this computer, or who gets a copy of the file, can read it. Real apps save data about you too, so ask: what are they saving, and do they really need it?
-- **Practice activity:** `2-intermediate/exercises/week07/ex-save-high-scores`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week07/ex-save-high-scores`
 
 ### Instructional objectives
 
@@ -330,17 +330,17 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week07.tex`
-- `2-intermediate/teaching-material/workbook/week07.tex`
-- `2-intermediate/teaching-material/homework/week07.tex`
-- `2-intermediate/exercises/week07/ex-save-high-scores/README.md`
-- `2-intermediate/exercises/week07/ex-save-high-scores/starter.py`
-- `2-intermediate/exercises/week07/ex-save-high-scores/hints.md`
-- `2-intermediate/exercises/week07/ex-word-guess/README.md`
-- `2-intermediate/exercises/week07/ex-dot-art-file/README.md`
-- `2-intermediate/exercises/week07/hw-idea-notebook/README.md`
-- `docs/SYLLABUS.md`
-- `2-intermediate/teaching-material/teacher-guide.tex`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week07.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week07.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week07.tex`
+- `grade-4-6/2-intermediate/exercises/week07/ex-save-high-scores/README.md`
+- `grade-4-6/2-intermediate/exercises/week07/ex-save-high-scores/starter.py`
+- `grade-4-6/2-intermediate/exercises/week07/ex-save-high-scores/hints.md`
+- `grade-4-6/2-intermediate/exercises/week07/ex-word-guess/README.md`
+- `grade-4-6/2-intermediate/exercises/week07/ex-dot-art-file/README.md`
+- `grade-4-6/2-intermediate/exercises/week07/hw-idea-notebook/README.md`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/teacher-guide.tex`
 
 ## Week 8: Testing: Prove It Works
 
@@ -349,7 +349,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** test, assert, pytest, normal case, edge case, expected vs actual
 - **Misconception to prevent:** Any test catches any bug, a test with no assert still checks something, or when a test fails you should change the test until it passes.
 - **Digital citizenship:** Trust: why apps need testing. In 1999 a spacecraft was lost on its way to Mars because two parts of its software used different units, and no test checked them together. People can only trust apps and games that have been tested. Testing your game is a way of being fair to your players.
-- **Practice activity:** `2-intermediate/exercises/week08/ex-test-the-clamp`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week08/ex-test-the-clamp`
 
 ### Instructional objectives
 
@@ -372,17 +372,17 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week08.tex`
-- `2-intermediate/teaching-material/workbook/week08.tex`
-- `2-intermediate/teaching-material/homework/week08.tex`
-- `2-intermediate/exercises/week08/ex-test-the-clamp/README.md`
-- `2-intermediate/exercises/week08/ex-test-the-clamp/starter.py`
-- `2-intermediate/exercises/week08/ex-test-the-clamp/hints.md`
-- `2-intermediate/exercises/week08/ex-test-best-score/README.md`
-- `2-intermediate/exercises/week08/ex-fix-the-bugs/README.md`
-- `2-intermediate/exercises/week08/hw-test-the-cipher/README.md`
-- `docs/SYLLABUS.md`
-- `2-intermediate/teaching-material/teacher-guide.tex`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week08.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week08.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week08.tex`
+- `grade-4-6/2-intermediate/exercises/week08/ex-test-the-clamp/README.md`
+- `grade-4-6/2-intermediate/exercises/week08/ex-test-the-clamp/starter.py`
+- `grade-4-6/2-intermediate/exercises/week08/ex-test-the-clamp/hints.md`
+- `grade-4-6/2-intermediate/exercises/week08/ex-test-best-score/README.md`
+- `grade-4-6/2-intermediate/exercises/week08/ex-fix-the-bugs/README.md`
+- `grade-4-6/2-intermediate/exercises/week08/hw-test-the-cipher/README.md`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/teacher-guide.tex`
 
 ## Week 9: Event-Driven Games
 
@@ -391,7 +391,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** event, handler, listen(), game loop, frame, collision, license / attribution
 - **Misconception to prevent:** Writing onkey(go_left(), "Left") hands the function to turtle (it really runs it once, right away), or a while True loop is a good way to run a turtle game.
 - **Digital citizenship:** Attribution and open licenses: pictures and sounds belong to the person who made them. CC0 means anyone may use it; CC BY means you may use it if you credit the creator; if there is no license, do not use it. Use turtle's own shapes and your own drawings first; if you use something else, a grown-up helps you find it (no accounts, no downloads alone), and you write a credit, for example # Star sound by Mei (CC BY), in your code and on your game's title screen.
-- **Practice activity:** `2-intermediate/exercises/week09/ex-etch-a-sketch`
+- **Practice activity:** `grade-4-6/2-intermediate/exercises/week09/ex-etch-a-sketch`
 
 ### Instructional objectives
 
@@ -414,16 +414,16 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week09.tex`
-- `2-intermediate/teaching-material/workbook/week09.tex`
-- `2-intermediate/teaching-material/homework/week09.tex`
-- `2-intermediate/exercises/week09/ex-etch-a-sketch/README.md`
-- `2-intermediate/exercises/week09/ex-etch-a-sketch/starter.py`
-- `2-intermediate/exercises/week09/ex-etch-a-sketch/hints.md`
-- `2-intermediate/exercises/week09/ex-dodge-meteors/README.md`
-- `2-intermediate/exercises/week09/hw-stamp-studio/README.md`
-- `docs/SYLLABUS.md`
-- `2-intermediate/teaching-material/teacher-guide.tex`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week09.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week09.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week09.tex`
+- `grade-4-6/2-intermediate/exercises/week09/ex-etch-a-sketch/README.md`
+- `grade-4-6/2-intermediate/exercises/week09/ex-etch-a-sketch/starter.py`
+- `grade-4-6/2-intermediate/exercises/week09/ex-etch-a-sketch/hints.md`
+- `grade-4-6/2-intermediate/exercises/week09/ex-dodge-meteors/README.md`
+- `grade-4-6/2-intermediate/exercises/week09/hw-stamp-studio/README.md`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/teacher-guide.tex`
 
 ## Week 10: Project Studio 1: Plan and Core
 
@@ -432,7 +432,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** pseudocode, flowchart, decomposition, core loop, milestone, code review
 - **Misconception to prevent:** The best way to start is with the fancy parts (a title screen, colors, many levels), or by typing the whole game before running it, instead of building the smallest version that runs.
 - **Digital citizenship:** Collaboration: splitting tasks fairly. Fair teams share the interesting and the boring jobs, swap the keyboard on time and give credit. Each team puts both nicknames in a comment on line 1 (# Made by Comet and Pixi) and a credit comment for any code it remixed. Using someone's idea is fine. Hiding that you used it is not. Real names are not needed anywhere in the code.
-- **Practice activity:** `2-intermediate/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/2-intermediate/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -455,16 +455,16 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week10.tex`
-- `2-intermediate/teaching-material/workbook/week10.tex`
-- `2-intermediate/teaching-material/homework/week10.tex`
-- `2-intermediate/project/project-brief.tex`
-- `2-intermediate/project/project-teacher-guide.tex`
-- `2-intermediate/project/starter/README.md`
-- `2-intermediate/project/starter/game_template.py`
-- `2-intermediate/project/starter/art_studio_template.py`
-- `docs/SYLLABUS.md`
-- `2-intermediate/teaching-material/teacher-guide.tex`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week10.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week10.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week10.tex`
+- `grade-4-6/2-intermediate/project/project-brief.tex`
+- `grade-4-6/2-intermediate/project/project-teacher-guide.tex`
+- `grade-4-6/2-intermediate/project/starter/README.md`
+- `grade-4-6/2-intermediate/project/starter/game_template.py`
+- `grade-4-6/2-intermediate/project/starter/art_studio_template.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/teacher-guide.tex`
 
 ## Week 11: Project Studio 2: Test and Polish
 
@@ -473,7 +473,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** playtest, normal case, edge case, accessibility, polish, bug list
 - **Misconception to prevent:** pytest can tell whether a game looks nice or is fun, or tests should use the real high-score file (running them would overwrite the real high score).
 - **Digital citizenship:** Accessibility review of our own game: colors come from the Okabe-Ito palette; nothing depends on color alone (good and bad things also differ in shape or size, or have a label); text is big enough (font size 16 or larger); the keys are explained on the screen; nothing flashes quickly (more than 3 times a second can hurt some people's eyes); and the game is not too fast to start, with a beginner setting or a slow first level.
-- **Practice activity:** `2-intermediate/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/2-intermediate/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -496,15 +496,15 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week11.tex`
-- `2-intermediate/teaching-material/workbook/week11.tex`
-- `2-intermediate/teaching-material/homework/week11.tex`
-- `2-intermediate/project/project-brief.tex`
-- `2-intermediate/project/project-teacher-guide.tex`
-- `2-intermediate/project/starter/README.md`
-- `2-intermediate/project/starter/my_tests.py`
-- `docs/SYLLABUS.md`
-- `2-intermediate/teaching-material/teacher-guide.tex`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week11.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week11.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week11.tex`
+- `grade-4-6/2-intermediate/project/project-brief.tex`
+- `grade-4-6/2-intermediate/project/project-teacher-guide.tex`
+- `grade-4-6/2-intermediate/project/starter/README.md`
+- `grade-4-6/2-intermediate/project/starter/my_tests.py`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/teacher-guide.tex`
 
 ## Week 12: Showcase: The Family Arcade
 
@@ -513,7 +513,7 @@ Each script names the misconception it prevents, uses the level's own debugging 
 - **Vocabulary:** showcase, pitch, design decision, gallery walk, version
 - **Misconception to prevent:** A project must be finished and perfect before it can be shown, or the exit assessment is a test you can fail.
 - **Digital citizenship:** Showcase safety: high-score files and saved designs use nicknames only (open highscore.txt and look); no real names, school names, addresses, ages or photos appear in the code, the window or the title. The showcase is for family: if someone wants to take a photo or video, film the screen, not faces, and ask everyone first. Nothing gets uploaded or posted anywhere without a parent deciding together with the student. You can be proud of your work and still keep yourself private.
-- **Practice activity:** `2-intermediate/project/project-brief.tex`
+- **Practice activity:** `grade-4-6/2-intermediate/project/project-brief.tex`
 
 ### Instructional objectives
 
@@ -536,14 +536,14 @@ Each script names the misconception it prevents, uses the level's own debugging 
 
 **Curriculum evidence:**
 
-- `2-intermediate/teaching-material/lessons/week12.tex`
-- `2-intermediate/teaching-material/workbook/week12.tex`
-- `2-intermediate/teaching-material/homework/week12.tex`
-- `2-intermediate/project/project-brief.tex`
-- `2-intermediate/project/project-teacher-guide.tex`
-- `2-intermediate/project/starter/README.md`
-- `docs/SYLLABUS.md`
-- `2-intermediate/teaching-material/teacher-guide.tex`
+- `grade-4-6/2-intermediate/teaching-material/lessons/week12.tex`
+- `grade-4-6/2-intermediate/teaching-material/workbook/week12.tex`
+- `grade-4-6/2-intermediate/teaching-material/homework/week12.tex`
+- `grade-4-6/2-intermediate/project/project-brief.tex`
+- `grade-4-6/2-intermediate/project/project-teacher-guide.tex`
+- `grade-4-6/2-intermediate/project/starter/README.md`
+- `grade-4-6/SYLLABUS.md`
+- `grade-4-6/2-intermediate/teaching-material/teacher-guide.tex`
 
 ## 4. Automated, adaptable regeneration pipeline
 

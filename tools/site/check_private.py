@@ -163,8 +163,9 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
         rel = pub["parents"].get(key)
         if rel and (root / rel).exists():
             public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
-    for syl in sorted((root / "docs").glob("*SYLLABUS.md")):  # SYLLABUS.md and JUNIOR-SYLLABUS.md are public
-        public_parts.append(syl.read_text(encoding="utf-8"))
+    for rel in pub.get("syllabi", []):
+        if (root / rel).exists():
+            public_parts.append((root / rel).read_text(encoding="utf-8"))
     public_blob = loose("\n".join(public_parts))
     checked = 0
     for lvl in manifest["levels"]:

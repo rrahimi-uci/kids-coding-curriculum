@@ -6,17 +6,20 @@
 # then scans the finished site and fails the build if any private file name, marker string or
 # distinctive line from a private source shows up in the output.
 #
-# {dir} is the level folder, e.g. 1-introduction or junior/1-little-robots. `track` is the track id in
-# curriculum.json (main: Grades 4-5, junior: Grades 2-3); the number of weeks per level also comes from
-# curriculum.json. The junior folders have the same layout, so the same public globs apply to them.
+# {dir} is the level folder, e.g. grade-4-6/1-introductory.
+#
+# Levels are named by their key in curriculum.json; `dir` must match it (the build checks), so this file
+# says exactly which folders may be read. Pages go to <band>/level-N/ on the site, e.g. grade-2-3/level-1/.
 
 levels:
-  - {number: 1, dir: 1-introduction, slug: level-1, track: main, published: true}
-  - {number: 2, dir: 2-intermediate, slug: level-2, track: main, published: true}
-  - {number: 3, dir: 3-advanced,     slug: level-3, track: main, published: true}
-  - {number: 1, dir: junior/1-little-robots,     slug: junior-1, track: junior, published: true}
-  - {number: 2, dir: junior/2-game-makers,       slug: junior-2, track: junior, published: true}
-  - {number: 3, dir: junior/3-bridge-to-python,  slug: junior-3, track: junior, published: true}
+  # Grades 2-3 (Kids Coding Junior)
+  - {key: j1, dir: grade-2-3/1-little-robots,     published: true}
+  - {key: j2, dir: grade-2-3/2-game-makers,       published: true}
+  - {key: j3, dir: grade-2-3/3-bridge-to-python,  published: true}
+  # Grades 4-6
+  - {key: "1", dir: grade-4-6/1-introductory,     published: true}
+  - {key: "2", dir: grade-4-6/2-intermediate,     published: true}
+  - {key: "3", dir: grade-4-6/3-advanced,         published: true}
 
 public:
   workbook: "{dir}/teaching-material/workbook/week[0-9][0-9].tex"
@@ -26,11 +29,13 @@ public:
   exercise_files: [README.md, starter.py, hints.md, "*.csv", words.txt]
   project_brief: "{dir}/project/project-brief.tex"
   project_starter_dir: "{dir}/project/starter"
-  # Student-facing extras (never certificates or teacher material). The junior glossary is titled "Word Book".
+  # Student-facing extras (never certificates or teacher material).
   cheat_sheet: "{dir}/teaching-material/extras/cheat-sheet.tex"
   glossary: "{dir}/teaching-material/extras/glossary.tex"
   parent_notes: "{dir}/teaching-material/extras/parent-notes.tex"
   progress_tracker: "{dir}/teaching-material/extras/progress-tracker.tex"
+  # Track syllabi: week titles, big ideas, goals and project summaries are shown on the level pages.
+  syllabi: [grade-2-3/SYLLABUS.md, grade-4-6/SYLLABUS.md]
   # New public guides written for the website (Mac setup, troubleshooting).
   resources: "resources/*.md"
   install_script: "resources/install-mac.sh"   # shown on the Mac setup page and offered as a download

@@ -18,20 +18,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CLASS_DIR = ROOT / "shared" / "latex"
 
-PREAMBLE = r"""\documentclass[%(options)s]{kidscode}
-%(extra)s\pagestyle{empty}
+PREAMBLE = r"""\documentclass[%(classopts)s]{kidscode}
+\pagestyle{empty}
 \newsavebox{\figbox}
 \newcommand{\figpage}[1]{\savebox{\figbox}{#1}%%
   \pagewidth=\dimexpr\wd\figbox+2pt\relax \pageheight=\dimexpr\ht\figbox+\dp\figbox+2pt\relax
   \shipout\vbox{\kern-1in\hbox{\kern-1in\kern1pt\raise1pt\box\figbox}}}
+%(preamble)s
 \begin{document}
 """
 
 
-def fig_key(kind: str, source: str, level: int, track: str = "main", extra: str = "") -> str:
-    # main-track keys are unchanged, so the figure cache of earlier builds stays valid
-    salt = "" if track == "main" and not extra else f"|{track}|{extra}"
-    return hashlib.sha1(f"{kind}|{level}|{source}{salt}".encode()).hexdigest()[:12]
+def fig_key(kind: str, source: str, classopts: str, preamble: str = "") -> str:
+    return hashlib.sha1(f"{kind}|{classopts}|{preamble}|{source}".encode()).hexdigest()[:12]
 
 
 def svg_size(path: Path) -> tuple[int, int]:
@@ -42,17 +41,17 @@ def svg_size(path: Path) -> tuple[int, int]:
     return 400, 300
 
 
-def render(figs, level: int, out_dir: Path, url_prefix: str, track: str = "main",
-           extra_preamble: str = "") -> dict[str, tuple[str, int, int]]:
+def render(figs, classopts: str, out_dir: Path, url_prefix: str, preamble: str = "") -> dict[str, tuple[str, int, int]]:
     """figs: list of objects with .token .kind .source ; returns token -> (url, w, h).
 
-    `track` is passed to the class (junior figures use the junior type size); `extra_preamble` holds
-    preamble lines of the source document that its figures need, such as \\definecolor."""
+    classopts are the kidscode class options of the level, e.g. "track=junior,level=1", so a figure
+    uses the same colors and fonts as in that level's PDF. preamble holds definitions from the source
+    document's own preamble that its figures use (its color names, for example)."""
     out_dir.mkdir(parents=True, exist_ok=True)
     result: dict[str, tuple[str, int, int]] = {}
     todo: list[tuple[str, object]] = []
     for f in figs:
-        f.key = fig_key(f.kind, f.source, level, track, extra_preamble)
+        f.key = fig_key(f.kind, f.source, classopts, preamble)
         svg = out_dir / f"{f.key}.svg"
         if svg.exists():
             w, h = svg_size(svg)
@@ -66,8 +65,7 @@ def render(figs, level: int, out_dir: Path, url_prefix: str, track: str = "main"
         return result
     with tempfile.TemporaryDirectory(prefix="figs-") as tmp:
         tmpd = Path(tmp)
-        options = f"level={level}" if track == "main" else f"track={track},level={level}"
-        body = [PREAMBLE % {"options": options, "extra": extra_preamble}]
+        body = [PREAMBLE % {"classopts": classopts, "preamble": preamble}]
         order = list(uniq)
         for key in order:
             body.append("\\figpage{" + uniq[key].source + "}\n")

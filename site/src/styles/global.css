@@ -208,7 +208,7 @@ a.card h2, a.card h3 { color: var(--brand); }
 .tl-row { display: grid; grid-template-columns: 1fr; gap: .4rem; }
 @media (min-width: 48rem) { .tl-row { grid-template-columns: 11rem 1fr; align-items: center; } }
 .tl-label { font-weight: 700; color: var(--accent); }
-.tl-track { display: grid; grid-template-columns: repeat(var(--weeks, 12), 1fr); gap: 3px; list-style: none; padding: 0; margin: 0; }
+.tl-track { display: grid; grid-template-columns: repeat(var(--tl-weeks, 12), 1fr); gap: 3px; list-style: none; padding: 0; margin: 0; }
 .tl-week { margin: 0; background: var(--accent); color: var(--on-accent); text-align: center; font-weight: 700; font-size: .8125rem; padding: .4rem 0; border-radius: 6px; min-width: 0; }
 .tl-week.milestone { outline: 3px solid var(--ink); outline-offset: 1px; }
 .tl-key { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .95rem; color: var(--muted); }
@@ -393,7 +393,9 @@ dl.gloss dd { margin: .2rem 0 0; }
 .cheat h2 { font-size: 1.6rem; margin-top: 2.2rem; }
 .cheat h3 { font-size: 1.15rem; margin-top: 1.6rem; color: var(--accent, var(--brand)); }
 .cheat figure { text-align: left; }
-@media (min-width: 62rem) { .cheat { columns: 2 22rem; column-gap: 2rem; } .cheat h2 { column-span: all; } .cheat .table-wrap, .cheat .code-block, .cheat figure, .cheat p { break-inside: avoid; } }
+@media (min-width: 62rem) { .cheat { columns: 2 22rem; column-gap: 2rem; } .cheat h2 { column-span: all; } .cheat .table-wrap, .cheat .code-block, .cheat figure, .cheat p { break-inside: avoid; }
+  /* a table with four or more columns (Scratch and Python side by side) is too wide for one column */
+  .cheat .table-wrap:has(tr > :nth-child(4)), .cheat h3:has(+ .table-wrap tr > :nth-child(4)) { column-span: all; } }
 
 /* Python syntax colors (static classes from Pygments); every color passes 4.5:1 on its background */
 .tok-k, .tok-kn, .tok-kc, .tok-kd, .tok-ow { color: #7a2e8a; font-weight: 700; }
@@ -423,3 +425,11 @@ dl.gloss dd { margin: .2rem 0 0; }
 /* notes about the website in exercise READMEs */
 .lesson blockquote { margin: 1.2rem 0; padding: .8rem 1.1rem; border-left: 6px solid var(--brand); background: var(--surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
 .lesson blockquote p:last-child { margin-bottom: 0; }
+
+/* grade bands (Grades 2–3, Grades 4–6): band cards on the home and curriculum pages, band groups in the menu */
+.band-card .num { font-size: .875rem; font-weight: 700; color: var(--accent, var(--brand)); margin: 0; }
+.band-card ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+.band-section + .band-section { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.nav-band { margin: .25rem 0 0; }
+.nav-band > .nav-link { font-weight: 700; }
+.nav-heading .sub { font-weight: 400; margin-left: .25rem; }

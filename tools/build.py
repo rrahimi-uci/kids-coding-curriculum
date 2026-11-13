@@ -43,7 +43,7 @@ def find_documents(levels, only):
 
 
 def compile_one(tex: Path, variant: str, tag: str) -> tuple[Path, str, bool, str]:
-    level = curriculum.level_of(tex).dir  # e.g. "1-introduction" or "junior/1-little-robots"
+    level = curriculum.level_of(tex).dir  # e.g. "grade-4-6/1-introductory" or "grade-2-3/1-little-robots"
     base = ROOT / "build" / tag if tag else ROOT / "build"
     out_dir = base / "pdf" / variant / level
     aux_dir = base / "aux" / variant / level / tex.parent.relative_to(ROOT / level)
