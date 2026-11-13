@@ -10,16 +10,17 @@ export function getStaticPaths() {
 const { l, e } = Astro.props;
 const wk = l.weeks.find((w: any) => w.n === e.week);
 const label = e.homework ? 'Homework exercise' : `Exercise ${e.number}`;
+const junior = l.track === 'junior';
 ---
-<Base title={`${label}: ${e.title}`} level={l.number} description={`${label} in week ${e.week}: ${e.title}. Steps, starter code and hints.`}>
+<Base title={`${junior ? `${l.label}, ` : ''}${label}: ${e.title}`} level={l.number} description={`${label} in week ${e.week}: ${e.title}. Steps, starter code and hints.`}>
   <div class={`l${l.number}`}>
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol>
-      <li><a href={u('curriculum/')}>Curriculum</a></li><li><a href={u(`levels/${l.slug}/`)}>Level {l.number}</a></li>
+      <li><a href={u('curriculum/')}>Curriculum</a></li><li><a href={u(`levels/${l.slug}/`)}>{l.label}</a></li>
       <li><a href={u(`levels/${l.slug}/week-${String(e.week).padStart(2, '0')}/`)}>Week {e.week}</a></li><li aria-current="page">{e.title}</li></ol></nav>
     <header class="page-head stack">
-      <p class="eyebrow accent-text">{label} · Week {e.week}</p>
+      <p class="eyebrow accent-text">{junior && `${l.label} · `}{label} · Week {e.week}</p>
       <h1>{e.title}</h1>
-      <p><span class="pill">{e.kind === 'python' ? 'Python in Thonny' : 'Scratch (offline app)'}</span> <span class="pill">Work in pairs</span></p>
+      <p><span class="pill">{e.kind === 'python' ? 'Python in Thonny' : 'Scratch (offline app)'}</span> <span class="pill">{junior ? 'Driver and Helper' : 'Work in pairs'}</span></p>
     </header>
 
     <div class="lesson measure">
@@ -53,7 +54,9 @@ const label = e.homework ? 'Homework exercise' : `Exercise ${e.number}`;
       <div class="btn-row">
         <a class="btn secondary" href={u(`levels/${l.slug}/week-${String(e.week).padStart(2, '0')}/`)}><Icon name="back" /> Back to week {e.week}</a>
       </div>
-      <p class="small muted">Parents: the course folder has an automatic self-check script for the Python exercises. It is not on this website because it relies on test files that give away the answers.</p>
+      {junior
+        ? <p class="small muted">Grown-ups: check the work together. Does it do what the steps say{e.kind === 'python' ? ' and look like the picture in "What you should see"' : ''}? If not, read the next hint.</p>
+        : <p class="small muted">Parents: the course folder has an automatic self-check script for the Python exercises. It is not on this website because it relies on test files that give away the answers.</p>}
     </div>
   </div>
 </Base>

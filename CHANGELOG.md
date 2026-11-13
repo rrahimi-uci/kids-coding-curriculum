@@ -3,6 +3,16 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 1.16.0 - 2026-11-13
+
+The junior track is on the website: Junior Levels 1 to 3 (*Little Robots*, *Game Makers* and *Bridge to Python*) for Grades 2–3 now have their own pages next to the main track.
+
+- The home page, the curriculum page and the menu show a "Junior track (Grades 2–3, ages 7–9)" section with its three levels and a 10-week timeline. Junior pages live at `levels/junior-1/` to `levels/junior-3/`; the main-track pages and their addresses are unchanged.
+- Every junior week has its own page: the "I can" goals, the chapter of the picture book, the exercises, the new words and the optional play-at-home card, plus a printable week PDF. The "For the grown-up" notes and the play-at-home cards have their own labeled boxes with an icon, so they never depend on color.
+- Exercise pages for the Scratch exercises and the Level 3 Python turtle exercises, with the steps, three hints and, for Python, the starter file. Each level also has its project brief (Level 3 with the Python postcard starter to download), a cheat sheet, its word book in the glossary, notes for families and a progress tracker to print.
+- Junior week pages show that week's *Kids Coding Junior with Aiden and Pixi* video in the same place and player as the main track (captions, poster, transcript), as soon as it is on the `videos` release; the list is read from its own `junior-videos.json`.
+- The private-content check now also covers the junior folders, including the show-me checklists, the grown-up's answers and the certificates, which are never published.
+
 ## 1.15.0 - 2026-11-13
 
 Teaching videos for the junior track: *Kids Coding Junior with Aiden and Pixi*.

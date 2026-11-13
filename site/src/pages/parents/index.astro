@@ -1,9 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
-import { u, parentsData, fix, levels } from '../../lib/data';
+import { u, parentsData, fix, trackLevels } from '../../lib/data';
 const P = parentsData();
-const L = levels();
+const L = trackLevels('main');
+const J = trackLevels('junior');
 const f = P.facts;
 ---
 <Base title="For parents" description="Why learning to code matters, what the research says, what a session looks like and how you can help at home.">
@@ -45,6 +46,13 @@ const f = P.facts;
     <ul>
       {L.map((l) => <li><a href={u(`levels/${l.slug}/`)}><strong>Level {l.number}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>. <a href={u(`parents/notes/${l.slug}/`)}>Notes for families</a>.</li>)}
     </ul>
+    {J.length > 0 && (<>
+      <h2 id="junior">For younger children: the junior track</h2>
+      <p>Children in Grades 2–3 (ages 7–9) start with the junior track: unplugged games and Scratch first, then a first look at Python. Sessions are 45 to 60 minutes, you read the pages aloud, and the optional play-at-home cards take 5 to 10 minutes. There are no quizzes: in weeks 5 and 10 you watch your child show what they can do. The track leads into Level 1 above.</p>
+      <ul>
+        {J.map((l) => <li><a href={u(`levels/${l.slug}/`)}><strong>{l.label}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>. <a href={u(`parents/notes/${l.slug}/`)}>Notes for families</a>.</li>)}
+      </ul>
+    </>)}
     <div class="btn-row">
       <a class="btn" href={P.pdf.handout.url.replace('%BASE%', u(''))}><Icon name="download" /> One-page summary (PDF, {P.pdf.handout.kb} KB)</a>
       <a class="btn secondary" href={u('curriculum/')}>See the roadmap</a>

@@ -50,7 +50,8 @@ One calm, creative 60-minute session a week for children in Grades 4–5
 > unplugged games and Scratch, ending with a first look at Python and leading
 > into Level 1 above. **All three junior levels are ready to teach** (`make pdf LEVEL=j1`,
 > `LEVEL=j2`, `LEVEL=j3`). See [junior/](junior/) and the
-> [junior syllabus](docs/JUNIOR-SYLLABUS.md). The junior track is not on the website yet.
+> [junior syllabus](docs/JUNIOR-SYLLABUS.md). The junior track is also
+> [on the website](https://rrahimi-uci.github.io/kids-coding-curriculum/curriculum/#junior).
 
 <div align="center">
 
@@ -145,10 +146,14 @@ converts workbooks, exercise folders, figures, and selected parent materials;
 it does not copy pages by hand. A private-content check prevents answer keys,
 solutions, lesson plans, teacher guides, and tests from being published.
 
+The junior track (Grades 2–3) has its own level pages next to the main track,
+at `levels/junior-1/` to `levels/junior-3/`.
+
 Every week page also shows that week's animated teaching video, *Kids Coding
-with Rose and Pixi*, in the same place, right below the page header, with captions
-and a transcript. The videos are kept on the repository's `videos` release, not
-in Git; the build copies them in. See [videos/README.md](videos/README.md#on-the-website)
+with Rose and Pixi* (junior weeks: *Kids Coding Junior with Aiden and Pixi*), in
+the same place, right below the page header, with captions and a transcript.
+The videos are kept on the repository's `videos` release, not in Git
+(`videos.json` and `junior-videos.json` list them); the build copies them in. See [videos/README.md](videos/README.md#on-the-website)
 for how to replace one.
 
 ### Build and preview locally

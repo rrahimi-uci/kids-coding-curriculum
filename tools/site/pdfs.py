@@ -39,6 +39,9 @@ def ensure_level_pdfs(level_dir: str, stems: list[str], variants=("standard", "d
 
 def week_pdf(level_num: int, level_dir: str, week: int, dest: Path, cache: Path) -> Path | None:
     """Student workbook chapter + homework for one week (standard edition)."""
+    level = curriculum.by_dir(level_dir)
+    options = f"level={level_num}" if level.track == "main" else f"track={level.track},level={level_num}"
+    tag = str(level_num) if level.track == "main" else level.key  # cache names stay unique across tracks
     tm = ROOT / level_dir / "teaching-material"
     nn = f"{week:02d}"
     wb, hw = tm / "workbook" / f"week{nn}.tex", tm / "homework" / f"week{nn}.tex"
@@ -46,13 +49,13 @@ def week_pdf(level_num: int, level_dir: str, week: int, dest: Path, cache: Path)
         return None
     digest = hashlib.sha1(wb.read_bytes() + (hw.read_bytes() if hw.exists() else b"")
                           + (ROOT / "shared" / "latex" / "kidscode.cls").read_bytes()).hexdigest()[:12]
-    cached = cache / f"{level_num}-{nn}-{digest}.pdf"
+    cached = cache / f"{tag}-{nn}-{digest}.pdf"
     if not cached.exists():
         cache.mkdir(parents=True, exist_ok=True)
-        tmp = cache / f"tmp-{level_num}-{nn}"
+        tmp = cache / f"tmp-{tag}-{nn}"
         tmp.mkdir(exist_ok=True)
         (tmp / "week.tex").write_text(
-            f"\\documentclass[level={level_num}]{{kidscode}}\n\\begin{{document}}\n"
+            f"\\documentclass[{options}]{{kidscode}}\n\\begin{{document}}\n"
             f"\\kcinput{{workbook/week{nn}}}\n"
             + (f"\\kcinput{{homework/week{nn}}}\n" if hw.exists() else "")
             + "\\end{document}\n", encoding="utf-8")

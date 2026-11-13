@@ -1,4 +1,8 @@
-"""Read the master syllabus (docs/SYLLABUS.md) into data for the level and curriculum pages."""
+"""Read a track's syllabus (docs/SYLLABUS.md, docs/JUNIOR-SYLLABUS.md) into data for the level and curriculum pages.
+
+Both files use the same layout: one `## Level N — Name (languages)` section per level with a goals table,
+a weeks table, the final project paragraph and an assessments paragraph.
+"""
 from __future__ import annotations
 
 import re
@@ -29,14 +33,15 @@ def parse_table(block: str) -> list[list[str]]:
     return rows[1:]  # drop header
 
 
-def parse() -> dict[int, dict]:
-    s = (ROOT / "docs" / "SYLLABUS.md").read_text(encoding="utf-8")
+def parse(path: str | Path = "docs/SYLLABUS.md") -> dict[int, dict]:
+    """Levels of one track's syllabus, keyed by level number (1, 2, 3)."""
+    s = (ROOT / path).read_text(encoding="utf-8")
     levels: dict[int, dict] = {}
     parts = re.split(r"(?m)^## (Level (\d) — .*)$", s)
     # parts: [pre, heading, num, body, heading, num, body ...]
     for i in range(1, len(parts), 3):
         heading, num, body = parts[i], int(parts[i + 1]), parts[i + 2]
-        name = re.match(r"Level \d — (\w+)", heading).group(1)
+        name = re.match(r"Level \d — (.+?)(?:\s*\(|$)", heading).group(1).strip()
         lang = re.search(r"\((.*)\)", heading)
         tools = re.search(r"\*\*Tools:\*\*(.*?)(?=\n\n)", body, re.S)
         goals_blk = re.search(r"### Level \d goals\n(.*?)(?=\n### )", body, re.S).group(1)
@@ -63,6 +68,7 @@ def parse() -> dict[int, dict]:
 
 if __name__ == "__main__":
     import json
-    d = parse()
+    import sys
+    d = parse(*sys.argv[1:2])
     for n, v in d.items():
         print(n, v["name"], len(v["goals"]), len(v["weeks"]), v["project_title"])

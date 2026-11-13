@@ -5,6 +5,10 @@ The videos are not kept in git. `python -m videos.pipeline.cli publish-videos --
 module copies them into site/public/videos/ while the site is built, so every page that has a video
 shows it in the same place. When a video is replaced on the release, the next build shows the new one.
 
+The junior track's videos ("Kids Coding Junior with Aiden and Pixi") are on the same release, listed in
+their own `junior-videos.json` with the same shape and keys like "j1-2" (junior level 1, week 2). Each
+list is read on its own: when one is missing, only its videos are left out.
+
 Where the files come from (environment variable SITE_VIDEOS):
   unset          the `videos` release of this repository (GITHUB_REPOSITORY, or the default below)
   a folder path  a local folder with the same files, e.g. videos/output/web after publish-videos
@@ -29,6 +33,7 @@ CACHE = ROOT / "build" / "site-cache" / "videos"
 DEFAULT_REPO = "rrahimi-uci/kids-coding-curriculum"
 RELEASE_TAG = "videos"
 MANIFEST = "videos.json"
+JUNIOR_MANIFEST = "junior-videos.json"
 BASE = "%BASE%"
 CUE_GAP = 1.6  # seconds of silence between captions that start a new paragraph in the transcript
 
@@ -63,11 +68,11 @@ class _Source:
     def describe(self) -> str:
         return str(self.folder) if self.folder else self.base_url
 
-    def manifest(self) -> dict:
+    def manifest(self, name: str = MANIFEST) -> dict:
         if self.folder:
-            return json.loads((self.folder / MANIFEST).read_text(encoding="utf-8"))
-        target = CACHE / MANIFEST
-        _download(self.base_url + MANIFEST, target)  # always fresh: it says which files changed
+            return json.loads((self.folder / name).read_text(encoding="utf-8"))
+        target = CACHE / name
+        _download(self.base_url + name, target)  # always fresh: it says which files changed
         return json.loads(target.read_text(encoding="utf-8"))
 
     def fetch(self, name: str, sha256: str | None) -> Path:
@@ -78,7 +83,7 @@ class _Source:
             if not (path.is_file() and sha256 and _sha256(path) == sha256):
                 _download(self.base_url + name, path)
         if sha256 and _sha256(path) != sha256:
-            raise ValueError(f"{name} does not match its checksum in {MANIFEST}")
+            raise ValueError(f"{name} does not match its checksum in its video list")
         return path
 
 
@@ -107,8 +112,16 @@ def transcript(vtt: str) -> list[str]:
     return [" ".join(parts) for parts in paragraphs]
 
 
-def collect(warnings: list[str]) -> dict[tuple[int, int], dict]:
-    """Copy the videos into site/public/videos/ and return the page data for each (level, week)."""
+def level_key(part: str) -> int | str:
+    """The level part of a video key: 1 for main-track level 1 ("1-2"), "j1" for junior level 1 ("j1-2")."""
+    return int(part) if part.isdigit() else part
+
+
+def collect(warnings: list[str], manifests: tuple[str, ...] = (MANIFEST,)) -> dict[tuple[int | str, int], dict]:
+    """Copy the videos into site/public/videos/ and return the page data for each (level, week).
+
+    The level is an int for the main track (videos.json) and the curriculum key, such as "j1", for the
+    junior track (junior-videos.json)."""
     setting = os.environ.get("SITE_VIDEOS", "").strip()
     if PUBLIC.exists():
         shutil.rmtree(PUBLIC)
@@ -116,14 +129,25 @@ def collect(warnings: list[str]) -> dict[tuple[int, int], dict]:
         print("  videos: off (SITE_VIDEOS=off)")
         return {}
     source = _Source(setting)
-    try:
-        listing = source.manifest()
-    except (OSError, urllib.error.URLError, ValueError) as exc:
-        warnings.append(f"videos: none on the site, could not read {MANIFEST} from {source.describe()} ({exc})")
-        return {}
-    found: dict[tuple[int, int], dict] = {}
+    found: dict[tuple[int | str, int], dict] = {}
+    for name in manifests:
+        try:
+            listing = source.manifest(name)
+        except (OSError, urllib.error.URLError, ValueError) as exc:
+            what = "none on the site" if name == MANIFEST else f"none from {name} on the site"
+            warnings.append(f"videos: {what}, could not read {name} from {source.describe()} ({exc})")
+            continue
+        found.update(_collect_list(source, listing, warnings))
+    total = sum(f.stat().st_size for f in PUBLIC.glob("*")) / 1e6 if PUBLIC.exists() else 0
+    print(f"  videos: {len(found)} from {source.describe()} ({total:.0f} MB)")
+    return found
+
+
+def _collect_list(source: _Source, listing: dict, warnings: list[str]) -> dict[tuple[int | str, int], dict]:
+    found: dict[tuple[int | str, int], dict] = {}
     for key, entry in sorted(listing.get("videos", {}).items()):
-        level, week = (int(part) for part in key.split("-"))
+        lpart, wpart = key.rsplit("-", 1)
+        level, week = level_key(lpart), int(wpart)
         sums = entry.get("sha256", {})
         try:
             files = {kind: source.fetch(entry[kind], sums.get(entry[kind])) for kind in ("video", "poster", "captions")}
@@ -143,6 +167,4 @@ def collect(warnings: list[str]) -> dict[tuple[int, int], dict]:
             "mb": round(files["video"].stat().st_size / 1e6, 1),
             "transcript": transcript(files["captions"].read_text(encoding="utf-8")),
         }
-    total = sum(f.stat().st_size for f in PUBLIC.glob("*")) / 1e6 if PUBLIC.exists() else 0
-    print(f"  videos: {len(found)} from {source.describe()} ({total:.0f} MB)")
     return found

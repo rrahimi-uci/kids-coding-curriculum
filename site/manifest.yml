@@ -6,12 +6,17 @@
 # then scans the finished site and fails the build if any private file name, marker string or
 # distinctive line from a private source shows up in the output.
 #
-# {dir} is the level folder, e.g. 1-introduction.
+# {dir} is the level folder, e.g. 1-introduction or junior/1-little-robots. `track` is the track id in
+# curriculum.json (main: Grades 4-5, junior: Grades 2-3); the number of weeks per level also comes from
+# curriculum.json. The junior folders have the same layout, so the same public globs apply to them.
 
 levels:
-  - {number: 1, dir: 1-introduction, slug: level-1, published: true}
-  - {number: 2, dir: 2-intermediate, slug: level-2, published: true}
-  - {number: 3, dir: 3-advanced,     slug: level-3, published: true}
+  - {number: 1, dir: 1-introduction, slug: level-1, track: main, published: true}
+  - {number: 2, dir: 2-intermediate, slug: level-2, track: main, published: true}
+  - {number: 3, dir: 3-advanced,     slug: level-3, track: main, published: true}
+  - {number: 1, dir: junior/1-little-robots,     slug: junior-1, track: junior, published: true}
+  - {number: 2, dir: junior/2-game-makers,       slug: junior-2, track: junior, published: true}
+  - {number: 3, dir: junior/3-bridge-to-python,  slug: junior-3, track: junior, published: true}
 
 public:
   workbook: "{dir}/teaching-material/workbook/week[0-9][0-9].tex"
@@ -21,7 +26,7 @@ public:
   exercise_files: [README.md, starter.py, hints.md, "*.csv", words.txt]
   project_brief: "{dir}/project/project-brief.tex"
   project_starter_dir: "{dir}/project/starter"
-  # Student-facing extras (never certificates or teacher material).
+  # Student-facing extras (never certificates or teacher material). The junior glossary is titled "Word Book".
   cheat_sheet: "{dir}/teaching-material/extras/cheat-sheet.tex"
   glossary: "{dir}/teaching-material/extras/glossary.tex"
   parent_notes: "{dir}/teaching-material/extras/parent-notes.tex"
@@ -79,3 +84,4 @@ private:
     - "{dir}/teaching-material/lessons/*.tex"
     - "{dir}/teaching-material/assessments.tex"
     - "{dir}/project/project-teacher-guide.tex"
+    - "{dir}/teaching-material/extras/certificate.tex"

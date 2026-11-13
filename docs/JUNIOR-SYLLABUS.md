@@ -2,7 +2,8 @@
 
 > **Status:** All three levels are written (`active` in [`curriculum.json`](../curriculum.json)).
 > Each week has a 5–6 minute video, *Kids Coding Junior with Aiden and Pixi* (`videos/README.md`).
-> The junior track and its videos are not on the website yet.
+> The junior track is on the website (`levels/junior-1/` to `levels/junior-3/`), with each week's video
+> from the `videos` release (`junior-videos.json`).
 
 This is the single source of truth for **what the junior track teaches when**,
 in the same way that [SYLLABUS.md](SYLLABUS.md) is for the main
@@ -43,7 +44,7 @@ junior document and are enforced by checks as the levels are written.
 | Homework | Optional **"Play at home" card**, 5–10 minutes, mostly unplugged, done with a grown-up. |
 | Assessment | No quizzes or placement tests. **Show-me checklists** in weeks 5 and 10: the parent watches and ticks *Not yet / Getting there / Got it*. Level 1 week 1 has an ungraded "what do you like to make?" chat. |
 | Pairs | **Driver** (mouse) and **Helper** (points and reads). With one child, the parent is the Helper. Siblings of different ages swap roles on the timer, not by age. |
-| Videos | Rose & Pixi episodes of 2–3 minutes with one idea each, used as the warm-up. They carry most of the explaining, so a child does not have to read it. |
+| Videos | *Kids Coding Junior with Aiden and Pixi*: one 5–6 minute episode per week, hosted by Aiden, an eight-year-old coder, and watched together as the warm-up. They carry most of the explaining, so a child does not have to read it. |
 
 All other main-track principles stay: no accounts, offline, nicknames only,
 color-blind-safe palette with icons and words, dyslexia-friendly edition,
@@ -244,7 +245,7 @@ Each level arrives in its own pull request, in this order:
 1. Junior Level 1: lessons, workbook, play-at-home cards, show-me checklists,
    exercise folders, teacher guide and project. Switch `j1` to `active`.
 2. Junior Level 2, then Level 3, in the same way.
-3. Website: add the junior track to `site/manifest.yml` and the level pages.
-4. Videos: 2–3 minute Rose & Pixi episodes for each junior week.
+3. Website: add the junior track to `site/manifest.yml` and the level pages (done in 1.16.0).
+4. Videos: a 5–6 minute Aiden & Pixi episode for each junior week (done).
 5. Junior quality checks: reading length, no typed x/y or negative numbers,
    no 360 ÷ sides, and the junior session phases.
