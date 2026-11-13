@@ -162,3 +162,25 @@ def test_publish_finds_junior_renders_only_in_grades_2_3(tmp_path, monkeypatch) 
     assert {key: path.name for key, path in publish.junior_rendered_videos().items()} == {
         (1, 1): "junior1-week01-robots-need-instructions.mp4"
     }
+
+
+def test_web_copy_preserves_the_normalized_master_audio(tmp_path, monkeypatch) -> None:
+    from videos.pipeline import publish
+
+    source = tmp_path / "junior1-week01-test.mp4"
+    source.write_bytes(b"master")
+    source.with_suffix(".vtt").write_text(VTT, encoding="utf-8")
+    commands: list[list[str]] = []
+
+    def fake_run(args: list[str]) -> str:
+        commands.append(args)
+        if args[0] == "ffmpeg":
+            Path(args[-1]).write_bytes(b"generated")
+        return "123.4" if args[0] == "ffprobe" else ""
+
+    monkeypatch.setattr(publish, "_run", fake_run)
+    publish.make_web_copy(1, 1, source, tmp_path / "web", "junior1-week01")
+
+    video_command = commands[0]
+    assert video_command[video_command.index("-c:a") + 1] == "copy"
+    assert "-b:a" not in video_command, "the web copy must not recompress the narration"

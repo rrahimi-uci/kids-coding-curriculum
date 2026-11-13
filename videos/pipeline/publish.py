@@ -63,9 +63,11 @@ def make_web_copy(level: int, week: int, source: Path, web: Path, name: str | No
     web.mkdir(parents=True, exist_ok=True)
     name = name or stem(level, week)
     mp4, jpg, vtt = web / f"{name}.mp4", web / f"{name}.jpg", web / f"{name}.vtt"
+    # Preserve the normalized 48 kHz AAC master. A second, lower-bitrate AAC encode can introduce
+    # audible degradation and inter-sample true-peak overshoot even when the master is safely limited.
     _run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(source), "-map", "0:v", "-map", "0:a",
           "-vf", "scale=1280:720:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "24",
-          "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "112k", "-ac", "2", "-movflags", "+faststart", str(mp4)])
+          "-pix_fmt", "yuv420p", "-c:a", "copy", "-movflags", "+faststart", str(mp4)])
     _run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(POSTER_AT), "-i", str(source),
           "-frames:v", "1", "-vf", "scale=1280:720", "-q:v", "4", str(jpg)])
     captions = source.with_suffix(".vtt")

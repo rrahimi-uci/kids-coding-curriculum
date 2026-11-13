@@ -9,18 +9,18 @@ fish; kiwi and bug), bias, and the safety talk: AI can be wrong, a chatbot is no
 it personal information.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 EPISODE = Episode(level="j3", week=4, scenes=(
     # 1. hook --------------------------------------------------------------------------------------
     Scene("j3-w04-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! What will I learn today?", speaker=PIXI, cue="hello", pause=0.5),
-        B("Good question, Pixi! Today's big question is: how do computers learn?", speaker=AIDEN, cue="big",
+        B("Good question, Pixi! Today's big question is: how do computers learn?", speaker=NARRATOR, cue="big",
           pause=0.5),
-        B("We don't need a computer today. We play a game instead!", speaker=AIDEN, cue="game", pause=0.4),
-        B("Pixi will be our Robot, and we will teach it with examples.", speaker=AIDEN, cue="teach", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("We don't need a computer today. We play a game instead!", speaker=NARRATOR, cue="game", pause=0.4),
+        B("Pixi will be our Robot, and we will teach it with examples.", speaker=NARRATOR, cue="teach", pause=0.5),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "teach": "proud"}),
@@ -32,14 +32,14 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 2. warm-up: Guess my rule --------------------------------------------------------------------------
     Scene("j3-w04-s02", setting="workshop", beats=(
-        B("Let's warm up with Guess my rule. I have a secret rule, and two piles: YES and NO.", speaker=AIDEN,
+        B("Let's warm up with Guess my rule. I have a secret rule, and two piles: YES and NO.", speaker=NARRATOR,
           cue="rule", pause=0.5),
-        B("Toy car: yes. Spoon: no. Toy train: yes. Ball: no.", speaker=AIDEN, cue="things", pause=0.6),
-        B("Here's a book. Where does it go?", speaker=AIDEN, cue="book", pause=3.0),
-        B("No! And what is my secret rule?", speaker=AIDEN, cue="what", pause=3.0),
-        B("Has wheels! You learned my rule from examples, and I never told you.", speaker=AIDEN, cue="wheels",
+        B("Toy car: yes. Spoon: no. Toy train: yes. Ball: no.", speaker=NARRATOR, cue="things", pause=0.6),
+        B("Here's a book. Where does it go?", speaker=NARRATOR, cue="book", pause=3.0),
+        B("No! And what is my secret rule?", speaker=NARRATOR, cue="what", pause=3.0),
+        B("Has wheels! You learned my rule from examples, and I never told you.", speaker=NARRATOR, cue="wheels",
           pause=0.5),
-        B("That is how many computers learn too.", speaker=AIDEN, cue="too", pause=0.6),
+        B("That is how many computers learn too.", speaker=NARRATOR, cue="too", pause=0.6),
     ), actions=(
         A("aiden", x=240, y=990, s=0.75, moods={"start": "happy", "book": "thinking", "wheels": "proud"},
           chin=("book", "wheels")),
@@ -55,18 +55,18 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 3. examples, features, predictions ---------------------------------------------------------------
     Scene("j3-w04-s03", setting="sky", beats=(
-        B("Some computer programs are not built block by block.", speaker=AIDEN, cue="notblocks", pause=0.4),
-        B("Instead, people show them lots of examples, each one marked YES or NO.", speaker=AIDEN,
+        B("Some computer programs are not built block by block.", speaker=NARRATOR, cue="notblocks", pause=0.4),
+        B("Instead, people show them lots of examples, each one marked YES or NO.", speaker=NARRATOR,
           cue="examples", pause=0.5),
         B("The computer looks for a pattern in the examples. This is called machine learning, or AI.",
-          speaker=AIDEN, cue="pattern", pause=0.5),
-        B("The things it looks at, like legs, wings or fur, are called features.", speaker=AIDEN,
+          speaker=NARRATOR, cue="pattern", pause=0.5),
+        B("The things it looks at, like legs, wings or fur, are called features.", speaker=NARRATOR,
           cue="features", pause=0.5),
-        B("When it sees something new, it makes a guess, called a prediction.", speaker=AIDEN, cue="predict",
+        B("When it sees something new, it makes a guess, called a prediction.", speaker=NARRATOR, cue="predict",
           pause=0.5),
         B("It's like how you learned what a dog is. You saw lots of dogs, big and small, and then you could spot "
-          "a new one.", speaker=AIDEN, cue="dog", pause=0.5),
-        B("But a computer only knows the examples we give it.", speaker=AIDEN, cue="only", pause=0.6),
+          "a new one.", speaker=NARRATOR, cue="dog", pause=0.5),
+        B("But a computer only knows the examples we give it.", speaker=NARRATOR, cue="only", pause=0.6),
         B("So give me good examples, please! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("chip", "Not built block by block", at="notblocks@0.3", until="examples", x=960, y=480, color="sky",
@@ -83,14 +83,14 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 4. Teach the Robot: training examples ---------------------------------------------------------------
     Scene("j3-w04-s04", setting="lavender", beats=(
-        B("Let's play Teach the Robot! I'm the Trainer, and Pixi is the Robot.", speaker=AIDEN, cue="play",
+        B("Let's play Teach the Robot! I'm the Trainer, and Pixi is the Robot.", speaker=NARRATOR, cue="play",
           pause=0.4),
         B("Ready to learn! Beep!", speaker=PIXI, cue="ready", pause=0.4),
-        B("I take a secret rule card. Pixi can't see it.", speaker=AIDEN, cue="secret", pause=0.5),
-        B("Here are six training examples.", speaker=AIDEN, cue="six", pause=0.4),
-        B("Cat: yes. Fish: no. Horse: yes. Dove: no. Frog: yes. Spider: no.", speaker=AIDEN, cue="cards",
+        B("I take a secret rule card. Pixi can't see it.", speaker=NARRATOR, cue="secret", pause=0.5),
+        B("Here are six training examples.", speaker=NARRATOR, cue="six", pause=0.4),
+        B("Cat: yes. Fish: no. Horse: yes. Dove: no. Frog: yes. Spider: no.", speaker=NARRATOR, cue="cards",
           pause=0.8),
-        B("The Trainer only says yes or no. No hints!", speaker=AIDEN, cue="hints", pause=0.6),
+        B("The Trainer only says yes or no. No hints!", speaker=NARRATOR, cue="hints", pause=0.6),
     ), actions=(
         A("aiden", x=240, y=1000, s=0.7, point=("cards", "cards$"), moods={"start": "happy"}),
         A("pixi", x=480, y=790, s=0.6, ground=930, beep="ready", label="Robot"),
@@ -105,18 +105,18 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 5. Teach the Robot: the test --------------------------------------------------------------------------
     Scene("j3-w04-s05", setting="lavender", beats=(
-        B("Now the test! Here's a new card: the dog.", speaker=AIDEN, cue="dog", pause=0.3),
-        B("What do you think Pixi will say?", speaker=AIDEN, cue="guess", pause=2.8),
+        B("Now the test! Here's a new card: the dog.", speaker=NARRATOR, cue="dog", pause=0.3),
+        B("What do you think Pixi will say?", speaker=NARRATOR, cue="guess", pause=2.8),
         B("Dog: YES!", speaker=PIXI, cue="p1", pause=0.4),
-        B("Right! Now the hippo.", speaker=AIDEN, cue="r1", pause=0.6),
+        B("Right! Now the hippo.", speaker=NARRATOR, cue="r1", pause=0.6),
         B("Hippo: YES!", speaker=PIXI, cue="p2", pause=0.4),
-        B("Right! And the crow.", speaker=AIDEN, cue="r2", pause=0.6),
+        B("Right! And the crow.", speaker=NARRATOR, cue="r2", pause=0.6),
         B("Crow: NO!", speaker=PIXI, cue="p3", pause=0.4),
-        B("Right again! Three right, and none wrong.", speaker=AIDEN, cue="r3", pause=0.5),
-        B("Pixi, what is the rule? Which feature did you look at?", speaker=AIDEN, cue="rule", pause=1.0),
+        B("Right again! Three right, and none wrong.", speaker=NARRATOR, cue="r3", pause=0.5),
+        B("Pixi, what is the rule? Which feature did you look at?", speaker=NARRATOR, cue="rule", pause=1.0),
         B("Legs! Four legs!", speaker=PIXI, cue="legs", pause=0.8),
         B("The rule card says: HAS FOUR LEGS. Pixi never saw the rule. It learned it from the examples!",
-          speaker=AIDEN, cue="card", pause=0.6),
+          speaker=NARRATOR, cue="card", pause=0.6),
     ), actions=(
         A("aiden", x=240, y=1000, s=0.7, moods={"start": "happy", "card": "proud"}),
         A("pixi", x=480, y=790, s=0.6, ground=930, label="Robot", moods={"guess": "thinking", "p1": "happy",
@@ -137,13 +137,13 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 6. wiggle break: robot sort ---------------------------------------------------------------------------
     Scene("j3-w04-s06", setting="workshop", beats=(
-        B("Wiggle break! Let's be sorting robots.", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("Four legs: stomp! Can fly: flap your arms! Lives in water: swim!", speaker=AIDEN, cue="rules",
+        B("Wiggle break! Let's be sorting robots.", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("Four legs: stomp! Can fly: flap your arms! Lives in water: swim!", speaker=NARRATOR, cue="rules",
           pause=0.6),
-        B("Horse!", speaker=AIDEN, cue="horse", pause=2.0),
-        B("Crow!", speaker=AIDEN, cue="crow", pause=2.0),
-        B("Fish!", speaker=AIDEN, cue="fish", pause=2.0),
-        B("A duck? Flap and swim!", speaker=AIDEN, cue="duck", pause=2.0),
+        B("Horse!", speaker=NARRATOR, cue="horse", pause=2.0),
+        B("Crow!", speaker=NARRATOR, cue="crow", pause=2.0),
+        B("Fish!", speaker=NARRATOR, cue="fish", pause=2.0),
+        B("A duck? Flap and swim!", speaker=NARRATOR, cue="duck", pause=2.0),
         B("Stomp, flap, swim, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("horse", "end")], moods={"start": "happy", "duck": "proud"}),
@@ -158,22 +158,22 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 7. bug hunt: The One-Sided Robot ----------------------------------------------------------------------
     Scene("j3-w04-s07", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Sam trained the Robot with the rule IS A BIRD.", speaker=AIDEN, cue="sam", pause=0.4),
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Sam trained the Robot with the rule IS A BIRD.", speaker=NARRATOR, cue="sam", pause=0.4),
         B("His YES examples: dove, crow, dove. Every one can fly. His NO examples: cat, dog, fish.",
-          speaker=AIDEN, cue="examples", pause=0.6),
+          speaker=NARRATOR, cue="examples", pause=0.6),
         B("Now the test: the kiwi, a bird that cannot fly, and the bug, which flies but is not a bird.",
-          speaker=AIDEN, cue="test", pause=0.4),
-        B("What will Sam's Robot guess?", speaker=AIDEN, cue="guess", pause=3.0),
+          speaker=NARRATOR, cue="test", pause=0.4),
+        B("What will Sam's Robot guess?", speaker=NARRATOR, cue="guess", pause=3.0),
         B("Kiwi: not a bird! Bug: a bird!", speaker=PIXI, cue="robot", pause=0.6),
-        B("Both wrong! Is the Robot silly, or were the examples one-sided?", speaker=AIDEN, cue="silly",
+        B("Both wrong! Is the Robot silly, or were the examples one-sided?", speaker=NARRATOR, cue="silly",
           pause=2.8),
-        B("The examples! The Robot learned exactly what it was shown: bird means flying.", speaker=AIDEN,
+        B("The examples! The Robot learned exactly what it was shown: bird means flying.", speaker=NARRATOR,
           cue="shown", pause=0.5),
         B("The fix: add different examples. Kiwi goes on YES. Bug goes on NO. Then train and test again.",
-          speaker=AIDEN, cue="fix", pause=0.8),
+          speaker=NARRATOR, cue="fix", pause=0.8),
         B("Kiwi: a bird! Bug: not a bird!", speaker=PIXI, cue="again", pause=0.4),
-        B("We fixed the bug, with better examples!", speaker=AIDEN, cue="fixed", pause=0.8),
+        B("We fixed the bug, with better examples!", speaker=NARRATOR, cue="fixed", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The One-Sided Robot", at="bug", color="navy"),
         A("icons", at="sam", until="examples", x=960, y=480, items=[("lock", "IS A BIRD", "sam@0.4")]),
@@ -198,12 +198,12 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 8. bias --------------------------------------------------------------------------------------------
     Scene("j3-w04-s08", setting="sky", beats=(
-        B("Real computers make this mistake too.", speaker=AIDEN, cue="real", pause=0.4),
+        B("Real computers make this mistake too.", speaker=NARRATOR, cue="real", pause=0.4),
         B("If an AI only learns from pictures of some kinds of people, or only hears some kinds of voices, it "
-          "makes more mistakes with everyone else.", speaker=AIDEN, cue="some", pause=0.5),
-        B("That's unfair, and it's called bias.", speaker=AIDEN, cue="bias", pause=0.6),
+          "makes more mistakes with everyone else.", speaker=NARRATOR, cue="some", pause=0.5),
+        B("That's unfair, and it's called bias.", speaker=NARRATOR, cue="bias", pause=0.6),
         B("The fix is the same as ours: more and different examples, and people checking the results.",
-          speaker=AIDEN, cue="fix", pause=0.6),
+          speaker=NARRATOR, cue="fix", pause=0.6),
         B("Fair examples make fair robots!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("chip", "Real AI makes this mistake too", at="real@0.3", until="some", x=960, y=480, color="orange",
@@ -219,19 +219,19 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 9. AI can be wrong; a chatbot is not a friend -----------------------------------------------------------
     Scene("j3-w04-s09", setting="workshop", beats=(
-        B("Some apps have an AI chatbot. You type, and it writes back like a person.", speaker=AIDEN,
+        B("Some apps have an AI chatbot. You type, and it writes back like a person.", speaker=NARRATOR,
           cue="chatbot", pause=0.4),
         B("It can be helpful, but like our Robot, it can be wrong, even when it sounds very sure.",
-          speaker=AIDEN, cue="wrong", pause=0.4),
-        B("If an answer matters, check it with a grown-up or a good book.", speaker=AIDEN, cue="check",
+          speaker=NARRATOR, cue="wrong", pause=0.4),
+        B("If an answer matters, check it with a grown-up or a good book.", speaker=NARRATOR, cue="check",
           pause=0.5),
-        B("A chatbot is a computer program, not a friend.", speaker=AIDEN, cue="friend", pause=0.4),
+        B("A chatbot is a computer program, not a friend.", speaker=NARRATOR, cue="friend", pause=0.4),
         B("Never tell it personal information: not your name, address, school, age, a photo, or a password.",
-          speaker=AIDEN, cue="never", pause=0.5),
-        B("A chatbot asks: What is your name, and where do you live? What do you do?", speaker=AIDEN, cue="asks",
+          speaker=NARRATOR, cue="never", pause=0.5),
+        B("A chatbot asks: What is your name, and where do you live? What do you do?", speaker=NARRATOR, cue="asks",
           pause=3.0),
-        B("Don't answer. Close it, and tell a grown-up.", speaker=AIDEN, cue="close", pause=0.4),
-        B("And only use a chatbot with a grown-up next to you.", speaker=AIDEN, cue="only", pause=0.6),
+        B("Don't answer. Close it, and tell a grown-up.", speaker=NARRATOR, cue="close", pause=0.4),
+        B("And only use a chatbot with a grown-up next to you.", speaker=NARRATOR, cue="only", pause=0.6),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "asks": "thinking", "close": "proud"},
           chin=("asks", "close")),
@@ -254,16 +254,16 @@ EPISODE = Episode(level="j3", week=4, scenes=(
     )),
     # 10. recap and next -------------------------------------------------------------------------------
     Scene("j3-w04-s10", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Examples!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Features!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Prediction!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Examples!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Features!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Prediction!", speaker=NARRATOR, cue="w3", pause=1.2),
         B("Computers learn patterns from examples, and they copy our mistakes. So we give them fair examples.",
-          speaker=AIDEN, cue="recap", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Play Teach the Robot, color your Robot Report, then fix the One-Sided Robot.", speaker=AIDEN,
+          speaker=NARRATOR, cue="recap", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Play Teach the Robot, color your Robot Report, then fix the One-Sided Robot.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

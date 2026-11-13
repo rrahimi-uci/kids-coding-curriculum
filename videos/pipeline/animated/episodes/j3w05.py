@@ -9,7 +9,7 @@ inside repeat), legs 2 and 3 left for the children, the show-me checklist ("not 
 "What am I proud of so far?" with credit and nicknames on the Proud Wall.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 MOVE100 = ("motion", "move [100] steps")
@@ -48,14 +48,14 @@ def window_actions(cue: str, base: float) -> list:
 EPISODE = Episode(level="j3", week=5, scenes=(
     # 1. hook: Play Day ---------------------------------------------------------------------------------
     Scene("j3-w05-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Is it Play Day?", speaker=PIXI, cue="hello", pause=0.5),
-        B("Yes! Today is Play Day!", speaker=AIDEN, cue="play", pause=0.4),
+        B("Yes! Today is Play Day!", speaker=NARRATOR, cue="play", pause=0.4),
         B("We practice everything from weeks one to four: patterns, plans, data, and how computers learn.",
-          speaker=AIDEN, cue="practice", pause=0.5),
+          speaker=NARRATOR, cue="practice", pause=0.5),
         B("And there's something new. Every Scratch block has a word twin, in a coding language called Python!",
-          speaker=AIDEN, cue="new", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+          speaker=NARRATOR, cue="new", pause=0.5),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "new": "proud"}),
@@ -70,12 +70,12 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 2. two languages, one idea --------------------------------------------------------------------------
     Scene("j3-w05-s02", setting="lavender", beats=(
-        B("Python uses words instead of blocks.", speaker=AIDEN, cue="words", pause=0.5),
-        B("You can say hello in English, and hola in Spanish. Different words, same idea.", speaker=AIDEN,
+        B("Python uses words instead of blocks.", speaker=NARRATOR, cue="words", pause=0.5),
+        B("You can say hello in English, and hola in Spanish. Different words, same idea.", speaker=NARRATOR,
           cue="hola", pause=0.6),
         B("A Scratch block and its Python line are like that: two ways to tell the computer the same thing.",
-          speaker=AIDEN, cue="same", pause=0.6),
-        B("Let's play the card sort, and find the twins!", speaker=AIDEN, cue="sort", pause=0.5),
+          speaker=NARRATOR, cue="same", pause=0.6),
+        B("Let's play the card sort, and find the twins!", speaker=NARRATOR, cue="sort", pause=0.5),
         B("Hola, twins! Beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("chip", "Python: words, not blocks", at="words@0.3", until="hola", x=960, y=480, color="sky", size=52),
@@ -92,14 +92,14 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 3. twin 1: forward, and t is the turtle --------------------------------------------------------------
     Scene("j3-w05-s03", setting="sky", beats=(
-        B("Here's our first block: move one hundred steps.", speaker=AIDEN, cue="move", pause=0.4),
-        B("Which Python word sounds like moving ahead?", speaker=AIDEN, cue="which", pause=3.0),
-        B("Forward! Its twin is t.forward, with one hundred inside the brackets.", speaker=AIDEN, cue="forward",
+        B("Here's our first block: move one hundred steps.", speaker=NARRATOR, cue="move", pause=0.4),
+        B("Which Python word sounds like moving ahead?", speaker=NARRATOR, cue="which", pause=3.0),
+        B("Forward! Its twin is t.forward, with one hundred inside the brackets.", speaker=NARRATOR, cue="forward",
           pause=0.5),
-        B("The same number, one hundred, is in both twins.", speaker=AIDEN, cue="number", pause=0.5),
+        B("The same number, one hundred, is in both twins.", speaker=NARRATOR, cue="number", pause=0.5),
         B("And what is the t? It is not a typo. t is the name of our turtle, the one that will draw in Python.",
-          speaker=AIDEN, cue="t", pause=0.5),
-        B("Every turtle line starts with it, like a name on a letter.", speaker=AIDEN, cue="letter", pause=0.6),
+          speaker=NARRATOR, cue="t", pause=0.5),
+        B("Every turtle line starts with it, like a name on a letter.", speaker=NARRATOR, cue="letter", pause=0.6),
     ), actions=(
         A("scratch", "Block card", blocks=[MOVE100], x=200, y=330, w=700, h=280, scale=BIG, at="move"),
         A("cards", items=["t.left(90)", "t.forward(100)", 'for i in range(4):'], x=1060, y=270, w=640, gap=125,
@@ -112,14 +112,14 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 4. twins 2 and 3: left and color --------------------------------------------------------------------------
     Scene("j3-w05-s04", setting="sky", beats=(
-        B("Next block: turn left ninety degrees. Its twin is t.left, with ninety inside.", speaker=AIDEN,
+        B("Next block: turn left ninety degrees. Its twin is t.left, with ninety inside.", speaker=NARRATOR,
           cue="left", pause=0.6),
         B("Careful! t.forward and t.left both have a number. Which one moves, and which one turns?",
-          speaker=AIDEN, cue="careful", pause=2.8),
-        B("Forward moves. Left turns!", speaker=AIDEN, cue="answer", pause=0.6),
-        B("Say it with me: forward moves, left turns!", speaker=AIDEN, cue="sayit", pause=1.6),
-        B("Now the green pen block: set pen color to blue.", speaker=AIDEN, cue="pen", pause=0.4),
-        B("Its twin is t.color, with blue inside quotation marks.", speaker=AIDEN, cue="color", pause=0.6),
+          speaker=NARRATOR, cue="careful", pause=2.8),
+        B("Forward moves. Left turns!", speaker=NARRATOR, cue="answer", pause=0.6),
+        B("Say it with me: forward moves, left turns!", speaker=NARRATOR, cue="sayit", pause=1.6),
+        B("Now the green pen block: set pen color to blue.", speaker=NARRATOR, cue="pen", pause=0.4),
+        B("Its twin is t.color, with blue inside quotation marks.", speaker=NARRATOR, cue="color", pause=0.6),
         B("Blue words, blue lines! Beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("scratch", blocks=[LEFT90], x=200, y=300, panel=False, scale=BIG, at="left"),
@@ -136,11 +136,11 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 5. quick quiz: the twin of repeat 4 -----------------------------------------------------------------------
     Scene("j3-w05-s05", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("Here's the orange repeat four block. Which word card is its twin?", speaker=AIDEN, cue="which",
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("Here's the orange repeat four block. Which word card is its twin?", speaker=NARRATOR, cue="which",
           pause=3.2),
-        B("For i in range four! It means: do this four times.", speaker=AIDEN, cue="answer", pause=0.5),
-        B("The four is the same as in the repeat block.", speaker=AIDEN, cue="same", pause=0.6),
+        B("For i in range four! It means: do this four times.", speaker=NARRATOR, cue="answer", pause=0.5),
+        B("The four is the same as in the repeat block.", speaker=NARRATOR, cue="same", pause=0.6),
         B("Four times, beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -154,18 +154,18 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 6. a whole Scratch square in Python words, and the indent ----------------------------------------------
     Scene("j3-w05-s06", setting="mint", beats=(
-        B("Now let's turn a whole Scratch square into Python words.", speaker=AIDEN, cue="whole", pause=0.4),
-        B("Read the twins from the top. t.color, blue.", speaker=AIDEN, cue="l1", pause=0.4),
-        B("For i in range four.", speaker=AIDEN, cue="l2", pause=0.4),
-        B("t.forward, one hundred.", speaker=AIDEN, cue="l3", pause=0.4),
-        B("t.left, ninety.", speaker=AIDEN, cue="l4", pause=0.6),
-        B("In Scratch, the blocks inside the repeat sit in its mouth.", speaker=AIDEN, cue="mouth", pause=0.4),
+        B("Now let's turn a whole Scratch square into Python words.", speaker=NARRATOR, cue="whole", pause=0.4),
+        B("Read the twins from the top. t.color, blue.", speaker=NARRATOR, cue="l1", pause=0.4),
+        B("For i in range four.", speaker=NARRATOR, cue="l2", pause=0.4),
+        B("t.forward, one hundred.", speaker=NARRATOR, cue="l3", pause=0.4),
+        B("t.left, ninety.", speaker=NARRATOR, cue="l4", pause=0.6),
+        B("In Scratch, the blocks inside the repeat sit in its mouth.", speaker=NARRATOR, cue="mouth", pause=0.4),
         B("In Python, the lines inside the loop move in a little. That little gap is called an indent.",
-          speaker=AIDEN, cue="indent", pause=0.5),
-        B("Say it with me: indent!", speaker=AIDEN, cue="sayit", pause=1.4),
+          speaker=NARRATOR, cue="indent", pause=0.5),
+        B("Say it with me: indent!", speaker=NARRATOR, cue="sayit", pause=1.4),
         B("In week six, we type lines like these. Here's a sneak peek of what the turtle will draw!",
-          speaker=AIDEN, cue="peek", pause=3.4),
-        B("A blue square, from Python words! Today we stay in Scratch.", speaker=AIDEN, cue="square", pause=0.6),
+          speaker=NARRATOR, cue="peek", pause=3.4),
+        B("A blue square, from Python words! Today we stay in Scratch.", speaker=NARRATOR, cue="square", pause=0.6),
         B("Same square, blocks or words! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "A square in Python words", at="whole", color="green"),
@@ -186,10 +186,10 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 7. wiggle break: be the Python turtle -------------------------------------------------------------------
     Scene("j3-w05-s07", setting="workshop", beats=(
-        B("Wiggle break! Stand up and be the Python turtle.", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("t.forward, three: take three big steps!", speaker=AIDEN, cue="f3", pause=2.2),
-        B("t.left, ninety: a quarter turn left!", speaker=AIDEN, cue="l90", pause=2.2),
-        B("Now for i in range four, with forward and left inside. Walk a square!", speaker=AIDEN, cue="square",
+        B("Wiggle break! Stand up and be the Python turtle.", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("t.forward, three: take three big steps!", speaker=NARRATOR, cue="f3", pause=2.2),
+        B("t.left, ninety: a quarter turn left!", speaker=NARRATOR, cue="l90", pause=2.2),
+        B("Now for i in range four, with forward and left inside. Walk a square!", speaker=NARRATOR, cue="square",
           pause=5.0),
         B("Did you end where you started? Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -207,18 +207,18 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 8. bug-hunt relay, leg 1: The Window --------------------------------------------------------------------
     Scene("j3-w05-s08", setting="mint", beats=(
-        B("Time for the bug-hunt relay! Three broken projects, and a sticker for each fix.", speaker=AIDEN,
+        B("Time for the bug-hunt relay! Three broken projects, and a sticker for each fix.", speaker=NARRATOR,
           cue="relay", pause=0.5),
-        B("Leg one: The Window. It should draw four squares.", speaker=AIDEN, cue="leg1", pause=0.4),
-        B("But watch. The cat goes back and forth on one line!", speaker=AIDEN, cue="watch", pause=2.4),
-        B("Look inside the inside repeat. What is wrong?", speaker=AIDEN, cue="look", pause=3.2),
+        B("Leg one: The Window. It should draw four squares.", speaker=NARRATOR, cue="leg1", pause=0.4),
+        B("But watch. The cat goes back and forth on one line!", speaker=NARRATOR, cue="watch", pause=2.4),
+        B("Look inside the inside repeat. What is wrong?", speaker=NARRATOR, cue="look", pause=3.2),
         B("There are two turns in there! The second turn belongs under the inside repeat, but still inside the "
-          "outside repeat.", speaker=AIDEN, cue="two", pause=0.5),
-        B("Drag the bottom turn out, drop it in the right place, and test again!", speaker=AIDEN, cue="fix",
+          "outside repeat.", speaker=NARRATOR, cue="two", pause=0.5),
+        B("Drag the bottom turn out, drop it in the right place, and test again!", speaker=NARRATOR, cue="fix",
           pause=5.2),
-        B("A window! Sticker number one!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("A window! Sticker number one!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Legs two and three are yours: The Magic Trick, and The Stuck Counter. Change one thing at a time!",
-          speaker=AIDEN, cue="yours", pause=0.8),
+          speaker=NARRATOR, cue="yours", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The relay, leg 1", at="relay", color="navy"),
         A("scratch", "Leg 1: The Window",
@@ -249,14 +249,14 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     # 9. show me, and what am I proud of? --------------------------------------------------------------------
     Scene("j3-w05-s09", setting="workshop", beats=(
         B("While you play, your grown-up may ask: can you show me? That's not a test. Not yet is a fine answer!",
-          speaker=AIDEN, cue="showme", pause=0.6),
+          speaker=NARRATOR, cue="showme", pause=0.6),
         B("We are halfway through Level 3. Think of everything you made: patterns, plans, graphs, the robot "
-          "game, and bug fixes.", speaker=AIDEN, cue="half", pause=0.5),
-        B("What are you proud of so far?", speaker=AIDEN, cue="proud", pause=3.0),
-        B("Your grown-up writes it on Our Proud Wall, with your nickname.", speaker=AIDEN, cue="wall", pause=0.5),
+          "game, and bug fixes.", speaker=NARRATOR, cue="half", pause=0.5),
+        B("What are you proud of so far?", speaker=NARRATOR, cue="proud", pause=3.0),
+        B("Your grown-up writes it on Our Proud Wall, with your nickname.", speaker=NARRATOR, cue="wall", pause=0.5),
         B("Two rules for proud coders. My own work, or say whose idea it was: the flower idea came from Kai.",
-          speaker=AIDEN, cue="rule1", pause=0.5),
-        B("And proud work stays safe: nicknames only, never a full name, school or address.", speaker=AIDEN,
+          speaker=NARRATOR, cue="rule1", pause=0.5),
+        B("And proud work stays safe: nicknames only, never a full name, school or address.", speaker=NARRATOR,
           cue="rule2", pause=0.6),
         B("I'm proud of my beeps!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
@@ -280,16 +280,16 @@ EPISODE = Episode(level="j3", week=5, scenes=(
     )),
     # 10. recap and next -------------------------------------------------------------------------------
     Scene("j3-w05-s10", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Python!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Word twin!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Indent!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Python!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Word twin!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Indent!", speaker=NARRATOR, cue="w3", pause=1.2),
         B("Every Scratch block has a word twin in Python. The t is our turtle, and lines inside a loop are "
-          "indented.", speaker=AIDEN, cue="recap", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Match the word twins, run the bug-hunt relay, then plan and build My Best Pattern.", speaker=AIDEN,
+          "indented.", speaker=NARRATOR, cue="recap", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Match the word twins, run the bug-hunt relay, then plan and build My Best Pattern.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

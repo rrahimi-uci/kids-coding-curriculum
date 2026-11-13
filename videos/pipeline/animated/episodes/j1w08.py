@@ -8,7 +8,7 @@ for Exercise 8.3 (the ring is not built here), Exercise 8.2 The One-Side Square 
 repeat), passwords are like a toothbrush, the walk-a-square wiggle break and the greeting card kickoff.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 SIZE = ("looks", "set size to [40] %")
@@ -36,11 +36,11 @@ WALK_STATES = [("start", _rows({(0, 0)}))] + [(f"walk@{k / 12:.3f}", _rows(set(_
 EPISODE = Episode(level="j1", week=8, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j1-w08-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, coders! It's Aiden and Pixi again.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, artists!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, two sprites took turns to talk.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Today, the cat gets a crayon, and it draws a square for us!", speaker=AIDEN, cue="today", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Last week, two sprites took turns to talk.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Today, the cat gets a crayon, and it draws a square for us!", speaker=NARRATOR, cue="today", pause=0.5),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -52,16 +52,16 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 2. warm-up: walk a square ---------------------------------------------------------------------
     Scene("j1-w08-s02", setting="workshop", beats=(
-        B("Let's warm up. Pixi is a robot that draws.", speaker=AIDEN, cue="robot", pause=0.4),
-        B("Here is the program. Pen down. Then repeat four: three steps, and a quarter turn.", speaker=AIDEN,
+        B("Let's warm up. Pixi is a robot that draws.", speaker=NARRATOR, cue="robot", pause=0.4),
+        B("Here is the program. Pen down. Then repeat four: three steps, and a quarter turn.", speaker=NARRATOR,
           cue="program", pause=0.5),
-        B("Pen down means: drop a button on every square you step on.", speaker=AIDEN, cue="pen", pause=0.4),
-        B("A quarter turn is like the big hand of a clock, going from twelve to three.", speaker=AIDEN,
+        B("Pen down means: drop a button on every square you step on.", speaker=NARRATOR, cue="pen", pause=0.4),
+        B("A quarter turn is like the big hand of a clock, going from twelve to three.", speaker=NARRATOR,
           cue="clock", pause=0.5),
         B("Go, Pixi! Three steps, quarter turn. Three steps, quarter turn. Three steps, quarter turn. Three "
-          "steps, quarter turn.", speaker=AIDEN, cue="walk", pause=0.8),
-        B("What shape did Pixi draw?", speaker=AIDEN, cue="shape", pause=3.0),
-        B("A square! And Pixi ended back where it started.", speaker=AIDEN, cue="square", pause=0.6),
+          "steps, quarter turn.", speaker=NARRATOR, cue="walk", pause=0.8),
+        B("What shape did Pixi draw?", speaker=NARRATOR, cue="shape", pause=3.0),
+        B("A square! And Pixi ended back where it started.", speaker=NARRATOR, cue="square", pause=0.6),
     ), actions=(
         A("aiden", x=230, y=1000, s=0.75, moods={"shape": "thinking", "square": "happy"}, chin=("shape", "square"),
           point=("program", "program$")),
@@ -74,17 +74,17 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 3. the pen: a crayon on the cat's tail --------------------------------------------------------
     Scene("j1-w08-s03", setting="sky", beats=(
-        B("In Scratch, the crayon is called the pen.", speaker=AIDEN, cue="pen", pause=0.4),
-        B("The pen blocks are hiding, so we add them first.", speaker=AIDEN, cue="hiding", pause=0.4),
-        B("Click Add Extension, the blue button at the very bottom left. Then click Pen.", speaker=AIDEN,
+        B("In Scratch, the crayon is called the pen.", speaker=NARRATOR, cue="pen", pause=0.4),
+        B("The pen blocks are hiding, so we add them first.", speaker=NARRATOR, cue="hiding", pause=0.4),
+        B("Click Add Extension, the blue button at the very bottom left. Then click Pen.", speaker=NARRATOR,
           cue="ext", pause=0.5),
-        B("A green Pen circle appears. We do this once in every new project.", speaker=AIDEN, cue="green",
+        B("A green Pen circle appears. We do this once in every new project.", speaker=NARRATOR, cue="green",
           pause=0.6),
-        B("Imagine a crayon tied to the cat's tail.", speaker=AIDEN, cue="tail", pause=0.4),
-        B("Pen down puts the crayon on the paper, so the cat draws when it walks.", speaker=AIDEN, cue="down",
+        B("Imagine a crayon tied to the cat's tail.", speaker=NARRATOR, cue="tail", pause=0.4),
+        B("Pen down puts the crayon on the paper, so the cat draws when it walks.", speaker=NARRATOR, cue="down",
           pause=1.2),
-        B("Pen up lifts it off, so the cat walks without drawing.", speaker=AIDEN, cue="up", pause=1.2),
-        B("And erase all is a big eraser that cleans the whole stage.", speaker=AIDEN, cue="erase", pause=1.0),
+        B("Pen up lifts it off, so the cat walks without drawing.", speaker=NARRATOR, cue="up", pause=1.2),
+        B("And erase all is a big eraser that cleans the whole stage.", speaker=NARRATOR, cue="erase", pause=1.0),
     ), actions=(
         A("cards", items=["Add Extension", "Pen"], x=160, y=280, w=620, gap=130, reveal=["ext@0.1", "ext@0.6"],
           at="ext", until="tail", color="sky"),
@@ -103,12 +103,12 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 4. a quarter turn is 90 ------------------------------------------------------------------------
     Scene("j1-w08-s04", setting="lavender", beats=(
-        B("To draw a square, the cat must turn.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("In Scratch, a quarter turn is ninety.", speaker=AIDEN, cue="ninety", pause=0.6),
-        B("Two quarter turns make a half turn. That is one hundred eighty.", speaker=AIDEN, cue="half", pause=0.6),
-        B("Let's do it! Stand up. Make a quarter turn with me. Ninety!", speaker=AIDEN, cue="stand", pause=1.4),
-        B("One more quarter turn. Ninety! Now we made a half turn.", speaker=AIDEN, cue="more", pause=1.2),
-        B("Say it with me: a quarter turn is ninety!", speaker=AIDEN, cue="sayit", pause=1.6),
+        B("To draw a square, the cat must turn.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("In Scratch, a quarter turn is ninety.", speaker=NARRATOR, cue="ninety", pause=0.6),
+        B("Two quarter turns make a half turn. That is one hundred eighty.", speaker=NARRATOR, cue="half", pause=0.6),
+        B("Let's do it! Stand up. Make a quarter turn with me. Ninety!", speaker=NARRATOR, cue="stand", pause=1.4),
+        B("One more quarter turn. Ninety! Now we made a half turn.", speaker=NARRATOR, cue="more", pause=1.2),
+        B("Say it with me: a quarter turn is ninety!", speaker=NARRATOR, cue="sayit", pause=1.6),
         B("Ninety, ninety, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=980, s=0.8, wave=[("stand", "stand$"), ("more", "more$")], moods={"stand": "proud"},
@@ -122,11 +122,11 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 5. Draw a Square: the start of the script ------------------------------------------------------
     Scene("j1-w08-s05", setting="mint", beats=(
-        B("Let's build Draw a Square together.", speaker=AIDEN, cue="build", pause=0.4),
-        B("From the yellow Events circle: when green flag clicked.", speaker=AIDEN, cue="events", pause=0.6),
+        B("Let's build Draw a Square together.", speaker=NARRATOR, cue="build", pause=0.4),
+        B("From the yellow Events circle: when green flag clicked.", speaker=NARRATOR, cue="events", pause=0.6),
         B("From the purple Looks circle: set size to one hundred percent. Change it to forty. A small cat "
-          "leaves room to draw.", speaker=AIDEN, cue="looks", pause=0.8),
-        B("From the green Pen circle: erase all, then pen down.", speaker=AIDEN, cue="pen", pause=0.8),
+          "leaves room to draw.", speaker=NARRATOR, cue="looks", pause=0.8),
+        B("From the green Pen circle: erase all, then pen down.", speaker=NARRATOR, cue="pen", pause=0.8),
         B("Now the crayon is on the paper!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("banner", "Exercise 8.1: Draw a Square", at="build", color="green"),
@@ -140,17 +140,17 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 6. Draw a Square: the repeat, and the flag ----------------------------------------------------
     Scene("j1-w08-s06", setting="mint", beats=(
-        B("From the orange Control circle: repeat ten. Change ten to four.", speaker=AIDEN, cue="repeat",
+        B("From the orange Control circle: repeat ten. Change ten to four.", speaker=NARRATOR, cue="repeat",
           pause=0.6),
         B("From the blue Motion circle: put move ten steps inside the repeat. Change it to one hundred.",
-          speaker=AIDEN, cue="move", pause=0.6),
+          speaker=NARRATOR, cue="move", pause=0.6),
         B("Then turn fifteen degrees, the arrow that goes like a clock. Put it inside, under the move. Change "
-          "it to ninety.", speaker=AIDEN, cue="turn", pause=0.6),
-        B("Last, pen up, under the repeat.", speaker=AIDEN, cue="up", pause=0.5),
-        B("How many sides will the cat draw?", speaker=AIDEN, cue="predict", pause=3.0),
-        B("Let's click the green flag and count!", speaker=AIDEN, cue="flag", pause=0.2),
-        B("One, two, three, four!", speaker=AIDEN, cue="count", pause=0.6),
-        B("A square! And the cat came home.", speaker=AIDEN, cue="home", pause=0.4),
+          "it to ninety.", speaker=NARRATOR, cue="turn", pause=0.6),
+        B("Last, pen up, under the repeat.", speaker=NARRATOR, cue="up", pause=0.5),
+        B("How many sides will the cat draw?", speaker=NARRATOR, cue="predict", pause=3.0),
+        B("Let's click the green flag and count!", speaker=NARRATOR, cue="flag", pause=0.2),
+        B("One, two, three, four!", speaker=NARRATOR, cue="count", pause=0.6),
+        B("A square! And the cat came home.", speaker=NARRATOR, cue="home", pause=0.4),
         B("Beep! Beautiful!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "Draw a Square", blocks=[FLAG, SIZE, ERASE, DOWN,
@@ -174,11 +174,11 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 7. quick quiz: no line ------------------------------------------------------------------------
     Scene("j1-w08-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("Leo's cat walks, but no line appears. Which block is missing?", speaker=AIDEN, cue="which", pause=3.2),
-        B("Pen down! Without pen down, the crayon never touches the paper.", speaker=AIDEN, cue="answer",
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("Leo's cat walks, but no line appears. Which block is missing?", speaker=NARRATOR, cue="which", pause=3.2),
+        B("Pen down! Without pen down, the crayon never touches the paper.", speaker=NARRATOR, cue="answer",
           pause=0.6),
-        B("Pen down goes before the repeat.", speaker=AIDEN, cue="before", pause=0.8),
+        B("Pen down goes before the repeat.", speaker=NARRATOR, cue="before", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("scratch", "Leo's script", blocks=[FLAG, ERASE, ("control", "repeat [4]", [MOVE, TURN])], x=180, y=280,
@@ -195,14 +195,14 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 8. stamp and the turn card ---------------------------------------------------------------------
     Scene("j1-w08-s08", setting="lavender", beats=(
-        B("Here is one more pen block: stamp.", speaker=AIDEN, cue="stamp", pause=0.4),
-        B("Stamp leaves a picture of the cat on the stage, like a rubber stamp.", speaker=AIDEN, cue="rubber",
+        B("Here is one more pen block: stamp.", speaker=NARRATOR, cue="stamp", pause=0.4),
+        B("Stamp leaves a picture of the cat on the stage, like a rubber stamp.", speaker=NARRATOR, cue="rubber",
           pause=0.6),
-        B("Click stamp, and the cat walks away. The picture stays!", speaker=AIDEN, cue="walk", pause=1.2),
-        B("In Stamp a Ring, you make a ring of six cats.", speaker=AIDEN, cue="ring", pause=0.4),
+        B("Click stamp, and the cat walks away. The picture stays!", speaker=NARRATOR, cue="walk", pause=1.2),
+        B("In Stamp a Ring, you make a ring of six cats.", speaker=NARRATOR, cue="ring", pause=0.4),
         B("The turn comes from the turn card. Square: ninety. Triangle: one hundred twenty. Six sides: sixty.",
-          speaker=AIDEN, cue="card", pause=0.6),
-        B("We read the number off the card. That's all!", speaker=AIDEN, cue="read", pause=0.8),
+          speaker=NARRATOR, cue="card", pause=0.6),
+        B("We read the number off the card. That's all!", speaker=NARRATOR, cue="read", pause=0.8),
     ), actions=(
         A("scratch", blocks=[("pen", "stamp")], x=220, y=330, w=500, h=150, panel=False, scale=BIG, at="stamp",
           highlight=[(0, "walk", "walk+0.6")]),
@@ -217,16 +217,16 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 9. bug hunt: the One-Side Square ---------------------------------------------------------------
     Scene("j1-w08-s09", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Omar wants a square. Watch what his cat draws.", speaker=AIDEN, cue="omar", pause=4.4),
-        B("One long line! How many times did the cat turn?", speaker=AIDEN, cue="how", pause=3.0),
-        B("Only once, at the end.", speaker=AIDEN, cue="once", pause=0.5),
-        B("Look closely. The turn is under the repeat, not inside it.", speaker=AIDEN, cue="look", pause=0.5),
-        B("Like in our warm-up, when the quarter turn card was outside the repeat card.", speaker=AIDEN,
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Omar wants a square. Watch what his cat draws.", speaker=NARRATOR, cue="omar", pause=4.4),
+        B("One long line! How many times did the cat turn?", speaker=NARRATOR, cue="how", pause=3.0),
+        B("Only once, at the end.", speaker=NARRATOR, cue="once", pause=0.5),
+        B("Look closely. The turn is under the repeat, not inside it.", speaker=NARRATOR, cue="look", pause=0.5),
+        B("Like in our warm-up, when the quarter turn card was outside the repeat card.", speaker=NARRATOR,
           cue="warm", pause=0.5),
-        B("Let's drag the turn up, inside the repeat, under the move.", speaker=AIDEN, cue="fix", pause=0.8),
-        B("Test it again.", speaker=AIDEN, cue="test", pause=4.2),
-        B("Four sides! We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Let's drag the turn up, inside the repeat, under the move.", speaker=NARRATOR, cue="fix", pause=0.8),
+        B("Test it again.", speaker=NARRATOR, cue="test", pause=4.2),
+        B("Four sides! We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Square-tastic!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The One-Side Square", at="bug", color="navy"),
@@ -250,14 +250,14 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     # 10. passwords are like a toothbrush -----------------------------------------------------------
     Scene("j1-w08-s10", setting="workshop", beats=(
         B("Some apps and games use a password. A password is a secret word that keeps your things safe.",
-          speaker=AIDEN, cue="password", pause=0.5),
+          speaker=NARRATOR, cue="password", pause=0.5),
         B("A password is like your toothbrush. You use it, but you never share it, not even with your best "
-          "friend.", speaker=AIDEN, cue="tooth", pause=0.6),
-        B("Only the grown-ups who look after you may know it.", speaker=AIDEN, cue="grown", pause=0.6),
-        B("Your friend says: Tell me your password, I won't tell. What do you do?", speaker=AIDEN, cue="friend",
+          "friend.", speaker=NARRATOR, cue="tooth", pause=0.6),
+        B("Only the grown-ups who look after you may know it.", speaker=NARRATOR, cue="grown", pause=0.6),
+        B("Your friend says: Tell me your password, I won't tell. What do you do?", speaker=NARRATOR, cue="friend",
           pause=3.0),
-        B("Say no, and tell a grown-up!", speaker=AIDEN, cue="no", pause=0.5),
-        B("Our Scratch app has no password and no account, and that is on purpose.", speaker=AIDEN,
+        B("Say no, and tell a grown-up!", speaker=NARRATOR, cue="no", pause=0.5),
+        B("Our Scratch app has no password and no account, and that is on purpose.", speaker=NARRATOR,
           cue="scratch", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"friend": "thinking", "no": "proud"}, chin=("friend", "no")),
@@ -272,10 +272,10 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 11. wiggle break: walk a square ---------------------------------------------------------------
     Scene("j1-w08-s11", setting="workshop", beats=(
-        B("Wiggle break! Stand up and walk a square around the room.", speaker=AIDEN, cue="stand", pause=0.5),
-        B("Pen down! Draw in the air with one finger as you go.", speaker=AIDEN, cue="finger", pause=0.6),
+        B("Wiggle break! Stand up and walk a square around the room.", speaker=NARRATOR, cue="stand", pause=0.5),
+        B("Pen down! Draw in the air with one finger as you go.", speaker=NARRATOR, cue="finger", pause=0.6),
         B("Four steps, quarter turn. Four steps, quarter turn. Four steps, quarter turn. Four steps, quarter "
-          "turn.", speaker=AIDEN, cue="walk", pause=1.2),
+          "turn.", speaker=NARRATOR, cue="walk", pause=1.2),
         B("You are back home! Beep beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("finger", "walk$")], moods={"start": "happy", "walk": "proud"}),
@@ -286,17 +286,17 @@ EPISODE = Episode(level="j1", week=8, scenes=(
     )),
     # 12. recap and next -------------------------------------------------------------------------------
     Scene("j1-w08-s12", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Pen down!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Quarter turn!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Stamp!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("A square is repeat four of move and a quarter turn. Both go inside the repeat.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Pen down!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Quarter turn!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Stamp!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("A square is repeat four of move and a quarter turn. Both go inside the repeat.", speaker=NARRATOR,
           cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Draw a Square, fix the One-Side Square, then Stamp a Ring.", speaker=AIDEN, cue="next", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Draw a Square, fix the One-Side Square, then Stamp a Ring.", speaker=NARRATOR, cue="next", pause=0.6),
         B("And in two weeks, we have a showcase! You will make a greeting card for someone special. Who could "
-          "it be for?", speaker=AIDEN, cue="card", pause=3.0),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+          "it be for?", speaker=NARRATOR, cue="card", pause=3.0),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud", "card": "thinking",

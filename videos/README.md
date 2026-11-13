@@ -67,7 +67,7 @@ What goes into an episode:
 
 - **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Rose (`af_bella`) and Pixi (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Captions show code as it is written (`self.height`, `stickers.txt`, `__init__`); the voice reads it the way a teacher would ("self dot height", "stickers dot T X T", "dunder init"). These rules and the spelling fixes for tricky words (`LEXICON`) live in `animated/speech.py`.
 - **Animation:** Rose and Pixi blink, change expression, wave and point. Rose's mouth follows the voice. Every idea is shown as it is said: the floor-grid algorithm, step cards, snap-together blocks, the bug hunt, and a recap. Scenes change with a circular wipe.
-- **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. The final mix is normalized to -16 LUFS with peaks at or below -1.5 dBTP.
+- **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. A measured two-pass normalization targets -16 LUFS and a conservative -6.5 dBTP before AAC encoding, keeping even the sharpest synthesized effects below -1 dBTP without a hard limiter. The 720p web copy preserves that normalized AAC track instead of recompressing the narration.
 - **Text:** the course font, large and short, timed to the narration. Captions are a selectable track plus `.srt` and `.vtt` files.
 
 How it is organized (`videos/pipeline/animated/`):
@@ -108,22 +108,21 @@ The junior track (`grade-2-3/`) has its own series, **Kids Coding Junior with Ai
 episode per week of Junior Levels 1–3 (30 in all), 5–7 minutes each, paced for 7–9-year-olds who
 watch with a grown-up.
 
-- **Aiden** is an eight-year-old coder in a red hoodie (`draw_aiden` in
+- **Aiden** is an eight-year-old scientist and builder in a red hoodie (`draw_aiden` in
   `animated/characters.py`, drawn from the owner's approved character sheet). He has Rose's poses and
-  moods. In the Junior Level 1, Week 1 review pilot, the same unprocessed Kokoro `af_heart` narrator
-  and 0.94 pace used by Grades 4–6 introduces Aiden and Pixi and carries the lesson; Aiden has no
-  dialogue, while both characters retain their animation patterns. The other junior episodes retain
-  their existing Aiden-led scripts until the pilot is approved. **Pixi** is the same robot helper as
-  in the main series.
+  moods. The same unprocessed Kokoro `af_heart` narrator and 0.94 pace used by Grades 4–6 introduces
+  Aiden and Pixi and carries every lesson; Aiden has no dialogue, while both characters retain their
+  animation patterns. **Pixi** is the same robot helper as in the main series and keeps brief
+  character responses.
 - **Episodes are the source.** Each episode is `animated/episodes/j{L}w{WW}.py` (level key `"j1"`..`"j3"`,
-  Aiden as `A("aiden", ...)`; the review pilot uses `speaker=NARRATOR`). `junior-spec` writes
+  Aiden as `A("aiden", ...)`; teaching beats use `speaker=NARRATOR`). `junior-spec` writes
   `specs/junior{L}.json` from
   the episode files (title from the lesson banner, narration, on-screen text); there is no agent
   generation or curriculum manifest for junior yet.
-- **Junior rules** (checked by `testing/test_junior_videos.py`): the review pilot is narrator-led and
-  has no Aiden dialogue; the unchanged episodes remain Aiden-led. Every episode has about 650–850
-  spoken words, runs 300–430 seconds, and nothing seen or heard uses negative numbers, x/y positions
-  or "360 divided by sides".
+- **Junior rules** (checked by `testing/test_junior_videos.py`): every episode is narrator-led, opens
+  by presenting Aiden as a scientist and builder alongside Pixi, and has no Aiden dialogue. Every
+  episode has about 650–850 spoken words, runs 300–430 seconds, and nothing seen or heard uses
+  negative numbers, x/y positions or "360 divided by sides".
 
 ```bash
 python -m videos.pipeline.cli junior-spec --level 1              # rewrite specs/junior1.json from the episodes

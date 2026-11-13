@@ -14,7 +14,7 @@ import re
 NARRATOR = "narrator"
 ROSE = "rose"
 PIXI = "pixi"
-AIDEN = "aiden"  # host of the junior (Grades 2-3) videos
+AIDEN = "aiden"  # legacy speaker id; current junior videos show Aiden but use the narrator
 SPEAKERS = (NARRATOR, ROSE, PIXI, AIDEN)
 
 

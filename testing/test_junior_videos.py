@@ -36,7 +36,7 @@ def test_junior_spec_is_written_from_the_episodes(level):
 
 
 @pytest.mark.parametrize("path", JUNIOR, ids=lambda p: p.stem)
-def test_junior_presenter_matches_the_approved_or_pilot_format(path):
+def test_every_junior_episode_uses_the_approved_narrator_format(path):
     from videos.pipeline.animated.timeline import AIDEN, NARRATOR, ROSE
 
     episode = _episode(path)
@@ -45,13 +45,11 @@ def test_junior_presenter_matches_the_approved_or_pilot_format(path):
     words = {speaker: sum(len(b.text.split()) for b in beats if b.speaker == speaker) for speaker in {b.speaker for b in beats}}
     total = sum(words.values())
     assert words.get(ROSE, 0) == 0, "Rose belongs to the main track; junior videos show Aiden and Pixi"
-    if path.stem == "j1w01":
-        assert words.get(AIDEN, 0) == 0, "the review pilot uses no Aiden dialogue"
-        assert words.get(NARRATOR, 0) >= 0.7 * total, f"the narrator should lead the pilot ({words})"
-        opening = " ".join(beat.text for beat in beats[:3])
-        assert "Meet Aiden" in opening and "meet Pixi" in opening
-    else:
-        assert words.get(AIDEN, 0) >= 0.7 * total, f"Aiden should lead unchanged episodes ({words})"
+    assert words.get(AIDEN, 0) == 0, "Aiden is shown as the scientist and builder, but has no dialogue"
+    assert words.get(NARRATOR, 0) >= 0.7 * total, f"the narrator should lead the episode ({words})"
+    opening = " ".join(beat.text for beat in beats[:3]).lower()
+    assert "aiden" in opening and "pixi" in opening
+    assert "scientist and builder" in opening
     assert not any(a.kind == "rose" for sc in episode.scenes for a in sc.actions)
     assert 600 <= total <= 950, f"a junior episode has about 650-850 spoken words, this one has {total}"
 
@@ -85,7 +83,7 @@ def _blocks(blocks):
                 yield from _blocks(inner)
 
 
-def test_aiden_uses_the_high_quality_grades_4_6_narration_voice():
+def test_junior_narrator_uses_the_high_quality_grades_4_6_voice():
     pytest.importorskip("numpy")
     from videos.pipeline.animated.audio import VOICES
     from videos.pipeline.animated.timeline import AIDEN, NARRATOR
@@ -100,6 +98,21 @@ def test_grade_bands_have_separate_generated_video_folders():
     assert output_dir("j1").parts[-2:] == ("output", "grades-2-3")
     assert output_dir(1).parts[-2:] == ("output", "grades-4-6")
     assert output_dir("j1") != output_dir(1)
+
+
+def test_master_audio_uses_measured_two_pass_normalization(tmp_path, monkeypatch):
+    from videos.pipeline.animated import render
+
+    class Result:
+        stderr = '''noise\n{"input_i":"-18.2","input_tp":"1.4","input_lra":"5.1",\n"input_thresh":"-28.4","target_offset":"0.1"}\nmore noise'''
+
+    monkeypatch.setattr(render.subprocess, "run", lambda *args, **kwargs: Result())
+    audio_filter = render._loudnorm_filter(tmp_path / "mix.wav")
+
+    assert "I=-16.0:TP=-6.5:LRA=11.0" in audio_filter
+    assert "measured_I=-18.2:measured_TP=1.4" in audio_filter
+    assert "measured_LRA=5.1:measured_thresh=-28.4" in audio_filter
+    assert "offset=0.1:linear=true" in audio_filter
 
 
 @pytest.mark.parametrize("path", JUNIOR, ids=lambda p: p.stem)

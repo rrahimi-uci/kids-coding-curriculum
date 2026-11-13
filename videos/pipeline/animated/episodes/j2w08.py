@@ -10,7 +10,7 @@ testing both endings with the freeze-ball wiggle, the bug hunt Exercise 8.2 Neve
 Level 2 conventions: the hidden Star marker for the falling apple; misses count up (never negative).
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 BIG = 1.25  # block scale: big enough for young eyes
 SPRITE = 1.0  # sprite size on the stage
@@ -58,13 +58,13 @@ def counting(first: str, count: int, every: float, delay: float) -> list:
 EPISODE = Episode(level="j2", week=8, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w08-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, game makers! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Let's play!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Our catch game is fun. But it goes on, and on, and on.", speaker=AIDEN, cue="onandon", pause=0.5),
-        B("Real games have an ending. You win, or it is game over!", speaker=AIDEN, cue="real", pause=0.5),
-        B("Today, we give our catch game a start, a goal and an ending.", speaker=AIDEN, cue="mission",
+        B("Our catch game is fun. But it goes on, and on, and on.", speaker=NARRATOR, cue="onandon", pause=0.5),
+        B("Real games have an ending. You win, or it is game over!", speaker=NARRATOR, cue="real", pause=0.5),
+        B("Today, we give our catch game a start, a goal and an ending.", speaker=NARRATOR, cue="mission",
           pause=0.5),
-        B("Ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "onandon": "confused", "real": "happy", "mission": "proud"}),
@@ -78,12 +78,12 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 2. board-game rules ------------------------------------------------------------------------------
     Scene("j2-w08-s02", setting="lavender", beats=(
-        B("Let's warm up with a game everyone knows: tic-tac-toe.", speaker=AIDEN, cue="warm", pause=0.4),
-        B("Every game has rules. Let's sort them on four cards.", speaker=AIDEN, cue="rules", pause=0.5),
-        B("Start: the grid is empty, and X goes first.", speaker=AIDEN, cue="startcard", pause=0.6),
-        B("Play: we take turns.", speaker=AIDEN, cue="play", pause=1.4),
-        B("Win: three in a row!", speaker=AIDEN, cue="win", pause=0.8),
-        B("Lose: if nobody wins, the game ends when the grid is full.", speaker=AIDEN, cue="lose", pause=0.8),
+        B("Let's warm up with a game everyone knows: tic-tac-toe.", speaker=NARRATOR, cue="warm", pause=0.4),
+        B("Every game has rules. Let's sort them on four cards.", speaker=NARRATOR, cue="rules", pause=0.5),
+        B("Start: the grid is empty, and X goes first.", speaker=NARRATOR, cue="startcard", pause=0.6),
+        B("Play: we take turns.", speaker=NARRATOR, cue="play", pause=1.4),
+        B("Win: three in a row!", speaker=NARRATOR, cue="win", pause=0.8),
+        B("Lose: if nobody wins, the game ends when the grid is full.", speaker=NARRATOR, cue="lose", pause=0.8),
     ), actions=(
         A("grid", rows=["...", "...", "..."], x=200, y=300, cell=170, at="warm",
           marks=[("startcard@0.8", 0, 0, "X"), ("play@0.3", 0, 2, "O"), ("play@0.6", 1, 1, "X"),
@@ -96,15 +96,15 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 3. never ends, ends right away ---------------------------------------------------------------
     Scene("j2-w08-s03", setting="workshop", beats=(
-        B("Now a game with no ending. We pass a ball around, and around, and around.", speaker=AIDEN,
+        B("Now a game with no ending. We pass a ball around, and around, and around.", speaker=NARRATOR,
           cue="ball", pause=0.5),
-        B("How do you win?", speaker=AIDEN, cue="how", pause=2.8),
-        B("You can't! There is no way to win, and it never stops. That is not really a game.", speaker=AIDEN,
+        B("How do you win?", speaker=NARRATOR, cue="how", pause=2.8),
+        B("You can't! There is no way to win, and it never stops. That is not really a game.", speaker=NARRATOR,
           cue="cant", pause=0.6),
-        B("Next game. The rule is: if you are wearing socks, you lose!", speaker=AIDEN, cue="socks", pause=0.5),
+        B("Next game. The rule is: if you are wearing socks, you lose!", speaker=NARRATOR, cue="socks", pause=0.5),
         B("Oh no! I lose before the game even starts!", speaker=PIXI, cue="pixi", pause=0.5),
-        B("That ending came too soon.", speaker=AIDEN, cue="soon", pause=0.4),
-        B("A game that never ends, and a game that ends right away: those are today's bugs!", speaker=AIDEN,
+        B("That ending came too soon.", speaker=NARRATOR, cue="soon", pause=0.4),
+        B("A game that never ends, and a game that ends right away: those are today's bugs!", speaker=NARRATOR,
           cue="bugs", pause=0.8),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, moods={"how": "thinking", "cant": "happy", "pixi": "surprised",
@@ -122,17 +122,17 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 4. three parts and the referee ----------------------------------------------------------------
     Scene("j2-w08-s04", setting="sky", beats=(
-        B("Real games have three parts.", speaker=AIDEN, cue="three", pause=0.4),
-        B("A start: everything is set to zero, and the player learns the goal.", speaker=AIDEN, cue="part1",
+        B("Real games have three parts.", speaker=NARRATOR, cue="three", pause=0.4),
+        B("A start: everything is set to zero, and the player learns the goal.", speaker=NARRATOR, cue="part1",
           pause=0.5),
-        B("The play: a forever loop keeps things moving.", speaker=AIDEN, cue="part2", pause=0.5),
-        B("And an ending: you win, or it is game over.", speaker=AIDEN, cue="part3", pause=0.6),
-        B("In soccer, a referee watches the whole game, and keeps checking: is it over yet?", speaker=AIDEN,
+        B("The play: a forever loop keeps things moving.", speaker=NARRATOR, cue="part2", pause=0.5),
+        B("And an ending: you win, or it is game over.", speaker=NARRATOR, cue="part3", pause=0.6),
+        B("In soccer, a referee watches the whole game, and keeps checking: is it over yet?", speaker=NARRATOR,
           cue="referee", pause=0.5),
-        B("When it is, the whistle blows, and everybody stops.", speaker=AIDEN, cue="whistle", pause=0.5),
-        B("In Scratch, the whistle is the block stop all, from orange Control.", speaker=AIDEN, cue="stopall",
+        B("When it is, the whistle blows, and everybody stops.", speaker=NARRATOR, cue="whistle", pause=0.5),
+        B("In Scratch, the whistle is the block stop all, from orange Control.", speaker=NARRATOR, cue="stopall",
           pause=0.6),
-        B("Today, the Bowl gets a referee script!", speaker=AIDEN, cue="bowl", pause=0.8),
+        B("Today, the Bowl gets a referee script!", speaker=NARRATOR, cue="bowl", pause=0.8),
     ), actions=(
         A("cards", items=["START: set to 0, say the goal", "PLAY: forever", "ENDING: win or game over"],
           x=160, y=300, w=760, gap=140, reveal=["part1", "part2", "part3"], at="part1", color="green"),
@@ -147,15 +147,15 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 5. counting misses on the Apple ----------------------------------------------------------------
     Scene("j2-w08-s05", setting="mint", beats=(
-        B("To lose, we count misses.", speaker=AIDEN, cue="misses", pause=0.4),
-        B("Click orange-red Variables, then Make a Variable. Type misses, and click OK.", speaker=AIDEN,
+        B("To lose, we count misses.", speaker=NARRATOR, cue="misses", pause=0.4),
+        B("Click orange-red Variables, then Make a Variable. Type misses, and click OK.", speaker=NARRATOR,
           cue="variable", pause=0.6),
-        B("Every apple that falls past the bowl is one miss.", speaker=AIDEN, cue="past", pause=0.5),
+        B("Every apple that falls past the bowl is one miss.", speaker=NARRATOR, cue="past", pause=0.5),
         B("Click the Apple. Inside its if touching edge, snap change misses by one, above go to Star.",
-          speaker=AIDEN, cue="apple", pause=0.8),
-        B("The apple goes back to the hidden Star marker at the top, and falls again.", speaker=AIDEN,
+          speaker=NARRATOR, cue="apple", pause=0.8),
+        B("The apple goes back to the hidden Star marker at the top, and falls again.", speaker=NARRATOR,
           cue="star", pause=0.6),
-        B("Watch the misses count up: one, two, three!", speaker=AIDEN, cue="count", pause=1.2),
+        B("Watch the misses count up: one, two, three!", speaker=NARRATOR, cue="count", pause=1.2),
     ), actions=(
         A("chip", "Variables: orange-red", at="variable", until="apple", x=560, y=330, color="orange", size=44),
         A("chip", "Make a Variable: misses", at="variable@0.5", until="apple", x=560, y=450, color="white",
@@ -174,12 +174,12 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     # 6. the referee: the start ------------------------------------------------------------------------
     Scene("j2-w08-s06", setting="mint", beats=(
         B("Now click the Bowl. From yellow Events, drag in a new when green flag clicked. This is the "
-          "referee script.", speaker=AIDEN, cue="bowl", pause=0.6),
-        B("First, the start. From Variables, snap set score to zero, and set misses to zero.", speaker=AIDEN,
+          "referee script.", speaker=NARRATOR, cue="bowl", pause=0.6),
+        B("First, the start. From Variables, snap set score to zero, and set misses to zero.", speaker=NARRATOR,
           cue="zero", pause=0.6),
         B("Then purple Looks: say Catch ten apples, for two seconds. Now the player knows the goal!",
-          speaker=AIDEN, cue="goal", pause=0.6),
-        B("Next, the play: an orange forever loop.", speaker=AIDEN, cue="forever", pause=0.8),
+          speaker=NARRATOR, cue="goal", pause=0.6),
+        B("Next, the play: an orange forever loop.", speaker=NARRATOR, cue="forever", pause=0.8),
     ), actions=(
         A("banner", "Exercise 8.1: Win and Lose", at="bowl", color="green"),
         A("scratch", "Bowl: the referee", blocks=[FLAG, SET_SCORE, SET_MISSES, GOAL, ("control", "forever", [])],
@@ -196,13 +196,13 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 7. the referee: the ending -----------------------------------------------------------------------
     Scene("j2-w08-s07", setting="lavender", beats=(
-        B("Now the ending. Inside the forever, put an if then.", speaker=AIDEN, cue="ifthen", pause=0.5),
+        B("Now the ending. Inside the forever, put an if then.", speaker=NARRATOR, cue="ifthen", pause=0.5),
         B("From green Operators, drop in an equals block. Drag the round misses into the left side, and type "
-          "three on the right.", speaker=AIDEN, cue="equals", pause=0.6),
-        B("Inside the if: say Game over for two seconds, then stop all.", speaker=AIDEN, cue="over", pause=0.6),
+          "three on the right.", speaker=NARRATOR, cue="equals", pause=0.6),
+        B("Inside the if: say Game over for two seconds, then stop all.", speaker=NARRATOR, cue="over", pause=0.6),
         B("Under it, a second if: score equals ten. Inside: say You win for two seconds, then stop all.",
-          speaker=AIDEN, cue="youwin", pause=0.6),
-        B("The forever loop keeps checking, again and again, like a referee.", speaker=AIDEN, cue="checking",
+          speaker=NARRATOR, cue="youwin", pause=0.6),
+        B("The forever loop keeps checking, again and again, like a referee.", speaker=NARRATOR, cue="checking",
           pause=0.4),
         B("Is it over yet? Is it over yet?", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -221,12 +221,12 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 8. test both endings (freeze-ball) --------------------------------------------------------------
     Scene("j2-w08-s08", setting="peach", beats=(
-        B("A good game maker tests every ending. Let's play to win!", speaker=AIDEN, cue="test", pause=0.4),
-        B("When you hear You win, jump and cheer!", speaker=AIDEN, cue="jump", pause=6.6),
-        B("Now click the flag again, and lose on purpose. When you hear Game over, freeze!", speaker=AIDEN,
+        B("A good game maker tests every ending. Let's play to win!", speaker=NARRATOR, cue="test", pause=0.4),
+        B("When you hear You win, jump and cheer!", speaker=NARRATOR, cue="jump", pause=6.6),
+        B("Now click the flag again, and lose on purpose. When you hear Game over, freeze!", speaker=NARRATOR,
           cue="lose", pause=0.4),
-        B("What will the Bowl say when misses gets to three?", speaker=AIDEN, cue="predict", pause=3.6),
-        B("Game over! Freeze! Both endings work.", speaker=AIDEN, cue="both", pause=0.4),
+        B("What will the Bowl say when misses gets to three?", speaker=NARRATOR, cue="predict", pause=3.6),
+        B("Game over! Freeze! Both endings work.", speaker=NARRATOR, cue="both", pause=0.4),
         B("Beep! I'm frozen!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("stage", x=560, y=200, w=800, h=540, at="test", flag_at="jump$", sprite="apple", sprite_scale=SPRITE,
@@ -246,14 +246,14 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 9. bug hunt: Leo -----------------------------------------------------------------------------------
     Scene("j2-w08-s09", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
         B("Leo's game ends right at the start. He clicks the flag, and it says Game over at once!",
-          speaker=AIDEN, cue="leo", pause=0.8),
-        B("Look at his if. Which block is the clue?", speaker=AIDEN, cue="clue", pause=3.0),
+          speaker=NARRATOR, cue="leo", pause=0.8),
+        B("Look at his if. Which block is the clue?", speaker=NARRATOR, cue="clue", pause=3.0),
         B("Misses equals zero! Misses start at zero, so the referee blows the whistle right away.",
-          speaker=AIDEN, cue="zero", pause=0.6),
-        B("The fix: three, not zero. Now the game waits for three misses.", speaker=AIDEN, cue="fix", pause=3.0),
-        B("It works!", speaker=AIDEN, cue="works", pause=0.8),
+          speaker=NARRATOR, cue="zero", pause=0.6),
+        B("The fix: three, not zero. Now the game waits for three misses.", speaker=NARRATOR, cue="fix", pause=3.0),
+        B("It works!", speaker=NARRATOR, cue="works", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! Never or Right Away?", at="bug", color="navy"),
         A("scratch", "Leo's game", blocks=[FLAG, SET_MISSES, ("control", "forever", [
@@ -275,14 +275,14 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 10. bug hunt: Zoe ----------------------------------------------------------------------------------
     Scene("j2-w08-s10", setting="mint", beats=(
-        B("Zoe catches ten apples, but her game never ends!", speaker=AIDEN, cue="zoe", pause=3.8),
-        B("Look where her if score equals ten is.", speaker=AIDEN, cue="where", pause=3.0),
+        B("Zoe catches ten apples, but her game never ends!", speaker=NARRATOR, cue="zoe", pause=3.8),
+        B("Look where her if score equals ten is.", speaker=NARRATOR, cue="where", pause=3.0),
         B("It sits above the forever loop. So it checks only once, at the very start, when the score is zero.",
-          speaker=AIDEN, cue="above", pause=0.6),
-        B("The fix: drag the if back inside the forever, under the misses check.", speaker=AIDEN, cue="fix",
+          speaker=NARRATOR, cue="above", pause=0.6),
+        B("The fix: drag the if back inside the forever, under the misses check.", speaker=NARRATOR, cue="fix",
           pause=0.6),
-        B("Test again. Catch ten apples!", speaker=AIDEN, cue="test", pause=5.6),
-        B("You win! We fixed both bugs!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Test again. Catch ten apples!", speaker=NARRATOR, cue="test", pause=5.6),
+        B("You win! We fixed both bugs!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Bug hunters, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! Never or Right Away?", at="start", color="navy"),
@@ -305,15 +305,15 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 11. no tricks: good games end ---------------------------------------------------------------------
     Scene("j2-w08-s11", setting="workshop", beats=(
-        B("Our games end. You win, or it is game over, and then you choose what to do next.", speaker=AIDEN,
+        B("Our games end. You win, or it is game over, and then you choose what to do next.", speaker=NARRATOR,
           cue="ours", pause=0.5),
-        B("Some games on phones and tablets are made so you never want to stop.", speaker=AIDEN, cue="some",
+        B("Some games on phones and tablets are made so you never want to stop.", speaker=NARRATOR, cue="some",
           pause=0.4),
-        B("They say: You almost won! One more go! That is a trick.", speaker=AIDEN, cue="trick", pause=0.5),
-        B("A game keeps saying: You were so close, play again! What can you do?", speaker=AIDEN, cue="what",
+        B("They say: You almost won! One more go! That is a trick.", speaker=NARRATOR, cue="trick", pause=0.5),
+        B("A game keeps saying: You were so close, play again! What can you do?", speaker=NARRATOR, cue="what",
           pause=3.0),
         B("Stop anyway! Say: No thanks, I am done. Take a break, and tell a grown-up if it is hard to stop.",
-          speaker=AIDEN, cue="stop", pause=0.8),
+          speaker=NARRATOR, cue="stop", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "trick": "worried", "what": "thinking", "stop": "proud"},
           chin=("what", "stop")),
@@ -326,16 +326,16 @@ EPISODE = Episode(level="j2", week=8, scenes=(
     )),
     # 12. recap and next -------------------------------------------------------------------------------
     Scene("j2-w08-s12", setting="workshop", tail=0.8, beats=(
-        B("Say the three parts of a game with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Start!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Play!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Ending!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Say the three parts of a game with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Start!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Play!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Ending!", speaker=NARRATOR, cue="w3", pause=1.2),
         B("The start sets everything to zero. The forever keeps checking. Stop all is the final whistle.",
-          speaker=AIDEN, cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
+          speaker=NARRATOR, cue="recap", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
         B("Add misses and the referee, test both endings, then write your game rules for next week.",
-          speaker=AIDEN, cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+          speaker=NARRATOR, cue="next", pause=0.6),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

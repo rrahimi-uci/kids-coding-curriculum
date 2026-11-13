@@ -30,8 +30,8 @@ MODEL_FILES = {
 MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{name}"
 
 # Voice casting: a warm, clear narrator; an energetic young inventor; a friendly robot.
-# Aiden uses the same unprocessed narration voice as Grades 4-6. Pitch transformation made the
-# younger-track voice noticeably less natural, even with a high-quality formant-preserving filter.
+# Junior episodes use the same unprocessed narration voice as Grades 4-6. The Aiden entry remains
+# available for old cached timelines, but approved episodes show Aiden without giving him dialogue.
 NARRATION_VOICE = {"voice": "af_heart", "speed": 0.94}
 VOICES = {
     NARRATOR: NARRATION_VOICE,

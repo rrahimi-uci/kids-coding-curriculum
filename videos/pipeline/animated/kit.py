@@ -139,7 +139,7 @@ def c_rose(d: D, a: A, t0: float) -> None:
 
 
 def c_aiden(d: D, a: A, t0: float) -> None:
-    """Aiden, the junior host: the same poses and options as Rose."""
+    """Aiden, the junior scientist and builder: the same poses and options as Rose."""
     x, y = d.path(a.get("path"), (a.get("x", 300), a.get("y", 960)))
     enter = a.get("enter")
     if enter:

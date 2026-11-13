@@ -8,7 +8,7 @@ the Balloon listens for message1), giving credit for library sprites and sounds,
 wiggle break. The kit has no Ballerina sprite, so she is only named (in the next steps), not drawn.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 STAR_SCRIPT = [("event", "when this sprite clicked"), ("sound", "start sound [Pop]"), ("event", "broadcast [start]"),
@@ -25,14 +25,14 @@ SPRITE = 1.0  # sprite size on the stage
 EPISODE = Episode(level="j2", week=6, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w06-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, game makers!", speaker=PIXI, cue="hello", pause=0.5),
         B("Our games have lots of sprites now. How can one sprite tell the others when to start?",
-          speaker=AIDEN, cue="how", pause=2.6),
-        B("It sends a message!", speaker=AIDEN, cue="message", pause=0.4),
-        B("Today, we make a start button. Click it, and the whole game starts!", speaker=AIDEN, cue="mission",
+          speaker=NARRATOR, cue="how", pause=2.6),
+        B("It sends a message!", speaker=NARRATOR, cue="message", pause=0.4),
+        B("Today, we make a start button. Click it, and the whole game starts!", speaker=NARRATOR, cue="mission",
           pause=0.5),
-        B("Let's go!", speaker=AIDEN, cue="go", pause=1.0),
+        B("Let's go!", speaker=NARRATOR, cue="go", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("go", "end")],
           moods={"start": "happy", "how": "thinking", "mission": "proud"}, chin=("how$", "message")),
@@ -49,15 +49,15 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 2. the pass-the-note relay (the lesson's warm-up) ---------------------------------------------------
     Scene("j2-w06-s02", setting="workshop", beats=(
-        B("Let's warm up with a pass-the-note relay.", speaker=AIDEN, cue="relay", pause=0.4),
-        B("Each player has a listening card. You do nothing until you receive your note.", speaker=AIDEN,
+        B("Let's warm up with a pass-the-note relay.", speaker=NARRATOR, cue="relay", pause=0.4),
+        B("Each player has a listening card. You do nothing until you receive your note.", speaker=NARRATOR,
           cue="cards", pause=0.5),
-        B("Then you do your action, and pass the next note.", speaker=AIDEN, cue="pass", pause=0.5),
-        B("I hand Pixi the JUMP note.", speaker=AIDEN, cue="jump", pause=0.3),
+        B("Then you do your action, and pass the next note.", speaker=NARRATOR, cue="pass", pause=0.5),
+        B("I hand Pixi the JUMP note.", speaker=NARRATOR, cue="jump", pause=0.3),
         B("Jump! Now I pass TWIRL.", speaker=PIXI, cue="pjump", pause=0.8),
-        B("The cat twirls, and passes CLAP back to me. Clap, clap, clap!", speaker=AIDEN, cue="clap", pause=1.0),
-        B("Jump with Pixi! Twirl like the cat! Clap with me!", speaker=AIDEN, cue="move", pause=2.4),
-        B("Nobody counted seconds. Each one waited for a message.", speaker=AIDEN, cue="waited", pause=0.8),
+        B("The cat twirls, and passes CLAP back to me. Clap, clap, clap!", speaker=NARRATOR, cue="clap", pause=1.0),
+        B("Jump with Pixi! Twirl like the cat! Clap with me!", speaker=NARRATOR, cue="move", pause=2.4),
+        B("Nobody counted seconds. Each one waited for a message.", speaker=NARRATOR, cue="waited", pause=0.8),
     ), actions=(
         A("aiden", x=240, y=990, s=0.75, moods={"start": "happy", "waited": "proud"},
           point=("jump", "jump$"), wave=[("clap@0.5", "clap$+0.8"), ("move@0.7", "move$+1.6")]),
@@ -74,14 +74,14 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 3. two relay bugs ---------------------------------------------------------------------------------
     Scene("j2-w06-s03", setting="workshop", beats=(
-        B("Now two bugs. I pass a note that says HOP.", speaker=AIDEN, cue="hop", pause=0.6),
+        B("Now two bugs. I pass a note that says HOP.", speaker=NARRATOR, cue="hop", pause=0.6),
         B("Hmm. Nobody has a HOP card.", speaker=PIXI, cue="nobody", pause=0.6),
-        B("Nothing happens! The message was sent, but nobody was listening for it.", speaker=AIDEN,
+        B("Nothing happens! The message was sent, but nobody was listening for it.", speaker=NARRATOR,
           cue="listening", pause=0.6),
-        B("Next, the note should say TWIRL, but it says SPIN. Will the cat twirl?", speaker=AIDEN, cue="spin",
+        B("Next, the note should say TWIRL, but it says SPIN. Will the cat twirl?", speaker=NARRATOR, cue="spin",
           pause=2.8),
-        B("No! The cat listens for TWIRL, so it waits and waits.", speaker=AIDEN, cue="waits", pause=0.5),
-        B("The names must match exactly. Remember both bugs for the bug hunt!", speaker=AIDEN, cue="match",
+        B("No! The cat listens for TWIRL, so it waits and waits.", speaker=NARRATOR, cue="waits", pause=0.5),
+        B("The names must match exactly. Remember both bugs for the bug hunt!", speaker=NARRATOR, cue="match",
           pause=0.8),
     ), actions=(
         A("aiden", x=240, y=990, s=0.75, moods={"start": "happy", "spin": "thinking", "match": "proud"},
@@ -98,15 +98,15 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 4. broadcast and when I receive: the school bell -----------------------------------------------
     Scene("j2-w06-s04", setting="lavender", beats=(
-        B("In Scratch, a note is called a message.", speaker=AIDEN, cue="message", pause=0.4),
-        B("One sprite broadcasts a message. That means it sends it to every sprite at once.", speaker=AIDEN,
+        B("In Scratch, a note is called a message.", speaker=NARRATOR, cue="message", pause=0.4),
+        B("One sprite broadcasts a message. That means it sends it to every sprite at once.", speaker=NARRATOR,
           cue="broadcast", pause=0.6),
         B("A script that starts with when I receive that message runs when the message arrives.",
-          speaker=AIDEN, cue="receive", pause=0.6),
-        B("Both blocks are in the yellow Events circle.", speaker=AIDEN, cue="events", pause=0.5),
+          speaker=NARRATOR, cue="receive", pause=0.6),
+        B("Both blocks are in the yellow Events circle.", speaker=NARRATOR, cue="events", pause=0.5),
         B("It is like the school bell. The whole school hears it, and everyone listening for it goes out to play.",
-          speaker=AIDEN, cue="bell", pause=0.5),
-        B("Broadcast is the bell. When I receive is a child listening for it.", speaker=AIDEN, cue="child",
+          speaker=NARRATOR, cue="bell", pause=0.5),
+        B("Broadcast is the bell. When I receive is a child listening for it.", speaker=NARRATOR, cue="child",
           pause=0.8),
     ), actions=(
         A("scratch", blocks=[("event", "broadcast [start]")], x=200, y=480, w=600, h=120, panel=False,
@@ -123,15 +123,15 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 5. build the Start Button (Exercise 6.1) -----------------------------------------------------------
     Scene("j2-w06-s05", setting="mint", beats=(
-        B("Let's build Exercise 6.1, Start Button.", speaker=AIDEN, cue="build", pause=0.4),
+        B("Let's build Exercise 6.1, Start Button.", speaker=NARRATOR, cue="build", pause=0.4),
         B("Add the Star, and drag it to the middle. It is our start button. Drag the cat to one side.",
-          speaker=AIDEN, cue="star", pause=0.6),
-        B("Star: yellow Events, when this sprite clicked. Then pink Sound, start sound Pop.", speaker=AIDEN,
+          speaker=NARRATOR, cue="star", pause=0.6),
+        B("Star: yellow Events, when this sprite clicked. Then pink Sound, start sound Pop.", speaker=NARRATOR,
           cue="clicked", pause=0.6),
         B("Yellow Events: broadcast message1. Click the little arrow, choose New message, and type start.",
-          speaker=AIDEN, cue="broadcast", pause=0.7),
-        B("Purple Looks: hide. The button goes away once the game starts.", speaker=AIDEN, cue="hide", pause=0.6),
-        B("And a second script: when green flag clicked, show. So the button comes back.", speaker=AIDEN,
+          speaker=NARRATOR, cue="broadcast", pause=0.7),
+        B("Purple Looks: hide. The button goes away once the game starts.", speaker=NARRATOR, cue="hide", pause=0.6),
+        B("And a second script: when green flag clicked, show. So the button comes back.", speaker=NARRATOR,
           cue="show", pause=0.8),
     ), actions=(
         A("banner", "Exercise 6.1: Start Button", at="build", color="green"),
@@ -149,14 +149,14 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 6. the cat listens, and the test --------------------------------------------------------------------
     Scene("j2-w06-s06", setting="sky", beats=(
-        B("Now click the cat. Yellow Events: when I receive. Pick start in its little arrow.", speaker=AIDEN,
+        B("Now click the cat. Yellow Events: when I receive. Pick start in its little arrow.", speaker=NARRATOR,
           cue="cat", pause=0.6),
         B("Snap on set rotation style left-right, say Let's play, and a forever with move ten steps, and if on "
-          "edge, bounce.", speaker=AIDEN, cue="rest", pause=0.8),
-        B("I click the green flag. Does the cat move?", speaker=AIDEN, cue="flag", pause=3.0),
-        B("No! The Star waits. Only the message starts the cat.", speaker=AIDEN, cue="no", pause=0.5),
-        B("Now I click the Star.", speaker=AIDEN, cue="click", pause=3.2),
-        B("Pop! The Star sent the message, and the cat was listening!", speaker=AIDEN, cue="listening",
+          "edge, bounce.", speaker=NARRATOR, cue="rest", pause=0.8),
+        B("I click the green flag. Does the cat move?", speaker=NARRATOR, cue="flag", pause=3.0),
+        B("No! The Star waits. Only the message starts the cat.", speaker=NARRATOR, cue="no", pause=0.5),
+        B("Now I click the Star.", speaker=NARRATOR, cue="click", pause=3.2),
+        B("Pop! The Star sent the message, and the cat was listening!", speaker=NARRATOR, cue="listening",
           pause=0.5),
         B("Let's play!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -178,11 +178,11 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 7. quick quiz: one message, many listeners ----------------------------------------------------------
     Scene("j2-w06-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("The Star broadcasts start. The cat and the ghost both have when I receive start.", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("The Star broadcasts start. The cat and the ghost both have when I receive start.", speaker=NARRATOR,
           cue="both", pause=0.5),
-        B("I click the Star. Who starts?", speaker=AIDEN, cue="who", pause=3.0),
-        B("Both of them! One message can have many listeners.", speaker=AIDEN, cue="answer", pause=0.6),
+        B("I click the Star. Who starts?", speaker=NARRATOR, cue="who", pause=3.0),
+        B("Both of them! One message can have many listeners.", speaker=NARRATOR, cue="answer", pause=0.6),
         B("Like the whole school hearing the bell!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -199,13 +199,13 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     )),
     # 8. bug hunt: Nobody Is Listening (Exercise 6.3), the symptom --------------------------------------
     Scene("j2-w06-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
-        B("Kai's game: click the Star, the balloon floats up, and the ghost says Boo.", speaker=AIDEN,
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("Kai's game: click the Star, the balloon floats up, and the ghost says Boo.", speaker=NARRATOR,
           cue="kai", pause=0.5),
-        B("Kai clicks the flag. The ghost says Boo straight away!", speaker=AIDEN, cue="flag", pause=1.2),
-        B("Kai clicks the Star. Nothing happens!", speaker=AIDEN, cue="star", pause=1.2),
-        B("The Star broadcasts go. Who is listening for go?", speaker=AIDEN, cue="who", pause=3.2),
-        B("Nobody! The ghost starts on the green flag, and the balloon listens for message1.", speaker=AIDEN,
+        B("Kai clicks the flag. The ghost says Boo straight away!", speaker=NARRATOR, cue="flag", pause=1.2),
+        B("Kai clicks the Star. Nothing happens!", speaker=NARRATOR, cue="star", pause=1.2),
+        B("The Star broadcasts go. Who is listening for go?", speaker=NARRATOR, cue="who", pause=3.2),
+        B("Nobody! The ghost starts on the green flag, and the balloon listens for message1.", speaker=NARRATOR,
           cue="nobody", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! Nobody Is Listening", at="bug", color="navy"),
@@ -225,13 +225,13 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     # 9. bug hunt: the two fixes -------------------------------------------------------------------------
     Scene("j2-w06-s09", setting="mint", beats=(
         B("Bug one: the ghost is not listening. Give its say block a new hat: when I receive go.",
-          speaker=AIDEN, cue="ghost", pause=0.6),
-        B("Bug two: the wrong name. Click the little arrow in the balloon's hat, and pick go.", speaker=AIDEN,
+          speaker=NARRATOR, cue="ghost", pause=0.6),
+        B("Bug two: the wrong name. Click the little arrow in the balloon's hat, and pick go.", speaker=NARRATOR,
           cue="balloon", pause=0.6),
-        B("Now test again. Click the flag, then the Star.", speaker=AIDEN, cue="test", pause=3.4),
-        B("The balloon floats up, and the ghost says Boo, at the same time. Both bugs fixed!", speaker=AIDEN,
+        B("Now test again. Click the flag, then the Star.", speaker=NARRATOR, cue="test", pause=3.4),
+        B("The balloon floats up, and the ghost says Boo, at the same time. Both bugs fixed!", speaker=NARRATOR,
           cue="fixed", pause=0.4),
-        B("Tip: always pick message names from the little arrow.", speaker=AIDEN, cue="tip", pause=0.4),
+        B("Tip: always pick message names from the little arrow.", speaker=NARRATOR, cue="tip", pause=0.4),
         B("Names match! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! Nobody Is Listening", color="navy"),
@@ -257,15 +257,15 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     # 10. credit for sprites and sounds we did not make --------------------------------------------------
     Scene("j2-w06-s10", setting="workshop", beats=(
         B("Who drew the cat, the ghost and the Star? Not us! Artists who work on Scratch drew them.",
-          speaker=AIDEN, cue="who", pause=0.5),
-        B("And someone recorded the Pop sound.", speaker=AIDEN, cue="pop", pause=0.5),
-        B("When we use something someone else made, we give credit: we say who made it.", speaker=AIDEN,
+          speaker=NARRATOR, cue="who", pause=0.5),
+        B("And someone recorded the Pop sound.", speaker=NARRATOR, cue="pop", pause=0.5),
+        B("When we use something someone else made, we give credit: we say who made it.", speaker=NARRATOR,
           cue="credit", pause=0.6),
-        B("A sprite in your game can say: sprites and sounds from the Scratch library.", speaker=AIDEN,
+        B("A sprite in your game can say: sprites and sounds from the Scratch library.", speaker=NARRATOR,
           cue="say", pause=0.5),
         B("If a friend draws a sprite for you, ask first, and put their nickname in the credits.",
-          speaker=AIDEN, cue="friend", pause=0.5),
-        B("What in your game did you make yourself?", speaker=AIDEN, cue="yourself", pause=2.8),
+          speaker=NARRATOR, cue="friend", pause=0.5),
+        B("What in your game did you make yourself?", speaker=NARRATOR, cue="yourself", pause=2.8),
         B("Scratch artists drew me!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=280, y=980, s=0.85, moods={"start": "happy", "yourself": "thinking", "pixi": "happy"},
@@ -283,15 +283,15 @@ EPISODE = Episode(level="j2", week=6, scenes=(
     # 11. recap, wiggle and next ---------------------------------------------------------------------
     Scene("j2-w06-s11", setting="workshop", tail=0.8, beats=(
         B("Wiggle break! When I say everyone, everybody moves, like a broadcast to every sprite. Everyone!",
-          speaker=AIDEN, cue="wiggle", pause=2.0),
-        B("Now say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Broadcast!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("When I receive!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Names match!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
+          speaker=NARRATOR, cue="wiggle", pause=2.0),
+        B("Now say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Broadcast!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("When I receive!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Names match!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
         B("Build the Start Button, pass the message from the cat to the ghost to the Ballerina, then fix "
-          "Nobody Is Listening.", speaker=AIDEN, cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+          "Nobody Is Listening.", speaker=NARRATOR, cue="next", pause=0.6),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("wiggle@0.7", "wiggle$+1.6"), ("bye", "end")],

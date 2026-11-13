@@ -16,7 +16,7 @@
    "scenes": [
     {
      "scene_id": "j3-w01-s01",
-     "narration": "Hi! I'm Aiden, and this is Pixi. Welcome back to Level 3! Beep boop! Welcome back, coders! You are real coders now. You made games with scores, messages and My Blocks. In Level 3, we make art with patterns, plan on paper, collect data, and find out how computers learn. And then, we write real code with words, in a language called Python! Today's mission: a pattern inside a pattern. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Welcome back, coders! You are real coders now. You made games with scores, messages and My Blocks. In Level 3, we make art with patterns, plan on paper, collect data, and find out how computers learn. And then, we write real code with words, in a language called Python! Today's mission: a pattern inside a pattern. Are you ready? Let's go!",
      "on_screen_text": [
       "Games • Scores • Messages • My Blocks",
       "MISSION: A pattern inside a pattern"
@@ -131,7 +131,7 @@
    "scenes": [
     {
      "scene_id": "j3-w02-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Is it party time? Almost! Last week, we made patterns inside patterns. Today, we find out how real programmers build big programs. They don't start by dragging blocks. They plan on paper first! Our mission: plan a party, then build it, one part at a time. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Is it party time? Almost! Last week, we made patterns inside patterns. Today, we find out how real programmers build big programs. They don't start by dragging blocks. They plan on paper first! Our mission: plan a party, then build it, one part at a time. Are you ready? Let's go!",
      "on_screen_text": [
       "Plan on paper first!",
       "MISSION: Plan it on paper"
@@ -241,7 +241,7 @@
    "scenes": [
     {
      "scene_id": "j3-w03-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Detective Pixi, reporting! Today, we are data detectives! Data is information we collect. We will ask one question: what is your favorite fruit? Apple, banana, orange or grapes? Then we count the answers, and draw a graph that tells their story. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Detective Pixi, reporting! Today, we are data detectives! Data is information we collect. We will ask one question: what is your favorite fruit? Apple, banana, orange or grapes? Then we count the answers, and draw a graph that tells their story. Are you ready? Let's go!",
      "on_screen_text": [
       "MISSION: Data detectives",
       "Data = information we collect",
@@ -358,7 +358,7 @@
    "scenes": [
     {
      "scene_id": "j3-w04-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! What will I learn today? Good question, Pixi! Today's big question is: how do computers learn? We don't need a computer today. We play a game instead! Pixi will be our Robot, and we will teach it with examples. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! What will I learn today? Good question, Pixi! Today's big question is: how do computers learn? We don't need a computer today. We play a game instead! Pixi will be our Robot, and we will teach it with examples. Are you ready? Let's go!",
      "on_screen_text": [
       "MISSION: Teach the Robot",
       "Learn from examples"
@@ -464,7 +464,7 @@
    "scenes": [
     {
      "scene_id": "j3-w05-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Is it Play Day? Yes! Today is Play Day! We practice everything from weeks one to four: patterns, plans, data, and how computers learn. And there's something new. Every Scratch block has a word twin, in a coding language called Python! Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Is it Play Day? Yes! Today is Play Day! We practice everything from weeks one to four: patterns, plans, data, and how computers learn. And there's something new. Every Scratch block has a word twin, in a coding language called Python! Are you ready? Let's go!",
      "on_screen_text": [
       "PLAY DAY!",
       "MISSION: Find the word twins",
@@ -576,7 +576,7 @@
    "scenes": [
     {
      "scene_id": "j3-w06-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, every Scratch block found its word twin. Today, we use the words for real, in Python! Scratch blocks can never be spelled wrong. Words can. And Python is very picky about spelling. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, coders! Last week, every Scratch block found its word twin. Today, we use the words for real, in Python! Scratch blocks can never be spelled wrong. Words can. And Python is very picky about spelling. Are you ready? Let's go!",
      "on_screen_text": [
       "t.forward(100)",
       "MISSION: Hello, Python!",
@@ -702,7 +702,7 @@
    "scenes": [
     {
      "scene_id": "j3-w07-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello again, coders! Last week, our square needed eight lines: forward, left, forward, left, again and again. In Scratch, we would use a repeat block. Python has a repeat too! It is called for. Can we make eight lines into three? Yes, we can! Let's find out how.",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello again, coders! Last week, our square needed eight lines: forward, left, forward, left, again and again. In Scratch, we would use a repeat block. Python has a repeat too! It is called for. Can we make eight lines into three? Yes, we can! Let's find out how.",
      "on_screen_text": [
       "MISSION: Repeat in Python",
       "for = repeat"
@@ -822,7 +822,7 @@
    "scenes": [
     {
      "scene_id": "j3-w08-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, our programs drew in black, with a thin pen. Today, we make them ours, with colors and thick lines! We will change a program that already works. Ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, coders! Last week, our programs drew in black, with a thin pen. Today, we make them ours, with colors and thick lines! We will change a program that already works. Ready? Let's go!",
      "on_screen_text": [
       "MISSION: Colors and my own pattern",
       "Change a working program"
@@ -948,7 +948,7 @@
    "scenes": [
     {
      "scene_id": "j3-w09-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, builders! Today is a big day. You build your own big project: your Big Build! Builders draw a plan before they build a house. Coders do too. First we plan. Then we build. Then we test. Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, builders! Today is a big day. You build your own big project: your Big Build! Builders draw a plan before they build a house. Coders do too. First we plan. Then we build. Then we test. Let's go!",
      "on_screen_text": [
       "MISSION: My Big Build",
       "Plan first, like real builders"
@@ -1060,7 +1060,7 @@
    "scenes": [
     {
      "scene_id": "j3-w10-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Today is a party! Yes! Today is our Graduation Showcase! A showcase is a little show where we share what we made. You will show your Big Build, explain one part of your code, and celebrate! Ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Today is a party! Yes! Today is our Graduation Showcase! A showcase is a little show where we share what we made. You will show your Big Build, explain one part of your code, and celebrate! Ready? Let's go!",
      "on_screen_text": [
       "MISSION: Graduation Showcase"
      ]

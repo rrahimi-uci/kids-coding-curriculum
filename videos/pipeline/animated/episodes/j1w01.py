@@ -90,7 +90,8 @@ def card_windows(steps, last):
 EPISODE = Episode(level="j1", week=1, scenes=(
     # 1. hello! -------------------------------------------------------------------------------------
     Scene("j1-w01-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Meet Aiden, an eight-year-old coder who loves making things.", speaker=NARRATOR, cue="hi", pause=0.4),
+        B("Meet Aiden, an eight-year-old scientist and builder who loves making things.", speaker=NARRATOR,
+          cue="hi", pause=0.4),
         B("And meet Pixi, his helpful robot friend!", speaker=NARRATOR, cue="friend", pause=0.3),
         B("Beep boop! Hello, coders! I'm so happy to meet you!", speaker=PIXI, cue="hello", pause=0.5),
         B("Welcome to Kids Coding! In this club, you will make your own animations and games.", speaker=NARRATOR,

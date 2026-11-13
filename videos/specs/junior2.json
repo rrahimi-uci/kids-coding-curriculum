@@ -16,7 +16,7 @@
    "scenes": [
     {
      "scene_id": "j2-w01-s01",
-     "narration": "Welcome back, coders! It's me, Aiden, and my robot friend, Pixi. Beep boop! We missed you! In Level one, you were Little Robots. You made animations and greeting cards. Now, in Level two, you are Game Makers! By week ten, you will make your own arcade game and let other people play it. Today, we make a cat that bounces, and bounces, and bounces. Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! We missed you! In Level one, you were Little Robots. You made animations and greeting cards. Now, in Level two, you are Game Makers! By week ten, you will make your own arcade game and let other people play it. Today, we make a cat that bounces, and bounces, and bounces. Let's go!",
      "on_screen_text": [
       "Level 1: Little Robots",
       "Game Makers!",
@@ -134,7 +134,7 @@
    "scenes": [
     {
      "scene_id": "j2-w02-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, game makers! Last week, our sprites moved forever. Today, they learn to check something, and choose. We will make a ghost that says Boo, and a game where you catch a falling apple! Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, game makers! Last week, our sprites moved forever. Today, they learn to check something, and choose. We will make a ghost that says Boo, and a game where you catch a falling apple! Are you ready? Let's go!",
      "on_screen_text": [
       "MISSION: Catch the apple!"
      ]
@@ -269,7 +269,7 @@
    "scenes": [
     {
      "scene_id": "j2-w03-s01",
-     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Last week, we built a catch game. But how many apples did we catch? Nobody knows! The game does not remember. Today, we teach our games to keep score! Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, game makers! Last week, we built a catch game. But how many apples did we catch? Nobody knows! The game does not remember. Today, we teach our games to keep score! Let's go!",
      "on_screen_text": [
       "MISSION: Keep score"
      ]
@@ -392,7 +392,7 @@
    "scenes": [
     {
      "scene_id": "j2-w04-s01",
-     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Here is a race. Who will win? Can you tell me now? We cannot know! The die decides. Today, we make games full of surprises, with random numbers! Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, game makers! Here is a race. Who will win? Can you tell me now? We cannot know! The die decides. Today, we make games full of surprises, with random numbers! Let's go!",
      "on_screen_text": [
       "?",
       "MISSION: Surprise!",
@@ -516,7 +516,7 @@
    "scenes": [
     {
      "scene_id": "j2-w05-s01",
-     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Today is Play Day! We practice everything we know: forever, if touching, score, and random. Then you show a grown-up what you can do. Ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, game makers! Today is Play Day! We practice everything we know: forever, if touching, score, and random. Then you show a grown-up what you can do. Ready? Let's go!",
      "on_screen_text": [
       "MISSION: Play Day!",
       "Show me what you can do!"
@@ -624,7 +624,7 @@
    "scenes": [
     {
      "scene_id": "j2-w06-s01",
-     "narration": "Hi! I'm Aiden, and this is Pixi. Beep boop! Hello, game makers! Our games have lots of sprites now. How can one sprite tell the others when to start? It sends a message! Today, we make a start button. Click it, and the whole game starts! Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, game makers! Our games have lots of sprites now. How can one sprite tell the others when to start? It sends a message! Today, we make a start button. Click it, and the whole game starts! Let's go!",
      "on_screen_text": [
       "Message!",
       "MISSION: Make a start button"
@@ -733,7 +733,7 @@
    "scenes": [
     {
      "scene_id": "j2-w07-s01",
-     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Hello again! Last week, our sprites sent messages to each other. Today, we make our very own blocks, with names that we choose! Our cat will learn a new block called celebrate. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello again! Last week, our sprites sent messages to each other. Today, we make our very own blocks, with names that we choose! Our cat will learn a new block called celebrate. Are you ready? Let's go!",
      "on_screen_text": [
       "broadcast and when I receive",
       "MISSION: Make my own block"
@@ -854,7 +854,7 @@
    "scenes": [
     {
      "scene_id": "j2-w08-s01",
-     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Let's play! Our catch game is fun. But it goes on, and on, and on. Real games have an ending. You win, or it is game over! Today, we give our catch game a start, a goal and an ending. Ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Let's play! Our catch game is fun. But it goes on, and on, and on. Real games have an ending. You win, or it is game over! Today, we give our catch game a start, a goal and an ending. Ready? Let's go!",
      "on_screen_text": [
       "on and on and on...",
       "MISSION: Give my game an ending",
@@ -973,7 +973,7 @@
    "scenes": [
     {
      "scene_id": "j2-w09-s01",
-     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Today is a big day! Today, you start your very own arcade game! It can be a catch game, or a maze game. You choose! Game makers plan before they build. So let's plan first!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Today is a big day! Today, you start your very own arcade game! It can be a catch game, or a maze game. You choose! Game makers plan before they build. So let's plan first!",
      "on_screen_text": [
       "MISSION: My First Arcade Game",
       "catch game",
@@ -1093,7 +1093,7 @@
    "scenes": [
     {
      "scene_id": "j2-w10-s01",
-     "narration": "Hi, game makers! I'm Aiden, and this is Pixi. Beep boop! Welcome to the arcade! Today, our home is an arcade! At an arcade, people walk around and play games. We do three things. We show our game in one minute, we let someone play it, and we celebrate! Ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Welcome to the arcade! Today, our home is an arcade! At an arcade, people walk around and play games. We do three things. We show our game in one minute, we let someone play it, and we celebrate! Ready? Let's go!",
      "on_screen_text": [
       "MISSION: Arcade Showcase"
      ]

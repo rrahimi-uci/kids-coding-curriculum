@@ -10,7 +10,7 @@ Kit note: the stage cannot change costumes, so Pixi acts out the Ballerina's fou
 Exercise 4.3 (Mei's ballerina, too many or too few?) is named for home but not answered.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 NEXT = ("looks", "next costume")
@@ -43,12 +43,12 @@ MEOWS3 = [(f"again+{0.5 + 0.6 * i:.2f}", "say", "Meow!", 0.45) for i in range(3)
 EPISODE = Episode(level="j1", week=4, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j1-w04-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, coders! It's Aiden and Pixi again!", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, we were bug detectives: test, look, change one thing.", speaker=AIDEN, cue="last",
+        B("Last week, we were bug detectives: test, look, change one thing.", speaker=NARRATOR, cue="last",
           pause=0.5),
-        B("Today, we learn a coding superpower. It is called repeat!", speaker=AIDEN, cue="today", pause=0.4),
-        B("And we will make a ballerina dance. Are you ready to dance?", speaker=AIDEN, cue="dance", pause=1.0),
+        B("Today, we learn a coding superpower. It is called repeat!", speaker=NARRATOR, cue="today", pause=0.4),
+        B("And we will make a ballerina dance. Are you ready to dance?", speaker=NARRATOR, cue="dance", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("dance", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -60,12 +60,12 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 2. warm-up: the long way (dance along) ------------------------------------------------------------
     Scene("j1-w04-s02", setting="workshop", beats=(
-        B("Let's warm up with a dance. Stand up!", speaker=AIDEN, cue="up", pause=0.4),
-        B("Here are our dance cards, the long way. Dance with me!", speaker=AIDEN, cue="cards", pause=0.5),
-        B("Stomp, stomp, clap! Stomp, stomp, clap! Stomp, stomp, clap!", speaker=AIDEN, cue="do", pause=0.8),
-        B("Phew! That was a lot of cards!", speaker=AIDEN, cue="phew", pause=0.5),
-        B("Do you see a part that happens again and again?", speaker=AIDEN, cue="again", pause=3.0),
-        B("Yes! Stomp, stomp, clap. Three times!", speaker=AIDEN, cue="yes", pause=0.8),
+        B("Let's warm up with a dance. Stand up!", speaker=NARRATOR, cue="up", pause=0.4),
+        B("Here are our dance cards, the long way. Dance with me!", speaker=NARRATOR, cue="cards", pause=0.5),
+        B("Stomp, stomp, clap! Stomp, stomp, clap! Stomp, stomp, clap!", speaker=NARRATOR, cue="do", pause=0.8),
+        B("Phew! That was a lot of cards!", speaker=NARRATOR, cue="phew", pause=0.5),
+        B("Do you see a part that happens again and again?", speaker=NARRATOR, cue="again", pause=3.0),
+        B("Yes! Stomp, stomp, clap. Three times!", speaker=NARRATOR, cue="yes", pause=0.8),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("up", "up$"), ("do", "do$")],
           moods={"start": "happy", "phew": "surprised", "again": "thinking", "yes": "proud"},
@@ -82,13 +82,13 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 3. warm-up: the REPEAT card, too many and too few ------------------------------------------------
     Scene("j1-w04-s03", setting="workshop", beats=(
-        B("So we put stomp, stomp, clap inside a loop, with a REPEAT card on top.", speaker=AIDEN, cue="loop",
+        B("So we put stomp, stomp, clap inside a loop, with a REPEAT card on top.", speaker=NARRATOR, cue="loop",
           pause=0.5),
-        B("REPEAT 3 says: do the steps inside the loop three times.", speaker=AIDEN, cue="three", pause=0.5),
-        B("It is the same dance, with fewer cards!", speaker=AIDEN, cue="same", pause=0.6),
-        B("Now, what if the number is ten?", speaker=AIDEN, cue="ten", pause=2.8),
-        B("Stomp, stomp, clap, on and on and on! Too many!", speaker=AIDEN, cue="many", pause=0.5),
-        B("And what if it is one? The dance is over before it starts. Too few!", speaker=AIDEN, cue="one",
+        B("REPEAT 3 says: do the steps inside the loop three times.", speaker=NARRATOR, cue="three", pause=0.5),
+        B("It is the same dance, with fewer cards!", speaker=NARRATOR, cue="same", pause=0.6),
+        B("Now, what if the number is ten?", speaker=NARRATOR, cue="ten", pause=2.8),
+        B("Stomp, stomp, clap, on and on and on! Too many!", speaker=NARRATOR, cue="many", pause=0.5),
+        B("And what if it is one? The dance is over before it starts. Too few!", speaker=NARRATOR, cue="one",
           pause=0.5),
         B("Three is the right number. Beep!", speaker=PIXI, cue="right", pause=0.8),
     ), actions=(
@@ -111,15 +111,15 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 4. the repeat block --------------------------------------------------------------------------------
     Scene("j1-w04-s04", setting="lavender", beats=(
-        B("Scratch has a repeat block too. It is in the orange Control circle.", speaker=AIDEN, cue="block",
+        B("Scratch has a repeat block too. It is in the orange Control circle.", speaker=NARRATOR, cue="block",
           pause=0.5),
-        B("It looks like a big letter C, like a hug. Can you make a C with your hand?", speaker=AIDEN, cue="c",
+        B("It looks like a big letter C, like a hug. Can you make a C with your hand?", speaker=NARRATOR, cue="c",
           pause=2.2),
-        B("The blocks inside the C run again and again. The number says how many times.", speaker=AIDEN,
+        B("The blocks inside the C run again and again. The number says how many times.", speaker=NARRATOR,
           cue="inside", pause=0.6),
         B("It's like brushing your teeth. A grown-up does not say: brush, brush, brush, brush, brush.",
-          speaker=AIDEN, cue="brush", pause=0.4),
-        B("They say: brush ten times! That is a repeat.", speaker=AIDEN, cue="ten", pause=0.8),
+          speaker=NARRATOR, cue="brush", pause=0.4),
+        B("They say: brush ten times! That is a repeat.", speaker=NARRATOR, cue="ten", pause=0.8),
     ), actions=(
         A("scratch", "Control: orange", blocks=[("control", "repeat [10]", [])], x=180, y=300, w=760, h=380,
           scale=BIG, at="block", highlight=[(0, "c", "c$")]),
@@ -135,11 +135,11 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 5. costumes and animation --------------------------------------------------------------------------
     Scene("j1-w04-s05", setting="sky", beats=(
-        B("Here is one more new word: costume.", speaker=AIDEN, cue="word", pause=0.4),
+        B("Here is one more new word: costume.", speaker=NARRATOR, cue="word", pause=0.4),
         B("Sprites have costumes. A costume is a different picture of the same sprite, like a different pose.",
-          speaker=AIDEN, cue="pose", pause=0.6),
-        B("Watch Pixi change poses, again and again.", speaker=AIDEN, cue="watch", pause=4.4),
-        B("It looks like Pixi is moving! That is called animation, like a cartoon.", speaker=AIDEN, cue="anim",
+          speaker=NARRATOR, cue="pose", pause=0.6),
+        B("Watch Pixi change poses, again and again.", speaker=NARRATOR, cue="watch", pause=4.4),
+        B("It looks like Pixi is moving! That is called animation, like a cartoon.", speaker=NARRATOR, cue="anim",
           pause=0.5),
         B("Beep! I'm a cartoon!", speaker=PIXI, cue="cartoon", pause=0.8),
     ), actions=(
@@ -158,16 +158,16 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     # 6. Dance, Ballerina! the long way --------------------------------------------------------------
     Scene("j1-w04-s06", setting="mint", beats=(
         B("Let's build Dance, Ballerina! First, click Choose a Sprite, the round cat button under the stage, "
-          "and pick Ballerina.", speaker=AIDEN, cue="choose", pause=0.5),
+          "and pick Ballerina.", speaker=NARRATOR, cue="choose", pause=0.5),
         B("Click the Costumes tab. Look: she has four costumes. Four dance moves! Then click the Code tab.",
-          speaker=AIDEN, cue="costumes", pause=0.6),
-        B("Now, the yellow Events circle: when green flag clicked.", speaker=AIDEN, cue="events", pause=0.6),
+          speaker=NARRATOR, cue="costumes", pause=0.6),
+        B("Now, the yellow Events circle: when green flag clicked.", speaker=NARRATOR, cue="events", pause=0.6),
         B("Let's try the long way. Purple Looks: next costume. Orange Control: wait one seconds. And again.",
-          speaker=AIDEN, cue="long", pause=0.6),
-        B("Pixi will be our ballerina. Click the flag!", speaker=AIDEN, cue="test", pause=2.4),
-        B("Two moves. For four moves, we would need eight blocks! There is a shorter way.", speaker=AIDEN,
+          speaker=NARRATOR, cue="long", pause=0.6),
+        B("Pixi will be our ballerina. Click the flag!", speaker=NARRATOR, cue="test", pause=2.4),
+        B("Two moves. For four moves, we would need eight blocks! There is a shorter way.", speaker=NARRATOR,
           cue="eight", pause=0.6),
-        B("Drag these blocks back to the left. That deletes them.", speaker=AIDEN, cue="delete", pause=0.8),
+        B("Drag these blocks back to the left. That deletes them.", speaker=NARRATOR, cue="delete", pause=0.8),
     ), actions=(
         A("banner", "Exercise 4.1: Dance, Ballerina!", at="choose", color="green"),
         A("chip", "Choose a Sprite: Ballerina", at="choose@0.4", until="costumes", x=960, y=440, color="white",
@@ -185,13 +185,13 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     # 7. the repeat way ------------------------------------------------------------------------------
     Scene("j1-w04-s07", setting="mint", beats=(
         B("Here is the repeat way. From orange Control, drag repeat ten under the green flag block.",
-          speaker=AIDEN, cue="repeat", pause=0.6),
+          speaker=NARRATOR, cue="repeat", pause=0.6),
         B("Drag next costume into the mouth of the C. Then wait one seconds under it, still inside.",
-          speaker=AIDEN, cue="inside", pause=0.6),
-        B("Now change ten to four, for four moves.", speaker=AIDEN, cue="four", pause=0.6),
-        B("Click the green flag, and count her moves with me!", speaker=AIDEN, cue="flag", pause=0.3),
-        B("One, two, three, four!", speaker=AIDEN, cue="count", pause=1.0),
-        B("Four moves, with only three blocks! She ends in the pose where she started.", speaker=AIDEN, cue="wow",
+          speaker=NARRATOR, cue="inside", pause=0.6),
+        B("Now change ten to four, for four moves.", speaker=NARRATOR, cue="four", pause=0.6),
+        B("Click the green flag, and count her moves with me!", speaker=NARRATOR, cue="flag", pause=0.3),
+        B("One, two, three, four!", speaker=NARRATOR, cue="count", pause=1.0),
+        B("Four moves, with only three blocks! She ends in the pose where she started.", speaker=NARRATOR, cue="wow",
           pause=0.4),
         B("Beep! I love to dance!", speaker=PIXI, cue="love", pause=0.8),
     ), actions=(
@@ -216,12 +216,12 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 8. quick quiz: how many meows? -----------------------------------------------------------------
     Scene("j1-w04-s08", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("This repeat says three, around play sound Meow. How many meows will we hear?", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("This repeat says three, around play sound Meow. How many meows will we hear?", speaker=NARRATOR,
           cue="how", pause=3.2),
-        B("Three meows! The repeat says three.", speaker=AIDEN, cue="three", pause=0.5),
-        B("Now I want five meows. What do I change?", speaker=AIDEN, cue="five", pause=3.2),
-        B("Change the three to five!", speaker=AIDEN, cue="change", pause=0.4),
+        B("Three meows! The repeat says three.", speaker=NARRATOR, cue="three", pause=0.5),
+        B("Now I want five meows. What do I change?", speaker=NARRATOR, cue="five", pause=3.2),
+        B("Change the three to five!", speaker=NARRATOR, cue="change", pause=0.4),
         B("Meow, meow, meow, meow, meow!", speaker=PIXI, cue="meow", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -236,15 +236,15 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 9. bug hunt: The Noisy Cat ---------------------------------------------------------------------
     Scene("j1-w04-s09", setting="mint", beats=(
-        B("Bug hunt time! Leo wants his cat to meow three times.", speaker=AIDEN, cue="bug", pause=0.4),
-        B("Here is Leo's script. Click the cat first, so the script goes on the cat.", speaker=AIDEN, cue="leo",
+        B("Bug hunt time! Leo wants his cat to meow three times.", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("Here is Leo's script. Click the cat first, so the script goes on the cat.", speaker=NARRATOR, cue="leo",
           pause=0.5),
-        B("Test! Count the meows with me!", speaker=AIDEN, cue="test", pause=6.6),
-        B("Ten meows! Too many! The red stop sign can stop it early.", speaker=AIDEN, cue="ten", pause=0.5),
-        B("Which number do we change?", speaker=AIDEN, cue="which", pause=3.0),
-        B("The number in the repeat! Change ten to three.", speaker=AIDEN, cue="fix", pause=0.6),
-        B("Test again!", speaker=AIDEN, cue="again", pause=2.6),
-        B("One, two, three meows. Bug fixed! Like our dance with ten: too many.", speaker=AIDEN, cue="fixed",
+        B("Test! Count the meows with me!", speaker=NARRATOR, cue="test", pause=6.6),
+        B("Ten meows! Too many! The red stop sign can stop it early.", speaker=NARRATOR, cue="ten", pause=0.5),
+        B("Which number do we change?", speaker=NARRATOR, cue="which", pause=3.0),
+        B("The number in the repeat! Change ten to three.", speaker=NARRATOR, cue="fix", pause=0.6),
+        B("Test again!", speaker=NARRATOR, cue="again", pause=2.6),
+        B("One, two, three meows. Bug fixed! Like our dance with ten: too many.", speaker=NARRATOR, cue="fixed",
           pause=0.4),
         B("Ahh, nice and quiet. Beep!", speaker=PIXI, cue="quiet", pause=0.8),
     ), actions=(
@@ -269,15 +269,15 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 10. fair turns with the timer ----------------------------------------------------------------
     Scene("j1-w04-s10", setting="workshop", beats=(
-        B("When you code with a partner, the timer decides whose turn it is.", speaker=AIDEN, cue="timer",
+        B("When you code with a partner, the timer decides whose turn it is.", speaker=NARRATOR, cue="timer",
           pause=0.4),
-        B("Not who is bigger, older or faster. The timer!", speaker=AIDEN, cue="not", pause=0.5),
-        B("When the timer runs out, the Driver lets go of the mouse and says: your turn!", speaker=AIDEN,
+        B("Not who is bigger, older or faster. The timer!", speaker=NARRATOR, cue="not", pause=0.5),
+        B("When the timer runs out, the Driver lets go of the mouse and says: your turn!", speaker=NARRATOR,
           cue="turn", pause=0.4),
         B("And the Helper says: thanks!", speaker=PIXI, cue="thanks", pause=0.5),
-        B("Helpers keep their hands in their lap, and point with a finger. Nobody grabs.", speaker=AIDEN,
+        B("Helpers keep their hands in their lap, and point with a finger. Nobody grabs.", speaker=NARRATOR,
           cue="lap", pause=0.6),
-        B("Let's practice. Say it with me: your turn!", speaker=AIDEN, cue="practice", pause=1.8),
+        B("Let's practice. Say it with me: your turn!", speaker=NARRATOR, cue="practice", pause=1.8),
         B("Thanks!", speaker=PIXI, cue="thanks2", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "lap": "proud"}, point=("lap", "lap$")),
@@ -290,16 +290,16 @@ EPISODE = Episode(level="j1", week=4, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j1-w04-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Repeat!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Costume!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Animation!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("A repeat does the blocks inside it again, as many times as the number says.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Repeat!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Costume!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Animation!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("A repeat does the blocks inside it again, as many times as the number says.", speaker=NARRATOR,
           cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
         B("Make the ballerina dance, fix the Noisy Cat, then check Mei's ballerina: too many, or too few?",
-          speaker=AIDEN, cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+          speaker=NARRATOR, cue="next", pause=0.6),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),
