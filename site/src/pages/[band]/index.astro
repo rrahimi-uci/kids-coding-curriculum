@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import BandOverview from '../../components/BandOverview.astro';
+import { u, bands, bandLevels, BAND_INFO } from '../../lib/data';
+export function getStaticPaths() { return bands().map((b) => ({ params: { band: b.id }, props: { b } })); }
+const { b } = Astro.props;
+const info = BAND_INFO[b.id];
+const first = bandLevels(b.id)[0];
+const other = bands().find((x) => x.id !== b.id)!;
+const younger = b.id === 'grade-2-3';
+---
+<Base title={`${b.band_title}: ${info.short}`} description={`${info.short} for ${b.band_title} (ages ${b.ages}): ${info.blurb}`}>
+  <div class="measure stack">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('curriculum/')}>Curriculum</a></li><li aria-current="page">{b.band_title}</li></ol></nav>
+    <p class="eyebrow">{b.band_title} · ages {b.ages}</p>
+    <h1>{info.short}</h1>
+    <p class="lead">{info.blurb}</p>
+    <p>Three levels, {info.session}. Each level ends with a project your child plans, builds and shows.</p>
+    <div class="btn-row">
+      {first && <a class="btn" href={u(`${first.path}/`)}>Start Level 1 <Icon name="arrow" /></a>}
+      <a class="btn secondary" href={u('resources/setup-mac/')}>Set up the Mac</a>
+    </div>
+  </div>
+
+  <BandOverview band={b} />
+
+  <section class="measure stack" aria-labelledby="next" style="margin-top:3rem">
+    <h2 id="next">{younger ? 'After Grades 2–3' : 'Coming from Grades 2–3?'}</h2>
+    {younger
+      ? <p>Children who finish Level 3, <em>Bridge to Python</em>, carry on with <a href={u(`${other.id}/`)}>{other.band_title}</a> Level 1. Much of it will feel familiar: Scratch, loops, events and Python.</p>
+      : <p>Children who finished <a href={u(`${other.id}/`)}>{other.band_title}</a> (Kids Coding Junior) start here at Level 1, which revisits Scratch at a faster pace before moving on to Python.</p>}
+    <p>Parents: see <a href={u('parents/')}>the parent guide</a> and <a href={u('parents/#assessment')}>how progress is checked</a>.</p>
+  </section>
+</Base>

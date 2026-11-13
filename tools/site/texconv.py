@@ -42,11 +42,16 @@ CALLOUTS = {
     "bughunt": ("bughunt", "Bug hunt"),
     "selfcheck": ("selfcheck", "Self-check"),
     "vocab": ("vocab", "New words"),
+    # Grades 2-3 (junior) boxes, defined in kidscode.cls for track=junior
+    "ican": ("ican", "I can"),
+    "grownup": ("grownup", "For the grown-up"),
+    "playathome": ("playathome", "Play at home"),
 }
 CALLOUT_LABELS = {
     "tip": "Tip", "safety": "Safety", "reflection": "Reflect", "core": "Core",
     "challenge": "Challenge", "creative": "Creative", "exercise": "Exercise",
     "bughunt": "Bug hunt", "selfcheck": "Self-check", "vocab": "New words",
+    "ican": "I can", "grownup": "For the grown-up", "playathome": "Play at home (5 to 10 minutes, with a grown-up)",
 }
 SELFCHECK_TITLE = "Self-check: check off each box when it is true"
 
@@ -245,6 +250,9 @@ def extract_figures(s: str, figs: list[Figure], file_label: str) -> str:
             alt = pending or ""
         figs.append(Figure(token, "tikz" if env == "tikzpicture" else env, src, alt))
         pending = None
+        # after a control word (\par\begin{scratch}...) the token needs a space, or it joins the word
+        if re.search(r"\\[A-Za-z]+$", out[-1]):
+            out.append(" ")
         out.append(token)
     out.append(s[pos:])
     return "".join(out)
@@ -256,6 +264,32 @@ def simple_math(s: str) -> str:
     return s
 
 
+def plain_colspec(spec: str) -> str:
+    """A tabular column spec with only l columns, one per column of `spec`."""
+    s = re.sub(r"[@<>!]\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}", "", spec)   # @{..} >{..} (nested)
+    s = re.sub(r"([pmbw])\{(?:[^{}]|\{[^{}]*\})*\}", r"\1", s)                # p{3cm} -> p
+    s = re.sub(r"\*\{(\d+)\}\{([^{}]*)\}", lambda m: m.group(2) * int(m.group(1)), s)
+    return "l" * len(re.findall(r"[A-Za-z]", s.replace("|", "")))
+
+
+def simplify_tabulars(body: str, custom: set[str]) -> str:
+    """Give a plain spec to every tabular whose spec uses one of the document's own column letters."""
+    out, pos = [], 0
+    for m in re.finditer(r"\\begin\{tabular\}", body):
+        if m.start() < pos:
+            continue
+        args, end = read_args(body, m.end(), 1)
+        if not args:
+            continue
+        spec = args[0]
+        bare = re.sub(r"\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}", "", spec)  # letters outside braces
+        if set(bare) & custom:
+            out.append(body[pos:m.start()] + "\\begin{tabular}{" + plain_colspec(spec) + "}")
+            pos = end
+    out.append(body[pos:])
+    return "".join(out)
+
+
 def split_document(tex: str) -> str:
     """Standalone documents (project briefs, extras): keep the body and expand the file's own
     zero-argument macros (for example \\lvA or \\crccard) defined in its preamble."""
@@ -263,6 +297,16 @@ def split_document(tex: str) -> str:
         return tex
     pre, rest = tex.split("\\begin{document}", 1)
     body = rest.split("\\end{document}", 1)[0]
+    # Grades 2-3 cheat sheets: \cat{color}{icon}{name}{color word}{blocks} has five arguments; turn it
+    # into the four-argument row of the Grades 4-6 sheets, which expand_sheet_macros maps to a heading.
+    if re.search(r"\\newcommand\{\\cat\}\[5\]", pre):
+        body = replace_cmd(body, "cat", 5, lambda c, icon, name, tip, blocks:
+                           "\\cat{" + c + "}{" + icon + "\\ " + name + "}{" + tip + "}{" + blocks + "}")
+    # Column types the document defines for itself (\newcolumntype{S}{...}) are unknown to Pandoc,
+    # which then cannot read the table at all: use plain columns for those tables.
+    custom = set(re.findall(r"\\newcolumntype\{(\w)\}", pre))
+    if custom:
+        body = simplify_tabulars(body, custom)
     macros: dict[str, str] = {}
     for m in re.finditer(r"\\newcommand\{\\([A-Za-z]+)\}\s*\{", pre):
         j = match_brace(pre, m.end() - 1)
@@ -279,6 +323,16 @@ def expand_sheet_macros(s: str) -> str:
     s = replace_cmd(s, "sbk", 1, lambda a: "\\begin{scratch}[scale=0.58]" + a + "\\end{scratch} ")
     s = replace_cmd(s, "cshead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
     s = replace_cmd(s, "cmdhead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
+    s = replace_cmd(s, "sheethead", 1, lambda a: "\n\n\\subsection{" + a + "}\n\n")
+    # Grades 2-3 sheets: Python lines in a table cell, and indented lines inside a loop
+    s = replace_cmd(s, "pyl", 1, lambda a: "\\texttt{" + a + "}\\newline ")
+    s = replace_cmd(s, "pyin", 1, lambda a: "\\texttt{~~~~" + a + "}\\newline ")
+    # Grades 2-3 project briefs: outline stars to color in (rubric columns) ...
+    s = replace_cmd(s, "stars", 1, lambda n: "\u2606" * int(n) if n.strip().isdigit() else "")
+    s = re.sub(r"\\ostar(?![A-Za-z])", "\u2606", s)
+    # ... and big boxes to draw or write in: on the web, the box's question and room to answer
+    s = replace_cmd(s, "storybox", 1, lambda a: "\n\n\\textbf{" + a + "}\n\nLINESTOKEN3X\n\n")
+    s = replace_cmd(s, "planbox", 2, lambda a, _h: "\n\n\\textbf{" + a + "}\n\nLINESTOKEN3X\n\n")
     s = replace_cmd(s, "cat", 4, lambda c, t, tip, blocks: "\n\n\\subsection{" + t + "}\n\n" + tip + "\n\n" + blocks + "\n\n")
     s = re.sub(r"\\begin\{cmdtable\}(?:\[[^\]]*\])?\{([^}]*)\}", lambda m: "\n\n\\subsection{" + m.group(1) + "}\n\n\\begin{tabular}{ll}\n", s)
     s = s.replace("\\end{cmdtable}", "\\end{tabular}\n")
@@ -291,6 +345,10 @@ def expand_sheet_macros(s: str) -> str:
             s = s[: m.start()] + s[end:]
         s = s.replace("\\end{longtable}", "")
     s = re.sub(r"\\(begin|end)\{multicols\}(\{\d+\})?", "", s)
+    # A \multicolumn whose column spec has its own braces (>{\RaggedRight}m{...}) is beyond Pandoc,
+    # which then drops the cell, figures and all: give it a plain left-aligned spec.
+    s = replace_cmd(s, "multicolumn", 3, lambda n, spec, cell: "\\multicolumn{" + n + "}{"
+                    + ("l" if re.search(r"[{\\]", spec) else spec) + "}{" + cell + "}")
     s = replace_cmd(s, "scalebox", 2, lambda a, b: b)
     s = re.sub(r"\\(rowcolor|cellcolor|columncolor)(\[[^\]]*\])?\{[^}]*\}", "", s)
     s = re.sub(r"\\(needspace|columnbreak|pagebreak|allowbreak|raggedcolumns|nopagebreak)(\{[^}]*\})?", "", s)
@@ -360,7 +418,7 @@ def prepare(tex: str, file_label: str, week_hint: str = "") -> tuple[str, Result
     s = re.sub(r"\\end\{vocab\}", r"\\end{description}\n\\end{vocab}", s)
 
     # self-check lists: wrap items in an itemize list
-    for env in ("selfcheck", "checklist"):
+    for env in ("selfcheck", "checklist", "ican"):  # \item lists without their own itemize
         s = re.sub(r"\\begin\{" + env + r"\}", r"\\begin{" + env + r"}\n\\begin{itemize}", s)
         s = re.sub(r"\\end\{" + env + r"\}", r"\\end{itemize}\n\\end{" + env + "}", s)
 
@@ -661,18 +719,23 @@ def cleanup_selfcheck_sentences(body) -> None:
 # --------------------------------------------------------------------------- public entry point
 
 
-def convert_file(path, level: int, fig_dir, fig_url_prefix: str, exercise_pages: dict[str, str] | None = None,
+def convert_file(path, classopts: str, fig_dir, fig_url_prefix: str, exercise_pages: dict[str, str] | None = None,
                  week_hint: str = "") -> Result:
+    """Convert one LaTeX source to HTML; classopts are the level's kidscode options ("track=junior,level=1")."""
     from pathlib import Path
 
     from . import figures
 
     tex = Path(path).read_text(encoding="utf-8")
+    # Color names a standalone document defines for itself (a cheat sheet's Scratch category colors)
+    # are needed again when its figures are compiled on their own.
+    head = tex.split("\\begin{document}", 1)[0] if "\\begin{document}" in tex else ""
+    fig_preamble = "\n".join(re.findall(r"\\(?:definecolor\{[^}]*\}\{[^}]*\}\{[^}]*\}|colorlet\{[^}]*\}\{[^}]*\})", head))
     prepared, res = prepare(tex, str(path), week_hint)
     for f in res.figures:
         if f.kind == "tikz" and not f.alt:
             res.warnings.append(f"{Path(path).name}: TikZ figure without `%% alt:` text ({f.token})")
-    fig_urls = figures.render(res.figures, level, Path(fig_dir), fig_url_prefix)
+    fig_urls = figures.render(res.figures, classopts, Path(fig_dir), fig_url_prefix, fig_preamble)
     raw = run_pandoc(prepared)
     res.html = post_process(raw, res, fig_urls, exercise_pages or {})
     return res

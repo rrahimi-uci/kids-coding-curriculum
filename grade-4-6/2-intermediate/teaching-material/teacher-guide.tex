@@ -1,0 +1,579 @@
+\documentclass[level=2,teacher]{kidscode}
+% Let lines with long code words stretch a little instead of running into the margin.
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\kctitle{Teacher Guide}{Everything you need to run Level 2 at home: setup, the weekly routine, assessment, pacing and troubleshooting}
+
+\begin{teachernote}[Read this first (5 minutes)]
+Welcome back! In Level 1 your group moved from Scratch blocks to Python turtle. Level 2
+keeps that same friendly weekly rhythm, but now the children write \emph{real} programs:
+programs with their own functions, lists of things, dictionaries, files that remember
+high scores, automatic tests, and arcade games that react to keys.
+
+You do \textbf{not} need to be a programmer. Each lesson plan tells you what to say,
+what to click and what to look for, and every code answer in the Answer Key is a file
+that has been tested by a computer. Your job is to keep the session calm and curious,
+to keep time, and to ask good questions. When a child is stuck, \enquote{Let's read the
+error message together} is almost always the right first move.
+\end{teachernote}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+%% ====================================================================
+\section{1. Welcome to Level 2: what changed since Level 1}
+
+\begin{tabularx}{\linewidth}{@{}>{\bfseries\raggedright\arraybackslash}p{3.4cm}X@{}}
+\toprule
+In Level 1 & In Level 2 \\ \midrule
+Scratch, then Python & Python in Thonny every week. No Scratch. \\
+Short scripts & Programs organized into functions with \texttt{return}, with the main program under
+\texttt{if \_\_name\_\_ == "\_\_main\_\_":} (the lesson plans explain this line when it first appears). \\
+Variables & Values of different \textbf{types} (whole numbers, decimals, text, True/False), lists and dictionaries. \\
+Programs forget everything & Programs \textbf{save and load files} (week 7). \\
+\enquote{Does it look right?} & \textbf{Automatic tests} with pytest from week 8. Every exercise folder has a
+\texttt{check\_my\_work.py} the children can run themselves. \\
+Drawing pictures & Event-driven \textbf{games} (keys and timers) and generative art. \\
+Driver and navigator & Driver, navigator \textbf{and code reviewer} (section~6). \\
+Homework 10--15 min & Homework 15--20 min: Core, plus optional Challenge and Creative tiers. \\
+No placement quiz & A 15-minute \textbf{placement quiz} at the start of week 1 (section~8). \\
+\bottomrule
+\end{tabularx}
+
+\begin{tip}[What stays the same]
+The five-part session (Warm-up, Concept, Guided demo, Hands-on build, Wrap-up), the weekly
+bug hunt, unplugged activities, pair programming, creative free-build, reflection, and
+the digital-citizenship thread. Children who loved the Level 1 routine will feel at home.
+\end{tip}
+
+\subsection{The documents for Level 2}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{4.2cm}X>{\raggedright\arraybackslash}p{2.6cm}@{}}
+\toprule
+Document & What it is for & Who \\ \midrule
+Teacher Guide & This book: the big picture, setup, assessment, pacing, troubleshooting. & You \\
+Lesson Plans & One plan per session (weeks 1--12, buffers B1 and B2). Read one the day before. & You \\
+Student Workbook & One chapter per week, used during the session. & Each child \\
+Homework & One 15--20 minute set per week. & Each child \\
+Answer Key & Answers to the workbook, homework and assessments. & You (keep it away from the children) \\
+Assessments & Placement quiz, week-6 checkpoint, week-12 exit assessment. & Each child \\
+Project Brief / Project Teacher Guide & The final project (weeks 9--12). & Child / You \\
+Extras & Cheat sheet, glossary, progress tracker, parent notes, certificate. & Everyone \\
+\bottomrule
+\end{tabularx}
+
+%% ====================================================================
+\section{2. Level 2 goals}
+By the end of Level 2 each child can do the things below. The codes (L2.G1 \ldots) appear
+in every lesson plan next to the learning objectives, so you can see which goal a lesson
+builds. The CSTA codes refer to the CSTA K--12 Computer Science Standards (2017), a
+widely used list of what children should learn in computing; you do not need to look them up.
+
+\begin{longtable}{@{}>{\bfseries}p{1.4cm}p{9.6cm}>{\raggedright\arraybackslash}p{3.6cm}@{}}
+\toprule
+Code & By the end of Level 2 the student can\ldots & CSTA \\ \midrule\endhead
+L2.G1 & use clearly named variables of different types (int, float, str, bool) and f-strings & 2-AP-11 \\
+L2.G2 & combine control structures: while loops, nested loops, compound conditions & 2-AP-12 \\
+L2.G3 & write functions with parameters and return values to organize code & 2-AP-14, 2-AP-13 \\
+L2.G4 & store and process collections with lists and dictionaries & 2-AP-11, 3A-AP-14 \\
+L2.G5 & read and write text files to save and load data & 2-DA-08 \\
+L2.G6 & debug systematically (read tracebacks, print-debugging, rubber duck) and write simple tests & 2-AP-17, 2-AP-19 \\
+L2.G7 & build event-driven games and generative art with turtle & 2-AP-12, 2-AP-16 \\
+L2.G8 & plan with pseudocode/flowcharts, work in a team and act on feedback & 2-AP-10, 2-AP-15, 2-AP-18 \\
+L2.G9 & make safe, fair, private choices about data and media & 2-NI-05, 2-NI-06, 2-IC-21, 2-IC-23 \\
+\bottomrule
+\end{longtable}
+
+%% ====================================================================
+\section{3. The 12-week roadmap}
+Weeks 1--5 bring new ideas, week 6 is review and the mid-level checkpoint, weeks 7--9 bring
+more new ideas, weeks 10--11 are the final project studio, and week 12 is the showcase and
+exit assessment. The project is introduced at the end of week 9.
+
+{\small
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{5.2cm}@{}}
+\toprule
+Wk & Title & Big idea & New concepts \\ \midrule\endhead
+1 & Welcome Back, Python & Values have types; f-strings build messages. Placement quiz (15 min). & data types, f-strings, \texttt{and}/\texttt{or}/\texttt{not} \\
+2 & Functions That Give Back & \texttt{return} hands a value back; parameters make functions flexible. & \texttt{return}, docstrings, scope (light) \\
+3 & Lists: Collections of Things & A list keeps many values in order. & lists, index, \texttt{append}, \texttt{len}, \texttt{for x in list} \\
+4 & While Loops and Game Loops & Repeat until something changes; games are loops. & \texttt{while}, \texttt{break}, input validation, nested loops for pixel art \\
+5 & Dictionaries and Secret Codes & Look things up by name, not number. & dict, keys/values, \texttt{.items()}, Caesar cipher \\
+6 & Review and Checkpoint & Practice strategies for finding bugs. & tracebacks, print-debugging, rubber duck. \textbf{Checkpoint (15 min).} \\
+7 & Files: Saving Your Stuff & Files let programs remember after they close. & \texttt{open}, \texttt{with}, read/write/append, \texttt{split}/\texttt{strip} \\
+8 & Testing: Prove It Works & Tests are automatic checks that catch bugs early. & \texttt{assert}, pytest, normal and edge cases \\
+9 & Event-Driven Games & Keys and timers make things happen; collisions end games. & \texttt{onkey}, \texttt{ontimer}, game state, \texttt{distance} collision. \textbf{Project kickoff.} \\
+10 & Project Studio 1 & Plan, then build the core. & pseudocode, flowcharts, decomposition \\
+11 & Project Studio 2 & Test, playtest, polish. & tests for own functions, feedback \\
+12 & Showcase and Celebration & Share, explain, reflect. & explaining design. \textbf{Exit assessment (20 min).} \\ \midrule
+B1 & Cipher \& Puzzle Day & Unplugged encryption and logic puzzles. & (use any week) \\
+B2 & Generative Art Jam & Free-build with lists, random and functions. & (use any week) \\
+\bottomrule
+\end{longtable}}
+
+%% ====================================================================
+\section{4. Before you start: setup checklist}
+Allow about one hour, once, before week 1. Check off each line.
+
+\subsection{4.1 Thonny (on every Mac)}
+\begin{checklist}
+  \item Open Thonny and choose \menu{Help > About Thonny}. The Python version should be
+        3.10 or newer. If it is older, download the current Mac version from
+        \texttt{thonny.org} and drag it into Applications (replace the old one). No account is needed.
+  \item If macOS says Thonny \enquote{cannot be opened}, right-click (or Control-click) Thonny
+        in Applications and choose \menu{Open}, then \menu{Open} again.
+  \item \menu{Tools > Options > Interpreter}: it should say \enquote{The same interpreter which runs
+        Thonny (default)}. Leave it like that.
+  \item Make the code large enough to read: \menu{View > Increase font size} (or \keys{Cmd}\,+\,\keys{+}) until
+        everyone at the screen can read it comfortably from where they sit.
+\end{checklist}
+
+\subsection{4.2 Install pytest (once per Mac, needed from week 8)}
+pytest is a free helper that runs automatic tests. The \texttt{check\_my\_work.py} files in the
+exercise folders also use it, so install it before week 1 to save time later.
+\begin{enumerate}[itemsep=1pt]
+  \item In Thonny choose \menu{Tools > Manage packages\ldots}
+  \item Type \texttt{pytest} in the search box and click \menu{Search on PyPI}.
+  \item Click \texttt{pytest} in the results, then \menu{Install}. Wait for it to finish (a minute or two).
+  \item Close the window. Test it: open any \texttt{check\_my\_work.py} in an exercise folder and press
+        \menu{Run}. You should see a short, friendly report rather than \enquote{I need a helper called pytest}.
+\end{enumerate}
+This needs the internet once. No account, login or personal data is involved.
+
+\subsection{4.3 Copy the student folder to each Mac}
+\begin{checklist}
+  \item On your own computer, make the \textbf{student copy} of the course: in the course folder run
+        \texttt{python3 tools/student\_bundle.py -{}-level 2} (or \texttt{make student-bundle}). It creates
+        \texttt{build/\allowbreak student-bundle/\allowbreak kids-coding/}: every exercise folder \emph{without} the solutions, the
+        project starter files, the small \texttt{testing} helper that \texttt{check\_my\_work.py} needs, and a
+        \texttt{START-HERE.txt} for the child.
+  \item Copy that \texttt{kids-coding} folder (USB stick, AirDrop or a shared drive) into each child's
+        \menu{Documents} folder. Do not give children the whole course folder: it contains every answer key,
+        reference solution and teacher guide.
+  \item Level 2 lives in \texttt{kids-coding/grade-4-6/2-intermediate/}. The exercises are in
+        \texttt{exercises/week01/}, \texttt{exercises/week02/} and so on.
+  \item Each exercise folder holds:
+        \begin{itemize}[itemsep=0pt]
+          \item \texttt{README.md}: the task, in kid-friendly words;
+          \item \texttt{starter.py}: the file the child opens and edits;
+          \item \texttt{check\_my\_work.py}: open it and press Run to check the work;
+          \item \texttt{hints.md}: three hints, from a gentle nudge to almost the answer;
+          \item \texttt{test\_\ldots.py}: the checks that \texttt{check\_my\_work.py} runs. The commented reference answer
+                \texttt{solution.py} is only in \emph{your} course folder (and printed in the Answer Key), not in the student copy.
+        \end{itemize}
+  \item Keep a clean copy of the folder on your own computer or a USB stick, so a broken file can
+        always be replaced.
+\end{checklist}
+
+\subsection{4.4 Files and folders on a Mac (teach this in week 1, revisit in week 7)}
+\begin{itemize}[itemsep=1pt]
+  \item In \textbf{Finder}, show file extensions so \texttt{.py} and \texttt{.txt} are visible:
+        \menu{Finder > Settings > Advanced}, check \enquote{Show all filename extensions}.
+  \item In Thonny, open files with \menu{File > Open} and walk to
+        \menu{Documents > kids-coding > grade-4-6 > 2-intermediate > exercises > week\ldots}.
+        Thonny remembers the last folder. To open a \texttt{.txt} file (week 7), choose \enquote{all files} in the
+        file-type menu of the Open window.
+  \item Save new programs in the child's own folder with a clear name: lowercase, no spaces,
+        ending in \texttt{.py} (for example \texttt{space\_snack.py}). Never name a file
+        \texttt{turtle.py}, \texttt{random.py} or \texttt{test.py}: Python would load it instead of
+        the real module and nothing works.
+  \item A program reads and writes files \textbf{in the folder where the program is saved}. Always
+        save a new program before pressing Run (see Troubleshooting).
+\end{itemize}
+
+\subsection{4.7 Math the children may not have met yet}
+The student materials are written for children in Grades 4--5 (ages 9--11). A few ideas in Level 2 come
+from Grade 6 math or later. The workbook explains each one in a short \enquote{Math helper} box the first
+time it is needed; be ready to slow down and draw on paper when you reach them:
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Numbers below zero} (weeks 1, 7, 8, 9 and the project): turtle's \texttt{(0, 0)} is the middle of the
+        window, so left and down are negative. A number line or a thermometer drawing helps. In week 9,
+        \texttt{direction * step} uses $-1 \times 20 = -20$ for \enquote{20 steps left}.
+  \item \textbf{Remainders with \texttt{\%}} (week 5 cipher, week 9 Stamp Studio): children know division with
+        remainders; \texttt{\%} is only the remainder part. It does not mean percent.
+  \item \textbf{The average} (week 8, Exercise 8.3): add up, then divide by how many. Dividing by 0 is impossible,
+        which is the bug.
+  \item \textbf{Distance between two points} (week 9 and the project): no formula is needed. \texttt{math.dist} and
+        turtle's \texttt{distance} measure it, like a ruler. Pythagoras is not taught.
+  \item \textbf{Milliseconds} (week 9): 1000 ms make one second, so a 50 ms timer runs 20 times a second.
+\end{itemize}
+
+\subsection{4.5 What to print}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{4.8cm}X@{}}
+\toprule
+Print & When \\ \midrule
+Assessments: placement quiz & Before week 1 (one per child). \\
+Student Workbook chapter + homework set & Each week, one per child (or print the whole book at the start). \\
+Cheat sheet (2 pages) & Week 1; one per child, keep beside the keyboard. Laminate if you can. \\
+Progress tracker & Week 1; one per child plus your group page. \\
+Parent notes & Week 1; one per family (including any visiting friend's family). \\
+Assessments: checkpoint / exit & Week 6 / week 12. \\
+Project brief & Week 9 (one per child). \\
+Certificate & Week 12 (one per child). \\
+Lesson plan, Answer Key pages & For you; reading on a screen is fine. \\
+\bottomrule
+\end{tabularx}
+
+\subsection{4.6 Accessibility}
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Dyslexia-friendly edition:} every PDF also exists in a dyslexia-friendly version
+        (Lexend font, larger text, wider spacing, cream paper color, no italics). After building
+        the PDFs they are in \texttt{build/\allowbreak pdf/\allowbreak dyslexia/\allowbreak grade-4-6/2-intermediate/}. Offer it to any child
+        who prefers it; it is not a label.
+  \item \textbf{Thonny font size:} \menu{View > Increase font size}. For a lasting change use
+        \menu{Tools > Options > Theme \& Font} and choose a larger editor and Shell font.
+  \item \textbf{Color:} all course colors come from the Okabe--Ito palette, which works for the
+        common kinds of color-blindness, and games always use shape and size as well as color.
+        For extra help, macOS has color filters: \menu{System Settings > Accessibility > Display >
+        Color Filters}. \menu{Zoom} on the same page magnifies the screen.
+  \item \textbf{Keys:} if a child finds arrow keys awkward, any key can be used in a game
+        (\texttt{"a"} and \texttt{"d"}, for example). Changing keys is a great extension task.
+  \item \textbf{Reading aloud:} you may read any question, task or assessment aloud. We are
+        assessing coding, not reading.
+\end{itemize}
+
+%% ====================================================================
+\section{5. The 60-minute session}
+Every lesson plan follows this template. Your prep is about 10 minutes: read the plan, open
+the week's folder on each Mac, print the chapter and homework, set a timer.
+
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{An unplugged activity or a quick predict-the-output puzzle. Collect last week's homework questions.}
+  \timeslot{8--18}{Concept}{The one big idea of the day, with an analogy and the vocabulary box. Read the teacher script.}
+  \timeslot{18--28}{Guided demo}{You (or a confident child) type the worked example while everyone predicts what will happen. Make a deliberate mistake and fix it together.}
+  \timeslot{28--52}{Hands-on build}{Pairs work through the workbook exercises. Swap roles every 8 minutes. Bug hunt somewhere in this block. The last 5--6 minutes are creative free-build.}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell (one thing each), reflection prompt, exit ticket, hand out homework.}
+\end{timeplan}
+
+\begin{tip}[Timing rules of thumb]
+\begin{itemize}[itemsep=1pt]
+  \item Use a visible kitchen timer for the 8-minute swaps. The timer is the \enquote{bad guy}, not you.
+  \item If the demo runs long, cut the second exercise, never the wrap-up: the exit ticket tells you
+        what to do next week.
+  \item Stop at 60 minutes even if the children want more. Leaving them wanting more is a feature.
+\end{itemize}
+\end{tip}
+
+%% ====================================================================
+\section{6. Pair programming at Level 2}
+\begin{pairroles}[Three roles]
+\textbf{Driver:} has the keyboard and mouse, types, and says out loud what they are typing.\\
+\textbf{Navigator:} reads the task, thinks about the next step, spots typos, and says
+\enquote{let's run it now}. The navigator does not touch the keyboard.\\
+\textbf{Code reviewer (new in Level 2):} before each swap, the person who just navigated reads
+the code for one minute and asks two questions from the review card:
+\begin{itemize}[itemsep=0pt]
+  \item \enquote{What will this line do?} (point at one line)
+  \item \enquote{Is there a name that could be clearer?}
+  \item \enquote{What happens if the number is 0, or the list is empty?} (from week 8)
+  \item \enquote{What is one thing you did well?} (always end with this one)
+\end{itemize}
+\end{pairroles}
+
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{4 children:} two pairs. Swap driver and navigator every 8 minutes; at each swap the
+        navigator does a one-minute code review.
+  \item \textbf{3 children:} a rotating trio: driver, navigator, reviewer. Rotate every 8 minutes so
+        everyone does every role.
+  \item \textbf{1 child:} the child drives; you navigate and review. Ask questions rather than giving
+        instructions: \enquote{What should happen next?}
+  \item \textbf{Very different levels in one pair:} the less confident child drives first. The
+        navigator may only use words, never the mouse.
+  \item \textbf{Fairness:} use the swap timer every time; praise good navigating as much as good typing.
+\end{itemize}
+
+%% ====================================================================
+\section{7. The four weekly threads}
+\begin{bughunt}[Every week]
+A short broken program, usually based on the most common mistake of the day (for example
+\texttt{"5" + 5}, an \texttt{IndexError}, a loop that never ends). Children predict what goes
+wrong, run it, read the traceback, and fix it. From week 6 they name the strategy they used:
+\textbf{read the traceback} (start at the last line), \textbf{print-debugging} (print the values),
+or \textbf{rubber duck} (explain each line out loud to a toy or a partner).
+Celebrate bugs: \enquote{Great, a bug! Now we get to be detectives.}
+\end{bughunt}
+
+\begin{unplugged}[Most weeks]
+A paper or movement activity that makes an idea physical: type-sorting cards, function machines,
+a human list, a paper Caesar wheel, trace tables, a game-loop board game. They need only paper,
+pens and sticky notes. They are also your plan B if the computers misbehave.
+\end{unplugged}
+
+\begin{freebuild}[Last 5--6 minutes of the build]
+The children change the day's program in any way they like: colors from the palette, new
+shapes, a silly message, a different rule. Free-build is where many of them fall in love with
+coding; protect these minutes.
+\end{freebuild}
+
+\begin{reflection}[Wrap-up]
+One prompt each week, answered in the workbook or out loud: \enquote{What surprised you today?},
+\enquote{Which bug took longest and how did you find it?}, \enquote{What would you teach a younger
+child about lists?}. Short answers are fine. Read them: they are your best guide for next week.
+\end{reflection}
+
+%% ====================================================================
+\section{8. Assessment plan}
+Assessment in this course is \textbf{for learning}: it tells you what to do next. There are no
+grades and no rankings. Results are shared kindly and privately.
+
+\subsection{8.1 Placement quiz (start of week 1, 15 minutes)}
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{What:} 8 short questions on Level 1 Python: predict the output, fix a bug, write a
+        tiny loop. Paper and pencil, no computer. It is in the Assessments booklet.
+  \item \textbf{When:} the first 15 minutes of week 1 (the week 1 plan allows for this), or a
+        separate 15 minutes in the days before. Children new to the group (for example a friend
+        joining) take it too.
+  \item \textbf{Tell the children:} \enquote{This is not a test you pass or fail. It helps me choose
+        the right challenges for you.}
+  \item \textbf{Scoring:} use the Answer Key (Assessments section). It takes about 3 minutes per child.
+  \item \textbf{Using the results:} the decision guide in the Answer Key places each child on the
+        \textbf{support path}, the \textbf{standard path} or the \textbf{extension path}
+        (see section~9). Write the path on the progress tracker. A child can change path at any
+        time; look again after the week-6 checkpoint.
+  \item \textbf{Pairs:} pair a support-path child with a standard-path child rather than with an
+        extension-path child; the gap is smaller.
+\end{itemize}
+
+\subsection{8.2 Formative checks (every week)}
+Every lesson plan ends with a \textbf{formative check}: what to look for while the children work,
+plus one exit-ticket question with its answer. Record a quick check mark, a dash or a question mark on
+the progress tracker. Two question marks in a row on the same goal means: revisit it in the next
+warm-up or use a buffer session.
+
+\subsection{8.3 Mid-level checkpoint (week 6, about 15 minutes)}
+Covers types, functions with \texttt{return}, lists, \texttt{while} loops and dictionaries:
+predict, fix and write questions. Score it with the Answer Key, fill in the \enquote{I can} rubric
+together with each child, and adjust paths for weeks 7--12.
+
+\subsection{8.4 Exit assessment (week 12, about 20 minutes)}
+Covers files, tests and event-driven programs, with read, predict, fix, write and explain
+questions. Use it with the project rubric to fill in the final column of the progress tracker
+and to write a sentence on each certificate.
+
+\subsection{8.5 Final project rubric}
+The project is assessed on four equal criteria, each on the four-level scale
+(Just starting / Getting there / Got it / Expert):
+\begin{enumerate}[itemsep=1pt]
+  \item \textbf{Creativity:} the idea is their own and they made it fun or beautiful.
+  \item \textbf{Working code:} it runs, it does what the pitch promised, it uses the must-haves.
+  \item \textbf{Code quality and tests:} clear names, small functions, at least 3 passing tests.
+  \item \textbf{Explaining it:} they can explain how one part works and one decision they made.
+\end{enumerate}
+The full rubric and scoring are in the Project Teacher Guide. A wonderful idea that is only half
+working can still score highly: we value creativity and explanation as much as finished code.
+
+\subsection{8.6 Progress tracker}
+The progress tracker (Extras) has a page for each child (weekly log with \enquote{I can} statements)
+and a group page for you (goals L2.G1--G9 at week 6 and week 12). Fill it in during the last
+two minutes of the session, while the children write their reflection.
+
+%% ====================================================================
+\section{9. Differentiation: support and extension paths}
+Every lesson plan has a support path and an extension path. Here is the whole level on one page so
+you can plan ahead.
+
+{\small
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{6.9cm}>{\raggedright\arraybackslash}p{6.9cm}@{}}
+\toprule
+Wk & \faArrowDown\ Support path & \faArrowUp\ Extension path \\ \midrule\endhead
+1 & Keep the type-sorting cards beside the keyboard; give an f-string with blanks to fill. & Format decimals with \texttt{f"\{x:.2f\}"}; a quiz that uses \texttt{and}/\texttt{or}. \\
+2 & Use the paper function machine first; fill-in-the-blank \texttt{return} lines. & Functions that return True/False; a function that calls another function. \\
+3 & Number the cards from 0 under the human list; use \texttt{for x in list} before indexes. & Build a list with a loop, then draw a palette stripe from it; \texttt{random.shuffle}. \\
+4 & Trace table with the first rows filled in; start from a countdown. & Guessing game with a limited number of tries and \texttt{break}; pixel art from a list of strings. \\
+5 & Paper Caesar wheel beside the keyboard; dictionaries with three keys only. & A decode function; count letters with a dictionary. \\
+6 & Read the checkpoint aloud; focus on the predict questions. & Design a bug-hunt station for the others. \\
+7 & Copy the \texttt{with open(\ldots)} lines from the cheat sheet; write first, read later. & Append to a log file; load a list of scores and turn them into numbers. \\
+8 & Write tests for a given function, one \texttt{assert} at a time. & Edge-case tests; write a function to make given tests pass. \\
+9 & Do 9.1 (Etch-a-Sketch) together; play the finished meteors game and point out which parts are logic and which are drawing. & A list of falling sprites; speed up over time, lives, or a high-score file. \\
+10 & Starter template; aim for milestone M2 (core loop) only; you navigate. & Separate rules into a logic file; add levels or a menu. \\
+11 & Adapt the example tests to their functions; polish one thing. & More tests (including a file test); let players choose their keys. \\
+12 & Demo script card; show one feature; exit assessment read aloud. & Explain a design decision; help a younger sibling play. \\
+B1 & Paper cipher wheel with a partner. & Invent a cipher with a dictionary. \\
+B2 & Remix a past art exercise. & Generate art from a list of dictionaries; save a gallery. \\
+\bottomrule
+\end{longtable}}
+
+%% ====================================================================
+\section{10. The digital-citizenship thread}
+Each week has a short \textbf{safety} conversation (2--4 minutes), usually in the wrap-up. They add
+up to a real understanding of privacy, fairness and credit.
+
+{\small
+\begin{longtable}{@{}>{\bfseries}p{0.8cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{9.4cm}@{}}
+\toprule
+Wk & Theme & The key message \\ \midrule\endhead
+1 & Hero names, not real names & Personal information is anything that identifies you: name, address, school, birthday, photos. Programs use a hero name. \\
+2 & Comments for future-you & Code is read by people. Clear comments are a kindness to friends and to yourself next month. \\
+3 & Color-blind-safe palettes & About 1 in 12 boys and 1 in 200 girls see some colors differently. Design for everyone: safe colors plus shapes and labels. \\
+4 & Fair play & Good games do not trick or pressure players (no fake timers, no \enquote{pay to win}). \\
+5 & Encryption and passwords & Secrets need protecting. Never share passwords; a Caesar cipher is fun but quick to break. \\
+6 & Growth mindset & Mistakes are how programmers learn. Compare yourself with last month's you. \\
+7 & What should (not) be saved & Only save what you need. Never save other people's private information in a file. \\
+8 & Why apps need testing & Real bugs have cost money and caused problems; testing is how we earn people's trust. \\
+9 & Attribution and open licenses & Use your own art or library art; credit other people's work; check the license. \\
+10 & Splitting tasks fairly & In a team everyone gets interesting work and everyone's ideas are heard. \\
+11 & Accessibility review & Check your own game: colors, shapes, text size, key choices. \\
+12 & Showcase safety & Share with family only; no personal information on screen; nothing uploaded. \\
+\bottomrule
+\end{longtable}}
+
+\begin{safety}[Our promises (repeat in week 1)]
+No accounts, no logins, no uploading. Programs never ask for real names, ages, addresses,
+schools, photos or passwords. Projects stay on our computers and are shown to family only.
+\end{safety}
+
+%% ====================================================================
+\section{11. Troubleshooting}
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.8cm}>{\raggedright\arraybackslash}p{9.8cm}@{}}
+\toprule
+\textbf{Problem} & \textbf{What to do} \\ \midrule\endhead
+\multicolumn{2}{@{}l}{\textbf{Thonny}}\\ \midrule
+Thonny will not open (\enquote{unidentified developer}) & Control-click Thonny in Applications, choose \menu{Open}, then \menu{Open}. Or \menu{System Settings > Privacy \& Security > Open Anyway}. \\
+Nothing happens when pressing F5 & On many Macs F5 needs the \keys{fn} key. Use the green \menu{Run} button instead. \\
+\texttt{IndentationError} or red underline & Thonny uses 4 spaces. Select the lines and use \menu{Edit > Indent} / \menu{Dedent}; never mix tabs and spaces. \\
+The Shell shows a blinking cursor and nothing happens & The program is waiting for \texttt{input()}. Click in the Shell, type the answer, press \keys{return}. \\
+\texttt{AttributeError: module 'turtle' has no attribute 'Turtle'} & A file in the same folder is called \texttt{turtle.py} (or \texttt{random.py}). Rename it, and delete the \texttt{\_\_pycache\_\_} folder next to it. \\ \midrule
+\multicolumn{2}{@{}l}{\textbf{Turtle windows}}\\ \midrule
+The turtle window does not appear & It is often behind Thonny. Look for the Python rocket icon in the Dock, or press \keys{Cmd}+\keys{Tab}. \\
+The window closes at once or freezes with a spinning wheel & The program needs \texttt{turtle.done()} as its last line. Press the red \menu{Stop} button, add it, run again. \\
+\texttt{turtle.Terminator} error after closing the window & Harmless: the program was still drawing when the window closed. Press \menu{Stop}, then \menu{Run}. \\
+The game is slow or flickers & Use \texttt{screen.tracer(0)} at the start and \texttt{screen.update()} after drawing each frame (week 9). \\ \midrule
+\multicolumn{2}{@{}l}{\textbf{Keys (\texttt{onkey}) do nothing}}\\ \midrule
+No reaction at all & 1) Click the turtle window once so it has the keyboard focus. 2) Check that \texttt{screen.listen()} is called. 3) Check the key name: \texttt{"Left"}, \texttt{"Right"}, \texttt{"Up"}, \texttt{"Down"}, \texttt{"space"}, \texttt{"a"} (capital L for Left, small s for space). \\
+The function runs once at the start, then never & \texttt{onkey(jump(), "space")} calls the function straight away. Remove the parentheses: \texttt{onkey(jump, "space")}. \\ \midrule
+\multicolumn{2}{@{}l}{\textbf{Files}}\\ \midrule
+\texttt{FileNotFoundError} & The file does not exist in the folder where the program is saved. Check the spelling and extension (Finder may hide \texttt{.txt}). For high scores, catch it: \texttt{try} \ldots\ \texttt{except FileNotFoundError:} start with an empty list. \\
+The file is created somewhere strange & The program was never saved (an \enquote{untitled} program runs from the home folder). Save it first: Thonny runs a saved program in its own folder, so plain names like \texttt{"high\_scores.txt"} land next to it. The project templates and Star Catcher use \texttt{Path(\_\_file\_\_).parent} to make sure of this, wherever they are started from. \\
+All my saved data disappeared & \texttt{open(name, "w")} empties the file first. Use \texttt{"a"} to add to the end. \\ \midrule
+\multicolumn{2}{@{}l}{\textbf{pytest}}\\ \midrule
+\enquote{No module named pytest} or \enquote{I need a helper called pytest} & Install it: \menu{Tools > Manage packages\ldots}, search \texttt{pytest}, \menu{Install} (section 4.2). Then restart Thonny. \\
+Still not found after installing & \menu{Tools > Options > Interpreter} must be \enquote{The same interpreter which runs Thonny (default)}. Install again after changing it. \\
+A test says \texttt{ModuleNotFoundError} for the child's program & The test file and the program must be in the same folder, and the \texttt{import} line must match the file name without \texttt{.py}. \\ \midrule
+\multicolumn{2}{@{}l}{\textbf{Programs that never stop}}\\ \midrule
+Infinite loop: nothing happens, or the Shell fills up & Press the red \menu{Stop} button (or \keys{Ctrl}+\keys{C} in the Shell). Then find the \texttt{while} loop and check that something inside it changes so the condition can become False. A great bug hunt! \\
+\bottomrule
+\end{longtable}}
+
+%% ====================================================================
+\section{12. Pacing, buffers and holidays}
+Level 2 runs \textbf{10--12 weeks}, one session a week; weeks with no session (holidays, illness) do
+not count. Use the \textbf{12-week plan} (the 12 core sessions in order) or the \textbf{10-week plan}
+(merge weeks 4 + 5 and weeks 10 + 11, see 12.2).
+
+\subsection{12.1 Golden rules}
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Never skip weeks 6 and 12.} Week 6 is the checkpoint that tells you whether the
+        second half will work; week 12 is the showcase the children are working towards.
+  \item The two \textbf{buffer sessions} (B1 Cipher \& Puzzle Day, B2 Generative Art Jam) are
+        \textbf{optional}. Use them only when there is room inside the 12 weeks, for example in a
+        10-week plan, before a holiday or when energy is low. They need almost no preparation.
+  \item Missed a week? Do not double up and do not add weeks at the end: teach the missed week next
+        time and merge two later weeks (12.2) so the level still ends within 12 weeks.
+  \item Keep the project weeks (9--12) close together. A long break in the middle of the project
+        is the hardest gap to recover from.
+  \item After any break of two weeks or more, spend the warm-up on a 10-minute recap: a
+        predict-the-output puzzle from the last lesson and one minute of \enquote{tell me what you
+        remember}.
+\end{itemize}
+
+\subsection{12.2 Merging two weeks (10-week plan, or after lost sessions)}
+In a merged session do both warm-ups as one, teach both concepts, and do only the first exercise of
+each week; move the rest to homework.
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Weeks 4 + 5} (while and dictionaries) merge well; skip the pixel-art extension.
+  \item \textbf{Weeks 10 + 11} merge for a smaller project (milestones M1--M3 only).
+  \item \textbf{Weeks 1 + 2} (types and return) can merge instead of 4 + 5 for confident groups.
+  \item Do \textbf{not} merge weeks 7 and 8 (files and testing are both new and both needed for
+        the project), and never merge week 6 or week 12 with anything.
+\end{itemize}
+
+\subsection{12.3 Sample calendar: 12-week plan, summer 2027}
+Twelve sessions on Saturdays, skipping the holiday weekends. If you add a summer break, put it
+\emph{before} week 9, not in the middle of the project.
+
+{\small
+\begin{longtable}{@{}>{\bfseries}p{2.6cm}>{\raggedright\arraybackslash}p{4.8cm}>{\raggedright\arraybackslash}p{7.0cm}@{}}
+\toprule
+Date (2027) & Session & Notes \\ \midrule\endhead
+Sat 8 May & Week 1: Welcome Back, Python & Placement quiz in the first 15 minutes. Hand out parent notes. \\
+Sat 15 May & Week 2: Functions That Give Back & \\
+Sat 22 May & Week 3: Lists & \\
+Sat 29 May & --- (no session) & Memorial Day weekend. \\
+Sat 5 Jun & Week 4: While Loops & \\
+Sat 12 Jun & Week 5: Dictionaries & \\
+Sat 19 Jun & --- (no session) & Juneteenth. \\
+Sat 26 Jun & Week 6: Review and Checkpoint & Never skip. Update paths after the checkpoint. \\
+Sat 3 Jul & --- (no session) & July 4 weekend. Optional: B1 puzzles as a car-journey activity. \\
+Sat 10 Jul & Week 7: Files & 10-minute recap warm-up after the break. \\
+Sat 17 Jul & Week 8: Testing & \\
+Sat 24 Jul & Week 9: Event-Driven Games & Project kickoff. \\
+Sat 31 Jul & Week 10: Project Studio 1 & Milestone M1 due at the start, M2 by the end. \\
+Sat 7 Aug & Week 11: Project Studio 2 & M3 and M4. \\
+Sat 14 Aug & Week 12: Showcase and Celebration & Never skip. Invite the families. Exit assessment. \\
+\bottomrule
+\end{longtable}}
+
+\begin{teachernote}[Adapting the calendar]
+For the 10-week plan, merge weeks 4 + 5 and weeks 10 + 11: the level then ends on 31 July, and you may
+use B1 or B2 in the two free weeks if you like. Any weekday works just as well as Saturday.
+\end{teachernote}
+
+%% ====================================================================
+\section{13. Coverage}
+\subsection{13.1 Goals across the weeks}
+\textbf{I} = introduced, R = revisited, \textbf{E}\textsuperscript{+} = extended. Marks in weeks 1--5 for
+L2.G6 and L2.G8 revisit the debugging and pair work from Level 1.
+
+{\small
+\setlength{\tabcolsep}{3.2pt}
+\begin{longtable}{@{}>{\bfseries}l>{\raggedright\arraybackslash}p{3.3cm}*{12}{c}cc@{}}
+\toprule
+Goal & Short name & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & B1 & B2 \\ \midrule\endhead
+L2.G1 & types, f-strings & \cvI & \cvR & \cvR & & \cvR & \cvR & \cvE & & \cvR & \cvR & \cvR & & & \\
+L2.G2 & while, nested, and/or & \cvI & & \cvR & \cvI & \cvR & \cvR & \cvR & & \cvE & \cvR & \cvR & & \cvR & \cvR \\
+L2.G3 & functions, return & \cvR & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvE & \cvR & \cvR & & \cvR \\
+L2.G4 & lists, dictionaries & & & \cvI & \cvR & \cvE & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & & \cvR & \cvR \\
+L2.G5 & files & & & & & & & \cvI & & & \cvR & \cvE & \cvR & & \cvR \\
+L2.G6 & debugging, tests & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvR & \cvI & \cvR & \cvR & \cvE & \cvR & \cvR & \\
+L2.G7 & events, games, art & & & \cvR & \cvE & & & & & \cvI & \cvE & \cvE & \cvR & & \cvE \\
+L2.G8 & plan, team, feedback & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvI & \cvE & \cvR & \cvR & \cvR \\
+L2.G9 & safe, fair, private & \cvI & \cvR & \cvR & \cvR & \cvE & & \cvE & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \\
+\bottomrule
+\end{longtable}}
+
+\subsection{13.2 Objectives and the lessons that teach them}
+The table below is generated automatically from the lesson plans: it lists every learning
+objective and the lesson where it is taught.
+
+\kcinput{generated/coverage}
+
+%% ====================================================================
+\section{14. Spiral map: from Level 1 to Level 3}
+Big ideas come back again and again, each time a little deeper. Use this map to connect today's
+lesson with what the children already know (\enquote{Remember My Blocks in Scratch? A function
+with \texttt{return} is the same idea, grown up.}) and to see where it leads.
+
+{\small
+\begin{longtable}{@{}>{\bfseries\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedright\arraybackslash}p{4.1cm}>{\raggedright\arraybackslash}p{3.9cm}@{}}
+\toprule
+Big idea & Level 1 (what they know) & Level 2 (this level) & Level 3 (where it goes) \\ \midrule\endhead
+Sequence \& algorithms & W1 introduced (unplugged), W7 revisited in text & W2 functions, W10 pseudocode & W4--5 named algorithms, efficiency \\
+Loops & W2 repeat in Scratch, W8 \texttt{for} & W4 \texttt{while} and nested loops, W9 game loop & W4 search loops, W7 recursion \\
+Events \& conditionals & W3 events, W9 \texttt{if}/\texttt{elif} & W1 \texttt{and}/\texttt{or}, W9 \texttt{onkey}/\texttt{ontimer} & W2--3 methods that react, project \\
+Variables \& data & W4 variables, W9 \texttt{input} & W1 types, W3 lists, W5 dictionaries, W7 files & W2 attributes, W5 stacks/queues, W7 grids, W8 CSV data \\
+Abstraction / functions & W5 My Blocks, W10 \texttt{def} & W2 \texttt{return}, W8 testable functions & W2--3 classes, W10 modules \\
+Debugging \& testing & weekly bug hunts, W6 relay & W6 strategies, W8 pytest & W6 debugger, project with 5+ tests \\
+Collaboration & driver/navigator every week & code reviewer role, W10 task split & W1 git, W10 code review \\
+Art \& games & W2 pen art, W4 catch game, W10 random art & W3 palettes, W4 pixel art, W9 games & W3 shape families, W7 fractals, project \\
+Citizenship \& ethics & privacy, credit, kindness, accessibility & data privacy, encryption, fair games, attribution & git secrets, consent, bias, AI ethics, licenses \\
+\bottomrule
+\end{longtable}}
+
+\begin{tip}[Looking ahead to Level 3]
+Level 3 starts with a placement quiz on Level 2 ideas (functions, lists, dictionaries, files,
+tests). Children who finish Level 2 comfortable with the exit assessment are ready. Keep their
+final projects: Level 3 opens by putting old code under version control with git.
+\end{tip}
+
+\end{document}

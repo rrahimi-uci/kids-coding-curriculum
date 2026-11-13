@@ -1,6 +1,6 @@
 """Junior Level 3 Week 7: Repeat in Python (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week07.tex: the "Indent the line-up" warm-up
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week07.tex: the "Indent the line-up" warm-up
 (CLAP and STOMP inside the tape box, WAVE outside), the repeat twins (Scratch repeat 4 and
 `for i in range(4):`), the colon and the four spaces (the mouth of the repeat, the Tab key), the
 Exercise 7.1 worked example (range(2) becomes range(4)), the Lonely Turn bug hunt, a look at the

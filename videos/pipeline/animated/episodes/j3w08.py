@@ -1,6 +1,6 @@
 """Junior Level 3 Week 8: Colors and My Own Pattern (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week08.tex: the color-by-code warm-up
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week08.tex: the color-by-code warm-up
 (key card A, a remix, key card B with "purpel"), t.color and t.pensize as the twins of Scratch's pen
 blocks, the recipe analogy, the Exercise 8.1 worked example (black becomes blue, pen size 1 becomes 5),
 the "bleu" bug hunt with the real "bad color string" message, the Two-Color Flower starter and its

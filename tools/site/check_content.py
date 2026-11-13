@@ -97,15 +97,17 @@ def main(argv=None) -> int:
                 problems.append(f"{rel}: image with empty alt text: {im.get('src')}")
             elif "fig" in (im.get("class") or "") and len(im["alt"].strip()) < 12:
                 problems.append(f"{rel}: figure alt text too short: {im.get('src')}")
+        # Level pages live under their grade band: grade-4-6/level-1/week-03/, grade-2-3/level-1/exercises/<slug>/
         parts = rel.split("/")
-        if len(parts) == 5 and parts[0] == "levels" and parts[2] == "exercises" and "check_my_work" in raw and "On this website:" not in raw:
+        in_level = len(parts) >= 3 and parts[0].startswith("grade-") and parts[1].startswith("level-")
+        exercise = in_level and len(parts) == 5 and parts[2] == "exercises"
+        if exercise and "check_my_work" in raw and "On this website:" not in raw:
             problems.append(f"{rel}: exercise page mentions the unpublished self-check script without the explanatory note")
-        if len(parts) == 4 and parts[0] == "levels" and parts[2].startswith("week-"):
+        if in_level and len(parts) == 4 and parts[2].startswith("week-"):
             if p.objectives_li == 0:
                 problems.append(f"{rel}: lesson page has no learning objectives")
-        if len(parts) == 5 and parts[0] == "levels" and parts[2] == "exercises":
-            if p.hints < 3:
-                problems.append(f"{rel}: exercise has {p.hints} hints (need at least 3)")
+        if exercise and p.hints < 3:
+            problems.append(f"{rel}: exercise has {p.hints} hints (need at least 3)")
     print(f"content check: {pages} pages inspected", file=sys.stderr)
     if problems:
         print("CONTENT CHECK FAILED:")

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
-import { u, levels, resources, fix } from '../../lib/data';
+import { u, levels, resources, fix, levelLabel } from '../../lib/data';
 const L = levels();
 const R = resources();
 ---
@@ -20,26 +20,26 @@ const R = resources();
   <section aria-labelledby="sheets" style="margin-top:2.5rem">
     <h2 id="sheets">Cheat sheets</h2>
     <div class="grid cols-3">
-      {L.filter((l) => l.extras?.cheat_sheet).map((l) => <a class={`card accent l${l.number}`} href={u(`levels/${l.slug}/cheat-sheet/`)}><p class="small muted" style="margin:0">Level {l.number}: {l.name}</p><h3>{l.extras!.cheat_sheet.title}</h3><p class="small muted">{l.extras!.cheat_sheet.subtitle}</p></a>)}
+      {L.filter((l) => l.extras?.cheat_sheet).map((l) => <a class={`card accent l${l.number}`} href={u(`${l.path}/cheat-sheet/`)}><p class="small muted" style="margin:0">{levelLabel(l)}: {l.name}</p><h3>{l.extras!.cheat_sheet.title}</h3><p class="small muted">{l.extras!.cheat_sheet.subtitle}</p></a>)}
     </div>
   </section>
   <section aria-labelledby="gloss" style="margin-top:2.5rem">
     <h2 id="gloss">Glossary</h2>
-    <p><a class="btn" href={u('resources/glossary/')}>Open the glossary <Icon name="arrow" /></a> <span class="muted">All new words from the three levels, from A to Z.</span></p>
+    <p><a class="btn" href={u('resources/glossary/')}>Open the glossary <Icon name="arrow" /></a> <span class="muted">All new words from every level, from A to Z.</span></p>
   </section>
   <section aria-labelledby="print" style="margin-top:2.5rem">
     <h2 id="print">Print and keep</h2>
     <p class="muted measure">Progress trackers are for printing: after each session, tick one box for each "I can..." statement.</p>
     <ul class="dl-list">
       {L.filter((l) => l.extra_downloads?.['progress-tracker']).map((l) => (
-        <li><a class="btn secondary" href={fix(l.extra_downloads!['progress-tracker'].standard.url)}><Icon name="download" /> Level {l.number} progress tracker (PDF, {l.extra_downloads!['progress-tracker'].standard.kb} KB)</a></li>
+        <li><a class="btn secondary" href={fix(l.extra_downloads!['progress-tracker'].standard.url)}><Icon name="download" /> {levelLabel(l)} progress tracker (PDF, {l.extra_downloads!['progress-tracker'].standard.kb} KB)</a></li>
       ))}
     </ul>
   </section>
   <section aria-labelledby="fam" style="margin-top:2.5rem">
     <h2 id="fam">For families</h2>
     <ul>
-      {L.filter((l) => l.extras?.parent_notes).map((l) => <li><a href={u(`parents/notes/${l.slug}/`)}>Notes for families: Level {l.number}</a></li>)}
+      {L.filter((l) => l.extras?.parent_notes).map((l) => <li><a href={u(`parents/notes/${l.path}/`)}>Notes for families: {levelLabel(l)}</a></li>)}
       <li><a href={u('parents/')}>Parent information: research, slides and questions</a></li>
     </ul>
   </section>

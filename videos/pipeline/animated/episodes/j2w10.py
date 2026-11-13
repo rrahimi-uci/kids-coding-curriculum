@@ -1,6 +1,6 @@
 """Junior Level 2 Week 10: Arcade Showcase (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week10.tex: the arcade (show in one minute, let
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week10.tex: the arcade (show in one minute, let
 someone play, celebrate), the last-minute bug check (Exercise 10.1: flag twice, play to win, play to
 lose, sound on) with its most common bug (a "set misses to 0" missing at the top of the referee
 script), a design choice and the shopkeeper analogy, the worked example "A one-minute demo" with Mei's

@@ -7,14 +7,23 @@ import json
 from pathlib import Path
 from typing import Iterable
 
-LEVEL_DIRS = {1: Path("1-introduction"), 2: Path("2-intermediate"), 3: Path("3-advanced")}
+from tools import curriculum
+
+# The Grades 4-6 track (Rose and Pixi); folders and the syllabus come from curriculum.json.
+LEVEL_DIRS = {lv.number: Path(lv.dir) for lv in curriculum.levels("main")}
 LEVEL_DIR = LEVEL_DIRS[1]
+SYLLABUS = curriculum.track("main").syllabus
 MANIFEST_SCHEMA = 2
 PROJECT_WEEKS = range(10, 13)
 
 
+def week_numbers(level: int) -> range:
+    """Weeks 1..N of a Grades 4-6 level, N from curriculum.json."""
+    return range(1, curriculum.by_key(str(level)).weeks + 1)
+
+
 def common_sources(level: int) -> tuple[str, ...]:
-    return ("docs/SYLLABUS.md", str(LEVEL_DIRS[level] / "teaching-material" / "teacher-guide.tex"))
+    return (SYLLABUS, str(LEVEL_DIRS[level] / "teaching-material" / "teacher-guide.tex"))
 
 
 COMMON_SOURCES = common_sources(1)
@@ -101,7 +110,7 @@ def week_entry(repo_root: Path, week: int, level: int = 1) -> dict[str, object]:
 
 
 def build_manifest(repo_root: Path, level: int = 1) -> dict[str, object]:
-    weeks = {str(week): week_entry(repo_root, week, level) for week in range(1, 13)}
+    weeks = {str(week): week_entry(repo_root, week, level) for week in week_numbers(level)}
     return {"schema_version": MANIFEST_SCHEMA, "level": level, "algorithm": "sha256", "weeks": weeks}
 
 
@@ -149,7 +158,7 @@ def changed_files(repo_root: Path, manifest_path: Path) -> dict[int, list[str]]:
     expected = load_manifest(manifest_path)
     level = int(expected.get("level", 1))
     result: dict[int, list[str]] = {}
-    for week in range(1, 13):
+    for week in week_numbers(level):
         old = expected["weeks"][str(week)]
         new = week_entry(repo_root, week, level)
         if old["digest"] == new["digest"]:

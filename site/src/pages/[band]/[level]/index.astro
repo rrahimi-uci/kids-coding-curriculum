@@ -1,0 +1,66 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import { u, levels, fix, levelLabel } from '../../../lib/data';
+export function getStaticPaths() { return levels().map((l) => ({ params: { band: l.band, level: l.slug }, props: { l } })); }
+const { l } = Astro.props;
+const hasWeeks = l.weeks.length > 0;
+const dls = l.downloads || {};
+const name = levelLabel(l);
+---
+<Base title={`${name}: ${l.name}`} level={l.number} description={`${name} (${l.name}): ${l.languages}. Weekly lessons, exercises, homework and a final project.`}>
+  <div class={`l${l.number} stack`}>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('curriculum/')}>Curriculum</a></li><li><a href={u(`${l.band}/`)}>{l.band_title}</a></li><li aria-current="page">Level {l.number}</li></ol></nav>
+    <p class="eyebrow accent-text">{l.band_title} · Level {l.number}</p>
+    <h1>{l.name}</h1>
+    <p class="lead">{l.languages}. {l.weeks_planned} weeks, one session a week.</p>
+    <p class="measure" set:html={fix(l.tools)} />
+  </div>
+
+  <section class={`l${l.number}`} aria-labelledby="weeks" style="margin-top:2.5rem">
+    <h2 id="weeks">{hasWeeks ? 'Weekly lessons' : 'The weeks'}</h2>
+    {!hasWeeks && <p class="callout callout-tip" role="note"><span class="callout-title"><span class="callout-label">Coming soon</span></span> The lesson pages for this level are being added. The plan below shows what each week covers.</p>}
+    <ol class="week-list">
+      {(hasWeeks ? l.weeks : l.syllabus_weeks).map((w: any) => {
+        const body = (<>
+          <span class="week-num" aria-hidden="true">{w.n}</span>
+          <div><h3><span class="visually-hidden">Week {w.n}: </span><span set:html={fix(w.title)} /></h3><p set:html={fix(w.idea)} /></div>
+        </>);
+        return <li>{hasWeeks
+          ? <a class="week-item" href={u(`${l.path}/${w.slug}/`)}>{body}</a>
+          : <div class="week-item soon">{body}</div>}</li>;
+      })}
+    </ol>
+  </section>
+
+  <section class={`l${l.number}`} aria-labelledby="project" style="margin-top:2.5rem">
+    <div class="card accent">
+      <h2 id="project">Final project: {l.project_title}</h2>
+      <p set:html={fix(l.project_html.replace(/^<strong>.*?<\/strong>\s*/, ''))} />
+      {l.project && <p><a class="btn" href={u(`${l.path}/project/`)}>{l.project.zip ? 'Project brief, rubric and starter files' : 'Project brief and rubric'} <Icon name="arrow" /></a></p>}
+    </div>
+  </section>
+
+  {l.extras && (
+    <section class={`l${l.number}`} aria-labelledby="tools" style="margin-top:2.5rem">
+      <h2 id="tools">For this level</h2>
+      <div class="grid cols-3">
+        <a class="card accent" href={u(`${l.path}/cheat-sheet/`)}><h3>Cheat sheet</h3><p class="small muted">The commands and ideas of this level on one page.</p></a>
+        <a class="card accent" href={u(`resources/glossary/#${l.id}`)}><h3>Glossary</h3><p class="small muted">{l.glossary_count} words in plain language.</p></a>
+        <a class="card accent" href={u(`parents/notes/${l.path}/`)}><h3>Notes for families</h3><p class="small muted">What children learn, safety and how to help at home.</p></a>
+      </div>
+    </section>
+  )}
+
+  {(dls['student-workbook'] || dls['homework']) && (
+    <section aria-labelledby="downloads" style="margin-top:2.5rem">
+      <h2 id="downloads">Download the whole level</h2>
+      <ul class="dl-list">
+        {dls['student-workbook']?.standard && <li><a class="btn secondary" href={fix(dls['student-workbook'].standard.url)}><Icon name="download" /> Student workbook (PDF, {dls['student-workbook'].standard.kb} KB)</a></li>}
+        {dls['homework']?.standard && <li><a class="btn secondary" href={fix(dls['homework'].standard.url)}><Icon name="download" /> Homework sets (PDF, {dls['homework'].standard.kb} KB)</a></li>}
+        {dls['student-workbook']?.dyslexia && <li><a class="btn secondary" href={fix(dls['student-workbook'].dyslexia.url)}><Icon name="download" /> Student workbook, dyslexia-friendly edition (PDF, {dls['student-workbook'].dyslexia.kb} KB)</a></li>}
+        {dls['homework']?.dyslexia && <li><a class="btn secondary" href={fix(dls['homework'].dyslexia.url)}><Icon name="download" /> Homework sets, dyslexia-friendly edition (PDF, {dls['homework'].dyslexia.kb} KB)</a></li>}
+      </ul>
+    </section>
+  )}
+</Base>

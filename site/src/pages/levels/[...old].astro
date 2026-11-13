@@ -1,0 +1,27 @@
+---
+// Pages that moved when the course was split into grade bands: /levels/level-N/... is now
+// /grade-4-6/level-N/... (the old site only had the Grades 4-6 levels). Each old address keeps working
+// and sends the browser on to the new one.
+import Base from '../../layouts/Base.astro';
+import { u, levels, exercises } from '../../lib/data';
+export function getStaticPaths() {
+  const out: any[] = [];
+  for (const l of levels().filter((x) => x.track === 'main' && x.published)) {
+    const add = (rest: string) => out.push({ params: { old: `${l.slug}${rest ? '/' + rest : ''}` }, props: { to: `${l.path}/${rest ? rest + '/' : ''}`, l } });
+    add('');
+    l.weeks.forEach((w) => add(w.slug));
+    exercises(l.path).forEach((e: any) => add(`exercises/${e.slug}`));
+    if (l.project) add('project');
+    if (l.extras?.cheat_sheet) add('cheat-sheet');
+  }
+  return out;
+}
+const { to, l } = Astro.props;
+const target = u(to);
+---
+<Base title={`Moved: ${l.band_title}, Level ${l.number}`} redirect={target}>
+  <div class="measure stack">
+    <h1>This page has moved</h1>
+    <p>The levels for Grades 4–6 now live under <a href={u(`${l.band}/`)}>{l.band_title}</a>. Go to <a href={target}>the new page</a>.</p>
+  </div>
+</Base>

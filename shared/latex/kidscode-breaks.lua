@@ -1,6 +1,6 @@
 -- kidscode-breaks.lua: let long code names wrap instead of running into the margin.
 --
--- File paths and identifiers such as 1-introduction/exercises/week07/... or
+-- File paths and identifiers such as grade-4-6/1-introductory/exercises/week07/... or
 -- ModuleNotFoundError, set in the monospace font inside running text or narrow
 -- table cells, contain no spaces, so TeX cannot break them and they stick out of
 -- the margin (worst in the larger dyslexia-friendly edition).

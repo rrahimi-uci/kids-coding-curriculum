@@ -1,4 +1,4 @@
-"""Junior-track rules (Grades 2-3, docs/JUNIOR-SYLLABUS.md "Junior rules").
+"""Junior-track rules (Grades 2-3, grade-2-3/SYLLABUS.md "Junior rules").
 
 A 7-9-year-old has not met negative numbers (Grade 6), coordinates (Grade 5)
 or angles in degrees computed from 360 (Grade 4), reads slowly, and a grown-up

@@ -1,6 +1,6 @@
 """Junior Level 2 Week 9: Project Studio, My First Arcade Game (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week09.tex: planning before building on the game
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week09.tex: planning before building on the game
 plan card (Mei's sample card, never a child's answer), the paper prototype played by a partner, the five
 must-haves built one at a time like a house (floor and walls first), the worked example "Mei's Banana
 Drop: the first must-have" (the hidden Star marker; Bananas: set rotation style left-right, go to Star,

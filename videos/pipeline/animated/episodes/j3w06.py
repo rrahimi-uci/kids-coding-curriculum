@@ -1,6 +1,6 @@
 """Junior Level 3 Week 6: Hello, Python! (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week06.tex: the "Python is picky" warm-up
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week06.tex: the "Python is picky" warm-up
 cards, a tour of Thonny in simple mode (Run, Stop, Editor, Shell, turtle window), the word twins of
 the move and turn blocks, the Hello, Turtle! worked example (50 becomes 150), the typo hunt with
 Thonny's real red text (t.forwad), the picky-robot wiggle break, and saving files with clear names.

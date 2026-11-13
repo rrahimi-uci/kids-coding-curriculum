@@ -29,14 +29,15 @@ _FMT = HtmlFormatter(nowrap=True, classprefix="tok-")
 
 
 # ------------------------------------------------------------------------------------ pdf helpers
-def level_pdfs(d: str, slug: str, stems: list[str], skip: bool) -> dict:
+def level_pdfs(entry: dict, stems: list[str], skip: bool) -> dict:
+    """Copy whole-level PDFs to downloads/<band>/<level>/<id>-<stem>.pdf, e.g. grade-2-3-level-1-glossary.pdf."""
     out: dict[str, dict] = {}
     if skip:
         return out
-    pdf_map = pdfs.ensure_level_pdfs(d, stems)
+    pdf_map = pdfs.ensure_level_pdfs(entry["dir"], stems)
     for stem, variants in pdf_map.items():
         for variant, src in variants.items():
-            rel = f"downloads/{slug}/{slug}-{stem}{'-dyslexia' if variant == 'dyslexia' else ''}.pdf"
+            rel = f"downloads/{entry['path']}/{entry['id']}-{stem}{'-dyslexia' if variant == 'dyslexia' else ''}.pdf"
             dst = ROOT / "site" / "public" / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
@@ -105,22 +106,25 @@ def _highlight(code: str) -> str:
 
 def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings: list[str]) -> dict | None:
     pub = manifest["public"]
-    d, slug, n = entry["dir"], entry["slug"], entry["number"]
+    d, path, ident, label = entry["dir"], entry["path"], entry["id"], entry["label"]
     brief = ROOT / pub["project_brief"].format(dir=d)
     if not brief.exists():
         return None
-    res = texconv.convert_file(brief, n, fig_dir, f"{BASE}generated/fig/{slug}", {})
-    warnings += [f"level {n} project brief: {w}" for w in res.warnings]
-    html_dir = gen / "html" / slug
+    res = texconv.convert_file(brief, entry["classopts"], fig_dir, f"{BASE}generated/fig/{ident}", {})
+    warnings += [f"{label} project brief: {w}" for w in res.warnings]
+    html_dir = gen / "html" / path
     html_dir.mkdir(parents=True, exist_ok=True)
     (html_dir / "project.html").write_text(res.html, encoding="utf-8")
-    # starter folder (templates only)
+    toc = [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc]
+    # starter folder (templates only); some levels (Scratch projects) have none
     sdir = ROOT / pub["project_starter_dir"].format(dir=d)
-    files, readme_html = [], ""
-    dest = ROOT / "site" / "public" / "downloads" / slug / "project-starter"
+    dest = ROOT / "site" / "public" / "downloads" / path / "project-starter"
     if dest.exists():
         shutil.rmtree(dest)
-    zpath = ROOT / "site" / "public" / "downloads" / slug / f"{slug}-project-starter-files.zip"
+    if not sdir.is_dir():
+        return {"title": texconv_title(res), "toc": toc, "starter_readme": "", "starter_files": [], "zip": None}
+    files, readme_html = [], ""
+    zpath = ROOT / "site" / "public" / "downloads" / path / f"{ident}-project-starter-files.zip"
     zpath.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(sdir.rglob("*")):
@@ -135,9 +139,9 @@ def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warning
                 continue
             if f.suffix == ".py":
                 code = f.read_text(encoding="utf-8")
-                files.append({"name": rel, "html": _highlight(code), "url": f"{BASE}downloads/{slug}/project-starter/{rel}"})
+                files.append({"name": rel, "html": _highlight(code), "url": f"{BASE}downloads/{path}/project-starter/{rel}"})
             else:
-                files.append({"name": rel, "html": "", "url": f"{BASE}downloads/{slug}/project-starter/{rel}"})
+                files.append({"name": rel, "html": "", "url": f"{BASE}downloads/{path}/project-starter/{rel}"})
     # the README's own level-1 heading becomes the page section title
     soup = BeautifulSoup(readme_html, "html.parser")
     for h in soup.find_all(["h1", "h2", "h3"]):
@@ -154,9 +158,9 @@ def build_project(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warning
                     label.append(ch.extract())
                 li.append(label)
     return {
-        "title": texconv_title(res), "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc],
+        "title": texconv_title(res), "toc": toc,
         "starter_readme": str(soup), "starter_files": files,
-        "zip": {"url": f"{BASE}downloads/{slug}/{slug}-project-starter-files.zip", "kb": max(1, zpath.stat().st_size // 1024)},
+        "zip": {"url": f"{BASE}downloads/{path}/{ident}-project-starter-files.zip", "kb": max(1, zpath.stat().st_size // 1024)},
     }
 
 
@@ -167,14 +171,14 @@ def texconv_title(res) -> str:
 # ------------------------------------------------------------------------------------ extras
 def build_extras(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings: list[str]) -> dict:
     pub = manifest["public"]
-    d, slug, n = entry["dir"], entry["slug"], entry["number"]
+    d, ident, label = entry["dir"], entry["id"], entry["label"]
     out: dict = {}
-    html_dir = gen / "html" / slug
+    html_dir = gen / "html" / entry["path"]
     html_dir.mkdir(parents=True, exist_ok=True)
     for key, name in (("cheat_sheet", "cheat-sheet"), ("parent_notes", "parent-notes")):
         path = ROOT / pub[key].format(dir=d)
-        res = texconv.convert_file(path, n, fig_dir, f"{BASE}generated/fig/{slug}", {})
-        warnings += [f"level {n} {name}: {w}" for w in res.warnings]
+        res = texconv.convert_file(path, entry["classopts"], fig_dir, f"{BASE}generated/fig/{ident}", {})
+        warnings += [f"{label} {name}: {w}" for w in res.warnings]
         (html_dir / f"{name}.html").write_text(res.html, encoding="utf-8")
         out[key] = {"title": res.meta.get("title", name), "subtitle": res.meta.get("subtitle", ""),
                     "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc if lv == 2 or key == "cheat_sheet"]}

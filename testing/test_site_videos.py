@@ -32,19 +32,25 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def _add_video(folder: Path, list_name: str, key: str, stem: str, size: int) -> None:
+    (folder / f"{stem}.mp4").write_bytes(b"\x00" * size)
+    (folder / f"{stem}.jpg").write_bytes(b"jpeg")
+    (folder / f"{stem}.vtt").write_text(VTT, encoding="utf-8")
+    names = [f"{stem}.mp4", f"{stem}.jpg", f"{stem}.vtt"]
+    path = folder / list_name
+    listing = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"release": "videos", "videos": {}}
+    listing["videos"][key] = {"video": names[0], "poster": names[1], "captions": names[2], "seconds": 175.8,
+                              "bytes": size, "sha256": {name: _sha(folder / name) for name in names}}
+    path.write_text(json.dumps(listing), encoding="utf-8")
+
+
 @pytest.fixture
 def release(tmp_path, monkeypatch):
-    """A folder laid out like the release, with one video for level 1 week 2."""
+    """A folder laid out like the release: Grades 4-6 level 1 week 2 and Grades 2-3 level 1 week 3."""
     folder = tmp_path / "release"
     folder.mkdir()
-    (folder / "level1-week02.mp4").write_bytes(b"\x00" * 2_500_000)
-    (folder / "level1-week02.jpg").write_bytes(b"jpeg")
-    (folder / "level1-week02.vtt").write_text(VTT, encoding="utf-8")
-    names = ["level1-week02.mp4", "level1-week02.jpg", "level1-week02.vtt"]
-    listing = {"release": "videos", "videos": {"1-2": {
-        "video": names[0], "poster": names[1], "captions": names[2], "seconds": 175.8, "bytes": 2_500_000,
-        "sha256": {name: _sha(folder / name) for name in names}}}}
-    (folder / "videos.json").write_text(json.dumps(listing), encoding="utf-8")
+    _add_video(folder, "videos.json", "1-2", "level1-week02", 2_500_000)
+    _add_video(folder, "junior-videos.json", "j1-3", "junior1-week03", 1_000_000)
     monkeypatch.setattr(sv, "PUBLIC", tmp_path / "public" / "videos")
     monkeypatch.setattr(sv, "CACHE", tmp_path / "cache")
     monkeypatch.setenv("SITE_VIDEOS", str(folder))
@@ -62,20 +68,30 @@ def test_videos_are_copied_into_the_site_with_page_data(release) -> None:
     warnings: list[str] = []
     found = sv.collect(warnings)
     assert warnings == []
-    video = found[(1, 2)]
+    video = found[("1", 2)]
     assert video["src"] == "%BASE%videos/level1-week02.mp4"
     assert video["poster"] == "%BASE%videos/level1-week02.jpg"
     assert video["captions"] == "%BASE%videos/level1-week02.vtt"
     assert (video["minutes"], video["seconds"], video["mb"]) == (3, 176, 2.5)
     assert video["transcript"][0].startswith("Welcome back to Kids Coding!")
-    assert sorted(p.name for p in sv.PUBLIC.iterdir()) == ["level1-week02.jpg", "level1-week02.mp4",
-                                                           "level1-week02.vtt"]
+    assert found[("j1", 3)]["src"] == "%BASE%videos/junior1-week03.mp4"
+    assert sorted(p.name for p in sv.PUBLIC.iterdir()) == [
+        "junior1-week03.jpg", "junior1-week03.mp4", "junior1-week03.vtt",
+        "level1-week02.jpg", "level1-week02.mp4", "level1-week02.vtt"]
+
+
+def test_a_missing_grades_2_3_list_keeps_the_grades_4_6_videos(release) -> None:
+    (release / "junior-videos.json").unlink()
+    warnings: list[str] = []
+    found = sv.collect(warnings)
+    assert set(found) == {("1", 2)}
+    assert len(warnings) == 1 and "junior-videos.json" in warnings[0]
 
 
 def test_a_file_that_does_not_match_its_checksum_is_left_out(release) -> None:
     (release / "level1-week02.mp4").write_bytes(b"something else")
     warnings: list[str] = []
-    assert sv.collect(warnings) == {}
+    assert set(sv.collect(warnings)) == {("j1", 3)}
     assert any("level 1 week 2 left out" in w and "checksum" in w for w in warnings)
 
 

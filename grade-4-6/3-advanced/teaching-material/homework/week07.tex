@@ -1,0 +1,50 @@
+% Level 3 homework, Week 7 -- Grids, Recursion and Fractal Art
+\homeworkweek{7}{Grids, Recursion and Fractal Art}{15--20 minutes. Do Core first; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Treasure map (about 10 minutes)]
+Open \texttt{grade-4-6/3-advanced/exercises/week07/hw-treasure-map/starter.py} in Thonny and press \keys{F5}. The map is a grid:
+\texttt{\textasciitilde} water, \texttt{\textasciicircum} mountain, \texttt{.} grass, \texttt{T} treasure, \texttt{S} start.
+\begin{enumerate}[itemsep=1pt]
+  \item Finish \texttt{count\_tiles(grid, tile)}. Hint: a list has \py|.count()|, e.g. \py|["a", "b", "a"].count("a")| is 2.
+  \item Finish \texttt{neighbors(grid, row, col)}: the cells up, down, left and right -- but never off the edge of the map.
+  \item Run \texttt{check\_my\_work.py} until every check passes.
+\end{enumerate}
+\textbf{Done looks like:} the words above the map say \texttt{Treasure on this map: 2}, and the Shell prints \texttt{Next to the start: [(1, 3), (3, 3), (2, 2), (2, 4)]}. (Steps like \texttt{-1} mean \enquote{one back}: see the Math helper in workbook chapter 7.)
+
+How many neighbors does a corner cell have? \rule{1.5cm}{0.4pt} \quad A cell in the middle? \rule{1.5cm}{0.4pt}
+\end{core}
+
+\begin{challenge}[Koch snowflake]
+Open \texttt{week07/hw-koch-snowflake/starter.py}. A Koch line of depth 0 is a straight line; a Koch line of depth $n$ is \textbf{four} Koch lines of depth $n-1$, each a third as long, with turns of 60, 120, 60 degrees making a bump: \texttt{\_\_/\textbackslash\_\_}. Replace the straight line in the recursive case and run it.
+
+Fill in: depth 1 = 4 lines per side, depth 2 = \rule{1cm}{0.4pt}, depth 3 = \rule{1cm}{0.4pt}. What is the base case? \answerlines{1}
+\end{challenge}
+
+\begin{challenge}[BFS rings (stretch)]
+The workbook shows BFS starting in a corner. This time start in the \textbf{middle} square (number 1). Number the other squares in the order breadth-first search visits them. Visit neighbors in the order up, down, left, right, and remember: nearest squares first, the queue is first in, first out. Tip: write the queue as a row of numbers beside the grid and cross out each square when you take it from the front.
+
+\begin{center}
+%% alt: An empty 3 by 3 grid of squares to fill in. Only the middle square is filled in, with the number 1, as the start.
+\begin{tikzpicture}[cell/.style={draw,minimum size=0.8cm,font=\ttfamily}]
+  \foreach \r in {0,1,2} \foreach \c in {0,1,2} \node[cell] at (\c*0.8,-\r*0.8) {};
+  \node[cell,fill=kcsky!30] at (0.8,-0.8) {1};
+\end{tikzpicture}
+\end{center}
+
+Which square gets the highest number? \rule{2.5cm}{0.4pt} How many steps is it from the start? \rule{1cm}{0.4pt}
+
+Bonus: in \texttt{week07/ex-paint-bucket}, write \texttt{flood\_fill\_queue} as described in the README and make \texttt{paint} use it.
+\end{challenge}
+
+\begin{creative}[My own fractal]
+Change the fractal tree from class (\texttt{ANGLE}, \texttt{SHRINK}, colors, three branches, a leaf dot in the base case) or draw a recursive pattern of your own: squares inside squares, a spiral, circles on circles. Add a comment at the top: \texttt{\# Based on: ...} to credit the idea. Sketch it here:
+\answerspace{3.5cm}
+\end{creative}
+
+\begin{selfcheck}
+  \item I can point to the base case and the recursive case in a recursive function.
+  \item I know \texttt{grid[row][col]} means row first, then column, both from 0.
+  \item My \texttt{neighbors} function never returns a cell off the map.
+  \item If I see \texttt{RecursionError}, I check the base case first.
+\end{selfcheck}

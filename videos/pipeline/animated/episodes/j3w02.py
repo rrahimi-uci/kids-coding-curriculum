@@ -1,6 +1,6 @@
 """Junior Level 3 Week 2: Plan It on Paper (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week02.tex: the teddy-bear party planned
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week02.tex: the teddy-bear party planned
 in named parts with step lists and a job for everyone, the 3 o'clock / 4 o'clock bug, planning a
 program in parts and testing each part (the LEGO-bags analogy), the Party Time plan card and Part 1
 built and tested (Exercise 2.2), Exercise 2.3 The Silent Party (bug hunt: the message names do not

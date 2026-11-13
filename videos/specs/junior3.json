@@ -10,8 +10,8 @@
    "slug": "patterns-in-patterns",
    "title": "Patterns in Patterns",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week01.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week01.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week01.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week01.tex"
    ],
    "scenes": [
     {
@@ -125,8 +125,8 @@
    "slug": "plan-it-on-paper",
    "title": "Plan It on Paper",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week02.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week02.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week02.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week02.tex"
    ],
    "scenes": [
     {
@@ -235,8 +235,8 @@
    "slug": "data-detectives",
    "title": "Data Detectives",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week03.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week03.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week03.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week03.tex"
    ],
    "scenes": [
     {
@@ -352,8 +352,8 @@
    "slug": "how-do-computers-learn",
    "title": "How Do Computers Learn?",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week04.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week04.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week04.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week04.tex"
    ],
    "scenes": [
     {
@@ -458,8 +458,8 @@
    "slug": "play-day-blocks-to-words",
    "title": "Play Day: Blocks to Words",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week05.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week05.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week05.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week05.tex"
    ],
    "scenes": [
     {
@@ -570,8 +570,8 @@
    "slug": "hello-python",
    "title": "Hello, Python!",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week06.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week06.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week06.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week06.tex"
    ],
    "scenes": [
     {
@@ -696,8 +696,8 @@
    "slug": "repeat-in-python",
    "title": "Repeat in Python",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week07.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week07.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week07.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week07.tex"
    ],
    "scenes": [
     {
@@ -816,8 +816,8 @@
    "slug": "colors-and-my-own-pattern",
    "title": "Colors and My Own Pattern",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week08.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week08.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week08.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week08.tex"
    ],
    "scenes": [
     {
@@ -942,8 +942,8 @@
    "slug": "project-studio",
    "title": "Project Studio",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week09.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week09.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week09.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week09.tex"
    ],
    "scenes": [
     {
@@ -1054,8 +1054,8 @@
    "slug": "graduation-showcase",
    "title": "Graduation Showcase",
    "source_files": [
-    "junior/3-bridge-to-python/teaching-material/lessons/week10.tex",
-    "junior/3-bridge-to-python/teaching-material/workbook/week10.tex"
+    "grade-2-3/3-bridge-to-python/teaching-material/lessons/week10.tex",
+    "grade-2-3/3-bridge-to-python/teaching-material/workbook/week10.tex"
    ],
    "scenes": [
     {

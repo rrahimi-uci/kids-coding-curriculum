@@ -1,6 +1,6 @@
 """Junior Level 1 Week 8: Draw With the Pen (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week08.tex: walking a square on the floor grid
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week08.tex: walking a square on the floor grid
 (3 steps, a quarter turn, four times, buttons dropped with pen down), adding the Pen extension, the
 crayon on the cat's tail (pen down, pen up, erase all), a quarter turn is 90 and two make a half turn,
 Exercise 8.1 Draw a Square built step by step, a quiz on a missing pen down, stamp and the turn card

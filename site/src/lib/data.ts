@@ -29,26 +29,37 @@ export interface Week {
     transcript: string[] };
 }
 export interface Level {
-  number: number; slug: string; dir: string; name: string; languages: string; tools: string;
+  /** curriculum.json key ("1", "j1"), track id ("main", "junior") and grade band ("grade-4-6"). */
+  key: string; track: string; band: string; band_title: string; track_title: string;
+  /** slug is "level-1" inside the band; path is "grade-4-6/level-1"; id is "grade-4-6-level-1". */
+  number: number; slug: string; path: string; id: string; dir: string; weeks_planned: number;
+  name: string; languages: string; tools: string;
   goals: { code: string; text: string }[]; project_title: string; project_html: string;
   published: boolean; weeks: Week[]; downloads: Record<string, Record<string, { url: string; kb: number }>>;
   syllabus_weeks: { n: number; title: string; idea: string }[];
   project?: { title: string; toc: { level: number; id: string; text: string }[]; starter_readme: string;
-    starter_files: { name: string; html: string; url: string }[]; zip: { url: string; kb: number } } | null;
+    starter_files: { name: string; html: string; url: string }[]; zip: { url: string; kb: number } | null } | null;
   extras?: Record<string, { title: string; subtitle: string; toc: { level: number; id: string; text: string }[] }>;
   extra_downloads?: Record<string, Record<string, { url: string; kb: number }>>;
   glossary_count?: number;
 }
 export interface GlossaryEntry { term: string; key: string; where: string; meaning: string; example: string }
+/** A grade band: the track for Grades 2–3 (junior) or Grades 4–6, youngest first. */
+export interface Band { id: string; track: string; title: string; band_title: string; grades: string; ages: string; levels: string[] }
 export const levels = (): Level[] => JSON.parse(read('levels.json'));
+export const bands = (): Band[] => JSON.parse(read('bands.json'));
+export const bandLevels = (band: string): Level[] => levels().filter((l) => l.band === band);
+/** "Grades 4–6, Level 1": both bands have a Level 1, 2 and 3, so a level is always named with its band. */
+export const levelLabel = (l: Level): string => `${l.band_title}, Level ${l.number}`;
 export const siteInfo = (): { version: string; updated: string; commit: string; changelog_html?: string } =>
   JSON.parse(read('site.json'));
 export const parentsData = () => JSON.parse(read('parents.json'));
-export const weekHtml = (slug: string, weekSlug: string) => fix(read(`html/${slug}/${weekSlug}.html`));
-export const homeworkHtml = (slug: string, weekSlug: string) =>
-  fix(read(`html/${slug}/homework-${weekSlug.replace('week-', '')}.html`));
-export const levelHtml = (slug: string, name: string) => fix(read(`html/${slug}/${name}.html`));
-export const glossary = (slug: string): GlossaryEntry[] => JSON.parse(read(`glossary/${slug}.json`));
+// `path` below is a level's path, e.g. "grade-4-6/level-1"; `id` is its flat name, e.g. "grade-4-6-level-1".
+export const weekHtml = (path: string, weekSlug: string) => fix(read(`html/${path}/${weekSlug}.html`));
+export const homeworkHtml = (path: string, weekSlug: string) =>
+  fix(read(`html/${path}/homework-${weekSlug.replace('week-', '')}.html`));
+export const levelHtml = (path: string, name: string) => fix(read(`html/${path}/${name}.html`));
+export const glossary = (id: string): GlossaryEntry[] => JSON.parse(read(`glossary/${id}.json`));
 export const resources = (): { slug: string; title: string; toc: { id: string; text: string }[] }[] => JSON.parse(read('resources.json'));
 /** Absolute address of the site (with the base path), for text that people copy and paste. */
 export const siteUrl = (): string => {
@@ -56,9 +67,38 @@ export const siteUrl = (): string => {
   return origin + base();
 };
 export const resourceHtml = (slug: string) => fix(read(`html/resources/${slug}.html`)).replaceAll('%SITE%', siteUrl());
-export const exercises = (slug: string) => {
-  const dir = path.join(GEN, 'exercises', slug);
+export const exercises = (levelPath: string) => {
+  const dir = path.join(GEN, 'exercises', levelPath);
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')));
 };
 export const LEVEL_COLORS: Record<number, string> = { 1: 'l1', 2: 'l2', 3: 'l3' };
+
+/** Presentation text and the weekly rhythm of each band (see each band's SYLLABUS.md). */
+export const BAND_INFO: Record<string, { short: string; blurb: string; session: string; levelBlurb: Record<number, string>;
+  milestones: Record<number, string>; rhythm: string }> = {
+  'grade-2-3': {
+    short: 'Kids Coding Junior',
+    blurb: 'Robot games on the floor, then picture-first Scratch, and a first friendly look at Python. A grown-up reads the pages aloud.',
+    session: '45 to 60 minutes once a week, 10 weeks per level',
+    levelBlurb: {
+      1: 'Robot games on the floor, then Scratch: talking, moving, repeating and drawing with the pen.',
+      2: 'Make real Scratch games with a score, surprises, and a way to win or lose.',
+      3: 'Pattern art, data and how computers learn, then a first look at Python turtle.',
+    },
+    milestones: { 5: 'Week 5: play day and show-me checklist', 9: 'Week 9: project studio', 10: 'Week 10: showcase' },
+    rhythm: 'Weeks 1 to 4 and 6 to 8 bring new ideas. Week 5 is a play day with a show-me checklist (observed, never graded), week 9 is for the final project, and week 10 is the showcase. Two optional buffer sessions fit anywhere after week 5.',
+  },
+  'grade-4-6': {
+    short: 'Kids Coding',
+    blurb: 'Scratch blocks first, then real Python: games, art, data, Git and a first look at how AI learns.',
+    session: '60 minutes once a week, 10 to 12 weeks per level',
+    levelBlurb: {
+      1: 'Start from zero. Snap together Scratch blocks, then type your first lines of Python.',
+      2: 'Write real Python: functions, lists, files, tests and your own games.',
+      3: 'Build something big with classes, algorithms, git and a first look at how AI learns.',
+    },
+    milestones: { 6: 'Week 6: friendly checkpoint', 10: 'Weeks 10 and 11: final project', 11: '', 12: 'Week 12: showcase and exit check' },
+    rhythm: 'In a 10-week plan, two pairs of weeks are combined. Holiday weeks without a session do not count. Weeks 1 to 5 bring new ideas, week 6 is a review, weeks 7 to 9 bring more new ideas, and the last weeks are for the project.',
+  },
+};

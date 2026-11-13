@@ -8,11 +8,16 @@ import { serve } from './serve.mjs';
 
 const dist = path.resolve(process.argv[2] || 'dist');
 const { server, url } = await serve(dist);
-const pick = ['', 'parents/', 'parents/research/', 'parents/faq/', 'curriculum/', 'levels/level-1/', 'levels/level-2/project/', 'levels/level-3/cheat-sheet/', 'levels/level-3/week-07/', 'resources/', 'resources/glossary/', 'resources/setup-mac/', 'parents/notes/level-2/'];
-const week = fs.readdirSync(path.join(dist, 'levels/level-1')).filter((d) => d.startsWith('week-')).sort();
-if (week.length) pick.push(`levels/level-1/${week[6] || week[0]}/`);
-const ex = fs.existsSync(path.join(dist, 'levels/level-1/exercises')) ? fs.readdirSync(path.join(dist, 'levels/level-1/exercises')).sort() : [];
-if (ex.length) pick.push(`levels/level-1/exercises/${ex[0]}/`);
+const pick = ['', 'parents/', 'parents/research/', 'parents/faq/', 'curriculum/', 'grade-2-3/', 'grade-4-6/',
+  'grade-4-6/level-1/', 'grade-4-6/level-2/project/', 'grade-4-6/level-3/cheat-sheet/', 'grade-4-6/level-3/week-07/',
+  'grade-2-3/level-1/', 'grade-2-3/level-2/project/', 'grade-2-3/level-3/cheat-sheet/',
+  'resources/', 'resources/glossary/', 'resources/setup-mac/', 'parents/notes/grade-4-6/level-2/'];
+for (const lvl of ['grade-4-6/level-1', 'grade-2-3/level-1']) {
+  const week = fs.readdirSync(path.join(dist, lvl)).filter((d) => d.startsWith('week-')).sort();
+  if (week.length) pick.push(`${lvl}/${week[6] || week[0]}/`);
+  const ex = fs.existsSync(path.join(dist, lvl, 'exercises')) ? fs.readdirSync(path.join(dist, lvl, 'exercises')).sort() : [];
+  if (ex.length) pick.push(`${lvl}/exercises/${ex[0]}/`);
+}
 const chrome = await launch({ chromePath: process.env.CHROME_PATH, chromeFlags: ['--headless=new', '--no-sandbox'] });
 let bad = 0;
 const min = { performance: 0.9, accessibility: 0.9, 'best-practices': 0.9 };

@@ -16,17 +16,24 @@ await page.waitForSelector('.pagefind-ui__result', { timeout: 8000 }).catch(() =
 const n = await page.locator('.pagefind-ui__result').count();
 ok(n > 0, `search for "turtle" returns results (${n})`);
 
-await page.goto(url + 'levels/level-1/exercises/week07-ex-first-square/', { waitUntil: 'networkidle' });
+await page.goto(url + 'grade-4-6/level-1/exercises/week07-ex-first-square/', { waitUntil: 'networkidle' });
 ok((await page.locator('section.hint').count()) === 3, 'three hints, all visible as plain text');
 ok((await page.locator('details.hint, .hint summary').count()) === 0, 'hints are not collapsible widgets');
 ok((await page.locator('.starter-code pre').innerText()).includes('turtle'), 'starter code shown');
 ok((await page.locator('.starter-code .copy-btn').count()) === 1, 'copy button present');
 
-await page.goto(url + 'levels/level-1/week-07/', { waitUntil: 'networkidle' });
+await page.goto(url + 'grade-4-6/level-1/week-07/', { waitUntil: 'networkidle' });
 ok((await page.locator('main input[type=checkbox], main .done-btn, main [data-done-key]').count()) === 0, 'week page has no checkboxes or mark-as-done button');
 ok((await page.locator('.callout-selfcheck li').count()) > 0, 'self-check list is shown as a plain list');
-await page.goto(url + 'levels/level-1/', { waitUntil: 'networkidle' });
+await page.goto(url + 'grade-4-6/level-1/', { waitUntil: 'networkidle' });
 ok((await page.locator('.progress, [data-progress-level]').count()) === 0, 'level page has no progress bar');
+
+// grade bands: Grades 2-3 lesson pages exist, and old /levels/ addresses send you to Grades 4-6
+await page.goto(url + 'grade-2-3/level-1/week-02/', { waitUntil: 'networkidle' });
+ok((await page.locator('.objectives li').count()) > 0, 'a Grades 2-3 week page has its "I can" goals');
+await page.goto(url + 'levels/level-1/week-07/', { waitUntil: 'networkidle' });
+ok(page.url().endsWith('/grade-4-6/level-1/week-07/'), `old level address redirects (${page.url()})`);
+await page.goto(url + 'grade-4-6/level-1/', { waitUntil: 'networkidle' });
 
 await page.click('#theme-toggle');
 const t1 = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));

@@ -1,30 +1,33 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
-import { u, siteInfo, levels, resources } from '../lib/data';
+import { u, siteInfo, bands, bandLevels, resources, BAND_INFO } from '../lib/data';
 // The three fonts almost every page uses: fetched early so text does not reflow when they arrive.
 import fontRegular from '../fonts/atkinson-regular.woff2?url';
 import fontBold from '../fonts/atkinson-bold.woff2?url';
 import fontMono from '../fonts/atkinson-mono-regular.woff2?url';
 
-interface Props { title: string; description?: string; level?: number; pagefind?: boolean; noindex?: boolean; }
-const { title, description = 'A free, friendly programming course for kids: Scratch, then Python. Lessons, exercises and projects for families.', level, pagefind = true, noindex = false } = Astro.props;
+// redirect: the new address of a page that moved (old /levels/level-N/ links); the page then only points there.
+interface Props { title: string; description?: string; level?: number; pagefind?: boolean; noindex?: boolean; redirect?: string; }
+const { title, description = 'A free, friendly programming course for kids: Scratch, then Python. Lessons, exercises and projects for families.', level, redirect } = Astro.props;
+const pagefind = redirect ? false : (Astro.props.pagefind ?? true);
+const noindex = redirect ? true : (Astro.props.noindex ?? false);
 const info = siteInfo();
 const path = Astro.url.pathname;
 const rel = path.replace(u(''), '/');
 const full = title.includes('Kids Coding') ? title : `${title} | Kids Coding`;
-const canonical = new URL(path, Astro.site).href;
+const canonical = new URL(redirect ?? path, Astro.site).href;
 
 // ---- Site navigation (one source for the sidebar). Groups follow the order a family meets the course:
-// orientation (home, parents, curriculum), the learning path (levels > weeks), then reference material.
-const L = levels();
+// orientation (home, parents, curriculum), the learning path (grade band > level > weeks), then reference material.
+const B = bands();
 const R = resources();
 const here = (p: string) => rel === p;                    // exactly this page
 const within = (p: string) => rel.startsWith(p);         // this section
-// Exercise pages live at /levels/level-N/exercises/weekNN-.../: they belong to that week in the menu.
-const exWeek = rel.match(/^\/levels\/(level-\d)\/exercises\/week(\d\d)-/);
-const inWeek = (lslug: string, wslug: string) =>
-  rel.startsWith(`/levels/${lslug}/${wslug}/`) || (!!exWeek && exWeek[1] === lslug && `week-${exWeek[2]}` === wslug);
+// Exercise pages live at /<band>/level-N/exercises/weekNN-.../: they belong to that week in the menu.
+const exWeek = rel.match(/^\/(grade-[\d-]+\/level-\d)\/exercises\/week(\d\d)-/);
+const inWeek = (lpath: string, wslug: string) =>
+  rel.startsWith(`/${lpath}/${wslug}/`) || (!!exWeek && exWeek[1] === lpath && `week-${exWeek[2]}` === wslug);
 const cur = (on: boolean) => (on ? 'page' : undefined);
 const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting: 'lifebuoy' };
 ---
@@ -37,6 +40,7 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
     {noindex && <meta name="robots" content="noindex" />}
+    {redirect && <meta http-equiv="refresh" content={`0; url=${redirect}`} />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={u('favicon.svg')} type="image/svg+xml" />
     {[fontRegular, fontBold, fontMono].map((f) => <link rel="preload" href={f} as="font" type="font/woff2" crossorigin />)}
@@ -82,33 +86,38 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
             <li><a class="nav-link" href={u('curriculum/')} aria-current={cur(here('/curriculum/'))}><Icon name="map" />Curriculum and timeline</a></li>
           </ul>
 
-          <p class="nav-heading">Levels</p>
-          <ul class="nav-list">
-            {L.map((l) => {
-              const base = `/levels/${l.slug}/`;
-              return (
-                <li class={`l${l.number}`}>
-                  <details class="nav-group" open={within(base) || within(`/parents/notes/${l.slug}/`) ? true : undefined}>
-                    <summary class="nav-link"><span class="level-dot" aria-hidden="true">{l.number}</span><span class="grow">Level {l.number}<span class="sub">{l.name}</span></span><Icon name="chevron-down" class="chev" /></summary>
-                    <ul class="nav-sub">
-                      <li><a href={u(`levels/${l.slug}/`)} aria-current={cur(here(base))}>Overview</a></li>
-                      {l.weeks.length > 0 && (
-                        <li class="nav-weeks">
-                          <span class="nav-subhead">Weeks</span>
-                          <ol>
-                            {l.weeks.map((w: any) => <li><a href={u(`levels/${l.slug}/${w.slug}/`)} aria-current={inWeek(l.slug, w.slug) ? (here(`${base}${w.slug}/`) ? 'page' : 'location') : undefined}><span class="wk">{w.n}</span><span class="wt" set:html={w.title} /></a></li>)}
-                          </ol>
-                        </li>
-                      )}
-                      {l.project && <li><a href={u(`levels/${l.slug}/project/`)} aria-current={cur(here(`${base}project/`))}>Final project</a></li>}
-                      {l.extras?.cheat_sheet && <li><a href={u(`levels/${l.slug}/cheat-sheet/`)} aria-current={cur(here(`${base}cheat-sheet/`))}>Cheat sheet</a></li>}
-                      {l.extras?.parent_notes && <li><a href={u(`parents/notes/${l.slug}/`)} aria-current={cur(here(`/parents/notes/${l.slug}/`))}>Notes for families</a></li>}
-                    </ul>
-                  </details>
-                </li>
-              );
-            })}
-          </ul>
+          {B.map((b) => (
+            <>
+              <p class="nav-heading">{b.band_title} <span class="sub">{BAND_INFO[b.id].short}</span></p>
+              <ul class="nav-list">
+                <li><a class="nav-link" href={u(`${b.id}/`)} aria-current={cur(here(`/${b.id}/`))}><Icon name="map" />Overview</a></li>
+                {bandLevels(b.id).map((l) => {
+                  const base = `/${l.path}/`;
+                  return (
+                    <li class={`l${l.number}`}>
+                      <details class="nav-group" open={within(base) || within(`/parents/notes/${l.path}/`) ? true : undefined}>
+                        <summary class="nav-link"><span class="level-dot" aria-hidden="true">{l.number}</span><span class="grow">Level {l.number}<span class="visually-hidden">, {b.band_title}</span><span class="sub">{l.name}</span></span><Icon name="chevron-down" class="chev" /></summary>
+                        <ul class="nav-sub">
+                          <li><a href={u(`${l.path}/`)} aria-current={cur(here(base))}>Overview</a></li>
+                          {l.weeks.length > 0 && (
+                            <li class="nav-weeks">
+                              <span class="nav-subhead">Weeks</span>
+                              <ol>
+                                {l.weeks.map((w: any) => <li><a href={u(`${l.path}/${w.slug}/`)} aria-current={inWeek(l.path, w.slug) ? (here(`${base}${w.slug}/`) ? 'page' : 'location') : undefined}><span class="wk">{w.n}</span><span class="wt" set:html={w.title} /></a></li>)}
+                              </ol>
+                            </li>
+                          )}
+                          {l.project && <li><a href={u(`${l.path}/project/`)} aria-current={cur(here(`${base}project/`))}>Final project</a></li>}
+                          {l.extras?.cheat_sheet && <li><a href={u(`${l.path}/cheat-sheet/`)} aria-current={cur(here(`${base}cheat-sheet/`))}>Cheat sheet</a></li>}
+                          {l.extras?.parent_notes && <li><a href={u(`parents/notes/${l.path}/`)} aria-current={cur(here(`/parents/notes/${l.path}/`))}>Notes for families</a></li>}
+                        </ul>
+                      </details>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          ))}
 
           <p class="nav-heading">For parents</p>
           <ul class="nav-list">
@@ -143,7 +152,7 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
         </main>
         <footer class="site-footer">
           <div class="wrap">
-            <p><strong>Kids Coding</strong>: a free course for children in Grades 4–5. Scratch blocks first, then Python, one 60-minute session a week.</p>
+            <p><strong>Kids Coding</strong>: a free course for children in Grades 2–6, one session a week. Grades 2–3 play robot games and build in Scratch; Grades 4–6 go from Scratch blocks to Python.</p>
             <p class="foot-meta"><span><Icon name="lock" /> No accounts, no ads, no tracking</span><span>Version {info.version}, updated <time datetime={info.updated}>{info.updated}</time></span><a href={u('about/#changelog')}>What changed</a><a href={u('about/')}>Accessibility and credits</a></p>
           </div>
         </footer>

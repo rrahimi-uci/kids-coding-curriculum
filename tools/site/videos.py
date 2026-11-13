@@ -1,9 +1,10 @@
 """Bring the teaching videos into the website build.
 
 The videos are not kept in git. `python -m videos.pipeline.cli publish-videos --upload` puts web copies
-(720p MP4, poster JPG, WebVTT captions) and a `videos.json` list on the repository's `videos` release; this
-module copies them into site/public/videos/ while the site is built, so every page that has a video
-shows it in the same place. When a video is replaced on the release, the next build shows the new one.
+(720p MP4, poster JPG, WebVTT captions) and a `videos.json` list on the repository's `videos` release; the
+Grades 2-3 videos (`junior-publish --upload`) have their own list, `junior-videos.json`. This module
+copies them into site/public/videos/ while the site is built, so every page that has a video shows it in
+the same place. When a video is replaced on the release, the next build shows the new one.
 
 Where the files come from (environment variable SITE_VIDEOS):
   unset          the `videos` release of this repository (GITHUB_REPOSITORY, or the default below)
@@ -29,6 +30,9 @@ CACHE = ROOT / "build" / "site-cache" / "videos"
 DEFAULT_REPO = "rrahimi-uci/kids-coding-curriculum"
 RELEASE_TAG = "videos"
 MANIFEST = "videos.json"
+# Every list on the release: Grades 4-6 keys look like "1-2" (level 1 week 2), Grades 2-3 keys like
+# "j1-2". The part before the dash is the level key in curriculum.json.
+MANIFESTS = (MANIFEST, "junior-videos.json")
 BASE = "%BASE%"
 CUE_GAP = 1.6  # seconds of silence between captions that start a new paragraph in the transcript
 
@@ -63,11 +67,11 @@ class _Source:
     def describe(self) -> str:
         return str(self.folder) if self.folder else self.base_url
 
-    def manifest(self) -> dict:
+    def manifest(self, name: str = MANIFEST) -> dict:
         if self.folder:
-            return json.loads((self.folder / MANIFEST).read_text(encoding="utf-8"))
-        target = CACHE / MANIFEST
-        _download(self.base_url + MANIFEST, target)  # always fresh: it says which files changed
+            return json.loads((self.folder / name).read_text(encoding="utf-8"))
+        target = CACHE / name
+        _download(self.base_url + name, target)  # always fresh: it says which files changed
         return json.loads(target.read_text(encoding="utf-8"))
 
     def fetch(self, name: str, sha256: str | None) -> Path:
@@ -107,8 +111,11 @@ def transcript(vtt: str) -> list[str]:
     return [" ".join(parts) for parts in paragraphs]
 
 
-def collect(warnings: list[str]) -> dict[tuple[int, int], dict]:
-    """Copy the videos into site/public/videos/ and return the page data for each (level, week)."""
+def collect(warnings: list[str]) -> dict[tuple[str, int], dict]:
+    """Copy the videos into site/public/videos/ and return the page data for each (level key, week).
+
+    The level key is the one in curriculum.json: "1" for Grades 4-6 Level 1, "j1" for Grades 2-3 Level 1.
+    The main list must be readable; a missing Grades 2-3 list only leaves those pages without videos."""
     setting = os.environ.get("SITE_VIDEOS", "").strip()
     if PUBLIC.exists():
         shutil.rmtree(PUBLIC)
@@ -116,14 +123,19 @@ def collect(warnings: list[str]) -> dict[tuple[int, int], dict]:
         print("  videos: off (SITE_VIDEOS=off)")
         return {}
     source = _Source(setting)
-    try:
-        listing = source.manifest()
-    except (OSError, urllib.error.URLError, ValueError) as exc:
-        warnings.append(f"videos: none on the site, could not read {MANIFEST} from {source.describe()} ({exc})")
-        return {}
-    found: dict[tuple[int, int], dict] = {}
-    for key, entry in sorted(listing.get("videos", {}).items()):
-        level, week = (int(part) for part in key.split("-"))
+    entries: dict[str, dict] = {}
+    for name in MANIFESTS:
+        try:
+            entries.update(source.manifest(name).get("videos", {}))
+        except (OSError, urllib.error.URLError, ValueError) as exc:
+            if name == MANIFEST:
+                warnings.append(f"videos: none on the site, could not read {name} from {source.describe()} ({exc})")
+                return {}
+            warnings.append(f"videos: no {name} at {source.describe()}, those weeks are built without videos ({exc})")
+    found: dict[tuple[str, int], dict] = {}
+    for key, entry in sorted(entries.items()):
+        level, week_text = key.rsplit("-", 1)
+        week = int(week_text)
         sums = entry.get("sha256", {})
         try:
             files = {kind: source.fetch(entry[kind], sums.get(entry[kind])) for kind in ("video", "poster", "captions")}

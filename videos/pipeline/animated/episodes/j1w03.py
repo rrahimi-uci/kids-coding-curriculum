@@ -1,6 +1,6 @@
 """Junior Level 1 Week 3: Bugs Are Clues (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week03.tex: the "spot the difference" warm-up
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week03.tex: the "spot the difference" warm-up
 (Pixi gets dressed: shoes before socks, then far too fast, fixed with WAIT cards), a bug is a clue, the
 three detective steps (test, look, change one thing) and the word debugging, the worked example
 Exercise 3.1 Ready, Set, Go! (plain say blocks, then a wait block added one at a time), the exit

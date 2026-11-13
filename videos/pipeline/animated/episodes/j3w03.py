@@ -1,6 +1,6 @@
 """Junior Level 3 Week 3: Data Detectives (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week03.tex: a family fruit survey kept with
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week03.tex: a family fruit survey kept with
 tally marks (the fifth mark across, like a gate), a bar graph whose tallest bar is the favorite, the
 pebbles-in-a-bag analogy for a variable, Exercise 3.2 Fruit Survey Robot (ask and wait, answer,
 if/else, two counters), tricky answers (Scratch's = ignores big and small letters, "apples" is a

@@ -1,6 +1,6 @@
 """Junior Level 2 Week 8: Start, Win and Lose (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week08.tex: the board-game rules warm-up
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week08.tex: the board-game rules warm-up
 (tic-tac-toe sorted on START / PLAY / WIN / LOSE cards, a game that never ends and one that ends right
 away), the three parts of a game, the referee analogy and "stop all" as the final whistle, the worked
 example Exercise 8.1 Win and Lose (misses counted on the Apple; the Bowl's referee script: set score and

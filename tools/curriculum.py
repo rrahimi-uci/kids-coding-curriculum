@@ -30,9 +30,10 @@ STATUSES = ("active", "planned")
 @dataclass(frozen=True)
 class Level:
     track: str           # track id, e.g. "main" or "junior"
+    band: str            # the track's folder and website path, e.g. "grade-4-6"
     key: str             # unique CLI key: "1", "2", "3", "j1", ...
     number: int          # level number inside its track (1, 2, 3)
-    dir: str             # folder relative to the repository root
+    dir: str             # folder relative to the repository root, inside the band folder
     title: str
     goal_prefix: str     # goal codes look like <prefix>.G1, e.g. L1.G1 or J1.G1
     weeks: int           # core weekly sessions
@@ -43,6 +44,11 @@ class Level:
     @property
     def path(self) -> Path:
         return ROOT / self.dir
+
+    @property
+    def slug(self) -> str:
+        """The level's path segment inside its band on the website: "level-1"."""
+        return f"level-{self.number}"
 
     @property
     def active(self) -> bool:
@@ -65,11 +71,21 @@ class Level:
 @dataclass(frozen=True)
 class Track:
     id: str
+    dir: str             # grade-band folder, e.g. "grade-2-3"; also the website path
     title: str
     grades: str
     ages: str
     syllabus: str
     levels: tuple[Level, ...]
+
+    @property
+    def path(self) -> Path:
+        return ROOT / self.dir
+
+    @property
+    def band_title(self) -> str:
+        """Human label for the grade band, e.g. "Grades 4–6"."""
+        return "Grades " + self.grades.replace("-", "\u2013")
 
 
 def load(config: Path = CONFIG) -> list[Track]:
@@ -78,9 +94,14 @@ def load(config: Path = CONFIG) -> list[Track]:
     tracks, keys, dirs, errors = [], set(), set(), []
     for t in data["tracks"]:
         levels = []
+        if t["dir"] in dirs or "/" in t["dir"]:
+            errors.append(f"{t['id']}: track dir must be a unique top-level folder")
+        dirs.add(t["dir"])
         for raw in t["levels"]:
-            level = Level(track=t["id"], syllabus=t["syllabus"], **raw)
+            level = Level(track=t["id"], band=t["dir"], syllabus=t["syllabus"], **raw)
             where = f"{t['id']}/{level.key}"
+            if not level.dir.startswith(t["dir"] + "/"):
+                errors.append(f"{where}: dir {level.dir} must be inside the track folder {t['dir']}/")
             if level.key in keys:
                 errors.append(f"{where}: duplicate key")
             if level.dir in dirs:
@@ -92,7 +113,7 @@ def load(config: Path = CONFIG) -> list[Track]:
             keys.add(level.key)
             dirs.add(level.dir)
             levels.append(level)
-        tracks.append(Track(id=t["id"], title=t["title"], grades=t["grades"], ages=t["ages"],
+        tracks.append(Track(id=t["id"], dir=t["dir"], title=t["title"], grades=t["grades"], ages=t["ages"],
                             syllabus=t["syllabus"], levels=tuple(levels)))
     if errors:
         raise ValueError("curriculum.json: " + "; ".join(errors))
@@ -103,6 +124,18 @@ def levels(track: str | None = None, *, include_planned: bool = False) -> list[L
     """Levels in config order, optionally for one track; active only by default."""
     return [lv for t in load() if track in (None, t.id) for lv in t.levels
             if include_planned or lv.active]
+
+
+def tracks() -> list[Track]:
+    """Every track (grade band), youngest first, as listed in curriculum.json."""
+    return load()
+
+
+def track(track_id: str) -> Track:
+    for t in load():
+        if t.id == track_id:
+            return t
+    raise KeyError(f"no track {track_id!r} in curriculum.json")
 
 
 def by_key(key: str) -> Level:

@@ -1,6 +1,6 @@
 """Junior Level 1 Week 4: Repeat It! (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week04.tex: the dance-loops warm-up (the long
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week04.tex: the dance-loops warm-up (the long
 way, then STOMP, STOMP, CLAP inside a REPEAT 3 card; too many with 10, too few with 1), the Scratch
 repeat block (a big letter C) and the brushing-teeth analogy, costumes and animation, the worked
 example Exercise 4.1 Dance, Ballerina! (the long way first, then repeat 4 around next costume and

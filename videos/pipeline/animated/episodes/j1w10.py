@@ -1,6 +1,6 @@
 """Junior Level 1 Week 10: Showcase and Certificate (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week10.tex: showcase day, Exercise 10.1 the
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week10.tex: showcase day, Exercise 10.1 the
 last-minute bug check (flag twice, the click or key, the sound) with the most common bug (a sprite that
 stays hidden on the second run, fixed with show at the top of a green flag script), the three parts of a
 showcase and the chef analogy, the showcase sentence read from the hat block down on Mei's balloon

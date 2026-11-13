@@ -1,0 +1,127 @@
+% Level 3, Week 3 -- Families of Objects
+\lesson{3}{Families of Objects}{Child classes inherit from a parent and change only what is different; bigger objects are built from smaller ones.}
+\lessoninfo{Concepts: inheritance, super(), overriding, polymorphism, composition}{Tools: Thonny, turtle, git}{CSTA: 3A-AP-17, 3A-AP-18}
+
+\begin{objectives}
+  \item The student can write a child class that inherits from a parent class and calls \texttt{super().\_\_init\_\_} to reuse the parent's setup. (L3.G1)
+  \item The student can override a method so that different classes react differently to the same call (polymorphism). (L3.G1)
+  \item The student can build a class that holds a list of other objects (composition) and explain \enquote{is a} versus \enquote{has a}. (L3.G3)
+  \item The student can find and fix an override typo and a missing \texttt{super().\_\_init\_\_} call. (L3.G8)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 3 and homework 3 (one per student).
+  \item Unplugged: a large sheet of paper, sticky notes (or small paper squares), markers.
+  \item On each Mac: Thonny with \texttt{grade-4-6/3-advanced/exercises/week03} open; Terminal in \texttt{Documents/git-quest}.
+\end{materials}
+
+\section{At a glance}
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Family tree of game characters}: what do all characters share, and what is special?}
+  \timeslot{8--18}{Concept}{Inheritance, overriding and \texttt{super()}. \enquote{Is a} (inheritance) versus \enquote{has a} (composition).}
+  \timeslot{18--28}{Guided demo}{Enemy family: read \texttt{Enemy} and \texttt{Guard}, live-code \texttt{Zigzagger.move} with \texttt{super().move()}, show \texttt{move\_all}.}
+  \timeslot{28--52}{Hands-on build}{Pairs: finish Exercise 3.1 Enemy Family, then 3.2 Shape Family (art). Fast pairs: 3.3 Game Roster. Swap driver every 8 minutes. Last 6 minutes: invent a new shape class.}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell of shape patterns, representation talk, exit ticket, homework.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Family tree of game characters]
+Write \textbf{Character} at the top of the big sheet. Ask: \enquote{What does \emph{every} character in a game have?} Write the answers on sticky notes under it (name, position x and y, a way to move). Draw two branches: \textbf{Hero} and \textbf{Enemy}. Under Enemy add three children: \textbf{Guard} (stands still), \textbf{Zigzagger} (goes up and down), \textbf{Sprinter} (fast). For each child ask: \enquote{What is \emph{different} about this one?} Only the differences go on the child's sticky note.
+Point out: \enquote{We wrote \enquote{name} once, at the top, and every character below gets it for free.}
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{Last week, one class made many objects. Today, classes have families. A \textbf{child class} \textbf{inherits} everything from its \textbf{parent class}: all its attributes and methods. Then the child changes only what is different. Changing a method in the child is called \textbf{overriding}. We write the parent's name in parentheses: \texttt{class Sprinter(Enemy):} means \enquote{a Sprinter is an Enemy}.}
+\end{teacherscript}
+
+\begin{analogy}[The family pancake recipe]
+Grandma has a pancake recipe (the parent class). Your version says: \enquote{Make Grandma's pancakes, then add blueberries.} You do not copy her whole recipe; you \emph{use} it and add one thing. In Python, \texttt{super().move()} means \enquote{do the parent's version first}. And \texttt{super().\_\_init\_\_(name, x, y)} means \enquote{let the parent set up its part}, before the child adds its own extras, like \texttt{speed}.
+\end{analogy}
+
+\begin{teacherscript}
+\enquote{Here is the magic: if we have a list of enemies, we can call \texttt{enemy.move()} on each one without knowing what kind it is. Each one moves its own way. That is called \textbf{polymorphism}, Greek for \enquote{many shapes}.
+
+There is one more way to build with objects. A Game is \emph{not} a kind of Player, but a Game \emph{has} Players. When an object keeps other objects inside it, that is \textbf{composition}. A test: say it as a sentence. \enquote{A Sprinter \textbf{is an} Enemy} sounds right, so we use inheritance. \enquote{A Game \textbf{has} Players} sounds right, so we use composition.}
+\end{teacherscript}
+
+\section{Guided demo (18--28 min)}
+Open \texttt{week03/ex-enemy-family/starter.py} with everyone watching.
+\begin{workedexample}[A Zigzagger is an Enemy]
+\begin{enumerate}[itemsep=2pt]
+  \item Read \texttt{Enemy} aloud. Then read \texttt{Guard}: \enquote{It has no \texttt{\_\_init\_\_}. Where do its name and position come from?} (From \texttt{Enemy}: it inherits them.)
+  \item Press Run. Point at the crash: \texttt{AttributeError: 'Sprinter' object has no attribute 'name'}. Say: \enquote{Keep this clue for later!}
+  \item Live-code \texttt{Zigzagger.move}, with the students telling you each line:
+\end{enumerate}
+\pyfile[firstline=42,lastline=54]{../exercises/week03/ex-enemy-family/solution.py}
+Explain: \texttt{super().move()} runs the parent's move (one step right, count a step); then the child adds its own part (up or down). Leave \texttt{Sprinter} and \texttt{move\_all} for the pairs.
+\end{workedexample}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver and navigator]
+\textbf{Driver} types; \textbf{navigator} reads the \texttt{TODO}, then reads the next error message aloud and says which line it points to. Swap at the 8-minute timer.
+With \textbf{1 student}: you are the navigator; ask \enquote{is a or has a?} for each new class. With \textbf{3}: the third student is the \textbf{tester} who runs \texttt{check\_my\_work.py} and reads the hints; rotate. With \textbf{4}: two pairs.
+\end{pairroles}
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Exercise 3.1 Enemy Family} (about 8 minutes): finish the \texttt{Sprinter} class (its \texttt{\_\_init\_\_} calls \texttt{super()}, and it gets its own \texttt{move}), then \texttt{move\_all}. The crash from the demo disappears.
+  \item \textbf{Exercise 3.2 Shape Family} (about 10 minutes): \texttt{Triangle} and \texttt{Star} override \texttt{draw}; \texttt{Polygon} calls \texttt{super().\_\_init\_\_}. One call, \texttt{draw\_all(shapes, pen)}, draws a grid of different shapes.
+  \item \textbf{Exercise 3.3 Game Roster} for fast pairs: a \texttt{Game} that \emph{has} a list of \texttt{Player} objects.
+\end{enumerate}
+
+\begin{bughunt}[Two family bugs]
+Show this code and ask: \enquote{There are two bugs. One makes a crash and one is silent: the sprinter walks like a normal enemy. Find both.}
+\begin{pycode}
+class Sprinter(Enemy):
+    def __init__(self, name, x=0, y=0, speed=3):
+        self.speed = speed            # bug 1: parent setup never runs
+    def mvoe(self):                   # bug 2: typo, so move() is NOT overridden
+        self.x = self.x + self.speed
+\end{pycode}
+Bug 1 gives \texttt{AttributeError: ... no attribute 'name'} as soon as anything uses \texttt{self.name}, because \texttt{Enemy.\_\_init\_\_} never ran: add \texttt{super().\_\_init\_\_(name, x, y)}. Bug 2 is silent: Python happily uses the parent's \texttt{move}. Overridden method names must match the parent's \emph{exactly}.
+\end{bughunt}
+
+\begin{freebuild}[A new member of the shape family]
+Last 6 minutes: invent a new shape class, for example \texttt{Flower(Shape)} (6 circles, turning 60 degrees), \texttt{Spiral(Shape)} or \texttt{House(Shape)} (a square with a triangle roof). Add a few to \texttt{make\_pattern} or make a picture of your own. Commit it in \texttt{git-quest}: save a copy there as \texttt{shape\_family.py}, then \texttt{git add shape\_family.py} and \texttt{git commit -m "Add Flower shape"}.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+Show-and-tell: each pair shows their pattern and says which class is the parent and which method they overrode.
+
+\begin{safety}[Representation: who gets to be the hero?]
+Ask: \enquote{In games you know, who are the heroes? Who are the villains? Do the characters look like the people in your life?} Talk about how game makers choose. Designing a character family is a chance to include many kinds of people: different names, skin tones, ages, abilities. Avoid making one group always the villain or always the helper. In this week's homework, students name their heroes with names from many places and cultures.
+\end{safety}
+
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} children written as \texttt{class Child(Parent):}; \texttt{super().\_\_init\_\_} in child \texttt{\_\_init\_\_} methods; overridden methods spelled like the parent's.\\
+\textbf{Ask:} \enquote{\texttt{class Ghost(Enemy): pass}. A ghost has no \texttt{move} method. What happens when we call \texttt{ghost.move()}?}\\
+\textbf{Answer:} it uses \texttt{Enemy.move}: the ghost moves one step right, because it inherits the parent's method.
+\end{formativecheck}
+
+\begin{reflection}[Talk or write]
+\begin{itemize}[itemsep=1pt]
+  \item Give one \enquote{is a} pair and one \enquote{has a} pair from a game or from real life.
+  \item Why is it useful that \texttt{draw\_all} does not need to know which kind of shape it is drawing?
+\end{itemize}
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Forgetting the parent in parentheses}: \texttt{class Sprinter:} makes a brand-new class, not a child. Write \texttt{class Sprinter(Enemy):}.
+  \item \textbf{\texttt{super.\_\_init\_\_(...)}} without the parentheses after \texttt{super}. It must be \texttt{super().\_\_init\_\_(name, x, y)}, and \texttt{self} is \emph{not} passed.
+  \item \textbf{Child \texttt{\_\_init\_\_} without \texttt{super()}}: the parent's attributes are missing, so you get an \texttt{AttributeError}.
+  \item \textbf{Misspelled override} (\texttt{drow}, \texttt{mvoe}): no error, only the wrong behavior.
+  \item \textbf{Using inheritance for \enquote{has a}}: \texttt{class Game(Player)} is wrong; a game is not a player. Say the sentence aloud.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do Exercise 3.1 first, with the family tree sheet next to the keyboard. In Exercise 3.2, copy \texttt{Square.draw} and change only the numbers. Skip 3.3.
+\extensionpath Exercise 3.3, then add a \texttt{Teleporter(Enemy)} that jumps to a random \texttt{x}, and give \texttt{Game} a list of enemies that all move with one loop.
+\end{differentiation}
+
+\begin{stretchchallenge}[Grandchildren]
+Make \texttt{BigStar(Star)} whose \texttt{\_\_init\_\_} doubles the size by calling \texttt{super().\_\_init\_\_(x, y, size * 2, color)}. A BigStar is a Star, and a Star is a Shape. Test: \texttt{print(isinstance(BigStar(0, 0, 50, "\#E69F00"), Shape))}. What does it print, and why? (\texttt{True}: a BigStar is a Star, and every Star is a Shape, so the \enquote{is a} chain goes all the way up.)
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Keep the family tree to one branch and skip Exercise 3.3: the homework also practices composition.
+\end{teachernote}

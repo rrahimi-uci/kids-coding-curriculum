@@ -1,6 +1,6 @@
 """Junior Level 1 Week 2: Meet Scratch (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week02.tex: the puppet-show warm-up, the
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week02.tex: the puppet-show warm-up, the
 Scratch window (sprite, stage, blocks, green flag), blocks that snap like puzzle pieces, Exercise 2.1
 Hello Cat, the cat that moves further on every click, Exercise 2.2 The Stuck Cat (a block that is not
 snapped on), making it yours with a nickname, and looking after our bodies with a wiggle break.

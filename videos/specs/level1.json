@@ -39,13 +39,13 @@
       "misconception": "Computers can guess the missing parts of a vague instruction or quietly fix steps placed in the wrong order.",
       "safety_and_citizenship": "Use your coding nickname in projects—never your real full name, address, school, birthday or photos. Scratch stays offline with no account; if anything asks for your name or a password, stop and get a grown-up.",
       "lesson_handoff": "Open Exercise 1.1 Hello, Cat!: under when green flag clicked, snap go to x: 0 y: 0, a nickname greeting, move 100 steps, play sound Meow until done and say Bye!, then click the flag and say which step came first and which came last.",
-      "practice_activity": "1-introduction/exercises/week01/ex-hello-cat",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week01/ex-hello-cat",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week01.tex",
-        "1-introduction/teaching-material/workbook/week01.tex",
-        "1-introduction/teaching-material/homework/week01.tex",
-        "1-introduction/exercises/week01/ex-hello-cat/README.md",
-        "1-introduction/exercises/week01/ex-mixed-up-jump/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week01.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week01.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week01.tex",
+        "grade-4-6/1-introductory/exercises/week01/ex-hello-cat/README.md",
+        "grade-4-6/1-introductory/exercises/week01/ex-mixed-up-jump/README.md"
       ],
       "scenes": [
         {
@@ -137,13 +137,13 @@
       "misconception": "The turn equals the inside corner angle (so a triangle needs 60°), or repeat and forever are interchangeable.",
       "safety_and_citizenship": "Follow the 20-20-20 eye rule—every 20 minutes, look 20 feet away for 20 seconds—and take a stretch break.",
       "lesson_handoff": "Open Polygon Party: add the Pen extension, draw the square with repeat 4, then use turn = 360 ÷ sides for a triangle, hexagon and pentagon, and fix Leo's triangle.",
-      "practice_activity": "1-introduction/exercises/week02/ex-polygon-party",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week02/ex-polygon-party",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week02.tex",
-        "1-introduction/teaching-material/workbook/week02.tex",
-        "1-introduction/teaching-material/homework/week02.tex",
-        "1-introduction/exercises/week02/ex-polygon-party/README.md",
-        "1-introduction/exercises/week02/ex-walking-cat/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week02.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week02.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week02.tex",
+        "grade-4-6/1-introductory/exercises/week02/ex-polygon-party/README.md",
+        "grade-4-6/1-introductory/exercises/week02/ex-walking-cat/README.md"
       ],
       "scenes": [
         {
@@ -233,13 +233,13 @@
       "misconception": "An if block keeps checking forever by itself, even when it runs only once.",
       "safety_and_citizenship": "Give kind, specific feedback with ‘two stars and a wish’: two things you like and one kind idea, about the project, not the person; say thank you when you receive feedback.",
       "lesson_handoff": "Build Tickle the Ghost: an if-else with touching mouse-pointer? inside forever; test with the pointer touching and with it away.",
-      "practice_activity": "1-introduction/exercises/week03/ex-tickle-ghost",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week03/ex-tickle-ghost",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week03.tex",
-        "1-introduction/teaching-material/workbook/week03.tex",
-        "1-introduction/teaching-material/homework/week03.tex",
-        "1-introduction/exercises/week03/ex-tickle-ghost/README.md",
-        "1-introduction/exercises/week03/ex-arrow-explorer/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week03.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week03.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week03.tex",
+        "grade-4-6/1-introductory/exercises/week03/ex-tickle-ghost/README.md",
+        "grade-4-6/1-introductory/exercises/week03/ex-arrow-explorer/README.md"
       ],
       "scenes": [
         {
@@ -331,13 +331,13 @@
       "misconception": "‘set score to 1’ and ‘change score by 1’ do the same job, or a catch is counted only once by itself, even while the apple stays touching the bowl.",
       "safety_and_citizenship": "Give credit for the art, sounds and ideas you use: add a credits comment for Scratch library sprites, and when you remix a friend's project, say whose project you started from.",
       "lesson_handoff": "Build Apple Catch: the Bowl follows the mouse, set score to 0 at the start, change it by 1 per catch, send the apple back to the top right after scoring, and add a credits comment.",
-      "practice_activity": "1-introduction/exercises/week04/ex-apple-catch",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week04/ex-apple-catch",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week04.tex",
-        "1-introduction/teaching-material/workbook/week04.tex",
-        "1-introduction/teaching-material/homework/week04.tex",
-        "1-introduction/exercises/week04/ex-apple-catch/README.md",
-        "1-introduction/exercises/week04/ex-pop-balloon/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week04.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week04.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week04.tex",
+        "grade-4-6/1-introductory/exercises/week04/ex-apple-catch/README.md",
+        "grade-4-6/1-introductory/exercises/week04/ex-pop-balloon/README.md"
       ],
       "scenes": [
         {
@@ -428,13 +428,13 @@
       "misconception": "A broadcast reaches only the selected sprite, or message names that look similar will automatically match.",
       "safety_and_citizenship": "Design for everyone: use color-blind-safe colors, add a word, shape, or pattern so color is never the only clue, and keep text big enough to read.",
       "lesson_handoff": "Build Shape Machine (a polygon My Block with sides and length inputs, then add a pentagon), then build Show Time, where a presenter and a dancer pass the messages start show and finale, and solve its nobody-receives bug hunt.",
-      "practice_activity": "1-introduction/exercises/week05/ex-shape-machine",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week05/ex-shape-machine",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week05.tex",
-        "1-introduction/teaching-material/workbook/week05.tex",
-        "1-introduction/teaching-material/homework/week05.tex",
-        "1-introduction/exercises/week05/ex-shape-machine/README.md",
-        "1-introduction/exercises/week05/ex-show-time/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week05.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week05.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week05.tex",
+        "grade-4-6/1-introductory/exercises/week05/ex-shape-machine/README.md",
+        "grade-4-6/1-introductory/exercises/week05/ex-show-time/README.md"
       ],
       "scenes": [
         {
@@ -525,14 +525,14 @@
       "misconception": "Debugging means guessing many changes at once or that a working project needs no explanation.",
       "safety_and_citizenship": "Fun and fair for everyone: the same rules for all, no tricks, everyone can see and read it, credit is given, and no pressure to keep playing forever.",
       "lesson_handoff": "Start the bug-hunt relay: build each broken project card exactly as printed, use the four detective steps to find its two bugs, and write expected, happened, bug, and fix on the relay baton. Then do the short checkpoint.",
-      "practice_activity": "1-introduction/exercises/week06/ex-relay-wonky-hexagon",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week06/ex-relay-wonky-hexagon",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week06.tex",
-        "1-introduction/teaching-material/workbook/week06.tex",
-        "1-introduction/teaching-material/homework/week06.tex",
-        "1-introduction/exercises/week06/ex-relay-broken-catch/README.md",
-        "1-introduction/exercises/week06/ex-relay-silent-party/README.md",
-        "1-introduction/exercises/week06/ex-relay-wonky-hexagon/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week06.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week06.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week06.tex",
+        "grade-4-6/1-introductory/exercises/week06/ex-relay-broken-catch/README.md",
+        "grade-4-6/1-introductory/exercises/week06/ex-relay-silent-party/README.md",
+        "grade-4-6/1-introductory/exercises/week06/ex-relay-wonky-hexagon/README.md"
       ],
       "scenes": [
         {
@@ -624,14 +624,14 @@
       "misconception": "Python guesses misspellings or ignores punctuation and capitalization the way a person might.",
       "safety_and_citizenship": "Save files safely: keep work in one place (exercises in their own folder with Cmd+S, new programs in Documents/my-python), use sensible names with small letters and underscores like flag_drawing.py, never name a file turtle.py, and keep real names and addresses out of programs.",
       "lesson_handoff": "Open Exercise 7.1 Hello, Python! in Thonny and add three print lines (nickname only), then finish Exercise 7.2 My First Square and run its self-check.",
-      "practice_activity": "1-introduction/exercises/week07/ex-hello-python",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week07/ex-hello-python",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week07.tex",
-        "1-introduction/teaching-material/workbook/week07.tex",
-        "1-introduction/teaching-material/homework/week07.tex",
-        "1-introduction/exercises/week07/ex-hello-python/README.md",
-        "1-introduction/exercises/week07/ex-first-square/README.md",
-        "1-introduction/exercises/week07/ex-typo-hunt/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week07.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week07.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week07.tex",
+        "grade-4-6/1-introductory/exercises/week07/ex-hello-python/README.md",
+        "grade-4-6/1-introductory/exercises/week07/ex-first-square/README.md",
+        "grade-4-6/1-introductory/exercises/week07/ex-typo-hunt/README.md"
       ],
       "scenes": [
         {
@@ -724,14 +724,14 @@
       "misconception": "Indentation is just decoration, or range(4) counts 1 to 4 (or 0 to 4) and so repeats a different number of times.",
       "safety_and_citizenship": "Ask for help well: first try three before me (red message, workbook, partner), then use the help sentence: I expected …, but … happened. I tried ….",
       "lesson_handoff": "Build Loop Square (add t.left(90) inside the loop, lined up under t.forward(100)), then in Polygon Party write a loop for a square and a loop for a hexagon, using turn = 360 ÷ sides.",
-      "practice_activity": "1-introduction/exercises/week08/ex-loop-square",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week08/ex-loop-square",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week08.tex",
-        "1-introduction/teaching-material/workbook/week08.tex",
-        "1-introduction/teaching-material/homework/week08.tex",
-        "1-introduction/exercises/week08/ex-loop-square/README.md",
-        "1-introduction/exercises/week08/ex-polygon-party/README.md",
-        "1-introduction/exercises/week08/hw-loop-fixer/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week08.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week08.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week08.tex",
+        "grade-4-6/1-introductory/exercises/week08/ex-loop-square/README.md",
+        "grade-4-6/1-introductory/exercises/week08/ex-polygon-party/README.md",
+        "grade-4-6/1-introductory/exercises/week08/hw-loop-fixer/README.md"
       ],
       "scenes": [
         {
@@ -825,15 +825,15 @@
       "misconception": "Input automatically becomes a number, or Python checks every branch after an earlier condition is already true.",
       "safety_and_citizenship": "Questions a program should NOT ask: ask about choices (colors, sizes, numbers), never about who you are. No full name, home address, school, birthday, password or photo. If an app or game asks for personal details, stop and ask a grown-up.",
       "lesson_handoff": "Start with Exercise 9.1 Square of Any Size (fix the ‘text, not a number’ bug with int), then 9.2 Pick a Color (add an elif for green and a friendly else). Test orange, blue, green and pizza. Try 9.3 How Many Stars? if there is time.",
-      "practice_activity": "1-introduction/exercises/week09/ex-size-it",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week09/ex-size-it",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week09.tex",
-        "1-introduction/teaching-material/workbook/week09.tex",
-        "1-introduction/teaching-material/homework/week09.tex",
-        "1-introduction/exercises/week09/ex-color-choice/README.md",
-        "1-introduction/exercises/week09/ex-size-it/README.md",
-        "1-introduction/exercises/week09/ex-star-row/README.md",
-        "1-introduction/exercises/week09/hw-math-quiz/README.md"
+        "grade-4-6/1-introductory/teaching-material/lessons/week09.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week09.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week09.tex",
+        "grade-4-6/1-introductory/exercises/week09/ex-color-choice/README.md",
+        "grade-4-6/1-introductory/exercises/week09/ex-size-it/README.md",
+        "grade-4-6/1-introductory/exercises/week09/ex-star-row/README.md",
+        "grade-4-6/1-introductory/exercises/week09/hw-math-quiz/README.md"
       ],
       "scenes": [
         {
@@ -925,14 +925,14 @@
       "misconception": "Defining a function makes it run immediately, or random means the program can choose anything without limits.",
       "safety_and_citizenship": "Being an original artist: borrowing an idea is fine when you make it your own and give credit in a comment (# Flower idea remixed from Exercise 10.1). Copying a whole program and calling it yours is not fair. Our art is drawn by code, so no internet pictures are needed.",
       "lesson_handoff": "Build Exercise 10.1 Flower Stamp (call the recipe, then add a color parameter) and 10.2 Random Bubble Art. Then fill in the project plan sheet (Milestone M1) and save my_art_show.py with a project name, never a real name.",
-      "practice_activity": "1-introduction/exercises/week10/ex-flower-stamp",
+      "practice_activity": "grade-4-6/1-introductory/exercises/week10/ex-flower-stamp",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week10.tex",
-        "1-introduction/teaching-material/workbook/week10.tex",
-        "1-introduction/teaching-material/homework/week10.tex",
-        "1-introduction/exercises/week10/ex-flower-stamp/README.md",
-        "1-introduction/exercises/week10/ex-random-art/README.md",
-        "1-introduction/project/project-brief.tex"
+        "grade-4-6/1-introductory/teaching-material/lessons/week10.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week10.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week10.tex",
+        "grade-4-6/1-introductory/exercises/week10/ex-flower-stamp/README.md",
+        "grade-4-6/1-introductory/exercises/week10/ex-random-art/README.md",
+        "grade-4-6/1-introductory/project/project-brief.tex"
       ],
       "scenes": [
         {
@@ -1022,14 +1022,14 @@
       "misconception": "The fastest way to finish is to type the whole project before running it, or every suggestion must be added.",
       "safety_and_citizenship": "Giving and receiving helpful feedback: be kind, specific and helpful, and make wishes about the program, never the person. When receiving, say thank you, then you decide what to change. Online, if a comment is unkind, don't reply; tell a grown-up.",
       "lesson_handoff": "Sprint 1: reach M2 (turn my_shape into your own function and call it twice). Then do the partner swap bug hunt with two stars and a wish. Then Sprint 2: reach M3 (questions, if, loop, random, title).",
-      "practice_activity": "1-introduction/project/project-brief.tex",
+      "practice_activity": "grade-4-6/1-introductory/project/project-brief.tex",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week11.tex",
-        "1-introduction/teaching-material/workbook/week11.tex",
-        "1-introduction/teaching-material/homework/week11.tex",
-        "1-introduction/project/project-brief.tex",
-        "1-introduction/project/project-teacher-guide.tex",
-        "1-introduction/project/starter/my_art_show.py"
+        "grade-4-6/1-introductory/teaching-material/lessons/week11.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week11.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week11.tex",
+        "grade-4-6/1-introductory/project/project-brief.tex",
+        "grade-4-6/1-introductory/project/project-teacher-guide.tex",
+        "grade-4-6/1-introductory/project/starter/my_art_show.py"
       ],
       "scenes": [
         {
@@ -1120,14 +1120,14 @@
       "misconception": "A showcase is only entertainment, or a bug encountered during development should be hidden.",
       "safety_and_citizenship": "Showcase safety: projects are shown on the screen only, and nothing is uploaded, posted or emailed. Screens and name cards show nicknames only. Photos of the artwork only if the artist agrees, with no faces or names, and they stay in the family. Say so if you borrowed an idea.",
       "lesson_handoff": "Practice the 2-minute demo script with a partner (artist + assistant), do the showcase safety check, present at the gallery walk and fill in feedback cards, take the short exit quiz (not pass or fail), then write the Level 1 reflection (homework 12).",
-      "practice_activity": "1-introduction/project/project-brief.tex",
+      "practice_activity": "grade-4-6/1-introductory/project/project-brief.tex",
       "source_files": [
-        "1-introduction/teaching-material/lessons/week12.tex",
-        "1-introduction/teaching-material/workbook/week12.tex",
-        "1-introduction/teaching-material/homework/week12.tex",
-        "1-introduction/project/project-brief.tex",
-        "1-introduction/project/project-teacher-guide.tex",
-        "1-introduction/project/starter/my_art_show.py"
+        "grade-4-6/1-introductory/teaching-material/lessons/week12.tex",
+        "grade-4-6/1-introductory/teaching-material/workbook/week12.tex",
+        "grade-4-6/1-introductory/teaching-material/homework/week12.tex",
+        "grade-4-6/1-introductory/project/project-brief.tex",
+        "grade-4-6/1-introductory/project/project-teacher-guide.tex",
+        "grade-4-6/1-introductory/project/starter/my_art_show.py"
       ],
       "scenes": [
         {

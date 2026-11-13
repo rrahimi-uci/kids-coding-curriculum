@@ -1,6 +1,6 @@
 """Junior Level 1 Week 6: When I Click... (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week06.tex: the "when I clap, you jump" warm-up
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week06.tex: the "when I clap, you jump" warm-up
 (event cards, each robot listens for its own card, nobody listens for banana), events start scripts
 (the green flag, a click on a sprite, a key) with hat-shaped blocks in yellow Events, the doorbell
 analogy, the worked example Exercise 6.1 Click the Cat ("That tickles!") and the space-key script

@@ -1,0 +1,588 @@
+\documentclass[track=junior,level=2,teacher]{kidscode}
+%% small helpers for this guide
+\newenvironment{guidetable}[1]{\par\noindent\small\renewcommand{\arraystretch}{1.3}%
+  \longtable{#1}}{\endlongtable\par}
+%% \fitwidth{wide content}: shrink only if it is wider than the line (dyslexia edition)
+\newsavebox{\fitbox}
+\newcommand{\fitwidth}[1]{\sbox{\fitbox}{#1}\ifdim\wd\fitbox>\linewidth\resizebox{\linewidth}{!}{\usebox{\fitbox}}\else\usebox{\fitbox}\fi}
+\begin{document}
+\kctitle{Teacher Guide}{Junior Level 2: Game Makers. Everything you need before, during and between sessions}
+\tableofcontents
+
+%% =====================================================================
+\section{Welcome back}
+Thank you for teaching Game Makers. If you taught Little Robots, you already know the rhythm:
+every session is written out for you, with what to print, what to set up, what to say, what to do
+when things go wrong and what to cut if time runs short. You still do not need to be a programmer.
+Read the lesson plan for ten minutes the day before and you are ready.
+
+Junior Level 2 is for children aged about 8--9 (US Grades 2--3) who have finished Junior Level 1.
+In ten weekly \textbf{60-minute} sessions they turn Scratch scripts into \textbf{games}: a forever
+loop keeps the game running, \enquote{if touching} makes sprites react, a variable keeps the score,
+random numbers bring surprises, and messages and My Blocks split a game into parts. The level ends
+with a project, \enquote{My First Arcade Game}, which a partner playtests in week 9 and the family
+plays at an arcade showcase in week 10.
+
+\begin{teachernote}[Three things that matter most]
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Bugs are still normal, and now there are more of them.} Games have many scripts
+        running at once, so things go wrong in surprising ways. Keep saying \enquote{Great, a bug!
+        Let's catch it}, and keep using the same steps: test, look, change one thing.
+  \item \textbf{Hands off the mouse.} Point, ask and suggest; let the child drag and click.
+        (\enquote{What did you want the apple to do? What did it do instead?})
+  \item \textbf{Play first, then explain.} A game is understood by playing it. Let children play
+        your example before you show the blocks, and let them play each other's games often.
+\end{enumerate}
+\end{teachernote}
+
+\begin{teachernote}[The math this level uses]
+Everything stays inside Grade 2--3 math. Numbers are whole numbers up to 100, and
+\textbf{random numbers stay between 1 and 10}. Directions are \textbf{named}: \enquote{point in
+direction} uses only \textbf{0 (up), 90 (right), 180 (down) and 270 (left)}. Sprites are placed by
+\textbf{dragging} them, with \enquote{go to random position}, or with \enquote{go to} another sprite
+(for example a hidden Star at the top of the stage, the \textbf{Star-marker trick}). There are no
+x and y positions and no negative numbers anywhere: a score only goes \textbf{up}. For lives, a
+game either counts \textbf{misses} up and ends at 3 misses, or counts lives down with
+\enquote{set lives to (lives $-$ 1)}, using the green subtraction block; never \enquote{change lives by}
+a negative number.
+\end{teachernote}
+
+\subsection{How Level 2 builds on Level 1}
+Level 1 gave children the basics: a script is a list of exact steps; the green flag, a click or a
+key starts it; repeat does things again; each sprite has its own scripts; and a bug is a clue found
+by testing, looking and changing one thing. Level 2 keeps all of that and adds what a game needs.
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{4.0cm}>{\RaggedRight}p{\dimexpr(\linewidth-4.0cm-4\tabcolsep)/2}>{\RaggedRight\arraybackslash}p{\dimexpr(\linewidth-4.0cm-4\tabcolsep)/2}@{}}
+\toprule
+Big idea & In Level 1 & New in Level 2\\
+\midrule\endhead
+\bottomrule\endfoot
+Loops & repeat 4: a dance, a square & \textbf{forever}: the game keeps running until it ends (week 1)\\
+Events & green flag, click, key & \textbf{messages}: one sprite tells the others when to start (week 6)\\
+Choosing & --- & \textbf{if touching \ldots{} then}: a sprite checks and reacts (week 2)\\
+Numbers that change & --- & \textbf{variables} for score and lives (week 3), \textbf{pick random 1 to 10} (week 4)\\
+Naming a group of steps & storyboard boxes & \textbf{My Blocks} (week 7)\\
+Planning & three-box storyboard & \textbf{game plan card} and playtesting (week 9)\\
+Working together & Driver and Helper & Driver, Helper and \textbf{Player} (the playtester)\\
+Sessions & 45 minutes & \textbf{60 minutes}, with two Make it blocks around the wiggle break\\
+\end{guidetable}
+
+What stays the same:
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Read the pages together.} Many children can now read the short sentences in My Game
+        Book themselves, but keep reading aloud whenever it helps. Pages stay picture-first, with at
+        most about 350 words a week.
+  \item \textbf{Rose and Pixi videos} (2--3 minutes, one idea each) can open the session.
+  \item \textbf{Very little typing:} short words in \enquote{say} blocks, variable names such as
+        \texttt{score}, \texttt{lives} or \texttt{misses}, and nicknames.
+  \item \textbf{No quizzes and no grades.} You watch and check off what you see (show-me checklists).
+  \item \textbf{Homework is a play-at-home card:} an optional 5--10 minute game with a grown-up.
+\end{itemize}
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{4.2cm}>{\RaggedRight}p{2.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-6.6cm-4\tabcolsep}@{}}
+\toprule
+Document & Who & What it is for\\
+\midrule\endhead
+\bottomrule\endfoot
+Teacher Guide (this) & You & Setup, how sessions run, assessment, troubleshooting, pacing.\\
+Lesson Plans & You & One 60-minute plan per week (and B1, B2), with words to read aloud.\\
+My Game Book & Children & One short picture chapter per week.\\
+Play-at-Home Cards & Families & One optional 5--10 minute game a week.\\
+Answer Key & You only & What each activity should look and sound like; how to use the show-me checklists.\\
+Show-Me Checklists & You, per child & Week-1 \enquote{show me} warm-up, week-5 and week-10 checklists, child self-rating.\\
+Project Brief / Project Teacher Guide & Children / you & The arcade game project with the game plan card and stars / how to run it, the reference game, the showcase.\\
+Extras & Everyone & Cheat sheet, glossary, progress tracker, notes for families, certificate.\\
+\end{guidetable}
+
+\textbf{The exercise folders.} Each Scratch exercise lives in
+\texttt{grade-2-3/\allowbreak{}2-game-makers/\allowbreak{}exercises/\allowbreak{}weekNN/\allowbreak{}ex-name/}. It has a
+\texttt{README.md} (what to build, with the blocks and a checklist), a \texttt{hints.md} with three
+hints, and a \texttt{solution.md} for you. Unplugged games have no folder: they live in the lesson
+plan and the workbook. Every PDF also comes in a \textbf{dyslexia-friendly edition} (clearer font,
+more spacing, cream paper color).
+
+\subsection{Level 2 goals}
+By the end of Junior Level 2 the student can\dots{} (CSTA = CSTA K--12 Computer Science Standards,
+revised 2017; band 1B is grades 3--5. The wording is abridged.)
+
+\begin{guidetable}{@{}>{\bfseries}p{1.6cm}>{\RaggedRight}p{\dimexpr\linewidth-6.2cm-4\tabcolsep}>{\RaggedRight\arraybackslash}p{4.6cm}@{}}
+\toprule
+Code & Goal & CSTA\\
+\midrule\endhead
+\bottomrule\endfoot
+J2.G1 & use forever and repeat loops to keep a game running & 1B-AP-10\\
+J2.G2 & use if-then with touching and key checks to make sprites react & 1B-AP-10\\
+J2.G3 & use a variable for score or lives, and random numbers for surprises & 1B-AP-09\\
+J2.G4 & split a game into parts with messages and My Blocks & 1B-AP-11, 1B-AP-12\\
+J2.G5 & test a game and find and fix bugs with a strategy & 1B-AP-15, 1B-CS-03\\
+J2.G6 & plan a game with a partner and improve it with players' feedback & 1B-AP-13, 1B-AP-16, 1B-AP-17, 1B-IC-20\\
+J2.G7 & make games that are fair, kind and easy for everyone to play, and give credit & 1B-AP-14, 1B-IC-19, 1B-IC-21\\
+\end{guidetable}
+
+\subsection{The 10-week roadmap}
+\begin{guidetable}{@{}>{\bfseries}p{0.9cm}>{\RaggedRight}p{3.4cm}>{\RaggedRight}p{\dimexpr\linewidth-9.9cm-6\tabcolsep}>{\RaggedRight\arraybackslash}p{5.6cm}@{}}
+\toprule
+Wk & Title & Big idea & Highlights\\
+\midrule\endhead
+\bottomrule\endfoot
+1 & Forever and Bounce & A forever loop keeps going until you press stop. & Forever freeze dance; if on edge, bounce; the \textbf{show-me warm-up} (what carried over from Level 1).\\
+2 & If Touching\dots & If-then lets a sprite check something and choose. & \enquote{Simon says IF}; touching another sprite; an if outside the forever loop.\\
+3 & Keep Score & A variable is a labeled box that remembers a number. & Paper Score and Lives boxes; set and change by 1; a score that does not reset.\\
+4 & Surprise! Random & Random picks a number nobody can guess. & Dice race; pick random 1 to 10; go to random position.\\
+5 & Play Day and Show Me & Practice everything, then show a grown-up. & \enquote{Be the computer}; bug-hunt relay with three broken games; \textbf{show-me checklist}.\\
+6 & Messages & One sprite can tell the others when to start. & Pass-the-note relay; broadcast and when I receive; a message nobody hears.\\
+7 & My Own Blocks & Give a group of blocks a name and use it again. & Recipe cards; My Blocks; games everyone can see and play.\\
+8 & Start, Win and Lose & A game needs a start, a goal and an ending. & Board-game rules; the referee script: win at 10, game over at 3 misses; stop all.\\
+9 & Project Studio & Plan on a game card, build the core, then playtest. & \textbf{Project: M1 game plan card, M2 game works}; paper prototype; playtest bug list.\\
+10 & Arcade Showcase & Show, explain and celebrate. & \textbf{M3 arcade showcase}; \textbf{show-me checklist}; certificates.\\
+B1 & Secret Codes Day & (optional, any time after week 5) & Unplugged: picture codes, a letter-shift wheel, logic puzzles.\\
+B2 & Mini Game Jam & (optional, any time after week 5) & A 90-second idea, then free build.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Before you start: setup checklist}
+Allow about 30 minutes, once, a week or more before session 1. Scratch is already on the Macs from
+Level 1, so most of this is a quick check.
+
+\subsection{1. Check Scratch (offline app) on every Mac}
+\begin{checklist}
+  \item Open \textbf{Scratch 3} from Applications. If the App Store shows an update, install it
+        (a grown-up's Apple ID; children still need no Scratch account, email or sign-in).
+  \item Test it offline: turn Wi-Fi off, open Scratch and click the orange \menu{Variables} circle.
+        You should see \menu{Make a Variable}. Click the pink-red \menu{My Blocks} circle: you should
+        see \menu{Make a Block}. Level 2 uses both.
+  \item Check the \texttt{Scratch Projects} folder in \textbf{Documents} is still there with the Level 1
+        projects. Saving: \menu{File > Save to your computer}. Opening: \menu{File > Load from your computer}.
+  \item Make a subfolder \texttt{Game Makers} inside \texttt{Scratch Projects}. From week 2 children
+        save every game there as nickname plus game name, for example \texttt{Tiger-catch}.
+\end{checklist}
+
+\subsection{2. A mouse for every Mac}
+Keep the \textbf{mouse} (wired or wireless) from Level 1. Games add a new reason: children play with
+the \textbf{arrow keys} with one hand while the other hand rests on the mouse, so put the keyboard
+straight in front of the Driver. Check that the arrow keys work on wireless keyboards.
+
+\subsection{3. Print}
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{3.3cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-3.3cm-2\tabcolsep}@{}}
+\toprule
+When & What to print\\
+\midrule\endhead
+\bottomrule\endfoot
+Before week 1 & One per child: My Game Book (or each chapter the week before), the Cheat Sheet (laminate it if you can), the Progress Tracker, and the Show-Me Checklists (week-1 warm-up page now, the rest later). One per family: Notes for Families. For you: this guide and the Lesson Plans (keep the Answer Key in your folder). Bring the Level 1 week-10 checklists if you have them.\\
+Every week & The lesson plan, the workbook chapter, the play-at-home card, and any cards listed under \enquote{Materials} in the plan (\enquote{Simon says IF} cards, recipe cards, board-game rule cards).\\
+Week 5 & The week-5 show-me checklist, one per child.\\
+Week 9 & The Project Brief, one per child (the game plan card page is the one they draw on). The Project Teacher Guide for you.\\
+Week 10 & The week-10 show-me checklist, the sticker feedback cards (last page of the Project Teacher Guide) and one certificate per child (write the nickname or first name by hand).\\
+\end{guidetable}
+Choose the standard or the dyslexia-friendly edition per child. Both have the same pages, so
+children can use different editions side by side.
+
+\subsection{4. Room setup}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{One Mac per pair}, two chairs side by side, mouse and keyboard in the middle. Four
+        children need two Macs. A third Mac for your demonstrations is useful, and in weeks 9 and 10
+        it doubles as an extra arcade stand.
+  \item \textbf{A sand timer or kitchen timer} (6--7 minutes) for Driver and Helper swaps.
+  \item \textbf{A space to move} for the unplugged games and the wiggle break (freeze dance, Simon
+        says IF, the pass-the-note relay).
+  \item \textbf{A box of game things:} one or two dice, paper cups or small boxes you can label
+        \enquote{Score} and \enquote{Lives}, counters or dried beans, index cards, a music player for
+        the freeze dance.
+  \item Crayons, pencils, stickers, sticky notes, scissors. Drinks away from the Macs.
+\end{itemize}
+
+\subsection{5. Accessibility settings}
+\begin{itemize}[itemsep=3pt]
+  \item \textbf{Dyslexia-friendly PDFs:} every document has a second edition with the Lexend font,
+        extra spacing and a cream background. Offer it to any child; no diagnosis needed.
+  \item \textbf{Bigger blocks in Scratch:} the round \enquote{+} zoom button at the bottom right of
+        the code area. The full-screen button above the stage makes games easier to play and watch.
+  \item \textbf{Key repeat:} if a child finds the arrow keys too fast or too slow, change
+        \menu{System Settings > Keyboard > Key repeat rate}.
+  \item \textbf{A bigger pointer and color filters:} \menu{System Settings > Accessibility > Display}.
+        All course materials use color-blind-safe colors and always add a word or an icon to a color.
+  \item \textbf{Reading support:} read student pages aloud whenever it helps, and accept spoken,
+        pointed or drawn answers everywhere.
+\end{itemize}
+
+%% =====================================================================
+\section{The 60-minute session}
+Every session, including the buffers, has the same parts as in Level 1. The extra 15 minutes go
+to building: Make it now comes in two blocks, one before and one after the wiggle break. The
+activity still changes at least every 10--15 minutes.
+
+\begin{timeplan}
+  \timeslot{0--10}{Warm-up}{The Rose and Pixi video or an unplugged game (freeze dance, dice race, pass-the-note). Plays the new idea with bodies before anyone touches a mouse.}
+  \timeslot{10--20}{Show me}{The one new idea in kid language, with an analogy, then you build the example on the Mac. Children play it first, then watch you build it and predict (\enquote{What will happen when the apple touches the bowl?}).}
+  \timeslot{20--33}{Make it}{Driver and Helper at the Mac, swapping when the timer runs out (every 6--7 minutes). The core workbook exercise and the bug hunt.}
+  \timeslot{33--35}{Wiggle break}{Two minutes away from the screen: stand up, stretch, shake, look far away.}
+  \timeslot{35--50}{Make it}{Second build block: the next exercise, then playtest a partner's game, then a few minutes of free build.}
+  \timeslot{50--60}{Share}{Each child shows one thing; others play it and give two stars and a wish. Exit question, reflection, hand out the play-at-home card.}
+\end{timeplan}
+
+\begin{guidetable}{@{}>{\bfseries}p{2.6cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-2.6cm-2\tabcolsep}@{}}
+\toprule
+Part & What it is for\\
+\midrule\endhead
+\bottomrule\endfoot
+Warm-up & Moving and playing first. The unplugged game makes the idea physical (a forever loop becomes a dance that only stops with the music).\\
+Show me & One idea only. Children play your example, then you build it, thinking out loud and making a mistake calmly. Children watch with their hands free.\\
+Make it (first) & The core exercise and the bug hunt, in pairs. This is where most learning happens; your job is to ask, not to fix.\\
+Wiggle break & Resets attention for the second build block and teaches healthy screen habits. Never skip it.\\
+Make it (second) & The second exercise, playtesting and free build. Children who finished early become Players for another pair.\\
+Share & Ends on success. Playing each other's games and saying what a script does are level goals (J2.G6), and they give you the best picture of what each child understands.\\
+\end{guidetable}
+
+\begin{tip}[Making the 60 minutes work]
+\begin{itemize}[itemsep=1pt]
+  \item Turn on the Macs and open Scratch \textbf{before} the children arrive. Open the starter
+        project if the plan has one.
+  \item Protect the Share part. If Make it runs over, cut free build first, never the Share.
+  \item Every plan ends with \enquote{If you are short on time}: what to cut without losing the idea.
+  \item A tired or wobbly group? Do the wiggle break early. It is never wasted time.
+  \item Games are exciting: give a one-minute warning before Share (\enquote{One more go, then hands off}).
+\end{itemize}
+\end{tip}
+
+%% =====================================================================
+\section{Driver, Helper and Player}
+Children still work in pairs at one Mac. Games add a third job: someone has to \textbf{play} the
+game and say honestly what happened. Children learn quickly that the person who made a game is
+the worst person to test it, because they know where everything is.
+
+\begin{pairroles}[The three roles]
+\textbf{Driver:} holds the mouse, drags and clicks, and says out loud what they are doing.\\
+\textbf{Helper:} points at the picture in the book, says which color circle to click next, and
+spots bugs. The Helper never grabs the mouse: they point and use words.\\
+\textbf{Player} (with 3 children, and in playtests): plays the game with the arrow keys and says
+what happened (\enquote{The apple went through the bowl}), without fixing anything.\\
+\textbf{Swap} when the timer runs out (every 6--7 minutes), even in the middle of something.
+\end{pairroles}
+
+\begin{guidetable}{@{}>{\bfseries}p{2.6cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-2.6cm-2\tabcolsep}@{}}
+\toprule
+Children & How to run it\\
+\midrule\endhead
+\bottomrule\endfoot
+1 child & You are the Helper, and in playtests you are the Player. Resist taking the mouse. Once a session, swap: the child helps while you drive, and you make a small mistake for them to catch.\\
+2 children & One pair. In playtests, the child who did not build the game is the Player; then swap games.\\
+3 children & Driver, Helper and \textbf{Player}. The Player tests each change the moment the Driver clicks the flag and reports what happened. Rotate all three jobs on the timer.\\
+4 children & Two pairs on two Macs. In the second Make it block, the pairs swap Macs and play each other's games, then go back and fix one thing. Change partners every few weeks.\\
+Siblings of different ages & They swap on the timer, \textbf{not by age}. The younger child drives as long as the older one does. Ask the older child to help with words only: \enquote{Tell your brother which circle, don't show him.}\\
+\end{guidetable}
+
+\begin{tip}[Phrases worth teaching]
+Helper: \enquote{Next is the orange circle}, \enquote{Is it inside the forever?}, \enquote{Can we click the flag to check?}
+Player: \enquote{I pressed the right arrow and\dots}, \enquote{It was too fast for me}, \enquote{I liked\dots}
+Driver: \enquote{I'm going to\dots}, \enquote{What happened when you played?}
+\end{tip}
+
+%% =====================================================================
+\section{The threads}
+Five kinds of activity run through the level. Each has its own labeled box in the lesson plans.
+
+\begin{unplugged}[No computer]
+Freeze dance, Simon says IF, paper score boxes, a dice race, a pass-the-note relay, recipe cards,
+board-game rules and a paper prototype. Unplugged games make the idea physical, give eyes a rest
+and let everyone take part. Keep them short (5--10 minutes), give everyone a job, and end with
+\enquote{Where will we see this in Scratch today?} Buffer B1 (Secret Codes Day) is a whole unplugged day.
+\end{unplugged}
+
+\begin{bughunt}[Every week]
+Children get a game that \emph{almost} works: blocks under a forever loop that never run, an if
+outside the forever that checks only once, a score that does not go back to 0, a message nobody
+receives. The steps are on the cheat sheet: \textbf{test} (play it), \textbf{look} (what did we want,
+what happened, which block does it?), \textbf{change one thing}, then test again. In week 9 the bug
+list comes from a real Player. Celebrate every catch (\enquote{Bug caught!}).
+\end{bughunt}
+
+\begin{freebuild}[Free build]
+The last minutes of the second Make it block are open: change the speed, the sprite, the sound,
+add a second apple or a new rule. One rule: change one thing, then play it. Free build is where
+children make the game their own, so even a pair that is behind gets 3 minutes.
+\end{freebuild}
+
+\begin{reflection}[Closing the loop]
+Every Share part ends with a short question (\enquote{Which rule made your game more fun?}) and a
+drawing or a smiley face to circle in the workbook. Model it yourself:
+\enquote{Today I found a bug because Sam played my game and the apple went through the bowl.}
+\end{reflection}
+
+\begin{safety}[Fair, kind and safe]
+A 2--3 minute talk every week about screen-time balance, kind feedback, fair rules, being a good
+sport, credit, games for everyone and asking before sharing. Make it a conversation, not a lecture.
+The week-by-week list is in the Digital citizenship thread section below.
+\end{safety}
+
+%% =====================================================================
+\section{Assessment plan}
+Assessment in the junior track is \textbf{watching, not testing}. There are no quizzes, no
+placement tests and no grades. You notice what each child can do while they play and build, and
+you use it to choose what to practice next.
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{3.6cm}>{\RaggedRight}p{2.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-6.0cm-4\tabcolsep}@{}}
+\toprule
+What & When & How to use it\\
+\midrule\endhead
+\bottomrule\endfoot
+\enquote{Show me} warm-up & Week 1, 5 min & Not graded. Five quick \enquote{show me} tasks from Level 1 (green flag, repeat, a key, a fix, saving) and a \enquote{what game would you like to make?} question. Use it to choose pairs and to see what to review in weeks 1--2.\\
+Exit question & Every session & In the Share part. One quick question from the lesson plan; listen to the answers.\\
+Progress tracker & Every session, 2 min & The child colors the star next to the week's \enquote{I can} statement when they feel ready.\\
+Show-me checklist & Week 5 & Six rows. Watch during the play day and check \emph{Not yet}, \emph{Getting there} or \emph{Got it}. Use the results to plan weeks 6--8 (and B1 or B2 if many rows say Not yet).\\
+Project stars & Weeks 9--10 & Four rows with 1--3 stars (it works, every must-have, a player tested it and I fixed something, I can say what one script does). See the Project Teacher Guide.\\
+Show-me checklist & Week 10 & Eight rows, watched during the project and the arcade showcase. Compare with week 5 and pass it on to Junior Level 3.\\
+Certificate & Week 10 & Every child who finishes the level gets one. It celebrates taking part, not a score.\\
+\end{guidetable}
+
+\textbf{The three columns} used on every show-me checklist:
+\textbf{Not yet} (needs you to show it, or does not try yet),
+\textbf{Getting there} (does it with a hint or a reminder),
+\textbf{Got it} (does it alone). The Answer Key (\enquote{How to use the show-me checklists})
+describes what each looks like for every row and what to do next for \enquote{Not yet}.
+
+\begin{tip}[Valuing the right things]
+Praise strategies and effort, not speed or high scores: \enquote{You asked Sam to play it and then
+fixed the bug he found!} When a child shows you a game, ask \enquote{What does this script do?} and
+\enquote{Why did you choose 3 misses?} before you say \enquote{Well done}. A child who can explain
+a short game is further along than one who copied a long one.
+\end{tip}
+
+%% =====================================================================
+\section{Differentiation}
+Every lesson plan has a support path (needs more time) and an extension path (finished early).
+General moves:
+
+\begin{differentiation}
+\supportpath Start from a starter project where the player already moves, and add one rule at a
+time. Be the Driver yourself while the child points at the next block in the book, then swap for the
+last block only. Keep one if inside the forever before adding a second. Repeat the unplugged game.
+Zoom the code area. Skip the second exercise and come back to it in the next warm-up.
+\extensionpath Ask \enquote{Can you add a second apple? A sound when you score? A faster level?}
+Let them make a bug for a partner to find. Use the stretch challenge in the plan. Let them be the
+Player for another pair, reporting bugs in words but never touching another child's mouse.
+\end{differentiation}
+
+\begin{guidetable}{@{}>{\bfseries}p{0.9cm}>{\RaggedRight}p{\dimexpr(\linewidth-0.9cm-4\tabcolsep)/2}>{\RaggedRight\arraybackslash}p{\dimexpr(\linewidth-0.9cm-4\tabcolsep)/2}@{}}
+\toprule
+Wk & \faArrowDown\ Support path & \faArrowUp\ Extension path\\
+\midrule\endhead
+\bottomrule\endfoot
+1 & Forever with one move block and \enquote{if on edge, bounce}; the green-flag hat is already there. & Add next costume and a wait inside the forever; a second sprite that bounces in another direction.\\
+2 & One if inside a forever that is already built; only the sprite in the dropdown changes. & Two ifs: one for a friend sprite, one for the edge; a sound for each.\\
+3 & The score variable is already made; they add \enquote{set score to 0} and \enquote{change score by 1}. & A second variable (misses) and a \enquote{say} that shows the score at the end.\\
+4 & Use \enquote{go to random position} only. & Use pick random 1 to 10 for a wait or for how many steps; explain why it must be inside the loop.\\
+5 & Play day with help cards; show-me rows watched one at a time. & Be the Player for the relay; make a broken game for a partner.\\
+6 & One message between two sprites, names picked from the dropdown. & A chain of three messages; a start screen that broadcasts \enquote{start}.\\
+7 & Use a My Block that is already made; they only drag it into the script. & Make a My Block with one number input (for example how many steps).\\
+8 & Win only (score 10), then game over later. & A \enquote{you win} backdrop and a \enquote{game over} backdrop chosen by messages.\\
+9 & Core path: start from the template where the player already moves; one must-have at a time. & Stretch path: a My Block, or a second level that starts when the score reaches 10.\\
+10 & Practice the 1-minute demo with you first; point and say one sentence. & Explain one design choice (\enquote{Why 3 misses?}); be the arcade host for a visitor.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Digital citizenship thread}
+Every week has a short safety, kindness or wellbeing moment (a \enquote{Digital citizenship \&
+safety} box in the lesson plan). Keep it to 2--3 minutes and make it a conversation.
+
+\begin{guidetable}{@{}>{\bfseries}p{0.9cm}>{\RaggedRight}p{4.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-5.3cm-4\tabcolsep}@{}}
+\toprule
+Wk & Theme & The key message\\
+\midrule\endhead
+\bottomrule\endfoot
+1 & Screen-time balance & A forever loop never stops on its own, but we do: stop when the timer says so, even in the middle of a game.\\
+2 & Kind feedback & Two stars and a wish: two things you like, one idea to make it better. Say it about the game, not the person.\\
+3 & Fair scoring & Everyone knows the rules before the game starts, and the score counts the same for everyone.\\
+4 & Being a good sport & Random means anyone can win. Say \enquote{Good game} whether you win or lose.\\
+5 & Looking back & What did I get better at? Notice your own progress, not someone else's.\\
+6 & Credit & Sprites and sounds we did not make came from someone. We say \enquote{The apple is from the Scratch library.}\\
+7 & Games for everyone & Big, clear text; colors plus shapes or words; not too fast for a new player.\\
+8 & No tricks & Good games end. They do not trick players into \enquote{just one more} go.\\
+9 & Asking first & Ask before you share someone else's game or show it to anyone.\\
+10 & Showcase safety & Family only, on the screen, nicknames on screen, nothing uploaded.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Troubleshooting}
+\begin{guidetable}{@{}>{\RaggedRight}p{5.4cm}>{\RaggedRight\arraybackslash}p{\dimexpr\linewidth-5.4cm-2\tabcolsep}@{}}
+\toprule
+\textbf{Problem} & \textbf{What to do}\\
+\midrule\endhead
+\bottomrule\endfoot
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Variables}}\\ \midrule
+Another sprite cannot see the score, or there are two \enquote{score} variables. & The variable was made \enquote{For this sprite only}. Right-click it in the \menu{Variables} palette, \menu{delete}, and make it again with \menu{Make a Variable} and \textbf{For all sprites} (the first choice). In this course every variable is made for all sprites.\\
+The score does not start at 0. & Add \enquote{set score to 0} at the top of a green-flag script, before the forever loop. \enquote{set} puts a number in the box; \enquote{change} adds to it.\\
+The score races up by many points. & The apple stays touching the bowl while the forever loop checks again and again. Move the apple away (back to the top) straight after \enquote{change score by 1}.\\
+The score is not on the stage. & Tick the box next to the variable in the \menu{Variables} palette.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Scripts and loops}}\\ \midrule
+A script does nothing. & Check it is under the right sprite: click each sprite below the stage and look at its code area. Each sprite has its own scripts; the Stage has its own too. To move a script, drag it onto the right sprite below the stage, then delete the old copy.\\
+Blocks under a forever loop never run. & A forever loop never finishes, so it has no bottom notch. Put the blocks above the forever (to run once at the start) or inside it (to run again and again).\\
+An if only works at the start. & The if is outside the forever loop, so it checks once. Drag it inside the forever.\\
+The game ends right at the start. & The win or game-over check runs before the variables are reset. Put \enquote{set score to 0} (and \enquote{set lives to 3} or \enquote{set misses to 0}) at the top of the same script, before the forever.\\
+The game never ends. & Check the number in the win test (\enquote{score = 10}) can really be reached, and that \enquote{stop all} is inside the if.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Messages and My Blocks}}\\ \midrule
+A message is sent but nothing happens. & The names must match exactly. In the \enquote{when I receive} hat, choose the message from the dropdown instead of making a new one with a similar name (\enquote{start} and \enquote{Start} are different).\\
+A My Block is made but nothing happens. & A \enquote{define} script only describes the block. Drag the new pink-red block into a script where it should run.\\
+The My Block is missing in another sprite. & My Blocks belong to one sprite. Make it again in the other sprite, or drag the define script onto that sprite.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Sprites and the stage}}\\ \midrule
+The apple is upside down when it falls, or the bowl flips over. & \enquote{point in direction} turns the whole sprite. Add \enquote{set rotation style left-right} (blue \menu{Motion}) at the start of its green-flag script, as in week 2.\\
+A falling apple flickers at the top or counts misses straight away. & It starts touching an edge. Drag the hidden Star marker a little further from the top and side edges: click the Star in the sprite list, click the \menu{Show} eye, drag it, and click the flag again (its green-flag script hides it).\\
+A sprite has vanished. & It may be hidden: add \enquote{show} at the start of its green-flag script, or click the open eye next to \enquote{Show}.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Saving and opening}}\\ \midrule
+Where do I save? & \menu{File > Save to your computer}, into the \texttt{Game Makers} folder inside \texttt{Scratch Projects}. Use the nickname and the game in the file name, for example \texttt{Tiger-catch}. Never a real full name.\\
+I cannot find a project. & \menu{File > Load from your computer}, then look in \texttt{Game Makers}, \texttt{Scratch Projects} and Downloads. Save before the wiggle break and again before Share.\\
+Saving a second time made a new file. & That is fine. Keep the newest one, or save with the same name and click \menu{Replace}.\\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{\color{kcaccent}Playing}}\\ \midrule
+The arrow keys do nothing. & Click once on the stage so Scratch is listening, then press the keys. Check the key in the dropdown of each \enquote{when key pressed} hat.\\
+The game is too fast or too slow. & Change one number: the steps in \enquote{move} (smaller is slower). Let the Player try it again.\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Pacing, buffers and holidays}
+Junior Level 2 has \textbf{10 core sessions}, one a week. Weeks with no session (holidays, illness)
+do not count. The buffers \textbf{B1} (Secret Codes Day, unplugged) and \textbf{B2} (Mini Game Jam)
+are \textbf{optional} and can go anywhere after week 5: use B1 when a group needs a screen-free day or
+after a long break, and B2 when children want more free building before the project.
+
+\begin{tip}[Rules of thumb]
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Never skip weeks 5 and 10.} They hold the show-me checklists, and week 10 is the
+        arcade showcase every child has been working towards.
+  \item \textbf{Lose a session?} Drop a buffer if you planned one. Otherwise do the warm-up of the
+        missed week as the next warm-up and move on: the ideas come back later.
+  \item \textbf{One child missed a session?} Read the workbook chapter together for 5 minutes and pair
+        them as Helper first next time.
+  \item \textbf{Before a holiday} end with free build. After a long break, start with a game children
+        already know (freeze dance, Simon says IF).
+\end{itemize}
+\end{tip}
+
+\subsection{One school year or two}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{One school year:} all three junior levels (30--36 sessions at one a week), using the
+        buffers for holidays and \enquote{we need another week} moments.
+  \item \textbf{Two school years} (recommended when a child starts in early Grade 2):
+        Grade 2 = Junior Levels 1 and 2 with both buffers; Grade 3 = Junior Level 3, then main-track Level 1.
+        In this plan Level 2 is the second half of the Grade 2 year.
+\end{itemize}
+
+\subsection{Sample calendar for 2027}
+The example uses \textbf{Saturday mornings}, starting on 17 April 2027, the Saturday after the
+Level 1 sample calendar ends (with both buffers). It skips Memorial Day weekend (May 29; Memorial Day
+is Monday May 31). The first column is the 10-week plan; the second adds both buffers and also skips
+the Independence Day weekend (July 3; July 4 is a Sunday). If you meet on a weekday, shift each date
+to your day and skip the holidays that fall on it.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\fitwidth{\begin{tabular}{@{}>{\bfseries}l l l@{}}
+\toprule
+Saturday & 10-week plan & With B1 and B2 (12 sessions)\\
+\midrule
+Apr 17 & W1 Forever and Bounce & W1\\
+Apr 24 & W2 If Touching\dots & W2\\
+May 1 & W3 Keep Score & W3\\
+May 8 & W4 Surprise! Random & W4\\
+May 15 & W5 Play Day and Show Me & W5\\
+May 22 & W6 Messages & B1 Secret Codes Day\\
+May 29 & \emph{skip: Memorial Day weekend} & \emph{skip: Memorial Day weekend}\\
+Jun 5 & W7 My Own Blocks & W6\\
+Jun 12 & W8 Start, Win and Lose & W7\\
+Jun 19 & W9 Project Studio & W8\\
+Jun 26 & W10 Arcade Showcase & B2 Mini Game Jam\\
+Jul 3 & (Level 2 done: time for a summer break) & \emph{skip: Independence Day weekend}\\
+Jul 10 & & W9 Project Studio\\
+Jul 17 & & W10 Arcade Showcase\\
+\bottomrule
+\end{tabular}}
+\end{center}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{10-week plan:} 10 sessions from Apr 17 to Jun 26, with one skipped Saturday (May 29).
+        Juneteenth (June 19) falls on that Saturday in 2027; if your family marks it, move W9 and W10
+        one week later.
+  \item \textbf{With both buffers:} 12 sessions from Apr 17 to Jul 17. B2 right before the project gives
+        children a free build to warm up their game ideas.
+  \item Many families take a summer break after Level 2. Before Junior Level 3, replay a favorite
+        Level 2 game as a warm-up.
+\end{itemize}
+
+%% =====================================================================
+\section{Coverage: what is taught when}
+
+\subsection{(a) Goals across the weeks}
+\cvI\ = introduced,\quad \cvR\ = revisited,\quad \cvE\ = extended. Every goal is introduced,
+practiced and then extended before the week-10 showcase.
+
+\begin{center}\small\renewcommand{\arraystretch}{1.35}
+\fitwidth{\begin{tabular}{@{}>{\bfseries}l*{10}{c}@{}}
+\toprule
+Goal & W1 & W2 & W3 & W4 & W5 & W6 & W7 & W8 & W9 & W10\\
+\midrule
+G1 Forever and repeat & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR\\
+G2 If-then reacts &  & \cvI & \cvR & \cvR & \cvR &  &  & \cvE & \cvR & \cvR\\
+G3 Score and random &  &  & \cvI & \cvE & \cvR &  &  & \cvR & \cvR & \cvR\\
+G4 Messages, My Blocks &  &  &  &  &  & \cvI & \cvE & \cvR & \cvR & \cvR\\
+G5 Test and fix bugs & \cvI & \cvR & \cvR & \cvR & \cvE & \cvR & \cvR & \cvR & \cvE & \cvR\\
+G6 Plan, playtest, feedback & \cvI & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvR & \cvE & \cvR\\
+G7 Fair, kind, credit & \cvI & \cvR & \cvR & \cvR & \cvR & \cvE & \cvE & \cvR & \cvR & \cvR\\
+\bottomrule
+\end{tabular}}
+\end{center}
+{\small Notes: G1 is extended in week 8, when the forever loop becomes the \enquote{play} part of a
+game with a start and an ending. G2 is extended in week 8 by checking a number (\enquote{if score =
+10}) instead of touching. G3 starts with the score in week 3 and is extended with pick random in
+week 4. G4 is introduced with messages in week 6 and extended with My Blocks in week 7. G5 is named
+as a strategy in week 1 (from Level 1), extended in the week-5 relay and again with a real Player's
+bug list in week 9. G6 starts with Driver and Helper and \enquote{two stars and a wish}, and is
+extended with the game plan card and playtesting in week 9. G7 is extended in week 6 (credit) and
+week 7 (games for everyone).\par}
+
+\subsection{(b) Objectives and where they are taught}
+The table below is generated automatically from the lesson plans (every \enquote{The student
+can\dots} objective with its goal code and week).
+
+\kcinput{generated/coverage}
+
+\subsection{(c) The spiral map: how big ideas come back}
+Junior Level 2 picks up each idea from Level 1 and hands it on to Level 3 and the main track.
+
+\begin{guidetable}{@{}>{\bfseries\RaggedRight}p{2.8cm}>{\RaggedRight}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}>{\RaggedRight}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}>{\RaggedRight}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}>{\RaggedRight\arraybackslash}p{\dimexpr(\linewidth-2.8cm-8\tabcolsep)/4}@{}}
+\toprule
+Big idea & Junior L1 & Junior L2 & Junior L3 & Main track\\
+\midrule\endhead
+\bottomrule\endfoot
+Sequence and algorithms & W1 \cvI\ (unplugged), W2 \cvR & W8 \cvR\ (game states) & W2 \cvE\ (planning in parts) & L1 W1, L2 W10\\
+Loops & W4 \cvI\ (repeat), W8 \cvR\ (pen) & W1 \cvE\ (forever) & W1 \cvE\ (nested), W7 \cvR\ (for) & L1 W2, L1 W8\\
+Events & W2 \cvI\ (green flag), W6 \cvE\ (click, key) & W6 \cvE\ (messages) & W6--8 \cvR\ (Run) & L1 W3\\
+Conditionals & --- & W2 \cvI\ (if touching), W8 \cvR & W4 \cvR\ (sorting rules) & L1 W3, L1 W9\\
+Variables and data & B1 (numbers stand for colors) & W3 \cvI\ (score), W4 \cvI\ (random) & W3 \cvE\ (survey data) & L1 W4, L2 W3\\
+Abstraction & W9 storyboard & W7 \cvI\ (My Blocks) & W1 \cvR, W8 def (stretch) & L1 W5, L1 W10\\
+Debugging & every week, W3 \cvI & W5 relay, playtesting & W6 \cvE\ (typos in text) & every week\\
+AI & --- & --- & W4 \cvI\ (unplugged) & L3 W9\\
+Citizenship & nicknames, breaks, credit, passwords & fairness, kindness, credit, accessibility & privacy, data, AI safety, credit & every week\\
+\end{guidetable}
+
+%% =====================================================================
+\section{Next steps: into Junior Level 3}
+Junior Level 3, \textbf{Bridge to Python}, starts in the same Scratch app and then moves to real
+text code. In weeks 1--5 children put a repeat inside a repeat to make patterns, plan programs on
+paper in parts, collect data for a bar graph and learn how computers learn from examples. In weeks
+6--9 they read and change short \textbf{Python turtle} programs in \textbf{Thonny}, and the level ends
+with \enquote{My Big Build}: a Scratch game or a Python picture.
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Keep the week-10 show-me checklists.} Week 1 of Level 3 starts with a short
+        \enquote{show me} warm-up. Rows marked \enquote{Not yet} tell you what to practice first;
+        My Blocks (week 7 of Level 2) come back straight away in Level 3 week 1.
+  \item \textbf{Install Thonny before Level 3 week 6.} The Level 3 Teacher Guide has the steps. Until
+        then nothing new is needed.
+  \item \textbf{Keep the games.} The \texttt{Scratch Projects} folder comes along, so children can
+        open and remix their arcade games in free build.
+  \item \textbf{A long break first?} Start Level 3 with buffer B2 of Level 2 (Mini Game Jam) or with a
+        favorite game from the arcade, before the first new idea.
+\end{itemize}
+
+\end{document}

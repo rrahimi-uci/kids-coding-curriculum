@@ -1,6 +1,6 @@
 """Junior Level 2 Week 1: Forever and Bounce (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/2-game-makers/teaching-material/lessons/week01.tex: the welcome back to Game Makers, the
+Follows grade-2-3/2-game-makers/teaching-material/lessons/week01.tex: the welcome back to Game Makers, the
 forever freeze dance, repeat versus forever (a merry-go-round; the red stop sign is the pause button),
 Exercise 1.1 Bounce Cat built step by step (point in direction 90, forever, move 10 steps: stuck at the
 edge; if on edge, bounce: upside down; set rotation style left-right: fixed; the stop sign), the exit

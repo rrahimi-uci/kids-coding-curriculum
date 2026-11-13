@@ -1,6 +1,6 @@
 """Junior Level 1 Week 9: Project Studio (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week09.tex: the three-box storyboard warm-up
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week09.tex: the three-box storyboard warm-up
 (start, middle, end, with the event under each box), the card's must-haves, Mei's sample storyboard for
 Grandpa, building one box at a time (the LEGO box picture), Mei's box 1 built step by step and tested,
 the repeat for box 2 and the balloon's click script for box 3 (Mei's sample card, not a child's card),

@@ -4,9 +4,9 @@
 %%
 %% Class options
 %%   level=1|2|3      level number (sets accent color + running header)
-%%   track=main|junior  main track (Grades 4-5, default) or junior track
-%%                    (Grades 2-3: 14pt type, junior level names; see
-%%                    docs/JUNIOR-SYLLABUS.md)
+%%   track=main|junior  main track (Grades 4-6, grade-4-6/, default) or junior
+%%                    track (Grades 2-3, grade-2-3/: 14pt type, junior level
+%%                    names; see grade-2-3/SYLLABUS.md)
 %%   teacher          marks the document TEACHER ONLY (banner + header)
 %%   student          (default) student-facing document
 %%
@@ -167,7 +167,7 @@
   \newcommand{\kcheadlevel}{Level \kc@level}
 \else
   \newcommand{\kclevelname}{%
-    \ifcase\kc@level\relax\or Level 1: Introduction\or Level 2: Intermediate\or Level 3: Advanced\fi}
+    \ifcase\kc@level\relax\or Level 1: Introductory\or Level 2: Intermediate\or Level 3: Advanced\fi}
   \newcommand{\kctrackname}{Kids Coding}
   \newcommand{\kcheadlevel}{\kclevelname}
 \fi

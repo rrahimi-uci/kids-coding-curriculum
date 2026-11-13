@@ -1,6 +1,6 @@
 """Junior Level 3 Week 5: Play Day: Blocks to Words (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/3-bridge-to-python/teaching-material/lessons/week05.tex: Play Day, the blocks-to-words
+Follows grade-2-3/3-bridge-to-python/teaching-material/lessons/week05.tex: Play Day, the blocks-to-words
 card sort (move 100 steps / t.forward(100), turn left 90 / t.left(90), repeat 4 / for i in range(4):,
 set pen color to blue / t.color("blue")), the "hello / hola" analogy, t as the turtle's name, the
 Scratch square in Python words with the indent (shown, not typed; a sneak-peek turtle drawing), the

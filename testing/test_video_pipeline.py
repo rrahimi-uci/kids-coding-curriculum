@@ -112,7 +112,7 @@ def test_answers_and_tests_are_never_video_evidence() -> None:
 def test_validation_rejects_an_answer_file_as_evidence(series) -> None:
     video = _week(series, 7)
     leaked = dataclasses.replace(
-        video, source_files=video.source_files + ("1-introduction/exercises/week07/ex-typo-hunt/solution.py",)
+        video, source_files=video.source_files + ("grade-4-6/1-introductory/exercises/week07/ex-typo-hunt/solution.py",)
     )
     assert any("not one of this week's fingerprinted sources" in error for error in validate_video(leaked, ROOT))
 
@@ -132,7 +132,7 @@ def test_validation_catches_unreadable_and_overlong_scenes(series) -> None:
 def test_validation_requires_a_real_practice_activity(series) -> None:
     video = _week(series, 3)
     missing = dataclasses.replace(video, practice_activity="")
-    elsewhere = dataclasses.replace(video, practice_activity="1-introduction/exercises/week01/ex-hello-cat")
+    elsewhere = dataclasses.replace(video, practice_activity="grade-4-6/1-introductory/exercises/week01/ex-hello-cat")
     assert any("practice_activity must name" in e for e in validate_video(missing, ROOT))
     assert any("not part of this week's material" in e for e in validate_video(elsewhere, ROOT))
 
@@ -140,7 +140,7 @@ def test_validation_requires_a_real_practice_activity(series) -> None:
 # --------------------------------------------------------------------------- manifest workflow
 def test_changed_files_names_the_file_that_changed(tmp_path: Path) -> None:
     manifest = build_manifest(ROOT)
-    lesson = "1-introduction/teaching-material/lessons/week02.tex"
+    lesson = "grade-4-6/1-introductory/teaching-material/lessons/week02.tex"
     manifest["weeks"]["2"]["files"][lesson] = "0" * 64
     manifest["weeks"]["2"]["digest"] = "stale"
     path = tmp_path / "manifest.json"

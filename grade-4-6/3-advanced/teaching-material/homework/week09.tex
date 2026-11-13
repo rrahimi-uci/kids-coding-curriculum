@@ -1,0 +1,34 @@
+% Level 3 homework, Week 9 -- How Do Machines Learn?
+\homeworkweek{9}{How Do Machines Learn?}{15--20 minutes. Do both Core parts; Challenge and Creative are optional.}
+\namedateline
+
+\begin{core}[Part A: Fruit detective (about 10 minutes)]
+Open \texttt{grade-4-6/3-advanced/exercises/week09/hw-fruit-detective/starter.py}. One card in \texttt{TRAINING} has the wrong label: a lemon was labeled \enquote{apple}. With \textbf{k = 1} the classifier copies the single closest card. With \textbf{k = 3} the three closest cards \textbf{vote}.
+\begin{enumerate}[itemsep=1pt]
+  \item Finish \texttt{k\_nearest(training, point, k)}: sort the cards by distance (\py|sorted(..., key=...)| from week 5) and keep the first \texttt{k}.
+  \item Finish \texttt{vote(labels)} with a counting dictionary.
+  \item Run it and \texttt{check\_my\_work.py}. \quad k = 1 says: \rule{2cm}{0.4pt} \quad k = 3 says: \rule{2cm}{0.4pt}
+\end{enumerate}
+\end{core}
+
+\begin{core}[Part B: Finish your project pitch (Milestone 1, about 5 minutes)]
+Finish the pitch card in workbook Exercise 9.4. Check it against the Project brief: two or more classes (one with inheritance or composition), a dictionary/stack/queue/grid, a named algorithm, a saved file. Bring it to the next session.
+\end{core}
+
+\begin{challenge}[How big should k be?]
+In the fruit detective, try \texttt{k} = 1, 3, 5 and 13 for the mystery fruit (5, 4) and for (2, 8). What happens when \emph{every} card votes (k = 13)? Why is a very big k a bad idea too?
+\answerlines{2}
+\end{challenge}
+
+\begin{creative}[Spot the AI]
+This week, notice three places where AI might be at work (video suggestions, photo filters, voice assistants, game opponents...). For one of them, write: what are its \emph{examples} (training data)? Could it be unfair to someone? Do not type anything personal into any AI tool to find out!
+\answerlines{3}
+\end{creative}
+
+\begin{selfcheck}
+  \item I can explain the difference between rules and learning from examples.
+  \item I know why we test on cards the program did not learn from.
+  \item I can explain how bad or unbalanced examples lead to unfair predictions.
+  \item I never share personal information with a chatbot.
+  \item My project pitch card is complete.
+\end{selfcheck}

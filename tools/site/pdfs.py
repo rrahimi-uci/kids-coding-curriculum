@@ -37,8 +37,11 @@ def ensure_level_pdfs(level_dir: str, stems: list[str], variants=("standard", "d
     return out
 
 
-def week_pdf(level_num: int, level_dir: str, week: int, dest: Path, cache: Path) -> Path | None:
-    """Student workbook chapter + homework for one week (standard edition)."""
+def week_pdf(level_key: str, classopts: str, level_dir: str, week: int, dest: Path, cache: Path) -> Path | None:
+    """Student workbook chapter + homework for one week (standard edition).
+
+    level_key is the curriculum.json key ("1", "j1") and names the cached file; classopts are the
+    level's kidscode options ("track=junior,level=1")."""
     tm = ROOT / level_dir / "teaching-material"
     nn = f"{week:02d}"
     wb, hw = tm / "workbook" / f"week{nn}.tex", tm / "homework" / f"week{nn}.tex"
@@ -46,13 +49,13 @@ def week_pdf(level_num: int, level_dir: str, week: int, dest: Path, cache: Path)
         return None
     digest = hashlib.sha1(wb.read_bytes() + (hw.read_bytes() if hw.exists() else b"")
                           + (ROOT / "shared" / "latex" / "kidscode.cls").read_bytes()).hexdigest()[:12]
-    cached = cache / f"{level_num}-{nn}-{digest}.pdf"
+    cached = cache / f"{level_key}-{nn}-{digest}.pdf"
     if not cached.exists():
         cache.mkdir(parents=True, exist_ok=True)
-        tmp = cache / f"tmp-{level_num}-{nn}"
+        tmp = cache / f"tmp-{level_key}-{nn}"
         tmp.mkdir(exist_ok=True)
         (tmp / "week.tex").write_text(
-            f"\\documentclass[level={level_num}]{{kidscode}}\n\\begin{{document}}\n"
+            f"\\documentclass[{classopts}]{{kidscode}}\n\\begin{{document}}\n"
             f"\\kcinput{{workbook/week{nn}}}\n"
             + (f"\\kcinput{{homework/week{nn}}}\n" if hw.exists() else "")
             + "\\end{document}\n", encoding="utf-8")
@@ -61,7 +64,7 @@ def week_pdf(level_num: int, level_dir: str, week: int, dest: Path, cache: Path)
             p = subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", "week.tex"],
                                cwd=tmp, env=env, capture_output=True, text=True, errors="replace")
             if p.returncode != 0:
-                raise RuntimeError(f"week PDF failed for level {level_num} week {nn}:\n{p.stdout[-1500:]}")
+                raise RuntimeError(f"week PDF failed for level {level_key} week {nn}:\n{p.stdout[-1500:]}")
         shutil.copy2(tmp / "week.pdf", cached)
         shutil.rmtree(tmp, ignore_errors=True)
     dest.parent.mkdir(parents=True, exist_ok=True)

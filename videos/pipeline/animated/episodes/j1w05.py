@@ -1,6 +1,6 @@
 """Junior Level 1 Week 5: Play Day and Show Me (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week05.tex: Play Day, an arrow-maze challenge
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week05.tex: Play Day, an arrow-maze challenge
 card on the floor grid (our own card, not the workbook's Exercise 5.1 maze), a quick quiz on turning on
 the spot, the detective steps and the doctor's check-up, the worked example (the wrong sound: Pop
 instead of Meow), the bug-hunt relay (Exercise 5.2) with Leg 1 The Quiet Cat solved as the example and

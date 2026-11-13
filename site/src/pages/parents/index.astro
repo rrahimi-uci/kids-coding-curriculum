@@ -1,9 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
-import { u, parentsData, fix, levels } from '../../lib/data';
+import { u, parentsData, fix, bands, bandLevels } from '../../lib/data';
 const P = parentsData();
-const L = levels();
+const B = bands();
 const f = P.facts;
 ---
 <Base title="For parents" description="Why learning to code matters, what the research says, what a session looks like and how you can help at home.">
@@ -41,10 +41,16 @@ const f = P.facts;
     <div set:html={fix(P.safety_html)} />
     <p>This website follows the same rules. It has no accounts, no analytics and no cookies; display choices stay in your own browser. See <a href={u('about/#accessibility')}>accessibility</a> for the easy-read font and dark mode.</p>
 
-    <h2 id="levels">The three levels</h2>
-    <ul>
-      {L.map((l) => <li><a href={u(`levels/${l.slug}/`)}><strong>Level {l.number}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>. <a href={u(`parents/notes/${l.slug}/`)}>Notes for families</a>.</li>)}
-    </ul>
+    <h2 id="levels">The levels</h2>
+    <p>There are two age groups with three levels each. The facts above describe Grades 4–6; Grades 2–3 sessions are 45 to 60 minutes, levels have 10 weeks, and a grown-up reads the pages aloud.</p>
+    {B.map((b) => (
+      <>
+        <h3 id={`levels-${b.id}`}><a href={u(`${b.id}/`)}>{b.band_title}</a></h3>
+        <ul>
+          {bandLevels(b.id).map((l) => <li><a href={u(`${l.path}/`)}><strong>Level {l.number}: {l.name}</strong></a> ({l.languages}). Final project: <em>{l.project_title}</em>. <a href={u(`parents/notes/${l.path}/`)}>Notes for families</a>.</li>)}
+        </ul>
+      </>
+    ))}
     <div class="btn-row">
       <a class="btn" href={P.pdf.handout.url.replace('%BASE%', u(''))}><Icon name="download" /> One-page summary (PDF, {P.pdf.handout.kb} KB)</a>
       <a class="btn secondary" href={u('curriculum/')}>See the roadmap</a>

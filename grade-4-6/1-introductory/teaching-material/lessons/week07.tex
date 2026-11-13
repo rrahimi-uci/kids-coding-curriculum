@@ -1,0 +1,145 @@
+% Level 1, Week 7 -- Hello, Python!   (input by lesson-plans.tex)
+\lesson{7}{Hello, Python!}{Text code is blocks written as words --- and Python is picky.}
+\lessoninfo{Concepts: Thonny, print, comments, turtle forward/left, syntax errors, sequence (R)}{Tools: Thonny + turtle}{CSTA: 1B-AP-10, 1B-AP-15, 1B-CS-03}
+
+\begin{objectives}
+  \item The student can open a file in Thonny, press Run, find the Editor, the Shell and the turtle window, and save with a sensible file name (L1.G9, L1.G8; L1.W07.1)
+  \item The student can write \texttt{print} lines and comments, and explain that Python skips comments (L1.G9; L1.W07.2)
+  \item The student can turn Scratch \enquote{move} and \enquote{turn} blocks into turtle code that draws a square (L1.G1; L1.W07.3)
+  \item The student can fix a typo by reading the line number and the last line of a red error message (L1.G6; L1.W07.4)
+\end{objectives}
+
+\begin{materials}
+  \item \textbf{One-time setup first} (about 30 minutes for up to 4 Macs, a few days before): see the teacher note \enquote{One-time setup} below. It installs Thonny, installs \texttt{pytest} and copies the exercise folder.
+  \item Print: workbook chapter 7 and homework 7 (one per student). The \enquote{Python is picky} cards are on the first workbook page --- no cutting needed.
+  \item On each Mac: Thonny open; Finder open at the week 7 exercises (\texttt{kids-coding} → \texttt{grade-4-6} → \texttt{1-introductory} → \texttt{exercises} → \texttt{week07}).
+  \item Paper, pencils, a timer (phone is fine), 4 sticky notes per student.
+\end{materials}
+
+\begin{teachernote}[One-time setup: Thonny, pytest and the exercise folder]
+Once per Mac, before week 7. Internet is needed for steps 1 and 3 only. No account anywhere.
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item \textbf{Install Thonny (free).} In Safari go to \texttt{thonny.org}. Click the download link for \textbf{Mac}. Open the downloaded \texttt{.pkg} file in \menu{Downloads} and click \menu{Continue}, \menu{Agree}, \menu{Install} (type your Mac password).
+  \item \textbf{First run.} Open Thonny from \menu{Applications} (or Launchpad). If macOS asks \enquote{downloaded from the Internet, are you sure?}, click \menu{Open}. Thonny asks for language and \enquote{Initial settings}: choose \textbf{Standard}, then \menu{Let's go!}.
+  \item \textbf{Install pytest once} (the helper that checks students' work): in Thonny click \menu{Tools} → \menu{Manage packages…}, type \texttt{pytest}, click \menu{Search on PyPI}, click \texttt{pytest} in the list, click \menu{Install}, wait, then \menu{Close}.
+  \item \textbf{Copy the student folder.} On your Mac, run \texttt{make student-bundle} in the course folder (Teacher Guide, Setup). Copy the \textbf{whole} \texttt{build/student-bundle/kids-coding} folder (USB stick or AirDrop) into each child's \menu{Documents}. Copy all of it, not only \texttt{exercises}: the checker needs the \texttt{testing} folder and the files next to it. The student copy has no solutions, so the answers are not one click away.
+  \item \textbf{Make a folder for own creations:} \menu{Documents} → new folder \texttt{my-python}.
+  \item \textbf{Test it.} In Thonny: \menu{File} → \menu{Open…} → \texttt{kids-coding} → \texttt{grade-4-6} → \texttt{1-introductory} → \texttt{exercises} → \texttt{week07} → \texttt{ex-first-square} → \texttt{check\_my\_work.py}, then click the green Run button. You should see \enquote{1 of 3 checks passed}. That means everything works.
+\end{enumerate}
+\end{teachernote}
+
+\needspace{20\baselineskip}
+\section{At a glance}
+Times are a guide: if the group is deep in a good build, let it run and shorten the demo.
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Python is picky} card game (workbook page 1).}
+  \timeslot{8--18}{Concept}{From blocks to words. Tour of Thonny: Editor, Shell, Run, Stop, turtle window.}
+  \timeslot{18--28}{Guided demo}{You type \texttt{print} and a square live, make a typo on purpose, fix it, and show \texttt{check\_my\_work.py}.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 7.1 Hello (6 min), 7.2 Square (8 min), 7.3 Typo hunt (6 min). Swap driver every 8 minutes; last 4 minutes free-build.}
+  \timeslot{52--60}{Wrap-up}{Save safely, show-and-tell, exit ticket, hand out homework 7.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{teacherscript}
+\enquote{In Scratch, blocks snap together, so you can't spell them wrong. Today we type our code. Python is a great helper, but it's \textbf{very picky}: one small letter in the wrong place and it stops. Let's train our detective eyes first.}
+\end{teacherscript}
+\begin{unplugged}[Python is picky]
+Open the workbook at \enquote{Spot the difference}. Each card shows two lines: one that Python understands and one it does not. Pairs have 4 minutes to circle the difference on each card. Then go through them together.
+Answers: \texttt{Print} has a capital P; \texttt{forwad} is missing an r; the third card is missing its \texttt{)}; \texttt{Left} has a capital L; the last card is missing the quote marks. Celebrate every find: \enquote{Great spot --- that is exactly what programmers do all day.}
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{Remember Scratch? Every block was really an instruction with words on it. In Python we type those words. \texttt{move 100 steps} becomes \texttt{t.forward(100)}. \texttt{turn left 90 degrees} becomes \texttt{t.left(90)}. \texttt{say Hello} becomes \texttt{print("Hello")}. Same ideas, new way of writing them. And just like in Scratch, the computer does the lines in order, from top to bottom.}
+\end{teacherscript}
+\begin{analogy}[Blocks are like a picture recipe; Python is a written recipe]
+A picture recipe shows the steps. A written recipe says the same steps in words. A written recipe is shorter and you can write anything --- but you must spell it so the cook understands. Python is the cook. It is clever but it only reads exact words.
+\end{analogy}
+Now show the Thonny window on your Mac (students gather round, or point at the diagram in the workbook):
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item \textbf{Editor} (top, big white area): \enquote{This is where we write our program. It is like the Scratch code area.}
+  \item \textbf{Run} (the green round button with a white triangle \faPlayCircle, or \keys{F5}; on some MacBooks hold \keys{fn} too): \enquote{This is our green flag.}
+  \item \textbf{Shell} (bottom): \enquote{This is where Python talks back --- messages and red errors appear here. Later, we type answers here too.}
+  \item \textbf{Stop} (the red stop sign): \enquote{If anything gets stuck, click Stop. Nothing breaks.}
+  \item \textbf{Turtle window}: a separate window called \enquote{Python Turtle Graphics}. On a Mac it can hide behind Thonny --- click its icon in the Dock.
+\end{itemize}
+\begin{teacherscript}
+\enquote{Lines that start with a hashtag \texttt{\#} are \textbf{comments}. Python skips them. They are notes for people, like sticky notes on your code.}
+\end{teacherscript}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Say hello, then draw a square]
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+  \item In Thonny click \menu{File} → \menu{New}. Type \py|print("Hello, Python!")| and press Run. Thonny asks you to save first: show the save box. Go to \menu{Documents} → \texttt{my-python}, name it \texttt{hello.py}, click \menu{Save}. Point at the Shell: \enquote{Python said it!}
+  \item Now break it on purpose: change \texttt{print} to \texttt{Print} and press Run. Read the red text out loud, slowly: \enquote{Line 1 \ldots{} \texttt{NameError: name 'Print' is not defined. Did you mean: 'print'?} Python is telling us: line 1, I don't know the word \texttt{Print} --- and it even guesses what we meant.} Fix it, run again. \enquote{Bugs are normal. Reading the message is the superpower.}
+  \item Open \texttt{week07/ex-first-square/starter.py} (\menu{File} → \menu{Open…}). Run it: one side of a square. Ask: \enquote{What do we need for side 2?} Students answer, you type. Run after every side. The finished program is printed below.
+  \item Show the checker: open \texttt{check\_my\_work.py} from the same folder, press Run. Read the result together: \enquote{[PASS] means that check is happy. [TRY AGAIN] gives a hint.}
+\end{enumerate}
+\end{workedexample}
+\pyfile{../exercises/week07/ex-first-square/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver and navigator]
+The \textbf{driver} types. The \textbf{navigator} reads the workbook steps aloud, watches for typos and says when to press Run. Set the timer for 8 minutes; when it rings, swap seats.
+With 1 student: the student drives, you navigate (ask questions, never take the keyboard). With 2: one pair. With 3: rotate driver, navigator and \enquote{tester} (who runs \texttt{check\_my\_work.py} and reads the result). With 4: two pairs; walk between them.
+\end{pairroles}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+  \item \textbf{Exercise 7.1 Hello, Python!} (\texttt{week07/ex-hello-python}): add three \texttt{print} lines. Remind them: a nickname, never a full name.
+  \item \textbf{Exercise 7.2 My First Square} (\texttt{week07/ex-first-square}): finish the square, then run the checker.
+  \item \textbf{Exercise 7.3 Typo Hunt} (\texttt{week07/ex-typo-hunt}): the bug hunt below.
+\end{enumerate}
+\begin{bughunt}[Typo hunt: Print, forwad, Right, Done]
+The program should draw a flag on a pole but has four typos. Python stops at the first one, so students fix them \textbf{one at a time}: run, read the red message, find the line, fix, run again.
+Coach with questions, not answers: \enquote{Which line number does it say?} \enquote{Compare that line with one that works. What is different?}
+The four bugs: \texttt{Print} (capital P, \texttt{NameError}), \texttt{forwad} (missing r, \texttt{AttributeError}), \texttt{Right} (capital R), \texttt{Done} (capital D). Bonus bug to show on your Mac only: delete a \texttt{)} --- Thonny shows \enquote{SyntaxError: '(' was never closed} and points at the line with the open bracket. Say: \enquote{Python tells us the line \textbf{and} what is missing. If a line ever looks fine, check the line above it too.}
+\end{bughunt}
+\begin{freebuild}[Turtle doodle (last 4 minutes)]
+\menu{File} → \menu{New}, save as \texttt{my-python/doodle.py}. Start with these three lines from the square program: \texttt{import turtle}, \texttt{t = turtle.Turtle()}, and at the end \texttt{turtle.done()}. In between, anything goes: a staircase, a zigzag, the first letter of their nickname. Color ideas: \texttt{t.color("\#CC79A7")}, \texttt{t.pensize(5)}. Anyone who wrote a \enquote{Python-ish} program on paper in week 6 can type it in now and see how close it was.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{safety}[Saving files safely]
+Ask: \enquote{If you saved a drawing and couldn't find it next week, how would you feel?} Then agree three rules together:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item Save in \textbf{one} place. Exercises: edit \texttt{starter.py} in its folder and press \keys{Cmd}+\keys{S}. New programs: \texttt{Documents/my-python}.
+  \item Use \textbf{sensible names}: small letters, \texttt{\_} instead of spaces, says what it is: \texttt{flag\_drawing.py}, not \texttt{untitled7.py}.
+  \item Never name a file \texttt{turtle.py} or \texttt{random.py}: Python would load your file instead of the real one and nothing works.
+\end{itemize}
+Our files stay on our own computer: nothing is uploaded, and no names or addresses go inside programs.
+\end{safety}
+Show-and-tell: each pair runs one program for the group (30 seconds each).
+\begin{formativecheck}[Exit ticket]
+Write on a sticky note: \enquote{What does the turtle draw?}
+\begin{pycode}
+t.forward(100)
+t.left(90)
+t.forward(100)
+\end{pycode}
+Answer: two lines that make a corner: one line to the right, then one line going up (like a backwards L). Look for: students who say \enquote{a square} need one more go at \enquote{the computer does exactly what we say, in order}.
+\end{formativecheck}
+\begin{reflection}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt]
+  \item What felt different about typing code instead of dragging blocks?
+  \item Which typo was hardest to spot? What will you check first next time?
+\end{itemize}
+Hand out homework 7 (Triangle Time). No computer at home? Students can write the code on paper and type it in next week.
+\end{reflection}
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Typing in the Shell instead of the Editor.} The Shell runs one line and forgets it. Fix: \enquote{Programs live in the top part.}
+  \item \textbf{Capital letters} (\texttt{Print}, \texttt{T.forward}) and missing \texttt{t.} before \texttt{forward}. Fix: compare with a working line.
+  \item \textbf{Curly quotes} from copying text out of a document. Always type code by hand in Thonny.
+  \item \textbf{\enquote{Nothing happened!}} The turtle window is hiding behind Thonny: click the Python icon in the Dock.
+  \item \textbf{Forgetting \texttt{turtle.done()}}: the window closes or freezes. Keep it as the last line.
+\end{commonmistakes}
+\begin{differentiation}
+\supportpath Pair the student with you as navigator. Let them copy the solution side by side with the starter, one line at a time, saying each line out loud (\enquote{forward one hundred, turn left ninety}). Skip Exercise 7.3 and do it together next week.
+\extensionpath Draw a rectangle (two long sides, two short), then a house: a square with a triangle roof (turn 120 for the triangle). Try \texttt{t.right()} as well as \texttt{t.left()}.
+\end{differentiation}
+\begin{stretchchallenge}[Your initial]
+Draw the first letter of your nickname with straight lines only (E, F, H, L, T work well; avoid Z, M and N, which need slanted lines). Plan it on squared paper first: write F, L or R and a number for each step.
+\end{stretchchallenge}
+\begin{teachernote}[If you are short on time]
+Shorten the warm-up to 3 cards (4 minutes). Do Exercise 7.3 as a whole-group bug hunt on your Mac instead of in pairs. Do not skip the safety rules about saving --- they prevent lost work next week.
+\end{teachernote}

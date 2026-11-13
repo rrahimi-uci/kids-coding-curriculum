@@ -1,0 +1,18 @@
+---
+// Old address of the notes for families (/parents/notes/level-N/, Grades 4-6 only): now
+// /parents/notes/grade-4-6/level-N/. The old address keeps working and sends the browser on.
+import Base from '../../../layouts/Base.astro';
+import { u, levels } from '../../../lib/data';
+export function getStaticPaths() {
+  return levels().filter((l) => l.track === 'main' && l.extras?.parent_notes)
+    .map((l) => ({ params: { old: l.slug }, props: { l } }));
+}
+const { l } = Astro.props;
+const target = u(`parents/notes/${l.path}/`);
+---
+<Base title={`Moved: notes for families, ${l.band_title}, Level ${l.number}`} redirect={target}>
+  <div class="measure stack">
+    <h1>This page has moved</h1>
+    <p>Go to <a href={target}>Notes for families: {l.band_title}, Level {l.number}</a>.</p>
+  </div>
+</Base>

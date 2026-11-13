@@ -94,7 +94,7 @@ def convert_readme(md: str, warnings: list[str]) -> tuple[str, str, str]:
     return number, title, str(soup)
 
 
-def build_exercise(dir_: Path, level: int, files_ok: list[str], warnings: list[str]) -> dict:
+def build_exercise(dir_: Path, level: str, files_ok: list[str], warnings: list[str]) -> dict:
     week = dir_.parent.name
     slug = f"{week}-{dir_.name}"
     readme = (dir_ / "README.md").read_text(encoding="utf-8")

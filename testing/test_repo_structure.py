@@ -32,7 +32,7 @@ def buffers(level: str) -> list[str]:
 # Teaching-quality rules per track. The junior track (Grades 2-3) has a shorter session with
 # its own five phases, "I can" student goals, a play-at-home card instead of three homework
 # tiers, and an unplugged activity, bug hunt and safety talk in almost every session
-# (docs/JUNIOR-SYLLABUS.md).
+# (grade-2-3/SYLLABUS.md).
 RULES = {
     "main": {
         "lesson_envs": ["objectives", "materials", "timeplan", "teacherscript", "analogy",
@@ -159,7 +159,7 @@ def test_exercise_folder_is_complete(folder):
             assert heading in sol, f"solution.md is missing '{heading}'"
         return
     # Junior children check Python work by matching the picture in the README, not with
-    # check_my_work.py (docs/JUNIOR-SYLLABUS.md); the tests still check solution.py in CI.
+    # check_my_work.py (grade-2-3/SYLLABUS.md); the tests still check solution.py in CI.
     junior = curriculum.level_of(folder).track == "junior"
     required = ["starter.py", "solution.py", "README.md"] + (["hints.md"] if junior else ["check_my_work.py"])
     for name in required:

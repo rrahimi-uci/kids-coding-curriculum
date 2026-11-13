@@ -1,6 +1,6 @@
 """Junior Level 1 Week 7: Two Sprites Talk (kit episode, Aiden and Pixi, Grades 2-3).
 
-Follows junior/1-little-robots/teaching-material/lessons/week07.tex: the talking-in-turns warm-up with
+Follows grade-2-3/1-little-robots/teaching-material/lessons/week07.tex: the talking-in-turns warm-up with
 SAY and WAIT 2 cards ("one banana, two banana"), many sprites with their own scripts and a backdrop (a
 school play), Exercise 7.1 Hello, Ballerina! built step by step, a quiz on a wait that is too short,
 Exercise 7.2 Boo at Once (Omar's cat and Ghost talk at the same time), planning My Two-Line Story in

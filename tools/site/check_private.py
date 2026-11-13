@@ -20,6 +20,7 @@ from __future__ import annotations
 import glob
 import html
 import io
+import json
 import re
 import subprocess
 import sys
@@ -88,6 +89,17 @@ def pdf_text(data: bytes) -> str:
         return p.stdout.decode("utf-8", "replace")
     except (OSError, ValueError):
         return ""
+
+
+def _strings(data) -> list[str]:
+    """Every string inside a JSON value."""
+    if isinstance(data, str):
+        return [data]
+    if isinstance(data, dict):
+        data = list(data.values())
+    if isinstance(data, list):
+        return [s for item in data for s in _strings(item)]
+    return []
 
 
 def collect_output(dist: Path):
@@ -161,9 +173,12 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
         rel = pub["parents"].get(key)
         if rel and (root / rel).exists():
             public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
-    syl = root / "docs" / "SYLLABUS.md"
-    if syl.exists():
-        public_parts.append(syl.read_text(encoding="utf-8"))
+    for pat in pub.get("video_scripts", []):  # narration: every string in the spec (scene narration, on-screen text)
+        for f in sorted(glob.glob(str(root / pat))):
+            public_parts.extend(_strings(json.loads(Path(f).read_text(encoding="utf-8"))))
+    for rel in pub.get("syllabi", []):
+        if (root / rel).exists():
+            public_parts.append((root / rel).read_text(encoding="utf-8"))
     public_blob = loose("\n".join(public_parts))
     checked = 0
     for lvl in manifest["levels"]:

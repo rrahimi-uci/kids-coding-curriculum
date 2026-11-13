@@ -1,0 +1,141 @@
+% Level 3, Week 7 -- Grids, Recursion and Fractal Art
+\lesson{7}{Grids, Recursion and Fractal Art}{Functions that call themselves; worlds made of grids.}
+\lessoninfo{Concepts: recursion, base case, 2D lists, flood fill, fractals}{Tools: Thonny, turtle, Thonny debugger}{CSTA: 3A-AP-14, 3A-AP-15, 3A-AP-20, 3A-AP-21}
+
+\begin{objectives}
+  \item The student can explain recursion as \enquote{solve a smaller copy of the same problem} and point to the base case and the recursive case. (L3.G2)
+  \item The student can store a map or picture in a 2D list and read or change a cell with \texttt{grid[row][col]}. (L3.G3)
+  \item The student can use recursion to draw a fractal tree and to flood-fill part of a grid. (L3.G2, L3.G3)
+  \item The student can find and fix a missing base case that causes a \texttt{RecursionError}. (L3.G8)
+\end{objectives}
+
+\begin{materials}
+  \item Print: workbook chapter 7 and homework 7 (one per student).
+  \item On each Mac: the whole \texttt{kids-coding} student copy (Check my work needs it). In Thonny open \texttt{grade-4-6/3-advanced/exercises/week07/ex-fractal-tree/starter.py}.
+  \item Unplugged: 3--4 nesting objects (stacking cups, boxes or nesting dolls); paper and pencils.
+  \item Prep (10 min): read this plan; run \texttt{ex-fractal-tree/solution.py} once to see the trees grow.
+\end{materials}
+
+\begin{timeplan}
+  \timeslot{0--8}{Warm-up}{Unplugged \enquote{Russian dolls}, then everyone draws a recursive \enquote{Y} tree on paper.}
+  \timeslot{8--18}{Concept}{Recursion = a function that calls itself on a smaller problem. Base case + recursive case. Grids: \texttt{grid[row][col]}.}
+  \timeslot{18--28}{Guided demo}{Type-along: Exercise 7.2 fractal tree. Count lines at depth 1, 2, 3.}
+  \timeslot{28--52}{Hands-on build}{Pairs: Exercise 7.1 (about 7 min), then 7.3 paint bucket (about 12 min); swap driver every 8 min. Bug hunt. Last 5 min: fractal free-build (or the optional BFS stretch, see the teacher note below).}
+  \timeslot{52--60}{Wrap-up}{Show-and-tell (30 s per pair: favorite fractal + one change), exit ticket, credit for algorithms, homework 7.}
+\end{timeplan}
+
+\section{Warm-up (0--8 min)}
+\begin{unplugged}[Russian dolls and paper trees]
+\textbf{Part 1 (3 min).} Hold up the nesting dolls. Say: \enquote{My job is: \emph{open the doll}. Inside I find... a smaller doll. What is my job now?} (Open it!) Keep going. At the solid doll ask: \enquote{Can I open this one?} (No.) \enquote{So I \emph{stop}. That last doll is the \textbf{base case}.}
+
+\textbf{Part 2 (5 min).} Write two rules on the board. (1) Draw a line up. (2) At the end of every new line, draw a smaller \enquote{Y} -- unless the lines are shorter than your fingernail; then stop. Everyone draws. Ask: \enquote{Two rules made something this complicated. How?} (The same rule, on smaller and smaller pieces.)
+\end{unplugged}
+
+\section{Concept (8--18 min)}
+\begin{teacherscript}
+\enquote{Today's big idea: a function that \textbf{calls itself}. That is \textbf{recursion}. Every recursive function has two parts. The \textbf{recursive case} does one small step, then asks itself to do the \emph{same job on a smaller problem}. The \textbf{base case} is the tiny problem we can answer straight away, so we stop.
+
+Look at \texttt{countdown} in your workbook. To count down from 3: say 3, then count down from 2. \dots{} To count down from 0: say Liftoff and stop -- the base case.
+
+Forget the base case and the function calls itself forever. Python gives up after about a thousand calls with a \texttt{RecursionError}: the dolls never ended!}
+\end{teacherscript}
+
+\begin{analogy}[The lunch queue question]
+You are at the back of a long queue and want to know your place. You ask the person in front: \enquote{What number are you?} They do not know either, so they ask the person in front of \emph{them}... until the first person says \enquote{I am number 1!} (base case). The answers come back down the line, plus one each time. Nobody counted the whole queue.
+\end{analogy}
+
+\textbf{Grids (3 min).} Draw a 3-by-4 table of letters on the board. Say: \enquote{A grid is a list of rows; each row is a list. \texttt{grid[1][2]} means row 1, then column 2 -- both counted from 0.} Point at it together. \enquote{It is like a movie-theater ticket: row first, then seat. Game maps and pixel pictures are grids. A paint-bucket tool is recursion on a grid: paint this square, then ask each neighbor to do the same.}
+
+\begin{teachernote}[Math for younger students (Grades 4--5)]
+Three ideas in this week go a little beyond Grade 4--5 math, and the workbook has a short \enquote{Math helper} box for each: \texttt{SHRINK = 0.7} (\enquote{7 tenths}: $100 \times 0.7 = 70$), steps of \texttt{-1} (\enquote{minus one means one back}; negative numbers are Grade 6), and \py|0 <= row < len(grid)| (\enquote{0 or more and less than the number of rows}). Read each box aloud the first time. Also warn that \texttt{grid[row][col]} is \emph{down, then across}, the opposite order of turtle's \texttt{(x, y)}.
+\end{teachernote}
+
+\begin{teachernote}[The CS idea, for you]
+Each call waits for its smaller calls to finish on a \textbf{call stack} (the plate stack from week 5); a missing base case overflows it. Recursion shines for things made of smaller copies of themselves: trees, fractals, mazes, folders.
+\end{teachernote}
+
+\section{Guided demo (18--28 min)}
+\begin{workedexample}[Exercise 7.2: the fractal tree (type-along)]
+Everyone opens \texttt{ex-fractal-tree/starter.py}; drivers type along with you. Press \keys{F5}: only trunks appear.
+\begin{enumerate}[itemsep=1pt]
+  \item Read the base case aloud: \py|if depth == 0: return| -- \enquote{a tree of depth 0 is nothing: stop.}
+  \item After the trunk (\py|t.forward(length)|) type the five TODO lines: turn left, smaller tree, turn right twice as far, smaller tree, turn back.
+  \item Run. Ask: \enquote{How many lines at depth 1? 2? 3?} Board: 1, 3, 7, 15 -- \enquote{each level doubles the twigs, plus the trunk.}
+  \item Point at \py|penup()| and \py|back(length)|: \enquote{every recursive drawing must leave the turtle where it found it.}
+\end{enumerate}
+\end{workedexample}
+\pyfile[firstline=23,lastline=44]{../exercises/week07/ex-fractal-tree/solution.py}
+
+\section{Hands-on build (28--52 min)}
+\begin{pairroles}[Driver, navigator, tester]
+The \textbf{driver} types; the \textbf{navigator} reads the README aloud and checks each line before Run; swap at the 8-minute timer. With 1 student: you are the navigator and ask \enquote{where is the base case?} before each run. With 3: add a \textbf{tester} who runs \texttt{check\_my\_work.py} and reads hints aloud; rotate roles. With 4: two pairs.
+\end{pairroles}
+
+\textbf{Exercise 7.1} (about 7 min): finish \texttt{sum\_to} and \texttt{reverse}. \textbf{Exercise 7.3} (about 12 min): finish \texttt{count\_tiles} and the flood fill, then press keys 1--5 and click to paint (each paint has a letter as well as a color).
+
+\begin{bughunt}[The never-ending dolls]
+In a new Thonny file type \py|def sum_to(n): return n + sum_to(n - 1)| and \py|print(sum_to(3))|. Ask \enquote{What will happen?} Run: it ends in \texttt{RecursionError: maximum recursion depth exceeded}. Ask: \enquote{Which part is missing?} (The base case.) Strategy to remember: \textbf{RecursionError? Look for the base case first.} The same bug appears in 7.3 if the \enquote{stop when this cell is not the old color} line is missing.
+\end{bughunt}
+
+\begin{teachernote}[Optional stretch (4--5 min, only if 7.3 is finished early): BFS with the week 5 queue]
+Use the last minutes of the hands-on block for pairs that are done, or do it as a short demo at the whiteboard. Nothing later is blocked if you skip it: the project brief lists BFS as an option, so this is the place to meet it.
+
+\textbf{Say:} \enquote{Our paint bucket dives deep down one path first. There is another way: spread in \emph{rings}, nearest squares first, like ripples in a pond. Remember the lunch line from week 5? A \textbf{queue} is first in, first out. We put squares that are waiting to be visited in the line, and always take the one at the front.}
+
+\textbf{Board demo (3 min).} Draw an empty 3-by-3 grid and put a coin on the top-left square. Visit order is up, down, left, right. Take the front square, write the next number in it, and add its unvisited neighbors to the back of the line (write the line as a row of squares beside the grid). You get:
+
+\begin{center}
+\begin{tabular}{ccc}
+1 & 3 & 6\\ 2 & 5 & 8\\ 4 & 7 & 9\\
+\end{tabular}
+\qquad ring (distance): \quad
+\begin{tabular}{ccc}
+0 & 1 & 2\\ 1 & 2 & 3\\ 2 & 3 & 4\\
+\end{tabular}
+\end{center}
+
+Point at the rings: \enquote{Squares with the same distance were visited together. That is why BFS can say how far each square is from the start.} Then show the loop (workbook, Stretch section): \py|popleft()| takes from the front, \py|append()| joins the back, and marking a square when it joins the line (a \enquote{visited} mark) stops it joining twice.
+
+\textbf{The CS idea, for you.} Recursive flood fill and BFS paint the same squares. BFS never hits \texttt{RecursionError}, because the waiting squares live in a queue, not on the call stack, and it gives shortest distances. Pairs that want more write \texttt{flood\_fill\_queue} in 7.3 (see the README; \texttt{solution.py} has a finished version). Do not give an exit ticket on it.
+\end{teachernote}
+
+\begin{freebuild}[Grow your own fractal (last 5 minutes)]
+Change \texttt{ANGLE} and \texttt{SHRINK}: a tree leaning in the wind (different left and right angles), three branches instead of two, or \py|t.dot(6)| as a leaf in the base case. Or draw your own picture in \texttt{PICTURE} in the paint bucket.
+\end{freebuild}
+
+\section{Wrap-up (52--60 min)}
+\begin{formativecheck}[Exit ticket]
+\textbf{Look for:} students point to the base case without help and say \texttt{grid[row][col]} in the right order.
+\textbf{Question:} \enquote{A depth-3 tree draws 7 lines. How many does depth 4 draw, and why?}
+\textbf{Answer:} 15 -- the trunk plus two depth-3 trees (1 + 7 + 7).
+\end{formativecheck}
+
+\begin{reflection}
+Where have you seen things made of smaller copies of themselves (ferns, broccoli, rivers, folders)? Which was easier today, the tree or the paint bucket, and why? What does a base case protect us from?
+\end{reflection}
+
+\begin{safety}[Credit for generative art and algorithms]
+Say: \enquote{The fractal tree and the Koch snowflake (Helge von Koch, 1904) are famous ideas. When you show generative art, say where the idea came from: \emph{Fractal tree, based on a classic recursive algorithm; my colors and angles.} Your code is yours; the idea has a history; giving credit is what real artists and programmers do.} Each student adds a comment line \texttt{\# Based on: ...} at the top of their fractal file.
+\end{safety}
+
+Hand out homework 7 (treasure-map grid; optional Koch snowflake or BFS paint bucket).
+
+\section{Notes for the teacher}
+\begin{commonmistakes}
+  \item \textbf{Missing base case} or a call that does not get smaller (\py|sum_to(n)|) $\rightarrow$ \texttt{RecursionError}. Ask: \enquote{Where do we stop? Is the problem smaller each time?}
+  \item \textbf{Row and column swapped} (\texttt{grid[col][row]}): row first (go down), then column (go across).
+  \item \textbf{Turtle not returning} after a branch: the tree drifts sideways. End every branch with \py|back(length)|, facing the same way.
+\end{commonmistakes}
+
+\begin{differentiation}
+\supportpath Do 7.1 and 7.2 only. Trace \texttt{sum\_to(3)} as a stack of sticky notes, one per call, or use Thonny's debugger (bug icon, then \keys{F7}) to watch calls pile up.
+\extensionpath Add \texttt{count\_regions(grid)} to the paint bucket: scan every cell; at each unpainted \texttt{.}, flood-fill it and add 1.
+\end{differentiation}
+
+\begin{stretchchallenge}[Sierpinski triangle]
+\texttt{sierpinski(t, size, depth)}: depth 0 draws a triangle; otherwise three half-size Sierpinski triangles in the corners. Depth 4 has $3^4 = 81$ small triangles.
+\end{stretchchallenge}
+
+\begin{teachernote}[If you are short on time]
+Skip Part 2 of the warm-up and do 7.1 as a whole-group discussion. Keep the fractal tree (the wow moment); the paint bucket can be finished in Buffer B2 or at the start of week 8. Skip the BFS stretch; it is optional and can wait for the project.
+\end{teachernote}
