@@ -25,9 +25,11 @@ where useful, how to change it.
    materials box).
 6. **Reading level.** All student materials (workbooks, homework, exercise
    instructions, hints, assessments, project briefs) target a **Grade 4–5
-   reading level** at every level, because the learners are in Grades 4–5
-   when they take the course (changed from Grade 5 / Grade 6–7 in the
-   Grade 4–5 review, November 2026). Concepts are not removed for younger
+   reading level** at every level, because the youngest learners are in
+   Grade 4 when they take the course (changed from Grade 5 / Grade 6–7 in the
+   Grade 4–5 review, November 2026; the track was widened to Grades 4–6 in
+   version 2.0.0 without changing the reading level, so it still fits the
+   youngest readers). Concepts are not removed for younger
    readers; they get analogies, worked examples and extra practice steps.
    Teacher-facing material (lesson plans, answer keys, guides) stays at an
    adult reading level.
@@ -89,11 +91,17 @@ where useful, how to change it.
 
 ## Content and pedagogy
 
-17. **Folder names.** Levels live in `1-introduction`, `2-intermediate` and
-    `3-advanced` (named after the level titles), each with `exercises/`,
-    `project/` and `teaching-material/` inside. The first draft kept the
-    owner's original, misspelled folder names; they were corrected before
-    the first merge, while nothing linked to them yet.
+17. **Folder names.** Each track is a grade-band folder: `grade-2-3/`
+    (Kids Coding Junior) and `grade-4-6/`. Inside, levels are named after
+    their titles: `grade-4-6/1-introductory`, `2-intermediate` and
+    `3-advanced`; `grade-2-3/1-little-robots`, `2-game-makers` and
+    `3-bridge-to-python`, each with `exercises/`, `project/` and
+    `teaching-material/` inside. The first draft kept the owner's original,
+    misspelled folder names; they were corrected before the first merge.
+    Version 2.0.0 moved the levels from the repository root (and `junior/`)
+    into the band folders and renamed Level 1 *Introduction* to
+    *Introductory*, matching *Intermediate* and *Advanced*; the website
+    redirects the old `/levels/level-N/` addresses.
 18. **Level 1 placement.** No placement quiz before Level 1 (the brief says
     no prior experience); an ungraded interest & comfort survey is used
     instead. Placement quizzes are given before Levels 2 and 3 as requested.

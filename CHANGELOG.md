@@ -3,6 +3,17 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## 2.0.0 - 2026-11-13
+
+The course is now organized in two grade bands, in the repository and on the website.
+
+- **Grades 2–3 (Kids Coding Junior)** and **Grades 4–6** each have their own folder (`grade-2-3/`, `grade-4-6/`) with their syllabus and their three levels. The Grades 4–6 levels are **Level 1 — Introductory**, **Level 2 — Intermediate** and **Level 3 — Advanced**; Level 1 was called *Introduction* before.
+- The main course is now described as being for Grades 4–6 (ages 9–12). Its materials keep their Grade 4–5 reading level, so they still suit the youngest children in the band.
+- **The Grades 2–3 track is on the website**: all 30 week pages with their *Aiden and Pixi* videos, 57 exercise pages, three project briefs, cheat sheets, notes for families and the glossary.
+- New website structure: a page for each grade band (`/grade-2-3/`, `/grade-4-6/`), levels underneath (`/grade-4-6/level-1/week-07/`), and a menu grouped by grade band. The curriculum page shows both bands with their own timelines.
+- Old addresses (`/levels/level-N/...` and `/parents/notes/level-N/`) send you to the new Grades 4–6 pages. Download files now have the grade band in their names, so old PDF and ZIP links do not work any more.
+- The student copy (`make student-bundle`) now has `grade-2-3/` and `grade-4-6/` folders inside `kids-coding/`. Copy the new folder to each child's Mac; the lesson plans name the new folder paths.
+
 ## 1.15.0 - 2026-11-13
 
 Teaching videos for the junior track: *Kids Coding Junior with Aiden and Pixi*.

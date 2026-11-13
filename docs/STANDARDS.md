@@ -7,11 +7,14 @@ Ideas in AI”**.
 
 | Level | Students | Main CSTA band | Also uses |
 |---|---|---|---|
-| 1 Introduction | Grades 4–5 (age 9–11) | **1B** (grades 3–5) | — |
-| 2 Intermediate | Grades 4–5 (age 9–11) | **2** (grades 6–8) | 1B (review), 3A-AP-14 |
-| 3 Advanced | Grades 4–5 (age 9–11) | **2** (grades 6–8) | selected **3A** (grades 9–10), AI4K12 |
+| 1 Introductory | Grades 4–6 (age 9–12) | **1B** (grades 3–5) | — |
+| 2 Intermediate | Grades 4–6 (age 9–12) | **2** (grades 6–8) | 1B (review), 3A-AP-14 |
+| 3 Advanced | Grades 4–6 (age 9–12) | **2** (grades 6–8) | selected **3A** (grades 9–10), AI4K12 |
 
-All three levels are written for Grade 4–5 learners. Levels 2 and 3 reach
+These are the Grades 4–6 levels; the Grades 2–3 (junior) goals and their CSTA
+**1A** codes are in [grade-2-3/SYLLABUS.md](../grade-2-3/SYLLABUS.md). All three
+Grades 4–6 levels are written at a Grade 4–5 reading level, so they fit the
+youngest learners in the band. Levels 2 and 3 reach
 into the grades 6–8 band (and a few 3A standards) on purpose: the concepts are
 taught at a kid-sized depth, in Grade 4–5 language, with analogies, worked
 examples, small practice steps and “Math helper” boxes for any math beyond
@@ -23,7 +26,7 @@ kid-sized depth (see [DESIGN.md](DESIGN.md)).
 
 How the alignment is traced:
 
-1. Each level has 9 goals (L1.G1 … L3.G9) in [SYLLABUS.md](SYLLABUS.md), each
+1. Each level has 9 goals (L1.G1 … L3.G9) in [grade-4-6/SYLLABUS.md](../grade-4-6/SYLLABUS.md), each
    mapped to CSTA codes.
 2. Every lesson objective (“The student can …”) ends with the goal code(s)
    it serves, e.g. `(L2.G4)`.

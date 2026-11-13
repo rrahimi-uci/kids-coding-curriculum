@@ -6,8 +6,14 @@ enforce most of it.
 
 ## 1. Repository layout
 
+Each track is a grade-band folder holding its syllabus and its levels:
+`grade-2-3/` (Kids Coding Junior: `1-little-robots`, `2-game-makers`,
+`3-bridge-to-python`) and `grade-4-6/` (`1-introductory`, `2-intermediate`,
+`3-advanced`). [`curriculum.json`](../curriculum.json) lists them. Inside a
+level folder:
+
 ```
-<level>/                         1-introduction | 2-intermediate | 3-advanced
+<band>/<level>/                  e.g. grade-4-6/1-introductory, grade-2-3/1-little-robots
   teaching-material/
     teacher-guide.tex            Teacher Guide (main document)
     lesson-plans.tex             main doc -> \input{lessons/weekNN}, buffer1, buffer2
@@ -288,11 +294,11 @@ the web pages correct:
 
 ## 11. Junior track (Grades 2–3)
 
-Junior levels live under `junior/` and follow everything above **except** where this section
+Junior levels live under `grade-2-3/` and follow everything above **except** where this section
 says otherwise. The plan, goals and the "Junior rules" table are in
-[JUNIOR-SYLLABUS.md](JUNIOR-SYLLABUS.md); `testing/test_repo_structure.py` and
+[grade-2-3/SYLLABUS.md](../grade-2-3/SYLLABUS.md); `testing/test_repo_structure.py` and
 `testing/test_junior.py` enforce the parts below. Junior Level 1 week 2
-(`junior/1-little-robots/…/week02.tex` and `exercises/week02/`) is the model to copy.
+(`grade-2-3/1-little-robots/…/week02.tex` and `exercises/week02/`) is the model to copy.
 
 * **Class option.** `\documentclass[track=junior,level=N]{kidscode}` (add `teacher` as usual).
   It sets 14pt type and the junior level names.

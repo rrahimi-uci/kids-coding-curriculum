@@ -43,7 +43,7 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
 | Glossaries | Parsed structurally (`\gl`, `\term`) into one searchable A to Z page | The three sources use two macro styles; one page is easier to use than three PDFs. |
 | Progress trackers | PDF only | They are print-and-tick sheets; HTML adds nothing. |
 | Setup and troubleshooting | New short markdown guides in `resources/`; the Mac guide starts with a one-line command and shows the full `resources/install-mac.sh` (published at `downloads/install-mac.sh`, tested by `testing/test_install_script.py`) | The only existing source is the private teacher guide, so the facts were rewritten for children and parents (no self-check script, no answer material). |
-| Syllabus tables | Parsed from `docs/SYLLABUS.md` | Level pages, week titles, big ideas and goals stay in sync with the master syllabus. |
+| Syllabus tables | Parsed from each band's `SYLLABUS.md` (`grade-2-3/`, `grade-4-6/`) | Level pages, week titles, big ideas and goals stay in sync with the syllabus. |
 | Whole-level documents | The PDFs built by `tools/build.py`, standard and dyslexia-friendly editions | Offered as downloads; one PDF per week (chapter + homework) is compiled from a tiny wrapper that inputs the same source files. |
 
 Fallback rule: if something cannot be converted faithfully, the build reports it (a `PROBLEM:` line) and
@@ -56,7 +56,7 @@ fails rather than publishing something wrong.
   toggles, the phone menu, copy buttons) and, on the search page only, Pagefind. The pages are made for
   **reading**: no checkboxes, progress bars, "mark as done" buttons or hints that lock and unlock; the
   self-check lists are ordinary lists and the hints are plain sections in order.
-* Dynamic routes (`levels/[level]/[week]`, `exercises/[slug]`) make the level and week pages come out of the
+* Dynamic routes (`[band]/[level]/[week]`, `exercises/[slug]`) make the level and week pages come out of the
   data automatically; `base` support makes it work as a GitHub project page.
 * **Pagefind** gives offline-capable, no-server site search.
 * Jekyll was rejected (Ruby toolchain, weaker component model); Hugo is fast but not installed and templating
@@ -78,8 +78,9 @@ build when:
 2. a private marker string (`TEACHER ONLY`, `Teacher script`, `Answer key`, …) appears in any text, ZIP member
    or PDF text;
 3. a distinctive line of a private source (solution code, answer keys, teacher lessons, assessments) appears
-   anywhere in the output. Lines that also occur in public sources (starter code, workbooks, READMEs) are
-   ignored, so shared text is not a false alarm.
+   anywhere in the output. Lines that also occur in public sources (starter code, workbooks, READMEs, both
+   syllabi, and the narration in `videos/specs/*.json`, which every week page shows as the video's transcript)
+   are ignored, so shared text is not a false alarm.
 
 `testing/test_site_private.py` proves the check works by injecting leaks into a fake site. Light edits made
 for the web (reported, never changing meaning): the self-check script is not published, so sentences and
@@ -95,18 +96,28 @@ No children's names, photos or personal data are used; the site has no analytics
 * **For parents** (`/parents/`): weekly commitment, how to help, assessment, safety; **Research**
   (generated from the deck: slide, plain-language explanation, questions, sources, linked references);
   **Slides** (viewer, download, gallery); **FAQ**.
-* **Curriculum** (`/curriculum/`): three-level timeline (weeks 1–12 with the checkpoint, project and
+* **Curriculum** (`/curriculum/`): both grade bands in order, each with its timeline (Grades 2–3: weeks 1–10
+  with the show-me day, project studio and showcase; Grades 4–6: weeks 1–12 with the checkpoint, project and
   showcase), what is learned, final projects, how progress is measured.
+* **Grade bands** (`/grade-2-3/`, `/grade-4-6/`): one page per track with the same timeline and level cards,
+  and how the two tracks connect. Every level lives under its band, because both bands have a Level 1, 2 and 3:
+  `/grade-2-3/level-1/`, `/grade-4-6/level-1/week-07/`, `/grade-4-6/level-1/exercises/<slug>/`. Download file
+  names carry the band too (`grade-4-6-level-1-student-workbook.pdf`).
 * **Level pages** and **week pages**: objectives, the week's teaching video (always the first thing in the
   lesson, right below the header, with captions and a transcript), lesson content, exercises, new words, homework tiers
   (Core, Challenge, Creative), downloads (week PDF, starter-file ZIP), previous/next and a self-check list
   (an ordinary list to read, not checkboxes).
 * **Exercises**: steps, starter code with copy and download, three hints, in order, from a small nudge to a bigger one. No solutions.
-* **Projects** (`/levels/level-N/project/`): the final-project brief with plan sheet and rubric, and the
-  starter files (templates, never the reference solution) to read, copy and download.
+* **Projects** (`/<band>/level-N/project/`): the final-project brief with plan sheet and rubric, and the
+  starter files (templates, never the reference solution) to read, copy and download. Levels whose project
+  is built in Scratch (Grades 2–3 Levels 1 and 2) have no starter files, so the page shows only the brief.
 * **Resources** (`/resources/`): Mac setup guide and troubleshooting (written for the web from the teacher
   setup notes, in `resources/*.md`), cheat sheets per level, a combined A to Z glossary, printable progress
-  trackers (PDF) and notes for families per level (`/parents/notes/level-N/`).
+  trackers (PDF) and notes for families per level (`/parents/notes/<band>/level-N/`).
+* **Moved pages**: before version 2.0.0 the Grades 4–6 levels were at `/levels/level-N/...` and their notes for
+  families at `/parents/notes/level-N/`. Each old address is still generated as a small page that sends the
+  browser to the new one (`<meta http-equiv="refresh">`, `noindex`, left out of search), so old links and
+  printed QR codes keep working. Old PDF and ZIP download addresses are not redirected.
 * **Search** (Pagefind) and **About** (privacy, accessibility, credits, change log).
 
 ### Navigation
@@ -116,8 +127,8 @@ phones and tablets (without JavaScript the menu is simply shown above the page).
 family meets the course:
 
 1. **Home** and **Curriculum and timeline** (orientation);
-2. **Levels**: each level is a disclosure that opens to *Overview*, *Weeks 1 to 12*, *Final project*, *Cheat
-   sheet* and *Notes for families*; the current level is open, the current page is highlighted
+2. **Grades 2–3** and **Grades 4–6**: each band has an *Overview* link and its three levels; each level is a
+   disclosure that opens to *Overview*, *Weeks*, *Final project*, *Cheat sheet* and *Notes for families*; the current level is open, the current page is highlighted
    (`aria-current="page"`) and an exercise page highlights its week (`aria-current="location"`);
 3. **For parents**: parent guide, research, slides, questions and answers;
 4. **Resources**: setup guide, troubleshooting, glossary, all resources, about.
@@ -132,10 +143,10 @@ Icons follow the Lucide set (24px grid, 2px stroke) at text size, and every icon
 
 Warm white paper background, generous white space and card-based components; text and headings in
 Atkinson Hyperlegible Next (headings bold, body 17px with a 1.7 line height and a 70-character line length,
-sentence-case labels rather than capitals); one accent color per level (blue, green, vermillion) taken from the course's
+sentence-case labels rather than capitals); one accent color per level number (blue, green, vermillion, the same in both bands, as in the PDFs) taken from the course's
 color-blind-safe Okabe–Ito palette, with darker text shades so every text color passes 4.5:1. The Scratch
 and Python material keeps its callout boxes (Tip, Safety, Core, Challenge, Creative, Exercise, Bug hunt,
-Self-check, New words), each with a text label and an icon, so meaning never depends on color. Dark mode
+Self-check, New words, and for Grades 2–3 I can, For the grown-up and Play at home), each with a text label and an icon, so meaning never depends on color. Dark mode
 follows the system setting and can be toggled; an **Easy-read font** switch loads Lexend with wider spacing.
 Pages are responsive from phone to desktop and print cleanly. Fonts are subset to WOFF2 (about 10 KB each)
 and self-hosted.
