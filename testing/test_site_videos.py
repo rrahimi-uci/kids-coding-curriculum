@@ -80,6 +80,25 @@ def test_videos_are_copied_into_the_site_with_page_data(release) -> None:
         "level1-week02.jpg", "level1-week02.mp4", "level1-week02.vtt"]
 
 
+def test_local_preview_reads_separate_grade_band_web_folders(tmp_path, monkeypatch) -> None:
+    output = tmp_path / "output"
+    older = output / "grades-4-6" / "web"
+    younger = output / "grades-2-3" / "web"
+    older.mkdir(parents=True)
+    younger.mkdir(parents=True)
+    _add_video(older, "videos.json", "1-2", "level1-week02", 2_500_000)
+    _add_video(younger, "junior-videos.json", "j1-3", "junior1-week03", 1_000_000)
+    monkeypatch.setattr(sv, "PUBLIC", tmp_path / "public" / "videos")
+    monkeypatch.setattr(sv, "CACHE", tmp_path / "cache")
+    monkeypatch.setenv("SITE_VIDEOS", str(output))
+
+    warnings: list[str] = []
+    found = sv.collect(warnings)
+
+    assert warnings == []
+    assert set(found) == {("1", 2), ("j1", 3)}
+
+
 def test_a_missing_grades_2_3_list_keeps_the_grades_4_6_videos(release) -> None:
     (release / "junior-videos.json").unlink()
     warnings: list[str] = []
@@ -116,7 +135,7 @@ def test_publish_finds_only_final_renders(tmp_path, monkeypatch) -> None:
     for name in ["level1-week02-loop-de-loop.mp4", "level1-week02-loop-de-loop-draft.mp4",
                  "level2-week11-final-preview.mp4", "level3-week12-showcase.mp4", "notes.mp4"]:
         (tmp_path / name).write_bytes(b"")
-    monkeypatch.setattr(publish, "OUTPUT", tmp_path)
+    monkeypatch.setattr(publish, "GRADES_4_6_OUTPUT", tmp_path)
     assert {key: path.name for key, path in publish.rendered_videos().items()} == {
         (1, 2): "level1-week02-loop-de-loop.mp4", (3, 12): "level3-week12-showcase.mp4"}
 
@@ -124,6 +143,22 @@ def test_publish_finds_only_final_renders(tmp_path, monkeypatch) -> None:
 def test_publish_videos_needs_a_render_first(tmp_path, monkeypatch, capsys) -> None:
     from videos.pipeline import cli, publish
 
-    monkeypatch.setattr(publish, "OUTPUT", tmp_path)
+    monkeypatch.setattr(publish, "GRADES_4_6_OUTPUT", tmp_path)
     assert cli.main(["publish-videos", "--level", "1", "--week", "2"]) == 2
     assert "run `animate` first" in capsys.readouterr().err
+
+
+def test_publish_finds_junior_renders_only_in_grades_2_3(tmp_path, monkeypatch) -> None:
+    from videos.pipeline import publish
+
+    younger = tmp_path / "grades-2-3"
+    older = tmp_path / "grades-4-6"
+    younger.mkdir()
+    older.mkdir()
+    (younger / "junior1-week01-robots-need-instructions.mp4").write_bytes(b"")
+    (older / "junior1-week02-wrong-folder.mp4").write_bytes(b"")
+    monkeypatch.setattr(publish, "GRADES_2_3_OUTPUT", younger)
+
+    assert {key: path.name for key, path in publish.junior_rendered_videos().items()} == {
+        (1, 1): "junior1-week01-robots-need-instructions.mp4"
+    }

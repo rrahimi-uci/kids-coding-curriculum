@@ -3,6 +3,17 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## Unreleased
+
+- Generated video media now goes into clearly labeled, separate folders: `videos/output/grades-2-3/`
+  for Kids Coding Junior and `videos/output/grades-4-6/` for the older track. Each band also has its
+  own `web/` and `sheets/` folders; local website previews read both from `SITE_VIDEOS=videos/output`.
+- Grades 2–3 narration uses high-quality, formant-preserving pitch processing for Aiden instead of
+  speeding up a resampled voice. This removes the metallic glitches while keeping the selected voice,
+  childlike pitch, smooth pace and existing loudness normalization. Only Junior Level 1, Week 1 has
+  been rendered as a review sample; the remaining Grades 2–3 videos and release assets are unchanged
+  pending approval.
+
 ## 2.0.0 - 2026-11-13
 
 The course is now organized in two grade bands, in the repository and on the website.

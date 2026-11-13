@@ -81,10 +81,20 @@ def _blocks(blocks):
 
 def test_aiden_has_a_young_voice():
     pytest.importorskip("numpy")
-    from videos.pipeline.animated.audio import VOICES
+    from videos.pipeline.animated.audio import PITCH_PROCESSOR, VOICES
     from videos.pipeline.animated.timeline import AIDEN
 
     assert VOICES[AIDEN]["pitch"] > 0, "Aiden's voice is raised in pitch to sound like an eight-year-old"
+    assert PITCH_PROCESSOR.startswith("rubberband-formant"), \
+        "Aiden's pitch must preserve pace and formants; naive resampling makes the voice glitchy"
+
+
+def test_grade_bands_have_separate_generated_video_folders():
+    from videos.pipeline.cli import output_dir
+
+    assert output_dir("j1").parts[-2:] == ("output", "grades-2-3")
+    assert output_dir(1).parts[-2:] == ("output", "grades-4-6")
+    assert output_dir("j1") != output_dir(1)
 
 
 @pytest.mark.parametrize("path", JUNIOR, ids=lambda p: p.stem)

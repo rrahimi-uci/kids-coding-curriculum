@@ -13,7 +13,7 @@ For each level N (1, 2, 3):
 The animations themselves live in `pipeline/animated/episodes/` (one file per episode); see "Fully animated episodes" below.
 - `pipeline/`: source discovery, the OpenAI Agents SDK workflow, validation, picture and voice providers, captions and FFmpeg composition.
 
-Rendered MP4s, captions, scene pictures and the paid-API cache (`videos/output/`, `videos/.cache/`) are ignored, so reviews stay small and generated files never hide script changes.
+Rendered MP4s, captions, scene pictures and the paid-API cache (`videos/output/`, `videos/.cache/`) are ignored, so reviews stay small and generated files never hide script changes. Generated media is separated by audience: `videos/output/grades-2-3/` for Kids Coding Junior and `videos/output/grades-4-6/` for the older track. Each band has its own `web/` and `sheets/` folders.
 
 ## Quick start
 
@@ -94,7 +94,7 @@ How to write or change an episode is in [`pipeline/animated/KIT.md`](pipeline/an
 
 ```bash
 python -m videos.pipeline.cli episode-check --level 2 --week 3   # script = spec, cues exist, code output is real, every action draws
-python -m videos.pipeline.cli contact-sheet --level 2 --week 3   # a grid of stills to look at (videos/output/sheets/)
+python -m videos.pipeline.cli contact-sheet --level 2 --week 3   # stills in videos/output/grades-4-6/sheets/
 python -m videos.pipeline.cli apply-narration edits.json --level 2   # change narration safely (locked, validated, plan rewritten)
 ```
 
@@ -110,8 +110,9 @@ watch with a grown-up.
 
 - **Aiden** is the host: an eight-year-old coder in a red hoodie (`draw_aiden` in
   `animated/characters.py`, drawn from the owner's approved character sheet). He has Rose's poses and
-  moods and talks straight to the child. His voice is Kokoro `af_river` raised 4.5 semitones
-  (`VOICES[AIDEN]` in `animated/audio.py`; the owner picked it from five kid-voice options).
+  moods and talks straight to the child. His voice is Kokoro `af_river`, the owner's selection from
+  five kid-voice options, raised 4.5 semitones with high-quality, formant-preserving processing. This
+  keeps the childlike pitch without the metallic glitches caused by speeding up a resampled voice.
   **Pixi** is the same robot helper as in the main series.
 - **Episodes are the source.** Each episode is `animated/episodes/j{L}w{WW}.py` (level key `"j1"`..`"j3"`,
   Aiden as `A("aiden", ...)` and `speaker=AIDEN`). `junior-spec` writes `specs/junior{L}.json` from
@@ -124,8 +125,8 @@ watch with a grown-up.
 ```bash
 python -m videos.pipeline.cli junior-spec --level 1              # rewrite specs/junior1.json from the episodes
 python -m videos.pipeline.cli junior-check --level 1 --week 2    # script, cues, real code output
-python -m videos.pipeline.cli junior-sheet --level 1 --week 2    # contact sheet: videos/output/sheets/j1w02-sheet.png
-python -m videos.pipeline.cli junior-animate --level 1 --week 2  # videos/output/junior1-week02-meet-scratch.mp4
+python -m videos.pipeline.cli junior-sheet --level 1 --week 2    # videos/output/grades-2-3/sheets/j1w02-sheet.png
+python -m videos.pipeline.cli junior-animate --level 1 --week 2  # videos/output/grades-2-3/junior1-week02-meet-scratch.mp4
 python -m videos.pipeline.cli junior-animate                     # every junior episode
 ```
 
@@ -141,11 +142,11 @@ Every week page shows its video in the same place: right below the page header, 
 
 ```bash
 python -m videos.pipeline.cli publish-videos --level 1 --week 7          # make the web copy (720p) only
-SITE_VIDEOS=videos/output/web make site                                  # preview the pages with it
+SITE_VIDEOS=videos/output make site                                      # preview both grade-band folders
 python -m videos.pipeline.cli publish-videos --level 1 --week 7 --upload --rebuild-site
 ```
 
-`publish-videos` makes `videos/output/web/levelN-weekWW.mp4` (1280×720, H.264 with fast start, about 5 MB for three minutes), a poster picture from the title card, the `.vtt` captions and `videos.json` (each file's length and SHA-256). `--upload` creates the release if needed and replaces those files on it with the GitHub CLI (`gh auth login` once). `--rebuild-site` then starts the Website workflow on `main`, so the new video is live a few minutes later. File names never change, so links and pages stay the same.
+`publish-videos` makes `videos/output/grades-4-6/web/levelN-weekWW.mp4` (1280×720, H.264 with fast start, about 5 MB for three minutes), a poster picture from the title card, the `.vtt` captions and `videos.json` (each file's length and SHA-256). `junior-publish` writes the equivalent files under `videos/output/grades-2-3/web/`. `--upload` creates the release if needed and replaces those files on it with the GitHub CLI (`gh auth login` once). `--rebuild-site` then starts the Website workflow on `main`, so the new video is live a few minutes later. File names never change, so links and pages stay the same.
 
 So when a lesson changes: `check` names the week, you `accept` or rewrite its script and episode, `animate` that week, review it, and `publish-videos --upload --rebuild-site`. The website build (`tools/site/videos.py`) checks every file against its SHA-256 and keeps a cache in `build/site-cache/videos/`. If the release cannot be reached, the site is still built, just without the player. `SITE_VIDEOS=off` builds without videos; `SITE_VIDEOS=<folder>` uses local files.
 
@@ -177,12 +178,13 @@ python -m videos.pipeline.cli render --week 7 --visual-provider openai --approve
 | macOS draft voice | `--voice-provider macos-say` | no | For timing reviews only; never publish it. |
 | Silent | `--voice-provider silent` | no | Cards and captions, no audio. |
 
-Output goes to `videos/output/`:
+Output goes to the grade band's folder under `videos/output/`:
 
 - `levelN-weekWW-<slug>.mp4`: 1920×1080, 30 fps, AAC audio, with an English caption track;
 - matching `.srt` and `.vtt` caption files, for web players;
 - draft renders end in `-draft`.
-- `web/`: the website copies made by `publish-videos` (see "On the website").
+- `grades-2-3/web/`: website copies made by `junior-publish`.
+- `grades-4-6/web/`: website copies made by `publish-videos` (see "On the website").
 
 A scene whose narration runs longer than its time slot stops the render with a clear message. Paid pictures and narration are cached in `videos/.cache/` by their exact inputs, so re-rendering an unchanged scene costs nothing. Scenes that call for Scratch or Thonny must use an authentic, privacy-scrubbed screen capture during editing, never an invented interface.
 
