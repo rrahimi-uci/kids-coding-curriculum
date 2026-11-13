@@ -1,9 +1,8 @@
-// Tiny progressive-enhancement script: phone menu drawer, display toggles, copy buttons.
+// Tiny progressive-enhancement script: phone menu drawer, color theme, copy buttons.
 const root = document.documentElement;
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
   set(k, v) { try { localStorage.setItem(k, v); } catch { /* private mode: ignore */ } },
-  del(k) { try { localStorage.removeItem(k); } catch { /* ignore */ } },
 };
 
 // ---- phone and tablet: the sidebar becomes a drawer opened from the top bar
@@ -47,24 +46,21 @@ if (currentItem && !drawerMode()) {
 // column on the right, so open it there. Opening it only adds content to that column, so nothing else moves.
 if (matchMedia('(min-width: 90rem)').matches) document.querySelectorAll('.lesson-side .toc details').forEach((d) => { d.open = true; });
 
-// ---- theme + font toggles
+// ---- color theme
 const themeBtn = document.getElementById('theme-toggle');
-const fontBtn = document.getElementById('font-toggle');
 const dark = () => root.getAttribute('data-theme') === 'dark' ||
   (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
 function syncToggles() {
-  if (themeBtn) themeBtn.setAttribute('aria-pressed', String(dark()));
-  if (fontBtn) fontBtn.setAttribute('aria-pressed', String(root.getAttribute('data-font') === 'dyslexia'));
+  if (!themeBtn) return;
+  const isDark = dark();
+  const label = isDark ? 'Use light mode' : 'Use dark mode';
+  themeBtn.setAttribute('aria-pressed', String(isDark));
+  themeBtn.setAttribute('aria-label', label);
+  themeBtn.setAttribute('title', label);
 }
 themeBtn?.addEventListener('click', () => {
   const next = dark() ? 'light' : 'dark';
   root.setAttribute('data-theme', next); store.set('kc:theme', next); syncToggles();
-});
-fontBtn?.addEventListener('click', () => {
-  const on = root.getAttribute('data-font') === 'dyslexia';
-  if (on) { root.removeAttribute('data-font'); store.del('kc:font'); }
-  else { root.setAttribute('data-font', 'dyslexia'); store.set('kc:font', 'dyslexia'); }
-  syncToggles();
 });
 syncToggles();
 

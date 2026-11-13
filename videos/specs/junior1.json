@@ -16,7 +16,7 @@
    "scenes": [
     {
      "scene_id": "j1-w01-s01",
-     "narration": "Hi! I'm Aiden. I'm eight years old, and I love making things. And this is my robot friend, Pixi! Beep boop! Hello, coders! I'm so happy to meet you! Welcome to Kids Coding! In this club, you will make your own animations and games. But first, I want to know about you. What do you like to make? Drawings? Songs? Stories? Those are all great ideas! Every answer is a good answer. Today, we start without a computer. We start with a robot!",
+     "narration": "Meet Aiden, an eight-year-old coder who loves making things. And meet Pixi, his helpful robot friend! Beep boop! Hello, coders! I'm so happy to meet you! Welcome to Kids Coding! In this club, you will make your own animations and games. But first, I want to know about you. What do you like to make? Drawings? Songs? Stories? Those are all great ideas! Every answer is a good answer. Today, we start without a computer. We start with a robot!",
      "on_screen_text": [
       "MISSION: Help the robot reach the star",
       "No computer today!"
@@ -24,7 +24,7 @@
     },
     {
      "scene_id": "j1-w01-s02",
-     "narration": "Every coder in our club has a nickname. A nickname is a pretend name. We use it instead of our real name. My coding nickname is Rocket Fox. And mine is Captain Bolt! Beep! What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda? Ask your grown-up to help you write it on a sticky note. That is your coding badge!",
+     "narration": "Every coder in our club has a nickname. A nickname is a pretend name. We use it instead of our real name. Aiden's coding nickname is Rocket Fox. And mine is Captain Bolt! Beep! What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda? Ask your grown-up to help you write it on a sticky note. That is your coding badge!",
      "on_screen_text": [
       "nickname = a pretend name",
       "Rocket Fox",

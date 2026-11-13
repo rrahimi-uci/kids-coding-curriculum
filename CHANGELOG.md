@@ -8,10 +8,12 @@ Dates are in ISO format.
 - Generated video media now goes into clearly labeled, separate folders: `videos/output/grades-2-3/`
   for Kids Coding Junior and `videos/output/grades-4-6/` for the older track. Each band also has its
   own `web/` and `sheets/` folders; local website previews read both from `SITE_VIDEOS=videos/output`.
-- Grades 2–3 narration now uses the same unprocessed `af_heart` voice and 0.94 pace as the Grades 4–6
-  narrator. A first review sample that still pitch-transformed Aiden's voice did not meet the quality
-  bar, so all pitch processing was removed before rebuilding Junior Level 1, Week 1. The remaining
+- The Junior Level 1, Week 1 review pilot now follows the Grades 4–6 presentation pattern: the same
+  unprocessed `af_heart` narrator at 0.94 pace introduces Aiden and Pixi and carries the lesson. Aiden
+  has no dialogue, while the existing character animation and Pixi responses remain. The remaining
   Grades 2–3 videos and release assets are unchanged pending approval.
+- The website's Display block and Easy-read font toggle were removed from the sidebar. The dark-mode
+  toggle is now a single accessible control fixed at the top-right corner.
 
 ## 2.0.0 - 2026-11-13
 

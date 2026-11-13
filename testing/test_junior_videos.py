@@ -2,8 +2,8 @@
 
 For the junior track the episode files (videos/pipeline/animated/episodes/j{L}w{WW}.py) are the
 source; `python -m videos.pipeline.cli junior-spec --level L` writes videos/specs/junior{L}.json from
-them. These checks keep the two in step, keep Aiden as the host, keep every episode in the junior
-length budget, and keep what children see and hear inside Grade 2-3 math.
+them. These checks keep the two in step, keep every episode in its approved presenter format and
+junior length budget, and keep what children see and hear inside Grade 2-3 math.
 """
 
 import json
@@ -36,16 +36,22 @@ def test_junior_spec_is_written_from_the_episodes(level):
 
 
 @pytest.mark.parametrize("path", JUNIOR, ids=lambda p: p.stem)
-def test_aiden_hosts_every_junior_episode(path):
-    from videos.pipeline.animated.timeline import AIDEN, ROSE
+def test_junior_presenter_matches_the_approved_or_pilot_format(path):
+    from videos.pipeline.animated.timeline import AIDEN, NARRATOR, ROSE
 
     episode = _episode(path)
     assert episode.level == path.stem[:2] and episode.week == int(path.stem[3:5])
     beats = [b for script in episode.scripts for b in script.beats]
     words = {speaker: sum(len(b.text.split()) for b in beats if b.speaker == speaker) for speaker in {b.speaker for b in beats}}
     total = sum(words.values())
-    assert words.get(ROSE, 0) == 0, "Rose belongs to the main track; the junior host is Aiden"
-    assert words.get(AIDEN, 0) >= 0.7 * total, f"Aiden should say most of the episode ({words})"
+    assert words.get(ROSE, 0) == 0, "Rose belongs to the main track; junior videos show Aiden and Pixi"
+    if path.stem == "j1w01":
+        assert words.get(AIDEN, 0) == 0, "the review pilot uses no Aiden dialogue"
+        assert words.get(NARRATOR, 0) >= 0.7 * total, f"the narrator should lead the pilot ({words})"
+        opening = " ".join(beat.text for beat in beats[:3])
+        assert "Meet Aiden" in opening and "meet Pixi" in opening
+    else:
+        assert words.get(AIDEN, 0) >= 0.7 * total, f"Aiden should lead unchanged episodes ({words})"
     assert not any(a.kind == "rose" for sc in episode.scenes for a in sc.actions)
     assert 600 <= total <= 950, f"a junior episode has about 650-850 spoken words, this one has {total}"
 

@@ -108,18 +108,22 @@ The junior track (`grade-2-3/`) has its own series, **Kids Coding Junior with Ai
 episode per week of Junior Levels 1–3 (30 in all), 5–7 minutes each, paced for 7–9-year-olds who
 watch with a grown-up.
 
-- **Aiden** is the host: an eight-year-old coder in a red hoodie (`draw_aiden` in
+- **Aiden** is an eight-year-old coder in a red hoodie (`draw_aiden` in
   `animated/characters.py`, drawn from the owner's approved character sheet). He has Rose's poses and
-  moods and talks straight to the child. His voice uses the same unprocessed Kokoro `af_heart` voice
-  and 0.94 pace as the high-quality Grades 4–6 narration. No pitch transformation is applied.
-  **Pixi** is the same robot helper as in the main series.
+  moods. In the Junior Level 1, Week 1 review pilot, the same unprocessed Kokoro `af_heart` narrator
+  and 0.94 pace used by Grades 4–6 introduces Aiden and Pixi and carries the lesson; Aiden has no
+  dialogue, while both characters retain their animation patterns. The other junior episodes retain
+  their existing Aiden-led scripts until the pilot is approved. **Pixi** is the same robot helper as
+  in the main series.
 - **Episodes are the source.** Each episode is `animated/episodes/j{L}w{WW}.py` (level key `"j1"`..`"j3"`,
-  Aiden as `A("aiden", ...)` and `speaker=AIDEN`). `junior-spec` writes `specs/junior{L}.json` from
+  Aiden as `A("aiden", ...)`; the review pilot uses `speaker=NARRATOR`). `junior-spec` writes
+  `specs/junior{L}.json` from
   the episode files (title from the lesson banner, narration, on-screen text); there is no agent
   generation or curriculum manifest for junior yet.
-- **Junior rules** (checked by `testing/test_junior_videos.py`): Aiden says most of every episode,
-  about 650–850 spoken words, 300–430 seconds, and nothing seen or heard uses negative numbers, x/y
-  positions or "360 divided by sides".
+- **Junior rules** (checked by `testing/test_junior_videos.py`): the review pilot is narrator-led and
+  has no Aiden dialogue; the unchanged episodes remain Aiden-led. Every episode has about 650–850
+  spoken words, runs 300–430 seconds, and nothing seen or heard uses negative numbers, x/y positions
+  or "360 divided by sides".
 
 ```bash
 python -m videos.pipeline.cli junior-spec --level 1              # rewrite specs/junior1.json from the episodes
