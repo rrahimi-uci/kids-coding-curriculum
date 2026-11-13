@@ -9,7 +9,7 @@ Card (Ada's bug hunt), the robot dance wiggle break, and the parent-robot exerci
 Fully unplugged: no Scratch this week. Pixi is the robot on the floor grid.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 # ------------------------------------------------------------------------------------------- helpers
 STEP = {"up": (0, -1), "right": (1, 0), "down": (0, 1), "left": (-1, 0)}
@@ -90,15 +90,16 @@ def card_windows(steps, last):
 EPISODE = Episode(level="j1", week=1, scenes=(
     # 1. hello! -------------------------------------------------------------------------------------
     Scene("j1-w01-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden. I'm eight years old, and I love making things.", speaker=AIDEN, cue="hi", pause=0.4),
-        B("And this is my robot friend, Pixi!", speaker=AIDEN, cue="friend", pause=0.3),
+        B("Meet Aiden, an eight-year-old scientist and builder who loves making things.", speaker=NARRATOR,
+          cue="hi", pause=0.4),
+        B("And meet Pixi, his helpful robot friend!", speaker=NARRATOR, cue="friend", pause=0.3),
         B("Beep boop! Hello, coders! I'm so happy to meet you!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Welcome to Kids Coding! In this club, you will make your own animations and games.", speaker=AIDEN,
+        B("Welcome to Kids Coding! In this club, you will make your own animations and games.", speaker=NARRATOR,
           cue="welcome", pause=0.5),
         B("But first, I want to know about you. What do you like to make? Drawings? Songs? Stories?",
-          speaker=AIDEN, cue="make", pause=3.0),
-        B("Those are all great ideas! Every answer is a good answer.", speaker=AIDEN, cue="great", pause=0.5),
-        B("Today, we start without a computer. We start with a robot!", speaker=AIDEN, cue="today", pause=1.0),
+          speaker=NARRATOR, cue="make", pause=3.0),
+        B("Those are all great ideas! Every answer is a good answer.", speaker=NARRATOR, cue="great", pause=0.5),
+        B("Today, we start without a computer. We start with a robot!", speaker=NARRATOR, cue="today", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hi$"), ("hello", "hello$")],
           moods={"start": "happy", "make": "thinking", "great": "happy", "today": "proud"},
@@ -112,14 +113,14 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 2. nicknames ----------------------------------------------------------------------------------
     Scene("j1-w01-s02", setting="workshop", beats=(
-        B("Every coder in our club has a nickname.", speaker=AIDEN, cue="every", pause=0.4),
-        B("A nickname is a pretend name. We use it instead of our real name.", speaker=AIDEN, cue="pretend",
+        B("Every coder in our club has a nickname.", speaker=NARRATOR, cue="every", pause=0.4),
+        B("A nickname is a pretend name. We use it instead of our real name.", speaker=NARRATOR, cue="pretend",
           pause=0.6),
-        B("My coding nickname is Rocket Fox.", speaker=AIDEN, cue="mine", pause=0.4),
+        B("Aiden's coding nickname is Rocket Fox.", speaker=NARRATOR, cue="mine", pause=0.4),
         B("And mine is Captain Bolt! Beep!", speaker=PIXI, cue="bolt", pause=0.6),
-        B("What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda?", speaker=AIDEN, cue="pick",
+        B("What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda?", speaker=NARRATOR, cue="pick",
           pause=3.0),
-        B("Ask your grown-up to help you write it on a sticky note. That is your coding badge!", speaker=AIDEN,
+        B("Ask your grown-up to help you write it on a sticky note. That is your coding badge!", speaker=NARRATOR,
           cue="badge", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "pick": "thinking", "badge": "proud"},
@@ -134,19 +135,19 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 3. ask a grown-up! (movement game) ------------------------------------------------------------
     Scene("j1-w01-s03", setting="workshop", beats=(
-        B("Here is our second rule. Sometimes an app asks for things.", speaker=AIDEN, cue="second", pause=0.4),
+        B("Here is our second rule. Sometimes an app asks for things.", speaker=NARRATOR, cue="second", pause=0.4),
         B("Let's play a game! If an app asks for anything, put your hands on your head and shout: ask a grown-up!",
-          speaker=AIDEN, cue="game", pause=0.6),
-        B("The app says: What is your name?", speaker=AIDEN, cue="q1", pause=0.4),
-        B("Ask a grown-up!", speaker=AIDEN, cue="a1", pause=1.0),
-        B("The app says: Can I take a photo?", speaker=AIDEN, cue="q2", pause=0.4),
-        B("Ask a grown-up!", speaker=AIDEN, cue="a2", pause=1.0),
-        B("Tap OK to buy gems!", speaker=AIDEN, cue="q3", pause=0.4),
-        B("Ask a grown-up!", speaker=AIDEN, cue="a3", pause=1.0),
-        B("Where do you live?", speaker=AIDEN, cue="q4", pause=0.4),
+          speaker=NARRATOR, cue="game", pause=0.6),
+        B("The app says: What is your name?", speaker=NARRATOR, cue="q1", pause=0.4),
+        B("Ask a grown-up!", speaker=NARRATOR, cue="a1", pause=1.0),
+        B("The app says: Can I take a photo?", speaker=NARRATOR, cue="q2", pause=0.4),
+        B("Ask a grown-up!", speaker=NARRATOR, cue="a2", pause=1.0),
+        B("Tap OK to buy gems!", speaker=NARRATOR, cue="q3", pause=0.4),
+        B("Ask a grown-up!", speaker=NARRATOR, cue="a3", pause=1.0),
+        B("Where do you live?", speaker=NARRATOR, cue="q4", pause=0.4),
         B("Ask a grown-up! Beep!", speaker=PIXI, cue="a4", pause=0.8),
         B("Great job! Those are our two rules: nicknames only, and when an app asks for anything, we stop and "
-          "ask a grown-up.", speaker=AIDEN, cue="rules", pause=0.8),
+          "ask a grown-up.", speaker=NARRATOR, cue="rules", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("a1", "a1$"), ("a2", "a2$"), ("a3", "a3$")],
           moods={"start": "happy", "q1": "surprised", "a1": "happy", "q2": "surprised", "a2": "happy",
@@ -166,13 +167,13 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 4. robots cannot guess ------------------------------------------------------------------------
     Scene("j1-w01-s04", setting="sky", beats=(
-        B("A robot is a machine that follows instructions.", speaker=AIDEN, cue="robot", pause=0.4),
-        B("Robots are very fast, but they cannot guess what we mean.", speaker=AIDEN, cue="guess", pause=0.5),
-        B("Watch this. Pixi, go to the star!", speaker=AIDEN, cue="go", pause=0.6),
+        B("A robot is a machine that follows instructions.", speaker=NARRATOR, cue="robot", pause=0.4),
+        B("Robots are very fast, but they cannot guess what we mean.", speaker=NARRATOR, cue="guess", pause=0.5),
+        B("Watch this. Pixi, go to the star!", speaker=NARRATOR, cue="go", pause=0.6),
         B("Does not compute. I need cards!", speaker=PIXI, cue="compute", pause=0.8),
         B("See? A robot is like a friend wearing a blindfold. If we say: over there, it does not help.",
-          speaker=AIDEN, cue="blind", pause=0.5),
-        B("We have to give exact steps, one at a time, in the right order.", speaker=AIDEN, cue="exact",
+          speaker=NARRATOR, cue="blind", pause=0.5),
+        B("We have to give exact steps, one at a time, in the right order.", speaker=NARRATOR, cue="exact",
           pause=0.8),
     ), actions=(
         A("grid", x=GX, y=GY, cell=CELL, rows=FLOOR, marks=STAR, walker=[("start", 0, 3)]),
@@ -189,15 +190,15 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 5. the three cards (movement) -----------------------------------------------------------------
     Scene("j1-w01-s05", setting="mint", beats=(
-        B("So here are our robot cards.", speaker=AIDEN, cue="here", pause=0.4),
-        B("FORWARD means: move one square ahead.", speaker=AIDEN, cue="fwd", pause=1.0),
-        B("TURN LEFT and TURN RIGHT mean: turn a quarter turn, on the spot.", speaker=AIDEN, cue="turn",
+        B("So here are our robot cards.", speaker=NARRATOR, cue="here", pause=0.4),
+        B("FORWARD means: move one square ahead.", speaker=NARRATOR, cue="fwd", pause=1.0),
+        B("TURN LEFT and TURN RIGHT mean: turn a quarter turn, on the spot.", speaker=NARRATOR, cue="turn",
           pause=0.8),
-        B("The robot's feet stay in the same square. A turn is not a step!", speaker=AIDEN, cue="feet",
+        B("The robot's feet stay in the same square. A turn is not a step!", speaker=NARRATOR, cue="feet",
           pause=0.6),
-        B("Can you do it? Stand up. Turn right, a quarter turn, on the spot!", speaker=AIDEN, cue="stand",
+        B("Can you do it? Stand up. Turn right, a quarter turn, on the spot!", speaker=NARRATOR, cue="stand",
           pause=2.6),
-        B("Now turn left, back again. Great turning!", speaker=AIDEN, cue="back", pause=1.0),
+        B("Now turn left, back again. Great turning!", speaker=NARRATOR, cue="back", pause=1.0),
         B("Beep! Good robots!", speaker=PIXI, cue="good", pause=0.8),
     ), actions=(
         A("cards", items=["FORWARD", "TURN LEFT", "TURN RIGHT"], x=150, y=280, w=520, gap=140, size=44,
@@ -219,12 +220,12 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 6. a program and an algorithm -----------------------------------------------------------------
     Scene("j1-w01-s06", setting="lavender", beats=(
-        B("When we put cards in a row, we make a program.", speaker=AIDEN, cue="program", pause=0.4),
-        B("A program is a list of exact steps, in order.", speaker=AIDEN, cue="list", pause=0.6),
-        B("Planning the steps to get a job done is called an algorithm.", speaker=AIDEN, cue="algo", pause=0.6),
-        B("Let's plan one! The robot starts here, facing the far side.", speaker=AIDEN, cue="starts", pause=0.5),
-        B("The star is two squares ahead, and one square to the right.", speaker=AIDEN, cue="star", pause=0.6),
-        B("Here is our plan: FORWARD, FORWARD, TURN RIGHT, FORWARD.", speaker=AIDEN, cue="plan", pause=1.0),
+        B("When we put cards in a row, we make a program.", speaker=NARRATOR, cue="program", pause=0.4),
+        B("A program is a list of exact steps, in order.", speaker=NARRATOR, cue="list", pause=0.6),
+        B("Planning the steps to get a job done is called an algorithm.", speaker=NARRATOR, cue="algo", pause=0.6),
+        B("Let's plan one! The robot starts here, facing the far side.", speaker=NARRATOR, cue="starts", pause=0.5),
+        B("The star is two squares ahead, and one square to the right.", speaker=NARRATOR, cue="star", pause=0.6),
+        B("Here is our plan: FORWARD, FORWARD, TURN RIGHT, FORWARD.", speaker=NARRATOR, cue="plan", pause=1.0),
     ), actions=(
         A("chip", "program = steps in order", at="program@0.6", until="starts", x=960, y=420, color="orange",
           size=52),
@@ -242,15 +243,15 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 7. read the cards and walk ---------------------------------------------------------------------
     Scene("j1-w01-s07", setting="sky", beats=(
-        B("Now let's read the cards together, one at a time. Say them with me!", speaker=AIDEN, cue="read",
+        B("Now let's read the cards together, one at a time. Say them with me!", speaker=NARRATOR, cue="read",
           pause=0.6),
-        B("Forward!", speaker=AIDEN, cue="c1", pause=1.2),
-        B("Forward!", speaker=AIDEN, cue="c2", pause=1.2),
-        B("Turn right!", speaker=AIDEN, cue="c3", pause=1.2),
-        B("Forward!", speaker=AIDEN, cue="c4", pause=1.4),
-        B("The robot is on the star! Our program worked!", speaker=AIDEN, cue="worked", pause=0.4),
+        B("Forward!", speaker=NARRATOR, cue="c1", pause=1.2),
+        B("Forward!", speaker=NARRATOR, cue="c2", pause=1.2),
+        B("Turn right!", speaker=NARRATOR, cue="c3", pause=1.2),
+        B("Forward!", speaker=NARRATOR, cue="c4", pause=1.4),
+        B("The robot is on the star! Our program worked!", speaker=NARRATOR, cue="worked", pause=0.4),
         B("Beep boop! I found the star!", speaker=PIXI, cue="found", pause=0.5),
-        B("The robot did the cards one at a time, in order.", speaker=AIDEN, cue="order", pause=0.8),
+        B("The robot did the cards one at a time, in order.", speaker=NARRATOR, cue="order", pause=0.8),
     ), actions=(
         A("cards", items=PLAN, x=150, y=260, w=500, gap=125, size=42,
           active=[("c1", "c2"), ("c2", "c3"), ("c3", "c4"), ("c4", "worked")], done=["c2", "c3", "c4", "worked"]),
@@ -263,12 +264,12 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 8. quick quiz: TURN RIGHT first ---------------------------------------------------------------
     Scene("j1-w01-s08", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("What if we put TURN RIGHT first? Same cards, new order.", speaker=AIDEN, cue="what", pause=0.6),
-        B("Will the robot still reach the star?", speaker=AIDEN, cue="will", pause=3.2),
-        B("Let's test it!", speaker=AIDEN, cue="test", pause=5.4),
-        B("No! The robot ended up somewhere else.", speaker=AIDEN, cue="no", pause=0.5),
-        B("The same cards in a different order make a different path. The order matters!", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("What if we put TURN RIGHT first? Same cards, new order.", speaker=NARRATOR, cue="what", pause=0.6),
+        B("Will the robot still reach the star?", speaker=NARRATOR, cue="will", pause=3.2),
+        B("Let's test it!", speaker=NARRATOR, cue="test", pause=5.4),
+        B("No! The robot ended up somewhere else.", speaker=NARRATOR, cue="no", pause=0.5),
+        B("The same cards in a different order make a different path. The order matters!", speaker=NARRATOR,
           cue="matters", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -285,18 +286,18 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 9. bug hunt: The Wrong Card -------------------------------------------------------------------
     Scene("j1-w01-s09", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
-        B("Ada wants the robot to reach the star in the far corner. Here are her cards.", speaker=AIDEN, cue="ada",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("Ada wants the robot to reach the star in the far corner. Here are her cards.", speaker=NARRATOR, cue="ada",
           pause=0.6),
-        B("Let's test them.", speaker=AIDEN, cue="test", pause=6.6),
+        B("Let's test them.", speaker=NARRATOR, cue="test", pause=6.6),
         B("Beep! Off the grid!", speaker=PIXI, cue="off", pause=0.6),
-        B("A bug is a mistake in a program. One card is in the wrong place.", speaker=AIDEN, cue="mistake",
+        B("A bug is a mistake in a program. One card is in the wrong place.", speaker=NARRATOR, cue="mistake",
           pause=0.5),
-        B("Which card is in the wrong place?", speaker=AIDEN, cue="which", pause=3.2),
-        B("TURN RIGHT! The robot turned too early. It should come after the second FORWARD.", speaker=AIDEN,
+        B("Which card is in the wrong place?", speaker=NARRATOR, cue="which", pause=3.2),
+        B("TURN RIGHT! The robot turned too early. It should come after the second FORWARD.", speaker=NARRATOR,
           cue="tr", pause=0.6),
-        B("Let's move that one card, and test again.", speaker=AIDEN, cue="move", pause=8.6),
-        B("The robot reached the star! We found the bug, and we fixed it!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Let's move that one card, and test again.", speaker=NARRATOR, cue="move", pause=8.6),
+        B("The robot reached the star! We found the bug, and we fixed it!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Bug fixed! Beep boop!", speaker=PIXI, cue="yay", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Wrong Card", at="bug", color="navy"),
@@ -320,13 +321,13 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 10. robot dance (wiggle break) ------------------------------------------------------------------
     Scene("j1-w01-s10", setting="workshop", beats=(
-        B("Robot dance time! Stand up and be a robot.", speaker=AIDEN, cue="dance", pause=0.4),
-        B("Do each card I call out. Ready?", speaker=AIDEN, cue="ready", pause=0.8),
-        B("FORWARD! Stomp!", speaker=AIDEN, cue="d1", pause=1.2),
-        B("TURN LEFT!", speaker=AIDEN, cue="d2", pause=1.2),
-        B("TURN RIGHT!", speaker=AIDEN, cue="d3", pause=1.2),
-        B("FORWARD! Stomp!", speaker=AIDEN, cue="d4", pause=1.2),
-        B("Now power down. Slowly, slowly, all the way to sitting.", speaker=AIDEN, cue="power", pause=1.6),
+        B("Robot dance time! Stand up and be a robot.", speaker=NARRATOR, cue="dance", pause=0.4),
+        B("Do each card I call out. Ready?", speaker=NARRATOR, cue="ready", pause=0.8),
+        B("FORWARD! Stomp!", speaker=NARRATOR, cue="d1", pause=1.2),
+        B("TURN LEFT!", speaker=NARRATOR, cue="d2", pause=1.2),
+        B("TURN RIGHT!", speaker=NARRATOR, cue="d3", pause=1.2),
+        B("FORWARD! Stomp!", speaker=NARRATOR, cue="d4", pause=1.2),
+        B("Now power down. Slowly, slowly, all the way to sitting.", speaker=NARRATOR, cue="power", pause=1.6),
         B("Powering down. Beep... boop.", speaker=PIXI, cue="pd", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, wave=[("dance", "dance$"), ("d1", "d1>"), ("d4", "d4>")],
@@ -342,17 +343,17 @@ EPISODE = Episode(level="j1", week=1, scenes=(
     )),
     # 11. recap and next ------------------------------------------------------------------------------
     Scene("j1-w01-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Program!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Algorithm!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Bug!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Program!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Algorithm!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Bug!", speaker=NARRATOR, cue="w3", pause=1.2),
         B("A program is exact steps, in order. An algorithm is the plan. A bug is a mistake we can fix.",
-          speaker=AIDEN, cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up. Your grown-up is the robot!", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Play Parent Robot, fix The Wrong Card, then plan your own path to the star.", speaker=AIDEN, cue="next",
+          speaker=NARRATOR, cue="recap", pause=0.6),
+        B("Now it's your turn, with a grown-up. Your grown-up is the robot!", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Play Parent Robot, fix The Wrong Card, then plan your own path to the star.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("And remember our rules: nicknames only, and ask a grown-up.", speaker=AIDEN, cue="rules", pause=0.5),
-        B("Next week, we meet Scratch. See you then. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("And remember our rules: nicknames only, and ask a grown-up.", speaker=NARRATOR, cue="rules", pause=0.5),
+        B("Next week, we meet Scratch. See you then. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

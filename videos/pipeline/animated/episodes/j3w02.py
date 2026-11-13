@@ -8,7 +8,7 @@ match), and teamwork: everyone gets a job. No spoilers: the missing step of Exer
 never shown, and Parts 2 and 3 are named but not built.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 SET_POPS = ("variables", "set [pops] to [0]")
@@ -19,15 +19,15 @@ PARTS = ["Part 1: Start the party (Cat)", "Part 2: The balloon comes", "Part 3: 
 EPISODE = Episode(level="j3", week=2, scenes=(
     # 1. hook --------------------------------------------------------------------------------------
     Scene("j3-w02-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Is it party time?", speaker=PIXI, cue="hello", pause=0.5),
-        B("Almost! Last week, we made patterns inside patterns.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Today, we find out how real programmers build big programs.", speaker=AIDEN, cue="today", pause=0.4),
-        B("They don't start by dragging blocks. They plan on paper first!", speaker=AIDEN, cue="paper",
+        B("Almost! Last week, we made patterns inside patterns.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Today, we find out how real programmers build big programs.", speaker=NARRATOR, cue="today", pause=0.4),
+        B("They don't start by dragging blocks. They plan on paper first!", speaker=NARRATOR, cue="paper",
           pause=0.5),
-        B("Our mission: plan a party, then build it, one part at a time.", speaker=AIDEN, cue="mission",
+        B("Our mission: plan a party, then build it, one part at a time.", speaker=NARRATOR, cue="mission",
           pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "paper": "proud"}),
@@ -39,13 +39,13 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 2. warm-up: a party in named parts --------------------------------------------------------------
     Scene("j3-w02-s02", setting="workshop", beats=(
-        B("Let's plan a party for a teddy bear.", speaker=AIDEN, cue="teddy", pause=0.4),
-        B("A party is a big job, so we cut it into parts.", speaker=AIDEN, cue="cut", pause=0.4),
-        B("Invitations. Food. Games. Music.", speaker=AIDEN, cue="parts", pause=0.6),
-        B("Each part gets a short step list, one line for each step.", speaker=AIDEN, cue="steps", pause=0.4),
-        B("Food: one, pick a snack. Two, put it on plates. Three, bring it at three o'clock.", speaker=AIDEN,
+        B("Let's plan a party for a teddy bear.", speaker=NARRATOR, cue="teddy", pause=0.4),
+        B("A party is a big job, so we cut it into parts.", speaker=NARRATOR, cue="cut", pause=0.4),
+        B("Invitations. Food. Games. Music.", speaker=NARRATOR, cue="parts", pause=0.6),
+        B("Each part gets a short step list, one line for each step.", speaker=NARRATOR, cue="steps", pause=0.4),
+        B("Food: one, pick a snack. Two, put it on plates. Three, bring it at three o'clock.", speaker=NARRATOR,
           cue="food", pause=0.6),
-        B("And every part gets a person. Everyone gets a job!", speaker=AIDEN, cue="job", pause=0.6),
+        B("And every part gets a person. Everyone gets a job!", speaker=NARRATOR, cue="job", pause=0.6),
         B("I can do music! Beep beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, point=("parts", "parts$"), moods={"start": "happy", "job": "proud"}),
@@ -62,13 +62,13 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 3. the party bug: parts that do not fit ----------------------------------------------------------
     Scene("j3-w02-s03", setting="peach", beats=(
-        B("Now, a bug!", speaker=AIDEN, cue="bug", pause=0.4),
-        B("The invitations say: the party starts at three o'clock.", speaker=AIDEN, cue="inv", pause=0.5),
-        B("The food list says: bring the snack at four o'clock.", speaker=AIDEN, cue="food", pause=0.5),
-        B("Each part looks fine on its own. What happens at the party?", speaker=AIDEN, cue="what", pause=3.0),
-        B("The guests wait a whole hour for food!", speaker=AIDEN, cue="wait", pause=0.5),
+        B("Now, a bug!", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("The invitations say: the party starts at three o'clock.", speaker=NARRATOR, cue="inv", pause=0.5),
+        B("The food list says: bring the snack at four o'clock.", speaker=NARRATOR, cue="food", pause=0.5),
+        B("Each part looks fine on its own. What happens at the party?", speaker=NARRATOR, cue="what", pause=3.0),
+        B("The guests wait a whole hour for food!", speaker=NARRATOR, cue="wait", pause=0.5),
         B("Hungry teddy! Beep!", speaker=PIXI, cue="pixi", pause=0.5),
-        B("The parts must fit together. Remember that. It will help us later.", speaker=AIDEN, cue="fit",
+        B("The parts must fit together. Remember that. It will help us later.", speaker=NARRATOR, cue="fit",
           pause=0.6),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, moods={"start": "happy", "what": "thinking", "wait": "surprised",
@@ -82,16 +82,16 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 4. plan in parts, test each part (LEGO bags) -------------------------------------------------------
     Scene("j3-w02-s04", setting="sky", beats=(
-        B("Programmers plan in parts too.", speaker=AIDEN, cue="too", pause=0.4),
+        B("Programmers plan in parts too.", speaker=NARRATOR, cue="too", pause=0.4),
         B("They cut a big program into parts, write a few steps for each part, and decide how to test it.",
-          speaker=AIDEN, cue="cut", pause=0.5),
-        B("Then they build one part, test it, and only then build the next part.", speaker=AIDEN, cue="build",
+          speaker=NARRATOR, cue="cut", pause=0.5),
+        B("Then they build one part, test it, and only then build the next part.", speaker=NARRATOR, cue="build",
           pause=0.5),
         B("It's like a big LEGO set with numbered bags. You build bag one, and check it, before you open bag two.",
-          speaker=AIDEN, cue="lego", pause=0.5),
-        B("If something is wrong, you only look in the bag you built last.", speaker=AIDEN, cue="last",
+          speaker=NARRATOR, cue="lego", pause=0.5),
+        B("If something is wrong, you only look in the bag you built last.", speaker=NARRATOR, cue="last",
           pause=0.6),
-        B("Say it with me: build a part, test a part!", speaker=AIDEN, cue="sayit", pause=1.6),
+        B("Say it with me: build a part, test a part!", speaker=NARRATOR, cue="sayit", pause=1.6),
     ), actions=(
         A("cards", items=["Cut it into parts", "Write the steps", "Plan a test", "Build one part",
                           "Test it", "Then the next part"], x=160, y=230, w=640, gap=112,
@@ -104,14 +104,14 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 5. the plan card and Part 1 ----------------------------------------------------------------------
     Scene("j3-w02-s05", setting="lavender", beats=(
-        B("Today's program is Party Time.", speaker=AIDEN, cue="today", pause=0.3),
-        B("The cat starts the party, a balloon appears, and you click the balloon to pop it!", speaker=AIDEN,
+        B("Today's program is Party Time.", speaker=NARRATOR, cue="today", pause=0.3),
+        B("The cat starts the party, a balloon appears, and you click the balloon to pop it!", speaker=NARRATOR,
           cue="story", pause=0.5),
-        B("Here is our plan card, with three parts.", speaker=AIDEN, cue="card", pause=0.5),
-        B("Part 1, Start the party, is for the cat.", speaker=AIDEN, cue="part1", pause=0.3),
-        B("Set pops to zero. Say Party time! Send the message balloons.", speaker=AIDEN, cue="steps", pause=0.4),
-        B("And the test: click the flag.", speaker=AIDEN, cue="test", pause=0.6),
-        B("Part 2 and Part 3 are for the balloon. You build those later, one at a time.", speaker=AIDEN,
+        B("Here is our plan card, with three parts.", speaker=NARRATOR, cue="card", pause=0.5),
+        B("Part 1, Start the party, is for the cat.", speaker=NARRATOR, cue="part1", pause=0.3),
+        B("Set pops to zero. Say Party time! Send the message balloons.", speaker=NARRATOR, cue="steps", pause=0.4),
+        B("And the test: click the flag.", speaker=NARRATOR, cue="test", pause=0.6),
+        B("Part 2 and Part 3 are for the balloon. You build those later, one at a time.", speaker=NARRATOR,
           cue="later", pause=0.6),
     ), actions=(
         A("banner", "Party Time: the plan card", at="today", color="purple"),
@@ -126,18 +126,18 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 6. build and test Part 1 -------------------------------------------------------------------------
     Scene("j3-w02-s06", setting="mint", beats=(
-        B("Let's build Part 1.", speaker=AIDEN, cue="build", pause=0.3),
-        B("Orange-red Variables: Make a Variable, and call it pops.", speaker=AIDEN, cue="var", pause=0.6),
-        B("Yellow Events: when green flag clicked.", speaker=AIDEN, cue="events", pause=0.5),
-        B("Variables again: set pops to zero.", speaker=AIDEN, cue="set", pause=0.5),
-        B("Purple Looks: say for two seconds, and type Party time!", speaker=AIDEN, cue="looks", pause=0.5),
-        B("Yellow Events: broadcast. Pick New message, and type balloons.", speaker=AIDEN, cue="msg", pause=0.6),
-        B("Now we test Part 1 on its own. Click the green flag!", speaker=AIDEN, cue="click", pause=3.0),
-        B("The cat says Party time!, and pops shows zero.", speaker=AIDEN, cue="works", pause=0.4),
-        B("Nothing else happens yet, and that's right. Nobody listens for the message yet.", speaker=AIDEN,
+        B("Let's build Part 1.", speaker=NARRATOR, cue="build", pause=0.3),
+        B("Orange-red Variables: Make a Variable, and call it pops.", speaker=NARRATOR, cue="var", pause=0.6),
+        B("Yellow Events: when green flag clicked.", speaker=NARRATOR, cue="events", pause=0.5),
+        B("Variables again: set pops to zero.", speaker=NARRATOR, cue="set", pause=0.5),
+        B("Purple Looks: say for two seconds, and type Party time!", speaker=NARRATOR, cue="looks", pause=0.5),
+        B("Yellow Events: broadcast. Pick New message, and type balloons.", speaker=NARRATOR, cue="msg", pause=0.6),
+        B("Now we test Part 1 on its own. Click the green flag!", speaker=NARRATOR, cue="click", pause=3.0),
+        B("The cat says Party time!, and pops shows zero.", speaker=NARRATOR, cue="works", pause=0.4),
+        B("Nothing else happens yet, and that's right. Nobody listens for the message yet.", speaker=NARRATOR,
           cue="nothing", pause=0.5),
-        B("Part 1 passed its test, so we check it off.", speaker=AIDEN, cue="check", pause=0.5),
-        B("Top tip: you can test any script by clicking on it.", speaker=AIDEN, cue="tip", pause=0.8),
+        B("Part 1 passed its test, so we check it off.", speaker=NARRATOR, cue="check", pause=0.5),
+        B("Top tip: you can test any script by clicking on it.", speaker=NARRATOR, cue="tip", pause=0.8),
     ), actions=(
         A("banner", "Exercise 2.2: Party Time, Part 1", at="build", color="green"),
         A("scratch", "Cat: Part 1", blocks=[FLAG, SET_POPS, ("looks", "say [Hello!] for [2] seconds"),
@@ -159,11 +159,11 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 7. quick quiz: where do you look first? -------------------------------------------------------------
     Scene("j3-w02-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("Part 1 works. Then you build Part 2, and now something is wrong.", speaker=AIDEN, cue="wrong",
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("Part 1 works. Then you build Part 2, and now something is wrong.", speaker=NARRATOR, cue="wrong",
           pause=0.4),
-        B("Where do you look first?", speaker=AIDEN, cue="where", pause=3.0),
-        B("In Part 2, the part you built last! Like the last LEGO bag.", speaker=AIDEN, cue="answer", pause=0.6),
+        B("Where do you look first?", speaker=NARRATOR, cue="where", pause=3.0),
+        B("In Part 2, the part you built last! Like the last LEGO bag.", speaker=NARRATOR, cue="answer", pause=0.6),
         B("One part at a time keeps bugs small!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -176,18 +176,18 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 8. bug hunt: The Silent Party --------------------------------------------------------------------
     Scene("j3-w02-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Leo built Party Time from the same plan.", speaker=AIDEN, cue="leo", pause=0.4),
-        B("Each part works on its own. Click the cat's script: Party time!", speaker=AIDEN, cue="cat", pause=0.6),
-        B("Click the balloon's when I receive script: the balloon appears.", speaker=AIDEN, cue="balloon",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Leo built Party Time from the same plan.", speaker=NARRATOR, cue="leo", pause=0.4),
+        B("Each part works on its own. Click the cat's script: Party time!", speaker=NARRATOR, cue="cat", pause=0.6),
+        B("Click the balloon's when I receive script: the balloon appears.", speaker=NARRATOR, cue="balloon",
           pause=0.8),
-        B("But with the green flag, the balloon never comes!", speaker=AIDEN, cue="flag", pause=2.4),
-        B("Every part passed its test. Why is the party silent?", speaker=AIDEN, cue="why", pause=3.2),
-        B("Look where the parts meet: the message.", speaker=AIDEN, cue="meet", pause=0.5),
+        B("But with the green flag, the balloon never comes!", speaker=NARRATOR, cue="flag", pause=2.4),
+        B("Every part passed its test. Why is the party silent?", speaker=NARRATOR, cue="why", pause=3.2),
+        B("Look where the parts meet: the message.", speaker=NARRATOR, cue="meet", pause=0.5),
         B("The cat sends party, but the balloon listens for balloons. Like the party at three and the food at "
-          "four!", speaker=AIDEN, cue="names", pause=0.6),
-        B("Let's set the broadcast back to balloons, and test again.", speaker=AIDEN, cue="fix", pause=3.4),
-        B("The balloon comes! We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+          "four!", speaker=NARRATOR, cue="names", pause=0.6),
+        B("Let's set the broadcast back to balloons, and test again.", speaker=NARRATOR, cue="fix", pause=3.4),
+        B("The balloon comes! We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Test each part, then test them together!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Silent Party", at="bug", color="navy"),
@@ -218,15 +218,15 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 9. teamwork: everyone gets a job ---------------------------------------------------------------------
     Scene("j3-w02-s09", setting="workshop", beats=(
-        B("When a team plans in parts, everyone can have a job.", speaker=AIDEN, cue="team", pause=0.4),
-        B("One person builds the cat part, one builds the balloon part, and one tests.", speaker=AIDEN,
+        B("When a team plans in parts, everyone can have a job.", speaker=NARRATOR, cue="team", pause=0.4),
+        B("One person builds the cat part, one builds the balloon part, and one tests.", speaker=NARRATOR,
           cue="jobs", pause=0.5),
-        B("Good teammates take turns, listen, and say kind things when a part has a bug.", speaker=AIDEN,
+        B("Good teammates take turns, listen, and say kind things when a part has a bug.", speaker=NARRATOR,
           cue="kind", pause=0.5),
-        B("Kai's part has a bug, and Kai feels sad. What could a good teammate say?", speaker=AIDEN, cue="kai",
+        B("Kai's part has a bug, and Kai feels sad. What could a good teammate say?", speaker=NARRATOR, cue="kai",
           pause=3.0),
-        B("Let's look at it together! Not: you broke it.", speaker=AIDEN, cue="together", pause=0.5),
-        B("And nobody grabs the mouse, and nobody is left out.", speaker=AIDEN, cue="nobody", pause=0.6),
+        B("Let's look at it together! Not: you broke it.", speaker=NARRATOR, cue="together", pause=0.5),
+        B("And nobody grabs the mouse, and nobody is left out.", speaker=NARRATOR, cue="nobody", pause=0.6),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "kai": "thinking", "together": "happy"},
           chin=("kai", "together")),
@@ -243,10 +243,10 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 10. wiggle break: party parts ---------------------------------------------------------------------
     Scene("j3-w02-s10", setting="workshop", beats=(
-        B("Wiggle break! Let's act out the party parts.", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("Be the cat: arms up, and shout Party time!", speaker=AIDEN, cue="cat", pause=1.6),
-        B("Be the balloon: float up on your tiptoes.", speaker=AIDEN, cue="float", pause=1.8),
-        B("Now clap to pop it! Pop!", speaker=AIDEN, cue="pop", pause=1.2),
+        B("Wiggle break! Let's act out the party parts.", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("Be the cat: arms up, and shout Party time!", speaker=NARRATOR, cue="cat", pause=1.6),
+        B("Be the balloon: float up on your tiptoes.", speaker=NARRATOR, cue="float", pause=1.8),
+        B("Now clap to pop it! Pop!", speaker=NARRATOR, cue="pop", pause=1.2),
         B("Pop, pop, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("cat", "end")], moods={"start": "happy", "cat": "proud"}),
@@ -258,16 +258,16 @@ EPISODE = Episode(level="j3", week=2, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j3-w02-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Plan!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Parts!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Test!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Plan!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Parts!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Test!", speaker=NARRATOR, cue="w3", pause=1.2),
         B("Big programs are small parts, planned first. Build one part, test it, then build the next.",
-          speaker=AIDEN, cue="recap", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Finish your party plan, build Party Time part by part, then fix the Silent Party.", speaker=AIDEN,
+          speaker=NARRATOR, cue="recap", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Finish your party plan, build Party Time part by part, then fix the Silent Party.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

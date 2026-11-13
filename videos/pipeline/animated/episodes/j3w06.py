@@ -7,7 +7,7 @@ Thonny's real red text (t.forwad), the picky-robot wiggle break, and saving file
 Exercise 6.2 (Finish the Square) is named but never shown solved.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 HELLO = """import turtle
 t = turtle.Turtle()
@@ -31,13 +31,13 @@ BIG = 1.25  # block scale: big enough for young eyes
 EPISODE = Episode(level="j3", week=6, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j3-w06-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, coders!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, every Scratch block found its word twin.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Today, we use the words for real, in Python!", speaker=AIDEN, cue="today", pause=0.5),
-        B("Scratch blocks can never be spelled wrong. Words can.", speaker=AIDEN, cue="spell", pause=0.4),
-        B("And Python is very picky about spelling.", speaker=AIDEN, cue="picky", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Last week, every Scratch block found its word twin.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Today, we use the words for real, in Python!", speaker=NARRATOR, cue="today", pause=0.5),
+        B("Scratch blocks can never be spelled wrong. Words can.", speaker=NARRATOR, cue="spell", pause=0.4),
+        B("And Python is very picky about spelling.", speaker=NARRATOR, cue="picky", pause=0.5),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -50,15 +50,15 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 2. warm-up: Python is picky ---------------------------------------------------------------------
     Scene("j3-w06-s02", setting="peach", beats=(
-        B("Let's warm up with a game called Python is picky.", speaker=AIDEN, cue="game", pause=0.5),
-        B("Here are two lines. One is right, and one has a tiny mistake.", speaker=AIDEN, cue="two", pause=0.5),
-        B("Can you spot the difference?", speaker=AIDEN, cue="spot", pause=3.0),
-        B("Yes! The second one is missing an r. Python does not know forwad.", speaker=AIDEN, cue="r",
+        B("Let's warm up with a game called Python is picky.", speaker=NARRATOR, cue="game", pause=0.5),
+        B("Here are two lines. One is right, and one has a tiny mistake.", speaker=NARRATOR, cue="two", pause=0.5),
+        B("Can you spot the difference?", speaker=NARRATOR, cue="spot", pause=3.0),
+        B("Yes! The second one is missing an r. Python does not know forwad.", speaker=NARRATOR, cue="r",
           pause=0.6),
-        B("Here is another one. Look closely.", speaker=AIDEN, cue="another", pause=0.4),
-        B("What is different this time?", speaker=AIDEN, cue="diff", pause=3.0),
-        B("A capital L! These Python words use small letters.", speaker=AIDEN, cue="capital", pause=0.5),
-        B("Great detective eyes! Programmers do this every day.", speaker=AIDEN, cue="eyes", pause=0.4),
+        B("Here is another one. Look closely.", speaker=NARRATOR, cue="another", pause=0.4),
+        B("What is different this time?", speaker=NARRATOR, cue="diff", pause=3.0),
+        B("A capital L! These Python words use small letters.", speaker=NARRATOR, cue="capital", pause=0.5),
+        B("Great detective eyes! Programmers do this every day.", speaker=NARRATOR, cue="eyes", pause=0.4),
         B("Beep! Picky, picky, picky!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"spot": "thinking", "r": "happy", "diff": "thinking",
@@ -82,18 +82,18 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 3. meet Thonny ---------------------------------------------------------------------------------
     Scene("j3-w06-s03", setting="sky", beats=(
-        B("This is Thonny, the app where we write Python.", speaker=AIDEN, cue="thonny", pause=0.5),
-        B("It is in simple mode, so it shows big buttons with words under them.", speaker=AIDEN, cue="simple",
+        B("This is Thonny, the app where we write Python.", speaker=NARRATOR, cue="thonny", pause=0.5),
+        B("It is in simple mode, so it shows big buttons with words under them.", speaker=NARRATOR, cue="simple",
           pause=0.5),
-        B("The green Run button is our green flag.", speaker=AIDEN, cue="run", pause=0.5),
+        B("The green Run button is our green flag.", speaker=NARRATOR, cue="run", pause=0.5),
         B("The red Stop button stops the program. If anything gets stuck, click Stop. Nothing breaks.",
-          speaker=AIDEN, cue="stop", pause=0.6),
-        B("The big white part is the Editor. Our program lives here.", speaker=AIDEN, cue="editor", pause=0.5),
-        B("The part at the bottom is the Shell. Python talks back there.", speaker=AIDEN, cue="shell", pause=0.5),
-        B("And the turtle window is our stage. The turtle is our sprite!", speaker=AIDEN, cue="stage", pause=0.5),
-        B("Its pen is already down, so it draws wherever it walks.", speaker=AIDEN, cue="pen", pause=0.6),
-        B("Can you point to the Run button?", speaker=AIDEN, cue="point", pause=3.0),
-        B("There it is, at the top! Green, like the green flag.", speaker=AIDEN, cue="there", pause=0.8),
+          speaker=NARRATOR, cue="stop", pause=0.6),
+        B("The big white part is the Editor. Our program lives here.", speaker=NARRATOR, cue="editor", pause=0.5),
+        B("The part at the bottom is the Shell. Python talks back there.", speaker=NARRATOR, cue="shell", pause=0.5),
+        B("And the turtle window is our stage. The turtle is our sprite!", speaker=NARRATOR, cue="stage", pause=0.5),
+        B("Its pen is already down, so it draws wherever it walks.", speaker=NARRATOR, cue="pen", pause=0.6),
+        B("Can you point to the Run button?", speaker=NARRATOR, cue="point", pause=3.0),
+        B("There it is, at the top! Green, like the green flag.", speaker=NARRATOR, cue="there", pause=0.8),
     ), actions=(
         A("code", code=HELLO, title="hello.py", x=80, y=170, w=1000, h=780, size=40, at="thonny",
           run="stage@0.3", expect=[]),
@@ -114,12 +114,12 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 4. word twins ----------------------------------------------------------------------------------
     Scene("j3-w06-s04", setting="lavender", beats=(
-        B("Every turtle line has a Scratch twin.", speaker=AIDEN, cue="twins", pause=0.5),
-        B("Move one hundred steps is t dot forward, one hundred.", speaker=AIDEN, cue="move", pause=0.6),
-        B("The number in the brackets is like the white oval in Scratch.", speaker=AIDEN, cue="oval", pause=0.6),
-        B("Turn left ninety degrees is t dot left, ninety. That is a quarter turn.", speaker=AIDEN, cue="turn",
+        B("Every turtle line has a Scratch twin.", speaker=NARRATOR, cue="twins", pause=0.5),
+        B("Move one hundred steps is t dot forward, one hundred.", speaker=NARRATOR, cue="move", pause=0.6),
+        B("The number in the brackets is like the white oval in Scratch.", speaker=NARRATOR, cue="oval", pause=0.6),
+        B("Turn left ninety degrees is t dot left, ninety. That is a quarter turn.", speaker=NARRATOR, cue="turn",
           pause=0.6),
-        B("Small letters, a dot, and both brackets. Python needs every one.", speaker=AIDEN, cue="need",
+        B("Small letters, a dot, and both brackets. Python needs every one.", speaker=NARRATOR, cue="need",
           pause=0.6),
         B("Twins! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -136,18 +136,18 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 5. worked example: Hello, Turtle! ------------------------------------------------------------
     Scene("j3-w06-s05", setting="mint", beats=(
-        B("Let's run our first program. It is Exercise 6.1, Hello, Turtle!", speaker=AIDEN, cue="first",
+        B("Let's run our first program. It is Exercise 6.1, Hello, Turtle!", speaker=NARRATOR, cue="first",
           pause=0.5),
-        B("We read it from top to bottom.", speaker=AIDEN, cue="read", pause=0.4),
-        B("Get the turtle toolbox.", speaker=AIDEN, cue="l1", pause=0.4),
-        B("Make a turtle called t.", speaker=AIDEN, cue="l2", pause=0.4),
-        B("Show it as a turtle.", speaker=AIDEN, cue="l3", pause=0.4),
-        B("Walk forward fifty.", speaker=AIDEN, cue="l4", pause=0.4),
-        B("Make a quarter turn to the left.", speaker=AIDEN, cue="l5", pause=0.4),
-        B("Keep the window open.", speaker=AIDEN, cue="l6", pause=0.5),
-        B("Now, click Run!", speaker=AIDEN, cue="click", pause=3.0),
-        B("The turtle draws a short line, then turns to look up.", speaker=AIDEN, cue="short", pause=0.5),
-        B("No turtle window? It is hiding behind Thonny. Click the Python icon in the Dock.", speaker=AIDEN,
+        B("We read it from top to bottom.", speaker=NARRATOR, cue="read", pause=0.4),
+        B("Get the turtle toolbox.", speaker=NARRATOR, cue="l1", pause=0.4),
+        B("Make a turtle called t.", speaker=NARRATOR, cue="l2", pause=0.4),
+        B("Show it as a turtle.", speaker=NARRATOR, cue="l3", pause=0.4),
+        B("Walk forward fifty.", speaker=NARRATOR, cue="l4", pause=0.4),
+        B("Make a quarter turn to the left.", speaker=NARRATOR, cue="l5", pause=0.4),
+        B("Keep the window open.", speaker=NARRATOR, cue="l6", pause=0.5),
+        B("Now, click Run!", speaker=NARRATOR, cue="click", pause=3.0),
+        B("The turtle draws a short line, then turns to look up.", speaker=NARRATOR, cue="short", pause=0.5),
+        B("No turtle window? It is hiding behind Thonny. Click the Python icon in the Dock.", speaker=NARRATOR,
           cue="hide", pause=0.8),
     ), actions=(
         A("banner", "Exercise 6.1: Hello, Turtle!", at="first", color="green"),
@@ -161,11 +161,11 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 6. change one number (predict) --------------------------------------------------------------------
     Scene("j3-w06-s06", setting="peach", beats=(
-        B("Now let's change one number.", speaker=AIDEN, cue="change", pause=0.4),
-        B("We change fifty to one hundred fifty. We keep the brackets!", speaker=AIDEN, cue="fifty", pause=0.5),
-        B("Then we click Save, and Run.", speaker=AIDEN, cue="save", pause=0.4),
-        B("What do you think will happen?", speaker=AIDEN, cue="predict", pause=3.0),
-        B("Same program, longer line! We changed the white oval.", speaker=AIDEN, cue="longer", pause=0.6),
+        B("Now let's change one number.", speaker=NARRATOR, cue="change", pause=0.4),
+        B("We change fifty to one hundred fifty. We keep the brackets!", speaker=NARRATOR, cue="fifty", pause=0.5),
+        B("Then we click Save, and Run.", speaker=NARRATOR, cue="save", pause=0.4),
+        B("What do you think will happen?", speaker=NARRATOR, cue="predict", pause=3.0),
+        B("Same program, longer line! We changed the white oval.", speaker=NARRATOR, cue="longer", pause=0.6),
         B("Longer line, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("code", code=HELLO, title="hello.py", x=80, y=200, w=1040, h=560, size=42, shell=False,
@@ -182,11 +182,11 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 7. quick quiz: Editor or Shell? -----------------------------------------------------------------
     Scene("j3-w06-s07", setting="sky", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
         B("Where do we type our program? In the big Editor at the top, or in the Shell at the bottom?",
-          speaker=AIDEN, cue="where", pause=3.2),
-        B("In the Editor! The Shell runs one line and then forgets it.", speaker=AIDEN, cue="editor", pause=0.5),
-        B("Programs live in the big white part.", speaker=AIDEN, cue="live", pause=0.8),
+          speaker=NARRATOR, cue="where", pause=3.2),
+        B("In the Editor! The Shell runs one line and then forgets it.", speaker=NARRATOR, cue="editor", pause=0.5),
+        B("Programs live in the big white part.", speaker=NARRATOR, cue="live", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("code", code=HELLO, title="hello.py", x=120, y=200, w=1000, h=780, size=40, at="quiz", run="quiz",
@@ -201,20 +201,20 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 8. bug hunt: the typo -----------------------------------------------------------------------------
     Scene("j3-w06-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Ada typed this program. She expected a line.", speaker=AIDEN, cue="ada", pause=0.5),
-        B("But the turtle does not move, and red text appears in the Shell.", speaker=AIDEN, cue="red",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Ada typed this program. She expected a line.", speaker=NARRATOR, cue="ada", pause=0.5),
+        B("But the turtle does not move, and red text appears in the Shell.", speaker=NARRATOR, cue="red",
           pause=0.8),
-        B("Don't worry. Red text means Python is confused, and it tells us where to look.", speaker=AIDEN,
+        B("Don't worry. Red text means Python is confused, and it tells us where to look.", speaker=NARRATOR,
           cue="worry", pause=0.5),
-        B("First, find the line number. It says line four.", speaker=AIDEN, cue="line", pause=0.6),
-        B("Then read the last line: the Turtle has no attribute forwad.", speaker=AIDEN, cue="last", pause=0.5),
-        B("That means: I don't know a word called forwad. It even asks: did you mean forward?", speaker=AIDEN,
+        B("First, find the line number. It says line four.", speaker=NARRATOR, cue="line", pause=0.6),
+        B("Then read the last line: the Turtle has no attribute forwad.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("That means: I don't know a word called forwad. It even asks: did you mean forward?", speaker=NARRATOR,
           cue="means", pause=0.6),
-        B("Can you find the typo on line four?", speaker=AIDEN, cue="find", pause=3.0),
-        B("A missing r! We put the r back, save, and run again.", speaker=AIDEN, cue="fix", pause=3.0),
-        B("It works! The turtle draws a line and turns.", speaker=AIDEN, cue="works", pause=0.5),
-        B("Bugs are normal. Reading the red text is a superpower!", speaker=AIDEN, cue="super", pause=0.5),
+        B("Can you find the typo on line four?", speaker=NARRATOR, cue="find", pause=3.0),
+        B("A missing r! We put the r back, save, and run again.", speaker=NARRATOR, cue="fix", pause=3.0),
+        B("It works! The turtle draws a line and turns.", speaker=NARRATOR, cue="works", pause=0.5),
+        B("Bugs are normal. Reading the red text is a superpower!", speaker=NARRATOR, cue="super", pause=0.5),
         B("Super detective!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The typo", at="bug", color="navy"),
@@ -238,15 +238,15 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 9. wiggle break: the picky robot --------------------------------------------------------------------
     Scene("j3-w06-s09", setting="workshop", beats=(
-        B("Wiggle break! Stand up. You are a picky robot.", speaker=AIDEN, cue="wiggle", pause=0.5),
-        B("Move only when the word is spelled right. If it is wrong, freeze and say: Error!", speaker=AIDEN,
+        B("Wiggle break! Stand up. You are a picky robot.", speaker=NARRATOR, cue="wiggle", pause=0.5),
+        B("Move only when the word is spelled right. If it is wrong, freeze and say: Error!", speaker=NARRATOR,
           cue="rule", pause=0.6),
-        B("Ready? Forward three!", speaker=AIDEN, cue="c1", pause=2.2),
-        B("Left!", speaker=AIDEN, cue="c2", pause=1.6),
-        B("Forwad two!", speaker=AIDEN, cue="c3", pause=1.0),
+        B("Ready? Forward three!", speaker=NARRATOR, cue="c1", pause=2.2),
+        B("Left!", speaker=NARRATOR, cue="c2", pause=1.6),
+        B("Forwad two!", speaker=NARRATOR, cue="c3", pause=1.0),
         B("Error! Error!", speaker=PIXI, cue="err", pause=1.2),
-        B("Great freezing! Now, forward two!", speaker=AIDEN, cue="c4", pause=2.0),
-        B("Super picky robots!", speaker=AIDEN, cue="done", pause=1.0),
+        B("Great freezing! Now, forward two!", speaker=NARRATOR, cue="c4", pause=2.0),
+        B("Super picky robots!", speaker=NARRATOR, cue="done", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("wiggle", "rule"), ("done", "end")],
           moods={"start": "happy", "c3": "surprised", "c4": "happy", "done": "proud"}),
@@ -263,16 +263,16 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 10. saving files with clear names ---------------------------------------------------------------
     Scene("j3-w06-s10", setting="lavender", beats=(
-        B("In Python, every program is saved as its own file.", speaker=AIDEN, cue="file", pause=0.4),
-        B("A good name helps us find it again.", speaker=AIDEN, cue="find", pause=0.5),
-        B("Rule one: the name says what it is. Square dot py, not untitled dot py.", speaker=AIDEN, cue="r1",
+        B("In Python, every program is saved as its own file.", speaker=NARRATOR, cue="file", pause=0.4),
+        B("A good name helps us find it again.", speaker=NARRATOR, cue="find", pause=0.5),
+        B("Rule one: the name says what it is. Square dot py, not untitled dot py.", speaker=NARRATOR, cue="r1",
           pause=0.5),
-        B("Use small letters, and an underscore instead of a space.", speaker=AIDEN, cue="small", pause=0.6),
+        B("Use small letters, and an underscore instead of a space.", speaker=NARRATOR, cue="small", pause=0.6),
         B("Rule two: add your nickname, never your real name. Files can travel to other computers.",
-          speaker=AIDEN, cue="r2", pause=0.6),
+          speaker=NARRATOR, cue="r2", pause=0.6),
         B("Rule three: never call a file turtle dot py. Python would open your file instead of the real turtle!",
-          speaker=AIDEN, cue="r3", pause=0.6),
-        B("Our files stay on our own Mac. Nothing is uploaded.", speaker=AIDEN, cue="stay", pause=0.8),
+          speaker=NARRATOR, cue="r3", pause=0.6),
+        B("Our files stay on our own Mac. Nothing is uploaded.", speaker=NARRATOR, cue="stay", pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "r3": "surprised", "stay": "proud"},
           point=("r1", "r1$")),
@@ -289,18 +289,18 @@ EPISODE = Episode(level="j3", week=6, scenes=(
     )),
     # 11. recap and next -----------------------------------------------------------------------------------
     Scene("j3-w06-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Thonny!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Run!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Typo!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("We write in the Editor, click Run, and read the Shell.", speaker=AIDEN, cue="recap", pause=0.4),
-        B("A typo stops Python, and the red text tells us where to look.", speaker=AIDEN, cue="recap2",
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Thonny!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Run!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Typo!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("We write in the Editor, click Run, and read the Shell.", speaker=NARRATOR, cue="recap", pause=0.4),
+        B("A typo stops Python, and the red text tells us where to look.", speaker=NARRATOR, cue="recap2",
           pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Run Hello, Turtle! Then finish the square. Then be a typo detective.", speaker=AIDEN, cue="next",
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Run Hello, Turtle! Then finish the square. Then be a typo detective.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("Remember: small letters, a dot, and both brackets.", speaker=AIDEN, cue="remember", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Remember: small letters, a dot, and both brackets.", speaker=NARRATOR, cue="remember", pause=0.5),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

@@ -3,6 +3,21 @@
 All notable changes to the Kids Coding website and course materials. The website version is in `VERSION`.
 Dates are in ISO format.
 
+## Unreleased
+
+- Generated video media now goes into clearly labeled, separate folders: `videos/output/grades-2-3/`
+  for Kids Coding Junior and `videos/output/grades-4-6/` for the older track. Each band also has its
+  own `web/` and `sheets/` folders; local website previews read both from `SITE_VIDEOS=videos/output`.
+- All 30 Grades 2–3 videos now follow the approved Grades 4–6 presentation pattern: the same
+  unprocessed `af_heart` narrator at 0.94 pace introduces Aiden as an eight-year-old scientist and
+  builder alongside Pixi, then carries each lesson. Aiden has no dialogue, while the existing
+  character animation and Pixi responses remain consistent. The web copies preserve the normalized
+  master audio instead of applying a second lossy encode. The master mix now uses measured two-pass
+  `loudnorm` with encoded true-peak headroom instead of a second hard limiter, avoiding voice
+  degradation and synthesized transient peak overshoot.
+- The website's Display block and Easy-read font toggle were removed from the sidebar. The dark-mode
+  toggle is now a single accessible control fixed at the top-right corner.
+
 ## 2.0.0 - 2026-11-13
 
 The course is now organized in two grade bands, in the repository and on the website.

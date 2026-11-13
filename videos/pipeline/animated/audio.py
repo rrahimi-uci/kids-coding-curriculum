@@ -30,12 +30,14 @@ MODEL_FILES = {
 MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{name}"
 
 # Voice casting: a warm, clear narrator; an energetic young inventor; a friendly robot.
+# Junior episodes use the same unprocessed narration voice as Grades 4-6. The Aiden entry remains
+# available for old cached timelines, but approved episodes show Aiden without giving him dialogue.
+NARRATION_VOICE = {"voice": "af_heart", "speed": 0.94}
 VOICES = {
-    NARRATOR: {"voice": "af_heart", "speed": 0.94},
+    NARRATOR: NARRATION_VOICE,
     ROSE: {"voice": "af_bella", "speed": 1.02},
     PIXI: {"voice": "am_puck", "speed": 1.06, "robot": True},
-    # junior videos: an eight-year-old host; "pitch" raises the voice by that many semitones
-    AIDEN: {"voice": "af_river", "speed": 0.95, "pitch": 4.5},  # chosen by the owner from five kid-voice options
+    AIDEN: NARRATION_VOICE,
 }
 
 # --------------------------------------------------------------------------- model files
@@ -105,21 +107,18 @@ def robotize(signal: np.ndarray) -> np.ndarray:
 def speak(text: str, speaker: str) -> np.ndarray:
     """One line of speech at 48 kHz (cached by text, voice and settings)."""
     settings = VOICES[speaker]
-    key = json.dumps({"text": spoken_form(text), **settings, "model": MODEL_FILES["kokoro-v1.0.onnx"][:12]}, sort_keys=True)
+    key = json.dumps({"text": spoken_form(text), **settings,
+                      "model": MODEL_FILES["kokoro-v1.0.onnx"][:12]}, sort_keys=True)
     path = VOICE_CACHE / (hashlib.sha256(key.encode()).hexdigest()[:32] + ".npy")
     if path.is_file():
         return np.load(path)
-    factor = 2 ** (settings.get("pitch", 0.0) / 12)  # > 1 raises the pitch
-    samples, rate = _kokoro().create(spoken_form(text), voice=settings["voice"], speed=settings["speed"] / factor,
+    samples, rate = _kokoro().create(spoken_form(text), voice=settings["voice"], speed=settings["speed"],
                                      lang="en-us")
     signal = np.asarray(samples, dtype=np.float64)
     if rate == 24_000:
         signal = upsample_2x(signal)
     elif rate != SR:
         raise RuntimeError(f"unexpected voice sample rate {rate}")
-    if factor != 1.0:  # play the slower take faster: higher pitch, the intended speed
-        positions = np.arange(0, len(signal) - 1, factor)
-        signal = np.interp(positions, np.arange(len(signal)), signal)
     signal = _trim(signal)
     if settings.get("robot"):
         signal = robotize(signal)

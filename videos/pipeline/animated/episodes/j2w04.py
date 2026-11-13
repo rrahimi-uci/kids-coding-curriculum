@@ -7,7 +7,7 @@ the one block, not the whole script), Exercise 4.3 The Stuck Dice (the roll is p
 the forever) and being a good sport. Pixi is the racer on the paper track.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 ROLL10 = ("variables", "set [roll] to [pick random 1 to 10]")
@@ -27,13 +27,13 @@ def hops(cue, count, start=0.0, gap=0.35):
 EPISODE = Episode(level="j2", week=4, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w04-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, game makers!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Here is a race. Who will win? Can you tell me now?", speaker=AIDEN, cue="who", pause=2.8),
-        B("We cannot know! The die decides.", speaker=AIDEN, cue="die", pause=0.5),
-        B("Today, we make games full of surprises, with random numbers!", speaker=AIDEN, cue="mission",
+        B("Here is a race. Who will win? Can you tell me now?", speaker=NARRATOR, cue="who", pause=2.8),
+        B("We cannot know! The die decides.", speaker=NARRATOR, cue="die", pause=0.5),
+        B("Today, we make games full of surprises, with random numbers!", speaker=NARRATOR, cue="mission",
           pause=0.5),
-        B("Let's go!", speaker=AIDEN, cue="go", pause=1.0),
+        B("Let's go!", speaker=NARRATOR, cue="go", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("go", "end")],
           moods={"start": "happy", "who": "thinking", "die": "surprised", "mission": "proud"}),
@@ -47,15 +47,15 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 2. the dice race (the lesson's warm-up) -----------------------------------------------------------
     Scene("j2-w04-s02", setting="workshop", beats=(
-        B("Let's warm up with a dice race! Pixi is our racer.", speaker=AIDEN, cue="race", pause=0.4),
-        B("Roll the die, say the number, and hop that many squares.", speaker=AIDEN, cue="rule", pause=0.5),
-        B("What number will we get?", speaker=AIDEN, cue="guess", pause=2.8),
-        B("Four! Hop, hop, hop, hop.", speaker=AIDEN, cue="four", pause=1.0),
-        B("Roll again. What will it be this time?", speaker=AIDEN, cue="again", pause=2.6),
-        B("Two! Hop, hop.", speaker=AIDEN, cue="two", pause=0.8),
-        B("Nobody can guess the number every time. That is called random.", speaker=AIDEN, cue="random",
+        B("Let's warm up with a dice race! Pixi is our racer.", speaker=NARRATOR, cue="race", pause=0.4),
+        B("Roll the die, say the number, and hop that many squares.", speaker=NARRATOR, cue="rule", pause=0.5),
+        B("What number will we get?", speaker=NARRATOR, cue="guess", pause=2.8),
+        B("Four! Hop, hop, hop, hop.", speaker=NARRATOR, cue="four", pause=1.0),
+        B("Roll again. What will it be this time?", speaker=NARRATOR, cue="again", pause=2.6),
+        B("Two! Hop, hop.", speaker=NARRATOR, cue="two", pause=0.8),
+        B("Nobody can guess the number every time. That is called random.", speaker=NARRATOR, cue="random",
           pause=0.6),
-        B("And at the end, everyone says good game, whoever won!", speaker=AIDEN, cue="good", pause=0.8),
+        B("And at the end, everyone says good game, whoever won!", speaker=NARRATOR, cue="good", pause=0.8),
     ), actions=(
         A("grid", rows=["..............G"], x=210, y=420, cell=100, at="race",
           marks=[("race", 0, 0, "1")],
@@ -72,14 +72,14 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 3. pick random: a die inside the computer ---------------------------------------------------------
     Scene("j2-w04-s03", setting="lavender", beats=(
-        B("Games are more fun when you cannot guess what comes next.", speaker=AIDEN, cue="fun", pause=0.4),
-        B("Scratch has a die inside it: the green pick random block, in the Operators circle.", speaker=AIDEN,
+        B("Games are more fun when you cannot guess what comes next.", speaker=NARRATOR, cue="fun", pause=0.4),
+        B("Scratch has a die inside it: the green pick random block, in the Operators circle.", speaker=NARRATOR,
           cue="block", pause=0.6),
-        B("A real die gives a number from one to six, but you cannot pick it.", speaker=AIDEN, cue="real",
+        B("A real die gives a number from one to six, but you cannot pick it.", speaker=NARRATOR, cue="real",
           pause=0.5),
         B("Pick random one to six is a die inside the computer. Pick random one to ten is a die with ten sides.",
-          speaker=AIDEN, cue="six", pause=0.6),
-        B("Every time the block runs, it rolls again.", speaker=AIDEN, cue="again", pause=0.5),
+          speaker=NARRATOR, cue="six", pause=0.6),
+        B("Every time the block runs, it rolls again.", speaker=NARRATOR, cue="again", pause=0.5),
         B("Roll, roll, roll!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("bigtext", "?", at="fun", until="block", x=960, y=480, size=140, color="purple"),
@@ -97,19 +97,19 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 4. build Dice Race, the cat's half (Exercise 4.1) -----------------------------------------------
     Scene("j2-w04-s04", setting="mint", beats=(
-        B("Let's build the cat's half of Dice Race. Drag the cat to the left side.", speaker=AIDEN,
+        B("Let's build the cat's half of Dice Race. Drag the cat to the left side.", speaker=NARRATOR,
           cue="build", pause=0.5),
         B("Orange-red Variables: make a variable called roll. This box holds the number we roll.",
-          speaker=AIDEN, cue="var", pause=0.6),
-        B("Yellow Events: when space key pressed. Click the little arrow and pick c. C for Cat!", speaker=AIDEN,
+          speaker=NARRATOR, cue="var", pause=0.6),
+        B("Yellow Events: when space key pressed. Click the little arrow and pick c. C for Cat!", speaker=NARRATOR,
           cue="key", pause=0.6),
         B("Snap on set roll to zero. Drop the green pick random block into the zero, and change ten to six.",
-          speaker=AIDEN, cue="set", pause=0.7),
+          speaker=NARRATOR, cue="set", pause=0.7),
         B("Purple Looks: a say block. Drag the round roll block into it, and change two to one.",
-          speaker=AIDEN, cue="say", pause=0.7),
+          speaker=NARRATOR, cue="say", pause=0.7),
         B("Orange Control: repeat. Drag roll into the ten, so the cat hops as many times as the die says.",
-          speaker=AIDEN, cue="repeat", pause=0.7),
-        B("Inside the repeat: move twenty steps, and next costume.", speaker=AIDEN, cue="inside", pause=0.8),
+          speaker=NARRATOR, cue="repeat", pause=0.7),
+        B("Inside the repeat: move twenty steps, and next costume.", speaker=NARRATOR, cue="inside", pause=0.8),
     ), actions=(
         A("banner", "Exercise 4.1: Dice Race", at="build", color="green"),
         A("scratch", "Cat", blocks=[("event", "when [space] key pressed"), ("variables", "set [roll] to [0]"),
@@ -131,10 +131,10 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 5. test: how far will the cat go? -------------------------------------------------------------------
     Scene("j2-w04-s05", setting="sky", beats=(
-        B("Click the stage once, then press c. How far will the cat go?", speaker=AIDEN, cue="press", pause=2.8),
-        B("Three! Hop, hop, hop.", speaker=AIDEN, cue="three", pause=1.6),
-        B("Press c again. How far this time?", speaker=AIDEN, cue="again", pause=2.6),
-        B("Five! Nobody knows until the die rolls.", speaker=AIDEN, cue="five", pause=1.4),
+        B("Click the stage once, then press c. How far will the cat go?", speaker=NARRATOR, cue="press", pause=2.8),
+        B("Three! Hop, hop, hop.", speaker=NARRATOR, cue="three", pause=1.6),
+        B("Press c again. How far this time?", speaker=NARRATOR, cue="again", pause=2.6),
+        B("Five! Nobody knows until the die rolls.", speaker=NARRATOR, cue="five", pause=1.4),
         B("Surprise!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "Cat", blocks=DICE_RACE, x=110, y=270, w=820, h=620, scale=1.0),
@@ -149,11 +149,11 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 6. quick quiz ------------------------------------------------------------------------------------
     Scene("j2-w04-s06", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("The block says pick random one to six. Could the cat say nine?", speaker=AIDEN, cue="nine", pause=3.0),
-        B("No! Only one, two, three, four, five or six.", speaker=AIDEN, cue="no", pause=0.6),
-        B("Could it say the same number two times in a row?", speaker=AIDEN, cue="same", pause=2.8),
-        B("Yes! That is still random. Random means nobody can guess the next one.", speaker=AIDEN, cue="yes",
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("The block says pick random one to six. Could the cat say nine?", speaker=NARRATOR, cue="nine", pause=3.0),
+        B("No! Only one, two, three, four, five or six.", speaker=NARRATOR, cue="no", pause=0.6),
+        B("Could it say the same number two times in a row?", speaker=NARRATOR, cue="same", pause=2.8),
+        B("Yes! That is still random. Random means nobody can guess the next one.", speaker=NARRATOR, cue="yes",
           pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -167,11 +167,11 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 7. wiggle break: random jumps -----------------------------------------------------------------
     Scene("j2-w04-s07", setting="workshop", beats=(
-        B("Wiggle break! Stand up. I roll the die, and we do that many jumps.", speaker=AIDEN, cue="wiggle",
+        B("Wiggle break! Stand up. I roll the die, and we do that many jumps.", speaker=NARRATOR, cue="wiggle",
           pause=0.6),
-        B("Three! Jump, jump, jump!", speaker=AIDEN, cue="three", pause=1.0),
-        B("Roll again. Two! Clap, clap!", speaker=AIDEN, cue="two", pause=1.0),
-        B("Now stretch up high, and take three slow breaths.", speaker=AIDEN, cue="breathe", pause=2.4),
+        B("Three! Jump, jump, jump!", speaker=NARRATOR, cue="three", pause=1.0),
+        B("Roll again. Two! Clap, clap!", speaker=NARRATOR, cue="two", pause=1.0),
+        B("Now stretch up high, and take three slow breaths.", speaker=NARRATOR, cue="breathe", pause=2.4),
         B("Beep! I feel great!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("two", "two$"), ("breathe", "breathe$")],
@@ -186,13 +186,13 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 8. go to random position (Ghost Pop) -------------------------------------------------------------
     Scene("j2-w04-s08", setting="sky", beats=(
-        B("Random can pick a place too.", speaker=AIDEN, cue="place", pause=0.4),
-        B("The blue Motion block, go to random position, sends a sprite to a surprise spot.", speaker=AIDEN,
+        B("Random can pick a place too.", speaker=NARRATOR, cue="place", pause=0.4),
+        B("The blue Motion block, go to random position, sends a sprite to a surprise spot.", speaker=NARRATOR,
           cue="block", pause=0.6),
-        B("In Exercise 4.2, Ghost Pop, the ghost pops up somewhere new every second.", speaker=AIDEN,
+        B("In Exercise 4.2, Ghost Pop, the ghost pops up somewhere new every second.", speaker=NARRATOR,
           cue="ghost", pause=0.5),
-        B("Click it, and you get a point! Where will it go next?", speaker=AIDEN, cue="next", pause=2.6),
-        B("Nobody knows. Surprise!", speaker=AIDEN, cue="surprise", pause=0.8),
+        B("Click it, and you get a point! Where will it go next?", speaker=NARRATOR, cue="next", pause=2.6),
+        B("Nobody knows. Surprise!", speaker=NARRATOR, cue="surprise", pause=0.8),
     ), actions=(
         A("scratch", blocks=[("motion", "go to [random position]")], x=150, y=360, w=760, h=120, panel=False,
           scale=1.4, at="block"),
@@ -211,19 +211,19 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 9. bug hunt: The Stuck Dice (Exercise 4.3) -------------------------------------------------------
     Scene("j2-w04-s09", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
-        B("Omar's cat should say a new surprise number every two seconds.", speaker=AIDEN, cue="omar",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("Omar's cat should say a new surprise number every two seconds.", speaker=NARRATOR, cue="omar",
           pause=0.4),
-        B("But it says seven, seven, seven, again and again!", speaker=AIDEN, cue="seven", pause=1.0),
-        B("Detectives, where does the die get rolled?", speaker=AIDEN, cue="look", pause=3.2),
-        B("Above the forever! The die rolls once, at the start, and never again.", speaker=AIDEN, cue="found",
+        B("But it says seven, seven, seven, again and again!", speaker=NARRATOR, cue="seven", pause=1.0),
+        B("Detectives, where does the die get rolled?", speaker=NARRATOR, cue="look", pause=3.2),
+        B("Above the forever! The die rolls once, at the start, and never again.", speaker=NARRATOR, cue="found",
           pause=0.5),
-        B("Like rolling a die once, and then moving that number every turn, forever.", speaker=AIDEN,
+        B("Like rolling a die once, and then moving that number every turn, forever.", speaker=NARRATOR,
           cue="like", pause=0.6),
         B("Fix: drag the forever away, put the set block in the top of the forever, then snap the forever back.",
-          speaker=AIDEN, cue="fix", pause=0.8),
-        B("Test again.", speaker=AIDEN, cue="test", pause=4.2),
-        B("A new number every time! We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+          speaker=NARRATOR, cue="fix", pause=0.8),
+        B("Test again.", speaker=NARRATOR, cue="test", pause=4.2),
+        B("A new number every time! We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Roll, roll, roll!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Stuck Dice", at="bug", color="navy"),
@@ -247,14 +247,14 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 10. being a good sport ---------------------------------------------------------------------------
     Scene("j2-w04-s10", setting="workshop", beats=(
-        B("In Dice Race, the die decides who wins. Being fast or clever does not help.", speaker=AIDEN,
+        B("In Dice Race, the die decides who wins. Being fast or clever does not help.", speaker=NARRATOR,
           cue="die", pause=0.5),
         B("So when we win, we do not tease. When we lose, we do not get angry at the computer or at a friend.",
-          speaker=AIDEN, cue="win", pause=0.5),
-        B("A good sport says good game, has another go, and is happy for the winner.", speaker=AIDEN,
+          speaker=NARRATOR, cue="win", pause=0.5),
+        B("A good sport says good game, has another go, and is happy for the winner.", speaker=NARRATOR,
           cue="sport", pause=0.6),
-        B("What can you say when you lose?", speaker=AIDEN, cue="lose", pause=2.8),
-        B("Good game! Want to play again? Next time, maybe me!", speaker=AIDEN, cue="say", pause=0.6),
+        B("What can you say when you lose?", speaker=NARRATOR, cue="lose", pause=2.8),
+        B("Good game! Want to play again? Next time, maybe me!", speaker=NARRATOR, cue="say", pause=0.6),
         B("High five!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=280, y=980, s=0.85, moods={"start": "happy", "lose": "thinking", "say": "proud"},
@@ -270,18 +270,18 @@ EPISODE = Episode(level="j2", week=4, scenes=(
     )),
     # 11. recap and next ---------------------------------------------------------------------------------
     Scene("j2-w04-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Random!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Pick random!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Surprise!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Random picks a number nobody can guess. Every time the block runs, it rolls again.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Random!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Pick random!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Surprise!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Random picks a number nobody can guess. Every time the block runs, it rolls again.", speaker=NARRATOR,
           cue="recap", pause=0.4),
-        B("For a new number every time, the roll goes inside the loop.", speaker=AIDEN, cue="recap2", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build Dice Race, make Ghost Pop, then fix the Stuck Dice.", speaker=AIDEN, cue="next", pause=0.5),
-        B("Tip: drag the cat's script onto the Ballerina, and change c to b. Then race!", speaker=AIDEN,
+        B("For a new number every time, the roll goes inside the loop.", speaker=NARRATOR, cue="recap2", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build Dice Race, make Ghost Pop, then fix the Stuck Dice.", speaker=NARRATOR, cue="next", pause=0.5),
+        B("Tip: drag the cat's script onto the Ballerina, and change c to b. Then race!", speaker=NARRATOR,
           cue="tip", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

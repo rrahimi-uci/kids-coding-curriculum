@@ -8,7 +8,7 @@ Python Flower starter (two squares; the six-square answer is never shown), askin
 the jump-clap-stretch wiggle break.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 EIGHT_LINES = """t.forward(100)
 t.left(90)
@@ -64,15 +64,15 @@ BIG = 1.25  # block scale: big enough for young eyes
 EPISODE = Episode(level="j3", week=7, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j3-w07-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello again, coders!", speaker=PIXI, cue="hello", pause=0.5),
         B("Last week, our square needed eight lines: forward, left, forward, left, again and again.",
-          speaker=AIDEN, cue="last", pause=0.5),
-        B("In Scratch, we would use a repeat block. Python has a repeat too!", speaker=AIDEN, cue="repeat",
+          speaker=NARRATOR, cue="last", pause=0.5),
+        B("In Scratch, we would use a repeat block. Python has a repeat too!", speaker=NARRATOR, cue="repeat",
           pause=0.4),
-        B("It is called for.", speaker=AIDEN, cue="for", pause=0.5),
-        B("Can we make eight lines into three?", speaker=AIDEN, cue="q", pause=3.0),
-        B("Yes, we can! Let's find out how.", speaker=AIDEN, cue="yes", pause=1.0),
+        B("It is called for.", speaker=NARRATOR, cue="for", pause=0.5),
+        B("Can we make eight lines into three?", speaker=NARRATOR, cue="q", pause=3.0),
+        B("Yes, we can! Let's find out how.", speaker=NARRATOR, cue="yes", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, enter="left", wave=[("hi", "hello"), ("yes", "end")],
           moods={"start": "happy", "q": "thinking", "yes": "proud"}, chin=("q", "yes")),
@@ -85,18 +85,18 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 2. warm-up: Indent the line-up -----------------------------------------------------------------
     Scene("j3-w07-s02", setting="peach", beats=(
-        B("Let's warm up! Imagine a box on the floor, made of tape.", speaker=AIDEN, cue="box", pause=0.4),
-        B("The box is the inside of a repeat. The card on top says: for i in range three.", speaker=AIDEN,
+        B("Let's warm up! Imagine a box on the floor, made of tape.", speaker=NARRATOR, cue="box", pause=0.4),
+        B("The box is the inside of a repeat. The card on top says: for i in range three.", speaker=NARRATOR,
           cue="card", pause=0.5),
-        B("Clap and Stomp stand inside the box. Wave stands outside, below it.", speaker=AIDEN, cue="inside",
+        B("Clap and Stomp stand inside the box. Wave stands outside, below it.", speaker=NARRATOR, cue="inside",
           pause=0.5),
-        B("Do it with me!", speaker=AIDEN, cue="doit", pause=0.3),
+        B("Do it with me!", speaker=NARRATOR, cue="doit", pause=0.3),
         B("Clap, stomp! Clap, stomp! Clap, stomp! Wave!", speaker=PIXI, cue="act", pause=0.8),
-        B("Why did Wave happen only once?", speaker=AIDEN, cue="why", pause=3.0),
-        B("Wave is not inside the box!", speaker=AIDEN, cue="notin", pause=0.5),
-        B("Now Wave steps into the box. Clap, stomp, wave, three times!", speaker=AIDEN, cue="stepin",
+        B("Why did Wave happen only once?", speaker=NARRATOR, cue="why", pause=3.0),
+        B("Wave is not inside the box!", speaker=NARRATOR, cue="notin", pause=0.5),
+        B("Now Wave steps into the box. Clap, stomp, wave, three times!", speaker=NARRATOR, cue="stepin",
           pause=1.2),
-        B("In Python, the box is made of spaces.", speaker=AIDEN, cue="spaces", pause=0.8),
+        B("In Python, the box is made of spaces.", speaker=NARRATOR, cue="spaces", pause=0.8),
     ), actions=(
         A("aiden", x=220, y=1000, s=0.75, wave=[("act@0.85", "why"), ("stepin@0.6", "stepin$")],
           moods={"start": "happy", "why": "thinking", "notin": "happy"}, chin=("why", "notin")),
@@ -114,12 +114,12 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 3. the repeat twins -----------------------------------------------------------------------------
     Scene("j3-w07-s03", setting="lavender", beats=(
-        B("Here are the repeat twins.", speaker=AIDEN, cue="twins", pause=0.4),
-        B("In Scratch: repeat four, with move and turn inside.", speaker=AIDEN, cue="scratch", pause=0.5),
-        B("In Python: for i in range four, with a colon at the end.", speaker=AIDEN, cue="python", pause=0.5),
-        B("For i in range four means: repeat four.", speaker=AIDEN, cue="means", pause=0.6),
-        B("The i is only a name Python needs. We don't use it yet.", speaker=AIDEN, cue="i", pause=0.5),
-        B("Eight lines last week. Three lines today!", speaker=AIDEN, cue="three", pause=0.5),
+        B("Here are the repeat twins.", speaker=NARRATOR, cue="twins", pause=0.4),
+        B("In Scratch: repeat four, with move and turn inside.", speaker=NARRATOR, cue="scratch", pause=0.5),
+        B("In Python: for i in range four, with a colon at the end.", speaker=NARRATOR, cue="python", pause=0.5),
+        B("For i in range four means: repeat four.", speaker=NARRATOR, cue="means", pause=0.6),
+        B("The i is only a name Python needs. We don't use it yet.", speaker=NARRATOR, cue="i", pause=0.5),
+        B("Eight lines last week. Three lines today!", speaker=NARRATOR, cue="three", pause=0.5),
         B("Three lines! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "Scratch", blocks=[("control", "repeat [4]", [MOVE, TURN])], x=100, y=220, w=780, h=480,
@@ -134,13 +134,13 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 4. the colon and the four spaces ---------------------------------------------------------------
     Scene("j3-w07-s04", setting="sky", beats=(
-        B("Now look closely at the end of the first line. A colon!", speaker=AIDEN, cue="colon", pause=0.4),
-        B("The colon says: here comes the inside.", speaker=AIDEN, cue="here", pause=0.6),
-        B("The lines under it are pushed in by four spaces. Pushed in means inside the repeat.", speaker=AIDEN,
+        B("Now look closely at the end of the first line. A colon!", speaker=NARRATOR, cue="colon", pause=0.4),
+        B("The colon says: here comes the inside.", speaker=NARRATOR, cue="here", pause=0.6),
+        B("The lines under it are pushed in by four spaces. Pushed in means inside the repeat.", speaker=NARRATOR,
           cue="pushed", pause=0.6),
         B("In Scratch, blocks sit in the orange mouth of the repeat. Python has no mouth, so we push the lines in "
-          "with spaces.", speaker=AIDEN, cue="mouth", pause=0.6),
-        B("To push a line in, click at the very start of the line, and press the Tab key once.", speaker=AIDEN,
+          "with spaces.", speaker=NARRATOR, cue="mouth", pause=0.6),
+        B("To push a line in, click at the very start of the line, and press the Tab key once.", speaker=NARRATOR,
           cue="tab", pause=0.5),
         B("Tab jumps four spaces!", speaker=PIXI, cue="jump", pause=0.8),
     ), actions=(
@@ -158,14 +158,14 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 5. worked example: Repeat 4 -----------------------------------------------------------------------
     Scene("j3-w07-s05", setting="mint", beats=(
-        B("Let's try it in Thonny. It is Exercise 7.1, Repeat 4.", speaker=AIDEN, cue="try", pause=0.4),
-        B("This program says for i in range two. Let's click Run.", speaker=AIDEN, cue="run", pause=2.4),
-        B("How many sides did the turtle draw?", speaker=AIDEN, cue="how", pause=3.0),
-        B("Only two! The repeat went round two times: one side and one quarter turn, each time.", speaker=AIDEN,
+        B("Let's try it in Thonny. It is Exercise 7.1, Repeat 4.", speaker=NARRATOR, cue="try", pause=0.4),
+        B("This program says for i in range two. Let's click Run.", speaker=NARRATOR, cue="run", pause=2.4),
+        B("How many sides did the turtle draw?", speaker=NARRATOR, cue="how", pause=3.0),
+        B("Only two! The repeat went round two times: one side and one quarter turn, each time.", speaker=NARRATOR,
           cue="two", pause=0.6),
-        B("We change two to four. We keep the colon!", speaker=AIDEN, cue="change", pause=0.4),
-        B("Save, and Run.", speaker=AIDEN, cue="save", pause=3.0),
-        B("A square! One side and one quarter turn, four times.", speaker=AIDEN, cue="square", pause=0.5),
+        B("We change two to four. We keep the colon!", speaker=NARRATOR, cue="change", pause=0.4),
+        B("Save, and Run.", speaker=NARRATOR, cue="save", pause=3.0),
+        B("A square! One side and one quarter turn, four times.", speaker=NARRATOR, cue="square", pause=0.5),
         B("Beep! Square!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "Exercise 7.1: Repeat 4", at="try", color="green"),
@@ -184,12 +184,12 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 6. quick quiz: inside or outside? -------------------------------------------------------------------
     Scene("j3-w07-s06", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
         B("Look at the left edge of each line. Which lines are inside the repeat? Point to them!",
-          speaker=AIDEN, cue="which", pause=3.2),
-        B("The two lines that are pushed in: forward and left.", speaker=AIDEN, cue="answer", pause=0.6),
+          speaker=NARRATOR, cue="which", pause=3.2),
+        B("The two lines that are pushed in: forward and left.", speaker=NARRATOR, cue="answer", pause=0.6),
         B("Turtle dot done starts at the left edge. It is outside, so it runs only once, at the very end.",
-          speaker=AIDEN, cue="done", pause=0.8),
+          speaker=NARRATOR, cue="done", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("code", code=LOOP_DONE, title="square.py", x=140, y=220, w=1040, h=480, size=50, shell=False,
@@ -204,17 +204,17 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 7. bug hunt: the Lonely Turn -------------------------------------------------------------------------
     Scene("j3-w07-s07", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt! It is called The Lonely Turn.", speaker=AIDEN, cue="bug", pause=0.5),
-        B("This program should draw a square. Let's run it.", speaker=AIDEN, cue="should", pause=3.0),
-        B("Hmm. One long, straight line.", speaker=AIDEN, cue="hmm", pause=0.4),
-        B("How many times did the turtle turn?", speaker=AIDEN, cue="how", pause=3.0),
-        B("Only once, at the very end!", speaker=AIDEN, cue="once", pause=0.5),
-        B("Which line is outside the box?", speaker=AIDEN, cue="which", pause=3.0),
-        B("T dot left is not pushed in. It is like Wave in our warm-up, so it runs only once.", speaker=AIDEN,
+        B("Uh oh. Time for a bug hunt! It is called The Lonely Turn.", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("This program should draw a square. Let's run it.", speaker=NARRATOR, cue="should", pause=3.0),
+        B("Hmm. One long, straight line.", speaker=NARRATOR, cue="hmm", pause=0.4),
+        B("How many times did the turtle turn?", speaker=NARRATOR, cue="how", pause=3.0),
+        B("Only once, at the very end!", speaker=NARRATOR, cue="once", pause=0.5),
+        B("Which line is outside the box?", speaker=NARRATOR, cue="which", pause=3.0),
+        B("T dot left is not pushed in. It is like Wave in our warm-up, so it runs only once.", speaker=NARRATOR,
           cue="left", pause=0.6),
-        B("Let's click at the start of that line, and press Tab once.", speaker=AIDEN, cue="fix", pause=0.6),
-        B("Save, and Run again.", speaker=AIDEN, cue="again", pause=3.2),
-        B("A square! The turtle turns at every corner.", speaker=AIDEN, cue="square", pause=0.5),
+        B("Let's click at the start of that line, and press Tab once.", speaker=NARRATOR, cue="fix", pause=0.6),
+        B("Save, and Run again.", speaker=NARRATOR, cue="again", pause=3.2),
+        B("A square! The turtle turns at every corner.", speaker=NARRATOR, cue="square", pause=0.5),
         B("Bug fixed! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Lonely Turn", at="bug", color="navy"),
@@ -238,15 +238,15 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 8. a repeat inside a repeat: the Python Flower starter -------------------------------------------------
     Scene("j3-w07-s08", setting="lavender", beats=(
-        B("Remember the flower from week one? A repeat inside a repeat.", speaker=AIDEN, cue="remember",
+        B("Remember the flower from week one? A repeat inside a repeat.", speaker=NARRATOR, cue="remember",
           pause=0.5),
-        B("Here it is in Python. The outer repeat is at the left edge. It counts the squares.", speaker=AIDEN,
+        B("Here it is in Python. The outer repeat is at the left edge. It counts the squares.", speaker=NARRATOR,
           cue="outer", pause=0.6),
-        B("The inner repeat is pushed in. It draws one square.", speaker=AIDEN, cue="inner", pause=0.6),
+        B("The inner repeat is pushed in. It draws one square.", speaker=NARRATOR, cue="inner", pause=0.6),
         B("And t dot left sixty is pushed in once, not twice. So the turtle turns once after each square.",
-          speaker=AIDEN, cue="sixty", pause=0.6),
+          speaker=NARRATOR, cue="sixty", pause=0.6),
         B("The starter draws two squares. In Exercise 7.3, you change one number to grow the whole flower!",
-          speaker=AIDEN, cue="two", pause=0.8),
+          speaker=NARRATOR, cue="two", pause=0.8),
     ), actions=(
         A("code", code=FLOWER_PART, title="python_flower.py", x=80, y=200, w=1080, h=480, size=42, shell=False,
           at="remember", highlight=[(1, "outer", "inner"), (2, "inner", "sixty"), (3, "inner", "sixty"),
@@ -261,16 +261,16 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 9. asking for help well -----------------------------------------------------------------------------
     Scene("j3-w07-s09", setting="sky", beats=(
-        B("When code does something strange, a good question gets help fast.", speaker=AIDEN, cue="strange",
+        B("When code does something strange, a good question gets help fast.", speaker=NARRATOR, cue="strange",
           pause=0.4),
-        B("Say two things: what I expected, and what happened.", speaker=AIDEN, cue="two", pause=0.5),
-        B("Like this: I expected a square, but the turtle drew one long line and turned once.", speaker=AIDEN,
+        B("Say two things: what I expected, and what happened.", speaker=NARRATOR, cue="two", pause=0.5),
+        B("Like this: I expected a square, but the turtle drew one long line and turned once.", speaker=NARRATOR,
           cue="like", pause=0.6),
         B("Which is the better question? It's broken! Or: I expected a square, but I got a line?",
-          speaker=AIDEN, cue="which", pause=3.0),
-        B("The second one! Now a helper knows where to look.", speaker=AIDEN, cue="second", pause=0.5),
+          speaker=NARRATOR, cue="which", pause=3.0),
+        B("The second one! Now a helper knows where to look.", speaker=NARRATOR, cue="second", pause=0.5),
         B("Ask a grown-up you know. Never type your name or school into a website or a chatbot to get help.",
-          speaker=AIDEN, cue="ask", pause=0.8),
+          speaker=NARRATOR, cue="ask", pause=0.8),
     ), actions=(
         A("chip", "A good question gets help fast", at="strange@0.3", until="two", x=1140, y=420, color="yellow",
           size=46),
@@ -289,13 +289,13 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 10. wiggle break: repeat jump and clap ---------------------------------------------------------------
     Scene("j3-w07-s10", setting="workshop", beats=(
-        B("Wiggle break! Stand up.", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("Repeat four: jump, clap!", speaker=AIDEN, cue="rep", pause=0.3),
+        B("Wiggle break! Stand up.", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("Repeat four: jump, clap!", speaker=NARRATOR, cue="rep", pause=0.3),
         B("One! Two! Three! Four!", speaker=PIXI, cue="count", pause=0.8),
-        B("Outside the repeat: one big stretch!", speaker=AIDEN, cue="stretch", pause=2.0),
-        B("Now push the stretch inside the repeat. Jump, clap, stretch, four times!", speaker=AIDEN,
+        B("Outside the repeat: one big stretch!", speaker=NARRATOR, cue="stretch", pause=2.0),
+        B("Now push the stretch inside the repeat. Jump, clap, stretch, four times!", speaker=NARRATOR,
           cue="inside", pause=5.0),
-        B("Great moving, coders!", speaker=AIDEN, cue="great", pause=1.0),
+        B("Great moving, coders!", speaker=NARRATOR, cue="great", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("rep", "count$"), ("inside", "inside$+5.0")],
           moods={"start": "happy", "great": "proud"}),
@@ -311,18 +311,18 @@ EPISODE = Episode(level="j3", week=7, scenes=(
     )),
     # 11. recap and next ---------------------------------------------------------------------------------------
     Scene("j3-w07-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Colon!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Four spaces!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Inside!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("For i in range four means repeat four.", speaker=AIDEN, cue="recap", pause=0.4),
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Colon!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Four spaces!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Inside!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("For i in range four means repeat four.", speaker=NARRATOR, cue="recap", pause=0.4),
         B("Lines that are pushed in are inside the repeat. A line at the left edge runs only once.",
-          speaker=AIDEN, cue="recap2", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Make Repeat 4, fix The Lonely Turn, then grow the Python Flower.", speaker=AIDEN, cue="next",
+          speaker=NARRATOR, cue="recap2", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Make Repeat 4, fix The Lonely Turn, then grow the Python Flower.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("Remember: one press of Tab pushes a line in.", speaker=AIDEN, cue="remember", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Remember: one press of Tab pushes a line in.", speaker=NARRATOR, cue="remember", pause=0.5),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

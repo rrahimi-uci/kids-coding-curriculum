@@ -431,7 +431,7 @@ def draw_grown_up(ctx: cairo.Context, x: float, y: float, s: float, t: float) ->
 
 
 # ---------------------------------------------------------------------------------------------
-# Aiden: the host of the junior videos (Grades 2-3), an eight-year-old coder, drawn from the
+# Aiden: the junior videos' on-screen scientist and builder, an eight-year-old coder drawn from the
 # approved character sheet: a round friendly face, short brown hair with a soft dome, a short spiky
 # fringe and a shine on top, big brown eyes, light-brown brows, a little hook nose, pink cheeks, an
 # open smile, and a red hoodie (hood behind the neck, white drawstrings, a front pocket, ribbed cuffs).

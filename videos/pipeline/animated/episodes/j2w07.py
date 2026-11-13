@@ -6,10 +6,10 @@ as a dance move with a name, the worked example Exercise 7.1 Celebrate Block (de
 under "when this sprite clicked" and "when space key pressed", changed once in the define script),
 the bug hunt Exercise 7.2 The Lost Block (Sam's "get ready" made but never used; it goes under the
 green flag, above the forever), and games for everyone (big text, shape and color, sound and a word).
-Junior pacing: one idea at a time, big blocks, long thinking pauses, Aiden as the host.
+Junior pacing: one idea at a time, big blocks, long thinking pauses, Aiden shown as the scientist and builder.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 BIG = 1.25  # block scale: big enough for young eyes
 CAT = 1.0  # sprite size on the stage
@@ -32,13 +32,13 @@ DEFINE_READY = [("myblocks", "define [get ready]"), ("variables", "set [score] t
 EPISODE = Episode(level="j2", week=7, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w07-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, game makers! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello again!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, our sprites sent messages to each other.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Today, we make our very own blocks, with names that we choose!", speaker=AIDEN, cue="today",
+        B("Last week, our sprites sent messages to each other.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Today, we make our very own blocks, with names that we choose!", speaker=NARRATOR, cue="today",
           pause=0.5),
-        B("Our cat will learn a new block called celebrate.", speaker=AIDEN, cue="mission", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Our cat will learn a new block called celebrate.", speaker=NARRATOR, cue="mission", pause=0.5),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -51,18 +51,18 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 2. recipe cards: MAKE TOAST ------------------------------------------------------------------
     Scene("j2-w07-s02", setting="workshop", beats=(
-        B("Let's warm up with recipe cards.", speaker=AIDEN, cue="warm", pause=0.4),
+        B("Let's warm up with recipe cards.", speaker=NARRATOR, cue="warm", pause=0.4),
         B("Here is how to make toast: get the bread, put it in the toaster, push the lever, wait, take it "
-          "out, and spread the butter.", speaker=AIDEN, cue="toast", pause=0.5),
-        B("Six cards for one slice of toast. That is a lot of cards!", speaker=AIDEN, cue="six", pause=0.5),
-        B("So we put all six cards in an envelope, and we write a name on it: MAKE TOAST.", speaker=AIDEN,
+          "out, and spread the butter.", speaker=NARRATOR, cue="toast", pause=0.5),
+        B("Six cards for one slice of toast. That is a lot of cards!", speaker=NARRATOR, cue="six", pause=0.5),
+        B("So we put all six cards in an envelope, and we write a name on it: MAKE TOAST.", speaker=NARRATOR,
           cue="envelope", pause=0.5),
         B("Now the envelope is one step with a name. When I say MAKE TOAST, you do all six cards inside.",
-          speaker=AIDEN, cue="name", pause=0.5),
-        B("Here is a breakfast plan: MAKE TOAST, pour juice, MAKE TOAST.", speaker=AIDEN, cue="plan",
+          speaker=NARRATOR, cue="name", pause=0.5),
+        B("Here is a breakfast plan: MAKE TOAST, pour juice, MAKE TOAST.", speaker=NARRATOR, cue="plan",
           pause=0.4),
         B("Toast! Juice! Toast!", speaker=PIXI, cue="pixi", pause=0.6),
-        B("Two slices, and we did not write the six cards twice!", speaker=AIDEN, cue="twice", pause=0.8),
+        B("Two slices, and we did not write the six cards twice!", speaker=NARRATOR, cue="twice", pause=0.8),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, moods={"start": "happy", "six": "surprised", "envelope": "happy"},
           point=("envelope", "envelope$")),
@@ -81,17 +81,17 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 3. the WASH HANDS envelope --------------------------------------------------------------------
     Scene("j2-w07-s03", setting="workshop", beats=(
-        B("I made a second envelope too. It says WASH HANDS.", speaker=AIDEN, cue="second", pause=0.4),
-        B("Inside are three cards: turn on the tap, soap and rub, rinse and dry.", speaker=AIDEN, cue="inside",
+        B("I made a second envelope too. It says WASH HANDS.", speaker=NARRATOR, cue="second", pause=0.4),
+        B("Inside are three cards: turn on the tap, soap and rub, rinse and dry.", speaker=NARRATOR, cue="inside",
           pause=0.5),
-        B("Pixi, do the breakfast plan again, please.", speaker=AIDEN, cue="again", pause=0.3),
+        B("Pixi, do the breakfast plan again, please.", speaker=NARRATOR, cue="again", pause=0.3),
         B("Toast! Juice! Toast! Done!", speaker=PIXI, cue="pixi", pause=0.6),
-        B("Hmm. Did anyone wash their hands?", speaker=AIDEN, cue="wash", pause=3.0),
-        B("No! The WASH HANDS envelope is not in the plan.", speaker=AIDEN, cue="no", pause=0.5),
-        B("Making a named step is not enough. We have to use it.", speaker=AIDEN, cue="use", pause=0.5),
-        B("So we put it at the start of the plan. Now we wash our hands first!", speaker=AIDEN, cue="fix",
+        B("Hmm. Did anyone wash their hands?", speaker=NARRATOR, cue="wash", pause=3.0),
+        B("No! The WASH HANDS envelope is not in the plan.", speaker=NARRATOR, cue="no", pause=0.5),
+        B("Making a named step is not enough. We have to use it.", speaker=NARRATOR, cue="use", pause=0.5),
+        B("So we put it at the start of the plan. Now we wash our hands first!", speaker=NARRATOR, cue="fix",
           pause=0.5),
-        B("Remember this envelope. It will help us in the bug hunt.", speaker=AIDEN, cue="remember", pause=0.8),
+        B("Remember this envelope. It will help us in the bug hunt.", speaker=NARRATOR, cue="remember", pause=0.8),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, moods={"wash": "thinking", "no": "happy"}, chin=("wash", "no"),
           point=("fix", "fix$")),
@@ -112,17 +112,17 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 4. a dance move with a name (and the celebrate wiggle) ----------------------------------------
     Scene("j2-w07-s04", setting="workshop", beats=(
-        B("Scratch lets us make our own envelope. It is called a My Block.", speaker=AIDEN, cue="myblock",
+        B("Scratch lets us make our own envelope. It is called a My Block.", speaker=NARRATOR, cue="myblock",
           pause=0.5),
-        B("A My Block puts a group of blocks under one name. Then one block does all of them.", speaker=AIDEN,
+        B("A My Block puts a group of blocks under one name. Then one block does all of them.", speaker=NARRATOR,
           cue="group", pause=0.5),
-        B("It is like a dance move with a name.", speaker=AIDEN, cue="dance", pause=0.4),
+        B("It is like a dance move with a name.", speaker=NARRATOR, cue="dance", pause=0.4),
         B("When the music teacher says, do the twirl, you know it means: arms up, turn around, bow.",
-          speaker=AIDEN, cue="twirl", pause=0.5),
-        B("The name stands for the steps.", speaker=AIDEN, cue="stands", pause=0.5),
-        B("Let's make our own move, called celebrate: jump, spin, and shout Hooray! Stand up!", speaker=AIDEN,
+          speaker=NARRATOR, cue="twirl", pause=0.5),
+        B("The name stands for the steps.", speaker=NARRATOR, cue="stands", pause=0.5),
+        B("Let's make our own move, called celebrate: jump, spin, and shout Hooray! Stand up!", speaker=NARRATOR,
           cue="ours", pause=0.6),
-        B("Ready? Celebrate!", speaker=AIDEN, cue="go", pause=2.6),
+        B("Ready? Celebrate!", speaker=NARRATOR, cue="go", pause=2.6),
         B("Hooray! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("go", "end")], moods={"start": "happy", "go": "proud"}),
@@ -142,16 +142,16 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 5. build define celebrate (Exercise 7.1) -------------------------------------------------------
     Scene("j2-w07-s05", setting="mint", beats=(
-        B("Let's build the celebrate block together.", speaker=AIDEN, cue="build", pause=0.4),
-        B("Click the pink-red My Blocks circle, at the very bottom. Then click Make a Block.", speaker=AIDEN,
+        B("Let's build the celebrate block together.", speaker=NARRATOR, cue="build", pause=0.4),
+        B("Click the pink-red My Blocks circle, at the very bottom. Then click Make a Block.", speaker=NARRATOR,
           cue="click", pause=0.6),
-        B("Type celebrate, and click OK.", speaker=AIDEN, cue="type", pause=0.6),
-        B("Look! A define celebrate block appears. Define means: here is what my block does.", speaker=AIDEN,
+        B("Type celebrate, and click OK.", speaker=NARRATOR, cue="type", pause=0.6),
+        B("Look! A define celebrate block appears. Define means: here is what my block does.", speaker=NARRATOR,
           cue="define", pause=0.6),
-        B("Under it, snap start sound Pop, from the pink Sound circle.", speaker=AIDEN, cue="sound", pause=0.7),
+        B("Under it, snap start sound Pop, from the pink Sound circle.", speaker=NARRATOR, cue="sound", pause=0.7),
         B("Then a repeat from orange Control. Change ten to twenty-four, and put turn fifteen degrees inside, "
-          "from blue Motion.", speaker=AIDEN, cue="repeat", pause=0.7),
-        B("Last, purple Looks: say Hello for two seconds. Type Hooray, and change two to one.", speaker=AIDEN,
+          "from blue Motion.", speaker=NARRATOR, cue="repeat", pause=0.7),
+        B("Last, purple Looks: say Hello for two seconds. Type Hooray, and change two to one.", speaker=NARRATOR,
           cue="looks", pause=0.7),
         B("Pop, spin, Hooray!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -175,18 +175,18 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 6. predict, then use it twice ------------------------------------------------------------------
     Scene("j2-w07-s06", setting="peach", beats=(
-        B("The define script is the recipe in the envelope.", speaker=AIDEN, cue="recipe", pause=0.4),
-        B("What do you think happens if we click the green flag now?", speaker=AIDEN, cue="predict", pause=3.0),
+        B("The define script is the recipe in the envelope.", speaker=NARRATOR, cue="recipe", pause=0.4),
+        B("What do you think happens if we click the green flag now?", speaker=NARRATOR, cue="predict", pause=3.0),
         B("Nothing happens! The define script does nothing on its own. We have to use our block.",
-          speaker=AIDEN, cue="nothing", pause=0.6),
+          speaker=NARRATOR, cue="nothing", pause=0.6),
         B("From yellow Events, drag in: when this sprite clicked. Then snap our celebrate block under it.",
-          speaker=AIDEN, cue="events", pause=0.6),
-        B("Click the cat!", speaker=AIDEN, cue="clickcat", pause=2.6),
-        B("Pop, spin, Hooray! It works!", speaker=AIDEN, cue="works", pause=0.5),
-        B("Now drag in: when space key pressed, and snap another celebrate under it.", speaker=AIDEN,
+          speaker=NARRATOR, cue="events", pause=0.6),
+        B("Click the cat!", speaker=NARRATOR, cue="clickcat", pause=2.6),
+        B("Pop, spin, Hooray! It works!", speaker=NARRATOR, cue="works", pause=0.5),
+        B("Now drag in: when space key pressed, and snap another celebrate under it.", speaker=NARRATOR,
           cue="space", pause=0.6),
-        B("Press space!", speaker=AIDEN, cue="press", pause=2.6),
-        B("One recipe, used twice!", speaker=AIDEN, cue="twice", pause=0.4),
+        B("Press space!", speaker=NARRATOR, cue="press", pause=2.6),
+        B("One recipe, used twice!", speaker=NARRATOR, cue="twice", pause=0.4),
         B("Beep! Celebrate!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "define celebrate", blocks=[DEFINE, POP, SPIN, HOORAY], x=130, y=260, w=860, h=540,
@@ -214,12 +214,12 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 7. change it once ------------------------------------------------------------------------------
     Scene("j2-w07-s07", setting="sky", beats=(
-        B("Here is the best part.", speaker=AIDEN, cue="best", pause=0.4),
+        B("Here is the best part.", speaker=NARRATOR, cue="best", pause=0.4),
         B("I want a different sound, so I change it once, in the define script. Pop becomes Meow.",
-          speaker=AIDEN, cue="change", pause=0.8),
-        B("Now I click the cat.", speaker=AIDEN, cue="clickcat", pause=2.2),
-        B("I press space.", speaker=AIDEN, cue="press", pause=2.2),
-        B("Both scripts meow! Change it once, and both uses change.", speaker=AIDEN, cue="both", pause=0.8),
+          speaker=NARRATOR, cue="change", pause=0.8),
+        B("Now I click the cat.", speaker=NARRATOR, cue="clickcat", pause=2.2),
+        B("I press space.", speaker=NARRATOR, cue="press", pause=2.2),
+        B("Both scripts meow! Change it once, and both uses change.", speaker=NARRATOR, cue="both", pause=0.8),
     ), actions=(
         A("scratch", "define celebrate", blocks=[DEFINE, POP, SPIN, HOORAY], x=130, y=260, w=860, h=640,
           scale=BIG, edits=[("change@0.75", 1, "start sound [Meow]")], highlight=[(1, "change@0.5", "clickcat")]),
@@ -234,17 +234,17 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 8. bug hunt, part 1: the symptom ----------------------------------------------------------------
     Scene("j2-w07-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("This is Sam's game. The cat runs around the stage, and you click it to score.", speaker=AIDEN,
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("This is Sam's game. The cat runs around the stage, and you click it to score.", speaker=NARRATOR,
           cue="sam", pause=0.5),
-        B("Sam made a My Block called get ready. It sets the score to zero and says Go.", speaker=AIDEN,
+        B("Sam made a My Block called get ready. It sets the score to zero and says Go.", speaker=NARRATOR,
           cue="ready", pause=0.5),
-        B("Let's test. Click the flag. Click the cat: one, two, three!", speaker=AIDEN, cue="test", pause=1.0),
-        B("Now click the flag again.", speaker=AIDEN, cue="again", pause=1.8),
-        B("What should happen? What happened?", speaker=AIDEN, cue="what", pause=3.0),
-        B("The score should go back to zero, and the cat should say Go.", speaker=AIDEN, cue="should",
+        B("Let's test. Click the flag. Click the cat: one, two, three!", speaker=NARRATOR, cue="test", pause=1.0),
+        B("Now click the flag again.", speaker=NARRATOR, cue="again", pause=1.8),
+        B("What should happen? What happened?", speaker=NARRATOR, cue="what", pause=3.0),
+        B("The score should go back to zero, and the cat should say Go.", speaker=NARRATOR, cue="should",
           pause=0.5),
-        B("But the score stays at three, and the cat never says Go!", speaker=AIDEN, cue="but", pause=0.8),
+        B("But the score stays at three, and the cat never says Go!", speaker=NARRATOR, cue="but", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Lost Block", at="bug", color="navy"),
         A("scratch", "Sam's game", blocks=[FLAG, ROTATION, RUN], x=130, y=260, w=860, h=660, scale=BIG,
@@ -266,15 +266,15 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 9. bug hunt, part 2: the clue and the fix -------------------------------------------------------
     Scene("j2-w07-s09", setting="mint", beats=(
-        B("Detective question: is get ready used anywhere?", speaker=AIDEN, cue="used", pause=3.0),
+        B("Detective question: is get ready used anywhere?", speaker=NARRATOR, cue="used", pause=3.0),
         B("No! The define script sits all alone, like the WASH HANDS envelope. Made, but never used.",
-          speaker=AIDEN, cue="alone", pause=0.6),
-        B("Let's drag get ready from My Blocks, and snap it under when green flag clicked.", speaker=AIDEN,
+          speaker=NARRATOR, cue="alone", pause=0.6),
+        B("Let's drag get ready from My Blocks, and snap it under when green flag clicked.", speaker=NARRATOR,
           cue="fix", pause=0.6),
-        B("It goes above the forever loop, because a block under a forever loop never runs.", speaker=AIDEN,
+        B("It goes above the forever loop, because a block under a forever loop never runs.", speaker=NARRATOR,
           cue="above", pause=0.6),
-        B("Test again: flag, click, flag.", speaker=AIDEN, cue="test", pause=5.0),
-        B("Go! The score is back to zero. We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Test again: flag, click, flag.", speaker=NARRATOR, cue="test", pause=5.0),
+        B("Go! The score is back to zero. We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Lost block, found!", speaker=PIXI, cue="found", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Lost Block", at="start", color="navy"),
@@ -298,16 +298,16 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 10. games for everyone -------------------------------------------------------------------------
     Scene("j2-w07-s10", setting="sky", beats=(
-        B("Good game makers make games for everyone.", speaker=AIDEN, cue="everyone", pause=0.5),
-        B("Some people see red and green as the same color.", speaker=AIDEN, cue="color", pause=0.4),
+        B("Good game makers make games for everyone.", speaker=NARRATOR, cue="everyone", pause=0.5),
+        B("Some people see red and green as the same color.", speaker=NARRATOR, cue="color", pause=0.4),
         B("So make good things and bad things look different by shape and color, like a red apple to catch "
-          "and a ghost to dodge.", speaker=AIDEN, cue="shape", pause=0.6),
+          "and a ghost to dodge.", speaker=NARRATOR, cue="shape", pause=0.6),
         B("Some people need big words. Right-click the score on the stage, and choose large readout.",
-          speaker=AIDEN, cue="big", pause=0.6),
+          speaker=NARRATOR, cue="big", pause=0.6),
         B("Some people play with the sound off. So when you score, play a sound and show a word.",
-          speaker=AIDEN, cue="sound", pause=0.6),
-        B("What else could make a game easier for everyone?", speaker=AIDEN, cue="else", pause=3.0),
-        B("Bigger sprites help too!", speaker=AIDEN, cue="bigger", pause=0.8),
+          speaker=NARRATOR, cue="sound", pause=0.6),
+        B("What else could make a game easier for everyone?", speaker=NARRATOR, cue="else", pause=3.0),
+        B("Bigger sprites help too!", speaker=NARRATOR, cue="bigger", pause=0.8),
     ), actions=(
         A("stage", x=120, y=230, w=760, h=500, at="everyone", flag=False, sprite="apple", sprite_x=-90,
           sprite_y=-10, sprite_scale=CAT, extra=[("ghost", 100, -20)],
@@ -321,17 +321,17 @@ EPISODE = Episode(level="j2", week=7, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j2-w07-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("My Block!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Define!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Use it!", speaker=AIDEN, cue="w3", pause=1.2),
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("My Block!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Define!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Use it!", speaker=NARRATOR, cue="w3", pause=1.2),
         B("A My Block is a group of blocks with a name. Make it once, then use it again and again.",
-          speaker=AIDEN, cue="recap", pause=0.4),
-        B("A block that is made but never used does nothing.", speaker=AIDEN, cue="recap2", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build the Celebrate Block, fix the Lost Block, then make the score big.", speaker=AIDEN, cue="next",
+          speaker=NARRATOR, cue="recap", pause=0.4),
+        B("A block that is made but never used does nothing.", speaker=NARRATOR, cue="recap2", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build the Celebrate Block, fix the Lost Block, then make the score big.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

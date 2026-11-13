@@ -13,7 +13,7 @@ For each level N (1, 2, 3):
 The animations themselves live in `pipeline/animated/episodes/` (one file per episode); see "Fully animated episodes" below.
 - `pipeline/`: source discovery, the OpenAI Agents SDK workflow, validation, picture and voice providers, captions and FFmpeg composition.
 
-Rendered MP4s, captions, scene pictures and the paid-API cache (`videos/output/`, `videos/.cache/`) are ignored, so reviews stay small and generated files never hide script changes.
+Rendered MP4s, captions, scene pictures and the paid-API cache (`videos/output/`, `videos/.cache/`) are ignored, so reviews stay small and generated files never hide script changes. Generated media is separated by audience: `videos/output/grades-2-3/` for Kids Coding Junior and `videos/output/grades-4-6/` for the older track. Each band has its own `web/` and `sheets/` folders.
 
 ## Quick start
 
@@ -67,7 +67,7 @@ What goes into an episode:
 
 - **Voices:** [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0), an open neural voice that runs on your Mac. A warm narrator (`af_heart`), Rose (`af_bella`) and Pixi (`am_puck`, with a light robot effect) each have their own voice. Each line is generated separately, so the animation is timed to the actual words. Captions show code as it is written (`self.height`, `stickers.txt`, `__init__`); the voice reads it the way a teacher would ("self dot height", "stickers dot T X T", "dunder init"). These rules and the spelling fixes for tricky words (`LEXICON`) live in `animated/speech.py`.
 - **Animation:** Rose and Pixi blink, change expression, wave and point. Rose's mouth follows the voice. Every idea is shown as it is said: the floor-grid algorithm, step cards, snap-together blocks, the bug hunt, and a recap. Scenes change with a circular wipe.
-- **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. The final mix is normalized to -16 LUFS with peaks at or below -1.5 dBTP.
+- **Sound:** gentle music and soft sound effects are synthesized in code, so there is nothing to license. The music ducks about 18 dB under speech. A measured two-pass normalization targets -16 LUFS and a conservative -6.5 dBTP before AAC encoding, keeping even the sharpest synthesized effects below -1 dBTP without a hard limiter. The 720p web copy preserves that normalized AAC track instead of recompressing the narration.
 - **Text:** the course font, large and short, timed to the narration. Captions are a selectable track plus `.srt` and `.vtt` files.
 
 How it is organized (`videos/pipeline/animated/`):
@@ -94,7 +94,7 @@ How to write or change an episode is in [`pipeline/animated/KIT.md`](pipeline/an
 
 ```bash
 python -m videos.pipeline.cli episode-check --level 2 --week 3   # script = spec, cues exist, code output is real, every action draws
-python -m videos.pipeline.cli contact-sheet --level 2 --week 3   # a grid of stills to look at (videos/output/sheets/)
+python -m videos.pipeline.cli contact-sheet --level 2 --week 3   # stills in videos/output/grades-4-6/sheets/
 python -m videos.pipeline.cli apply-narration edits.json --level 2   # change narration safely (locked, validated, plan rewritten)
 ```
 
@@ -108,24 +108,27 @@ The junior track (`grade-2-3/`) has its own series, **Kids Coding Junior with Ai
 episode per week of Junior Levels 1–3 (30 in all), 5–7 minutes each, paced for 7–9-year-olds who
 watch with a grown-up.
 
-- **Aiden** is the host: an eight-year-old coder in a red hoodie (`draw_aiden` in
+- **Aiden** is an eight-year-old scientist and builder in a red hoodie (`draw_aiden` in
   `animated/characters.py`, drawn from the owner's approved character sheet). He has Rose's poses and
-  moods and talks straight to the child. His voice is Kokoro `af_river` raised 4.5 semitones
-  (`VOICES[AIDEN]` in `animated/audio.py`; the owner picked it from five kid-voice options).
-  **Pixi** is the same robot helper as in the main series.
+  moods. The same unprocessed Kokoro `af_heart` narrator and 0.94 pace used by Grades 4–6 introduces
+  Aiden and Pixi and carries every lesson; Aiden has no dialogue, while both characters retain their
+  animation patterns. **Pixi** is the same robot helper as in the main series and keeps brief
+  character responses.
 - **Episodes are the source.** Each episode is `animated/episodes/j{L}w{WW}.py` (level key `"j1"`..`"j3"`,
-  Aiden as `A("aiden", ...)` and `speaker=AIDEN`). `junior-spec` writes `specs/junior{L}.json` from
+  Aiden as `A("aiden", ...)`; teaching beats use `speaker=NARRATOR`). `junior-spec` writes
+  `specs/junior{L}.json` from
   the episode files (title from the lesson banner, narration, on-screen text); there is no agent
   generation or curriculum manifest for junior yet.
-- **Junior rules** (checked by `testing/test_junior_videos.py`): Aiden says most of every episode,
-  about 650–850 spoken words, 300–430 seconds, and nothing seen or heard uses negative numbers, x/y
-  positions or "360 divided by sides".
+- **Junior rules** (checked by `testing/test_junior_videos.py`): every episode is narrator-led, opens
+  by presenting Aiden as a scientist and builder alongside Pixi, and has no Aiden dialogue. Every
+  episode has about 650–850 spoken words, runs 300–430 seconds, and nothing seen or heard uses
+  negative numbers, x/y positions or "360 divided by sides".
 
 ```bash
 python -m videos.pipeline.cli junior-spec --level 1              # rewrite specs/junior1.json from the episodes
 python -m videos.pipeline.cli junior-check --level 1 --week 2    # script, cues, real code output
-python -m videos.pipeline.cli junior-sheet --level 1 --week 2    # contact sheet: videos/output/sheets/j1w02-sheet.png
-python -m videos.pipeline.cli junior-animate --level 1 --week 2  # videos/output/junior1-week02-meet-scratch.mp4
+python -m videos.pipeline.cli junior-sheet --level 1 --week 2    # videos/output/grades-2-3/sheets/j1w02-sheet.png
+python -m videos.pipeline.cli junior-animate --level 1 --week 2  # videos/output/grades-2-3/junior1-week02-meet-scratch.mp4
 python -m videos.pipeline.cli junior-animate                     # every junior episode
 ```
 
@@ -141,11 +144,11 @@ Every week page shows its video in the same place: right below the page header, 
 
 ```bash
 python -m videos.pipeline.cli publish-videos --level 1 --week 7          # make the web copy (720p) only
-SITE_VIDEOS=videos/output/web make site                                  # preview the pages with it
+SITE_VIDEOS=videos/output make site                                      # preview both grade-band folders
 python -m videos.pipeline.cli publish-videos --level 1 --week 7 --upload --rebuild-site
 ```
 
-`publish-videos` makes `videos/output/web/levelN-weekWW.mp4` (1280×720, H.264 with fast start, about 5 MB for three minutes), a poster picture from the title card, the `.vtt` captions and `videos.json` (each file's length and SHA-256). `--upload` creates the release if needed and replaces those files on it with the GitHub CLI (`gh auth login` once). `--rebuild-site` then starts the Website workflow on `main`, so the new video is live a few minutes later. File names never change, so links and pages stay the same.
+`publish-videos` makes `videos/output/grades-4-6/web/levelN-weekWW.mp4` (1280×720, H.264 with fast start, about 5 MB for three minutes), a poster picture from the title card, the `.vtt` captions and `videos.json` (each file's length and SHA-256). `junior-publish` writes the equivalent files under `videos/output/grades-2-3/web/`. `--upload` creates the release if needed and replaces those files on it with the GitHub CLI (`gh auth login` once). `--rebuild-site` then starts the Website workflow on `main`, so the new video is live a few minutes later. File names never change, so links and pages stay the same.
 
 So when a lesson changes: `check` names the week, you `accept` or rewrite its script and episode, `animate` that week, review it, and `publish-videos --upload --rebuild-site`. The website build (`tools/site/videos.py`) checks every file against its SHA-256 and keeps a cache in `build/site-cache/videos/`. If the release cannot be reached, the site is still built, just without the player. `SITE_VIDEOS=off` builds without videos; `SITE_VIDEOS=<folder>` uses local files.
 
@@ -177,12 +180,13 @@ python -m videos.pipeline.cli render --week 7 --visual-provider openai --approve
 | macOS draft voice | `--voice-provider macos-say` | no | For timing reviews only; never publish it. |
 | Silent | `--voice-provider silent` | no | Cards and captions, no audio. |
 
-Output goes to `videos/output/`:
+Output goes to the grade band's folder under `videos/output/`:
 
 - `levelN-weekWW-<slug>.mp4`: 1920×1080, 30 fps, AAC audio, with an English caption track;
 - matching `.srt` and `.vtt` caption files, for web players;
 - draft renders end in `-draft`.
-- `web/`: the website copies made by `publish-videos` (see "On the website").
+- `grades-2-3/web/`: website copies made by `junior-publish`.
+- `grades-4-6/web/`: website copies made by `publish-videos` (see "On the website").
 
 A scene whose narration runs longer than its time slot stops the render with a clear message. Paid pictures and narration are cached in `videos/.cache/` by their exact inputs, so re-rendering an unchanged scene costs nothing. Scenes that call for Scratch or Thonny must use an authentic, privacy-scrubbed screen capture during editing, never an invented interface.
 

@@ -8,7 +8,7 @@ the children solve the three legs themselves), the forever freeze dance with an 
 the show-me checklist, and "what did I get better at?".
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 CLICKED = ("event", "when this sprite clicked")
@@ -24,12 +24,12 @@ SPRITE = 1.0  # sprite size on the stage
 EPISODE = Episode(level="j2", week=5, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w05-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, game makers!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Today is Play Day!", speaker=AIDEN, cue="play", pause=0.4),
-        B("We practice everything we know: forever, if touching, score, and random.", speaker=AIDEN,
+        B("Today is Play Day!", speaker=NARRATOR, cue="play", pause=0.4),
+        B("We practice everything we know: forever, if touching, score, and random.", speaker=NARRATOR,
           cue="practice", pause=0.6),
-        B("Then you show a grown-up what you can do. Ready? Let's go!", speaker=AIDEN, cue="show", pause=1.0),
+        B("Then you show a grown-up what you can do. Ready? Let's go!", speaker=NARRATOR, cue="show", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("show@0.6", "end")],
           moods={"start": "happy", "play": "proud"}),
@@ -42,14 +42,14 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 2. be the computer: the jobs ---------------------------------------------------------------------
     Scene("j2-w05-s02", setting="workshop", beats=(
-        B("Let's warm up. Today, you are the computer!", speaker=AIDEN, cue="computer", pause=0.4),
+        B("Let's warm up. Today, you are the computer!", speaker=NARRATOR, cue="computer", pause=0.4),
         B("The computer does exactly what the blocks say, one block at a time. It never guesses.",
-          speaker=AIDEN, cue="exactly", pause=0.6),
+          speaker=NARRATOR, cue="exactly", pause=0.6),
         B("Here are the jobs. Pixi is the sprite. I am the reader: I read one block at a time, and point at it. And the SCORE box keeps the score.",
-          speaker=AIDEN, cue="jobs", pause=0.6),
-        B("Six squares on the floor. Moving ten steps is one square today.", speaker=AIDEN, cue="squares",
+          speaker=NARRATOR, cue="jobs", pause=0.6),
+        B("Six squares on the floor. Moving ten steps is one square today.", speaker=NARRATOR, cue="squares",
           pause=0.5),
-        B("Apples sit on squares two, three, and five.", speaker=AIDEN, cue="apples", pause=0.8),
+        B("Apples sit on squares two, three, and five.", speaker=NARRATOR, cue="apples", pause=0.8),
     ), actions=(
         A("aiden", x=240, y=1000, s=0.7, moods={"start": "happy", "jobs": "proud"}, label="reader",
           point=("jobs@0.3", "jobs@0.6")),
@@ -65,14 +65,14 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 3. act it out ---------------------------------------------------------------------------------------
     Scene("j2-w05-s03", setting="sky", beats=(
-        B("Set score to zero: the box is empty. Repeat six times.", speaker=AIDEN, cue="set", pause=0.5),
-        B("Move. Are you touching an apple? No. Nothing happens.", speaker=AIDEN, cue="s1", pause=0.5),
-        B("Move. Touching an apple? Yes! Change score by one.", speaker=AIDEN, cue="s2", pause=0.2),
+        B("Set score to zero: the box is empty. Repeat six times.", speaker=NARRATOR, cue="set", pause=0.5),
+        B("Move. Are you touching an apple? No. Nothing happens.", speaker=NARRATOR, cue="s1", pause=0.5),
+        B("Move. Touching an apple? Yes! Change score by one.", speaker=NARRATOR, cue="s2", pause=0.2),
         B("Yum!", speaker=PIXI, cue="yum2", pause=0.4),
-        B("Keep going, square by square. What will the score be at the end?", speaker=AIDEN, cue="predict",
+        B("Keep going, square by square. What will the score be at the end?", speaker=NARRATOR, cue="predict",
           pause=3.0),
-        B("Three! Three apples, three points.", speaker=AIDEN, cue="three", pause=0.5),
-        B("We added one only when the if was true.", speaker=AIDEN, cue="true", pause=0.8),
+        B("Three! Three apples, three points.", speaker=NARRATOR, cue="three", pause=0.5),
+        B("We added one only when the if was true.", speaker=NARRATOR, cue="true", pause=0.8),
     ), actions=(
         A("scratch", "The script", blocks=BE_THE_COMPUTER, x=100, y=250, w=830, h=760, scale=1.0,
           highlight=[(1, "set", "set@0.5"), (2, "set@0.5", "set$"), (3, "s1", "s1@0.2"), (4, "s1@0.3", "s1$"),
@@ -90,13 +90,13 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 4. the detective steps -----------------------------------------------------------------------------
     Scene("j2-w05-s04", setting="lavender", beats=(
-        B("Now, our detective steps for bugs.", speaker=AIDEN, cue="steps", pause=0.4),
-        B("Test: click the flag and play.", speaker=AIDEN, cue="test", pause=0.5),
-        B("Look: what should happen, and what happened?", speaker=AIDEN, cue="look", pause=0.5),
-        B("Change one thing, then test again.", speaker=AIDEN, cue="change", pause=0.6),
+        B("Now, our detective steps for bugs.", speaker=NARRATOR, cue="steps", pause=0.4),
+        B("Test: click the flag and play.", speaker=NARRATOR, cue="test", pause=0.5),
+        B("Look: what should happen, and what happened?", speaker=NARRATOR, cue="look", pause=0.5),
+        B("Change one thing, then test again.", speaker=NARRATOR, cue="change", pause=0.6),
         B("A detective is like a referee. A referee watches, sees exactly what went wrong, and makes one call.",
-          speaker=AIDEN, cue="referee", pause=0.5),
-        B("A bug detective finds the one block that is wrong, and changes only that.", speaker=AIDEN,
+          speaker=NARRATOR, cue="referee", pause=0.5),
+        B("A bug detective finds the one block that is wrong, and changes only that.", speaker=NARRATOR,
           cue="one", pause=0.8),
     ), actions=(
         A("banner", "Detective steps", at="steps", color="blue"),
@@ -108,16 +108,16 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 5. bug hunt: the score that counts by 10 (the lesson's worked example) --------------------------
     Scene("j2-w05-s05", setting="mint", beats=(
-        B("Watch me hunt a tiny bug.", speaker=AIDEN, cue="watch", pause=0.4),
-        B("I want one point for each click on the cat.", speaker=AIDEN, cue="want", pause=0.5),
-        B("Test! I click the cat three times.", speaker=AIDEN, cue="test", pause=2.0),
-        B("Look! I wanted three. I got thirty!", speaker=AIDEN, cue="look", pause=0.6),
-        B("Which block is the clue?", speaker=AIDEN, cue="clue", pause=3.0),
-        B("The block that changes the score. It says change score by ten!", speaker=AIDEN, cue="found",
+        B("Watch me hunt a tiny bug.", speaker=NARRATOR, cue="watch", pause=0.4),
+        B("I want one point for each click on the cat.", speaker=NARRATOR, cue="want", pause=0.5),
+        B("Test! I click the cat three times.", speaker=NARRATOR, cue="test", pause=2.0),
+        B("Look! I wanted three. I got thirty!", speaker=NARRATOR, cue="look", pause=0.6),
+        B("Which block is the clue?", speaker=NARRATOR, cue="clue", pause=3.0),
+        B("The block that changes the score. It says change score by ten!", speaker=NARRATOR, cue="found",
           pause=0.5),
         B("Change one thing: ten back to one. Then click set score to zero once, so the score starts again.",
-          speaker=AIDEN, cue="fix", pause=0.6),
-        B("Test again: one, two, three. Three! Bug fixed.", speaker=AIDEN, cue="again", pause=0.5),
+          speaker=NARRATOR, cue="fix", pause=0.6),
+        B("Test again: one, two, three. Three! Bug fixed.", speaker=NARRATOR, cue="again", pause=0.5),
         B("That is how the relay works!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The score that counts by 10", at="watch", color="navy"),
@@ -144,13 +144,13 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 6. quick quiz: name the block ---------------------------------------------------------------------
     Scene("j2-w05-s06", setting="peach", beats=(
-        B("Quick quiz! Name the block.", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("Which block keeps a game going, again and again?", speaker=AIDEN, cue="q1", pause=2.8),
-        B("Forever! It keeps going until you press stop.", speaker=AIDEN, cue="a1", pause=0.6),
-        B("Which block makes the score start at zero?", speaker=AIDEN, cue="q2", pause=2.8),
-        B("Set score to zero, right under the green flag!", speaker=AIDEN, cue="a2", pause=0.6),
-        B("Which block picks a number nobody can guess?", speaker=AIDEN, cue="q3", pause=2.8),
-        B("Pick random, the die inside the computer! You know so much!", speaker=AIDEN, cue="a3", pause=0.8),
+        B("Quick quiz! Name the block.", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("Which block keeps a game going, again and again?", speaker=NARRATOR, cue="q1", pause=2.8),
+        B("Forever! It keeps going until you press stop.", speaker=NARRATOR, cue="a1", pause=0.6),
+        B("Which block makes the score start at zero?", speaker=NARRATOR, cue="q2", pause=2.8),
+        B("Set score to zero, right under the green flag!", speaker=NARRATOR, cue="a2", pause=0.6),
+        B("Which block picks a number nobody can guess?", speaker=NARRATOR, cue="q3", pause=2.8),
+        B("Pick random, the die inside the computer! You know so much!", speaker=NARRATOR, cue="a3", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("thought", "Again and again?", at="q1$+0.2", until="a1", x=1400, y=480),
@@ -165,18 +165,18 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 7. the Bug-Hunt Relay (no fixes shown) ------------------------------------------------------------
     Scene("j2-w05-s07", setting="sky", beats=(
-        B("Now, the Bug-Hunt Relay: three broken games, like three legs of a race.", speaker=AIDEN,
+        B("Now, the Bug-Hunt Relay: three broken games, like three legs of a race.", speaker=NARRATOR,
           cue="relay", pause=0.5),
-        B("Leg one: Stuck at the Edge. The cat should walk back and forth forever.", speaker=AIDEN, cue="leg1",
+        B("Leg one: Stuck at the Edge. The cat should walk back and forth forever.", speaker=NARRATOR, cue="leg1",
           pause=0.5),
-        B("Leg two: The Stuck Score. Each click on the ghost should add one.", speaker=AIDEN, cue="leg2",
+        B("Leg two: The Stuck Score. Each click on the ghost should add one.", speaker=NARRATOR, cue="leg2",
           pause=0.5),
-        B("Leg three: The Apple That Won't Pop. It should pop when the cat touches it.", speaker=AIDEN,
+        B("Leg three: The Apple That Won't Pop. It should pop when the cat touches it.", speaker=NARRATOR,
           cue="leg3", pause=0.6),
         B("Build each one, test it, and find the bug yourself. Fix one leg, get a sticker, and swap Driver!",
-          speaker=AIDEN, cue="sticker", pause=0.5),
-        B("Stuck? Read the should-do line again. What is different?", speaker=AIDEN, cue="hint", pause=0.6),
-        B("Still stuck? Ask: does this block run once, or again and again?", speaker=AIDEN, cue="hint2", pause=0.8),
+          speaker=NARRATOR, cue="sticker", pause=0.5),
+        B("Stuck? Read the should-do line again. What is different?", speaker=NARRATOR, cue="hint", pause=0.6),
+        B("Still stuck? Ask: does this block run once, or again and again?", speaker=NARRATOR, cue="hint2", pause=0.8),
     ), actions=(
         A("banner", "Bug-Hunt Relay", at="relay", color="navy"),
         A("cards", items=["Stuck at the Edge", "The Stuck Score", "The Apple That Won't Pop"], x=200, y=300,
@@ -195,11 +195,11 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 8. wiggle break: forever freeze dance with an IF -------------------------------------------------------
     Scene("j2-w05-s08", setting="workshop", beats=(
-        B("Wiggle break! Dance forever, but listen: if I say apple, jump!", speaker=AIDEN, cue="dance",
+        B("Wiggle break! Dance forever, but listen: if I say apple, jump!", speaker=NARRATOR, cue="dance",
           pause=0.8),
-        B("Banana!", speaker=AIDEN, cue="banana", pause=1.4),
-        B("No jump! Apple!", speaker=AIDEN, cue="apple", pause=1.4),
-        B("Jump! And now the music stops. Freeze, like a stopped project!", speaker=AIDEN, cue="freeze",
+        B("Banana!", speaker=NARRATOR, cue="banana", pause=1.4),
+        B("No jump! Apple!", speaker=NARRATOR, cue="apple", pause=1.4),
+        B("Jump! And now the music stops. Freeze, like a stopped project!", speaker=NARRATOR, cue="freeze",
           pause=2.0),
         B("Beep! I am frozen!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -216,17 +216,17 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 9. My Best Game and the show-me checklist ---------------------------------------------------------
     Scene("j2-w05-s09", setting="mint", beats=(
-        B("After the relay, keep your fixed leg three open, and turn it into My Best Game.", speaker=AIDEN,
+        B("After the relay, keep your fixed leg three open, and turn it into My Best Game.", speaker=NARRATOR,
           cue="best", pause=0.5),
         B("Make a score variable. Snap set score to zero under the green flag, above the forever.",
-          speaker=AIDEN, cue="set", pause=0.6),
-        B("Put change score by one inside the if.", speaker=AIDEN, cue="change", pause=0.6),
-        B("Then add your own idea: a new sound, a backdrop, or a different sprite to catch.", speaker=AIDEN,
+          speaker=NARRATOR, cue="set", pause=0.6),
+        B("Put change score by one inside the if.", speaker=NARRATOR, cue="change", pause=0.6),
+        B("Then add your own idea: a new sound, a backdrop, or a different sprite to catch.", speaker=NARRATOR,
           cue="idea", pause=0.6),
-        B("Swap Driver and Helper when the timer rings.", speaker=AIDEN, cue="swap", pause=0.6),
-        B("Your grown-up may ask: show me where the forever is. Where does the score start?", speaker=AIDEN,
+        B("Swap Driver and Helper when the timer rings.", speaker=NARRATOR, cue="swap", pause=0.6),
+        B("Your grown-up may ask: show me where the forever is. Where does the score start?", speaker=NARRATOR,
           cue="showme", pause=0.6),
-        B("Not yet is a fine answer too. We are all still learning.", speaker=AIDEN, cue="notyet", pause=0.8),
+        B("Not yet is a fine answer too. We are all still learning.", speaker=NARRATOR, cue="notyet", pause=0.8),
     ), actions=(
         A("banner", "Exercise 5.3: My Best Game", at="best", color="green"),
         A("scratch", "Two new blocks", blocks=[SET0, CHANGE1], x=150, y=320, w=860, h=330, scale=BIG,
@@ -241,14 +241,14 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 10. what did I get better at? -----------------------------------------------------------------
     Scene("j2-w05-s10", setting="workshop", beats=(
-        B("Five weeks ago, we had never made a game. Today, you fix broken games by yourself!", speaker=AIDEN,
+        B("Five weeks ago, we had never made a game. Today, you fix broken games by yourself!", speaker=NARRATOR,
           cue="five", pause=0.6),
-        B("What did you get better at?", speaker=AIDEN, cue="better", pause=3.0),
-        B("Maybe fixing bugs, finding blocks, taking turns, or being a good sport.", speaker=AIDEN, cue="maybe",
+        B("What did you get better at?", speaker=NARRATOR, cue="better", pause=3.0),
+        B("Maybe fixing bugs, finding blocks, taking turns, or being a good sport.", speaker=NARRATOR, cue="maybe",
           pause=0.6),
         B("Getting better is not about being the fastest. It is about trying, fixing, and trying again.",
-          speaker=AIDEN, cue="trying", pause=0.5),
-        B("And we are kind about bugs: ours, and our friends'.", speaker=AIDEN, cue="kind", pause=0.6),
+          speaker=NARRATOR, cue="trying", pause=0.5),
+        B("And we are kind about bugs: ours, and our friends'.", speaker=NARRATOR, cue="kind", pause=0.6),
         B("I got better at beeping!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=280, y=980, s=0.85, moods={"start": "proud", "better": "thinking", "maybe": "happy"},
@@ -263,15 +263,15 @@ EPISODE = Episode(level="j2", week=5, scenes=(
     )),
     # 11. recap and next ---------------------------------------------------------------------------------
     Scene("j2-w05-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the detective steps with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Test!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Look!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Change one thing!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Be the computer on paper, run the Bug-Hunt Relay, then build My Best Game.", speaker=AIDEN,
+        B("Say the detective steps with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Test!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Look!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Change one thing!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Be the computer on paper, run the Bug-Hunt Relay, then build My Best Game.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("Then play your game for your grown-up, and say how it works.", speaker=AIDEN, cue="share", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Then play your game for your grown-up, and say how it works.", speaker=NARRATOR, cue="share", pause=0.5),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

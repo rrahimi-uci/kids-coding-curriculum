@@ -12,7 +12,7 @@ Ballerina, like week 4) on the floor with the selected sprite named under the co
 costume change is shown as a little step with a "next costume" chip.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 CLICKED = ("event", "when this sprite clicked")
@@ -50,12 +50,12 @@ S10_PATH, S10_MOODS = hop("space2", PX, PY, 4, 1.0, first=0.6, moods=True)
 EPISODE = Episode(level="j1", week=6, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j1-w06-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, coders! It's Aiden and Pixi!", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello!", speaker=PIXI, cue="hello", pause=0.5),
-        B("So far, every script we made starts with the green flag.", speaker=AIDEN, cue="sofar", pause=0.5),
+        B("So far, every script we made starts with the green flag.", speaker=NARRATOR, cue="sofar", pause=0.5),
         B("Today, we learn two new ways to start a script: a click on a sprite, and a key on the keyboard!",
-          speaker=AIDEN, cue="today", pause=0.5),
-        B("Click the cat, and it talks. Press a key, and it moves. Let's go!", speaker=AIDEN, cue="go", pause=1.0),
+          speaker=NARRATOR, cue="today", pause=0.5),
+        B("Click the cat, and it talks. Press a key, and it moves. Let's go!", speaker=NARRATOR, cue="go", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("go", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -69,14 +69,14 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 2. warm-up: when I clap, you jump (movement) ---------------------------------------------------
     Scene("j1-w06-s02", setting="workshop", beats=(
-        B("Let's warm up with a game. Stand up!", speaker=AIDEN, cue="up", pause=0.4),
+        B("Let's warm up with a game. Stand up!", speaker=NARRATOR, cue="up", pause=0.4),
         B("This card is a little script. The top part says WHEN. The robot waits until that thing happens.",
-          speaker=AIDEN, cue="card", pause=0.6),
-        B("When I clap, you jump. When I stomp, you spin. Ready?", speaker=AIDEN, cue="rules", pause=0.8),
-        B("Clap!", speaker=AIDEN, cue="clap1", pause=1.4),
-        B("Stomp!", speaker=AIDEN, cue="stomp1", pause=1.6),
-        B("Clap!", speaker=AIDEN, cue="clap2", pause=1.4),
-        B("You listened, and did the right action. Great robots!", speaker=AIDEN, cue="great", pause=0.8),
+          speaker=NARRATOR, cue="card", pause=0.6),
+        B("When I clap, you jump. When I stomp, you spin. Ready?", speaker=NARRATOR, cue="rules", pause=0.8),
+        B("Clap!", speaker=NARRATOR, cue="clap1", pause=1.4),
+        B("Stomp!", speaker=NARRATOR, cue="stomp1", pause=1.6),
+        B("Clap!", speaker=NARRATOR, cue="clap2", pause=1.4),
+        B("You listened, and did the right action. Great robots!", speaker=NARRATOR, cue="great", pause=0.8),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("clap1", "clap1>"), ("stomp1", "stomp1>"), ("clap2", "clap2>")],
           moods={"start": "happy", "great": "proud"}),
@@ -95,11 +95,11 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     # 3. each robot has its own cards; banana -------------------------------------------------------
     Scene("j1-w06-s03", setting="workshop", beats=(
         B("Now each robot gets its own card. Ada only listens for the clap. Sam only listens for the stomp.",
-          speaker=AIDEN, cue="own", pause=0.6),
-        B("Clap! Only Ada jumps. Each robot has its own scripts.", speaker=AIDEN, cue="clap", pause=0.6),
-        B("Last one. Banana!", speaker=AIDEN, cue="banana", pause=1.0),
-        B("What happens?", speaker=AIDEN, cue="what", pause=3.0),
-        B("Nothing! No card listens for banana, so nothing happens. Remember that!", speaker=AIDEN,
+          speaker=NARRATOR, cue="own", pause=0.6),
+        B("Clap! Only Ada jumps. Each robot has its own scripts.", speaker=NARRATOR, cue="clap", pause=0.6),
+        B("Last one. Banana!", speaker=NARRATOR, cue="banana", pause=1.0),
+        B("What happens?", speaker=NARRATOR, cue="what", pause=3.0),
+        B("Nothing! No card listens for banana, so nothing happens. Remember that!", speaker=NARRATOR,
           cue="nothing", pause=0.8),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, moods={"start": "happy", "what": "thinking", "nothing": "happy"},
@@ -115,17 +115,17 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 4. events start scripts ----------------------------------------------------------------------------
     Scene("j1-w06-s04", setting="lavender", beats=(
-        B("In our game, the clap was an event. An event is something that happens.", speaker=AIDEN, cue="event",
+        B("In our game, the clap was an event. An event is something that happens.", speaker=NARRATOR, cue="event",
           pause=0.5),
-        B("In Scratch, events start scripts. We already know one: the green flag.", speaker=AIDEN, cue="flag",
+        B("In Scratch, events start scripts. We already know one: the green flag.", speaker=NARRATOR, cue="flag",
           pause=0.5),
-        B("Today, we learn two more: when this sprite clicked, and when space key pressed.", speaker=AIDEN,
+        B("Today, we learn two more: when this sprite clicked, and when space key pressed.", speaker=NARRATOR,
           cue="two", pause=0.6),
-        B("They are all in the yellow Events circle, and they all have a round top, like a hat.", speaker=AIDEN,
+        B("They are all in the yellow Events circle, and they all have a round top, like a hat.", speaker=NARRATOR,
           cue="hat", pause=0.6),
         B("It's like a doorbell. When the doorbell rings, someone goes to the door. Nobody goes when the "
-          "phone rings.", speaker=AIDEN, cue="door", pause=0.5),
-        B("An event block waits, and runs only when its own event happens.", speaker=AIDEN, cue="waits",
+          "phone rings.", speaker=NARRATOR, cue="door", pause=0.5),
+        B("An event block waits, and runs only when its own event happens.", speaker=NARRATOR, cue="waits",
           pause=0.8),
     ), actions=(
         A("chip", "event = something that happens", at="event@0.5", until="door", x=1400, y=300, color="yellow",
@@ -140,14 +140,14 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 5. build Click the Cat ---------------------------------------------------------------------------
     Scene("j1-w06-s05", setting="mint", beats=(
-        B("Let's build Click the Cat.", speaker=AIDEN, cue="build", pause=0.4),
-        B("Click the yellow Events circle. Drag in: when this sprite clicked.", speaker=AIDEN, cue="events",
+        B("Let's build Click the Cat.", speaker=NARRATOR, cue="build", pause=0.4),
+        B("Click the yellow Events circle. Drag in: when this sprite clicked.", speaker=NARRATOR, cue="events",
           pause=0.8),
-        B("Then the pink Sound circle. Snap on: play sound Meow until done.", speaker=AIDEN, cue="sound",
+        B("Then the pink Sound circle. Snap on: play sound Meow until done.", speaker=NARRATOR, cue="sound",
           pause=0.8),
         B("Then the purple Looks circle. Snap on: say Hello for two seconds, and type: That tickles!",
-          speaker=AIDEN, cue="looks", pause=0.8),
-        B("Look: no green flag block this time!", speaker=AIDEN, cue="noflag", pause=0.8),
+          speaker=NARRATOR, cue="looks", pause=0.8),
+        B("Look: no green flag block this time!", speaker=NARRATOR, cue="noflag", pause=0.8),
     ), actions=(
         A("banner", "Exercise 6.1: Click the Cat", at="build", color="green"),
         A("scratch", "Click the Cat", blocks=[CLICKED, MEOW, ("looks", "say [Hello!] for [2] seconds")], x=110,
@@ -160,10 +160,10 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 6. test it: click the cat -----------------------------------------------------------------------
     Scene("j1-w06-s06", setting="mint", beats=(
-        B("Now, do not click the green flag. Click the cat on the stage!", speaker=AIDEN, cue="click", pause=3.4),
-        B("Meow! That tickles!", speaker=AIDEN, cue="tickles", pause=0.5),
-        B("The script waited for its event: a click on the cat.", speaker=AIDEN, cue="waited", pause=0.6),
-        B("Click quickly. If you hold the mouse down and move, you drag the cat instead.", speaker=AIDEN,
+        B("Now, do not click the green flag. Click the cat on the stage!", speaker=NARRATOR, cue="click", pause=3.4),
+        B("Meow! That tickles!", speaker=NARRATOR, cue="tickles", pause=0.5),
+        B("The script waited for its event: a click on the cat.", speaker=NARRATOR, cue="waited", pause=0.6),
+        B("Click quickly. If you hold the mouse down and move, you drag the cat instead.", speaker=NARRATOR,
           cue="quick", pause=0.8),
         B("Hee hee! Beep!", speaker=PIXI, cue="hee", pause=0.8),
     ), actions=(
@@ -182,12 +182,12 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 7. quick quiz: will the green flag start it? --------------------------------------------------
     Scene("j1-w06-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("If we click the green flag, will the cat say: That tickles?", speaker=AIDEN, cue="flag", pause=3.2),
-        B("Let's test it.", speaker=AIDEN, cue="test", pause=2.0),
-        B("No! This script does not wait for the flag. It waits for a click on the cat.", speaker=AIDEN, cue="no",
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("If we click the green flag, will the cat say: That tickles?", speaker=NARRATOR, cue="flag", pause=3.2),
+        B("Let's test it.", speaker=NARRATOR, cue="test", pause=2.0),
+        B("No! This script does not wait for the flag. It waits for a click on the cat.", speaker=NARRATOR, cue="no",
           pause=0.5),
-        B("Every hat block waits for its own event.", speaker=AIDEN, cue="own", pause=0.8),
+        B("Every hat block waits for its own event.", speaker=NARRATOR, cue="own", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("scratch", "Click the Cat", blocks=[CLICKED, MEOW, TICKLE], x=110, y=280, w=960, h=480, scale=BIG,
@@ -199,11 +199,11 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 8. a key script --------------------------------------------------------------------------------
     Scene("j1-w06-s08", setting="sky", beats=(
-        B("Now a key! From yellow Events, drag in: when space key pressed.", speaker=AIDEN, cue="key", pause=0.6),
-        B("From purple Looks, snap on: next costume.", speaker=AIDEN, cue="next", pause=0.6),
-        B("Click the stage once, then press the space bar, a few times.", speaker=AIDEN, cue="press", pause=4.4),
-        B("Every press, the cat changes its costume, like a new pose!", speaker=AIDEN, cue="pose", pause=0.6),
-        B("If a key does nothing, click once on the stage and try again.", speaker=AIDEN, cue="tip", pause=0.8),
+        B("Now a key! From yellow Events, drag in: when space key pressed.", speaker=NARRATOR, cue="key", pause=0.6),
+        B("From purple Looks, snap on: next costume.", speaker=NARRATOR, cue="next", pause=0.6),
+        B("Click the stage once, then press the space bar, a few times.", speaker=NARRATOR, cue="press", pause=4.4),
+        B("Every press, the cat changes its costume, like a new pose!", speaker=NARRATOR, cue="pose", pause=0.6),
+        B("If a key does nothing, click once on the stage and try again.", speaker=NARRATOR, cue="tip", pause=0.8),
     ), actions=(
         A("scratch", "Space key", blocks=[SPACE, NEXT], x=110, y=280, w=960, h=360, scale=BIG,
           reveal=["key@0.4", "next@0.5"],
@@ -222,17 +222,17 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     # 9. bug hunt: The Mixed-Up Ballerina (part 1: wrong sprite) --------------------------------------
     Scene("j1-w06-s09", setting="mint", beats=(
         B("Bug hunt! Kai's plan: click the Ballerina, and she says Hi. Press space, and she dances.",
-          speaker=AIDEN, cue="bug", pause=0.5),
-        B("Pixi is our Ballerina again. Test! Click the Ballerina.", speaker=AIDEN, cue="test", pause=2.2),
-        B("Nothing. Press space.", speaker=AIDEN, cue="space", pause=2.0),
-        B("Nothing again! Two clues. Let's be detectives.", speaker=AIDEN, cue="nothing", pause=0.5),
+          speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Pixi is our Ballerina again. Test! Click the Ballerina.", speaker=NARRATOR, cue="test", pause=2.2),
+        B("Nothing. Press space.", speaker=NARRATOR, cue="space", pause=2.0),
+        B("Nothing again! Two clues. Let's be detectives.", speaker=NARRATOR, cue="nothing", pause=0.5),
         B("When we click a sprite in the sprite list, we see only that sprite's scripts. Let's click the cat.",
-          speaker=AIDEN, cue="list", pause=0.6),
-        B("Look! The click script is in the cat's code. So which sprite talks when we click it?", speaker=AIDEN,
+          speaker=NARRATOR, cue="list", pause=0.6),
+        B("Look! The click script is in the cat's code. So which sprite talks when we click it?", speaker=NARRATOR,
           cue="which", pause=3.0),
-        B("The cat! The script is under the wrong sprite.", speaker=AIDEN, cue="cat", pause=0.6),
+        B("The cat! The script is under the wrong sprite.", speaker=NARRATOR, cue="cat", pause=0.6),
         B("Fix: drag the script onto the Ballerina in the sprite list, so it copies. Then drag the cat's copy "
-          "back to the blocks, to delete it.", speaker=AIDEN, cue="fix", pause=0.8),
+          "back to the blocks, to delete it.", speaker=NARRATOR, cue="fix", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Mixed-Up Ballerina", at="bug", color="navy"),
         A("scratch", "Ballerina's code", blocks=[KEY_A, DANCE], x=110, y=260, w=960, h=560, scale=BIG,
@@ -259,13 +259,13 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 10. bug hunt part 2: the wrong key ---------------------------------------------------------------
     Scene("j1-w06-s10", setting="mint", beats=(
-        B("Now the Ballerina's dance. It says: when a key pressed.", speaker=AIDEN, cue="dance", pause=0.5),
-        B("We pressed space. Does any script listen for space?", speaker=AIDEN, cue="listen", pause=3.0),
-        B("No! It is like banana in our game. Nobody listens for it.", speaker=AIDEN, cue="banana", pause=0.5),
-        B("Fix: click the little arrow, and pick space.", speaker=AIDEN, cue="fix", pause=0.8),
-        B("Test again! Click the Ballerina.", speaker=AIDEN, cue="again", pause=2.4),
-        B("Press space!", speaker=AIDEN, cue="space2", pause=4.6),
-        B("She says Hi, and she dances! Two bugs fixed.", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Now the Ballerina's dance. It says: when a key pressed.", speaker=NARRATOR, cue="dance", pause=0.5),
+        B("We pressed space. Does any script listen for space?", speaker=NARRATOR, cue="listen", pause=3.0),
+        B("No! It is like banana in our game. Nobody listens for it.", speaker=NARRATOR, cue="banana", pause=0.5),
+        B("Fix: click the little arrow, and pick space.", speaker=NARRATOR, cue="fix", pause=0.8),
+        B("Test again! Click the Ballerina.", speaker=NARRATOR, cue="again", pause=2.4),
+        B("Press space!", speaker=NARRATOR, cue="space2", pause=4.6),
+        B("She says Hi, and she dances! Two bugs fixed.", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("I'm a dancing detective! Beep!", speaker=PIXI, cue="detective", pause=0.8),
     ), actions=(
         A("scratch", "Ballerina's code", blocks=[KEY_A, DANCE], x=110, y=260, w=960, h=560, scale=BIG,
@@ -290,16 +290,16 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 11. nicknames, never real names or photos ----------------------------------------------------------
     Scene("j1-w06-s11", setting="workshop", beats=(
-        B("Our sprites say nicknames, like Captain Fluff, or Zoom.", speaker=AIDEN, cue="nick", pause=0.4),
-        B("Our projects never show our real names, where we live, or photos of us.", speaker=AIDEN, cue="never",
+        B("Our sprites say nicknames, like Captain Fluff, or Zoom.", speaker=NARRATOR, cue="nick", pause=0.4),
+        B("Our projects never show our real names, where we live, or photos of us.", speaker=NARRATOR, cue="never",
           pause=0.6),
         B("Scratch can take photos with the camera, and upload pictures. We do not use those buttons.",
-          speaker=AIDEN, cue="camera", pause=0.5),
-        B("Want a sprite that looks like you? Draw one, or pick one from the library.", speaker=AIDEN,
+          speaker=NARRATOR, cue="camera", pause=0.5),
+        B("Want a sprite that looks like you? Draw one, or pick one from the library.", speaker=NARRATOR,
           cue="draw", pause=0.5),
-        B("And if an app asks for your name or a photo, stop and ask a grown-up.", speaker=AIDEN, cue="ask",
+        B("And if an app asks for your name or a photo, stop and ask a grown-up.", speaker=NARRATOR, cue="ask",
           pause=0.6),
-        B("What nickname would your sprite like?", speaker=AIDEN, cue="what", pause=3.0),
+        B("What nickname would your sprite like?", speaker=NARRATOR, cue="what", pause=3.0),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "never": "proud", "what": "thinking"},
           chin=("what$", "end")),
@@ -314,15 +314,15 @@ EPISODE = Episode(level="j1", week=6, scenes=(
     )),
     # 12. recap and next -------------------------------------------------------------------------------
     Scene("j1-w06-s12", setting="workshop", tail=0.8, beats=(
-        B("Three ways to start a script. Say them with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Green flag!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Click!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Key!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Each hat block waits for its own event, on its own sprite.", speaker=AIDEN, cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
+        B("Three ways to start a script. Say them with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Green flag!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Click!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Key!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Each hat block waits for its own event, on its own sprite.", speaker=NARRATOR, cue="recap", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
         B("Build Click the Cat, then Keyboard Cat, then fix The Mixed-Up Ballerina. Then give your cat a "
-          "nickname!", speaker=AIDEN, cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+          "nickname!", speaker=NARRATOR, cue="next", pause=0.6),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

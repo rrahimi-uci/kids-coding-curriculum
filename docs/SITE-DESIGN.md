@@ -52,8 +52,8 @@ fails rather than publishing something wrong.
 ## Static site generator: Astro
 
 * **Content-heavy and static**: pages are generated from JSON and HTML fragments at build time.
-* **Zero JavaScript by default.** The only scripts are a small progressive-enhancement file (display
-  toggles, the phone menu, copy buttons) and, on the search page only, Pagefind. The pages are made for
+* **Zero JavaScript by default.** The only scripts are a small progressive-enhancement file (dark-mode
+  toggle, the phone menu, copy buttons) and, on the search page only, Pagefind. The pages are made for
   **reading**: no checkboxes, progress bars, "mark as done" buttons or hints that lock and unlock; the
   self-check lists are ordinary lists and the hints are plain sections in order.
 * Dynamic routes (`[band]/[level]/[week]`, `exercises/[slug]`) make the level and week pages come out of the
@@ -162,8 +162,8 @@ family meets the course:
 3. **For parents**: parent guide, research, slides, questions and answers;
 4. **Resources**: setup guide, troubleshooting, glossary, all resources, about.
 
-A search box sits above the menu (it submits to `/search/?q=...`), and **Display** (Dark mode, Easy-read font,
-both switches with `aria-pressed`) sits below it; only the menu between them scrolls. Long pages keep their
+A search box sits above the menu (it submits to `/search/?q=...`). The dark-mode toggle is a single icon
+button fixed in the top-right corner, outside the navigation; only the menu below search scrolls. Long pages keep their
 **On this page** list: in its own column on the right on wide screens, folded above the text otherwise.
 Icons follow the Lucide set (24px grid, 2px stroke) at text size, and every icon is paired with a text label.
 * Assessments (placement, checkpoint and exit quizzes) and certificates are not published.
@@ -176,14 +176,14 @@ sentence-case labels rather than capitals); one accent color per level number (b
 color-blind-safe Okabe–Ito palette, with darker text shades so every text color passes 4.5:1. The Scratch
 and Python material keeps its callout boxes (Tip, Safety, Core, Challenge, Creative, Exercise, Bug hunt,
 Self-check, New words, and for Grades 2–3 I can, For the grown-up and Play at home), each with a text label and an icon, so meaning never depends on color. Dark mode
-follows the system setting and can be toggled; an **Easy-read font** switch loads Lexend with wider spacing.
+follows the system setting and can be toggled from the top-right corner.
 Pages are responsive from phone to desktop and print cleanly. Fonts are subset to WOFF2 (about 10 KB each)
 and self-hosted.
 
 ## Accessibility (WCAG 2.2 AA)
 
 Skip link, semantic landmarks and heading order, visible focus, keyboard-operable everything (menu,
-toggles, copy buttons), accessible names for scrollable tables, alt text for every figure and slide image, video captions on by default
+theme control, copy buttons), accessible names for scrollable tables, alt text for every figure and slide image, video captions on by default
 and a transcript for every video, no flashing or autoplay, text resize to 200% without loss, reduced-motion support. Verified by `site/qa/a11y.mjs` (axe-core
 with the WCAG 2.0 to 2.2 A and AA rule sets) in light and dark mode and a phone-width overflow check.
 

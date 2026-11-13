@@ -15,9 +15,16 @@ from .sources import changed_files, update_manifest_weeks, write_manifest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 VIDEOS = REPO_ROOT / "videos"
-OUTPUT_DIR = VIDEOS / "output"
+OUTPUT_ROOT = VIDEOS / "output"
+GRADES_2_3_OUTPUT = OUTPUT_ROOT / "grades-2-3"
+GRADES_4_6_OUTPUT = OUTPUT_ROOT / "grades-4-6"
 WEEKS = range(1, 13)
 LEVELS = (1, 2, 3)
+
+
+def output_dir(level: int | str) -> Path:
+    """Keep generated media for the two grade bands physically separate."""
+    return GRADES_2_3_OUTPUT if isinstance(level, str) and level.startswith("j") else GRADES_4_6_OUTPUT
 
 
 def spec_path(level: int) -> Path:
@@ -197,7 +204,7 @@ def command_render(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
         return 2
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    GRADES_4_6_OUTPUT.mkdir(parents=True, exist_ok=True)
     for level in _levels(args):
         series = load_series(spec_path(level))
         errors = validate_series(series, REPO_ROOT, level)
@@ -211,7 +218,7 @@ def command_render(args: argparse.Namespace) -> int:
         requested = set(args.week or WEEKS)
         for video in series.videos:
             if video.week in requested:
-                destination = render_video(video, OUTPUT_DIR, visual_provider=args.visual_provider,
+                destination = render_video(video, GRADES_4_6_OUTPUT, visual_provider=args.visual_provider,
                                            voice_provider=args.voice_provider, level=level)
                 print(destination.relative_to(REPO_ROOT))
     return 0
@@ -249,7 +256,8 @@ def command_animate(args: argparse.Namespace) -> int:
     failed = []
     for level, week in wanted:
         try:
-            destination = render_episode(week, OUTPUT_DIR, workers=args.workers, preview=args.preview, level=level)
+            destination = render_episode(week, output_dir(level), workers=args.workers, preview=args.preview,
+                                         level=level)
         except Exception as exc:  # keep rendering the others; report every failure at the end
             failed.append(f"level {level} week {week}: {exc}")
             print(f"FAILED level {level} week {week}: {exc}", file=sys.stderr)
@@ -340,7 +348,8 @@ def command_contact_sheet(args: argparse.Namespace) -> int:
         for k in range(args.per_scene):
             times.append(round(scene.start + (k + 0.6) / args.per_scene * scene.duration, 2))
     tag = args.level if isinstance(args.level, str) else f"l{args.level}"
-    folder = OUTPUT_DIR / "sheets" / f"{tag}w{args.week:02d}"
+    band_output = output_dir(args.level)
+    folder = band_output / "sheets" / f"{tag}w{args.week:02d}"
     shutil_paths = still(args.week, times, folder, level=args.level)
     w, h = 640, 360
     cols = args.per_scene
@@ -349,7 +358,7 @@ def command_contact_sheet(args: argparse.Namespace) -> int:
     for i, path in enumerate(shutil_paths):
         sheet.paste(Image.open(path).resize((w, h)), ((i % cols) * w, (i // cols) * h))
         ImageDraw.Draw(sheet).text(((i % cols) * w + 8, (i // cols) * h + 6), f"{times[i]:.1f}s", fill="red")
-    out = OUTPUT_DIR / "sheets" / f"{tag}w{args.week:02d}-sheet.png"
+    out = band_output / "sheets" / f"{tag}w{args.week:02d}-sheet.png"
     sheet.save(out)
     print(out.relative_to(REPO_ROOT))
     return 0
@@ -415,8 +424,8 @@ def command_publish_videos(args: argparse.Namespace) -> int:
         return 2
     try:
         manifest = publish.build_web_copies(wanted)
-        print(f"Web copies are in {publish.WEB.relative_to(REPO_ROOT)}/ "
-              f"(preview the site with SITE_VIDEOS={publish.WEB.relative_to(REPO_ROOT)} make site)")
+        print(f"Grades 4-6 web copies are in {publish.GRADES_4_6_WEB.relative_to(REPO_ROOT)}/ "
+              f"(preview both bands with SITE_VIDEOS={publish.OUTPUT.relative_to(REPO_ROOT)} make site)")
         if args.upload:
             publish.upload(manifest, wanted)
             if args.rebuild_site:
@@ -439,7 +448,7 @@ def command_junior_publish(args: argparse.Namespace) -> int:
         return 2
     try:
         manifest = publish.build_junior_web_copies(wanted)
-        print(f"Junior web copies are in {publish.WEB.relative_to(REPO_ROOT)}/")
+        print(f"Grades 2-3 web copies are in {publish.GRADES_2_3_WEB.relative_to(REPO_ROOT)}/")
         if args.upload:
             publish.upload_junior(manifest, wanted)
     except RuntimeError as exc:

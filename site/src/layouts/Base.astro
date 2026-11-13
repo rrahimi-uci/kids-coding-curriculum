@@ -48,17 +48,17 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <script is:inline>
-      /* Before first paint: mark that JavaScript runs (enables the phone menu drawer) and apply saved display choices. */
+      /* Before first paint: mark that JavaScript runs and apply the saved color theme. */
       try {
-        var d = document.documentElement, t = localStorage.getItem('kc:theme'), f = localStorage.getItem('kc:font');
+        var d = document.documentElement, t = localStorage.getItem('kc:theme');
         d.classList.add('js');
         if (t) d.setAttribute('data-theme', t);
-        if (f) d.setAttribute('data-font', f);
       } catch (e) {}
     </script>
   </head>
   <body class={level ? `l${level}` : undefined} data-base={u('')}>
     <a class="skip-link" href="#main">Skip to content</a>
+    <button class="icon-btn theme-corner" type="button" id="theme-toggle" aria-pressed="false" aria-label="Use dark mode" title="Use dark mode"><Icon name="moon" /></button>
 
     <!-- Phone and tablet: a slim top bar opens the same navigation as a drawer. -->
     <header class="topbar">
@@ -136,11 +136,6 @@ const resIcon: Record<string, string> = { 'setup-mac': 'wrench', troubleshooting
           </ul>
         </nav>
 
-        <div class="sidebar-foot" role="group" aria-labelledby="display-label">
-          <p class="nav-heading" id="display-label">Display</p>
-          <button class="setting" type="button" id="theme-toggle" aria-pressed="false"><Icon name="moon" /><span class="label">Dark mode</span><span class="switch" aria-hidden="true"></span></button>
-          <button class="setting" type="button" id="font-toggle" aria-pressed="false"><Icon name="type" /><span class="label">Easy-read font</span><span class="switch" aria-hidden="true"></span></button>
-        </div>
       </aside>
       <div class="scrim" hidden></div>
 

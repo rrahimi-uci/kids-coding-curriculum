@@ -158,7 +158,7 @@ sounds. Add `sfx` only for story moments.
 
 ```bash
 python -m videos.pipeline.cli episode-check --level 2 --week 3      # script, cues, real code output, every component draws
-python -m videos.pipeline.cli contact-sheet --level 2 --week 3      # writes videos/output/sheets/l2w03-sheet.png; open it and look
+python -m videos.pipeline.cli contact-sheet --level 2 --week 3      # writes videos/output/grades-4-6/sheets/l2w03-sheet.png; open it and look
 python -m videos.pipeline.cli contact-sheet --level 2 --week 3 --per-scene 8   # closer look
 ```
 

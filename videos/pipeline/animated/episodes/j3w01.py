@@ -11,7 +11,7 @@ with short `goto` hops between them; the stage cannot draw a rotated square, so 
 on a plain drawing canvas (the `turtle` view with its own title and no cursor).
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 MOVE = ("motion", "move [60] steps")
@@ -50,17 +50,17 @@ def window_actions(cue: str, base: float, squares: int = 4) -> list:
 EPISODE = Episode(level="j3", week=1, scenes=(
     # 1. hook: welcome to Level 3 ---------------------------------------------------------------------
     Scene("j3-w01-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is Pixi. Welcome back to Level 3!", speaker=AIDEN, cue="hi",
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi",
           pause=0.4),
         B("Beep boop! Welcome back, coders!", speaker=PIXI, cue="hello", pause=0.5),
-        B("You are real coders now. You made games with scores, messages and My Blocks.", speaker=AIDEN,
+        B("You are real coders now. You made games with scores, messages and My Blocks.", speaker=NARRATOR,
           cue="coders", pause=0.5),
         B("In Level 3, we make art with patterns, plan on paper, collect data, and find out how computers "
-          "learn.", speaker=AIDEN, cue="level", pause=0.5),
-        B("And then, we write real code with words, in a language called Python!", speaker=AIDEN, cue="python",
+          "learn.", speaker=NARRATOR, cue="level", pause=0.5),
+        B("And then, we write real code with words, in a language called Python!", speaker=NARRATOR, cue="python",
           pause=0.5),
-        B("Today's mission: a pattern inside a pattern.", speaker=AIDEN, cue="mission", pause=0.4),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Today's mission: a pattern inside a pattern.", speaker=NARRATOR, cue="mission", pause=0.4),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "python": "proud"}),
@@ -76,17 +76,17 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 2. warm-up: clap patterns ------------------------------------------------------------------------
     Scene("j3-w01-s02", setting="workshop", beats=(
-        B("Let's warm up with a clap pattern!", speaker=AIDEN, cue="warm", pause=0.4),
-        B("Inside a REPEAT 3 card, we put three cards: clap, clap, stomp.", speaker=AIDEN, cue="cards",
+        B("Let's warm up with a clap pattern!", speaker=NARRATOR, cue="warm", pause=0.4),
+        B("Inside a REPEAT 3 card, we put three cards: clap, clap, stomp.", speaker=NARRATOR, cue="cards",
           pause=0.5),
-        B("Do it with me! Clap, clap, stomp! Clap, clap, stomp! Clap, clap, stomp!", speaker=AIDEN, cue="clap",
+        B("Do it with me! Clap, clap, stomp! Clap, clap, stomp! Clap, clap, stomp!", speaker=NARRATOR, cue="clap",
           pause=0.8),
         B("Now watch. We put the whole REPEAT 3 card, and a JUMP card, inside a big REPEAT 2 card.",
-          speaker=AIDEN, cue="watch", pause=0.5),
-        B("How many stomps will we do now?", speaker=AIDEN, cue="how", pause=3.0),
-        B("Three and three make six stomps! And two jumps.", speaker=AIDEN, cue="six", pause=0.5),
+          speaker=NARRATOR, cue="watch", pause=0.5),
+        B("How many stomps will we do now?", speaker=NARRATOR, cue="how", pause=3.0),
+        B("Three and three make six stomps! And two jumps.", speaker=NARRATOR, cue="six", pause=0.5),
         B("The inside pattern runs all the way through, every time the outside pattern goes round.",
-          speaker=AIDEN, cue="inside", pause=0.6),
+          speaker=NARRATOR, cue="inside", pause=0.6),
         B("Clap, clap, beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, wave=("clap", "watch"), moods={"how": "thinking", "six": "happy"},
@@ -113,14 +113,14 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 3. the nested repeat --------------------------------------------------------------------------
     Scene("j3-w01-s03", setting="sky", beats=(
-        B("Remember Level 1? The cat drew a square: repeat four, move, then a quarter turn.", speaker=AIDEN,
+        B("Remember Level 1? The cat drew a square: repeat four, move, then a quarter turn.", speaker=NARRATOR,
           cue="remember", pause=0.5),
-        B("Today, we put that whole square inside another repeat.", speaker=AIDEN, cue="today", pause=0.5),
-        B("A repeat inside a repeat is called a nested repeat.", speaker=AIDEN, cue="called", pause=0.5),
-        B("Say it with me: nested repeat!", speaker=AIDEN, cue="sayit", pause=1.4),
-        B("It's like nesting dolls: a small doll sits inside a bigger doll.", speaker=AIDEN,
+        B("Today, we put that whole square inside another repeat.", speaker=NARRATOR, cue="today", pause=0.5),
+        B("A repeat inside a repeat is called a nested repeat.", speaker=NARRATOR, cue="called", pause=0.5),
+        B("Say it with me: nested repeat!", speaker=NARRATOR, cue="sayit", pause=1.4),
+        B("It's like nesting dolls: a small doll sits inside a bigger doll.", speaker=NARRATOR,
           cue="dolls", pause=0.5),
-        B("Every time the big repeat goes round once, the small repeat does all of its turns.", speaker=AIDEN,
+        B("Every time the big repeat goes round once, the small repeat does all of its turns.", speaker=NARRATOR,
           cue="every", pause=0.6),
         B("Small patterns make big patterns!", speaker=PIXI, cue="small", pause=0.6),
     ), actions=(
@@ -141,15 +141,15 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 4. The Window, part 1: getting ready -----------------------------------------------------------
     Scene("j3-w01-s04", setting="mint", beats=(
-        B("Let's build The Window together.", speaker=AIDEN, cue="build", pause=0.4),
+        B("Let's build The Window together.", speaker=NARRATOR, cue="build", pause=0.4),
         B("First, we need the green Pen blocks: click Add Extension, and pick Pen.",
-          speaker=AIDEN, cue="ext", pause=0.6),
-        B("Yellow Events: drag in when green flag clicked.", speaker=AIDEN, cue="events", pause=0.6),
-        B("Purple Looks: snap on set size, and change it to forty, so the cat is small.", speaker=AIDEN,
+          speaker=NARRATOR, cue="ext", pause=0.6),
+        B("Yellow Events: drag in when green flag clicked.", speaker=NARRATOR, cue="events", pause=0.6),
+        B("Purple Looks: snap on set size, and change it to forty, so the cat is small.", speaker=NARRATOR,
           cue="looks", pause=0.6),
-        B("Blue Motion: point in direction ninety, so the cat faces right.", speaker=AIDEN, cue="motion",
+        B("Blue Motion: point in direction ninety, so the cat faces right.", speaker=NARRATOR, cue="motion",
           pause=0.6),
-        B("Green Pen: erase all, then pen down.", speaker=AIDEN, cue="pen", pause=0.6),
+        B("Green Pen: erase all, then pen down.", speaker=NARRATOR, cue="pen", pause=0.6),
         B("Pen down, ready to draw! Beep!", speaker=PIXI, cue="ready", pause=0.6),
     ), actions=(
         A("banner", "Exercise 1.1: The Window", at="build", color="green"),
@@ -168,16 +168,16 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     # 5. The Window, part 2: the repeats ---------------------------------------------------------------
     Scene("j3-w01-s05", setting="mint", beats=(
         B("Now orange Control. Snap on a repeat, and change it to four. This is the outside repeat.",
-          speaker=AIDEN, cue="outside", pause=0.6),
+          speaker=NARRATOR, cue="outside", pause=0.6),
         B("Drag a second repeat inside it, and change it to four too. This is the inside repeat.",
-          speaker=AIDEN, cue="inside", pause=0.6),
+          speaker=NARRATOR, cue="inside", pause=0.6),
         B("Blue Motion: move sixty steps and turn ninety degrees go in the inside repeat. That's one square!",
-          speaker=AIDEN, cue="square", pause=0.6),
+          speaker=NARRATOR, cue="square", pause=0.6),
         B("Then one more turn ninety, under the inside repeat, but still inside the outside repeat.",
-          speaker=AIDEN, cue="turn", pause=0.6),
-        B("Last, green Pen: pen up at the bottom.", speaker=AIDEN, cue="penup", pause=0.5),
-        B("Drag the cat to the middle, and click the green flag!", speaker=AIDEN, cue="click", pause=6.6),
-        B("Four squares that touch at the corner. A window!", speaker=AIDEN, cue="window", pause=0.4),
+          speaker=NARRATOR, cue="turn", pause=0.6),
+        B("Last, green Pen: pen up at the bottom.", speaker=NARRATOR, cue="penup", pause=0.5),
+        B("Drag the cat to the middle, and click the green flag!", speaker=NARRATOR, cue="click", pause=6.6),
+        B("Four squares that touch at the corner. A window!", speaker=NARRATOR, cue="window", pause=0.4),
         B("Beep! I see a window!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "The Window (after pen down)",
@@ -198,20 +198,20 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 6. a "square" My Block and the Square Flower --------------------------------------------------------
     Scene("j3-w01-s06", setting="lavender", beats=(
-        B("Now let's turn our squares into a flower!", speaker=AIDEN, cue="flower", pause=0.4),
-        B("Pink-red My Blocks: click Make a Block, and type square.", speaker=AIDEN, cue="make", pause=0.5),
+        B("Now let's turn our squares into a flower!", speaker=NARRATOR, cue="flower", pause=0.4),
+        B("Pink-red My Blocks: click Make a Block, and type square.", speaker=NARRATOR, cue="make", pause=0.5),
         B("Under define square, snap the square repeat: repeat four, move sixty steps, turn ninety.",
-          speaker=AIDEN, cue="define", pause=0.6),
-        B("Now square is a brand-new block!", speaker=AIDEN, cue="newblock", pause=0.5),
-        B("How far do we turn between squares? Let's read the turn card.", speaker=AIDEN, cue="card", pause=0.4),
+          speaker=NARRATOR, cue="define", pause=0.6),
+        B("Now square is a brand-new block!", speaker=NARRATOR, cue="newblock", pause=0.5),
+        B("How far do we turn between squares? Let's read the turn card.", speaker=NARRATOR, cue="card", pause=0.4),
         B("Square: ninety, a quarter turn. Triangle: one hundred twenty. Hexagon, six sides: sixty.",
-          speaker=AIDEN, cue="read", pause=0.6),
-        B("Six squares, like the six sides of a hexagon, so we turn sixty.", speaker=AIDEN,
+          speaker=NARRATOR, cue="read", pause=0.6),
+        B("Six squares, like the six sides of a hexagon, so we turn sixty.", speaker=NARRATOR,
           cue="six", pause=0.5),
-        B("Under pen down, snap repeat six, with square and turn sixty inside.", speaker=AIDEN, cue="script",
+        B("Under pen down, snap repeat six, with square and turn sixty inside.", speaker=NARRATOR, cue="script",
           pause=0.5),
-        B("Click the green flag!", speaker=AIDEN, cue="go", pause=4.0),
-        B("The My Block hides the inside repeat, but it is still a repeat inside a repeat.", speaker=AIDEN,
+        B("Click the green flag!", speaker=NARRATOR, cue="go", pause=4.0),
+        B("The My Block hides the inside repeat, but it is still a repeat inside a repeat.", speaker=NARRATOR,
           cue="hides", pause=0.6),
     ), actions=(
         A("banner", "Exercise 1.2: Square Flower", at="flower", color="green"),
@@ -236,13 +236,13 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 7. quick quiz: change the outside repeat -----------------------------------------------------------
     Scene("j3-w01-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("Here is The Window again. What if we change the outside repeat from four to two?", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("Here is The Window again. What if we change the outside repeat from four to two?", speaker=NARRATOR,
           cue="look", pause=0.4),
-        B("How many squares will the cat draw?", speaker=AIDEN, cue="how", pause=3.2),
+        B("How many squares will the cat draw?", speaker=NARRATOR, cue="how", pause=3.2),
         B("Two squares! The inside repeat draws one square, and the outside repeat says how many times.",
-          speaker=AIDEN, cue="two", pause=0.5),
-        B("Let's test it.", speaker=AIDEN, cue="test", pause=3.2),
+          speaker=NARRATOR, cue="two", pause=0.5),
+        B("Let's test it.", speaker=NARRATOR, cue="test", pause=3.2),
         B("Beep! Two squares!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -258,19 +258,19 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 8. bug hunt: The One-Square Flower --------------------------------------------------------------
     Scene("j3-w01-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Priya wanted a flower of six squares, but her cat draws only one square.", speaker=AIDEN, cue="priya",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Priya wanted a flower of six squares, but her cat draws only one square.", speaker=NARRATOR, cue="priya",
           pause=0.6),
-        B("Look at her script. The repeat six holds only the turn.", speaker=AIDEN, cue="look", pause=0.5),
-        B("And the square repeat sits under it, not inside it.", speaker=AIDEN, cue="under", pause=0.5),
+        B("Look at her script. The repeat six holds only the turn.", speaker=NARRATOR, cue="look", pause=0.5),
+        B("And the square repeat sits under it, not inside it.", speaker=NARRATOR, cue="under", pause=0.5),
         B("Watch. The cat spins round six times, but spinning on the spot draws no line. Then it draws one square.",
-          speaker=AIDEN, cue="watch", pause=0.8),
-        B("Which repeat should be inside which?", speaker=AIDEN, cue="which", pause=3.2),
-        B("The square repeat goes inside the repeat six, above the turn!", speaker=AIDEN, cue="fix", pause=0.4),
-        B("Like a clap card outside the REPEAT card, it only happens once.", speaker=AIDEN, cue="clap",
+          speaker=NARRATOR, cue="watch", pause=0.8),
+        B("Which repeat should be inside which?", speaker=NARRATOR, cue="which", pause=3.2),
+        B("The square repeat goes inside the repeat six, above the turn!", speaker=NARRATOR, cue="fix", pause=0.4),
+        B("Like a clap card outside the REPEAT card, it only happens once.", speaker=NARRATOR, cue="clap",
           pause=0.5),
-        B("Let's drag it up into the mouth of repeat six, and test again.", speaker=AIDEN, cue="drag", pause=4.0),
-        B("Six squares. A flower! We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Let's drag it up into the mouth of repeat six, and test again.", speaker=NARRATOR, cue="drag", pause=4.0),
+        B("Six squares. A flower! We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Beep beep! Bug fixed!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The One-Square Flower", at="bug", color="navy"),
@@ -302,16 +302,16 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 9. my own pattern, not a copy (credit) + wiggle break -------------------------------------------------
     Scene("j3-w01-s09", setting="workshop", beats=(
-        B("Your pattern is yours. You pick the numbers and the colors.", speaker=AIDEN, cue="yours", pause=0.5),
+        B("Your pattern is yours. You pick the numbers and the colors.", speaker=NARRATOR, cue="yours", pause=0.5),
         B("If you see a pattern you love, you can learn from it. Then change it, to make it your own.",
-          speaker=AIDEN, cue="love", pause=0.5),
+          speaker=NARRATOR, cue="love", pause=0.5),
         B("And say whose idea it was: I got the rainbow idea from Mei. That's called giving credit.",
-          speaker=AIDEN, cue="say", pause=0.6),
+          speaker=NARRATOR, cue="say", pause=0.6),
         B("Sam copies Kai's flower, and says he made it all by himself. What could Sam say instead?",
-          speaker=AIDEN, cue="sam", pause=3.0),
-        B("He could say: I started from Kai's flower, and I changed the colors.", speaker=AIDEN, cue="could",
+          speaker=NARRATOR, cue="sam", pause=3.0),
+        B("He could say: I started from Kai's flower, and I changed the colors.", speaker=NARRATOR, cue="could",
           pause=0.5),
-        B("Now stand up for a wiggle break! Do our nested clap pattern, faster and faster!", speaker=AIDEN,
+        B("Now stand up for a wiggle break! Do our nested clap pattern, faster and faster!", speaker=NARRATOR,
           cue="wiggle", pause=2.4),
         B("Clap, clap, stomp, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -334,17 +334,17 @@ EPISODE = Episode(level="j3", week=1, scenes=(
     )),
     # 10. recap and next -------------------------------------------------------------------------------
     Scene("j3-w01-s10", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Nested repeat!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("My Block!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Credit!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("A repeat inside a repeat makes amazing art.", speaker=AIDEN, cue="recap", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build The Window and the Square Flower, then fix the One-Square Flower.", speaker=AIDEN, cue="next",
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Nested repeat!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("My Block!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Credit!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("A repeat inside a repeat makes amazing art.", speaker=NARRATOR, cue="recap", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build The Window and the Square Flower, then fix the One-Square Flower.", speaker=NARRATOR, cue="next",
           pause=0.5),
-        B("Then change the numbers and colors to make a pattern of your own.", speaker=AIDEN, cue="own",
+        B("Then change the numbers and colors to make a pattern of your own.", speaker=NARRATOR, cue="own",
           pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

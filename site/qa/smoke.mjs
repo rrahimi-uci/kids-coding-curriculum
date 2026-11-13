@@ -1,4 +1,4 @@
-// Functional smoke test: search, hint reveal, progress, theme and font toggles. node qa/smoke.mjs [dist]
+// Functional smoke test: search, hint reveal, progress and theme toggle. node qa/smoke.mjs [dist]
 import { chromium } from 'playwright';
 import path from 'node:path';
 import { serve } from './serve.mjs';
@@ -35,12 +35,11 @@ await page.goto(url + 'levels/level-1/week-07/', { waitUntil: 'networkidle' });
 ok(page.url().endsWith('/grade-4-6/level-1/week-07/'), `old level address redirects (${page.url()})`);
 await page.goto(url + 'grade-4-6/level-1/', { waitUntil: 'networkidle' });
 
+ok((await page.locator('.sidebar-foot, #font-toggle').count()) === 0, 'Display toolbar controls are removed');
+ok((await page.locator('#theme-toggle').count()) === 1, 'one dark-mode toggle is present');
+ok((await page.locator('#theme-toggle').evaluate((el) => getComputedStyle(el).position)) === 'fixed', 'dark-mode toggle is fixed in the top-right corner');
 await page.click('#theme-toggle');
 const t1 = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
 ok(t1 === 'dark' || t1 === 'light', `theme toggle sets data-theme (${t1})`);
-await page.click('#font-toggle');
-ok((await page.evaluate(() => document.documentElement.getAttribute('data-font'))) === 'dyslexia', 'easy-read font toggle');
-const fam = await page.evaluate(() => getComputedStyle(document.body).fontFamily);
-ok(fam.includes('Lexend'), 'Lexend applied to body');
 await browser.close(); server.close();
 process.exit(bad ? 1 : 0);

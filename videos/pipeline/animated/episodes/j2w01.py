@@ -9,7 +9,7 @@ forever loop never run), and the stop plan for screen-time balance.
 The kit stage does not rotate sprites, so the upside-down cat is a flipped cat drawn over the stage.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 POINT = ("motion", "point in direction [90]")
@@ -46,15 +46,15 @@ def bounce_actions(t0, legs, leg=1.6):
 EPISODE = Episode(level="j2", week=1, scenes=(
     # 1. welcome back to Game Makers ---------------------------------------------------------------
     Scene("j2-w01-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Welcome back, coders! It's me, Aiden, and my robot friend, Pixi.", speaker=AIDEN, cue="hi",
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi",
           pause=0.3),
         B("Beep boop! We missed you!", speaker=PIXI, cue="missed", pause=0.5),
-        B("In Level one, you were Little Robots. You made animations and greeting cards.", speaker=AIDEN,
+        B("In Level one, you were Little Robots. You made animations and greeting cards.", speaker=NARRATOR,
           cue="level1", pause=0.5),
-        B("Now, in Level two, you are Game Makers!", speaker=AIDEN, cue="level2", pause=0.5),
-        B("By week ten, you will make your own arcade game and let other people play it.", speaker=AIDEN,
+        B("Now, in Level two, you are Game Makers!", speaker=NARRATOR, cue="level2", pause=0.5),
+        B("By week ten, you will make your own arcade game and let other people play it.", speaker=NARRATOR,
           cue="arcade", pause=0.5),
-        B("Today, we make a cat that bounces, and bounces, and bounces. Let's go!", speaker=AIDEN, cue="today",
+        B("Today, we make a cat that bounces, and bounces, and bounces. Let's go!", speaker=NARRATOR, cue="today",
           pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "missed"), ("today", "end")],
@@ -70,15 +70,15 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 2. warm-up: the forever freeze dance ---------------------------------------------------------
     Scene("j2-w01-s02", setting="workshop", beats=(
-        B("Let's warm up with a freeze dance. Stand up!", speaker=AIDEN, cue="stand", pause=0.4),
+        B("Let's warm up with a freeze dance. Stand up!", speaker=NARRATOR, cue="stand", pause=0.4),
         B("When the music plays, you dance. You keep dancing and dancing, until the music stops.",
-          speaker=AIDEN, cue="rule", pause=0.5),
-        B("Pixi has the pause button. Music, please!", speaker=AIDEN, cue="music", pause=3.4),
+          speaker=NARRATOR, cue="rule", pause=0.5),
+        B("Pixi has the pause button. Music, please!", speaker=NARRATOR, cue="music", pause=3.4),
         B("Freeze!", speaker=PIXI, cue="freeze", pause=1.6),
-        B("Who decided when we stopped? Us, or Pixi?", speaker=AIDEN, cue="who", pause=2.8),
-        B("Pixi did, with the pause button!", speaker=AIDEN, cue="pixi", pause=0.5),
+        B("Who decided when we stopped? Us, or Pixi?", speaker=NARRATOR, cue="who", pause=2.8),
+        B("Pixi did, with the pause button!", speaker=NARRATOR, cue="pixi", pause=0.5),
         B("That was a forever dance. It did not stop after four moves, like a repeat four. It kept going until "
-          "someone pressed stop.", speaker=AIDEN, cue="forever", pause=0.8),
+          "someone pressed stop.", speaker=NARRATOR, cue="forever", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("music@0.4", "freeze")],
           moods={"start": "happy", "freeze": "surprised", "who": "thinking", "pixi": "happy"},
@@ -97,16 +97,16 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 3. repeat or forever ---------------------------------------------------------------------------
     Scene("j2-w01-s03", setting="sky", beats=(
-        B("Games keep going. The apple keeps falling. The ghost keeps flying.", speaker=AIDEN, cue="games",
+        B("Games keep going. The apple keeps falling. The ghost keeps flying.", speaker=NARRATOR, cue="games",
           pause=0.5),
-        B("In Level one we had repeat. It does the steps a number of times, then it stops.", speaker=AIDEN,
+        B("In Level one we had repeat. It does the steps a number of times, then it stops.", speaker=NARRATOR,
           cue="repeat", pause=0.6),
         B("Today we meet forever. A forever loop does the steps inside it again and again, and never stops by "
-          "itself.", speaker=AIDEN, cue="forever", pause=0.6),
+          "itself.", speaker=NARRATOR, cue="forever", pause=0.6),
         B("It is like a merry-go-round. It does not count the turns. It keeps going until someone presses stop.",
-          speaker=AIDEN, cue="merry", pause=0.6),
-        B("In Scratch, the red stop sign is our pause button.", speaker=AIDEN, cue="stop", pause=0.4),
-        B("Forever is in the orange Control circle, next to repeat.", speaker=AIDEN, cue="orange", pause=0.8),
+          speaker=NARRATOR, cue="merry", pause=0.6),
+        B("In Scratch, the red stop sign is our pause button.", speaker=NARRATOR, cue="stop", pause=0.4),
+        B("Forever is in the orange Control circle, next to repeat.", speaker=NARRATOR, cue="orange", pause=0.8),
     ), actions=(
         A("stage", x=580, y=260, w=760, h=500, at="games", until="repeat", flag=False, sprite="apple",
           sprite_scale=1.2, sprite_x=-120, sprite_y=150, extra=[("ghost", 140, 40)],
@@ -126,17 +126,17 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 4. Bounce Cat: forever and move --------------------------------------------------------------
     Scene("j2-w01-s04", setting="mint", beats=(
-        B("Let's build Bounce Cat together.", speaker=AIDEN, cue="build", pause=0.4),
-        B("Yellow Events: when green flag clicked.", speaker=AIDEN, cue="events", pause=0.5),
-        B("Blue Motion: point in direction ninety. Ninety means facing right, like in Level one.", speaker=AIDEN,
+        B("Let's build Bounce Cat together.", speaker=NARRATOR, cue="build", pause=0.4),
+        B("Yellow Events: when green flag clicked.", speaker=NARRATOR, cue="events", pause=0.5),
+        B("Blue Motion: point in direction ninety. Ninety means facing right, like in Level one.", speaker=NARRATOR,
           cue="point", pause=0.6),
         B("Orange Control: forever. Look at its flat bottom. No bump! Nothing can go after forever.",
-          speaker=AIDEN, cue="forever", pause=0.6),
-        B("Blue Motion: put move ten steps inside the forever. Click the flag!", speaker=AIDEN, cue="move",
+          speaker=NARRATOR, cue="forever", pause=0.6),
+        B("Blue Motion: put move ten steps inside the forever. Click the flag!", speaker=NARRATOR, cue="move",
           pause=2.4),
-        B("The cat runs to the edge and gets stuck there, running on the spot.", speaker=AIDEN, cue="stuck",
+        B("The cat runs to the edge and gets stuck there, running on the spot.", speaker=NARRATOR, cue="stuck",
           pause=0.5),
-        B("Click the red stop sign.", speaker=AIDEN, cue="stop", pause=0.8),
+        B("Click the red stop sign.", speaker=NARRATOR, cue="stop", pause=0.8),
     ), actions=(
         A("banner", "Exercise 1.1: Bounce Cat", at="build", color="green"),
         A("scratch", "Bounce Cat", blocks=[FLAG, POINT, ("control", "forever", [MOVE])], x=140, y=260, w=880,
@@ -154,13 +154,13 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 5. bounce, and an upside-down cat ------------------------------------------------------------
     Scene("j2-w01-s05", setting="mint", beats=(
-        B("Blue Motion again: put if on edge, bounce inside the forever, under the move.", speaker=AIDEN,
+        B("Blue Motion again: put if on edge, bounce inside the forever, under the move.", speaker=NARRATOR,
           cue="bounce", pause=0.6),
         B("A bounce is like a ball hitting a wall. It turns around and comes back. Click the flag!",
-          speaker=AIDEN, cue="ball", pause=0.2),
-        B("It bounces from side to side!", speaker=AIDEN, cue="sides", pause=0.6),
-        B("But wait. Look at the cat when it walks left.", speaker=AIDEN, cue="left", pause=1.4),
-        B("It is upside down!", speaker=AIDEN, cue="upside", pause=1.2),
+          speaker=NARRATOR, cue="ball", pause=0.2),
+        B("It bounces from side to side!", speaker=NARRATOR, cue="sides", pause=0.6),
+        B("But wait. Look at the cat when it walks left.", speaker=NARRATOR, cue="left", pause=1.4),
+        B("It is upside down!", speaker=NARRATOR, cue="upside", pause=1.2),
         B("Ha ha! A topsy-turvy cat!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "Bounce Cat", blocks=[FLAG, POINT, ("control", "forever", [MOVE, BOUNCE])], x=140, y=260,
@@ -185,13 +185,13 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 6. rotation style left-right ------------------------------------------------------------------
     Scene("j2-w01-s06", setting="mint", beats=(
-        B("Let's fix it. Blue Motion: snap set rotation style left-right above the forever.", speaker=AIDEN,
+        B("Let's fix it. Blue Motion: snap set rotation style left-right above the forever.", speaker=NARRATOR,
           cue="style", pause=0.6),
         B("Click point in direction ninety once, to turn the cat the right way up. Then click the flag.",
-          speaker=AIDEN, cue="flag", pause=2.6),
-        B("Now the cat turns to face the way it walks!", speaker=AIDEN, cue="faces", pause=1.6),
-        B("Click the red stop sign. Who stopped the cat?", speaker=AIDEN, cue="stop", pause=2.0),
-        B("We did! Forever only stops when we press stop.", speaker=AIDEN, cue="we", pause=0.5),
+          speaker=NARRATOR, cue="flag", pause=2.6),
+        B("Now the cat turns to face the way it walks!", speaker=NARRATOR, cue="faces", pause=1.6),
+        B("Click the red stop sign. Who stopped the cat?", speaker=NARRATOR, cue="stop", pause=2.0),
+        B("We did! Forever only stops when we press stop.", speaker=NARRATOR, cue="we", pause=0.5),
         B("Bouncy, bouncy, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "Bounce Cat", blocks=[FLAG, POINT, STYLE, ("control", "forever", [MOVE, BOUNCE])], x=140,
@@ -211,11 +211,11 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 7. quick quiz: repeat 4 or forever? -----------------------------------------------------------
     Scene("j2-w01-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("I want the Ballerina to dance until I press stop. Do I use repeat four, or forever?", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("I want the Ballerina to dance until I press stop. Do I use repeat four, or forever?", speaker=NARRATOR,
           cue="which", pause=3.2),
-        B("Forever! A repeat four stops by itself after four times.", speaker=AIDEN, cue="answer", pause=0.5),
-        B("Forever keeps going until someone presses stop.", speaker=AIDEN, cue="keeps", pause=0.8),
+        B("Forever! A repeat four stops by itself after four times.", speaker=NARRATOR, cue="answer", pause=0.5),
+        B("Forever keeps going until someone presses stop.", speaker=NARRATOR, cue="keeps", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("scratch", "A", blocks=[("control", "repeat [4]", [("looks", "next costume")])], x=200, y=330, w=720,
@@ -229,12 +229,12 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 8. wiggle break: the bounce walk --------------------------------------------------------------
     Scene("j2-w01-s08", setting="workshop", beats=(
-        B("Wiggle break! Let's do a bounce walk.", speaker=AIDEN, cue="walk", pause=0.4),
+        B("Wiggle break! Let's do a bounce walk.", speaker=NARRATOR, cue="walk", pause=0.4),
         B("Stand at one side of the room. Walk forward slowly. You are moving ten steps, forever.",
-          speaker=AIDEN, cue="forward", pause=1.2),
-        B("When you touch a wall, bounce! Turn around and walk back.", speaker=AIDEN, cue="wall", pause=3.0),
+          speaker=NARRATOR, cue="forward", pause=1.2),
+        B("When you touch a wall, bounce! Turn around and walk back.", speaker=NARRATOR, cue="wall", pause=3.0),
         B("Stop!", speaker=PIXI, cue="stop", pause=1.0),
-        B("Pixi was our stop sign!", speaker=AIDEN, cue="sign", pause=0.8),
+        B("Pixi was our stop sign!", speaker=NARRATOR, cue="sign", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "stop": "surprised", "sign": "happy"},
           path=[("forward", 300, 960), ("forward$+1.0", 760, 960), ("wall@0.4", 760, 960), ("wall$+2.4", 300, 960)]),
@@ -245,22 +245,22 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 9. bug hunt: the Missing Hello ----------------------------------------------------------------
     Scene("j2-w01-s09", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Kai wants the cat to say Watch me, meow, and then bounce forever.", speaker=AIDEN, cue="kai",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Kai wants the cat to say Watch me, meow, and then bounce forever.", speaker=NARRATOR, cue="kai",
           pause=0.5),
-        B("He clicks the flag. The cat bounces, but it never talks, and it never meows.", speaker=AIDEN,
+        B("He clicks the flag. The cat bounces, but it never talks, and it never meows.", speaker=NARRATOR,
           cue="never", pause=1.0),
-        B("Look at where Kai put the say and sound blocks. Why do they never run?", speaker=AIDEN, cue="why",
+        B("Look at where Kai put the say and sound blocks. Why do they never run?", speaker=NARRATOR, cue="why",
           pause=3.2),
-        B("They are under the forever loop. Forever has a flat bottom, so they cannot snap on.", speaker=AIDEN,
+        B("They are under the forever loop. Forever has a flat bottom, so they cannot snap on.", speaker=NARRATOR,
           cue="under", pause=0.5),
-        B("And the loop never ends, so their turn never comes.", speaker=AIDEN, cue="turn", pause=0.5),
+        B("And the loop never ends, so their turn never comes.", speaker=NARRATOR, cue="turn", pause=0.5),
         B("It is like: dance until the music stops, and then eat a cookie. But the music never stops. No cookie!",
-          speaker=AIDEN, cue="cookie", pause=0.6),
-        B("The fix: drag them up, between when green flag clicked and the forever.", speaker=AIDEN, cue="fix",
+          speaker=NARRATOR, cue="cookie", pause=0.6),
+        B("The fix: drag them up, between when green flag clicked and the forever.", speaker=NARRATOR, cue="fix",
           pause=0.8),
-        B("Test it again.", speaker=AIDEN, cue="test", pause=3.4),
-        B("Watch me! Meow! Then it bounces. We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Test it again.", speaker=NARRATOR, cue="test", pause=3.4),
+        B("Watch me! Meow! Then it bounces. We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Bug squashed!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Missing Hello", at="bug", color="navy"),
@@ -287,15 +287,15 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 10. the stop plan -------------------------------------------------------------------------------
     Scene("j2-w01-s10", setting="workshop", beats=(
-        B("A forever loop never stops by itself.", speaker=AIDEN, cue="loop", pause=0.4),
-        B("Lots of games and videos are made like that too. They keep going and going.", speaker=AIDEN,
+        B("A forever loop never stops by itself.", speaker=NARRATOR, cue="loop", pause=0.4),
+        B("Lots of games and videos are made like that too. They keep going and going.", speaker=NARRATOR,
           cue="games", pause=0.5),
-        B("So it is up to us to press stop. You are the stop sign!", speaker=AIDEN, cue="us", pause=0.6),
-        B("When the timer rings, we finish our sentence, save, and stand up.", speaker=AIDEN, cue="timer",
+        B("So it is up to us to press stop. You are the stop sign!", speaker=NARRATOR, cue="us", pause=0.6),
+        B("When the timer rings, we finish our sentence, save, and stand up.", speaker=NARRATOR, cue="timer",
           pause=0.6),
-        B("What is your stop plan at home? When the timer rings, I will...", speaker=AIDEN, cue="plan",
+        B("What is your stop plan at home? When the timer rings, I will...", speaker=NARRATOR, cue="plan",
           pause=3.0),
-        B("Press stop, save, and go and play outside. Great plan!", speaker=AIDEN, cue="great", pause=0.8),
+        B("Press stop, save, and go and play outside. Great plan!", speaker=NARRATOR, cue="great", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"plan": "thinking", "great": "proud"}, chin=("plan", "great")),
         A("pixi", x=600, y=760, moods={"great": "happy"}),
@@ -308,17 +308,17 @@ EPISODE = Episode(level="j2", week=1, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j2-w01-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Forever!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Bounce!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Stop!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("A repeat stops by itself. A forever loop keeps going until you press stop.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Forever!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Bounce!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Stop!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("A repeat stops by itself. A forever loop keeps going until you press stop.", speaker=NARRATOR,
           cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build Bounce Cat, then Dance Forever, then fix the Missing Hello.", speaker=AIDEN, cue="next",
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build Bounce Cat, then Dance Forever, then fix the Missing Hello.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("Save your game in the Game Makers folder, with your nickname.", speaker=AIDEN, cue="save", pause=0.5),
-        B("See you next week, Game Makers. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Save your game in the Game Makers folder, with your nickname.", speaker=NARRATOR, cue="save", pause=0.5),
+        B("See you next week, Game Makers. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

@@ -9,7 +9,7 @@ The kit has no Ballerina sprite, so the worked example shows the two scripts and
 line pop out of its own panel; the bug hunt uses a real stage with the cat and the Ghost.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 BIG = 1.25  # block scale: big enough for young eyes
@@ -18,13 +18,13 @@ CAT = 1.0  # cat size on the stage
 EPISODE = Episode(level="j1", week=7, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j1-w07-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, coders! It's me, Aiden, and my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello again!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, a click or a key could start our code.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Today, we put two sprites on the stage, and they talk to each other.", speaker=AIDEN, cue="today",
+        B("Last week, a click or a key could start our code.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Today, we put two sprites on the stage, and they talk to each other.", speaker=NARRATOR, cue="today",
           pause=0.4),
-        B("But they must take turns, like good friends do.", speaker=AIDEN, cue="turns", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("But they must take turns, like good friends do.", speaker=NARRATOR, cue="turns", pause=0.5),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -37,20 +37,20 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 2. warm-up: talking in turns -----------------------------------------------------------------
     Scene("j1-w07-s02", setting="workshop", beats=(
-        B("Let's warm up with a little play.", speaker=AIDEN, cue="play", pause=0.4),
-        B("I am the Cat, and Pixi is the Ballerina. We each have a SAY card.", speaker=AIDEN, cue="cards",
+        B("Let's warm up with a little play.", speaker=NARRATOR, cue="play", pause=0.4),
+        B("I am the Cat, and Pixi is the Ballerina. We each have a SAY card.", speaker=NARRATOR, cue="cards",
           pause=0.5),
-        B("When the green flag waves, we both do our card. Ready? Go!", speaker=AIDEN, cue="go", pause=0.3),
-        B("Hi, Ballerina!", speaker=AIDEN, cue="cat1", pause=0.0),
+        B("When the green flag waves, we both do our card. Ready? Go!", speaker=NARRATOR, cue="go", pause=0.3),
+        B("Hi, Ballerina!", speaker=NARRATOR, cue="cat1", pause=0.0),
         B("Hi, Cat!", speaker=PIXI, cue="pixi1", pause=0.6),
-        B("Oops! We talked at the same time. Could you hear us both?", speaker=AIDEN, cue="oops", pause=2.8),
-        B("Not really! Let's give Pixi a WAIT 2 card, on top of her SAY card.", speaker=AIDEN, cue="wait",
+        B("Oops! We talked at the same time. Could you hear us both?", speaker=NARRATOR, cue="oops", pause=2.8),
+        B("Not really! Let's give Pixi a WAIT 2 card, on top of her SAY card.", speaker=NARRATOR, cue="wait",
           pause=0.5),
-        B("Wait 2 means: count two slow seconds. Count with me! One banana, two banana.", speaker=AIDEN,
+        B("Wait 2 means: count two slow seconds. Count with me! One banana, two banana.", speaker=NARRATOR,
           cue="count", pause=1.0),
-        B("Go again! Hi, Ballerina!", speaker=AIDEN, cue="cat2", pause=1.8),
+        B("Go again! Hi, Ballerina!", speaker=NARRATOR, cue="cat2", pause=1.8),
         B("Hi, Cat!", speaker=PIXI, cue="pixi2", pause=0.6),
-        B("Now we take turns!", speaker=AIDEN, cue="now", pause=0.6),
+        B("Now we take turns!", speaker=NARRATOR, cue="now", pause=0.6),
     ), actions=(
         A("aiden", x=300, y=980, s=0.8, moods={"oops": "surprised", "wait": "happy"}, chin=("oops", "wait"),
           wave=("now", "end")),
@@ -72,15 +72,15 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 3. many sprites, a backdrop -------------------------------------------------------------------
     Scene("j1-w07-s03", setting="sky", beats=(
-        B("In Scratch, a project can have many sprites.", speaker=AIDEN, cue="many", pause=0.5),
-        B("Each sprite has its own scripts, like each of us had our own cards.", speaker=AIDEN, cue="own",
+        B("In Scratch, a project can have many sprites.", speaker=NARRATOR, cue="many", pause=0.5),
+        B("Each sprite has its own scripts, like each of us had our own cards.", speaker=NARRATOR, cue="own",
           pause=0.6),
-        B("The picture behind the sprites is called a backdrop.", speaker=AIDEN, cue="backdrop", pause=0.6),
-        B("It is like a school play. The backdrop is the painted scenery at the back.", speaker=AIDEN,
+        B("The picture behind the sprites is called a backdrop.", speaker=NARRATOR, cue="backdrop", pause=0.6),
+        B("It is like a school play. The backdrop is the painted scenery at the back.", speaker=NARRATOR,
           cue="school", pause=0.5),
-        B("When the curtain opens, that is the green flag, every actor starts at once.", speaker=AIDEN,
+        B("When the curtain opens, that is the green flag, every actor starts at once.", speaker=NARRATOR,
           cue="curtain", pause=0.5),
-        B("So an actor who speaks second must wait for a turn.", speaker=AIDEN, cue="second", pause=0.8),
+        B("So an actor who speaks second must wait for a turn.", speaker=NARRATOR, cue="second", pause=0.8),
     ), actions=(
         A("stage", x=200, y=230, w=780, h=540, at="many", flag=False, sprite_scale=CAT, sprite_x=-110,
           extra=[("ghost", 110, 0)], until="backdrop"),
@@ -98,14 +98,14 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 4. Hello, Ballerina: the cat's script ---------------------------------------------------------
     Scene("j1-w07-s04", setting="mint", beats=(
-        B("Let's build Hello, Ballerina! together.", speaker=AIDEN, cue="build", pause=0.4),
-        B("Click Choose a Sprite, the cat face under the stage, and pick the Ballerina.", speaker=AIDEN,
+        B("Let's build Hello, Ballerina! together.", speaker=NARRATOR, cue="build", pause=0.4),
+        B("Click Choose a Sprite, the cat face under the stage, and pick the Ballerina.", speaker=NARRATOR,
           cue="sprite", pause=0.5),
-        B("Then click Choose a Backdrop, in the bottom corner, and pick one you like.", speaker=AIDEN,
+        B("Then click Choose a Backdrop, in the bottom corner, and pick one you like.", speaker=NARRATOR,
           cue="bd", pause=0.6),
-        B("Now click the cat in the sprite list.", speaker=AIDEN, cue="cat", pause=0.4),
-        B("From the yellow Events circle: when green flag clicked.", speaker=AIDEN, cue="events", pause=0.6),
-        B("From the purple Looks circle: say Hello for two seconds. Type: Hi, Ballerina!", speaker=AIDEN,
+        B("Now click the cat in the sprite list.", speaker=NARRATOR, cue="cat", pause=0.4),
+        B("From the yellow Events circle: when green flag clicked.", speaker=NARRATOR, cue="events", pause=0.6),
+        B("From the purple Looks circle: say Hello for two seconds. Type: Hi, Ballerina!", speaker=NARRATOR,
           cue="looks", pause=0.8),
     ), actions=(
         A("banner", "Exercise 7.1: Hello, Ballerina!", at="build", color="green"),
@@ -120,13 +120,13 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 5. the Ballerina's script, and the flag -------------------------------------------------------
     Scene("j1-w07-s05", setting="mint", beats=(
-        B("Now click the Ballerina in the sprite list.", speaker=AIDEN, cue="click", pause=0.4),
-        B("Look! Her code area is empty. She has her own code.", speaker=AIDEN, cue="empty", pause=0.6),
-        B("Events: when green flag clicked. Looks: a say block. Type: Hi, Cat!", speaker=AIDEN, cue="build",
+        B("Now click the Ballerina in the sprite list.", speaker=NARRATOR, cue="click", pause=0.4),
+        B("Look! Her code area is empty. She has her own code.", speaker=NARRATOR, cue="empty", pause=0.6),
+        B("Events: when green flag clicked. Looks: a say block. Type: Hi, Cat!", speaker=NARRATOR, cue="build",
           pause=0.8),
-        B("Let's click the green flag.", speaker=AIDEN, cue="flag", pause=2.4),
-        B("Oh no! They both talk at once, just like in our warm-up.", speaker=AIDEN, cue="once", pause=0.5),
-        B("What is missing? Have a think.", speaker=AIDEN, cue="missing", pause=3.0),
+        B("Let's click the green flag.", speaker=NARRATOR, cue="flag", pause=2.4),
+        B("Oh no! They both talk at once, just like in our warm-up.", speaker=NARRATOR, cue="once", pause=0.5),
+        B("What is missing? Have a think.", speaker=NARRATOR, cue="missing", pause=3.0),
     ), actions=(
         A("scratch", "Cat's code", blocks=[FLAG, ("looks", "say [Hi, Ballerina!] for [2] seconds")], x=150,
           y=200, w=1000, h=290, scale=BIG, at="start"),
@@ -142,12 +142,12 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 6. the wait ------------------------------------------------------------------------------------
     Scene("j1-w07-s06", setting="mint", beats=(
-        B("The Ballerina needs a wait, like Pixi's WAIT 2 card.", speaker=AIDEN, cue="needs", pause=0.5),
-        B("In her code, open the orange Control circle.", speaker=AIDEN, cue="control", pause=0.4),
-        B("Put wait one seconds right under her green flag block. Change one to two.", speaker=AIDEN,
+        B("The Ballerina needs a wait, like Pixi's WAIT 2 card.", speaker=NARRATOR, cue="needs", pause=0.5),
+        B("In her code, open the orange Control circle.", speaker=NARRATOR, cue="control", pause=0.4),
+        B("Put wait one seconds right under her green flag block. Change one to two.", speaker=NARRATOR,
           cue="wait", pause=0.8),
-        B("Click the flag again!", speaker=AIDEN, cue="again", pause=4.2),
-        B("They take turns! The cat talks, then the Ballerina answers.", speaker=AIDEN, cue="turns", pause=0.4),
+        B("Click the flag again!", speaker=NARRATOR, cue="again", pause=4.2),
+        B("They take turns! The cat talks, then the Ballerina answers.", speaker=NARRATOR, cue="turns", pause=0.4),
         B("Beep! Perfect timing!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("scratch", "Cat's code", blocks=[FLAG, ("looks", "say [Hi, Ballerina!] for [2] seconds")], x=150,
@@ -166,11 +166,11 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 7. quick quiz: a wait that is too short ------------------------------------------------------
     Scene("j1-w07-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("The cat talks for two seconds. What if the Ballerina waits only one second?", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("The cat talks for two seconds. What if the Ballerina waits only one second?", speaker=NARRATOR,
           cue="what", pause=3.2),
-        B("She starts too soon! The two lines bump into each other.", speaker=AIDEN, cue="soon", pause=0.5),
-        B("The wait should be as long as the first line. Two and two!", speaker=AIDEN, cue="long", pause=0.6),
+        B("She starts too soon! The two lines bump into each other.", speaker=NARRATOR, cue="soon", pause=0.5),
+        B("The wait should be as long as the first line. Two and two!", speaker=NARRATOR, cue="long", pause=0.6),
         B("Two and two, beep boop!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -185,17 +185,17 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 8. bug hunt: Boo at Once ----------------------------------------------------------------------
     Scene("j1-w07-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Omar made a joke. The cat asks: Who is there? Then the Ghost says: Boo!", speaker=AIDEN, cue="omar",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Omar made a joke. The cat asks: Who is there? Then the Ghost says: Boo!", speaker=NARRATOR, cue="omar",
           pause=0.5),
-        B("But look what happens when he clicks the flag.", speaker=AIDEN, cue="look", pause=2.6),
-        B("They talk at the same time, and the joke is spoiled.", speaker=AIDEN, cue="spoiled", pause=0.5),
-        B("Who should talk first? And what does the second sprite need?", speaker=AIDEN, cue="who", pause=3.2),
-        B("The cat talks first. So the Ghost needs a wait!", speaker=AIDEN, cue="ghost", pause=0.4),
-        B("In the Ghost's code, put wait two seconds under the green flag block.", speaker=AIDEN, cue="fix",
+        B("But look what happens when he clicks the flag.", speaker=NARRATOR, cue="look", pause=2.6),
+        B("They talk at the same time, and the joke is spoiled.", speaker=NARRATOR, cue="spoiled", pause=0.5),
+        B("Who should talk first? And what does the second sprite need?", speaker=NARRATOR, cue="who", pause=3.2),
+        B("The cat talks first. So the Ghost needs a wait!", speaker=NARRATOR, cue="ghost", pause=0.4),
+        B("In the Ghost's code, put wait two seconds under the green flag block.", speaker=NARRATOR, cue="fix",
           pause=0.8),
-        B("Test it again.", speaker=AIDEN, cue="test", pause=4.4),
-        B("Who is there? Boo! The joke works!", speaker=AIDEN, cue="works", pause=0.4),
+        B("Test it again.", speaker=NARRATOR, cue="test", pause=4.4),
+        B("Who is there? Boo! The joke works!", speaker=NARRATOR, cue="works", pause=0.4),
         B("Ha ha! Boo-tiful!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! Boo at Once", at="bug", color="navy"),
@@ -220,15 +220,15 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 9. My Two-Line Story: plan, then build --------------------------------------------------------
     Scene("j1-w07-s09", setting="lavender", beats=(
-        B("Now you can make your own story, called My Two-Line Story.", speaker=AIDEN, cue="story", pause=0.4),
-        B("Plan first! Draw two boxes.", speaker=AIDEN, cue="plan", pause=0.4),
-        B("In box one, who talks first? In box two, who answers?", speaker=AIDEN, cue="boxes", pause=0.6),
-        B("A grown-up can write the words for you.", speaker=AIDEN, cue="grown", pause=0.4),
-        B("Then build it, one sprite each with your partner. Remember: the second sprite waits.", speaker=AIDEN,
+        B("Now you can make your own story, called My Two-Line Story.", speaker=NARRATOR, cue="story", pause=0.4),
+        B("Plan first! Draw two boxes.", speaker=NARRATOR, cue="plan", pause=0.4),
+        B("In box one, who talks first? In box two, who answers?", speaker=NARRATOR, cue="boxes", pause=0.6),
+        B("A grown-up can write the words for you.", speaker=NARRATOR, cue="grown", pause=0.4),
+        B("Then build it, one sprite each with your partner. Remember: the second sprite waits.", speaker=NARRATOR,
           cue="build", pause=0.6),
         B("Let's play the mirror game! Stand face to face. One of you moves very slowly. The other copies, like a mirror.",
-          speaker=AIDEN, cue="mirror", pause=2.4),
-        B("Now swap!", speaker=AIDEN, cue="swap", pause=2.0),
+          speaker=NARRATOR, cue="mirror", pause=2.4),
+        B("Now swap!", speaker=NARRATOR, cue="swap", pause=2.0),
         B("Copy me, copy me, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "Exercise 7.3: My Two-Line Story", at="story", color="purple", until="mirror"),
@@ -245,15 +245,15 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 10. giving credit ------------------------------------------------------------------------------
     Scene("j1-w07-s10", setting="workshop", beats=(
-        B("We wrote the story ourselves.", speaker=AIDEN, cue="wrote", pause=0.4),
-        B("But who made the pictures of the cat, the Ballerina and the backdrop?", speaker=AIDEN, cue="who",
+        B("We wrote the story ourselves.", speaker=NARRATOR, cue="wrote", pause=0.4),
+        B("But who made the pictures of the cat, the Ballerina and the backdrop?", speaker=NARRATOR, cue="who",
           pause=2.8),
-        B("The Scratch team made them.", speaker=AIDEN, cue="team", pause=0.4),
+        B("The Scratch team made them.", speaker=NARRATOR, cue="team", pause=0.4),
         B("When we use something someone else made, we say who made it. That is called giving credit.",
-          speaker=AIDEN, cue="credit", pause=0.6),
-        B("It is like saying: Grandma baked this cake!", speaker=AIDEN, cue="cake", pause=0.6),
+          speaker=NARRATOR, cue="credit", pause=0.6),
+        B("It is like saying: Grandma baked this cake!", speaker=NARRATOR, cue="cake", pause=0.6),
         B("Start your show like this: The sprites and backdrop were made by the Scratch team. The story is by me.",
-          speaker=AIDEN, cue="sentence", pause=0.8),
+          speaker=NARRATOR, cue="sentence", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"who": "thinking", "team": "happy"}, chin=("who", "team")),
         A("pixi", x=600, y=760, moods={"cake": "happy"}),
@@ -266,17 +266,17 @@ EPISODE = Episode(level="j1", week=7, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j1-w07-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Backdrop!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Wait!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Credit!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Each sprite has its own script. The green flag starts them all at once.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Backdrop!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Wait!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Credit!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Each sprite has its own script. The green flag starts them all at once.", speaker=NARRATOR,
           cue="recap", pause=0.4),
-        B("A wait makes the second sprite take its turn.", speaker=AIDEN, cue="recap2", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build Hello, Ballerina! Fix Boo at Once. Then plan and build your Two-Line Story.", speaker=AIDEN,
+        B("A wait makes the second sprite take its turn.", speaker=NARRATOR, cue="recap2", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build Hello, Ballerina! Fix Boo at Once. Then plan and build your Two-Line Story.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

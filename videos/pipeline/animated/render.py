@@ -18,11 +18,34 @@ from .timeline import BeatTiming, SceneTiming, build_timeline, check_against_spe
 REPO_ROOT = Path(__file__).resolve().parents[3]
 EPISODES = Path(__file__).parent / "episodes"
 TRANSITION = 0.55  # seconds of circular wipe between scenes
+LOUDNESS_I = -16.0
+LOUDNESS_TP = -6.5  # headroom for worst-case synthesized AAC reconstruction; encoded tracks stay below -1 dBTP
+LOUDNESS_LRA = 11.0
 
 
 def is_junior(level) -> bool:
     """Junior (Grades 2-3) episodes use level keys "j1".."j3"; the main track uses 1..3."""
     return isinstance(level, str) and level.startswith("j")
+
+
+def _loudnorm_filter(wav: Path) -> str:
+    """Measure the mix, then return an accurate second-pass EBU R128 normalization filter."""
+    result = subprocess.run([
+        "ffmpeg", "-hide_banner", "-nostats", "-i", str(wav),
+        "-af", f"loudnorm=I={LOUDNESS_I}:TP={LOUDNESS_TP}:LRA={LOUDNESS_LRA}:print_format=json",
+        "-f", "null", "-",
+    ], check=True, capture_output=True, text=True)
+    start = result.stderr.rfind("{")
+    end = result.stderr.find("}", start)
+    if start < 0 or end < 0:
+        raise RuntimeError("ffmpeg did not return loudness measurements")
+    measured = json.loads(result.stderr[start:end + 1])
+    return (
+        f"loudnorm=I={LOUDNESS_I}:TP={LOUDNESS_TP}:LRA={LOUDNESS_LRA}"
+        f":measured_I={measured['input_i']}:measured_TP={measured['input_tp']}"
+        f":measured_LRA={measured['input_lra']}:measured_thresh={measured['input_thresh']}"
+        f":offset={measured['target_offset']}:linear=true,aresample=48000"
+    )
 
 
 def spec_path(level) -> Path:
@@ -272,7 +295,9 @@ def render_episode(week: int, output_dir: Path, workers: int | None = None, prev
             "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
             "-f", "concat", "-safe", "0", "-i", str(listing), "-i", str(wav), "-i", str(srt),
             "-map", "0:v", "-map", "1:a", "-map", "2:0", "-c:v", "copy",
-            "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000,alimiter=limit=0.79:level=disabled", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+            # Two-pass loudness normalization measures this exact mix before applying gain. Its
+            # conservative ceiling leaves room for AAC reconstruction without hard-clipping SFX.
+            "-af", _loudnorm_filter(wav), "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
             "-c:s", "mov_text", "-metadata:s:s:0", "language=eng",
             "-metadata", f"title={props.SERIES} {props.SUBTITLE} – "
                          f"{'Junior Level ' + level[1:] if is_junior(level) else 'Level ' + str(level)} "

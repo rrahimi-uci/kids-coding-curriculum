@@ -7,7 +7,7 @@ other sources and nothing to attribute.
 | Asset | Where used | Source / license |
 |---|---|---|
 | Atkinson Hyperlegible Next and Mono | PDFs, deck, website (WOFF2 subsets in `site/src/fonts/`) | Braille Institute of America, SIL Open Font License 1.1 |
-| Lexend Deca | dyslexia-friendly PDFs, website "Easy-read font" (WOFF2 subset) | Lexend Project (Bonnie Shaver-Troup, Thomas Jockin), SIL Open Font License 1.1 |
+| Lexend Deca | dyslexia-friendly PDFs; retained website font asset (WOFF2 subset) | Lexend Project (Bonnie Shaver-Troup, Thomas Jockin), SIL Open Font License 1.1 |
 | Font Awesome 5 Free icons (`fontawesome5` package) | PDFs and deck only | Icons CC BY 4.0, fonts SIL OFL 1.1, code MIT. Not used on the website. |
 | Okabe-Ito color palette | everywhere | Okabe and Ito (2008), Color Universal Design; a published palette, no license needed |
 | TikZ diagrams and Scratch block pictures | workbooks, homework, deck; converted to SVG for the website | Original (TikZ/PGF, `scratch3` package renders the block shapes). The `scratch3` package is LPPL; the picture content is original |

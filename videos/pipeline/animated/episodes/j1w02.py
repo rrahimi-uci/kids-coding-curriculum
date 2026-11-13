@@ -4,10 +4,10 @@ Follows grade-2-3/1-little-robots/teaching-material/lessons/week02.tex: the pupp
 Scratch window (sprite, stage, blocks, green flag), blocks that snap like puzzle pieces, Exercise 2.1
 Hello Cat, the cat that moves further on every click, Exercise 2.2 The Stuck Cat (a block that is not
 snapped on), making it yours with a nickname, and looking after our bodies with a wiggle break.
-Junior pacing: one idea at a time, big blocks, long thinking pauses, Aiden as the host.
+Junior pacing: one idea at a time, big blocks, long thinking pauses, Aiden shown as the scientist and builder.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 SAY = ("looks", "say [Hi!] for [2] seconds")
@@ -19,14 +19,14 @@ CAT = 1.0  # cat size on the stage
 EPISODE = Episode(level="j1", week=2, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j1-w02-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, coders!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, we were robots. We followed exact steps, one card at a time.", speaker=AIDEN, cue="last",
+        B("Last week, we were robots. We followed exact steps, one card at a time.", speaker=NARRATOR, cue="last",
           pause=0.5),
-        B("Today, we give steps to a computer instead.", speaker=AIDEN, cue="today", pause=0.4),
-        B("We will use an app called Scratch, and we will make a cat talk, meow and move!", speaker=AIDEN,
+        B("Today, we give steps to a computer instead.", speaker=NARRATOR, cue="today", pause=0.4),
+        B("We will use an app called Scratch, and we will make a cat talk, meow and move!", speaker=NARRATOR,
           cue="mission", pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "mission": "proud"}),
@@ -39,18 +39,18 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 2. puppet show (the lesson's warm-up) ----------------------------------------------------------
     Scene("j1-w02-s02", setting="workshop", beats=(
-        B("Let's warm up with a puppet show.", speaker=AIDEN, cue="puppet", pause=0.4),
-        B("Here are three cards: say hello, move three steps, make a sound.", speaker=AIDEN, cue="cards",
+        B("Let's warm up with a puppet show.", speaker=NARRATOR, cue="puppet", pause=0.4),
+        B("Here are three cards: say hello, move three steps, make a sound.", speaker=NARRATOR, cue="cards",
           pause=0.5),
-        B("Pixi reads the cards from top to bottom, and the cat does each one.", speaker=AIDEN, cue="reads",
+        B("Pixi reads the cards from top to bottom, and the cat does each one.", speaker=NARRATOR, cue="reads",
           pause=0.4),
         B("Say hello!", speaker=PIXI, cue="say1", pause=0.6),
         B("Move three steps!", speaker=PIXI, cue="move1", pause=1.2),
         B("Make a sound!", speaker=PIXI, cue="sound1", pause=1.0),
-        B("Now watch. I push one card away, so it is not in the line.", speaker=AIDEN, cue="push", pause=0.5),
-        B("Does the cat still do it?", speaker=AIDEN, cue="still", pause=2.8),
-        B("No! A card that is not in the line is not part of the show.", speaker=AIDEN, cue="no", pause=0.5),
-        B("Remember that. It will help us later.", speaker=AIDEN, cue="remember", pause=0.6),
+        B("Now watch. I push one card away, so it is not in the line.", speaker=NARRATOR, cue="push", pause=0.5),
+        B("Does the cat still do it?", speaker=NARRATOR, cue="still", pause=2.8),
+        B("No! A card that is not in the line is not part of the show.", speaker=NARRATOR, cue="no", pause=0.5),
+        B("Remember that. It will help us later.", speaker=NARRATOR, cue="remember", pause=0.6),
     ), actions=(
         A("aiden", x=260, y=980, s=0.8, moods={"still": "thinking", "no": "happy"}, chin=("still", "no"),
           point=("push", "push$")),
@@ -67,17 +67,17 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 3. meet Scratch --------------------------------------------------------------------------------
     Scene("j1-w02-s03", setting="sky", beats=(
-        B("This is Scratch.", speaker=AIDEN, cue="this", pause=0.5),
-        B("The cat is called a sprite. A sprite is a character that can act.", speaker=AIDEN, cue="sprite",
+        B("This is Scratch.", speaker=NARRATOR, cue="this", pause=0.5),
+        B("The cat is called a sprite. A sprite is a character that can act.", speaker=NARRATOR, cue="sprite",
           pause=0.6),
-        B("The white space is the stage. That is where the show happens.", speaker=AIDEN, cue="stage",
+        B("The white space is the stage. That is where the show happens.", speaker=NARRATOR, cue="stage",
           pause=0.6),
-        B("On the left are the blocks. Each color is a different kind of block.", speaker=AIDEN, cue="blocks",
+        B("On the left are the blocks. Each color is a different kind of block.", speaker=NARRATOR, cue="blocks",
           pause=0.6),
-        B("Up here is the green flag. When we click it, the show starts!", speaker=AIDEN, cue="flag", pause=0.5),
-        B("And the red stop sign stops the show.", speaker=AIDEN, cue="stop", pause=0.6),
-        B("Can you point to the sprite on your screen?", speaker=AIDEN, cue="point", pause=3.0),
-        B("Yes! The cat is the sprite.", speaker=AIDEN, cue="yes", pause=0.6),
+        B("Up here is the green flag. When we click it, the show starts!", speaker=NARRATOR, cue="flag", pause=0.5),
+        B("And the red stop sign stops the show.", speaker=NARRATOR, cue="stop", pause=0.6),
+        B("Can you point to the sprite on your screen?", speaker=NARRATOR, cue="point", pause=3.0),
+        B("Yes! The cat is the sprite.", speaker=NARRATOR, cue="yes", pause=0.6),
     ), actions=(
         A("scratch", "Blocks", blocks=[FLAG, ("looks", "say [Hello!] for [2] seconds"), MEOW,
                                        ("motion", "move [10] steps")],
@@ -95,14 +95,14 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 4. puzzle pieces -------------------------------------------------------------------------------
     Scene("j1-w02-s04", setting="lavender", beats=(
-        B("Scratch blocks are like puzzle pieces.", speaker=AIDEN, cue="puzzle", pause=0.5),
-        B("They have a bump on the bottom and a dent on top, so they click together.", speaker=AIDEN,
+        B("Scratch blocks are like puzzle pieces.", speaker=NARRATOR, cue="puzzle", pause=0.5),
+        B("They have a bump on the bottom and a dent on top, so they click together.", speaker=NARRATOR,
           cue="bump", pause=0.6),
-        B("When blocks click together, they make a script.", speaker=AIDEN, cue="script", pause=0.5),
+        B("When blocks click together, they make a script.", speaker=NARRATOR, cue="script", pause=0.5),
         B("A script runs from top to bottom, one block after another, like the puppet show cards.",
-          speaker=AIDEN, cue="order", pause=0.6),
-        B("Here is a top tip.", speaker=AIDEN, cue="tip", pause=0.3),
-        B("Drag a block slowly. When you see a gray shadow, let go. Click! It snaps on.", speaker=AIDEN,
+          speaker=NARRATOR, cue="order", pause=0.6),
+        B("Here is a top tip.", speaker=NARRATOR, cue="tip", pause=0.3),
+        B("Drag a block slowly. When you see a gray shadow, let go. Click! It snaps on.", speaker=NARRATOR,
           cue="shadow", pause=0.6),
         B("Click, click, click!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -119,10 +119,10 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 5. quiz: which block runs first? ---------------------------------------------------------------
     Scene("j1-w02-s05", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("Look at this script. What will the cat do first?", speaker=AIDEN, cue="first", pause=3.2),
-        B("It says Hi first, because the say block is at the top.", speaker=AIDEN, cue="answer", pause=0.5),
-        B("Then it meows. Then it moves.", speaker=AIDEN, cue="then", pause=0.6),
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("Look at this script. What will the cat do first?", speaker=NARRATOR, cue="first", pause=3.2),
+        B("It says Hi first, because the say block is at the top.", speaker=NARRATOR, cue="answer", pause=0.5),
+        B("Then it meows. Then it moves.", speaker=NARRATOR, cue="then", pause=0.6),
         B("Top to bottom, every time!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -136,17 +136,17 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 6. build Hello Cat -----------------------------------------------------------------------------
     Scene("j1-w02-s06", setting="mint", beats=(
-        B("Let's build our first script together. It is called Hello Cat.", speaker=AIDEN, cue="build", pause=0.5),
-        B("First, click the yellow Events circle, and drag in: when green flag clicked.", speaker=AIDEN,
+        B("Let's build our first script together. It is called Hello Cat.", speaker=NARRATOR, cue="build", pause=0.5),
+        B("First, click the yellow Events circle, and drag in: when green flag clicked.", speaker=NARRATOR,
           cue="events", pause=0.8),
         B("Next, click the purple Looks circle. Snap on: say Hello for two seconds. Then type: Hi!",
-          speaker=AIDEN, cue="looks", pause=0.8),
-        B("Then the pink Sound circle. Snap on: play sound Meow until done.", speaker=AIDEN, cue="sound",
+          speaker=NARRATOR, cue="looks", pause=0.8),
+        B("Then the pink Sound circle. Snap on: play sound Meow until done.", speaker=NARRATOR, cue="sound",
           pause=0.8),
-        B("Last, the blue Motion circle. Snap on: move ten steps, and change ten to fifty.", speaker=AIDEN,
+        B("Last, the blue Motion circle. Snap on: move ten steps, and change ten to fifty.", speaker=NARRATOR,
           cue="motion", pause=0.8),
-        B("Now, click the green flag!", speaker=AIDEN, cue="click", pause=4.2),
-        B("Our script works! The cat talks, meows and moves.", speaker=AIDEN, cue="works", pause=0.4),
+        B("Now, click the green flag!", speaker=NARRATOR, cue="click", pause=4.2),
+        B("Our script works! The cat talks, meows and moves.", speaker=NARRATOR, cue="works", pause=0.4),
         B("Beep! Hooray!", speaker=PIXI, cue="hooray", pause=0.8),
     ), actions=(
         A("banner", "Exercise 2.1: Hello Cat", at="build", color="green"),
@@ -166,11 +166,11 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 7. predict: click again ------------------------------------------------------------------------
     Scene("j1-w02-s07", setting="peach", beats=(
-        B("What do you think happens if we click the green flag again?", speaker=AIDEN, cue="predict", pause=3.2),
-        B("The cat says Hi, meows, and moves fifty more steps.", speaker=AIDEN, cue="again", pause=0.6),
-        B("Every click moves it a little further.", speaker=AIDEN, cue="further", pause=0.6),
-        B("If the cat walks to the edge, that is OK.", speaker=AIDEN, cue="edge", pause=0.4),
-        B("Drag the cat back to the middle with your mouse. It can never really get lost.", speaker=AIDEN,
+        B("What do you think happens if we click the green flag again?", speaker=NARRATOR, cue="predict", pause=3.2),
+        B("The cat says Hi, meows, and moves fifty more steps.", speaker=NARRATOR, cue="again", pause=0.6),
+        B("Every click moves it a little further.", speaker=NARRATOR, cue="further", pause=0.6),
+        B("If the cat walks to the edge, that is OK.", speaker=NARRATOR, cue="edge", pause=0.4),
+        B("Drag the cat back to the middle with your mouse. It can never really get lost.", speaker=NARRATOR,
           cue="drag", pause=1.0),
     ), actions=(
         A("stage", x=600, y=200, w=780, h=540, at="start", sprite_x=0, flag_at="again", sprite_scale=CAT,
@@ -187,17 +187,17 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 8. bug hunt: the Stuck Cat ---------------------------------------------------------------------
     Scene("j1-w02-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
-        B("Kai built this script. The cat says Hi and meows, but it does not move.", speaker=AIDEN, cue="kai",
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
+        B("Kai built this script. The cat says Hi and meows, but it does not move.", speaker=NARRATOR, cue="kai",
           pause=0.8),
-        B("A bug is not a problem. A bug is a clue! Let's be detectives.", speaker=AIDEN, cue="clue", pause=0.5),
-        B("Look closely at the blocks. Is every block snapped on?", speaker=AIDEN, cue="look", pause=3.2),
-        B("Look! The move block is not touching the others.", speaker=AIDEN, cue="found", pause=0.4),
+        B("A bug is not a problem. A bug is a clue! Let's be detectives.", speaker=NARRATOR, cue="clue", pause=0.5),
+        B("Look closely at the blocks. Is every block snapped on?", speaker=NARRATOR, cue="look", pause=3.2),
+        B("Look! The move block is not touching the others.", speaker=NARRATOR, cue="found", pause=0.4),
         B("It is like the card we pushed out of the puppet show. It is not part of the script, so it never runs.",
-          speaker=AIDEN, cue="never", pause=0.6),
-        B("Let's drag it up until it clicks on.", speaker=AIDEN, cue="fix", pause=0.8),
-        B("Now we test it again.", speaker=AIDEN, cue="test", pause=3.6),
-        B("It moves! We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+          speaker=NARRATOR, cue="never", pause=0.6),
+        B("Let's drag it up until it clicks on.", speaker=NARRATOR, cue="fix", pause=0.8),
+        B("Now we test it again.", speaker=NARRATOR, cue="test", pause=3.6),
+        B("It moves! We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Detective Aiden!", speaker=PIXI, cue="detective", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Stuck Cat", at="bug", color="navy"),
@@ -220,14 +220,14 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 9. make it yours ---------------------------------------------------------------------------------
     Scene("j1-w02-s09", setting="sky", beats=(
-        B("Now make it yours!", speaker=AIDEN, cue="yours", pause=0.4),
-        B("Click the white oval in the say block, and type new words.", speaker=AIDEN, cue="oval", pause=0.5),
-        B("Use a nickname, like Pixel Panda, never your real name.", speaker=AIDEN, cue="nick", pause=0.6),
-        B("You can click the little arrow on the sound block and pick a different sound.", speaker=AIDEN,
+        B("Now make it yours!", speaker=NARRATOR, cue="yours", pause=0.4),
+        B("Click the white oval in the say block, and type new words.", speaker=NARRATOR, cue="oval", pause=0.5),
+        B("Use a nickname, like Pixel Panda, never your real name.", speaker=NARRATOR, cue="nick", pause=0.6),
+        B("You can click the little arrow on the sound block and pick a different sound.", speaker=NARRATOR,
           cue="sound", pause=0.5),
-        B("Or change fifty to a bigger number. What do you think will happen?", speaker=AIDEN, cue="bigger",
+        B("Or change fifty to a bigger number. What do you think will happen?", speaker=NARRATOR, cue="bigger",
           pause=2.6),
-        B("The cat moves further in one go!", speaker=AIDEN, cue="further", pause=0.8),
+        B("The cat moves further in one go!", speaker=NARRATOR, cue="further", pause=0.8),
     ), actions=(
         A("scratch", "Make it yours", blocks=[FLAG, SAY, MEOW, MOVE], x=110, y=260, w=960, h=560, scale=1.0,
           edits=[("oval@0.8", 1, "say [Hi! I am Pixel Panda] for [2] seconds"),
@@ -240,13 +240,13 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 10. look after your body ----------------------------------------------------------------------
     Scene("j1-w02-s10", setting="workshop", beats=(
-        B("While you code, look after your body.", speaker=AIDEN, cue="body", pause=0.4),
-        B("Sit up tall, hold the mouse gently, and keep drinks away from the computer.", speaker=AIDEN, cue="sit",
+        B("While you code, look after your body.", speaker=NARRATOR, cue="body", pause=0.4),
+        B("Sit up tall, hold the mouse gently, and keep drinks away from the computer.", speaker=NARRATOR, cue="sit",
           pause=0.6),
-        B("Every little while, look far away, out of a window, to rest your eyes.", speaker=AIDEN, cue="eyes",
+        B("Every little while, look far away, out of a window, to rest your eyes.", speaker=NARRATOR, cue="eyes",
           pause=0.6),
         B("Let's do a wiggle break together! Stand up, shake your hands, and roll your shoulders.",
-          speaker=AIDEN, cue="wiggle", pause=2.4),
+          speaker=NARRATOR, cue="wiggle", pause=2.4),
         B("Wiggle, wiggle, beep!", speaker=PIXI, cue="pixi", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("wiggle", "end")], moods={"start": "happy", "wiggle": "proud"}),
@@ -257,18 +257,18 @@ EPISODE = Episode(level="j1", week=2, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j1-w02-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Sprite!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Stage!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Script!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("The sprite is the character. The stage is where it acts.", speaker=AIDEN, cue="recap", pause=0.4),
-        B("Blocks click together into a script, and the green flag starts it.", speaker=AIDEN, cue="recap2",
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Sprite!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Stage!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Script!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("The sprite is the character. The stage is where it acts.", speaker=NARRATOR, cue="recap", pause=0.4),
+        B("Blocks click together into a script, and the green flag starts it.", speaker=NARRATOR, cue="recap2",
           pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build Hello Cat, then fix the Stuck Cat, then show your partner.", speaker=AIDEN, cue="next",
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build Hello Cat, then fix the Stuck Cat, then show your partner.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("Remember: wait for the gray shadow, then let go.", speaker=AIDEN, cue="remember", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Remember: wait for the gray shadow, then let go.", speaker=NARRATOR, cue="remember", pause=0.5),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

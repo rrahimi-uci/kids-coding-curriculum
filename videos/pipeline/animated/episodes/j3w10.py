@@ -8,7 +8,7 @@ website asks for your name (stop, do not type it, get a grown-up), the graduatio
 is next: main-track Level 1.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 # Omar's postcard from week 9 after parts 1 and 2: a blue house with a gold roof.
 OMAR = """import turtle
@@ -52,13 +52,13 @@ HEXAGON = PARADE.format(n=6, side=60, turn=60)
 EPISODE = Episode(level="j3", week=10, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j3-w10-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Today is a party!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Yes! Today is our Graduation Showcase!", speaker=AIDEN, cue="today", pause=0.5),
-        B("A showcase is a little show where we share what we made.", speaker=AIDEN, cue="show", pause=0.5),
-        B("You will show your Big Build, explain one part of your code, and celebrate!", speaker=AIDEN,
+        B("Yes! Today is our Graduation Showcase!", speaker=NARRATOR, cue="today", pause=0.5),
+        B("A showcase is a little show where we share what we made.", speaker=NARRATOR, cue="show", pause=0.5),
+        B("You will show your Big Build, explain one part of your code, and celebrate!", speaker=NARRATOR,
           cue="will", pause=0.5),
-        B("Ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -71,16 +71,16 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 2. look back at the whole junior track -------------------------------------------------------------
     Scene("j3-w10-s02", setting="sky", beats=(
-        B("Look how far you have come!", speaker=AIDEN, cue="far", pause=0.4),
-        B("In Little Robots, you gave exact steps, and made a cat talk, move and repeat.", speaker=AIDEN,
+        B("Look how far you have come!", speaker=NARRATOR, cue="far", pause=0.4),
+        B("In Little Robots, you gave exact steps, and made a cat talk, move and repeat.", speaker=NARRATOR,
           cue="l1", pause=0.6),
-        B("In Game Makers, you made games with forever loops, scores and messages.", speaker=AIDEN, cue="l2",
+        B("In Game Makers, you made games with forever loops, scores and messages.", speaker=NARRATOR, cue="l2",
           pause=0.6),
         B("And in Bridge to Python, you made patterns, collected data, and learned how computers learn.",
-          speaker=AIDEN, cue="l3", pause=0.5),
-        B("Then you wrote real Python!", speaker=AIDEN, cue="py", pause=0.5),
-        B("That is the whole junior track. Wow!", speaker=AIDEN, cue="whole", pause=0.5),
-        B("And every time you found a bug, you treated it like a clue.", speaker=AIDEN, cue="clue", pause=0.8),
+          speaker=NARRATOR, cue="l3", pause=0.5),
+        B("Then you wrote real Python!", speaker=NARRATOR, cue="py", pause=0.5),
+        B("That is the whole junior track. Wow!", speaker=NARRATOR, cue="whole", pause=0.5),
+        B("And every time you found a bug, you treated it like a clue.", speaker=NARRATOR, cue="clue", pause=0.8),
     ), actions=(
         A("roadmap", at="far", x=380, y=380, w=1160, items=["Little Robots", "Game Makers", "Bridge to Python"],
           checks=[("l1@0.6", 0), ("l2@0.6", 1), ("py", 2)], current=[("l1", 0), ("l2", 1), ("l3", 2)]),
@@ -94,18 +94,18 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 3. the last-minute bug check and the typo rescue ---------------------------------------------------------
     Scene("j3-w10-s03", setting="mint", beats=(
-        B("Before a show, performers check their props. Coders check their code.", speaker=AIDEN, cue="before",
+        B("Before a show, performers check their props. Coders check their code.", speaker=NARRATOR, cue="before",
           pause=0.5),
-        B("Start your project. Then start it a second time. Does it start the same way?", speaker=AIDEN,
+        B("Start your project. Then start it a second time. Does it start the same way?", speaker=NARRATOR,
           cue="twice", pause=0.6),
-        B("Check each must-have on your plan card. Can everyone see it?", speaker=AIDEN, cue="must", pause=0.5),
-        B("Fix one thing only. Then stop building, and save.", speaker=AIDEN, cue="fix", pause=0.6),
-        B("Then comes the typo rescue! Your grown-up hides one typo in a copy of the postcard.", speaker=AIDEN,
+        B("Check each must-have on your plan card. Can everyone see it?", speaker=NARRATOR, cue="must", pause=0.5),
+        B("Fix one thing only. Then stop building, and save.", speaker=NARRATOR, cue="fix", pause=0.6),
+        B("Then comes the typo rescue! Your grown-up hides one typo in a copy of the postcard.", speaker=NARRATOR,
           cue="rescue", pause=0.5),
-        B("Press Run, read the last line of the red text, find the line number, and fix it.", speaker=AIDEN,
+        B("Press Run, read the last line of the red text, find the line number, and fix it.", speaker=NARRATOR,
           cue="steps", pause=0.6),
-        B("Then change one color and one number, and run it again.", speaker=AIDEN, cue="change", pause=0.5),
-        B("This is a check, not a test. If a fix takes a long time, ask your grown-up to help.", speaker=AIDEN,
+        B("Then change one color and one number, and run it again.", speaker=NARRATOR, cue="change", pause=0.5),
+        B("This is a check, not a test. If a fix takes a long time, ask your grown-up to help.", speaker=NARRATOR,
           cue="help", pause=0.8),
     ), actions=(
         A("banner", "Last-minute bug check", at="before", color="navy"),
@@ -123,12 +123,12 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 4. the museum guide ----------------------------------------------------------------------------------
     Scene("j3-w10-s04", setting="lavender", beats=(
-        B("How do we explain our code? Like a museum guide!", speaker=AIDEN, cue="guide", pause=0.5),
-        B("A guide does not explain every painting.", speaker=AIDEN, cue="every", pause=0.4),
-        B("A guide stops at one, points, and tells you something special about it.", speaker=AIDEN, cue="one",
+        B("How do we explain our code? Like a museum guide!", speaker=NARRATOR, cue="guide", pause=0.5),
+        B("A guide does not explain every painting.", speaker=NARRATOR, cue="every", pause=0.4),
+        B("A guide stops at one, points, and tells you something special about it.", speaker=NARRATOR, cue="one",
           pause=0.6),
-        B("You are the guide of your own project.", speaker=AIDEN, cue="you", pause=0.4),
-        B("Pick one part, point at the code, and tell us about it.", speaker=AIDEN, cue="pick", pause=0.8),
+        B("You are the guide of your own project.", speaker=NARRATOR, cue="you", pause=0.4),
+        B("Pick one part, point at the code, and tell us about it.", speaker=NARRATOR, cue="pick", pause=0.8),
     ), actions=(
         A("aiden", x=320, y=1000, s=0.8, moods={"start": "happy", "you": "proud"}, point=("one", "one$")),
         A("chip", "Be a museum guide!", at="guide@0.4", until="every", x=1160, y=420, color="purple", size=50),
@@ -139,15 +139,15 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 5. worked example: a showcase in three sentences ----------------------------------------------------------
     Scene("j3-w10-s05", setting="mint", beats=(
-        B("Here is Omar's showcase, in three sentences.", speaker=AIDEN, cue="omar", pause=0.5),
-        B("One, my plan: my plan card said a house and a roof, and both parts work.", speaker=AIDEN, cue="s1",
+        B("Here is Omar's showcase, in three sentences.", speaker=NARRATOR, cue="omar", pause=0.5),
+        B("One, my plan: my plan card said a house and a roof, and both parts work.", speaker=NARRATOR, cue="s1",
           pause=0.6),
-        B("Two, one part of my code: this for loop draws the roof.", speaker=AIDEN, cue="s2", pause=0.5),
-        B("Quick quiz! How many times does this loop go round?", speaker=AIDEN, cue="quiz", pause=3.0),
+        B("Two, one part of my code: this for loop draws the roof.", speaker=NARRATOR, cue="s2", pause=0.5),
+        B("Quick quiz! How many times does this loop go round?", speaker=NARRATOR, cue="quiz", pause=3.0),
         B("Three times, because a triangle has three sides. The two lines pushed in are inside the loop: forward, "
-          "then turn one hundred twenty.", speaker=AIDEN, cue="three", pause=0.6),
+          "then turn one hundred twenty.", speaker=NARRATOR, cue="three", pause=0.6),
         B("Three, what I changed, and credit: I made the house blue and the roof gold. The house and roof came "
-          "from the starter program.", speaker=AIDEN, cue="s3", pause=0.6),
+          "from the starter program.", speaker=NARRATOR, cue="s3", pause=0.6),
         B("Great guide! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("turtle", code=OMAR, x=1220, y=180, w=620, h=600, at="omar", duration=3.0, world=180),
@@ -163,12 +163,12 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 6. practice the sentence frames -------------------------------------------------------------------------
     Scene("j3-w10-s06", setting="peach", beats=(
-        B("Now you practice. Say your three sentences to your grown-up.", speaker=AIDEN, cue="practice",
+        B("Now you practice. Say your three sentences to your grown-up.", speaker=NARRATOR, cue="practice",
           pause=0.5),
-        B("My plan card said…", speaker=AIDEN, cue="f1", pause=1.6),
-        B("This part of my code…", speaker=AIDEN, cue="f2", pause=1.6),
-        B("I changed… and my idea came from…", speaker=AIDEN, cue="f3", pause=1.6),
-        B("If you freeze, that's OK. Point at one loop and say what it does.", speaker=AIDEN, cue="freeze",
+        B("My plan card said…", speaker=NARRATOR, cue="f1", pause=1.6),
+        B("This part of my code…", speaker=NARRATOR, cue="f2", pause=1.6),
+        B("I changed… and my idea came from…", speaker=NARRATOR, cue="f3", pause=1.6),
+        B("If you freeze, that's OK. Point at one loop and say what it does.", speaker=NARRATOR, cue="freeze",
           pause=0.8),
     ), actions=(
         A("aiden", x=220, y=1000, s=0.75, moods={"start": "happy", "freeze": "proud"}, point=("f1", "f3$")),
@@ -181,11 +181,11 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 7. wiggle break: the turtle parade -----------------------------------------------------------------------
     Scene("j3-w10-s07", setting="workshop", beats=(
-        B("Wiggle break! It's a turtle parade. Stand up!", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("Walk a square: four sides, and a quarter turn after each.", speaker=AIDEN, cue="square", pause=4.0),
-        B("Now a triangle: three sides, and a big turn.", speaker=AIDEN, cue="triangle", pause=3.0),
-        B("Now a hexagon: six small sides.", speaker=AIDEN, cue="hexagon", pause=4.0),
-        B("And a graduation bow!", speaker=AIDEN, cue="bow", pause=1.2),
+        B("Wiggle break! It's a turtle parade. Stand up!", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("Walk a square: four sides, and a quarter turn after each.", speaker=NARRATOR, cue="square", pause=4.0),
+        B("Now a triangle: three sides, and a big turn.", speaker=NARRATOR, cue="triangle", pause=3.0),
+        B("Now a hexagon: six small sides.", speaker=NARRATOR, cue="hexagon", pause=4.0),
+        B("And a graduation bow!", speaker=NARRATOR, cue="bow", pause=1.2),
         B("Beep! Bow!", speaker=PIXI, cue="pixi", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("wiggle", "square"), ("bow", "end")],
@@ -208,13 +208,13 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     # 8. the gallery walk -----------------------------------------------------------------------------------
     Scene("j3-w10-s08", setting="sky", beats=(
         B("Next, the gallery walk. Walk around like visitors in a museum, with your hands behind your back.",
-          speaker=AIDEN, cue="walk", pause=0.5),
-        B("At each project, ask the owner: May I try it?", speaker=AIDEN, cue="ask", pause=0.5),
+          speaker=NARRATOR, cue="walk", pause=0.5),
+        B("At each project, ask the owner: May I try it?", speaker=NARRATOR, cue="ask", pause=0.5),
         B("Then put one sticker in the column you liked best: the colors, the pattern, or the surprise.",
-          speaker=AIDEN, cue="sticker", pause=0.5),
-        B("Say why: I liked the colors, because the gold roof stands out.", speaker=AIDEN, cue="why", pause=0.6),
-        B("Only kind words. And never change someone else's project.", speaker=AIDEN, cue="kind", pause=0.5),
-        B("Did not like something? Then say nothing about it. That is kind, too.", speaker=AIDEN, cue="nothing",
+          speaker=NARRATOR, cue="sticker", pause=0.5),
+        B("Say why: I liked the colors, because the gold roof stands out.", speaker=NARRATOR, cue="why", pause=0.6),
+        B("Only kind words. And never change someone else's project.", speaker=NARRATOR, cue="kind", pause=0.5),
+        B("Did not like something? Then say nothing about it. That is kind, too.", speaker=NARRATOR, cue="nothing",
           pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "kind": "proud"},
@@ -232,16 +232,16 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     # 9. safety: what if a website asks for your name? ---------------------------------------------------------
     Scene("j3-w10-s09", setting="lavender", beats=(
         B("After today, you might find coding websites, games and apps. Some of them ask for things.",
-          speaker=AIDEN, cue="after", pause=0.5),
+          speaker=NARRATOR, cue="after", pause=0.5),
         B("A game says: Type your name, your age and your school to save your score! What do you do?",
-          speaker=AIDEN, cue="game", pause=3.0),
-        B("Three steps. Say them with me!", speaker=AIDEN, cue="say", pause=0.4),
-        B("Stop!", speaker=AIDEN, cue="s1", pause=1.2),
-        B("Don't type it!", speaker=AIDEN, cue="s2", pause=1.2),
-        B("Get a grown-up!", speaker=AIDEN, cue="s3", pause=1.2),
-        B("The grown-up decides. If the site is OK, we use a nickname.", speaker=AIDEN, cue="decides",
+          speaker=NARRATOR, cue="game", pause=3.0),
+        B("Three steps. Say them with me!", speaker=NARRATOR, cue="say", pause=0.4),
+        B("Stop!", speaker=NARRATOR, cue="s1", pause=1.2),
+        B("Don't type it!", speaker=NARRATOR, cue="s2", pause=1.2),
+        B("Get a grown-up!", speaker=NARRATOR, cue="s3", pause=1.2),
+        B("The grown-up decides. If the site is OK, we use a nickname.", speaker=NARRATOR, cue="decides",
           pause=0.5),
-        B("A chatbot asks where you live? The same three steps.", speaker=AIDEN, cue="chatbot", pause=0.8),
+        B("A chatbot asks where you live? The same three steps.", speaker=NARRATOR, cue="chatbot", pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "game": "worried", "say": "proud"},
           chin=("game", "say")),
@@ -260,13 +260,13 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 10. the graduation certificate ----------------------------------------------------------------------------
     Scene("j3-w10-s10", setting="workshop", beats=(
-        B("And now, the moment you have been waiting for!", speaker=AIDEN, cue="moment", pause=0.6),
-        B("You planned a Big Build, built it part by part, and explained your code.", speaker=AIDEN,
+        B("And now, the moment you have been waiting for!", speaker=NARRATOR, cue="moment", pause=0.6),
+        B("You planned a Big Build, built it part by part, and explained your code.", speaker=NARRATOR,
           cue="planned", pause=0.6),
-        B("You are a Bridge to Python graduate!", speaker=AIDEN, cue="grad", pause=0.6),
-        B("Give yourself a big clap!", speaker=AIDEN, cue="clap", pause=2.6),
+        B("You are a Bridge to Python graduate!", speaker=NARRATOR, cue="grad", pause=0.6),
+        B("Give yourself a big clap!", speaker=NARRATOR, cue="clap", pause=2.6),
         B("Hooray! Beep, beep, hooray!", speaker=PIXI, cue="hooray", pause=0.5),
-        B("Put your certificate where you can see it!", speaker=AIDEN, cue="put", pause=0.8),
+        B("Put your certificate where you can see it!", speaker=NARRATOR, cue="put", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("grad", "end")], moods={"start": "happy", "grad": "proud"}),
         A("pixi", x=600, y=760, beep="hooray", moods={"grad": "proud"}),
@@ -280,15 +280,15 @@ EPISODE = Episode(level="j3", week=10, scenes=(
     )),
     # 11. what's next, and goodbye ---------------------------------------------------------------------------
     Scene("j3-w10-s11", setting="workshop", tail=0.8, beats=(
-        B("What comes next? Main-track Level 1, the course for grades four and five.", speaker=AIDEN,
+        B("What comes next? Main-track Level 1, the course for grades four and five.", speaker=NARRATOR,
           cue="what", pause=0.5),
-        B("Lots of it will feel familiar: Scratch, loops, events and Python.", speaker=AIDEN, cue="familiar",
+        B("Lots of it will feel familiar: Scratch, loops, events and Python.", speaker=NARRATOR, cue="familiar",
           pause=0.5),
         B("Until then, Scratch and Thonny stay on your Mac for free play. Offline, with no accounts.",
-          speaker=AIDEN, cue="until", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Check your Big Build, show it off, and visit the gallery.", speaker=AIDEN, cue="next", pause=0.6),
-        B("I'm so proud of you. Happy coding, graduates!", speaker=AIDEN, cue="bye", pause=0.4),
+          speaker=NARRATOR, cue="until", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Check your Big Build, show it off, and visit the gallery.", speaker=NARRATOR, cue="next", pause=0.6),
+        B("I'm so proud of you. Happy coding, graduates!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

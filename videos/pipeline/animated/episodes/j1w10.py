@@ -8,7 +8,7 @@ script, a quiz on the hat block, the gallery walk with sticker feedback, showcas
 nicknames), the celebration dance, the Little Robots certificate and the next steps.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 CLICKED = ("event", "when this sprite clicked")
@@ -19,15 +19,15 @@ BIG = 1.25  # block scale: big enough for young eyes
 EPISODE = Episode(level="j1", week=10, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j1-w10-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, coders! It's Aiden and Pixi, and today is a very special day.", speaker=AIDEN, cue="hi",
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi",
           pause=0.4),
         B("Beep boop! Party time!", speaker=PIXI, cue="party", pause=0.5),
-        B("You worked so hard on your greeting cards.", speaker=AIDEN, cue="hard", pause=0.4),
-        B("Today is our showcase. A showcase is a little show where we share what we made.", speaker=AIDEN,
+        B("You worked so hard on your greeting cards.", speaker=NARRATOR, cue="hard", pause=0.4),
+        B("Today is our showcase. A showcase is a little show where we share what we made.", speaker=NARRATOR,
           cue="showcase", pause=0.5),
-        B("You will show your greeting card, say what one script does, and then we celebrate!", speaker=AIDEN,
+        B("You will show your greeting card, say what one script does, and then we celebrate!", speaker=NARRATOR,
           cue="three", pause=0.6),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "party"), ("ready", "end")],
           moods={"start": "happy", "three": "proud"}),
@@ -39,13 +39,13 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 2. the last-minute bug check -------------------------------------------------------------------
     Scene("j1-w10-s02", setting="workshop", beats=(
-        B("Before a show, performers check their props. So we do a last-minute bug check.", speaker=AIDEN,
+        B("Before a show, performers check their props. So we do a last-minute bug check.", speaker=NARRATOR,
           cue="props", pause=0.5),
-        B("One: click the green flag. Does the card start?", speaker=AIDEN, cue="c1", pause=1.0),
-        B("Two: click the flag a second time. Does it start the same way?", speaker=AIDEN, cue="c2", pause=1.0),
-        B("Three: click the sprite or press the key. Does the surprise happen?", speaker=AIDEN, cue="c3",
+        B("One: click the green flag. Does the card start?", speaker=NARRATOR, cue="c1", pause=1.0),
+        B("Two: click the flag a second time. Does it start the same way?", speaker=NARRATOR, cue="c2", pause=1.0),
+        B("Three: click the sprite or press the key. Does the surprise happen?", speaker=NARRATOR, cue="c3",
           pause=1.0),
-        B("Four: is the sound on? Can you hear it?", speaker=AIDEN, cue="c4", pause=1.0),
+        B("Four: is the sound on? Can you hear it?", speaker=NARRATOR, cue="c4", pause=1.0),
         B("Check, check, check, check!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=230, y=1000, s=0.75, point=("props", "props$"), moods={"pixi": "proud"}),
@@ -57,19 +57,19 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 3. bug hunt: the balloon that stays hidden -----------------------------------------------------
     Scene("j1-w10-s03", setting="mint", beats=(
-        B("Here is the most common last-minute bug.", speaker=AIDEN, cue="common", pause=0.4),
-        B("Zoe clicks her balloon. Pop! The balloon hides. That is her surprise.", speaker=AIDEN, cue="zoe",
+        B("Here is the most common last-minute bug.", speaker=NARRATOR, cue="common", pause=0.4),
+        B("Zoe clicks her balloon. Pop! The balloon hides. That is her surprise.", speaker=NARRATOR, cue="zoe",
           pause=1.0),
-        B("Now she clicks the green flag a second time. Watch the balloon.", speaker=AIDEN, cue="again",
+        B("Now she clicks the green flag a second time. Watch the balloon.", speaker=NARRATOR, cue="again",
           pause=2.6),
-        B("Where is the balloon? Why did it not come back?", speaker=AIDEN, cue="where", pause=3.2),
-        B("It stayed hidden! Nothing tells it to show again.", speaker=AIDEN, cue="hidden", pause=0.5),
-        B("The fix: put show, from purple Looks, at the top of a green flag script.", speaker=AIDEN, cue="fix",
+        B("Where is the balloon? Why did it not come back?", speaker=NARRATOR, cue="where", pause=3.2),
+        B("It stayed hidden! Nothing tells it to show again.", speaker=NARRATOR, cue="hidden", pause=0.5),
+        B("The fix: put show, from purple Looks, at the top of a green flag script.", speaker=NARRATOR, cue="fix",
           pause=0.8),
-        B("Click the flag again.", speaker=AIDEN, cue="test", pause=2.2),
-        B("The balloon is back! Every show starts fresh.", speaker=AIDEN, cue="back", pause=0.5),
-        B("Fix one thing, then stop building, and save.", speaker=AIDEN, cue="save", pause=0.5),
-        B("Now Zoe's card is ready for the show!", speaker=AIDEN, cue="ready", pause=0.8),
+        B("Click the flag again.", speaker=NARRATOR, cue="test", pause=2.2),
+        B("The balloon is back! Every show starts fresh.", speaker=NARRATOR, cue="back", pause=0.5),
+        B("Fix one thing, then stop building, and save.", speaker=NARRATOR, cue="save", pause=0.5),
+        B("Now Zoe's card is ready for the show!", speaker=NARRATOR, cue="ready", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Hidden Balloon", at="common", color="navy"),
         A("scratch", "Zoe's balloon", blocks=[CLICKED, POP, ("looks", "hide")], x=150, y=250, w=880, h=380,
@@ -89,12 +89,12 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 4. a chef explains a recipe --------------------------------------------------------------------
     Scene("j1-w10-s04", setting="peach", beats=(
-        B("At a showcase, you are like a chef on TV.", speaker=AIDEN, cue="chef", pause=0.4),
-        B("A chef shows the cake, and tells us one step of the recipe.", speaker=AIDEN, cue="cake", pause=0.6),
-        B("You are the chef. Your card is the cake. Your script is the recipe.", speaker=AIDEN, cue="you",
+        B("At a showcase, you are like a chef on TV.", speaker=NARRATOR, cue="chef", pause=0.4),
+        B("A chef shows the cake, and tells us one step of the recipe.", speaker=NARRATOR, cue="cake", pause=0.6),
+        B("You are the chef. Your card is the cake. Your script is the recipe.", speaker=NARRATOR, cue="you",
           pause=0.6),
         B("So first you show your card. Then you point at one script and tell us what it does.",
-          speaker=AIDEN, cue="point", pause=0.8),
+          speaker=NARRATOR, cue="point", pause=0.8),
         B("Yum! Code cake!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "you": "proud"}, point=("point", "point$")),
@@ -106,14 +106,14 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 5. the showcase sentence -----------------------------------------------------------------------
     Scene("j1-w10-s05", setting="mint", beats=(
-        B("Watch me do it with Mei's card for Grandpa.", speaker=AIDEN, cue="watch", pause=0.4),
-        B("First, I show it. I click the balloon.", speaker=AIDEN, cue="show", pause=2.8),
-        B("Now I point at the balloon's script, and read it from the top, one block at a time.", speaker=AIDEN,
+        B("Watch me do it with Mei's card for Grandpa.", speaker=NARRATOR, cue="watch", pause=0.4),
+        B("First, I show it. I click the balloon.", speaker=NARRATOR, cue="show", pause=2.8),
+        B("Now I point at the balloon's script, and read it from the top, one block at a time.", speaker=NARRATOR,
           cue="read", pause=0.5),
-        B("When this sprite clicked. Play sound Pop. Say Surprise!", speaker=AIDEN, cue="blocks", pause=0.6),
+        B("When this sprite clicked. Play sound Pop. Say Surprise!", speaker=NARRATOR, cue="blocks", pause=0.6),
         B("So here is my showcase sentence: My card is for Grandpa. When you click the balloon, it pops and "
-          "says Surprise!", speaker=AIDEN, cue="sentence", pause=0.6),
-        B("Did you see? First I showed it. Then I explained it.", speaker=AIDEN, cue="see", pause=0.8),
+          "says Surprise!", speaker=NARRATOR, cue="sentence", pause=0.6),
+        B("Did you see? First I showed it. Then I explained it.", speaker=NARRATOR, cue="see", pause=0.8),
     ), actions=(
         A("banner", "The showcase sentence", at="watch", color="green"),
         A("scratch", "Balloon's code", blocks=[CLICKED, POP, SURPRISE], x=150, y=280, w=900, h=440, scale=BIG,
@@ -129,11 +129,11 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 6. your sentence, and a quiz -------------------------------------------------------------------
     Scene("j1-w10-s06", setting="peach", beats=(
-        B("Now you! Say your sentence to the person next to you.", speaker=AIDEN, cue="now", pause=0.4),
-        B("My card is for... When you..., it...", speaker=AIDEN, cue="frame", pause=4.0),
-        B("If you get stuck, look at the hat block on top. Quick quiz!", speaker=AIDEN, cue="stuck", pause=0.4),
-        B("Look at this hat block. What do you do to start this script?", speaker=AIDEN, cue="quiz", pause=3.2),
-        B("You press the space key! The hat block tells you what starts the script.", speaker=AIDEN,
+        B("Now you! Say your sentence to the person next to you.", speaker=NARRATOR, cue="now", pause=0.4),
+        B("My card is for... When you..., it...", speaker=NARRATOR, cue="frame", pause=4.0),
+        B("If you get stuck, look at the hat block on top. Quick quiz!", speaker=NARRATOR, cue="stuck", pause=0.4),
+        B("Look at this hat block. What do you do to start this script?", speaker=NARRATOR, cue="quiz", pause=3.2),
+        B("You press the space key! The hat block tells you what starts the script.", speaker=NARRATOR,
           cue="space", pause=0.8),
     ), actions=(
         A("chip", "My card is for ...", at="frame", until="stuck", x=960, y=380, color="yellow", size=48),
@@ -148,15 +148,15 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 7. the gallery walk ----------------------------------------------------------------------------
     Scene("j1-w10-s07", setting="lavender", beats=(
-        B("Next comes the gallery walk, like visitors in a museum.", speaker=AIDEN, cue="museum", pause=0.4),
-        B("Put your hands behind your back. Ask before you click someone's card.", speaker=AIDEN, cue="hands",
+        B("Next comes the gallery walk, like visitors in a museum.", speaker=NARRATOR, cue="museum", pause=0.4),
+        B("Put your hands behind your back. Ask before you click someone's card.", speaker=NARRATOR, cue="hands",
           pause=0.6),
         B("Watch the card, then put a sticker on the part you liked best: the dance, the sound or the surprise.",
-          speaker=AIDEN, cue="sticker", pause=0.6),
-        B("Say it out loud: I liked the surprise!", speaker=AIDEN, cue="loud", pause=0.6),
-        B("Walk slowly from card to card. Look with your eyes, and wait until the owner says yes.", speaker=AIDEN,
+          speaker=NARRATOR, cue="sticker", pause=0.6),
+        B("Say it out loud: I liked the surprise!", speaker=NARRATOR, cue="loud", pause=0.6),
+        B("Walk slowly from card to card. Look with your eyes, and wait until the owner says yes.", speaker=NARRATOR,
           cue="slowly", pause=0.6),
-        B("Only kind words at a showcase. And we never change someone else's card.", speaker=AIDEN, cue="kind",
+        B("Only kind words at a showcase. And we never change someone else's card.", speaker=NARRATOR, cue="kind",
           pause=0.6),
         B("I liked the dance! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -173,16 +173,16 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 8. showcase safety -----------------------------------------------------------------------------
     Scene("j1-w10-s08", setting="workshop", beats=(
-        B("Now, showcase safety.", speaker=AIDEN, cue="safety", pause=0.4),
-        B("Our showcase is for our family, here at home.", speaker=AIDEN, cue="family", pause=0.5),
-        B("On the screen, we use nicknames. Never our full names, our school or our address.", speaker=AIDEN,
+        B("Now, showcase safety.", speaker=NARRATOR, cue="safety", pause=0.4),
+        B("Our showcase is for our family, here at home.", speaker=NARRATOR, cue="family", pause=0.5),
+        B("On the screen, we use nicknames. Never our full names, our school or our address.", speaker=NARRATOR,
           cue="nick", pause=0.6),
-        B("Should we put our card on the internet, for people we do not know?", speaker=AIDEN, cue="net",
+        B("Should we put our card on the internet, for people we do not know?", speaker=NARRATOR, cue="net",
           pause=3.0),
-        B("No! If you want to show your card to someone else, ask a grown-up first.", speaker=AIDEN, cue="no",
+        B("No! If you want to show your card to someone else, ask a grown-up first.", speaker=NARRATOR, cue="no",
           pause=0.6),
         B("And if a grown-up takes a photo of the showcase for the family album, it stays in the family, and "
-          "they ask you first.", speaker=AIDEN, cue="photo", pause=0.8),
+          "they ask you first.", speaker=NARRATOR, cue="photo", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"net": "thinking", "no": "proud"}, chin=("net", "no")),
         A("pixi", x=600, y=760, moods={"no": "happy"}),
@@ -196,10 +196,10 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 9. celebration dance ---------------------------------------------------------------------------
     Scene("j1-w10-s09", setting="workshop", beats=(
-        B("Time to celebrate! Stand up and do the dance from your card.", speaker=AIDEN, cue="stand", pause=0.5),
-        B("Do it four times, like a repeat. One, two, three, four!", speaker=AIDEN, cue="dance", pause=1.0),
-        B("Again! One, two, three, four!", speaker=AIDEN, cue="again", pause=1.4),
-        B("And now, one big clap together!", speaker=AIDEN, cue="clap", pause=1.6),
+        B("Time to celebrate! Stand up and do the dance from your card.", speaker=NARRATOR, cue="stand", pause=0.5),
+        B("Do it four times, like a repeat. One, two, three, four!", speaker=NARRATOR, cue="dance", pause=1.0),
+        B("Again! One, two, three, four!", speaker=NARRATOR, cue="again", pause=1.4),
+        B("And now, one big clap together!", speaker=NARRATOR, cue="clap", pause=1.6),
         B("Clap, clap, beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("stand", "end")], moods={"start": "happy", "clap": "proud"},
@@ -213,13 +213,13 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 10. the certificate ----------------------------------------------------------------------------
     Scene("j1-w10-s10", setting="workshop", beats=(
-        B("And now, the certificates!", speaker=AIDEN, cue="cert", pause=0.5),
-        B("You are now a Little Robots coder!", speaker=AIDEN, cue="coder", pause=0.6),
-        B("You planned a card, built it box by box, and explained your code.", speaker=AIDEN, cue="did",
+        B("And now, the certificates!", speaker=NARRATOR, cue="cert", pause=0.5),
+        B("You are now a Little Robots coder!", speaker=NARRATOR, cue="coder", pause=0.6),
+        B("You planned a card, built it box by box, and explained your code.", speaker=NARRATOR, cue="did",
           pause=0.6),
-        B("Hold your certificate up high! Everyone claps for you!", speaker=AIDEN, cue="high", pause=1.4),
-        B("What are you proudest of in your card?", speaker=AIDEN, cue="proud", pause=3.0),
-        B("And what would you like to make next?", speaker=AIDEN, cue="nextq", pause=3.0),
+        B("Hold your certificate up high! Everyone claps for you!", speaker=NARRATOR, cue="high", pause=1.4),
+        B("What are you proudest of in your card?", speaker=NARRATOR, cue="proud", pause=3.0),
+        B("And what would you like to make next?", speaker=NARRATOR, cue="nextq", pause=3.0),
         B("Hooray for you!", speaker=PIXI, cue="hooray", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "proud", "proud": "thinking", "hooray": "happy"},
@@ -239,14 +239,14 @@ EPISODE = Episode(level="j1", week=10, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j1-w10-s11", setting="workshop", tail=0.8, beats=(
-        B("Say it with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Show!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Explain!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Celebrate!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Now it's your turn, with your family.", speaker=AIDEN, cue="turn", pause=0.4),
+        B("Say it with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Show!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Explain!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Celebrate!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Now it's your turn, with your family.", speaker=NARRATOR, cue="turn", pause=0.4),
         B("Do the bug check. Show your card and say what one script does. Then give kind sticker feedback.",
-          speaker=AIDEN, cue="next", pause=0.6),
-        B("Put your certificate where you can see it. You did it! Happy coding!", speaker=AIDEN, cue="bye",
+          speaker=NARRATOR, cue="next", pause=0.6),
+        B("Put your certificate where you can see it. You did it! Happy coding!", speaker=NARRATOR, cue="bye",
           pause=0.4),
         B("Beep boop, bye, coders!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(

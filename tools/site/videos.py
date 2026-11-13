@@ -8,7 +8,7 @@ the same place. When a video is replaced on the release, the next build shows th
 
 Where the files come from (environment variable SITE_VIDEOS):
   unset          the `videos` release of this repository (GITHUB_REPOSITORY, or the default below)
-  a folder path  a local folder with the same files, e.g. videos/output/web after publish-videos
+  a folder path  a local output root, e.g. videos/output; grade-band web folders are found below it
   off            no videos (the pages are built without the player)
 
 If the files cannot be fetched, the site is still built, without videos, and a note is printed.
@@ -67,16 +67,23 @@ class _Source:
     def describe(self) -> str:
         return str(self.folder) if self.folder else self.base_url
 
+    def _local_path(self, name: str) -> Path:
+        """Find new grade-band output first, while accepting the old flat preview layout."""
+        assert self.folder is not None
+        band = "grades-2-3" if name.startswith("junior") else "grades-4-6"
+        candidates = (self.folder / band / "web" / name, self.folder / "web" / name, self.folder / name)
+        return next((path for path in candidates if path.is_file()), candidates[0])
+
     def manifest(self, name: str = MANIFEST) -> dict:
         if self.folder:
-            return json.loads((self.folder / name).read_text(encoding="utf-8"))
+            return json.loads(self._local_path(name).read_text(encoding="utf-8"))
         target = CACHE / name
         _download(self.base_url + name, target)  # always fresh: it says which files changed
         return json.loads(target.read_text(encoding="utf-8"))
 
     def fetch(self, name: str, sha256: str | None) -> Path:
         if self.folder:
-            path = self.folder / name
+            path = self._local_path(name)
         else:
             path = CACHE / name
             if not (path.is_file() and sha256 and _sha256(path) == sha256):

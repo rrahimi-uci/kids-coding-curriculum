@@ -16,7 +16,7 @@
    "scenes": [
     {
      "scene_id": "j1-w01-s01",
-     "narration": "Hi! I'm Aiden. I'm eight years old, and I love making things. And this is my robot friend, Pixi! Beep boop! Hello, coders! I'm so happy to meet you! Welcome to Kids Coding! In this club, you will make your own animations and games. But first, I want to know about you. What do you like to make? Drawings? Songs? Stories? Those are all great ideas! Every answer is a good answer. Today, we start without a computer. We start with a robot!",
+     "narration": "Meet Aiden, an eight-year-old scientist and builder who loves making things. And meet Pixi, his helpful robot friend! Beep boop! Hello, coders! I'm so happy to meet you! Welcome to Kids Coding! In this club, you will make your own animations and games. But first, I want to know about you. What do you like to make? Drawings? Songs? Stories? Those are all great ideas! Every answer is a good answer. Today, we start without a computer. We start with a robot!",
      "on_screen_text": [
       "MISSION: Help the robot reach the star",
       "No computer today!"
@@ -24,7 +24,7 @@
     },
     {
      "scene_id": "j1-w01-s02",
-     "narration": "Every coder in our club has a nickname. A nickname is a pretend name. We use it instead of our real name. My coding nickname is Rocket Fox. And mine is Captain Bolt! Beep! What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda? Ask your grown-up to help you write it on a sticky note. That is your coding badge!",
+     "narration": "Every coder in our club has a nickname. A nickname is a pretend name. We use it instead of our real name. Aiden's coding nickname is Rocket Fox. And mine is Captain Bolt! Beep! What nickname will you pick? Maybe Rainbow Shark, or Pixel Panda? Ask your grown-up to help you write it on a sticky note. That is your coding badge!",
      "on_screen_text": [
       "nickname = a pretend name",
       "Rocket Fox",
@@ -132,7 +132,7 @@
    "scenes": [
     {
      "scene_id": "j1-w02-s01",
-     "narration": "Hi! I'm Aiden, and this is my robot friend, Pixi. Beep boop! Hello, coders! Last week, we were robots. We followed exact steps, one card at a time. Today, we give steps to a computer instead. We will use an app called Scratch, and we will make a cat talk, meow and move! Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, coders! Last week, we were robots. We followed exact steps, one card at a time. Today, we give steps to a computer instead. We will use an app called Scratch, and we will make a cat talk, meow and move! Are you ready? Let's go!",
      "on_screen_text": [
       "MISSION: Make the cat talk"
      ]
@@ -243,7 +243,7 @@
    "scenes": [
     {
      "scene_id": "j1-w03-s01",
-     "narration": "Hi, coders! It's me, Aiden, and my robot friend, Pixi. Beep boop! Hello again! Last week, we made the cat talk, meow and move in Scratch. Today, we become bug detectives! A bug is a mistake in a program. And here is a secret: a bug is not bad news. A bug is a clue! Grab your magnifying glass. Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello again! Last week, we made the cat talk, meow and move in Scratch. Today, we become bug detectives! A bug is a mistake in a program. And here is a secret: a bug is not bad news. A bug is a clue! Grab your magnifying glass. Let's go!",
      "on_screen_text": [
       "MISSION: Be a bug detective",
       "bug = a mistake in a program",
@@ -364,7 +364,7 @@
    "scenes": [
     {
      "scene_id": "j1-w04-s01",
-     "narration": "Hi, coders! It's Aiden and Pixi again! Beep boop! Hello! Last week, we were bug detectives: test, look, change one thing. Today, we learn a coding superpower. It is called repeat! And we will make a ballerina dance. Are you ready to dance?",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello! Last week, we were bug detectives: test, look, change one thing. Today, we learn a coding superpower. It is called repeat! And we will make a ballerina dance. Are you ready to dance?",
      "on_screen_text": [
       "test • look • change one thing",
       "repeat",
@@ -502,7 +502,7 @@
    "scenes": [
     {
      "scene_id": "j1-w05-s01",
-     "narration": "Hi, coders! Guess what? Today is Play Day! Play Day! Beep beep, hooray! Today, we practice everything we know: steps in order, repeat, and fixing bugs. Then you make your very best show, and show a grown-up what you can do. It is not a test. It is play! Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Play Day! Beep beep, hooray! Today, we practice everything we know: steps in order, repeat, and fixing bugs. Then you make your very best show, and show a grown-up what you can do. It is not a test. It is play! Let's go!",
      "on_screen_text": [
       "MISSION: Play Day!",
       "Not a test. It is play!"
@@ -612,7 +612,7 @@
    "scenes": [
     {
      "scene_id": "j1-w06-s01",
-     "narration": "Hi, coders! It's Aiden and Pixi! Beep boop! Hello! So far, every script we made starts with the green flag. Today, we learn two new ways to start a script: a click on a sprite, and a key on the keyboard! Click the cat, and it talks. Press a key, and it moves. Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello! So far, every script we made starts with the green flag. Today, we learn two new ways to start a script: a click on a sprite, and a key on the keyboard! Click the cat, and it talks. Press a key, and it moves. Let's go!",
      "on_screen_text": [
       "MISSION: Make the cat listen"
      ]
@@ -740,7 +740,7 @@
    "scenes": [
     {
      "scene_id": "j1-w07-s01",
-     "narration": "Hi, coders! It's me, Aiden, and my robot friend, Pixi. Beep boop! Hello again! Last week, a click or a key could start our code. Today, we put two sprites on the stage, and they talk to each other. But they must take turns, like good friends do. Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello again! Last week, a click or a key could start our code. Today, we put two sprites on the stage, and they talk to each other. But they must take turns, like good friends do. Are you ready? Let's go!",
      "on_screen_text": [
       "flag • click • key",
       "MISSION: Two sprites take turns to talk",
@@ -853,7 +853,7 @@
    "scenes": [
     {
      "scene_id": "j1-w08-s01",
-     "narration": "Hi, coders! It's Aiden and Pixi again. Beep boop! Hello, artists! Last week, two sprites took turns to talk. Today, the cat gets a crayon, and it draws a square for us! Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Hello, artists! Last week, two sprites took turns to talk. Today, the cat gets a crayon, and it draws a square for us! Are you ready? Let's go!",
      "on_screen_text": [
       "two sprites take turns",
       "MISSION: Make the cat draw a square"
@@ -973,7 +973,7 @@
    "scenes": [
     {
      "scene_id": "j1-w09-s01",
-     "narration": "Hi, coders! Aiden and Pixi here. Beep boop! Welcome to the studio! Last week, the cat drew a square with the pen. Today is Project Studio. We make a big project: an animated greeting card for someone special. First we plan it. Then we build it, one piece at a time. Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Welcome to the studio! Last week, the cat drew a square with the pen. Today is Project Studio. We make a big project: an animated greeting card for someone special. First we plan it. Then we build it, one piece at a time. Let's go!",
      "on_screen_text": [
       "pen down • quarter turn",
       "MISSION: My Animated Greeting Card"
@@ -1087,7 +1087,7 @@
    "scenes": [
     {
      "scene_id": "j1-w10-s01",
-     "narration": "Hi, coders! It's Aiden and Pixi, and today is a very special day. Beep boop! Party time! You worked so hard on your greeting cards. Today is our showcase. A showcase is a little show where we share what we made. You will show your greeting card, say what one script does, and then we celebrate! Are you ready? Let's go!",
+     "narration": "Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend. Beep boop! Party time! You worked so hard on your greeting cards. Today is our showcase. A showcase is a little show where we share what we made. You will show your greeting card, say what one script does, and then we celebrate! Are you ready? Let's go!",
      "on_screen_text": [
       "MISSION: Show, explain and celebrate"
      ]

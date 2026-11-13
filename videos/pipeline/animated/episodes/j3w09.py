@@ -9,7 +9,7 @@ roof line that is not pushed in), acting out the plan card, and "Can everyone se
 No child's finished Big Build is shown: only the lesson's own planning and worked examples.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 # The working starter (project/starter/postcard.py) without its comments: an orange house, a purple roof.
 POSTCARD = """import turtle
@@ -63,14 +63,14 @@ LEO = [("event", "when [space] key pressed"), ("motion", "go to [mouse-pointer]"
 EPISODE = Episode(level="j3", week=9, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j3-w09-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, builders!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Today is a big day. You build your own big project: your Big Build!", speaker=AIDEN, cue="big",
+        B("Today is a big day. You build your own big project: your Big Build!", speaker=NARRATOR, cue="big",
           pause=0.5),
-        B("Builders draw a plan before they build a house. Coders do too.", speaker=AIDEN, cue="plan",
+        B("Builders draw a plan before they build a house. Coders do too.", speaker=NARRATOR, cue="plan",
           pause=0.5),
-        B("First we plan. Then we build. Then we test.", speaker=AIDEN, cue="pbt", pause=0.6),
-        B("Let's go!", speaker=AIDEN, cue="go", pause=1.0),
+        B("First we plan. Then we build. Then we test.", speaker=NARRATOR, cue="pbt", pause=0.6),
+        B("Let's go!", speaker=NARRATOR, cue="go", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("go", "end")],
           moods={"start": "happy", "big": "proud"}),
@@ -83,12 +83,12 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 2. choose a path --------------------------------------------------------------------------------
     Scene("j3-w09-s02", setting="peach", beats=(
-        B("First, choose a path. Both are great!", speaker=AIDEN, cue="choose", pause=0.4),
-        B("Path A is Scratch: a game or an art app.", speaker=AIDEN, cue="a", pause=0.5),
-        B("Path B is Python: a turtle postcard picture.", speaker=AIDEN, cue="b", pause=0.5),
-        B("Can't choose? Ask yourself: do I want people to play it, or to look at it?", speaker=AIDEN,
+        B("First, choose a path. Both are great!", speaker=NARRATOR, cue="choose", pause=0.4),
+        B("Path A is Scratch: a game or an art app.", speaker=NARRATOR, cue="a", pause=0.5),
+        B("Path B is Python: a turtle postcard picture.", speaker=NARRATOR, cue="b", pause=0.5),
+        B("Can't choose? Ask yourself: do I want people to play it, or to look at it?", speaker=NARRATOR,
           cue="ask", pause=3.0),
-        B("Play it? Pick Scratch. Look at it? Pick Python.", speaker=AIDEN, cue="pick", pause=0.8),
+        B("Play it? Pick Scratch. Look at it? Pick Python.", speaker=NARRATOR, cue="pick", pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "ask": "thinking", "pick": "happy"},
           chin=("ask", "pick")),
@@ -100,12 +100,12 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 3. the must-haves -------------------------------------------------------------------------------
     Scene("j3-w09-s03", setting="lavender", beats=(
-        B("Each path has must-haves.", speaker=AIDEN, cue="must", pause=0.4),
+        B("Each path has must-haves.", speaker=NARRATOR, cue="must", pause=0.4),
         B("Scratch needs the green flag, a repeat inside a repeat or a My Block, and a score or a counter.",
-          speaker=AIDEN, cue="scratch", pause=0.6),
-        B("Python needs a program that runs, a for loop, two colors, and a shape you changed.", speaker=AIDEN,
+          speaker=NARRATOR, cue="scratch", pause=0.6),
+        B("Python needs a program that runs, a for loop, two colors, and a shape you changed.", speaker=NARRATOR,
           cue="python", pause=0.6),
-        B("Both paths need a plan card, and a partner check.", speaker=AIDEN, cue="both", pause=0.8),
+        B("Both paths need a plan card, and a partner check.", speaker=NARRATOR, cue="both", pause=0.8),
     ), actions=(
         A("chip", "My must-haves", at="must", until="scratch", x=960, y=420, color="yellow", size=52),
         A("panel", "A: Scratch", at="scratch", x=100, y=200, w=820, size=34, color="orange",
@@ -119,16 +119,16 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 4. the plan card: Omar's planning example ----------------------------------------------------------
     Scene("j3-w09-s04", setting="sky", beats=(
-        B("Now, the plan card. Here is Omar's.", speaker=AIDEN, cue="card", pause=0.4),
-        B("He circled B, for Python.", speaker=AIDEN, cue="circled", pause=0.4),
-        B("He drew what it will look like: a house with a roof, and a sun.", speaker=AIDEN, cue="drew",
+        B("Now, the plan card. Here is Omar's.", speaker=NARRATOR, cue="card", pause=0.4),
+        B("He circled B, for Python.", speaker=NARRATOR, cue="circled", pause=0.4),
+        B("He drew what it will look like: a house with a roof, and a sun.", speaker=NARRATOR, cue="drew",
           pause=0.5),
         B("He named three parts, in the order he will build them: the house, the roof, and a sun.",
-          speaker=AIDEN, cue="parts", pause=0.6),
-        B("He checked his must-haves, and wrote whose idea he used: the starter program.", speaker=AIDEN,
+          speaker=NARRATOR, cue="parts", pause=0.6),
+        B("He checked his must-haves, and wrote whose idea he used: the starter program.", speaker=NARRATOR,
           cue="idea", pause=0.6),
-        B("Keep it quick. A quick drawing is perfect!", speaker=AIDEN, cue="quick", pause=0.5),
-        B("Three parts is plenty. Extra ideas go on the back of the card, for later.", speaker=AIDEN,
+        B("Keep it quick. A quick drawing is perfect!", speaker=NARRATOR, cue="quick", pause=0.5),
+        B("Three parts is plenty. Extra ideas go on the back of the card, for later.", speaker=NARRATOR,
           cue="plenty", pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "quick": "proud"}, point=("card", "card$")),
@@ -142,12 +142,12 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 5. one part at a time: the snowman -----------------------------------------------------------------
     Scene("j3-w09-s05", setting="mint", beats=(
-        B("We don't build the whole project at once.", speaker=AIDEN, cue="whole", pause=0.4),
-        B("It's like a snowman. You roll the bottom ball, and check that it stands.", speaker=AIDEN,
+        B("We don't build the whole project at once.", speaker=NARRATOR, cue="whole", pause=0.4),
+        B("It's like a snowman. You roll the bottom ball, and check that it stands.", speaker=NARRATOR,
           cue="snow", pause=0.5),
-        B("Then the middle. Then the head.", speaker=AIDEN, cue="middle", pause=0.6),
-        B("Build one part. Test it. Check it off. Then the next part.", speaker=AIDEN, cue="one", pause=0.6),
-        B("If something breaks, we know where to look: in the part we just made.", speaker=AIDEN,
+        B("Then the middle. Then the head.", speaker=NARRATOR, cue="middle", pause=0.6),
+        B("Build one part. Test it. Check it off. Then the next part.", speaker=NARRATOR, cue="one", pause=0.6),
+        B("If something breaks, we know where to look: in the part we just made.", speaker=NARRATOR,
           cue="breaks", pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "breaks": "proud"}),
@@ -161,19 +161,19 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 6. worked example: Omar's postcard, part by part ---------------------------------------------------
     Scene("j3-w09-s06", setting="mint", beats=(
-        B("Let's watch Omar build, part by part.", speaker=AIDEN, cue="watch", pause=0.4),
+        B("Let's watch Omar build, part by part.", speaker=NARRATOR, cue="watch", pause=0.4),
         B("First, he presses Run. The starter already works: an orange house with a purple roof.",
-          speaker=AIDEN, cue="run", pause=1.6),
-        B("Part one, the house. He changes orange to blue, and keeps the quote marks.", speaker=AIDEN,
+          speaker=NARRATOR, cue="run", pause=1.6),
+        B("Part one, the house. He changes orange to blue, and keeps the quote marks.", speaker=NARRATOR,
           cue="p1", pause=0.5),
-        B("Quick quiz! Omar changed one line. What should he do next?", speaker=AIDEN, cue="quiz", pause=3.0),
-        B("Press Run, and test it!", speaker=AIDEN, cue="test", pause=2.4),
-        B("A blue house! Check it off.", speaker=AIDEN, cue="check", pause=0.5),
-        B("Next, he changes purple to gold, and runs it again.", speaker=AIDEN, cue="p2", pause=2.6),
+        B("Quick quiz! Omar changed one line. What should he do next?", speaker=NARRATOR, cue="quiz", pause=3.0),
+        B("Press Run, and test it!", speaker=NARRATOR, cue="test", pause=2.4),
+        B("A blue house! Check it off.", speaker=NARRATOR, cue="check", pause=0.5),
+        B("Next, he changes purple to gold, and runs it again.", speaker=NARRATOR, cue="p2", pause=2.6),
         B("Then he makes the house bigger. He changes all three one hundreds to one hundred twenty.",
-          speaker=AIDEN, cue="p3", pause=2.8),
-        B("A bigger house! He changed a shape. That is a must-have.", speaker=AIDEN, cue="bigger", pause=0.5),
-        B("Then he clicks Save. Save often, so the working version stays safe!", speaker=AIDEN, cue="saved",
+          speaker=NARRATOR, cue="p3", pause=2.8),
+        B("A bigger house! He changed a shape. That is a must-have.", speaker=NARRATOR, cue="bigger", pause=0.5),
+        B("Then he clicks Save. Save often, so the working version stays safe!", speaker=NARRATOR, cue="saved",
           pause=0.8),
     ), actions=(
         A("code", code=VIEW, title="postcard_omar.py", x=60, y=180, w=1100, h=640, size=40, shell=False,
@@ -199,11 +199,11 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 7. path A in one look: Leo's Flower Garden ---------------------------------------------------------
     Scene("j3-w09-s07", setting="lavender", beats=(
-        B("On the Scratch path, here is Leo's Flower Garden.", speaker=AIDEN, cue="leo", pause=0.4),
-        B("Press the space key, and a flower of six squares appears at the mouse pointer.", speaker=AIDEN,
+        B("On the Scratch path, here is Leo's Flower Garden.", speaker=NARRATOR, cue="leo", pause=0.4),
+        B("Press the space key, and a flower of six squares appears at the mouse pointer.", speaker=NARRATOR,
           cue="space", pause=0.6),
-        B("The flowers counter goes up by one, every time.", speaker=AIDEN, cue="counter", pause=0.6),
-        B("A repeat inside a repeat, and a counter. Both must-haves!", speaker=AIDEN, cue="both", pause=0.8),
+        B("The flowers counter goes up by one, every time.", speaker=NARRATOR, cue="counter", pause=0.6),
+        B("A repeat inside a repeat, and a counter. Both must-haves!", speaker=NARRATOR, cue="both", pause=0.8),
     ), actions=(
         A("scratch", "Leo's Flower Garden", blocks=LEO, x=80, y=150, w=980, h=880, scale=1.0, at="leo",
           highlight=[(3, "both", "both$+0.4"), (5, "counter", "counter$")]),
@@ -215,19 +215,19 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 8. bug hunt: the partner check ---------------------------------------------------------------------
     Scene("j3-w09-s08", setting="mint", beats=(
-        B("Now, the partner check. It is our bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
-        B("Swap seats. Your partner holds your plan card, presses Run, and checks each part.", speaker=AIDEN,
+        B("Now, the partner check. It is our bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("Swap seats. Your partner holds your plan card, presses Run, and checks each part.", speaker=NARRATOR,
           cue="swap", pause=0.5),
-        B("Mei checks Omar's postcard. Part one, the house: matches!", speaker=AIDEN, cue="house", pause=0.5),
-        B("Part two, the roof: not yet!", speaker=AIDEN, cue="roof", pause=0.5),
-        B("Mei says it like a good bug report: I expected a roof, but it drew one long line.", speaker=AIDEN,
+        B("Mei checks Omar's postcard. Part one, the house: matches!", speaker=NARRATOR, cue="house", pause=0.5),
+        B("Part two, the roof: not yet!", speaker=NARRATOR, cue="roof", pause=0.5),
+        B("Mei says it like a good bug report: I expected a roof, but it drew one long line.", speaker=NARRATOR,
           cue="report", pause=0.6),
-        B("Can you see the bug?", speaker=AIDEN, cue="see", pause=3.0),
-        B("T dot left one hundred twenty is not pushed in, so it runs only once.", speaker=AIDEN, cue="lonely",
+        B("Can you see the bug?", speaker=NARRATOR, cue="see", pause=3.0),
+        B("T dot left one hundred twenty is not pushed in, so it runs only once.", speaker=NARRATOR, cue="lonely",
           pause=0.6),
         B("Omar fixes it himself, with one press of Tab. The partner finds it. The owner fixes it.",
-          speaker=AIDEN, cue="fix", pause=2.8),
-        B("A roof! Check it off.", speaker=AIDEN, cue="roof2", pause=0.5),
+          speaker=NARRATOR, cue="fix", pause=2.8),
+        B("A roof! Check it off.", speaker=NARRATOR, cue="roof2", pause=0.5),
         B("Matches! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The partner check", at="bug", color="navy"),
@@ -250,12 +250,12 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 9. wiggle break: act out your plan card ----------------------------------------------------------------
     Scene("j3-w09-s09", setting="workshop", beats=(
-        B("Wiggle break! Stand up and act out your plan card.", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("Part one: strike a pose!", speaker=AIDEN, cue="p1", pause=2.2),
-        B("Part two: make a move, and repeat it four times!", speaker=AIDEN, cue="p2", pause=0.4),
+        B("Wiggle break! Stand up and act out your plan card.", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("Part one: strike a pose!", speaker=NARRATOR, cue="p1", pause=2.2),
+        B("Part two: make a move, and repeat it four times!", speaker=NARRATOR, cue="p2", pause=0.4),
         B("One, two, three, four!", speaker=PIXI, cue="count", pause=0.8),
-        B("Part three: a big finish!", speaker=AIDEN, cue="p3", pause=2.0),
-        B("Ta-da! Great building, builders!", speaker=AIDEN, cue="tada", pause=1.0),
+        B("Part three: a big finish!", speaker=NARRATOR, cue="p3", pause=2.0),
+        B("Ta-da! Great building, builders!", speaker=NARRATOR, cue="tada", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("p1", "p1$+1.0"), ("p3", "end")],
           moods={"start": "happy", "p1": "proud", "tada": "proud"}),
@@ -271,16 +271,16 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 10. can everyone see it? -----------------------------------------------------------------------------
     Scene("j3-w09-s10", setting="sky", beats=(
-        B("Can everyone see your project?", speaker=AIDEN, cue="see", pause=0.4),
+        B("Can everyone see your project?", speaker=NARRATOR, cue="see", pause=0.4),
         B("Some people see red and green as the same color. Some people need things big to see them.",
-          speaker=AIDEN, cue="some", pause=0.5),
+          speaker=NARRATOR, cue="some", pause=0.5),
         B("Try the squint test. Squint your eyes at this postcard. Can you still see every part?",
-          speaker=AIDEN, cue="squint", pause=3.0),
-        B("The thin yellow lines almost disappear!", speaker=AIDEN, cue="yellow", pause=0.5),
+          speaker=NARRATOR, cue="squint", pause=3.0),
+        B("The thin yellow lines almost disappear!", speaker=NARRATOR, cue="yellow", pause=0.5),
         B("Use thick lines, a pen size of five or more. Put dark next to light, like blue next to gold.",
-          speaker=AIDEN, cue="tips", pause=0.6),
-        B("Don't use color alone, and make things big enough to see.", speaker=AIDEN, cue="more", pause=0.5),
-        B("And check that every plan card says whose idea you used, with nicknames only.", speaker=AIDEN,
+          speaker=NARRATOR, cue="tips", pause=0.6),
+        B("Don't use color alone, and make things big enough to see.", speaker=NARRATOR, cue="more", pause=0.5),
+        B("And check that every plan card says whose idea you used, with nicknames only.", speaker=NARRATOR,
           cue="credit", pause=0.8),
     ), actions=(
         A("icons", at="see@0.3", until="squint", x=1060, y=420, gap=420,
@@ -299,18 +299,18 @@ EPISODE = Episode(level="j3", week=9, scenes=(
     )),
     # 11. recap and next ---------------------------------------------------------------------------------------
     Scene("j3-w09-s11", setting="workshop", tail=0.8, beats=(
-        B("Say it with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Plan!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Build!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Test!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Today: fill in your plan card, then make it work, one part at a time.", speaker=AIDEN, cue="today",
+        B("Say it with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Plan!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Build!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Test!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Today: fill in your plan card, then make it work, one part at a time.", speaker=NARRATOR, cue="today",
           pause=0.5),
-        B("Next week is the showcase!", speaker=AIDEN, cue="showcase", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Make your plan card, build part by part, then do the partner check.", speaker=AIDEN, cue="next",
+        B("Next week is the showcase!", speaker=NARRATOR, cue="showcase", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Make your plan card, build part by part, then do the partner check.", speaker=NARRATOR, cue="next",
           pause=0.6),
-        B("And save often!", speaker=AIDEN, cue="save", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("And save often!", speaker=NARRATOR, cue="save", pause=0.5),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

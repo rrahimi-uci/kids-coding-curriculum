@@ -8,7 +8,7 @@ Score (change score by 0 instead of set score to 0), count-up jumps, and fair sc
 The kit has no Bananas sprite, so the Sticky Score bug hunt shows the score box instead of a stage.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 CLICKED = ("event", "when this sprite clicked")
@@ -21,13 +21,13 @@ SPRITE = 1.0  # sprite size on the stage
 EPISODE = Episode(level="j2", week=3, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w03-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, game makers!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, we built a catch game. But how many apples did we catch?", speaker=AIDEN, cue="last",
+        B("Last week, we built a catch game. But how many apples did we catch?", speaker=NARRATOR, cue="last",
           pause=0.5),
-        B("Nobody knows! The game does not remember.", speaker=AIDEN, cue="nobody", pause=0.5),
-        B("Today, we teach our games to keep score!", speaker=AIDEN, cue="mission", pause=0.5),
-        B("Let's go!", speaker=AIDEN, cue="go", pause=1.0),
+        B("Nobody knows! The game does not remember.", speaker=NARRATOR, cue="nobody", pause=0.5),
+        B("Today, we teach our games to keep score!", speaker=NARRATOR, cue="mission", pause=0.5),
+        B("Let's go!", speaker=NARRATOR, cue="go", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("go", "end")],
           moods={"start": "happy", "nobody": "confused", "mission": "proud"}),
@@ -45,17 +45,17 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 2. the SCORE and LIVES boxes (the lesson's warm-up) -----------------------------------------------
     Scene("j2-w03-s02", setting="workshop", beats=(
-        B("Let's warm up with two boxes. One says SCORE. One says LIVES.", speaker=AIDEN, cue="boxes",
+        B("Let's warm up with two boxes. One says SCORE. One says LIVES.", speaker=NARRATOR, cue="boxes",
           pause=0.4),
-        B("Each box remembers a number. We count the counters inside.", speaker=AIDEN, cue="count", pause=0.5),
+        B("Each box remembers a number. We count the counters inside.", speaker=NARRATOR, cue="count", pause=0.5),
         B("Start of the game! Set score to zero: empty the box. Set lives to three: put in three counters.",
-          speaker=AIDEN, cue="set", pause=0.6),
-        B("Pixi throws a sock ball at the basket.", speaker=AIDEN, cue="throw", pause=0.4),
+          speaker=NARRATOR, cue="set", pause=0.6),
+        B("Pixi throws a sock ball at the basket.", speaker=NARRATOR, cue="throw", pause=0.4),
         B("In!", speaker=PIXI, cue="in", pause=0.4),
-        B("Change score by one: one counter goes in.", speaker=AIDEN, cue="change", pause=0.6),
+        B("Change score by one: one counter goes in.", speaker=NARRATOR, cue="change", pause=0.6),
         B("Oops, missed!", speaker=PIXI, cue="miss", pause=0.4),
-        B("One counter comes out of LIVES.", speaker=AIDEN, cue="lives", pause=0.5),
-        B("The boxes remember the numbers for the whole game.", speaker=AIDEN, cue="remember", pause=0.8),
+        B("One counter comes out of LIVES.", speaker=NARRATOR, cue="lives", pause=0.5),
+        B("The boxes remember the numbers for the whole game.", speaker=NARRATOR, cue="remember", pause=0.8),
     ), actions=(
         A("aiden", x=280, y=980, s=0.85, moods={"start": "happy", "miss": "surprised", "remember": "proud"},
           point=("set", "set$")),
@@ -75,17 +75,17 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 3. a variable is a labeled box ---------------------------------------------------------------
     Scene("j2-w03-s03", setting="lavender", beats=(
-        B("In Scratch, a labeled box for a number is called a variable.", speaker=AIDEN, cue="variable",
+        B("In Scratch, a labeled box for a number is called a variable.", speaker=NARRATOR, cue="variable",
           pause=0.5),
-        B("Games use variables for the score, the lives, and the time.", speaker=AIDEN, cue="games", pause=0.4),
-        B("We make one in the orange-red Variables circle.", speaker=AIDEN, cue="circle", pause=0.5),
-        B("Two blocks matter today.", speaker=AIDEN, cue="two", pause=0.3),
-        B("Set puts in a new number, like setting the score to zero at the start.", speaker=AIDEN, cue="set",
+        B("Games use variables for the score, the lives, and the time.", speaker=NARRATOR, cue="games", pause=0.4),
+        B("We make one in the orange-red Variables circle.", speaker=NARRATOR, cue="circle", pause=0.5),
+        B("Two blocks matter today.", speaker=NARRATOR, cue="two", pause=0.3),
+        B("Set puts in a new number, like setting the score to zero at the start.", speaker=NARRATOR, cue="set",
           pause=0.6),
-        B("Change by one adds one more, like dropping in one counter.", speaker=AIDEN, cue="change", pause=0.6),
-        B("Think of a scoreboard. It says zero at the start of every game. Each goal adds one.", speaker=AIDEN,
+        B("Change by one adds one more, like dropping in one counter.", speaker=NARRATOR, cue="change", pause=0.6),
+        B("Think of a scoreboard. It says zero at the start of every game. Each goal adds one.", speaker=NARRATOR,
           cue="board", pause=0.5),
-        B("A variable is a scoreboard that a sprite can change.", speaker=AIDEN, cue="sprite", pause=0.8),
+        B("A variable is a scoreboard that a sprite can change.", speaker=NARRATOR, cue="sprite", pause=0.8),
     ), actions=(
         A("box", "score", at="variable", x=1440, y=420, w=340, h=220, size=84,
           values=[("variable", 0), ("change@0.4", 1), ("board", 0), ("board@0.7", 1), ("board@0.85", 2)]),
@@ -103,15 +103,15 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 4. build Pop the Balloon (Exercise 3.1) -----------------------------------------------------------
     Scene("j2-w03-s04", setting="mint", beats=(
-        B("Let's build Exercise 3.1, Pop the Balloon.", speaker=AIDEN, cue="build", pause=0.4),
-        B("Choose a Sprite: pick Balloon1.", speaker=AIDEN, cue="balloon", pause=0.5),
+        B("Let's build Exercise 3.1, Pop the Balloon.", speaker=NARRATOR, cue="build", pause=0.4),
+        B("Choose a Sprite: pick Balloon1.", speaker=NARRATOR, cue="balloon", pause=0.5),
         B("Orange-red Variables: click Make a Variable. Type score, keep For all sprites, and click OK.",
-          speaker=AIDEN, cue="make", pause=0.6),
-        B("A score window appears on the stage, showing zero.", speaker=AIDEN, cue="window", pause=0.6),
+          speaker=NARRATOR, cue="make", pause=0.6),
+        B("A score window appears on the stage, showing zero.", speaker=NARRATOR, cue="window", pause=0.6),
         B("Yellow Events: when green flag clicked. Snap on set score to zero, and show variable score.",
-          speaker=AIDEN, cue="flag", pause=0.7),
-        B("Now a second script: when this sprite clicked.", speaker=AIDEN, cue="second", pause=0.5),
-        B("Snap on change score by one, start sound Pop, and next costume.", speaker=AIDEN, cue="snap",
+          speaker=NARRATOR, cue="flag", pause=0.7),
+        B("Now a second script: when this sprite clicked.", speaker=NARRATOR, cue="second", pause=0.5),
+        B("Snap on change score by one, start sound Pop, and next costume.", speaker=NARRATOR, cue="snap",
           pause=0.8),
     ), actions=(
         A("banner", "Exercise 3.1: Pop the Balloon", at="build", color="green"),
@@ -128,12 +128,12 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 5. test it: set and change -------------------------------------------------------------------------
     Scene("j2-w03-s05", setting="sky", beats=(
-        B("Click the flag. Now click the balloon five times.", speaker=AIDEN, cue="click", pause=0.3),
+        B("Click the flag. Now click the balloon five times.", speaker=NARRATOR, cue="click", pause=0.3),
         B("Pop, pop, pop, pop, pop!", speaker=PIXI, cue="pops", pause=0.6),
-        B("The score counts: one, two, three, four, five.", speaker=AIDEN, cue="counts", pause=0.6),
-        B("Now click the flag again. What will the score say?", speaker=AIDEN, cue="again", pause=3.0),
-        B("Zero! Set empties the box. Change adds one.", speaker=AIDEN, cue="zero", pause=0.5),
-        B("Every new game starts at zero.", speaker=AIDEN, cue="every", pause=0.8),
+        B("The score counts: one, two, three, four, five.", speaker=NARRATOR, cue="counts", pause=0.6),
+        B("Now click the flag again. What will the score say?", speaker=NARRATOR, cue="again", pause=3.0),
+        B("Zero! Set empties the box. Change adds one.", speaker=NARRATOR, cue="zero", pause=0.5),
+        B("Every new game starts at zero.", speaker=NARRATOR, cue="every", pause=0.8),
     ), actions=(
         A("stage", x=1000, y=230, w=800, h=540, flag_at="click@0.2", sprite="balloon", sprite_y=-30,
           sprite_scale=SPRITE, monitors=[("score", [("start", 0), ("pops@0.1", 1), ("pops@0.3", 2),
@@ -152,12 +152,12 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 6. quick quiz: set or change? ---------------------------------------------------------------------
     Scene("j2-w03-s06", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("My score says seven. I click the flag for a new game.", speaker=AIDEN, cue="seven", pause=0.4),
-        B("Which block makes it zero again: set score to zero, or change score by one?", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("My score says seven. I click the flag for a new game.", speaker=NARRATOR, cue="seven", pause=0.4),
+        B("Which block makes it zero again: set score to zero, or change score by one?", speaker=NARRATOR,
           cue="which", pause=3.2),
         B("Set score to zero! Set puts in a new number. Change adds to the number that is already there.",
-          speaker=AIDEN, cue="answer", pause=0.6),
+          speaker=NARRATOR, cue="answer", pause=0.6),
         B("Set at the start, change when you score!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -173,17 +173,17 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 7. Catch and Count (Exercise 3.2) ------------------------------------------------------------------
     Scene("j2-w03-s07", setting="mint", beats=(
-        B("Now open your catch game from last week, for Exercise 3.2.", speaker=AIDEN, cue="open", pause=0.4),
-        B("Make a score variable in this game too. Each project has its own variables.", speaker=AIDEN,
+        B("Now open your catch game from last week, for Exercise 3.2.", speaker=NARRATOR, cue="open", pause=0.4),
+        B("Make a score variable in this game too. Each project has its own variables.", speaker=NARRATOR,
           cue="make", pause=0.5),
-        B("Click the Apple. Snap set score to zero right under when green flag clicked.", speaker=AIDEN,
+        B("Click the Apple. Snap set score to zero right under when green flag clicked.", speaker=NARRATOR,
           cue="set", pause=0.6),
-        B("Then put change score by one inside if touching Bowl, at the top.", speaker=AIDEN, cue="change",
+        B("Then put change score by one inside if touching Bowl, at the top.", speaker=NARRATOR, cue="change",
           pause=0.6),
-        B("Click the flag, and play!", speaker=AIDEN, cue="play", pause=2.2),
+        B("Click the flag, and play!", speaker=NARRATOR, cue="play", pause=2.2),
         B("Caught one! The score goes up. Missed one! No point. The apple goes back to the Star.",
-          speaker=AIDEN, cue="caught", pause=0.6),
-        B("Bonus idea: a second box called misses can count the apples you miss.", speaker=AIDEN, cue="bonus",
+          speaker=NARRATOR, cue="caught", pause=0.6),
+        B("Bonus idea: a second box called misses can count the apples you miss.", speaker=NARRATOR, cue="bonus",
           pause=0.8),
     ), actions=(
         A("banner", "Exercise 3.2: Catch and Count", at="open", color="green"),
@@ -215,19 +215,19 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 8. bug hunt: The Sticky Score (Exercise 3.3) --------------------------------------------------------
     Scene("j2-w03-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
         B("Kai made a game: click the Bananas to get points. Every new game should start at zero.",
-          speaker=AIDEN, cue="kai", pause=0.5),
-        B("Kai clicks the flag, then clicks the bananas three times. Score: three.", speaker=AIDEN, cue="three",
+          speaker=NARRATOR, cue="kai", pause=0.5),
+        B("Kai clicks the flag, then clicks the bananas three times. Score: three.", speaker=NARRATOR, cue="three",
           pause=0.6),
         B("Now Kai clicks the flag again. The score still says three! The next click makes it four.",
-          speaker=AIDEN, cue="still", pause=0.8),
-        B("A bug is a clue. Which block runs when the flag is clicked?", speaker=AIDEN, cue="look", pause=3.2),
-        B("Change score by zero! Changing by zero adds nothing, so the old score stays.", speaker=AIDEN,
+          speaker=NARRATOR, cue="still", pause=0.8),
+        B("A bug is a clue. Which block runs when the flag is clicked?", speaker=NARRATOR, cue="look", pause=3.2),
+        B("Change score by zero! Changing by zero adds nothing, so the old score stays.", speaker=NARRATOR,
           cue="found", pause=0.5),
-        B("Let's swap it for set score to zero.", speaker=AIDEN, cue="fix", pause=0.6),
-        B("Test again. Click the flag.", speaker=AIDEN, cue="test", pause=1.6),
-        B("Zero! Every new game starts at zero. We fixed the bug!", speaker=AIDEN, cue="fixed", pause=0.4),
+        B("Let's swap it for set score to zero.", speaker=NARRATOR, cue="fix", pause=0.6),
+        B("Test again. Click the flag.", speaker=NARRATOR, cue="test", pause=1.6),
+        B("Zero! Every new game starts at zero. We fixed the bug!", speaker=NARRATOR, cue="fixed", pause=0.4),
         B("Like emptying the score box!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Sticky Score", at="bug", color="navy"),
@@ -253,10 +253,10 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 9. wiggle break: count-up jumps ------------------------------------------------------------------
     Scene("j2-w03-s09", setting="workshop", beats=(
-        B("Wiggle break! Stand up. Every jump is change score by one. Count with me!", speaker=AIDEN,
+        B("Wiggle break! Stand up. Every jump is change score by one. Count with me!", speaker=NARRATOR,
           cue="wiggle", pause=0.4),
-        B("One, two, three, four, five, six, seven, eight, nine, ten!", speaker=AIDEN, cue="count", pause=0.6),
-        B("Set score to zero! Sit down.", speaker=AIDEN, cue="sit", pause=1.0),
+        B("One, two, three, four, five, six, seven, eight, nine, ten!", speaker=NARRATOR, cue="count", pause=0.6),
+        B("Set score to zero! Sit down.", speaker=NARRATOR, cue="sit", pause=1.0),
         B("Beep! That was fun!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "sit": "proud"},
@@ -274,13 +274,13 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     # 10. fair scoring ----------------------------------------------------------------------------------
     Scene("j2-w03-s10", setting="workshop", beats=(
         B("A game is fair when everyone knows the rules before they play, and everyone gets the same rules.",
-          speaker=AIDEN, cue="fair", pause=0.5),
-        B("So before a friend plays your game, say the rules out loud.", speaker=AIDEN, cue="say", pause=0.4),
-        B("Use the arrow keys. Catch an apple: one point.", speaker=AIDEN, cue="rules", pause=0.6),
+          speaker=NARRATOR, cue="fair", pause=0.5),
+        B("So before a friend plays your game, say the rules out loud.", speaker=NARRATOR, cue="say", pause=0.4),
+        B("Use the arrow keys. Catch an apple: one point.", speaker=NARRATOR, cue="rules", pause=0.6),
         B("And every player starts at zero. Kai's sticky score was not fair: the next player started with "
-          "someone else's points!", speaker=AIDEN, cue="zero", pause=0.6),
-        B("What would make a game unfair?", speaker=AIDEN, cue="unfair", pause=3.0),
-        B("Secret rules, rules that change halfway, or starting with points.", speaker=AIDEN, cue="answer",
+          "someone else's points!", speaker=NARRATOR, cue="zero", pause=0.6),
+        B("What would make a game unfair?", speaker=NARRATOR, cue="unfair", pause=3.0),
+        B("Secret rules, rules that change halfway, or starting with points.", speaker=NARRATOR, cue="answer",
           pause=0.8),
     ), actions=(
         A("aiden", x=280, y=980, s=0.85, moods={"start": "happy", "unfair": "thinking", "answer": "proud"},
@@ -297,17 +297,17 @@ EPISODE = Episode(level="j2", week=3, scenes=(
     )),
     # 11. recap and next ---------------------------------------------------------------------------------
     Scene("j2-w03-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Variable!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Set!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Change!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("A variable is a labeled box that remembers a number.", speaker=AIDEN, cue="recap", pause=0.4),
-        B("Set puts in a new number. Change by one adds one more.", speaker=AIDEN, cue="recap2", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Build Pop the Balloon, add a score to your catch game, then fix the Sticky Score.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Variable!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Set!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Change!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("A variable is a labeled box that remembers a number.", speaker=NARRATOR, cue="recap", pause=0.4),
+        B("Set puts in a new number. Change by one adds one more.", speaker=NARRATOR, cue="recap2", pause=0.6),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Build Pop the Balloon, add a score to your catch game, then fix the Sticky Score.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("And say your rules before a friend plays!", speaker=AIDEN, cue="rules", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("And say your rules before a friend plays!", speaker=NARRATOR, cue="rules", pause=0.5),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

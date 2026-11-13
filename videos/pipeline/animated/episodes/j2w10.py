@@ -10,7 +10,7 @@ the arcade gallery with sticker feedback (Exercise 10.3), the arcade dance, show
 only, nicknames, credit), and the Game Maker certificate.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 BIG = 1.25  # block scale: big enough for young eyes
 SPRITE = 1.0  # sprite size on the stage
@@ -27,13 +27,13 @@ DEMO = ["What it is", "How to win and lose", "A design choice", "Credit", "Hand 
 EPISODE = Episode(level="j2", week=10, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j2-w10-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi, game makers! I'm Aiden, and this is Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Welcome to the arcade!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Today, our home is an arcade! At an arcade, people walk around and play games.", speaker=AIDEN,
+        B("Today, our home is an arcade! At an arcade, people walk around and play games.", speaker=NARRATOR,
           cue="arcade", pause=0.5),
         B("We do three things. We show our game in one minute, we let someone play it, and we celebrate!",
-          speaker=AIDEN, cue="three", pause=0.6),
-        B("Ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+          speaker=NARRATOR, cue="three", pause=0.6),
+        B("Ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "arcade": "proud"}),
@@ -45,13 +45,13 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     # 2. last-minute bug check ------------------------------------------------------------------------
     Scene("j2-w10-s02", setting="lavender", beats=(
         B("Before an arcade opens, the owners check every machine. Let's do a last-minute bug check.",
-          speaker=AIDEN, cue="check", pause=0.5),
+          speaker=NARRATOR, cue="check", pause=0.5),
         B("One: click the flag. Do the score and misses start at zero? Does the game say its goal?",
-          speaker=AIDEN, cue="one", pause=0.6),
-        B("Two: play to win. Does it say You win, and stop?", speaker=AIDEN, cue="two", pause=0.6),
-        B("Three: click the flag again, and play to lose. Game over?", speaker=AIDEN, cue="three", pause=0.6),
-        B("Four: is the sound on? Can you hear it?", speaker=AIDEN, cue="four", pause=0.6),
-        B("Found a bug? Fix one thing, then save your game.", speaker=AIDEN, cue="save", pause=0.8),
+          speaker=NARRATOR, cue="one", pause=0.6),
+        B("Two: play to win. Does it say You win, and stop?", speaker=NARRATOR, cue="two", pause=0.6),
+        B("Three: click the flag again, and play to lose. Game over?", speaker=NARRATOR, cue="three", pause=0.6),
+        B("Four: is the sound on? Can you hear it?", speaker=NARRATOR, cue="four", pause=0.6),
+        B("Found a bug? Fix one thing, then save your game.", speaker=NARRATOR, cue="save", pause=0.8),
     ), actions=(
         A("banner", "Exercise 10.1: Last-Minute Bug Check", at="check", color="green"),
         A("cards", items=["Flag: starts at 0? Says the goal?", "Play to win: You win! and stop?",
@@ -64,15 +64,15 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 3. bug hunt: the second game -------------------------------------------------------------------
     Scene("j2-w10-s03", setting="mint", beats=(
-        B("Bug hunt! Here is a common last-minute bug.", speaker=AIDEN, cue="bug", pause=0.4),
-        B("The first game works. But on the second game, it says Game over right away!", speaker=AIDEN,
+        B("Bug hunt! Here is a common last-minute bug.", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("The first game works. But on the second game, it says Game over right away!", speaker=NARRATOR,
           cue="second", pause=1.0),
-        B("Look at the top of the referee script. What is missing?", speaker=AIDEN, cue="missing", pause=3.0),
-        B("Set misses to zero! The misses were still three from the last game.", speaker=AIDEN, cue="answer",
+        B("Look at the top of the referee script. What is missing?", speaker=NARRATOR, cue="missing", pause=3.0),
+        B("Set misses to zero! The misses were still three from the last game.", speaker=NARRATOR, cue="answer",
           pause=0.6),
-        B("Snap set misses to zero at the top, and test again.", speaker=AIDEN, cue="fix", pause=3.0),
-        B("Now every game starts fresh at zero. Fixed!", speaker=AIDEN, cue="fixed", pause=0.5),
-        B("Every arcade game has a bug sometimes. Fix one thing, save, then stop building.", speaker=AIDEN,
+        B("Snap set misses to zero at the top, and test again.", speaker=NARRATOR, cue="fix", pause=3.0),
+        B("Now every game starts fresh at zero. Fixed!", speaker=NARRATOR, cue="fixed", pause=0.5),
+        B("Every arcade game has a bug sometimes. Fix one thing, save, then stop building.", speaker=NARRATOR,
           cue="calm", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Second Game", at="bug", color="navy"),
@@ -96,12 +96,12 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     # 4. a design choice and the shopkeeper -------------------------------------------------------------
     Scene("j2-w10-s04", setting="workshop", beats=(
         B("In your one minute, say what your game is, how to win and lose, and one design choice.",
-          speaker=AIDEN, cue="minute", pause=0.5),
-        B("A design choice is something you decided on purpose, and why.", speaker=AIDEN, cue="design",
+          speaker=NARRATOR, cue="minute", pause=0.5),
+        B("A design choice is something you decided on purpose, and why.", speaker=NARRATOR, cue="design",
           pause=0.6),
         B("Imagine you run a game stand at a fair. A visitor comes. You say what the game is, how to play and "
-          "win, and one cool thing about it.", speaker=AIDEN, cue="stand", pause=0.5),
-        B("Then you hand them the controls, and cheer them on!", speaker=AIDEN, cue="cheer", pause=0.4),
+          "win, and one cool thing about it.", speaker=NARRATOR, cue="stand", pause=0.5),
+        B("Then you hand them the controls, and cheer them on!", speaker=NARRATOR, cue="cheer", pause=0.4),
         B("Go, go, go!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "cheer": "proud"}, point=("design", "design$"),
@@ -116,10 +116,10 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 5. Mei's one-minute demo, part 1 -------------------------------------------------------------------
     Scene("j2-w10-s05", setting="sky", beats=(
-        B("Watch me show Mei's game, Banana Drop.", speaker=AIDEN, cue="watch", pause=0.5),
-        B("What it is: My game is called Banana Drop. You are the Bowl. Use the arrow keys.", speaker=AIDEN,
+        B("Watch me show Mei's game, Banana Drop.", speaker=NARRATOR, cue="watch", pause=0.5),
+        B("What it is: My game is called Banana Drop. You are the Bowl. Use the arrow keys.", speaker=NARRATOR,
           cue="what", pause=0.6),
-        B("How to win and lose: Catch ten bananas to win. Miss three, and it is game over.", speaker=AIDEN,
+        B("How to win and lose: Catch ten bananas to win. Miss three, and it is game over.", speaker=NARRATOR,
           cue="how", pause=0.8),
     ), actions=(
         A("banner", "A one-minute demo", at="watch", color="green"),
@@ -136,12 +136,12 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     # 6. Mei's one-minute demo, part 2 -------------------------------------------------------------------
     Scene("j2-w10-s06", setting="sky", beats=(
         B("A design choice: I chose three misses, not one, because my Player said one was too hard. That was "
-          "a wish from the playtest.", speaker=AIDEN, cue="choice", pause=0.6),
+          "a wish from the playtest.", speaker=NARRATOR, cue="choice", pause=0.6),
         B("Then point at the script, and read the if: If misses equals three, then Game over, stop all.",
-          speaker=AIDEN, cue="read", pause=0.6),
-        B("Credit: The bananas and the bowl are from the Scratch library.", speaker=AIDEN, cue="credit",
+          speaker=NARRATOR, cue="read", pause=0.6),
+        B("Credit: The bananas and the bowl are from the Scratch library.", speaker=NARRATOR, cue="credit",
           pause=0.6),
-        B("Hand over: Who wants to play?", speaker=AIDEN, cue="hand", pause=0.4),
+        B("Hand over: Who wants to play?", speaker=NARRATOR, cue="hand", pause=0.4),
         B("Me! Me! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "A one-minute demo", at="start", color="green"),
@@ -158,10 +158,10 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 7. quick quiz: 3 becomes 5 --------------------------------------------------------------------------
     Scene("j2-w10-s07", setting="peach", beats=(
-        B("Quick quiz! What would happen if Mei changed three to five?", speaker=AIDEN, cue="quiz", pause=0.5),
-        B("Would the game be easier, or harder?", speaker=AIDEN, cue="which", pause=3.2),
+        B("Quick quiz! What would happen if Mei changed three to five?", speaker=NARRATOR, cue="quiz", pause=0.5),
+        B("Would the game be easier, or harder?", speaker=NARRATOR, cue="which", pause=3.2),
         B("Easier! The game ends after five misses, not three. You can miss more before it is game over.",
-          speaker=AIDEN, cue="easier", pause=0.8),
+          speaker=NARRATOR, cue="easier", pause=0.8),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
         A("scratch", "Mei's referee", blocks=[LOSE], x=180, y=300, w=820, h=440, scale=BIG, at="quiz",
@@ -172,15 +172,15 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 8. your own demo, and the show-me corner ------------------------------------------------------------
     Scene("j2-w10-s08", setting="lavender", beats=(
-        B("Now practice your own demo with a partner. Use these sentences.", speaker=AIDEN, cue="practice",
+        B("Now practice your own demo with a partner. Use these sentences.", speaker=NARRATOR, cue="practice",
           pause=0.5),
-        B("Say the name of your game, and who the player is. Say how you win.", speaker=AIDEN, cue="frames",
+        B("Say the name of your game, and who the player is. Say how you win.", speaker=NARRATOR, cue="frames",
           pause=0.5),
-        B("Then say one choice: I chose this, because of that.", speaker=AIDEN, cue="choice", pause=0.6),
-        B("No design choice yet? Ask: Why that goal? Why that speed? Why that sprite?", speaker=AIDEN,
+        B("Then say one choice: I chose this, because of that.", speaker=NARRATOR, cue="choice", pause=0.6),
+        B("No design choice yet? Ask: Why that goal? Why that speed? Why that sprite?", speaker=NARRATOR,
           cue="stuck", pause=0.5),
-        B("Any reason you give is a design choice!", speaker=AIDEN, cue="any", pause=0.5),
-        B("Your grown-up may also say: Show me a message. Show me a My Block.", speaker=AIDEN, cue="showme",
+        B("Any reason you give is a design choice!", speaker=NARRATOR, cue="any", pause=0.5),
+        B("Your grown-up may also say: Show me a message. Show me a My Block.", speaker=NARRATOR, cue="showme",
           pause=0.8),
     ), actions=(
         A("banner", "Exercise 10.2: My One-Minute Demo", at="practice", color="green"),
@@ -199,14 +199,14 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 9. the arcade gallery with stickers --------------------------------------------------------------------
     Scene("j2-w10-s09", setting="workshop", beats=(
-        B("Now the arcade gallery! Visitors walk around and play each game.", speaker=AIDEN, cue="gallery",
+        B("Now the arcade gallery! Visitors walk around and play each game.", speaker=NARRATOR, cue="gallery",
           pause=0.4),
-        B("At each game, ask: May I play? Then play one round.", speaker=AIDEN, cue="may", pause=0.5),
+        B("At each game, ask: May I play? Then play one round.", speaker=NARRATOR, cue="may", pause=0.5),
         B("Put a sticker on the part you liked best: fun to play, cool sounds, or great surprise.",
-          speaker=AIDEN, cue="sticker", pause=0.6),
+          speaker=NARRATOR, cue="sticker", pause=0.6),
         B("Then say two stars and a wish, with kind words: I liked the pop sound and the ghost. I wish it was a "
-          "bit slower.", speaker=AIDEN, cue="stars", pause=0.6),
-        B("And visitors never change someone else's game.", speaker=AIDEN, cue="never", pause=0.5),
+          "bit slower.", speaker=NARRATOR, cue="stars", pause=0.6),
+        B("And visitors never change someone else's game.", speaker=NARRATOR, cue="never", pause=0.5),
         B("I liked the surprise wait! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "stars": "proud"}),
@@ -220,12 +220,12 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 10. the arcade dance (wiggle break) ------------------------------------------------------------------
     Scene("j2-w10-s10", setting="workshop", beats=(
-        B("Wiggle break! Let's do the arcade dance.", speaker=AIDEN, cue="dance", pause=0.5),
-        B("Slide like a bowl.", speaker=AIDEN, cue="slide", pause=1.8),
-        B("Fall like a banana.", speaker=AIDEN, cue="fall", pause=1.8),
-        B("Sneak through a maze.", speaker=AIDEN, cue="sneak", pause=1.8),
-        B("Freeze for Game over!", speaker=AIDEN, cue="freeze", pause=1.8),
-        B("And jump for You win!", speaker=AIDEN, cue="jump", pause=1.6),
+        B("Wiggle break! Let's do the arcade dance.", speaker=NARRATOR, cue="dance", pause=0.5),
+        B("Slide like a bowl.", speaker=NARRATOR, cue="slide", pause=1.8),
+        B("Fall like a banana.", speaker=NARRATOR, cue="fall", pause=1.8),
+        B("Sneak through a maze.", speaker=NARRATOR, cue="sneak", pause=1.8),
+        B("Freeze for Game over!", speaker=NARRATOR, cue="freeze", pause=1.8),
+        B("And jump for You win!", speaker=NARRATOR, cue="jump", pause=1.6),
         B("Beep! Arcade dance!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("jump", "end")], moods={"start": "happy", "freeze": "surprised",
@@ -242,16 +242,16 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     )),
     # 11. showcase safety ------------------------------------------------------------------------------------
     Scene("j2-w10-s11", setting="workshop", beats=(
-        B("Our arcade is for our family, here at home.", speaker=AIDEN, cue="family", pause=0.4),
-        B("On the screen, we use nicknames, never our full names, our school or our address.", speaker=AIDEN,
+        B("Our arcade is for our family, here at home.", speaker=NARRATOR, cue="family", pause=0.4),
+        B("On the screen, we use nicknames, never our full names, our school or our address.", speaker=NARRATOR,
           cue="nick", pause=0.5),
-        B("We do not put our games on the internet, or send them to people we do not know.", speaker=AIDEN,
+        B("We do not put our games on the internet, or send them to people we do not know.", speaker=NARRATOR,
           cue="online", pause=0.5),
-        B("We give credit for the sprites and ideas we did not make.", speaker=AIDEN, cue="credit", pause=0.5),
-        B("Want to show your game to someone else? Ask a grown-up first.", speaker=AIDEN, cue="ask", pause=0.5),
-        B("Quick check: on the screen, do we use our full name, or a nickname?", speaker=AIDEN, cue="check",
+        B("We give credit for the sprites and ideas we did not make.", speaker=NARRATOR, cue="credit", pause=0.5),
+        B("Want to show your game to someone else? Ask a grown-up first.", speaker=NARRATOR, cue="ask", pause=0.5),
+        B("Quick check: on the screen, do we use our full name, or a nickname?", speaker=NARRATOR, cue="check",
           pause=3.0),
-        B("A nickname!", speaker=AIDEN, cue="nickname", pause=0.8),
+        B("A nickname!", speaker=NARRATOR, cue="nickname", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "check": "thinking", "nickname": "proud"},
           chin=("check", "nickname")),
@@ -266,17 +266,17 @@ EPISODE = Episode(level="j2", week=10, scenes=(
     # 12. certificate, recap and goodbye ------------------------------------------------------------------
     Scene("j2-w10-s12", setting="workshop", tail=0.8, beats=(
         B("You planned a game, built it, let a Player test it, fixed bugs, and explained your choices.",
-          speaker=AIDEN, cue="did", pause=0.5),
-        B("You are now a Game Maker!", speaker=AIDEN, cue="maker", pause=0.6),
-        B("Let's give a big clap for every game maker. Clap, clap, clap!", speaker=AIDEN, cue="clap", pause=2.6),
-        B("Say it with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Show!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Explain!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Celebrate!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Now it's your turn, with your family.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Check your game, give your one-minute demo, then visit the arcade gallery.", speaker=AIDEN,
+          speaker=NARRATOR, cue="did", pause=0.5),
+        B("You are now a Game Maker!", speaker=NARRATOR, cue="maker", pause=0.6),
+        B("Let's give a big clap for every game maker. Clap, clap, clap!", speaker=NARRATOR, cue="clap", pause=2.6),
+        B("Say it with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Show!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Explain!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Celebrate!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Now it's your turn, with your family.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Check your game, give your one-minute demo, then visit the arcade gallery.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("Congratulations, Game Makers! Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("Congratulations, Game Makers! Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("maker", "clap$+2.4"), ("bye", "end")],

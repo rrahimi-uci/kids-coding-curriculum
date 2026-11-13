@@ -12,7 +12,7 @@ Kit note: the tally chart is drawn on a plain drawing canvas (the `turtle` view 
 and no cursor), because the kit has no tally component; its code is never shown.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 FLAG = ("event", "when {flag} clicked")
 ASK = ("sensing", "ask [What is your favorite fruit?] and wait")
@@ -48,15 +48,15 @@ turtle.done()"""
 EPISODE = Episode(level="j3", week=3, scenes=(
     # 1. hook --------------------------------------------------------------------------------------
     Scene("j3-w03-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Detective Pixi, reporting!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Today, we are data detectives!", speaker=AIDEN, cue="today", pause=0.4),
-        B("Data is information we collect.", speaker=AIDEN, cue="data", pause=0.5),
+        B("Today, we are data detectives!", speaker=NARRATOR, cue="today", pause=0.4),
+        B("Data is information we collect.", speaker=NARRATOR, cue="data", pause=0.5),
         B("We will ask one question: what is your favorite fruit? Apple, banana, orange or grapes?",
-          speaker=AIDEN, cue="question", pause=0.6),
-        B("Then we count the answers, and draw a graph that tells their story.", speaker=AIDEN, cue="graph",
+          speaker=NARRATOR, cue="question", pause=0.6),
+        B("Then we count the answers, and draw a graph that tells their story.", speaker=NARRATOR, cue="graph",
           pause=0.5),
-        B("Are you ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Are you ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -72,13 +72,13 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 2. warm-up: the family survey and tally marks -------------------------------------------------------
     Scene("j3-w03-s02", setting="workshop", beats=(
-        B("We asked everyone at home, and the toys too: what is your favorite fruit?", speaker=AIDEN, cue="ask",
+        B("We asked everyone at home, and the toys too: what is your favorite fruit?", speaker=NARRATOR, cue="ask",
           pause=0.5),
-        B("To keep count, we use tally marks. One line for each answer.", speaker=AIDEN, cue="tally", pause=0.6),
-        B("Here's the trick. The fifth line goes across the other four, like a gate.", speaker=AIDEN,
+        B("To keep count, we use tally marks. One line for each answer.", speaker=NARRATOR, cue="tally", pause=0.6),
+        B("Here's the trick. The fifth line goes across the other four, like a gate.", speaker=NARRATOR,
           cue="gate", pause=0.6),
-        B("Then we can count in fives!", speaker=AIDEN, cue="fives", pause=0.5),
-        B("Count the banana row with me: one, two, three, four, the gate makes five, and six!", speaker=AIDEN,
+        B("Then we can count in fives!", speaker=NARRATOR, cue="fives", pause=0.5),
+        B("Count the banana row with me: one, two, three, four, the gate makes five, and six!", speaker=NARRATOR,
           cue="count", pause=0.8),
         B("Six bananas! Beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
@@ -92,15 +92,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 3. the bar graph ----------------------------------------------------------------------------------
     Scene("j3-w03-s03", setting="sky", beats=(
-        B("A tally is great for counting. A bar graph is great for seeing.", speaker=AIDEN, cue="seeing",
+        B("A tally is great for counting. A bar graph is great for seeing.", speaker=NARRATOR, cue="seeing",
           pause=0.5),
-        B("Each answer gets one square, and the squares stack up into a bar.", speaker=AIDEN, cue="square",
+        B("Each answer gets one square, and the squares stack up into a bar.", speaker=NARRATOR, cue="square",
           pause=0.5),
-        B("Apple, three. Banana, six. Orange, two. Grapes, one.", speaker=AIDEN, cue="read", pause=0.6),
-        B("Which fruit is the favorite?", speaker=AIDEN, cue="fav", pause=3.0),
-        B("Banana! The tallest bar is the favorite.", speaker=AIDEN, cue="banana", pause=0.5),
-        B("How many more bananas than apples?", speaker=AIDEN, cue="more", pause=3.0),
-        B("Three more! The graph tells the story of our data at one look.", speaker=AIDEN, cue="story",
+        B("Apple, three. Banana, six. Orange, two. Grapes, one.", speaker=NARRATOR, cue="read", pause=0.6),
+        B("Which fruit is the favorite?", speaker=NARRATOR, cue="fav", pause=3.0),
+        B("Banana! The tallest bar is the favorite.", speaker=NARRATOR, cue="banana", pause=0.5),
+        B("How many more bananas than apples?", speaker=NARRATOR, cue="more", pause=3.0),
+        B("Three more! The graph tells the story of our data at one look.", speaker=NARRATOR, cue="story",
           pause=0.6),
     ), actions=(
         A("bars", x=200, y=260, w=1000, h=560, at="seeing@0.5", values=SURVEY, labels=FRUITS,
@@ -115,14 +115,14 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 4. a survey robot: variables are bags of pebbles ----------------------------------------------------
     Scene("j3-w03-s04", setting="lavender", beats=(
-        B("Now let's make a survey robot in Scratch!", speaker=AIDEN, cue="robot", pause=0.4),
-        B("It asks a question, waits for you to type the answer, checks it, and counts it.", speaker=AIDEN,
+        B("Now let's make a survey robot in Scratch!", speaker=NARRATOR, cue="robot", pause=0.4),
+        B("It asks a question, waits for you to type the answer, checks it, and counts it.", speaker=NARRATOR,
           cue="does", pause=0.5),
-        B("Long ago, shepherds counted sheep with pebbles: one pebble in the bag for each sheep.", speaker=AIDEN,
+        B("Long ago, shepherds counted sheep with pebbles: one pebble in the bag for each sheep.", speaker=NARRATOR,
           cue="pebbles", pause=0.5),
-        B("A variable is like the bag. Each time we change it by one, one more pebble goes in.", speaker=AIDEN,
+        B("A variable is like the bag. Each time we change it by one, one more pebble goes in.", speaker=NARRATOR,
           cue="bag", pause=0.5),
-        B("Our robot needs two bags: apple votes, and other votes.", speaker=AIDEN, cue="two", pause=0.6),
+        B("Our robot needs two bags: apple votes, and other votes.", speaker=NARRATOR, cue="two", pause=0.6),
     ), actions=(
         A("cat", x=1380, y=820, s=1.0, at="robot", until="pebbles"),
         A("bubble", "What is your favorite fruit?", who="cat", x=1380, y=820, at="robot@0.4", until="pebbles",
@@ -137,15 +137,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 5. Fruit Survey Robot, part 1: set, repeat, ask -------------------------------------------------------
     Scene("j3-w03-s05", setting="mint", beats=(
-        B("Let's build the Fruit Survey Robot.", speaker=AIDEN, cue="build", pause=0.3),
-        B("Orange-red Variables: make apple votes, and other votes.", speaker=AIDEN, cue="vars", pause=0.6),
-        B("Yellow Events: when green flag clicked. Then set both of them to zero.", speaker=AIDEN, cue="setup",
+        B("Let's build the Fruit Survey Robot.", speaker=NARRATOR, cue="build", pause=0.3),
+        B("Orange-red Variables: make apple votes, and other votes.", speaker=NARRATOR, cue="vars", pause=0.6),
+        B("Yellow Events: when green flag clicked. Then set both of them to zero.", speaker=NARRATOR, cue="setup",
           pause=0.6),
-        B("Orange Control: repeat, changed to four. We will ask four people.", speaker=AIDEN, cue="rep",
+        B("Orange Control: repeat, changed to four. We will ask four people.", speaker=NARRATOR, cue="rep",
           pause=0.5),
         B("Light blue Sensing: ask and wait, inside the repeat. The words are: What is your favorite fruit?",
-          speaker=AIDEN, cue="ask", pause=0.6),
-        B("We never ask for names. We only ask what we need.", speaker=AIDEN, cue="names", pause=0.6),
+          speaker=NARRATOR, cue="ask", pause=0.6),
+        B("We never ask for names. We only ask what we need.", speaker=NARRATOR, cue="names", pause=0.6),
     ), actions=(
         A("banner", "Exercise 3.2: Fruit Survey Robot", at="build", color="green"),
         A("scratch", "Fruit Survey Robot", blocks=[FLAG, ("variables", "set [apple votes] to [0]"),
@@ -164,15 +164,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 6. Fruit Survey Robot, part 2: if / else, and a test -------------------------------------------------
     Scene("j3-w03-s06", setting="mint", beats=(
-        B("Orange Control: if then else, under the ask.", speaker=AIDEN, cue="ifelse", pause=0.5),
+        B("Orange Control: if then else, under the ask.", speaker=NARRATOR, cue="ifelse", pause=0.5),
         B("Green Operators: the equals block goes in the if. Put the round answer block on the left, and type "
-          "apple on the right.", speaker=AIDEN, cue="equals", pause=0.6),
+          "apple on the right.", speaker=NARRATOR, cue="equals", pause=0.6),
         B("Variables: change apple votes by one in the top gap, and change other votes by one in the bottom gap.",
-          speaker=AIDEN, cue="change", pause=0.6),
-        B("Last, purple Looks: say Thank you!, under the repeat.", speaker=AIDEN, cue="thanks", pause=0.5),
-        B("Click the flag, type apple, and press Return.", speaker=AIDEN, cue="apple", pause=3.0),
-        B("Now type banana.", speaker=AIDEN, cue="banana", pause=2.6),
-        B("Apple goes in the apple votes bag, and every other answer goes in other votes!", speaker=AIDEN,
+          speaker=NARRATOR, cue="change", pause=0.6),
+        B("Last, purple Looks: say Thank you!, under the repeat.", speaker=NARRATOR, cue="thanks", pause=0.5),
+        B("Click the flag, type apple, and press Return.", speaker=NARRATOR, cue="apple", pause=3.0),
+        B("Now type banana.", speaker=NARRATOR, cue="banana", pause=2.6),
+        B("Apple goes in the apple votes bag, and every other answer goes in other votes!", speaker=NARRATOR,
           cue="works", pause=0.5),
         B("Counting robot, beep beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -197,15 +197,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 7. quick quiz: tricky answers ----------------------------------------------------------------------
     Scene("j3-w03-s07", setting="peach", beats=(
-        B("Quick quiz!", speaker=AIDEN, cue="quiz", pause=0.4),
-        B("What if someone types Apple, with a big A? Does the robot count it as apple?", speaker=AIDEN,
+        B("Quick quiz!", speaker=NARRATOR, cue="quiz", pause=0.4),
+        B("What if someone types Apple, with a big A? Does the robot count it as apple?", speaker=NARRATOR,
           cue="big", pause=3.0),
-        B("Yes! In Scratch, the equals block does not care about big and small letters.", speaker=AIDEN,
+        B("Yes! In Scratch, the equals block does not care about big and small letters.", speaker=NARRATOR,
           cue="yes", pause=0.5),
-        B("But apples, with an s, counts as other. It is not exactly the same word.", speaker=AIDEN, cue="s",
+        B("But apples, with an s, counts as other. It is not exactly the same word.", speaker=NARRATOR, cue="s",
           pause=0.6),
         B("And here's a secret: soon we meet Python, and Python is pickier. It thinks Apple and apple are "
-          "different!", speaker=AIDEN, cue="python", pause=0.6),
+          "different!", speaker=NARRATOR, cue="python", pause=0.6),
         B("Picky Python! Beep!", speaker=PIXI, cue="pixi", pause=0.6),
     ), actions=(
         A("banner", "QUICK QUIZ", at="quiz", color="purple"),
@@ -219,15 +219,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 8. bug hunt: The Two Apples -----------------------------------------------------------------------
     Scene("j3-w03-s08", setting="mint", beats=(
-        B("Uh oh. Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.5),
+        B("Uh oh. Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.5),
         B("Kai made a tally chart. Apple, with a big A, has two marks. apple, with a small a, has three. And "
-          "banana has four.", speaker=AIDEN, cue="kai", pause=0.5),
-        B("Kai says banana won!", speaker=AIDEN, cue="won", pause=0.5),
-        B("Are Apple and apple different fruits?", speaker=AIDEN, cue="diff", pause=3.2),
+          "banana has four.", speaker=NARRATOR, cue="kai", pause=0.5),
+        B("Kai says banana won!", speaker=NARRATOR, cue="won", pause=0.5),
+        B("Are Apple and apple different fruits?", speaker=NARRATOR, cue="diff", pause=3.2),
         B("No! They are the same answer, written two ways. The apple answers were split into two rows.",
-          speaker=AIDEN, cue="no", pause=0.5),
-        B("Let's put the rows together. Two and three make five!", speaker=AIDEN, cue="merge", pause=1.6),
-        B("Now we fix the graph too. Apple won, with five!", speaker=AIDEN, cue="fixed", pause=0.5),
+          speaker=NARRATOR, cue="no", pause=0.5),
+        B("Let's put the rows together. Two and three make five!", speaker=NARRATOR, cue="merge", pause=1.6),
+        B("Now we fix the graph too. Apple won, with five!", speaker=NARRATOR, cue="fixed", pause=0.5),
         B("Tidy data means one way to write each answer.", speaker=PIXI, cue="tidy", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The Two Apples", at="bug", color="navy"),
@@ -247,15 +247,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 9. only ask what you need ---------------------------------------------------------------------------
     Scene("j3-w03-s09", setting="workshop", beats=(
-        B("Good data detectives only ask what they need.", speaker=AIDEN, cue="need", pause=0.4),
-        B("To find the favorite fruit, we need one answer: the fruit.", speaker=AIDEN, cue="fruit", pause=0.5),
-        B("We never ask for anybody's name, age, address, school, birthday or photo.", speaker=AIDEN,
+        B("Good data detectives only ask what they need.", speaker=NARRATOR, cue="need", pause=0.4),
+        B("To find the favorite fruit, we need one answer: the fruit.", speaker=NARRATOR, cue="fruit", pause=0.5),
+        B("We never ask for anybody's name, age, address, school, birthday or photo.", speaker=NARRATOR,
           cue="never", pause=0.4),
-        B("That's personal information. If a program asks you for it, stop and tell a grown-up.", speaker=AIDEN,
+        B("That's personal information. If a program asks you for it, stop and tell a grown-up.", speaker=NARRATOR,
           cue="personal", pause=0.6),
         B("Zoe's survey asks: What is your favorite fruit? And: What is your home address? Which question should "
-          "she delete?", speaker=AIDEN, cue="zoe", pause=3.0),
-        B("The address question! Delete it.", speaker=AIDEN, cue="delete", pause=0.6),
+          "she delete?", speaker=NARRATOR, cue="zoe", pause=3.0),
+        B("The address question! Delete it.", speaker=NARRATOR, cue="delete", pause=0.6),
     ), actions=(
         A("aiden", x=300, y=960, moods={"start": "happy", "zoe": "thinking", "delete": "proud"},
           chin=("zoe", "delete")),
@@ -273,13 +273,13 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 10. fair data + wiggle break: a human bar graph --------------------------------------------------------
     Scene("j3-w03-s10", setting="workshop", beats=(
-        B("A fair survey asks all kinds of people.", speaker=AIDEN, cue="fair", pause=0.4),
+        B("A fair survey asks all kinds of people.", speaker=NARRATOR, cue="fair", pause=0.4),
         B("If we only asked the apple club, our graph would say everyone loves apples. And it would be wrong!",
-          speaker=AIDEN, cue="club", pause=0.6),
+          speaker=NARRATOR, cue="club", pause=0.6),
         B("Next week, we find out that computers learn from data like this. So fair data really matters.",
-          speaker=AIDEN, cue="next", pause=0.6),
+          speaker=NARRATOR, cue="next", pause=0.6),
         B("Wiggle break! Let's make a bar graph out of people. Stand up, and line up behind your favorite fruit!",
-          speaker=AIDEN, cue="wiggle", pause=2.4),
+          speaker=NARRATOR, cue="wiggle", pause=2.4),
         B("I pick grapes! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("wiggle", "end")], moods={"start": "happy", "club": "surprised",
@@ -295,15 +295,15 @@ EPISODE = Episode(level="j3", week=3, scenes=(
     )),
     # 11. recap and next -------------------------------------------------------------------------------
     Scene("j3-w03-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Data!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Tally!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Bar graph!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Data is information we collect, and a graph tells its story.", speaker=AIDEN, cue="recap", pause=0.5),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
-        B("Do Tally Time, build the Fruit Survey Robot, then hunt for the Two Apples.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Data!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Tally!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Bar graph!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Data is information we collect, and a graph tells its story.", speaker=NARRATOR, cue="recap", pause=0.5),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
+        B("Do Tally Time, build the Fruit Survey Robot, then hunt for the Two Apples.", speaker=NARRATOR,
           cue="next", pause=0.6),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),

@@ -12,7 +12,7 @@ raises the same error the real turtle raises (turtle.py: TurtleGraphicsError("ba
 so the Shell shows the true last line a child sees in Thonny.
 """
 
-from ..kit_dsl import A, AIDEN, B, Episode, PIXI, Scene
+from ..kit_dsl import A, NARRATOR, B, Episode, PIXI, Scene
 
 START = """import turtle
 t = turtle.Turtle()
@@ -86,12 +86,12 @@ GRID_STOPPED = ["G11G", "1GG1", "1GG1", "G11G"]
 EPISODE = Episode(level="j3", week=8, scenes=(
     # 1. hook ---------------------------------------------------------------------------------------
     Scene("j3-w08-s01", setting="workshop", lead_in=0.3, beats=(
-        B("Hi! I'm Aiden, and this is my robot friend, Pixi.", speaker=AIDEN, cue="hi", pause=0.3),
+        B("Welcome back to Kids Coding! Aiden, our eight-year-old scientist and builder, is here with Pixi, his helpful robot friend.", speaker=NARRATOR, cue="hi", pause=0.3),
         B("Beep boop! Hello, coders!", speaker=PIXI, cue="hello", pause=0.5),
-        B("Last week, our programs drew in black, with a thin pen.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Today, we make them ours, with colors and thick lines!", speaker=AIDEN, cue="today", pause=0.5),
-        B("We will change a program that already works.", speaker=AIDEN, cue="change", pause=0.5),
-        B("Ready? Let's go!", speaker=AIDEN, cue="ready", pause=1.0),
+        B("Last week, our programs drew in black, with a thin pen.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Today, we make them ours, with colors and thick lines!", speaker=NARRATOR, cue="today", pause=0.5),
+        B("We will change a program that already works.", speaker=NARRATOR, cue="change", pause=0.5),
+        B("Ready? Let's go!", speaker=NARRATOR, cue="ready", pause=1.0),
     ), actions=(
         A("aiden", x=320, y=960, enter="left", wave=[("hi", "hello"), ("ready", "end")],
           moods={"start": "happy", "today": "proud"}),
@@ -103,17 +103,17 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 2. warm-up: color by code ----------------------------------------------------------------------
     Scene("j3-w08-s02", setting="peach", beats=(
-        B("Let's warm up with color by code.", speaker=AIDEN, cue="warm", pause=0.4),
-        B("Here is a grid with a number in every square.", speaker=AIDEN, cue="grid", pause=0.5),
-        B("And here is a tiny program, a color key. Every one is gold. Every two is blue.", speaker=AIDEN,
+        B("Let's warm up with color by code.", speaker=NARRATOR, cue="warm", pause=0.4),
+        B("Here is a grid with a number in every square.", speaker=NARRATOR, cue="grid", pause=0.5),
+        B("And here is a tiny program, a color key. Every one is gold. Every two is blue.", speaker=NARRATOR,
           cue="key", pause=0.5),
-        B("Color it in, and a pattern appears!", speaker=AIDEN, cue="color", pause=0.8),
-        B("Now let's change the program. Two is green now.", speaker=AIDEN, cue="change", pause=0.8),
-        B("Same program, one change, a new picture!", speaker=AIDEN, cue="same", pause=0.6),
-        B("Here is another key. It says two is purpel: P, U, R, P, E, L.", speaker=AIDEN, cue="purpel",
+        B("Color it in, and a pattern appears!", speaker=NARRATOR, cue="color", pause=0.8),
+        B("Now let's change the program. Two is green now.", speaker=NARRATOR, cue="change", pause=0.8),
+        B("Same program, one change, a new picture!", speaker=NARRATOR, cue="same", pause=0.6),
+        B("Here is another key. It says two is purpel: P, U, R, P, E, L.", speaker=NARRATOR, cue="purpel",
           pause=0.5),
-        B("What will the computer do at number two?", speaker=AIDEN, cue="what", pause=3.0),
-        B("It stops! It does not know purpel. Python is picky about color names too.", speaker=AIDEN,
+        B("What will the computer do at number two?", speaker=NARRATOR, cue="what", pause=3.0),
+        B("It stops! It does not know purpel. Python is picky about color names too.", speaker=NARRATOR,
           cue="stops", pause=0.8),
     ), actions=(
         A("grid", at="grid", x=220, y=240, cell=140,
@@ -132,14 +132,14 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 3. two new lines -------------------------------------------------------------------------------
     Scene("j3-w08-s03", setting="lavender", beats=(
-        B("Now, two new Python lines.", speaker=AIDEN, cue="two", pause=0.4),
-        B("T dot color, blue. It is like Scratch's set pen color block.", speaker=AIDEN, cue="color", pause=0.5),
-        B("The color name goes inside quote marks.", speaker=AIDEN, cue="quotes", pause=0.6),
-        B("T dot pen size, five. It is like the set pen size block.", speaker=AIDEN, cue="size", pause=0.5),
-        B("A bigger number draws a thicker line.", speaker=AIDEN, cue="thicker", pause=0.6),
-        B("Good colors to try: orange, blue, purple, green, gold and black.", speaker=AIDEN, cue="good",
+        B("Now, two new Python lines.", speaker=NARRATOR, cue="two", pause=0.4),
+        B("T dot color, blue. It is like Scratch's set pen color block.", speaker=NARRATOR, cue="color", pause=0.5),
+        B("The color name goes inside quote marks.", speaker=NARRATOR, cue="quotes", pause=0.6),
+        B("T dot pen size, five. It is like the set pen size block.", speaker=NARRATOR, cue="size", pause=0.5),
+        B("A bigger number draws a thicker line.", speaker=NARRATOR, cue="thicker", pause=0.6),
+        B("Good colors to try: orange, blue, purple, green, gold and black.", speaker=NARRATOR, cue="good",
           pause=0.5),
-        B("Almost everyone can tell purple and gold apart.", speaker=AIDEN, cue="apart", pause=0.8),
+        B("Almost everyone can tell purple and gold apart.", speaker=NARRATOR, cue="apart", pause=0.8),
     ), actions=(
         A("scratch", "Scratch", blocks=[("pen", "set pen color to [blue]"), ("pen", "set pen size to [5]")],
           x=100, y=220, w=760, h=380, scale=1.15, reveal=["color", "size"]),
@@ -159,16 +159,16 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 4. worked example: Color My Square ---------------------------------------------------------------
     Scene("j3-w08-s04", setting="mint", beats=(
-        B("A working program is like a cake recipe that already tastes good.", speaker=AIDEN, cue="recipe",
+        B("A working program is like a cake recipe that already tastes good.", speaker=NARRATOR, cue="recipe",
           pause=0.5),
-        B("Change one thing, and taste it. Then change the next thing.", speaker=AIDEN, cue="one", pause=0.6),
-        B("Let's try it! It is Exercise 8.1, Color My Square.", speaker=AIDEN, cue="try", pause=0.4),
-        B("First, we run it.", speaker=AIDEN, cue="run", pause=2.8),
-        B("A thin black square.", speaker=AIDEN, cue="thin", pause=0.5),
-        B("We change black to blue. We leave both quote marks where they are.", speaker=AIDEN, cue="blue",
+        B("Change one thing, and taste it. Then change the next thing.", speaker=NARRATOR, cue="one", pause=0.6),
+        B("Let's try it! It is Exercise 8.1, Color My Square.", speaker=NARRATOR, cue="try", pause=0.4),
+        B("First, we run it.", speaker=NARRATOR, cue="run", pause=2.8),
+        B("A thin black square.", speaker=NARRATOR, cue="thin", pause=0.5),
+        B("We change black to blue. We leave both quote marks where they are.", speaker=NARRATOR, cue="blue",
           pause=0.5),
-        B("Save, and Run.", speaker=AIDEN, cue="run2", pause=2.8),
-        B("A blue square, and a blue turtle!", speaker=AIDEN, cue="bluesq", pause=0.8),
+        B("Save, and Run.", speaker=NARRATOR, cue="run2", pause=2.8),
+        B("A blue square, and a blue turtle!", speaker=NARRATOR, cue="bluesq", pause=0.8),
     ), actions=(
         A("aiden", x=360, y=1000, s=0.75, at="recipe", until="try", moods={"start": "happy"},
           point=("one", "one$")),
@@ -189,10 +189,10 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 5. predict: a thicker pen ---------------------------------------------------------------------------
     Scene("j3-w08-s05", setting="peach", beats=(
-        B("Next, the pen size. We change one to five.", speaker=AIDEN, cue="five", pause=0.5),
-        B("What do you think will happen?", speaker=AIDEN, cue="predict", pause=3.0),
-        B("Save, and Run.", speaker=AIDEN, cue="run", pause=2.6),
-        B("A thick blue square! One change, then Run. Then the next change.", speaker=AIDEN, cue="thick",
+        B("Next, the pen size. We change one to five.", speaker=NARRATOR, cue="five", pause=0.5),
+        B("What do you think will happen?", speaker=NARRATOR, cue="predict", pause=3.0),
+        B("Save, and Run.", speaker=NARRATOR, cue="run", pause=2.6),
+        B("A thick blue square! One change, then Run. Then the next change.", speaker=NARRATOR, cue="thick",
           pause=0.6),
         B("Thick and blue! Beep!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
@@ -208,16 +208,16 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 6. bug hunt: a color name spelled wrong -------------------------------------------------------------
     Scene("j3-w08-s06", setting="mint", beats=(
-        B("Time for a bug hunt!", speaker=AIDEN, cue="bug", pause=0.4),
-        B("Here is the same program, with one tiny change. The color says bleu: B, L, E, U.", speaker=AIDEN,
+        B("Time for a bug hunt!", speaker=NARRATOR, cue="bug", pause=0.4),
+        B("Here is the same program, with one tiny change. The color says bleu: B, L, E, U.", speaker=NARRATOR,
           cue="bleu", pause=0.5),
-        B("Let's run it.", speaker=AIDEN, cue="run", pause=2.2),
-        B("The turtle does not draw, and red text appears in the Shell.", speaker=AIDEN, cue="red", pause=0.5),
-        B("Read the last line: bad color string, bleu.", speaker=AIDEN, cue="last", pause=0.5),
-        B("Python says: I don't know a color called bleu.", speaker=AIDEN, cue="says", pause=0.5),
-        B("Which line has the color? How do we fix it?", speaker=AIDEN, cue="which", pause=3.0),
-        B("Line four! We spell it B, L, U, E, save, and run again.", speaker=AIDEN, cue="fix", pause=3.0),
-        B("It works! Color names must be spelled right.", speaker=AIDEN, cue="works", pause=0.5),
+        B("Let's run it.", speaker=NARRATOR, cue="run", pause=2.2),
+        B("The turtle does not draw, and red text appears in the Shell.", speaker=NARRATOR, cue="red", pause=0.5),
+        B("Read the last line: bad color string, bleu.", speaker=NARRATOR, cue="last", pause=0.5),
+        B("Python says: I don't know a color called bleu.", speaker=NARRATOR, cue="says", pause=0.5),
+        B("Which line has the color? How do we fix it?", speaker=NARRATOR, cue="which", pause=3.0),
+        B("Line four! We spell it B, L, U, E, save, and run again.", speaker=NARRATOR, cue="fix", pause=3.0),
+        B("It works! Color names must be spelled right.", speaker=NARRATOR, cue="works", pause=0.5),
         B("Bad color string? Not anymore!", speaker=PIXI, cue="pixi", pause=0.8),
     ), actions=(
         A("banner", "BUG HUNT! The color typo", at="bug", color="navy"),
@@ -239,12 +239,12 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 7. the Two-Color Flower starter and its credit line ----------------------------------------------------
     Scene("j3-w08-s07", setting="lavender", beats=(
-        B("Next comes Exercise 8.2, the Two-Color Flower.", speaker=AIDEN, cue="next", pause=0.4),
-        B("The starter draws six purple squares, like the flower from last week.", speaker=AIDEN, cue="six",
+        B("Next comes Exercise 8.2, the Two-Color Flower.", speaker=NARRATOR, cue="next", pause=0.4),
+        B("The starter draws six purple squares, like the flower from last week.", speaker=NARRATOR, cue="six",
           pause=0.6),
-        B("You change the second color, so the squares take turns.", speaker=AIDEN, cue="second", pause=0.6),
+        B("You change the second color, so the squares take turns.", speaker=NARRATOR, cue="second", pause=0.6),
         B("At the top is a credit line. Made by: the Kids Coding course. Changed by: your nickname.",
-          speaker=AIDEN, cue="credit", pause=0.8),
+          speaker=NARRATOR, cue="credit", pause=0.8),
     ), actions=(
         A("banner", "Exercise 8.2: Two-Color Flower", at="next", color="green"),
         A("code", code=FLOWER_VIEW, title="two_color_flower.py", x=60, y=200, w=1120, h=560, size=38,
@@ -257,15 +257,15 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 8. remix and credit -------------------------------------------------------------------------------
     Scene("j3-w08-s08", setting="sky", beats=(
-        B("Starting from someone's program and changing it is called a remix.", speaker=AIDEN, cue="remix",
+        B("Starting from someone's program and changing it is called a remix.", speaker=NARRATOR, cue="remix",
           pause=0.4),
-        B("Remixing is great! Programmers do it all the time.", speaker=AIDEN, cue="great", pause=0.5),
-        B("But we always say whose idea we started from. That is called giving credit.", speaker=AIDEN,
+        B("Remixing is great! Programmers do it all the time.", speaker=NARRATOR, cue="great", pause=0.5),
+        B("But we always say whose idea we started from. That is called giving credit.", speaker=NARRATOR,
           cue="credit", pause=0.6),
-        B("Your friend Leo drew a cool flower, and you want to remix it. What do you do first?", speaker=AIDEN,
+        B("Your friend Leo drew a cool flower, and you want to remix it. What do you do first?", speaker=NARRATOR,
           cue="leo", pause=3.0),
-        B("Ask Leo! Then write at the top: Idea from Leo.", speaker=AIDEN, cue="ask", pause=0.6),
-        B("Use a nickname, never your real name, because files can travel.", speaker=AIDEN, cue="nick",
+        B("Ask Leo! Then write at the top: Idea from Leo.", speaker=NARRATOR, cue="ask", pause=0.6),
+        B("Use a nickname, never your real name, because files can travel.", speaker=NARRATOR, cue="nick",
           pause=0.8),
     ), actions=(
         A("aiden", x=200, y=1000, s=0.7, moods={"start": "happy", "leo": "thinking", "ask": "happy"},
@@ -282,13 +282,13 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 9. wiggle break: color hunt -------------------------------------------------------------------------
     Scene("j3-w08-s09", setting="workshop", beats=(
-        B("Wiggle break! Let's play color hunt.", speaker=AIDEN, cue="wiggle", pause=0.4),
-        B("When I call a color, run and touch something that color.", speaker=AIDEN, cue="rule", pause=0.5),
-        B("Blue!", speaker=AIDEN, cue="c1", pause=3.0),
-        B("Orange!", speaker=AIDEN, cue="c2", pause=3.0),
-        B("G, R, E, N!", speaker=AIDEN, cue="c3", pause=0.6),
+        B("Wiggle break! Let's play color hunt.", speaker=NARRATOR, cue="wiggle", pause=0.4),
+        B("When I call a color, run and touch something that color.", speaker=NARRATOR, cue="rule", pause=0.5),
+        B("Blue!", speaker=NARRATOR, cue="c1", pause=3.0),
+        B("Orange!", speaker=NARRATOR, cue="c2", pause=3.0),
+        B("G, R, E, N!", speaker=NARRATOR, cue="c3", pause=0.6),
         B("Bad color string! Freeze!", speaker=PIXI, cue="err", pause=1.2),
-        B("Great freezing, color hunters!", speaker=AIDEN, cue="done", pause=1.0),
+        B("Great freezing, color hunters!", speaker=NARRATOR, cue="done", pause=1.0),
     ), actions=(
         A("aiden", x=300, y=960, wave=[("wiggle", "rule"), ("done", "end")],
           moods={"start": "happy", "c3": "surprised", "done": "proud"}),
@@ -303,13 +303,13 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 10. stretch: def as a My Block --------------------------------------------------------------------------
     Scene("j3-w08-s10", setting="peach", beats=(
-        B("Here is a stretch idea, for when you are ready.", speaker=AIDEN, cue="stretch", pause=0.4),
-        B("Remember making a My Block called square in Scratch? Python has My Blocks too.", speaker=AIDEN,
+        B("Here is a stretch idea, for when you are ready.", speaker=NARRATOR, cue="stretch", pause=0.4),
+        B("Remember making a My Block called square in Scratch? Python has My Blocks too.", speaker=NARRATOR,
           cue="remember", pause=0.5),
-        B("Def square, with a colon, is like the pink define block.", speaker=AIDEN, cue="def", pause=0.5),
-        B("The lines pushed in under it are what the block does.", speaker=AIDEN, cue="pushed", pause=0.5),
-        B("And square, with brackets, uses the block.", speaker=AIDEN, cue="use", pause=0.5),
-        B("That is Exercise 8.3, My Square Block.", speaker=AIDEN, cue="ex", pause=0.8),
+        B("Def square, with a colon, is like the pink define block.", speaker=NARRATOR, cue="def", pause=0.5),
+        B("The lines pushed in under it are what the block does.", speaker=NARRATOR, cue="pushed", pause=0.5),
+        B("And square, with brackets, uses the block.", speaker=NARRATOR, cue="use", pause=0.5),
+        B("That is Exercise 8.3, My Square Block.", speaker=NARRATOR, cue="ex", pause=0.8),
     ), actions=(
         A("chip", "STRETCH IDEA", at="stretch", x=960, y=110, color="purple", size=46),
         A("scratch", "Scratch", blocks=[("myblocks", "define [square]"),
@@ -326,18 +326,18 @@ EPISODE = Episode(level="j3", week=8, scenes=(
     )),
     # 11. recap and next ---------------------------------------------------------------------------------------
     Scene("j3-w08-s11", setting="workshop", tail=0.8, beats=(
-        B("Say the new words with me!", speaker=AIDEN, cue="sayit", pause=0.4),
-        B("Color!", speaker=AIDEN, cue="w1", pause=1.2),
-        B("Pen size!", speaker=AIDEN, cue="w2", pause=1.2),
-        B("Credit!", speaker=AIDEN, cue="w3", pause=1.2),
-        B("Change one thing, then Run. Keep the quote marks, and spell colors right.", speaker=AIDEN,
+        B("Say the new words with me!", speaker=NARRATOR, cue="sayit", pause=0.4),
+        B("Color!", speaker=NARRATOR, cue="w1", pause=1.2),
+        B("Pen size!", speaker=NARRATOR, cue="w2", pause=1.2),
+        B("Credit!", speaker=NARRATOR, cue="w3", pause=1.2),
+        B("Change one thing, then Run. Keep the quote marks, and spell colors right.", speaker=NARRATOR,
           cue="recap", pause=0.6),
-        B("Now it's your turn, with a grown-up.", speaker=AIDEN, cue="turn", pause=0.4),
+        B("Now it's your turn, with a grown-up.", speaker=NARRATOR, cue="turn", pause=0.4),
         B("Color your square, make the Two-Color Flower, and try My Square Block if you are ready.",
-          speaker=AIDEN, cue="next", pause=0.6),
-        B("Next week is the project studio. You can choose a Scratch game or a Python postcard!", speaker=AIDEN,
+          speaker=NARRATOR, cue="next", pause=0.6),
+        B("Next week is the project studio. You can choose a Scratch game or a Python postcard!", speaker=NARRATOR,
           cue="preview", pause=0.5),
-        B("See you next week. Happy coding!", speaker=AIDEN, cue="bye", pause=0.4),
+        B("See you next week. Happy coding!", speaker=NARRATOR, cue="bye", pause=0.4),
         B("Beep boop, bye!", speaker=PIXI, cue="bye2", pause=0.4),
     ), actions=(
         A("aiden", x=260, y=1000, s=0.75, wave=[("bye", "end")], moods={"start": "proud"}),
