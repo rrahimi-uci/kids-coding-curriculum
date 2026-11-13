@@ -12,8 +12,6 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-import shutil
-import subprocess
 import urllib.request
 
 import numpy as np
@@ -32,16 +30,15 @@ MODEL_FILES = {
 MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/{name}"
 
 # Voice casting: a warm, clear narrator; an energetic young inventor; a friendly robot.
+# Aiden uses the same unprocessed narration voice as Grades 4-6. Pitch transformation made the
+# younger-track voice noticeably less natural, even with a high-quality formant-preserving filter.
+NARRATION_VOICE = {"voice": "af_heart", "speed": 0.94}
 VOICES = {
-    NARRATOR: {"voice": "af_heart", "speed": 0.94},
+    NARRATOR: NARRATION_VOICE,
     ROSE: {"voice": "af_bella", "speed": 1.02},
     PIXI: {"voice": "am_puck", "speed": 1.06, "robot": True},
-    # Junior videos: the owner's chosen Aiden voice, raised with high-quality, formant-preserving
-    # processing so it stays clear and expressive instead of sounding sped-up or metallic.
-    AIDEN: {"voice": "af_river", "speed": 0.95, "pitch": 4.5},
+    AIDEN: NARRATION_VOICE,
 }
-
-PITCH_PROCESSOR = "rubberband-formant-v1"
 
 # --------------------------------------------------------------------------- model files
 def fetch_models() -> None:
@@ -107,40 +104,11 @@ def robotize(signal: np.ndarray) -> np.ndarray:
     return ring + echo
 
 
-def shift_pitch(signal: np.ndarray, semitones: float) -> np.ndarray:
-    """Raise speech without changing its pace or vocal formants.
-
-    The old implementation played a deliberately slowed take faster with linear interpolation. That
-    also shifted the voice's formants and introduced audible resampling artifacts. FFmpeg's Rubber
-    Band filter is designed for transparent speech/music pitch changes and can preserve formants.
-    """
-    if not semitones:
-        return signal
-    if not shutil.which("ffmpeg"):
-        raise RuntimeError("pitch-shifted narration needs ffmpeg")
-    factor = 2 ** (semitones / 12)
-    command = [
-        "ffmpeg", "-hide_banner", "-loglevel", "error",
-        "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "pipe:0",
-        "-af", (f"rubberband=pitch={factor:.9f}:tempo=1:formant=preserved:"
-                "pitchq=quality:transients=smooth:detector=soft"),
-        "-f", "f32le", "-ar", str(SR), "-ac", "1", "pipe:1",
-    ]
-    result = subprocess.run(command, input=np.asarray(signal, dtype="<f4").tobytes(), capture_output=True)
-    if result.returncode != 0:
-        message = result.stderr.decode("utf-8", errors="replace").strip()[-500:]
-        raise RuntimeError(f"ffmpeg could not pitch-shift the narration: {message}")
-    shifted = np.frombuffer(result.stdout, dtype="<f4").astype(np.float64)
-    if not shifted.size or not np.all(np.isfinite(shifted)):
-        raise RuntimeError("ffmpeg returned invalid pitch-shifted narration")
-    return shifted
-
-
 def speak(text: str, speaker: str) -> np.ndarray:
     """One line of speech at 48 kHz (cached by text, voice and settings)."""
     settings = VOICES[speaker]
-    key = json.dumps({"text": spoken_form(text), **settings, "model": MODEL_FILES["kokoro-v1.0.onnx"][:12],
-                      "pitch_processor": PITCH_PROCESSOR if settings.get("pitch") else None}, sort_keys=True)
+    key = json.dumps({"text": spoken_form(text), **settings,
+                      "model": MODEL_FILES["kokoro-v1.0.onnx"][:12]}, sort_keys=True)
     path = VOICE_CACHE / (hashlib.sha256(key.encode()).hexdigest()[:32] + ".npy")
     if path.is_file():
         return np.load(path)
@@ -151,7 +119,6 @@ def speak(text: str, speaker: str) -> np.ndarray:
         signal = upsample_2x(signal)
     elif rate != SR:
         raise RuntimeError(f"unexpected voice sample rate {rate}")
-    signal = shift_pitch(signal, settings.get("pitch", 0.0))
     signal = _trim(signal)
     if settings.get("robot"):
         signal = robotize(signal)

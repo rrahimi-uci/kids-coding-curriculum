@@ -110,9 +110,8 @@ watch with a grown-up.
 
 - **Aiden** is the host: an eight-year-old coder in a red hoodie (`draw_aiden` in
   `animated/characters.py`, drawn from the owner's approved character sheet). He has Rose's poses and
-  moods and talks straight to the child. His voice is Kokoro `af_river`, the owner's selection from
-  five kid-voice options, raised 4.5 semitones with high-quality, formant-preserving processing. This
-  keeps the childlike pitch without the metallic glitches caused by speeding up a resampled voice.
+  moods and talks straight to the child. His voice uses the same unprocessed Kokoro `af_heart` voice
+  and 0.94 pace as the high-quality Grades 4–6 narration. No pitch transformation is applied.
   **Pixi** is the same robot helper as in the main series.
 - **Episodes are the source.** Each episode is `animated/episodes/j{L}w{WW}.py` (level key `"j1"`..`"j3"`,
   Aiden as `A("aiden", ...)` and `speaker=AIDEN`). `junior-spec` writes `specs/junior{L}.json` from

@@ -8,11 +8,10 @@ Dates are in ISO format.
 - Generated video media now goes into clearly labeled, separate folders: `videos/output/grades-2-3/`
   for Kids Coding Junior and `videos/output/grades-4-6/` for the older track. Each band also has its
   own `web/` and `sheets/` folders; local website previews read both from `SITE_VIDEOS=videos/output`.
-- Grades 2–3 narration uses high-quality, formant-preserving pitch processing for Aiden instead of
-  speeding up a resampled voice. This removes the metallic glitches while keeping the selected voice,
-  childlike pitch, smooth pace and existing loudness normalization. Only Junior Level 1, Week 1 has
-  been rendered as a review sample; the remaining Grades 2–3 videos and release assets are unchanged
-  pending approval.
+- Grades 2–3 narration now uses the same unprocessed `af_heart` voice and 0.94 pace as the Grades 4–6
+  narrator. A first review sample that still pitch-transformed Aiden's voice did not meet the quality
+  bar, so all pitch processing was removed before rebuilding Junior Level 1, Week 1. The remaining
+  Grades 2–3 videos and release assets are unchanged pending approval.
 
 ## 2.0.0 - 2026-11-13
 

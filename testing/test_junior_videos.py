@@ -79,14 +79,13 @@ def _blocks(blocks):
                 yield from _blocks(inner)
 
 
-def test_aiden_has_a_young_voice():
+def test_aiden_uses_the_high_quality_grades_4_6_narration_voice():
     pytest.importorskip("numpy")
-    from videos.pipeline.animated.audio import PITCH_PROCESSOR, VOICES
-    from videos.pipeline.animated.timeline import AIDEN
+    from videos.pipeline.animated.audio import VOICES
+    from videos.pipeline.animated.timeline import AIDEN, NARRATOR
 
-    assert VOICES[AIDEN]["pitch"] > 0, "Aiden's voice is raised in pitch to sound like an eight-year-old"
-    assert PITCH_PROCESSOR.startswith("rubberband-formant"), \
-        "Aiden's pitch must preserve pace and formants; naive resampling makes the voice glitchy"
+    assert VOICES[AIDEN] == VOICES[NARRATOR]
+    assert "pitch" not in VOICES[AIDEN], "pitch processing reduces the natural voice quality"
 
 
 def test_grade_bands_have_separate_generated_video_folders():
