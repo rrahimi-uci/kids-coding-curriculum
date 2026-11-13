@@ -32,7 +32,9 @@ export interface Level {
   /** curriculum.json key ("1", "j1"), track id ("main", "junior") and grade band ("grade-4-6"). */
   key: string; track: string; band: string; band_title: string; track_title: string;
   /** slug is "level-1" inside the band; path is "grade-4-6/level-1"; id is "grade-4-6-level-1". */
-  number: number; slug: string; path: string; id: string; dir: string; weeks_planned: number;
+  number: number; slug: string; path: string; id: string; dir: string; weeks_planned: number; buffers: number;
+  /** "Glossary" in Grades 4-6, "Word Book" in Grades 2-3. */
+  glossary_title?: string;
   name: string; languages: string; tools: string;
   goals: { code: string; text: string }[]; project_title: string; project_html: string;
   published: boolean; weeks: Week[]; downloads: Record<string, Record<string, { url: string; kb: number }>>;

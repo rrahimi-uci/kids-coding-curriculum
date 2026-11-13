@@ -104,21 +104,3 @@ def test_answer_key_sentence_is_caught(tmp_path):
     sentence = "The teacher should explain that the secret answer is forty-two because of the pattern."
     problems = run(tmp_path, lambda d: (d / "levels" / "index.html").write_text(f"<p>{sentence}</p>"))
     assert any("private source" in p for p in problems), problems
-
-
-def test_video_narration_is_public_but_answers_are_still_caught(tmp_path):
-    """A week page shows its video's transcript. A sentence the narration shares with a private source is
-    published in the video itself, so it is allowed; answer lines that are not in the narration still fail."""
-    import json
-
-    repo = make_repo(tmp_path / "repo")
-    narration = "The teacher should explain that the secret answer is forty-two because of the pattern."
-    (repo / "videos" / "specs").mkdir(parents=True)
-    (repo / "videos" / "specs" / "junior1.json").write_text(
-        json.dumps({"videos": [{"scenes": [{"narration": narration}]}]}), encoding="utf-8")
-    manifest = {**MANIFEST, "public": {**MANIFEST["public"], "video_scripts": ["videos/specs/junior[0-9].json"]}}
-    dist = make_site(tmp_path)
-    (dist / "levels" / "index.html").write_text(f"<p>{narration}</p>")
-    assert cp.check(dist, manifest, repo) == []
-    (dist / "levels" / "index.html").write_text(f"<pre>{SOLUTION_LINE}</pre>")
-    assert any("private source" in p for p in cp.check(dist, manifest, repo))

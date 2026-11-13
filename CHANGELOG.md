@@ -9,10 +9,20 @@ The course is now organized in two grade bands, in the repository and on the web
 
 - **Grades 2–3 (Kids Coding Junior)** and **Grades 4–6** each have their own folder (`grade-2-3/`, `grade-4-6/`) with their syllabus and their three levels. The Grades 4–6 levels are **Level 1 — Introductory**, **Level 2 — Intermediate** and **Level 3 — Advanced**; Level 1 was called *Introduction* before.
 - The main course is now described as being for Grades 4–6 (ages 9–12). Its materials keep their Grade 4–5 reading level, so they still suit the youngest children in the band.
-- **The Grades 2–3 track is on the website**: all 30 week pages with their *Aiden and Pixi* videos, 57 exercise pages, three project briefs, cheat sheets, notes for families and the glossary.
+- The Grades 2–3 track, put on the website in 1.16.0, now has its own section of the site (`/grade-2-3/`) instead of living among the Grades 4–6 levels.
 - New website structure: a page for each grade band (`/grade-2-3/`, `/grade-4-6/`), levels underneath (`/grade-4-6/level-1/week-07/`), and a menu grouped by grade band. The curriculum page shows both bands with their own timelines.
-- Old addresses (`/levels/level-N/...` and `/parents/notes/level-N/`) send you to the new Grades 4–6 pages. Download files now have the grade band in their names, so old PDF and ZIP links do not work any more.
+- Old addresses send you to the new pages: `/levels/level-N/...` and `/parents/notes/level-N/` to Grades 4–6, `/levels/junior-N/...` and `/parents/notes/junior-N/` to Grades 2–3. Download files now have the grade band in their names, so old PDF and ZIP links do not work any more.
 - The student copy (`make student-bundle`) now has `grade-2-3/` and `grade-4-6/` folders inside `kids-coding/`. Copy the new folder to each child's Mac; the lesson plans name the new folder paths.
+
+## 1.16.0 - 2026-11-13
+
+The junior track is on the website: Junior Levels 1 to 3 (*Little Robots*, *Game Makers* and *Bridge to Python*) for Grades 2–3 now have their own pages next to the main track.
+
+- The home page, the curriculum page and the menu show a "Junior track (Grades 2–3, ages 7–9)" section with its three levels and a 10-week timeline. Junior pages live at `levels/junior-1/` to `levels/junior-3/`; the main-track pages and their addresses are unchanged.
+- Every junior week has its own page: the "I can" goals, the chapter of the picture book, the exercises, the new words and the optional play-at-home card, plus a printable week PDF. The "For the grown-up" notes and the play-at-home cards have their own labeled boxes with an icon, so they never depend on color.
+- Exercise pages for the Scratch exercises and the Level 3 Python turtle exercises, with the steps, three hints and, for Python, the starter file. Each level also has its project brief (Level 3 with the Python postcard starter to download), a cheat sheet, its word book in the glossary, notes for families and a progress tracker to print.
+- Junior week pages show that week's *Kids Coding Junior with Aiden and Pixi* video in the same place and player as the main track (captions, poster, transcript), as soon as it is on the `videos` release; the list is read from its own `junior-videos.json`.
+- The private-content check now also covers the junior folders, including the show-me checklists, the grown-up's answers and the certificates, which are never published.
 
 ## 1.15.0 - 2026-11-13
 

@@ -1,11 +1,11 @@
 ---
-// Old address of the notes for families (/parents/notes/level-N/, Grades 4-6 only): now
-// /parents/notes/grade-4-6/level-N/. The old address keeps working and sends the browser on.
+// Old addresses of the notes for families (/parents/notes/level-N/ for Grades 4-6, /parents/notes/junior-N/
+// for Grades 2-3): now /parents/notes/<band>/level-N/. The old addresses keep working and send the browser on.
 import Base from '../../../layouts/Base.astro';
 import { u, levels } from '../../../lib/data';
 export function getStaticPaths() {
-  return levels().filter((l) => l.track === 'main' && l.extras?.parent_notes)
-    .map((l) => ({ params: { old: l.slug }, props: { l } }));
+  return levels().filter((l) => l.extras?.parent_notes)
+    .map((l) => ({ params: { old: l.track === 'junior' ? `junior-${l.number}` : l.slug }, props: { l } }));
 }
 const { l } = Astro.props;
 const target = u(`parents/notes/${l.path}/`);

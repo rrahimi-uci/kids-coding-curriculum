@@ -23,7 +23,7 @@ tools/site/build.py ── texconv.py ──► HTML fragments + JSON  ──►
         │               exercises.py ► exercise pages (README + starter + hints)
         │               parents.py ──► research, slides, FAQ (from the parent deck, faq.tex + .bib)
         ├── pdfs.py ───► whole-level and per-week PDFs
-        └── videos.py ─► teaching videos from the `videos` release ──► site/public/videos/
+        └── videos.py ─► teaching videos from the `videos` release (videos.json, junior-videos.json) ──► site/public/videos/
                                                            checks: private content, content, HTML, links, a11y, Lighthouse
 ```
 
@@ -63,6 +63,33 @@ fails rather than publishing something wrong.
   is harder for the component-style design; MkDocs Material is excellent for docs but a playful, card-based
   design would fight the theme.
 
+## Two grade bands
+
+The course has a Grades 2–3 track (`grade-2-3/`: `1-little-robots` to `3-bridge-to-python`) and a Grades 4–6
+track (`grade-4-6/`: `1-introductory` to `3-advanced`). `curriculum.json` says which levels exist, their
+track and how many weeks each has (10 in Grades 2–3, 12 in Grades 4–6); the manifest lists the published
+levels by key (`j1` … `j3`, `1` … `3`) and folder, and the build checks that the two agree. Pages and file
+names are named by band, because both bands have a Level 1, 2 and 3 (`grade-2-3/level-1/`,
+`grade-4-6-level-1-student-workbook.pdf`). The build is band-aware rather than copied: one level builder, one
+set of page templates. What differs:
+
+* **Names and labels.** Each level in `levels.json` carries `track`, `key` (`1`, `j1` …), `band`, `path`
+  (`grade-4-6/level-1`) and `id` (`grade-4-6-level-1`); `bands.json` holds each band's title, grades and ages
+  for the home, curriculum, band and parent pages. Pages name a level with its band: "Grades 4–6, Level 1".
+* **Converter.** The junior LaTeX environments become callouts like the others, each with an icon and a text
+  label: `ican` ("I can …", the week's goals, taken out as the objectives like the Grades 4–6 list),
+  `grownup` ("For the grown-up") and `playathome` ("Play at home (5–10 minutes, with a grown-up)", the junior
+  homework, which has no Core / Challenge / Creative tiers). Figures and week PDFs are compiled with the
+  level's class options (`track=junior,level=1`). `showme` (the show-me checklist) is an assessment: it only
+  appears in private files, and the converter refuses any file that contains one.
+* **Pages.** Grades 2–3 week pages call the homework "Play at home"; Levels 1 and 2 have projects without
+  starter files (they start in Scratch), Level 3 offers the Python postcard starter; the Grades 2–3 glossaries
+  ("Word Book") are separate sections of the glossary page, linked from each level page.
+* **Videos.** Grades 2–3 videos (*Kids Coding Junior with Aiden and Pixi*) are on the same `videos` release but
+  listed in their own `junior-videos.json` (same shape as `videos.json`, keys like `j1-2`). Each list is
+  read on its own: if one is missing or unreachable, only its videos are left out and the pages are built
+  without the player.
+
 ## Public vs private (strict)
 
 [`site/manifest.yml`](../site/manifest.yml) is the single place that tags content. **Deny by default:** the
@@ -77,10 +104,10 @@ build when:
 1. a published file name or ZIP member contains a private path fragment (`answers/`, `solution`, `test_`, …);
 2. a private marker string (`TEACHER ONLY`, `Teacher script`, `Answer key`, …) appears in any text, ZIP member
    or PDF text;
-3. a distinctive line of a private source (solution code, answer keys, teacher lessons, assessments) appears
-   anywhere in the output. Lines that also occur in public sources (starter code, workbooks, READMEs, both
-   syllabi, and the narration in `videos/specs/*.json`, which every week page shows as the video's transcript)
-   are ignored, so shared text is not a false alarm.
+3. a distinctive line of a private source (solution code, answer keys, teacher lessons, assessments,
+   certificates) appears anywhere in the output. The check runs over every level in the manifest, so the
+   junior folders (Scratch `solution.md` files, the grown-up's answers, show-me checklists) are covered. Lines that also occur in public sources (starter code, workbooks, READMEs, both syllabi) are
+   ignored, so shared text is not a false alarm.
 
 `testing/test_site_private.py` proves the check works by injecting leaks into a fake site. Light edits made
 for the web (reported, never changing meaning): the self-check script is not published, so sentences and
@@ -92,7 +119,8 @@ No children's names, photos or personal data are used; the site has no analytics
 
 ## Site map
 
-* **Home**: value of the course, three levels at a glance, paths for parents and students.
+* **Home**: value of the course, a choice of grade band, and the three levels of each band at a glance, paths
+  for parents and students.
 * **For parents** (`/parents/`): weekly commitment, how to help, assessment, safety; **Research**
   (generated from the deck: slide, plain-language explanation, questions, sources, linked references);
   **Slides** (viewer, download, gallery); **FAQ**.
@@ -114,8 +142,9 @@ No children's names, photos or personal data are used; the site has no analytics
 * **Resources** (`/resources/`): Mac setup guide and troubleshooting (written for the web from the teacher
   setup notes, in `resources/*.md`), cheat sheets per level, a combined A to Z glossary, printable progress
   trackers (PDF) and notes for families per level (`/parents/notes/<band>/level-N/`).
-* **Moved pages**: before version 2.0.0 the Grades 4–6 levels were at `/levels/level-N/...` and their notes for
-  families at `/parents/notes/level-N/`. Each old address is still generated as a small page that sends the
+* **Moved pages**: before version 2.0.0 the Grades 4–6 levels were at `/levels/level-N/...` and the Grades 2–3
+  levels at `/levels/junior-N/...`; their notes for families were at `/parents/notes/level-N/` and
+  `/parents/notes/junior-N/`. Each old address is still generated as a small page that sends the
   browser to the new one (`<meta http-equiv="refresh">`, `noindex`, left out of search), so old links and
   printed QR codes keep working. Old PDF and ZIP download addresses are not redirected.
 * **Search** (Pagefind) and **About** (privacy, accessibility, credits, change log).

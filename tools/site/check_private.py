@@ -13,14 +13,15 @@ Three layers of defence, all driven by site/manifest.yml (deny by default):
    may appear in any published text, ZIP member or PDF text.
 3. Fingerprints: distinctive lines of every private source (solution code, answer keys, teacher
    lessons, assessments) must not appear anywhere in the output. Lines that also occur in public
-   sources (starter code, workbooks, READMEs) are ignored, so legitimate shared text is fine.
+   sources (starter code, workbooks, READMEs, syllabi) are ignored, so legitimate shared text is fine.
+   Video captions are NOT treated as public: a lesson line spoken in a video is still flagged, so the
+   lesson is reworded instead (the check stays strict).
 """
 from __future__ import annotations
 
 import glob
 import html
 import io
-import json
 import re
 import subprocess
 import sys
@@ -89,17 +90,6 @@ def pdf_text(data: bytes) -> str:
         return p.stdout.decode("utf-8", "replace")
     except (OSError, ValueError):
         return ""
-
-
-def _strings(data) -> list[str]:
-    """Every string inside a JSON value."""
-    if isinstance(data, str):
-        return [data]
-    if isinstance(data, dict):
-        data = list(data.values())
-    if isinstance(data, list):
-        return [s for item in data for s in _strings(item)]
-    return []
 
 
 def collect_output(dist: Path):
@@ -173,9 +163,6 @@ def check(dist: Path, manifest: dict, root: Path = ROOT) -> list[str]:
         rel = pub["parents"].get(key)
         if rel and (root / rel).exists():
             public_parts.append((root / rel).read_text(encoding="utf-8", errors="replace"))
-    for pat in pub.get("video_scripts", []):  # narration: every string in the spec (scene narration, on-screen text)
-        for f in sorted(glob.glob(str(root / pat))):
-            public_parts.extend(_strings(json.loads(Path(f).read_text(encoding="utf-8"))))
     for rel in pub.get("syllabi", []):
         if (root / rel).exists():
             public_parts.append((root / rel).read_text(encoding="utf-8"))

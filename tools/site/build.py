@@ -96,7 +96,7 @@ def level_entry(item: dict) -> dict:
     return {
         "key": lv.key, "track": lv.track, "number": lv.number, "dir": lv.dir, "band": lv.band,
         "band_title": track.band_title, "track_title": track.title, "slug": lv.slug,
-        "path": f"{lv.band}/{lv.slug}", "id": f"{lv.band}-{lv.slug}", "weeks_planned": lv.weeks,
+        "path": f"{lv.band}/{lv.slug}", "id": f"{lv.band}-{lv.slug}", "weeks_planned": lv.weeks, "buffers": lv.buffers,
         "classopts": f"track={lv.track},level={lv.number}", "syllabus": lv.syllabus,
         "label": f"{track.band_title} level {lv.number}", "published": bool(item["published"]),
     }
@@ -106,7 +106,7 @@ def summary(entry: dict, syl: dict) -> dict:
     """The fields every level has, published or not (from curriculum.json and the track syllabus)."""
     sl = syl[entry["track"]][entry["number"]]
     keep = ("key", "track", "number", "dir", "band", "band_title", "track_title", "slug", "path", "id",
-            "weeks_planned", "published")
+            "weeks_planned", "buffers", "published")
     return {**{k: entry[k] for k in keep},
             "name": sl["name"], "languages": sl["languages"], "tools": sl["tools"], "goals": sl["goals"],
             "project_title": sl["project_title"], "project_html": sl["project_html"],
@@ -219,11 +219,12 @@ def build_level(entry: dict, syl: dict, manifest: dict, args, warnings: list[str
     project = extmod.build_project(entry, manifest, GEN, fig_dir, warnings)
     extras = extmod.build_extras(entry, manifest, GEN, fig_dir, warnings)
     glossary = extras.pop("glossary")
+    glossary_title = extras.pop("glossary_title")
     write_json(GEN / "glossary" / f"{ident}.json", glossary)
     extra_dl = extmod.level_pdfs(entry, ["project-brief", "cheat-sheet", "glossary", "parent-notes", "progress-tracker"],
                                  args.skip_pdfs)
     return {
-        **summary(entry, syl), "weeks": weeks,
+        **summary(entry, syl), "weeks": weeks, "glossary_title": glossary_title,
         "project": project, "extras": extras, "glossary_count": len(glossary), "extra_downloads": extra_dl,
         "downloads": level_dl,
     }

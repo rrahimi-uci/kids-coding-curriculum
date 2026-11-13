@@ -36,10 +36,6 @@ public:
   progress_tracker: "{dir}/teaching-material/extras/progress-tracker.tex"
   # Track syllabi: week titles, big ideas, goals and project summaries are shown on the level pages.
   syllabi: [grade-2-3/SYLLABUS.md, grade-4-6/SYLLABUS.md]
-  # Video narration (the scripts of the published videos). Week pages show it as the transcript, and it is
-  # spoken in the video itself, so it is public; the private check treats lines it shares with a lesson
-  # plan as published on purpose. The video pipeline never sees answer files (videos/README.md).
-  video_scripts: ["videos/specs/level[0-9].json", "videos/specs/junior[0-9].json"]
   # New public guides written for the website (Mac setup, troubleshooting).
   resources: "resources/*.md"
   install_script: "resources/install-mac.sh"   # shown on the Mac setup page and offered as a download
@@ -93,3 +89,4 @@ private:
     - "{dir}/teaching-material/lessons/*.tex"
     - "{dir}/teaching-material/assessments.tex"
     - "{dir}/project/project-teacher-guide.tex"
+    - "{dir}/teaching-material/extras/certificate.tex"

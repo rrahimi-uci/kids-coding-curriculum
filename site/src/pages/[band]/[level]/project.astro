@@ -14,7 +14,9 @@ const dl = l.extra_downloads?.['project-brief'] ?? {};
     <header class="page-head stack">
       <p class="eyebrow accent-text">{l.band_title} · Level {l.number} · {l.name} · Final project</p>
       <h1>{l.project_title}</h1>
-      <p class="lead">{p.zip ? 'The project brief with the plan sheet and the rubric, plus the starter files to begin from.' : 'The project brief with the plan sheet and the rubric.'}</p>
+      <p class="lead">{l.track === 'junior'
+        ? `The project brief to read together, with the plan${p.zip ? ', plus the starter file to begin from' : ''}.`
+        : p.zip ? 'The project brief with the plan sheet and the rubric, plus the starter files to begin from.' : 'The project brief with the plan sheet and the rubric.'}</p>
       <div class="btn-row">
         {p.zip && <a class="btn small" href="#starter"><Icon name="arrow" /> Jump to the starter files</a>}
         {dl.standard && <a class="btn secondary small" href={fix(dl.standard.url)}><Icon name="download" /> Print the brief (PDF, {dl.standard.kb} KB)</a>}
@@ -32,7 +34,7 @@ const dl = l.extra_downloads?.['project-brief'] ?? {};
         <div set:html={fix(body)} />
         {p.zip && <section aria-labelledby="starter">
           <h2 id="starter">Starter files</h2>
-          <p>These are templates to start from. They run, but the interesting parts are yours to write.</p>
+          <p>{l.track === 'junior' ? 'For the Python postcard: this program already runs and draws a picture. Change it, one line at a time, to make it yours.' : 'These are templates to start from. They run, but the interesting parts are yours to write.'}</p>
           <div class="btn-row"><a class="btn small" href={fix(p.zip!.url)}><Icon name="download" /> All starter files (ZIP, {p.zip!.kb} KB)</a></div>
           <div set:html={fix(p.starter_readme)} />
           {p.starter_files.filter((f) => f.html).map((f) => (

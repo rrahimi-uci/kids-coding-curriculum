@@ -12,6 +12,8 @@ export function getStaticPaths() {
 const { l, w, prev, next } = Astro.props;
 const body = weekHtml(l.path, w.slug);
 const hw = w.has_homework ? homeworkHtml(l.path, w.slug) : '';
+const junior = l.track === 'junior';
+const hwName = junior ? 'Play at home' : 'Homework';  // the Grades 2-3 homework is an optional play-at-home card
 const inClass = w.exercises.filter((e: any) => !e.homework);
 const hwEx = w.exercises.filter((e: any) => e.homework);
 const toc = [
@@ -46,7 +48,7 @@ const toc = [
               {toc.map((t: any) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}
               {inClass.length > 0 && <li><a href="#exercises">Exercises</a></li>}
               {w.vocab.length > 0 && <li><a href="#words">New words</a></li>}
-              {w.has_homework && <li><a href="#homework">Homework</a></li>}
+              {w.has_homework && <li><a href="#homework">{hwName}</a></li>}
             </ol>
           </details>
         </nav>
@@ -75,7 +77,9 @@ const toc = [
         {inClass.length > 0 && (
           <section aria-labelledby="exercises">
             <h2 id="exercises">Exercises for this week</h2>
-            <p class="muted">Each exercise has the steps, the starter code and hints that open one at a time.</p>
+            <p class="muted">{junior
+              ? 'Each exercise has the steps to follow together and three hints, from a small nudge to a bigger one.'
+              : 'Each exercise has the steps, the starter code and hints that open one at a time.'}</p>
             <ul class="ex-list">
               {inClass.map((e: any) => <li><a class="ex-link" href={fix(e.url)}><span class="no">{e.number}</span><span><strong>{e.title}</strong> <span class="pill">{e.kind === 'python' ? 'Python in Thonny' : 'Scratch'}</span></span></a></li>)}
             </ul>
@@ -95,7 +99,7 @@ const toc = [
 
         {w.has_homework && (
           <section aria-labelledby="homework">
-            <h2 id="homework">Homework: {w.homework_title}</h2>
+            <h2 id="homework">{hwName}: {w.homework_title}</h2>
             <p class="muted">{w.homework_note}</p>
             <div set:html={hw} />
             {hwEx.length > 0 && <ul class="ex-list">{hwEx.map((e: any) => <li><a class="ex-link" href={fix(e.url)}><span class="no">HW</span><span><strong>{e.title}</strong>: hints and starter code</span></a></li>)}</ul>}

@@ -68,13 +68,17 @@ def _inline(tex_list: list[str]) -> list[str]:
 
 def parse_glossary(tex_path: Path) -> list[dict]:
     s = tex_path.read_text(encoding="utf-8")
+    # \gl has four arguments (term, where, meaning, example) in Grades 4-6 Level 1 and Grades 2-3 Level 1,
+    # three in the other Grades 2-3 word books (no example)
+    arity = re.search(r"\\newcommand\{\\gl\}\[(\d)\]", s)
+    gl_args = int(arity.group(1)) if arity else 4
     s = s.split("\\begin{document}", 1)[1]
     items: list[tuple[str, str, str, str]] = []  # term, where, meaning, example (all LaTeX)
-    # Level 1: \gl{term}{where}{meaning}{example}
+    # \gl{term}{where}{meaning}{example}
     for m in re.finditer(r"\\gl(?![A-Za-z])", s):
-        a, _ = read_args(s, m.end(), 4)
-        if len(a) == 4:
-            items.append((a[0], a[1], a[2], a[3]))
+        a, _ = read_args(s, m.end(), gl_args)
+        if len(a) == gl_args:
+            items.append((a[0], a[1], a[2], a[3] if gl_args == 4 else ""))
     # Levels 2 and 3: \term{term}{meaning}{week}
     for m in re.finditer(r"\\term(?![A-Za-z])", s):
         a, _ = read_args(s, m.end(), 3)
@@ -182,7 +186,10 @@ def build_extras(entry: dict, manifest: dict, gen: Path, fig_dir: Path, warnings
         (html_dir / f"{name}.html").write_text(res.html, encoding="utf-8")
         out[key] = {"title": res.meta.get("title", name), "subtitle": res.meta.get("subtitle", ""),
                     "toc": [{"level": lv, "id": i, "text": t} for lv, i, t in res.toc if lv == 2 or key == "cheat_sheet"]}
-    out["glossary"] = parse_glossary(ROOT / pub["glossary"].format(dir=d))
+    gpath = ROOT / pub["glossary"].format(dir=d)
+    out["glossary"] = parse_glossary(gpath)
+    gtitle = re.search(r"\\kctitle\{([^}]*)\}", gpath.read_text(encoding="utf-8"))
+    out["glossary_title"] = gtitle.group(1).strip() if gtitle else "Glossary"  # the Grades 2-3 word books: "Word Book"
     return out
 
 

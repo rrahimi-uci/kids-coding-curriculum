@@ -10,6 +10,7 @@ const letter = (e: any) => (e.key.replace(/[^a-z]/g, '')[0] ?? '#').toUpperCase(
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href={u('resources/')}>Resources</a></li><li aria-current="page">Glossary</li></ol></nav>
     <h1>Glossary</h1>
     <p class="lead">New words from every level, in plain language. The label tells you which week you first meet the word. Words in <code>this font</code> are typed exactly like that in Python.</p>
+    {L.some((l) => l.track === 'junior') && <p>The Grades 2–3 levels have short word books of their own, made to be read aloud.</p>}
     <nav aria-label="Jump to a level"><ul class="chips">{sections.map(({ l }) => <li><a class={`pill l${l.number}`} href={`#${l.id}`}>{l.band_title}, Level {l.number}: {l.name}</a></li>)}</ul></nav>
   </div>
   {sections.map(({ l, entries }) => {
@@ -17,7 +18,7 @@ const letter = (e: any) => (e.key.replace(/[^a-z]/g, '')[0] ?? '#').toUpperCase(
     return (
       <section class={`l${l.number}`} aria-labelledby={l.id} style="margin-top:2.5rem">
         <div class="measure">
-          <h2 id={l.id}>{l.band_title}, Level {l.number}: {l.name}</h2>
+          <h2 id={l.id}>{l.band_title}, Level {l.number}: {l.name}{l.track === 'junior' && l.glossary_title ? ` (${l.glossary_title})` : ''}</h2>
           <nav aria-label={`Letters for ${l.band_title}, Level ${l.number}`}><ul class="chips">{letters.map((c) => <li><a class="pill" href={`#${l.id}-${c}`}>{c}</a></li>)}</ul></nav>
           {letters.map((c) => (
             <div>
