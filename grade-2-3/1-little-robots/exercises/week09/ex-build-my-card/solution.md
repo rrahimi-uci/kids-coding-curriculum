@@ -23,7 +23,7 @@ Sprite: Balloon1 (added with Choose a Sprite), box 3
 ## What you should see
 - After the green flag: the cat says "Happy birthday!" for 2 seconds, meows, then changes costume four times, one second apart.
 - Clicking the balloon: a pop sound, then "Surprise!" in a speech bubble.
-- Other valid cards: a key event ("when space key pressed") instead of a click; a backdrop change ("switch backdrop to") instead of a second sprite; a turn dance (turn 15 degrees inside the repeat) instead of costumes.
+- Other valid cards: a key event ("when space key pressed") instead of a click; a backdrop change ("switch backdrop to") instead of a second sprite; a turn dance (a quarter turn, 90 degrees, inside the repeat) instead of costumes.
 
 ## Talking points
 - Test after every box: a bug in a small box is quick to find.

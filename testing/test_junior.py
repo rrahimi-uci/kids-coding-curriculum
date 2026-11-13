@@ -64,6 +64,9 @@ PROBLEMS = [
     (re.compile(r"\b[xy]:\s*(?:\\ovalnum\{\s*)?[-\u2212]?\d"), "a typed x/y position (use dragging or random position)"),
     # turn = 360 / sides
     (re.compile(r"360\s*(?:\u00f7|/|\\div|divided)"), "360 divided by sides (use a turn card)"),
+    # Scratch's default 15-degree value is an unexplained small angle for this age band. Use a
+    # named quarter/half turn or a value from the printed turn card instead.
+    (re.compile(r"\b15\s*(?:degrees?|\u00b0)"), "an unexplained 15-degree turn (use a named turn or turn card)"),
 ]
 
 

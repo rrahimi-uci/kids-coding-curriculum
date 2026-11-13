@@ -12,7 +12,7 @@
 5. Click **Control** (orange). Snap on **repeat 10**. Change 10 to `6`.
 6. Click **Pen** (green). Put **stamp** inside the repeat.
 7. Click **Motion** (blue). Put **move 10 steps** under stamp. Change 10 to `60`.
-8. Put **turn ↻ 15 degrees** under the move. Read the turn card: six sides is `60`.
+8. Put **turn ↻ 60 degrees** under the move. Read the turn card: six sides is `60`.
 9. Click the green flag.
 
 ## The script in words

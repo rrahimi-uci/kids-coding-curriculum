@@ -10,8 +10,8 @@ Setup: File > New. Keep the cat.
 Sprite: Sprite1 (the cat), the My Block
 - define celebrate
 - start sound Pop
-- repeat 24
-  - turn right 15 degrees
+- repeat 4
+  - turn right 90 degrees (a quarter turn)
 - say Hooray! for 1 seconds
 
 Sprite: Sprite1 (the cat), using it

@@ -15,8 +15,8 @@
 **Script 2: spin**
 
 5. Drag in another **when space key pressed** (yellow Events). Leave it on space.
-6. Click **Control** (orange). Snap on **repeat 10**. Change 10 to `24`.
-7. Put **turn ↻ 15 degrees** (blue Motion) inside the repeat.
+6. Click **Control** (orange). Snap on **repeat 10**. Change 10 to `4`.
+7. Put **turn ↻ 90 degrees** (a quarter turn) inside the repeat.
 8. Click the stage once. Press the keys!
 
 ## The script in words
@@ -26,8 +26,8 @@
 - next costume
 
 - when space key pressed
-- repeat 24
-  - turn ↻ 15 degrees
+- repeat 4
+  - turn ↻ 90 degrees (a quarter turn)
 
 ## Expected behavior
 

@@ -14,12 +14,12 @@ Sprite: Sprite1 (the cat), script 1
 
 Sprite: Sprite1 (the cat), script 2
 - when space key pressed
-- repeat 24
-  - turn right 15 degrees
+- repeat 4
+  - turn right 90 degrees (a quarter turn)
 
 ## What you should see
 - Each press of the right arrow: the cat moves a little to the right and switches costume, so it looks as if it walks. Holding the key keeps it walking.
-- Each press of the space bar: the cat spins once all the way round, quickly, and stops facing right again (24 small turns of 15 make one full spin; children do not need to work this out).
+- Each press of the space bar: the cat spins once all the way round, quickly, and stops facing right again (four quarter turns make one full spin).
 
 ## Talking points
 - Two hat blocks, two scripts. Each one waits for its own key, like the clap card and the stomp card.
@@ -30,7 +30,7 @@ Sprite: Sprite1 (the cat), script 2
 - Keys do nothing: the keyboard is busy elsewhere. Click once on the stage, then press the key.
 - The dropdown still says "space" on both scripts: then space makes the cat walk and spin at once. Pick "right arrow" in the first one.
 - The turn block is under the repeat, not inside: the cat turns only a little. Drag it into the mouth of the repeat.
-- A number other than 24 in the repeat: the cat ends up tilted, and the right arrow then walks it in a slanted line. Change the repeat back to 24, or reset with "point in direction 90" (blue Motion) clicked once.
+- A number other than 4 in the repeat: the cat ends up tilted, and the right arrow then walks it in a slanted line. Change the repeat back to 4, or reset with "point in direction 90" (blue Motion) clicked once.
 - The cat walks off the right edge: drag it back with the mouse.
 
 ## Check-off list
